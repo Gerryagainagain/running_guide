@@ -3,22 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Drachenlauf Training // Auf zum Drachen!</title>
-  <meta name="description" content="Drachenlauf Training – Strukturierte Trainingssteuerung für den Drachenlauf 2026 im Siebengebirge.">
+  <title>Drachenlauf Trail Coach // Auf zum Drachen!</title>
+  <meta name="description" content="Personal Trail Coach für den Drachenlauf 2026 im Siebengebirge. Inspirierendes Trainingstargeting, Pacing & Verpflegungssteuerung.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="apple-theme">
-  <div class="apple-container">
+<body class="nike-pro-theme">
+  <div class="app-container">
     
-    <!-- HEADER -->
+    <!-- TOP IDENTITY BAR -->
+    <div class="identity-bar">
+      <div class="identity-left">
+        <span class="identity-quote">„Du trainierst nicht für Sonntag. Du trainierst für den Drachenlauf.“</span>
+      </div>
+      <div class="identity-right">
+        <span class="season-progress-lbl">SAISON-FORTSCHRITT:</span>
+        <div class="season-progress-bar-wrap">
+          <div class="season-progress-fill" id="seasonProgressFill" style="width: 14%;"></div>
+        </div>
+        <span class="season-progress-val" id="seasonProgressVal">KW 31 // 14%</span>
+      </div>
+    </div>
+
+    <!-- MAIN HEADER -->
     <header class="app-header">
       <div class="header-brand">
         <h1 class="header-main-title">
           <a href="https://www.drachenlauf.net/" target="_blank" rel="noopener noreferrer" class="headline-link" title="Zur offiziellen Website drachenlauf.net">Auf zum Drachen!</a>
-          <span class="version-tag-pill">V2 // EMOTION</span>
+          <span class="version-tag-pill">TRAIL COACH EDITION</span>
         </h1>
         <p class="header-meta-sub">
           <a href="https://www.alltrails.com/de/explore/custom-routes/karte-13-mai-2024-39cd7b4" target="_blank" rel="noopener noreferrer" class="headline-meta-link" title="Streckenkarte auf AllTrails öffnen">26,0 km // 1.250 Hm // Königswinter ↗</a>
@@ -27,7 +41,7 @@
 
       <div class="header-controls">
         <div class="countdown-pill">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           <span class="cd-txt" id="cdTxtContainer">Noch <strong>12 Wochen</strong></span>
         </div>
 
@@ -58,86 +72,105 @@
       </div>
     </header>
 
-    <!-- VERSION 2: EMOTION HERO ATMOSPHERE BANNER -->
-    <div class="emotion-hero-card">
-      <div class="emotion-hero-content">
-        <div class="emotion-left">
-          <div class="emotion-phase-badge" id="emoPhaseBadge">PHASE 1 // BASISAUSDAUER</div>
-          <p class="emotion-motto" id="emotionMotto">„Fundament gießen. Jeder Schritt im Flachen baut die Härte für die Berge.“</p>
-        </div>
-        <div class="emotion-right">
-          <div class="peak-visualizer">
-            <div class="peak-item" title="Ölberg (461m)">
-              <span class="peak-dot"></span>
-              <span class="peak-lbl">Ölberg</span>
-            </div>
-            <div class="peak-item" title="Löwenburg (455m)">
-              <span class="peak-dot"></span>
-              <span class="peak-lbl">Löwenburg</span>
-            </div>
-            <div class="peak-item" title="Drachenfels (321m)">
-              <span class="peak-dot highlight"></span>
-              <span class="peak-lbl highlight">Drachenfels</span>
-            </div>
-          </div>
-        </div>
+    <!-- AI TRAIL COACH IMPULS CARD -->
+    <section class="coach-impulse-card" id="coachImpulseCard">
+      <div class="coach-avatar-row">
+        <div class="coach-badge"><span class="coach-dot"></span> PERSONAL TRAIL COACH</div>
+        <span class="coach-positive-feedback" id="coachPositiveFeedback">2 von 4 Einheiten geschafft // Voll im Plan</span>
       </div>
-    </div>
+      <p class="coach-message" id="coachMessageText">
+        „Du bist exakt im Plan. Die Beine sind frisch. Heute steht Kraft & Rumpf an. Am Sonntag wartet dein 12 km Longrun in Erkrath – optimales Tempowetter erwartet dich.“
+      </p>
+    </section>
 
-    <!-- SUMMARY CARDS GRID -->
-    <section class="summary-cards-grid">
+    <!-- HERO MISSION & WEEKLY MISSION SECTION -->
+    <section class="top-mission-grid">
       
-      <!-- CARD 1: WOCHENKILOMETER -->
-      <div class="apple-card stat-ring-card">
-        <div class="ring-left">
-          <svg class="ring-svg" viewBox="0 0 36 36">
-            <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-            <path class="circle-fill ring-green" id="ringDistFill" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-          </svg>
+      <!-- HERO MISSION CARD (70% VISUAL FOCUS) -->
+      <div class="hero-mission-card" id="heroMissionCard">
+        <div class="hero-mission-badge-row">
+          <span class="hero-mission-pill">HAUPTMISSION DER WOCHE</span>
+          <span class="hero-countdown-tag" id="heroDaysLeft">Noch 2 Tage</span>
         </div>
-        <div class="ring-right">
-          <span class="card-label">WOCHENKILOMETER</span>
-          <div class="card-big-val">
-            <span id="statWkm">0.0</span>
-            <span class="unit">/ 30 km</span>
+
+        <div class="hero-mission-main-body">
+          <div class="hero-mission-left">
+            <span class="hero-day-lbl" id="heroDayLbl">SONNTAG, 02. AUGUST</span>
+            <h2 class="hero-mission-title" id="heroTitle">Longrun Erkrath</h2>
+            <div class="hero-mission-metrics">
+              <div class="h-metric">
+                <span class="h-val" id="heroDist">12.0</span>
+                <span class="h-lbl">KM</span>
+              </div>
+              <div class="h-sep">//</div>
+              <div class="h-metric">
+                <span class="h-val text-orange" id="heroHm">380</span>
+                <span class="h-lbl">HM</span>
+              </div>
+              <div class="h-sep">//</div>
+              <div class="h-metric">
+                <span class="h-val" id="heroDur">1:26 Std.</span>
+                <span class="h-lbl">SCHÄTZDAUER</span>
+              </div>
+              <div class="h-sep">//</div>
+              <div class="h-metric">
+                <span class="h-val text-cyan" id="heroPuls">HF &lt; 135</span>
+                <span class="h-lbl">PULSZIEL</span>
+              </div>
+            </div>
           </div>
-          <span class="card-status-txt text-green" id="statusDistTxt">Mach es!</span>
+
+          <div class="hero-mission-right">
+            <div class="hero-preview-box">
+              <span class="prev-title">MISSION-VORSCHAU</span>
+              <ul class="prev-list">
+                <li><strong id="heroImpactTxt">72% deiner Wochen-Hm</strong> werden in diesem Lauf absolviert.</li>
+                <li><strong>Verpflegung:</strong> <span id="heroNutritionTxt">1 Softflask Wasser (ohne Carbs)</span></li>
+                <li><strong>Fokus:</strong> Sauberes GA1-Pacing an den Anstiegen.</li>
+              </ul>
+              <button class="btn btn-hero-cta" onclick="openHeroLongrunDetails()">
+                Mission Details & Verpflegung ↗
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- CARD 2: HÖHENMETER -->
-      <div class="apple-card stat-ring-card">
-        <div class="ring-left">
-          <svg class="ring-svg" viewBox="0 0 36 36">
-            <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-            <path class="circle-fill ring-cyan" id="ringHmFill" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-          </svg>
-        </div>
-        <div class="ring-right">
-          <span class="card-label">HÖHENMETER</span>
-          <div class="card-big-val">
-            <span id="statWhm">0</span>
-            <span class="unit">/ 450 Hm</span>
+      <!-- WEEKLY MISSION PROGRESS BARS (FAST SCANNING) -->
+      <div class="weekly-mission-card">
+        <span class="wm-card-title">WEEKLY MISSION PROGRESS</span>
+        
+        <div class="wm-bar-group">
+          <div class="wm-bar-header">
+            <span class="wm-lbl">DISTANZ</span>
+            <span class="wm-val" id="wmDistVal">11.4 / 30.0 km</span>
           </div>
-          <span class="card-status-txt text-cyan" id="statusHmTxt">Mach es!</span>
+          <div class="wm-track">
+            <div class="wm-fill fill-green" id="wmDistFill" style="width: 38%;"></div>
+          </div>
+          <span class="wm-sub" id="wmDistSub">Noch 18.6 km bis Wochenziel</span>
         </div>
-      </div>
 
-      <!-- CARD 3: LONGRUN -->
-      <div class="apple-card stat-ring-card clickable-card" onclick="openLongrunOverviewModal()" title="14 KW Longrun-Plan öffnen">
-        <div class="ring-left">
-          <svg class="ring-svg" viewBox="0 0 36 36">
-            <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-            <path class="circle-fill ring-orange" id="ringLongFill" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-          </svg>
-        </div>
-        <div class="ring-right">
-          <span class="card-label">LONGRUN VORGABE ↗</span>
-          <div class="card-big-val">
-            <span id="statLongDist">0.0</span>
-            <span class="unit" id="statLongDistTarget">/ 12 km</span>
+        <div class="wm-bar-group">
+          <div class="wm-bar-header">
+            <span class="wm-lbl">HÖHENMETER</span>
+            <span class="wm-val" id="wmHmVal">120 / 480 Hm</span>
           </div>
-          <span class="card-status-txt text-orange" id="statLongHmTxt">0 / 380 Hm</span>
+          <div class="wm-track">
+            <div class="wm-fill fill-orange" id="wmHmFill" style="width: 25%;"></div>
+          </div>
+          <span class="wm-sub" id="wmHmSub">Noch 360 Hm (380 Hm warten am Sonntag)</span>
+        </div>
+
+        <div class="wm-bar-group">
+          <div class="wm-bar-header">
+            <span class="wm-lbl">LONGRUN ZIEL</span>
+            <span class="wm-val" id="wmLongVal">0.0 / 12.0 km</span>
+          </div>
+          <div class="wm-track">
+            <div class="wm-fill fill-cyan" id="wmLongFill" style="width: 0%;"></div>
+          </div>
+          <span class="wm-sub" id="wmLongSub">Longrun wartet am Sonntag</span>
         </div>
       </div>
 
@@ -161,7 +194,7 @@
 
       <div class="schedule-row-wrapper">
         <div class="schedule-row" id="scheduleRow">
-          <!-- Rendered dynamically -->
+          <!-- Rendered dynamically with 70% / 20% / 10% sizing & HEUTE badge -->
         </div>
       </div>
     </section>
@@ -169,12 +202,26 @@
     <!-- AKTUELLE PHASE & LETZTE AKTIVITÄT -->
     <section class="bottom-grid">
       
-      <!-- PHASE CARD -->
+      <!-- PHASE CARD (SCANNER FORMAT) -->
       <div class="apple-card phase-card">
         <div class="phase-badge-pill" id="phaseCodePill">PHASE 1</div>
         <h3 class="phase-name" id="phaseName">Grundlagenerhalt & Reisen</h3>
         <p class="phase-dates" id="phaseDates">KW 30–33 (20.07 – 16.08)</p>
-        <p class="phase-desc" id="phaseDesc">Erhalt der aeroben Basis während der Reisen nach London und an die Jurassic Coast. Herzfrequenz unter 130 bpm steuern; Krafttraining per Eigengewicht.</p>
+        
+        <div class="phase-scannable-grid">
+          <div class="ps-item">
+            <span class="ps-lbl">🎯 ZIEL</span>
+            <span class="ps-val" id="phaseTargetHm">600 Hm Longrun</span>
+          </div>
+          <div class="ps-item">
+            <span class="ps-lbl">🧠 FOKUS</span>
+            <span class="ps-val" id="phaseFocusTxt">Grundlage & Locker laufen</span>
+          </div>
+          <div class="ps-item">
+            <span class="ps-lbl">🥤 FUEL</span>
+            <span class="ps-val" id="phaseFuelTxt">Malto ab 15 km (60g/Flask)</span>
+          </div>
+        </div>
         
         <div class="checkpoint-banner hidden" id="checkpointBanner">
           <div class="cp-left">
@@ -252,125 +299,141 @@
         </div>
         <button class="btn-close" onclick="closeWorkoutDetailsModal()">✕</button>
       </div>
+
       <div class="modal-body" id="workoutModalBody">
         <!-- Rendered dynamically -->
       </div>
     </div>
   </div>
 
-  <!-- MODAL: LONGRUN PROGRESSION ÜBERSICHT -->
+  <!-- MODAL: LONGRUN PROGRESSION TABLE -->
   <div class="modal-backdrop hidden" id="longrunOverviewModal" onclick="closeModalOnBackdrop(event)">
     <div class="modal-card modal-card-wide">
       <div class="modal-header">
         <div>
-          <h3>Trainingsprogression (KW 30 – KW 43)</h3>
-          <span class="modal-subtitle">Wochen-KM, Longrun und Höhenmeter im Überblick</span>
+          <h3 style="font-size: 1.3rem; font-weight: 900;">Longrun Progressionsplan (14 Wochen)</h3>
+          <p class="modal-subtitle">Gezielter Aufbau von 12 km / 350 Hm auf 26 km / 1.250 Hm Drachenlauf</p>
         </div>
         <button class="btn-close" onclick="closeLongrunOverviewModal()">✕</button>
       </div>
       <div class="modal-body">
-        <table class="progression-table">
-          <thead>
-            <tr>
-              <th>KW</th>
-              <th>Datum / Ort</th>
-              <th>Wochen-KM</th>
-              <th>Longrun</th>
-              <th>Höhenmeter</th>
-              <th>Fokus</th>
-            </tr>
-          </thead>
-          <tbody id="longrunTableBody">
-            <!-- Rendered dynamically -->
-          </tbody>
-        </table>
+        <div class="table-container">
+          <table class="longrun-table">
+            <thead>
+              <tr>
+                <th>KW</th>
+                <th>Datum & Ort</th>
+                <th>Woll-KM</th>
+                <th>Longrun-Ziel</th>
+                <th>Höhenmeter</th>
+                <th>Fokus & Phasen-Relevanz</th>
+              </tr>
+            </thead>
+            <tbody id="longrunTableBody">
+              <!-- Rendered dynamically -->
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- MODAL 1: AKTIVITÄT ERFASSEN -->
+  <!-- MODAL: FREITEXT AI ACTIVITY LOG -->
   <div class="modal-backdrop hidden" id="textModal" onclick="closeModalOnBackdrop(event)">
     <div class="modal-card">
       <div class="modal-header">
-        <h3>Aktivität erfassen</h3>
+        <div>
+          <h3 style="font-size: 1.2rem; font-weight: 900;">Aktivität erfassen</h3>
+          <p class="modal-subtitle">Egal ob Textnotiz oder manuelle Eingabe</p>
+        </div>
         <button class="btn-close" onclick="closeTextModal()">✕</button>
       </div>
       <div class="modal-body">
-        <div class="form-grid-2col">
-          <div class="full-grid-span">
-            <label for="confDate">Datum der Aktivität</label>
-            <input type="date" id="confDate" class="form-control">
+        <div class="form-group" style="margin-bottom: 0.8rem;">
+          <label style="font-size: 0.72rem; font-weight: 800; color: var(--text-secondary);">DATUM DER EINHEIT</label>
+          <input type="date" id="confDate" class="input-dark" style="width: 100%; box-sizing: border-box; margin-top: 0.25rem;">
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin-bottom: 0.8rem;">
+          <div class="form-group">
+            <label style="font-size: 0.72rem; font-weight: 800; color: var(--text-secondary);">DISTANZ (KM)</label>
+            <input type="number" step="0.1" id="confDist" placeholder="z.B. 16.2" class="input-dark" style="width: 100%; box-sizing: border-box; margin-top: 0.25rem;">
           </div>
-          <div>
-            <label for="confDist">Distanz (km)</label>
-            <input type="number" id="confDist" class="form-control" step="0.1" placeholder="z. B. 7.0">
-          </div>
-          <div>
-            <label for="confHm">Höhenmeter (Hm)</label>
-            <input type="number" id="confHm" class="form-control" placeholder="z. B. 50">
-          </div>
-          <div>
-            <label for="confDuration">Dauer (z. B. 45 o. 40:12)</label>
-            <input type="text" id="confDuration" class="form-control" placeholder="z. B. 45 oder 40:12">
-          </div>
-          <div>
-            <label for="confHr">Durchschnitts-Puls</label>
-            <input type="number" id="confHr" class="form-control" placeholder="z. B. 124">
+          <div class="form-group">
+            <label style="font-size: 0.72rem; font-weight: 800; color: var(--text-secondary);">HÖHENMETER (HM)</label>
+            <input type="number" id="confHm" placeholder="z.B. 650" class="input-dark" style="width: 100%; box-sizing: border-box; margin-top: 0.25rem;">
           </div>
         </div>
 
-        <div class="form-group margin-top-sm">
-          <label for="rawTextInput">Notiz / Freitext (optional)</label>
-          <textarea id="rawTextInput" class="form-control text-area" rows="2" placeholder="z. B. Lockerer Lauf im Siebengebirge"></textarea>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin-bottom: 0.8rem;">
+          <div class="form-group">
+            <label style="font-size: 0.72rem; font-weight: 800; color: var(--text-secondary);">DAUER (HH:MM:SS)</label>
+            <input type="text" id="confDuration" placeholder="z.B. 02:38:00 oder 158" class="input-dark" style="width: 100%; box-sizing: border-box; margin-top: 0.25rem;">
+          </div>
+          <div class="form-group">
+            <label style="font-size: 0.72rem; font-weight: 800; color: var(--text-secondary);">DURCHSCHNITTSPULS (BPM)</label>
+            <input type="number" id="confHr" placeholder="z.B. 122" class="input-dark" style="width: 100%; box-sizing: border-box; margin-top: 0.25rem;">
+          </div>
         </div>
 
-        <button class="btn btn-pill-green full-width margin-top" onclick="saveParsedRun()">
-          Eintrag speichern
-        </button>
+        <div class="form-group" style="margin-bottom: 1.2rem;">
+          <label style="font-size: 0.72rem; font-weight: 800; color: var(--text-secondary);">FREITEXT / NOTIZEN</label>
+          <textarea id="rawTextInput" placeholder="z.B. 'Sonntag Longrun Siebengebirge 16km 650Hm in 2:38 Std bei Puls 122 locker gefühlt'" class="input-dark" style="width: 100%; height: 60px; box-sizing: border-box; margin-top: 0.25rem; font-family: inherit;"></textarea>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 0.6rem;">
+          <button class="btn btn-pill-gray" onclick="closeTextModal()">Abbrechen</button>
+          <button class="btn btn-pill-green" onclick="saveParsedRun()">Aktivität Speichern</button>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- MODAL 2: SCREENSHOT OCR LOG -->
+  <!-- MODAL: GARMIN SCREENSHOT OCR LOG -->
   <div class="modal-backdrop hidden" id="ocrModal" onclick="closeModalOnBackdrop(event)">
     <div class="modal-card">
       <div class="modal-header">
-        <h3>Screenshot Import</h3>
+        <div>
+          <h3 style="font-size: 1.2rem; font-weight: 900;">Garmin Screenshot Import</h3>
+          <p class="modal-subtitle">Importiere Garmin Connect Screenshots per OCR</p>
+        </div>
         <button class="btn-close" onclick="closeScreenshotModal()">✕</button>
       </div>
       <div class="modal-body">
-        <div class="ocr-dropzone" onclick="simulateOcrUpload()">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-          <span>Screenshot hier ablegen</span>
-          <span class="ocr-subtext">Garmin Connect, Strava, Apple Health</span>
+        <div class="ocr-dropzone" onclick="document.getElementById('fileOcrInput').click()">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--apple-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          <p style="font-size: 0.85rem; font-weight: 700; margin-top: 0.5rem; color: var(--text-white);">Klicke hier zum Hochladen</p>
+          <p style="font-size: 0.72rem; color: var(--text-secondary);">Unterstützt PNG, JPG Screenshots aus Garmin Connect</p>
+          <input type="file" id="fileOcrInput" class="hidden" accept="image/*" onchange="simulateOcrUpload()">
         </div>
 
-        <div class="ocr-preview-box hidden" id="ocrPreviewBox">
-          <div class="form-grid-2col margin-top-sm">
-            <div class="full-grid-span">
-              <label for="ocrDate">Datum der Aktivität</label>
-              <input type="date" id="ocrDate" class="form-control">
+        <div id="ocrPreviewBox" class="ocr-preview hidden">
+          <div class="ocr-status-success">✓ Garmin Daten erkannt</div>
+          <div class="form-group" style="margin-top: 0.6rem;">
+            <label style="font-size: 0.68rem; font-weight: 800; color: var(--text-secondary);">DATUM</label>
+            <input type="date" id="ocrDate" class="input-dark">
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-top: 0.4rem;">
+            <div class="form-group">
+              <label style="font-size: 0.68rem; font-weight: 800; color: var(--text-secondary);">DISTANZ (KM)</label>
+              <input type="number" step="0.1" id="ocrDist" value="16.0" class="input-dark">
             </div>
-            <div>
-              <label for="ocrDist">Distanz (km)</label>
-              <input type="number" id="ocrDist" class="form-control" value="15.2" step="0.1">
-            </div>
-            <div>
-              <label for="ocrHm">Höhenmeter (Hm)</label>
-              <input type="number" id="ocrHm" class="form-control" value="480">
-            </div>
-            <div>
-              <label for="ocrTime">Dauer</label>
-              <input type="text" id="ocrTime" class="form-control" value="40:12" placeholder="z. B. 40:12">
-            </div>
-            <div>
-              <label for="ocrHr">Durchschnitts-Puls</label>
-              <input type="number" id="ocrHr" class="form-control" value="126">
+            <div class="form-group">
+              <label style="font-size: 0.68rem; font-weight: 800; color: var(--text-secondary);">HÖHENMETER (HM)</label>
+              <input type="number" id="ocrHm" value="650" class="input-dark">
             </div>
           </div>
-          <button class="btn btn-pill-green full-width margin-top" onclick="saveOcrRun()">
-            Aktivität übernehmen
-          </button>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-top: 0.4rem;">
+            <div class="form-group">
+              <label style="font-size: 0.68rem; font-weight: 800; color: var(--text-secondary);">ZEIT (HH:MM:SS)</label>
+              <input type="text" id="ocrTime" value="02:38:00" class="input-dark">
+            </div>
+            <div class="form-group">
+              <label style="font-size: 0.68rem; font-weight: 800; color: var(--text-secondary);">DURCHSCHNITTSPULS (BPM)</label>
+              <input type="number" id="ocrHr" value="122" class="input-dark">
+            </div>
+          </div>
+          <button class="btn btn-pill-green" style="width: 100%; margin-top: 0.8rem;" onclick="saveOcrRun()">Import Bestätigen</button>
         </div>
       </div>
     </div>

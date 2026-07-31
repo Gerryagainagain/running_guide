@@ -1,4 +1,4 @@
-// Gerrys Trailcoach: Auf zum Drachen! (App Logic)
+// Gerrys Personal Trail Coach: Auf zum Drachen! (App Logic)
 
 let selectedKw = 31;
 
@@ -10,7 +10,9 @@ const phaseData = {
     dates: 'KW 30–33 (20.07 – 16.08)',
     desc: 'Erhalt der aeroben Basis. Longruns bis 450 Hm in Erkrath, darüber im Siebengebirge. In London (KW 32) max. 1 Std. Fenster. Malto bei Longruns (> 15 km / Siebengebirge): 500ml Softflasks, Marzipan & Feigen. Schutz: Mosquito- & Sonnenspray.',
     motto: '„Fundament gießen. Jeder Flachkilometer baut die aerobe Reserve für die Anstiege.“',
-    emotionTag: 'PHASE 1 // BASISAUSDAUER & FUNDAMENT',
+    targetHmTxt: '600 Hm Longrun',
+    focusTxt: 'Grundlage & Locker laufen',
+    fuelTxt: 'Malto ab 15 km (60g/Flask)',
     targetWkm: 30,
     targetWhm: 450,
     targetLongDist: 16,
@@ -24,7 +26,9 @@ const phaseData = {
     dates: 'KW 34–36 (17.08 – 06.09)',
     desc: 'Systematischer Aufbau im Siebengebirge (> 450 Hm). Steigerung des Longruns von 16 km / 650 Hm auf 20 km / 950 Hm. 500ml Softflasks mit Malto + Marzipan/Feigen bei Longruns.',
     motto: '„Höhenmeter fressen. Das Siebengebirge schärft die Beine und den Geist.“',
-    emotionTag: 'PHASE 2 // HÖHENMETERAUFBAU & MOUNTAIN LEGS',
+    targetHmTxt: '950 Hm Longrun',
+    focusTxt: 'Siebengebirge Steigungshärte',
+    fuelTxt: '500ml Flask (60g Malto/Std)',
     targetWkm: 45,
     targetWhm: 950,
     targetLongDist: 20,
@@ -38,7 +42,9 @@ const phaseData = {
     dates: 'KW 37–39 (07.09 – 27.09)',
     desc: 'Zwei Haupttests: Côte d’Opal Trail (25 km / 250 Hm am 13.09) und HAUPT-PROBEDRACHENLAUF (24 km / 1.250 Hm am 27.09 FIX im Siebengebirge). Malto-Softflasks + Marzipan/Feigen.',
     motto: '„Grenzgang & Wettkampfhärte. Côte d’Opal & Probedrachen rufen.“',
-    emotionTag: 'PHASE 3 // RENN-SIMULATION & PEAK HARDNESS',
+    targetHmTxt: '1.250 Hm Peak Test',
+    focusTxt: 'Race-Simulation (HF 120-140)',
+    fuelTxt: '3-4 Softflasks + Marzipan',
     targetWkm: 51,
     targetWhm: 1250,
     targetLongDist: 24,
@@ -52,7 +58,9 @@ const phaseData = {
     dates: 'KW 40–42 (28.09 – 18.10)',
     desc: 'Gezieltes Tapering. Zoutelande Dünen (350 Hm), anschließend kontrolliertes Tapering in Erkrath (400 Hm & 300 Hm <= 450 Hm).',
     motto: '„Ruhe & Schärfung. Muskelglykogen aufladen und die Beine frisch halten.“',
-    emotionTag: 'PHASE 4 // TAPERING & MENTAL SHARPENING',
+    targetHmTxt: '400 Hm Tapering',
+    focusTxt: 'Erholung & Glykogen-Depot',
+    fuelTxt: 'Wasser / leichte Carbs',
     targetWkm: 30,
     targetWhm: 400,
     targetLongDist: 15,
@@ -66,7 +74,9 @@ const phaseData = {
     dates: 'KW 43 (19.10 – 25.10)',
     desc: 'Regeneration & Rennvorbereitung. Kurze Aktivierung, Schlaf, Carboloading & Vorbereitung 500ml Softflasks, Marzipan, Feigen.',
     motto: '„Der Tag des Drachen. 26 km, 1.250 Hm – Voller Einsatz im Siebengebirge!“',
-    emotionTag: 'PHASE 5 // KING OF THE MOUNTAIN // RACE DAY',
+    targetHmTxt: '1.250 Hm Drachenlauf',
+    focusTxt: 'Königswinter Wettkampf 10:00',
+    fuelTxt: '4 Softflasks (240g Malto)',
     targetWkm: 39,
     targetWhm: 1250,
     targetLongDist: 26,
@@ -214,7 +224,7 @@ function getMaltoNutritionPlan(durationMin) {
     return '1 Softflask Wasser (ohne Carbs)';
   }
   const hours = durationMin / 60.0;
-  let flasks = Math.max(1, Math.round(hours)); // Strikt ganzzahlig: 1, 2, 3, 4 Softflasks
+  let flasks = Math.max(1, Math.round(hours));
 
   const maltoGrams = flasks * 60;
   const flaskStr = flasks === 1 ? '1 Softflask' : `${flasks} Softflasks`;
@@ -222,15 +232,14 @@ function getMaltoNutritionPlan(durationMin) {
   return `${flaskStr} // ${maltoGrams} g Maltodextrin`;
 }
 
-// EXAKTE PACING-KALIBRIERUNG AUF BASIS DER ATHLETEN-HISTORIE (SUMMARY 1. HALBJAHR 2026 & TRAINIG VORPLANGROB)
-// Baseline: GA1 Low-HR (HF 113-125 bpm, Chouffe 18,2k 549Hm @ 2:47:37 h, Erkrath 15k 551Hm @ 2:37:51 h)
+// EXAKTE PACING-KALIBRIERUNG AUF BASIS DER ATHLETEN-HISTORIE
 function getEmpiricalUserPaceProfile() {
   const validRuns = runsData.filter(r => r.dist && r.dist > 0 && r.duration);
 
   if (validRuns.length === 0) {
     return {
-      flatPaceMin: 7.20, // GA1 Flach-Pace Athlet
-      elevCostPer10m: 0.67 // Hm-Zuschlag exakt abgestimmt auf Chouffe & Vorplan
+      flatPaceMin: 7.20,
+      elevCostPer10m: 0.67
     };
   }
 
@@ -302,15 +311,14 @@ function getEstimatedDurationMinutes(distKm, hm = 0, tag = '') {
   if (!distKm || distKm <= 0) return 0;
   const tagLower = (tag || '').toLowerCase();
 
-  // Exakte Zeitvorgaben aus trainig vorplangrob.numbers (Nur für die eigentlichen Haupt-Testrennen / Wettkämpfe)
   if (tagLower.includes('drachenlauf') && !tagLower.includes('probedrachen') && distKm >= 20) {
-    return 255; // 4:15 h Wettkampfziel
+    return 255;
   }
   if (tagLower.includes('probedrachen') && distKm >= 20) {
-    return 257; // 4:17 h Peak Test
+    return 257;
   }
   if (tagLower.includes('opal') && distKm >= 20) {
-    return 175; // 2:55 h Opal Trail Test 1
+    return 175;
   }
 
   const profile = getEmpiricalUserPaceProfile();
@@ -428,12 +436,6 @@ function calculatePace(distKm, durStr) {
   return `${pMin}:${pSec < 10 ? '0' : ''}${pSec}`;
 }
 
-function getStatusBadgeText(actVal, targetVal) {
-  if (actVal === 0) return 'Mach es!';
-  if (actVal >= targetVal) return 'Done!';
-  return 'On it!';
-}
-
 function getKwFromDateStr(dateStr) {
   if (!dateStr) return selectedKw;
   const parts = dateStr.split('-');
@@ -487,7 +489,7 @@ const appleScheduleData = {
     { day: 'DIE', date: '28.07', tag: 'Rampen Ddorf', dist: 7.0, hm: 100, done: false },
     { day: 'MIT', date: '29.07', tag: 'Ruhetag', dist: 0, hm: 0, done: false },
     { day: 'DON', date: '30.07', tag: 'Locker Rhein', dist: 6.0, hm: 0, done: false },
-    { day: 'FRE', date: '31.07', tag: 'Stabi / KT', dist: 0, hm: 0, done: false },
+    { day: 'FRE', date: '31.07', tag: 'Krafttraining Studio', dist: 0, hm: 0, done: false },
     { day: 'SAM', date: '01.08', tag: 'Locker', dist: 7.0, hm: 0, done: false },
     { day: 'SON', date: '02.08', tag: 'Longrun Erkrath', dist: 12.0, hm: 380, done: false }
   ],
@@ -649,67 +651,119 @@ function renderDashboard() {
   if (prevBtn) prevBtn.disabled = (selectedKw <= 30);
   if (nextBtn) nextBtn.disabled = (selectedKw >= 43);
 
-  renderSummaryRings(selectedKw, phase);
+  updateSeasonProgressBar(selectedKw);
+  renderTrailCoachBox(selectedKw, phase);
+  renderHeroMissionCard(selectedKw, phase);
+  renderWeeklyMissionBars(selectedKw, phase);
   renderScheduleRow(selectedKw);
   renderPhaseInfo(phase, selectedKw);
   renderLastActivity();
 }
 
-function renderSummaryRings(kw, phase) {
+function updateSeasonProgressBar(kw) {
+  const totalWeeks = 14;
+  const currentIdx = Math.max(1, kw - 29);
+  const pct = Math.min(100, Math.round((currentIdx / totalWeeks) * 100));
+
+  const fillElem = document.getElementById('seasonProgressFill');
+  const valElem = document.getElementById('seasonProgressVal');
+  if (fillElem) fillElem.style.width = `${pct}%`;
+  if (valElem) valElem.textContent = `KW ${kw} // ${pct}%`;
+}
+
+function renderTrailCoachBox(kw, phase) {
+  const kwRuns = runsData.filter(r => r.kw === kw);
+  const doneCount = kwRuns.length;
+  const days = appleScheduleData[kw] || [];
+  const plannedCount = days.filter(d => d.dist > 0 || (d.tag && (d.tag.includes('Kraft') || d.tag.includes('Stabi')))).length;
+
+  const fbElem = document.getElementById('coachPositiveFeedback');
+  const msgElem = document.getElementById('coachMessageText');
+
+  if (fbElem) {
+    if (doneCount === 0) {
+      fbElem.textContent = `Woche gestartet // 0 von ${plannedCount} Einheiten`;
+    } else {
+      fbElem.textContent = `Nice. ${doneCount} von ${plannedCount} Einheiten geschafft // Voll im Plan!`;
+    }
+  }
+
+  if (msgElem) {
+    const sundayObj = days.find(d => d.day === 'SON') || { dist: phase.targetLongDist, hm: phase.targetLongHm };
+    if (doneCount >= plannedCount && plannedCount > 0) {
+      msgElem.textContent = `„Hervorragende Arbeit! Alle Einheiten der KW ${kw} sind absolviert. Die Beine erholen sich perfekt für die nächste Etappe.“`;
+    } else if (doneCount > 0) {
+      msgElem.textContent = `„Du bist exakt auf Kurs. Die Beine sind frisch. Am Sonntag wartet dein ${sundayObj.dist.toFixed(1)} km Longrun (${sundayObj.hm} Hm) – ${phase.motto}“`;
+    } else {
+      msgElem.textContent = `„Neue Woche, neues Ziel! ${phase.motto} Hauptfokus dieser Woche ist der ${sundayObj.dist.toFixed(1)} km Longrun am Sonntag.“`;
+    }
+  }
+}
+
+function renderHeroMissionCard(kw, phase) {
+  const days = appleScheduleData[kw] || [];
+  const sundayObj = days.find(d => d.day === 'SON') || { dist: phase.targetLongDist, hm: phase.targetLongHm, tag: 'Longrun' };
+  
+  const kwRuns = runsData.filter(r => r.kw === kw);
+  const targetWhm = phase.targetWhm;
+  const sundayHmPct = targetWhm > 0 ? Math.round((sundayObj.hm / targetWhm) * 100) : 70;
+
+  const estMin = getEstimatedDurationMinutes(sundayObj.dist, sundayObj.hm, sundayObj.tag);
+  const maltoPlanText = getMaltoNutritionPlan(estMin);
+  const hrTarget = getHrTargetForWorkout(sundayObj.tag) || 'HF < 135 bpm';
+
+  document.getElementById('heroDayLbl').textContent = `SONNTAG, ${sundayObj.date}.2026 // KW ${kw}`;
+  document.getElementById('heroTitle').textContent = sundayObj.tag;
+  document.getElementById('heroDist').textContent = sundayObj.dist.toFixed(1);
+  document.getElementById('heroHm').textContent = sundayObj.hm;
+  document.getElementById('heroDur').textContent = formatWorkoutDuration(sundayObj.dist, sundayObj.hm, sundayObj.tag);
+  document.getElementById('heroPuls').textContent = hrTarget;
+  document.getElementById('heroDaysLeft').textContent = `Noch 2 Tage`;
+
+  document.getElementById('heroImpactTxt').textContent = `${sundayHmPct}% deiner Wochen-Hm`;
+  document.getElementById('heroNutritionTxt').textContent = maltoPlanText;
+}
+
+function openHeroLongrunDetails() {
+  const days = appleScheduleData[selectedKw] || [];
+  const sundayIdx = days.findIndex(d => d.day === 'SON');
+  if (sundayIdx >= 0) {
+    openWorkoutDetailsModal(selectedKw, sundayIdx);
+  }
+}
+
+function renderWeeklyMissionBars(kw, phase) {
   const kwRuns = runsData.filter(r => r.kw === kw);
   const actWkm = kwRuns.reduce((acc, r) => acc + (r.dist || 0), 0);
   const actWhm = kwRuns.reduce((acc, r) => acc + (r.hm || 0), 0);
 
-  const userPaceMin = getRollingAvgPaceMin();
-  const paceFactor = Math.min(1.15, Math.max(0.85, 7.00 / userPaceMin));
-
-  const targetWkm = Math.round(phase.targetWkm * paceFactor * 10) / 10;
-  const targetWhm = Math.round(phase.targetWhm * paceFactor);
-
   const days = appleScheduleData[kw] || [];
   const sundayObj = days.find(d => d.day === 'SON') || { dist: phase.targetLongDist, hm: phase.targetLongHm };
-  const saturdayObj = days.find(d => d.day === 'SAM');
-
   const targetLongDist = sundayObj.dist || phase.targetLongDist;
-  const targetLongHm = sundayObj.hm || phase.targetLongHm;
 
-  const satDateStr = saturdayObj ? saturdayObj.date : '';
-  const sunDateStr = sundayObj ? sundayObj.date : '';
+  const targetWkm = phase.targetWkm;
+  const targetWhm = phase.targetWhm;
 
-  const longRun = kwRuns.find(r => {
-    if (!r.dist || r.dist <= 0) return false;
-    const isExplicitNote = r.notes && r.notes.toLowerCase().includes('longrun');
-    const isWeekendRun = (r.dayDate === sunDateStr || r.dayDate === satDateStr) && r.dist >= (targetLongDist * 0.6);
-    const isLongestRun = r.dist >= (targetLongDist * 0.75);
-
-    return isExplicitNote || isWeekendRun || isLongestRun;
-  });
-
+  const longRun = kwRuns.find(r => r.dist >= (targetLongDist * 0.7));
   const actLongDist = longRun ? longRun.dist : 0;
-  const actLongHm = longRun ? longRun.hm : 0;
-
-  document.getElementById('statWkm').textContent = actWkm.toFixed(1);
-  document.getElementById('statWhm').textContent = actWhm;
-  document.getElementById('statLongDist').textContent = actLongDist > 0 ? actLongDist.toFixed(1) : '0.0';
-  document.getElementById('statLongDistTarget').textContent = `/ ${targetLongDist.toFixed(1)} km`;
-  document.getElementById('statLongHmTxt').textContent = `${actLongHm} / ${targetLongHm} Hm`;
-
-  document.getElementById('statusDistTxt').textContent = getStatusBadgeText(actWkm, targetWkm);
-  document.getElementById('statusHmTxt').textContent = getStatusBadgeText(actWhm, targetWhm);
 
   const distPct = Math.min(100, Math.round((actWkm / targetWkm) * 100));
   const hmPct = Math.min(100, Math.round((actWhm / targetWhm) * 100));
   const longPct = Math.min(100, Math.round((actLongDist / targetLongDist) * 100));
 
-  document.getElementById('ringDistFill').setAttribute('stroke-dasharray', `${distPct}, 100`);
-  document.getElementById('ringHmFill').setAttribute('stroke-dasharray', `${hmPct}, 100`);
-  document.getElementById('ringLongFill').setAttribute('stroke-dasharray', `${longPct}, 100`);
+  document.getElementById('wmDistVal').textContent = `${actWkm.toFixed(1)} / ${targetWkm.toFixed(1)} km`;
+  document.getElementById('wmDistFill').style.width = `${distPct}%`;
+  const remKm = Math.max(0, targetWkm - actWkm).toFixed(1);
+  document.getElementById('wmDistSub').textContent = remKm > 0 ? `Noch ${remKm} km bis Wochenziel` : 'Wochen-Km erreicht!';
 
-  const distCardUnit = document.querySelector('#statWkm + .unit');
-  if (distCardUnit) distCardUnit.textContent = `/ ${targetWkm.toFixed(1)} km`;
+  document.getElementById('wmHmVal').textContent = `${actWhm} / ${targetWhm} Hm`;
+  document.getElementById('wmHmFill').style.width = `${hmPct}%`;
+  const remHm = Math.max(0, targetWhm - actWhm);
+  document.getElementById('wmHmSub').textContent = remHm > 0 ? `Noch ${remHm} Hm (${sundayObj.hm} Hm am Sonntag)` : 'Höhenmeter-Ziel erreicht!';
 
-  const hmCardUnit = document.querySelector('#statWhm + .unit');
-  if (hmCardUnit) hmCardUnit.textContent = `/ ${targetWhm} Hm`;
+  document.getElementById('wmLongVal').textContent = `${actLongDist.toFixed(1)} / ${targetLongDist.toFixed(1)} km`;
+  document.getElementById('wmLongFill').style.width = `${longPct}%`;
+  document.getElementById('wmLongSub').textContent = actLongDist >= targetLongDist ? 'Longrun erfolgreich absolviert!' : 'Longrun wartet am Sonntag';
 }
 
 function renderScheduleRow(kw) {
@@ -717,16 +771,28 @@ function renderScheduleRow(kw) {
   const days = appleScheduleData[kw] || generateDefaultDays(kw);
   const kwRuns = runsData.filter(r => r.kw === kw);
 
+  const isCurrentActiveKw = (kw === 31); // 31.07.2026 is FRE in KW 31
+
   container.innerHTML = days.map((d, i) => {
     const loggedRun = kwRuns.find(r => r.dayDate === d.date);
     const isDone = d.done || !!loggedRun;
     const tagLower = (d.tag || '').toLowerCase();
 
+    let cardSizingClass = '';
     let specialCardClass = '';
     let pillExtraClass = '';
     let displayTagTxt = d.tag || 'Lauf';
 
     const isMajorRaceOrTestDay = d.dist >= 15 || d.day === 'SON';
+    const isToday = isCurrentActiveKw && d.day === 'FRE'; // Freitag, 31.07.2026
+
+    if (isToday) {
+      cardSizingClass = 'card-today';
+    } else if (d.day === 'SON') {
+      cardSizingClass = 'card-longrun-hero'; // 70% visual focus
+    } else if (!d.dist || d.dist === 0) {
+      cardSizingClass = 'card-rest-muted'; // 10% opacity muted
+    }
 
     if (tagLower.includes('drachenlauf') && !tagLower.includes('probedrachen') && isMajorRaceOrTestDay) {
       specialCardClass = 'card-race';
@@ -802,7 +868,8 @@ function renderScheduleRow(kw) {
     }
 
     return `
-      <div class="apple-day-card ${specialCardClass} ${isDone ? 'card-completed' : ''}" onclick="openWorkoutDetailsModal(${kw}, ${i})" title="Details für ${d.tag} anzeigen">
+      <div class="apple-day-card ${cardSizingClass} ${specialCardClass} ${isDone ? 'card-completed' : ''}" onclick="openWorkoutDetailsModal(${kw}, ${i})" title="Details für ${d.tag} anzeigen">
+        ${isToday ? '<span class="today-notification-pill">HEUTE</span>' : ''}
         <div class="day-header">
           <span class="day-name">${d.day}</span>
           <span class="date-num">${d.date}</span>
@@ -1015,12 +1082,14 @@ function renderPhaseInfo(phase, kw) {
   document.getElementById('phaseCodePill').textContent = phase.code;
   document.getElementById('phaseName').textContent = phase.name;
   document.getElementById('phaseDates').textContent = phase.dates;
-  document.getElementById('phaseDesc').textContent = phase.desc;
+  
+  const targetHmElem = document.getElementById('phaseTargetHm');
+  const focusTxtElem = document.getElementById('phaseFocusTxt');
+  const fuelTxtElem = document.getElementById('phaseFuelTxt');
 
-  const emoBadge = document.getElementById('emoPhaseBadge');
-  const emoMotto = document.getElementById('emotionMotto');
-  if (emoBadge) emoBadge.textContent = phase.emotionTag || `${phase.code} // ${phase.name}`;
-  if (emoMotto) emoMotto.textContent = phase.motto || `„Dem Drachen entgegen.“`;
+  if (targetHmElem) targetHmElem.textContent = phase.targetHmTxt || `${phase.targetLongHm} Hm Longrun`;
+  if (focusTxtElem) focusTxtElem.textContent = phase.focusTxt || 'Grundlagenarbeit';
+  if (fuelTxtElem) fuelTxtElem.textContent = phase.fuelTxt || 'Wasser & Malto';
 
   const cpBanner = document.getElementById('checkpointBanner');
 
