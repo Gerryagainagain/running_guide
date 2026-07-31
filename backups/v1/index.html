@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drachenlauf Training // Auf zum Drachen!</title>
+  <meta name="description" content="Drachenlauf Training – Strukturierte Trainingssteuerung für den Drachenlauf 2026 im Siebengebirge.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="apple-theme">
+  <div class="apple-container">
+    
+    <!-- HEADER -->
+    <header class="app-header">
+      <div class="header-brand">
+        <h1 class="header-main-title">
+          <a href="https://www.drachenlauf.net/" target="_blank" rel="noopener noreferrer" class="headline-link" title="Zur offiziellen Website drachenlauf.net">Auf zum Drachen!</a>
+        </h1>
+        <p class="header-meta-sub">
+          <a href="https://www.alltrails.com/de/explore/custom-routes/karte-13-mai-2024-39cd7b4" target="_blank" rel="noopener noreferrer" class="headline-meta-link" title="Streckenkarte auf AllTrails öffnen">26,0 km // 1.250 Hm // Königswinter ↗</a>
+        </p>
+      </div>
+
+      <div class="header-controls">
+        <div class="countdown-pill">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span class="cd-txt" id="cdTxtContainer">Noch <strong>12 Wochen</strong></span>
+        </div>
+
+        <div class="kw-select-wrapper">
+          <select id="kwSelect" onchange="changeWeek(this.value)">
+            <option value="30">KW 30 (20.07 – 26.07) – Phase 1 [Basis Erkrath 350Hm]</option>
+            <option value="31" selected>KW 31 (27.07 – 02.08) – Phase 1 [Vorbereitung Erkrath 380Hm]</option>
+            <option value="32">KW 32 (03.08 – 09.08) – Phase 1 [Reise London (Abf. Di Abend)]</option>
+            <option value="33">KW 33 (10.08 – 16.08) – Phase 1 [Jurassic Coast & Siebengebirge 600Hm]</option>
+            <option value="34">KW 34 (17.08 – 23.08) – Phase 2 [Siebengebirge Einstieg 650Hm]</option>
+            <option value="35">KW 35 (24.08 – 30.08) – Phase 2 [Siebengebirge Peak 800Hm]</option>
+            <option value="36">KW 36 (31.08 – 06.09) – Phase 2 [Siebengebirge Peak 950Hm]</option>
+            <option value="37">KW 37 (07.09 – 13.09) – Phase 3 [Reise Côte d’Opal (Abf. Do)]</option>
+            <option value="38">KW 38 (14.09 – 20.09) – Phase 3 [Reise Normandie (Abf. Fr)]</option>
+            <option value="39">KW 39 (21.09 – 27.09) – Phase 3 [Siebengebirge Probedrachen 1250Hm]</option>
+            <option value="40">KW 40 (28.09 – 04.10) – Phase 4 [Reise Zoutelande (Fr–So)]</option>
+            <option value="41">KW 41 (05.10 – 11.10) – Phase 4 [Tapering Erkrath 400Hm]</option>
+            <option value="42">KW 42 (12.10 – 18.10) – Phase 4 [Tapering Erkrath 300Hm]</option>
+            <option value="43">KW 43 (19.10 – 25.10) – Phase 5 [Königswinter Drachenlauf 1250Hm]</option>
+          </select>
+        </div>
+
+        <button class="btn-icon-fullscreen" id="fullscreenToggleBtn" onclick="toggleFullscreen()" title="Vollbild umschalten">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- SUMMARY CARDS GRID -->
+    <section class="summary-cards-grid">
+      
+      <!-- CARD 1: WOCHENKILOMETER -->
+      <div class="apple-card stat-ring-card">
+        <div class="ring-left">
+          <svg class="ring-svg" viewBox="0 0 36 36">
+            <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+            <path class="circle-fill ring-green" id="ringDistFill" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+          </svg>
+        </div>
+        <div class="ring-right">
+          <span class="card-label">WOCHENKILOMETER</span>
+          <div class="card-big-val">
+            <span id="statWkm">0.0</span>
+            <span class="unit">/ 30 km</span>
+          </div>
+          <span class="card-status-txt text-green" id="statusDistTxt">Mach es!</span>
+        </div>
+      </div>
+
+      <!-- CARD 2: HÖHENMETER -->
+      <div class="apple-card stat-ring-card">
+        <div class="ring-left">
+          <svg class="ring-svg" viewBox="0 0 36 36">
+            <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+            <path class="circle-fill ring-cyan" id="ringHmFill" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+          </svg>
+        </div>
+        <div class="ring-right">
+          <span class="card-label">HÖHENMETER</span>
+          <div class="card-big-val">
+            <span id="statWhm">0</span>
+            <span class="unit">/ 450 Hm</span>
+          </div>
+          <span class="card-status-txt text-cyan" id="statusHmTxt">Mach es!</span>
+        </div>
+      </div>
+
+      <!-- CARD 3: LONGRUN -->
+      <div class="apple-card stat-ring-card clickable-card" onclick="openLongrunOverviewModal()" title="14 KW Longrun-Plan öffnen">
+        <div class="ring-left">
+          <svg class="ring-svg" viewBox="0 0 36 36">
+            <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+            <path class="circle-fill ring-orange" id="ringLongFill" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+          </svg>
+        </div>
+        <div class="ring-right">
+          <span class="card-label">LONGRUN VORGABE ↗</span>
+          <div class="card-big-val">
+            <span id="statLongDist">0.0</span>
+            <span class="unit" id="statLongDistTarget">/ 12 km</span>
+          </div>
+          <span class="card-status-txt text-orange" id="statLongHmTxt">0 / 380 Hm</span>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- WOCHENPLAN WITH CLICKABLE TITLE TO RESET TO CURRENT WEEK -->
+    <section class="schedule-section">
+      <div class="section-title-row">
+        <div class="title-with-arrows">
+          <button class="btn-nav-circle" id="prevKwBtn" onclick="navigateKw(-1)" title="Vorherige Woche (Pfeil links)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <h2 class="schedule-title-clickable" onclick="resetToCurrentWeek()" title="Klick: Zur aktuellen Woche springen">
+            Wochenplan <span class="kw-title-inline" id="kwTitleSub">KW 31</span>
+          </h2>
+          <button class="btn-nav-circle" id="nextKwBtn" onclick="navigateKw(1)" title="Nächste Woche (Pfeil rechts)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="schedule-row-wrapper">
+        <div class="schedule-row" id="scheduleRow">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+    </section>
+
+    <!-- AKTUELLE PHASE & LETZTE AKTIVITÄT -->
+    <section class="bottom-grid">
+      
+      <!-- PHASE CARD -->
+      <div class="apple-card phase-card">
+        <div class="phase-badge-pill" id="phaseCodePill">PHASE 1</div>
+        <h3 class="phase-name" id="phaseName">Grundlagenerhalt & Reisen</h3>
+        <p class="phase-dates" id="phaseDates">KW 30–33 (20.07 – 16.08)</p>
+        <p class="phase-desc" id="phaseDesc">Erhalt der aeroben Basis während der Reisen nach London und an die Jurassic Coast. Herzfrequenz unter 130 bpm steuern; Krafttraining per Eigengewicht.</p>
+        
+        <div class="checkpoint-banner hidden" id="checkpointBanner">
+          <div class="cp-left">
+            <span class="cp-label">NÄCHSTE KALIBRIERUNG</span>
+            <span class="cp-name" id="cpName">Côte d’Opal Trail (Test 1)</span>
+            <span class="cp-meta" id="cpMeta">13. September // 25 km // 250 Hm</span>
+          </div>
+          <div class="cp-right">
+            <span class="corridor-value">3:45 – 4:15 h</span>
+            <span class="corridor-lbl">Zielkorridor</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- LAST ACTIVITY CARD (COLLAPSIBLE) -->
+      <div class="apple-card activity-card collapsed" id="activityCard">
+        <div class="act-header" onclick="toggleActivityCard()" title="Klick: Letzte Aktivität ein-/ausklappen">
+          <div class="act-header-left">
+            <span class="act-title">Letzte Aktivität</span>
+            <span class="act-summary-micro" id="lastRunMicroSummary">Keine Einheiten erfasst</span>
+          </div>
+          <div class="act-header-right">
+            <span class="act-tag" id="lastRunTag">Kein Lauf</span>
+            <button class="btn-delete-single hidden" id="btnDeleteLastRun" onclick="event.stopPropagation(); deleteLastRunAction()" title="Diese Aktivität löschen">Eintrag löschen</button>
+            <span class="collapse-chevron" id="actChevron">▼</span>
+          </div>
+        </div>
+
+        <div class="activity-card-body" id="activityCardBody">
+          <div class="act-metrics">
+            <div class="act-box">
+              <span class="val" id="lastRunDist">0.0</span>
+              <span class="lbl">KM</span>
+            </div>
+            <div class="act-box">
+              <span class="val" id="lastRunHm">0</span>
+              <span class="lbl">HM</span>
+            </div>
+            <div class="act-box">
+              <span class="val" id="lastRunPace">-:--</span>
+              <span class="lbl">PACE</span>
+            </div>
+            <div class="act-box">
+              <span class="val" id="lastRunHr">--</span>
+              <span class="lbl">PULS</span>
+            </div>
+          </div>
+
+          <p class="act-notes" id="lastRunNotes">Keine Einheiten erfasst.</p>
+
+          <div class="action-buttons-row">
+            <button class="btn btn-pill-green" onclick="openTextModal()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+              Aktivität erfassen
+            </button>
+            <button class="btn btn-pill-gray" onclick="openScreenshotModal()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              Screenshot Import
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <!-- MODAL: WORKOUT DETAILS & ANFORDERUNGEN -->
+  <div class="modal-backdrop hidden" id="workoutDetailsModal" onclick="closeModalOnBackdrop(event)">
+    <div class="modal-card modal-card-wide">
+      <div class="modal-header">
+        <div>
+          <span class="modal-subtitle" id="workoutMetaHeader">DIENSTAG, 28.07.2026 // KW 31</span>
+          <h3 id="workoutModalTitle" style="font-size: 1.4rem; font-weight: 900; margin-top: 0.2rem;">Rampen Ddorf</h3>
+        </div>
+        <button class="btn-close" onclick="closeWorkoutDetailsModal()">✕</button>
+      </div>
+      <div class="modal-body" id="workoutModalBody">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: LONGRUN PROGRESSION ÜBERSICHT -->
+  <div class="modal-backdrop hidden" id="longrunOverviewModal" onclick="closeModalOnBackdrop(event)">
+    <div class="modal-card modal-card-wide">
+      <div class="modal-header">
+        <div>
+          <h3>Trainingsprogression (KW 30 – KW 43)</h3>
+          <span class="modal-subtitle">Wochen-KM, Longrun und Höhenmeter im Überblick</span>
+        </div>
+        <button class="btn-close" onclick="closeLongrunOverviewModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <table class="progression-table">
+          <thead>
+            <tr>
+              <th>KW</th>
+              <th>Datum / Ort</th>
+              <th>Wochen-KM</th>
+              <th>Longrun</th>
+              <th>Höhenmeter</th>
+              <th>Fokus</th>
+            </tr>
+          </thead>
+          <tbody id="longrunTableBody">
+            <!-- Rendered dynamically -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 1: AKTIVITÄT ERFASSEN -->
+  <div class="modal-backdrop hidden" id="textModal" onclick="closeModalOnBackdrop(event)">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Aktivität erfassen</h3>
+        <button class="btn-close" onclick="closeTextModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-grid-2col">
+          <div class="full-grid-span">
+            <label for="confDate">Datum der Aktivität</label>
+            <input type="date" id="confDate" class="form-control">
+          </div>
+          <div>
+            <label for="confDist">Distanz (km)</label>
+            <input type="number" id="confDist" class="form-control" step="0.1" placeholder="z. B. 7.0">
+          </div>
+          <div>
+            <label for="confHm">Höhenmeter (Hm)</label>
+            <input type="number" id="confHm" class="form-control" placeholder="z. B. 50">
+          </div>
+          <div>
+            <label for="confDuration">Dauer (z. B. 45 o. 40:12)</label>
+            <input type="text" id="confDuration" class="form-control" placeholder="z. B. 45 oder 40:12">
+          </div>
+          <div>
+            <label for="confHr">Durchschnitts-Puls</label>
+            <input type="number" id="confHr" class="form-control" placeholder="z. B. 124">
+          </div>
+        </div>
+
+        <div class="form-group margin-top-sm">
+          <label for="rawTextInput">Notiz / Freitext (optional)</label>
+          <textarea id="rawTextInput" class="form-control text-area" rows="2" placeholder="z. B. Lockerer Lauf im Siebengebirge"></textarea>
+        </div>
+
+        <button class="btn btn-pill-green full-width margin-top" onclick="saveParsedRun()">
+          Eintrag speichern
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 2: SCREENSHOT OCR LOG -->
+  <div class="modal-backdrop hidden" id="ocrModal" onclick="closeModalOnBackdrop(event)">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Screenshot Import</h3>
+        <button class="btn-close" onclick="closeScreenshotModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="ocr-dropzone" onclick="simulateOcrUpload()">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>Screenshot hier ablegen</span>
+          <span class="ocr-subtext">Garmin Connect, Strava, Apple Health</span>
+        </div>
+
+        <div class="ocr-preview-box hidden" id="ocrPreviewBox">
+          <div class="form-grid-2col margin-top-sm">
+            <div class="full-grid-span">
+              <label for="ocrDate">Datum der Aktivität</label>
+              <input type="date" id="ocrDate" class="form-control">
+            </div>
+            <div>
+              <label for="ocrDist">Distanz (km)</label>
+              <input type="number" id="ocrDist" class="form-control" value="15.2" step="0.1">
+            </div>
+            <div>
+              <label for="ocrHm">Höhenmeter (Hm)</label>
+              <input type="number" id="ocrHm" class="form-control" value="480">
+            </div>
+            <div>
+              <label for="ocrTime">Dauer</label>
+              <input type="text" id="ocrTime" class="form-control" value="40:12" placeholder="z. B. 40:12">
+            </div>
+            <div>
+              <label for="ocrHr">Durchschnitts-Puls</label>
+              <input type="number" id="ocrHr" class="form-control" value="126">
+            </div>
+          </div>
+          <button class="btn btn-pill-green full-width margin-top" onclick="saveOcrRun()">
+            Aktivität übernehmen
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
