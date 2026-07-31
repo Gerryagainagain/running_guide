@@ -9,6 +9,8 @@ const phaseData = {
     name: 'Grundlagenerhalt & Reisen',
     dates: 'KW 30–33 (20.07 – 16.08)',
     desc: 'Erhalt der aeroben Basis. Longruns bis 450 Hm in Erkrath, darüber im Siebengebirge. In London (KW 32) max. 1 Std. Fenster. Malto bei Longruns (> 15 km / Siebengebirge): 500ml Softflasks, Marzipan & Feigen. Schutz: Mosquito- & Sonnenspray.',
+    motto: '„Fundament gießen. Jeder Flachkilometer baut die aerobe Reserve für die Anstiege.“',
+    emotionTag: 'PHASE 1 // BASISAUSDAUER & FUNDAMENT',
     targetWkm: 30,
     targetWhm: 450,
     targetLongDist: 16,
@@ -21,6 +23,8 @@ const phaseData = {
     name: 'Grundlagenausdauer & Höhenmeteraufbau',
     dates: 'KW 34–36 (17.08 – 06.09)',
     desc: 'Systematischer Aufbau im Siebengebirge (> 450 Hm). Steigerung des Longruns von 16 km / 650 Hm auf 20 km / 950 Hm. 500ml Softflasks mit Malto + Marzipan/Feigen bei Longruns.',
+    motto: '„Höhenmeter fressen. Das Siebengebirge schärft die Beine und den Geist.“',
+    emotionTag: 'PHASE 2 // HÖHENMETERAUFBAU & MOUNTAIN LEGS',
     targetWkm: 45,
     targetWhm: 950,
     targetLongDist: 20,
@@ -33,6 +37,8 @@ const phaseData = {
     name: 'Spezifische Testläufe & Peak-Belastung',
     dates: 'KW 37–39 (07.09 – 27.09)',
     desc: 'Zwei Haupttests: Côte d’Opal Trail (25 km / 250 Hm am 13.09) und HAUPT-PROBEDRACHENLAUF (24 km / 1.250 Hm am 27.09 FIX im Siebengebirge). Malto-Softflasks + Marzipan/Feigen.',
+    motto: '„Grenzgang & Wettkampfhärte. Côte d’Opal & Probedrachen rufen.“',
+    emotionTag: 'PHASE 3 // RENN-SIMULATION & PEAK HARDNESS',
     targetWkm: 51,
     targetWhm: 1250,
     targetLongDist: 24,
@@ -45,6 +51,8 @@ const phaseData = {
     name: 'Tapering & Wettkampfvorbereitung',
     dates: 'KW 40–42 (28.09 – 18.10)',
     desc: 'Gezieltes Tapering. Zoutelande Dünen (350 Hm), anschließend kontrolliertes Tapering in Erkrath (400 Hm & 300 Hm <= 450 Hm).',
+    motto: '„Ruhe & Schärfung. Muskelglykogen aufladen und die Beine frisch halten.“',
+    emotionTag: 'PHASE 4 // TAPERING & MENTAL SHARPENING',
     targetWkm: 30,
     targetWhm: 400,
     targetLongDist: 15,
@@ -57,6 +65,8 @@ const phaseData = {
     name: 'Wettkampfwoche Drachenlauf',
     dates: 'KW 43 (19.10 – 25.10)',
     desc: 'Regeneration & Rennvorbereitung. Kurze Aktivierung, Schlaf, Carboloading & Vorbereitung 500ml Softflasks, Marzipan, Feigen.',
+    motto: '„Der Tag des Drachen. 26 km, 1.250 Hm – Voller Einsatz im Siebengebirge!“',
+    emotionTag: 'PHASE 5 // KING OF THE MOUNTAIN // RACE DAY',
     targetWkm: 39,
     targetWhm: 1250,
     targetLongDist: 26,
@@ -1006,6 +1016,11 @@ function renderPhaseInfo(phase, kw) {
   document.getElementById('phaseName').textContent = phase.name;
   document.getElementById('phaseDates').textContent = phase.dates;
   document.getElementById('phaseDesc').textContent = phase.desc;
+
+  const emoBadge = document.getElementById('emoPhaseBadge');
+  const emoMotto = document.getElementById('emotionMotto');
+  if (emoBadge) emoBadge.textContent = phase.emotionTag || `${phase.code} // ${phase.name}`;
+  if (emoMotto) emoMotto.textContent = phase.motto || `„Dem Drachen entgegen.“`;
 
   const cpBanner = document.getElementById('checkpointBanner');
 
