@@ -1,9 +1,9 @@
-/* DRACENLAUF 2026: NIKE PRO / STRAVA TRAIL COACH DESIGN SYSTEM */
+/* DRACHENLAUF 2026: UNCLUTTERED SWISS MINIMALIST DESIGN SYSTEM */
 
 :root {
-  --bg-dark: #0A0A0F;
+  --bg-dark: #0B0B10;
   --bg-card: rgba(22, 22, 30, 0.85);
-  --bg-card-hover: rgba(30, 30, 42, 0.95);
+  --bg-card-hover: rgba(32, 32, 44, 0.95);
   --border-card: rgba(255, 255, 255, 0.08);
   --border-subtle: rgba(255, 255, 255, 0.05);
 
@@ -18,8 +18,8 @@
   --text-muted: #6E6E73;
 
   --font-sf: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  --glass-inner-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+  --transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --radius-card: 16px;
   --radius-pill: 999px;
 }
 
@@ -29,85 +29,37 @@
   box-sizing: border-box;
 }
 
-body.nike-pro-theme {
+body.clean-theme {
   background-color: var(--bg-dark);
   color: var(--text-white);
   font-family: var(--font-sf);
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
   padding: 1.5rem;
   line-height: 1.4;
   overflow-x: hidden;
-  background-image: radial-gradient(circle at 50% 0%, rgba(255, 159, 10, 0.08), transparent 45%);
 }
 
 .app-container {
-  max-width: 1240px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
-/* TOP IDENTITY BAR & SEASON PROGRESS */
-.identity-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--border-card);
-  border-radius: 12px;
-  padding: 0.55rem 1rem;
-  margin-bottom: 1.2rem;
-  font-size: 0.76rem;
-}
-
-.identity-quote {
-  font-weight: 800;
-  color: var(--apple-orange);
-  letter-spacing: 0.2px;
-  font-style: italic;
-}
-
-.identity-right {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.season-progress-lbl {
-  font-size: 0.65rem;
-  font-weight: 800;
-  color: var(--text-secondary);
-  letter-spacing: 0.8px;
-}
-
-.season-progress-bar-wrap {
-  width: 100px;
-  height: 6px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 999px;
-  overflow: hidden;
-}
-
-.season-progress-fill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--apple-orange), var(--apple-yellow));
-  border-radius: 999px;
-  transition: width 0.4s ease;
-}
-
-.season-progress-val {
-  font-size: 0.72rem;
-  font-weight: 900;
-  color: var(--text-white);
-  font-feature-settings: "tnum";
-}
-
-/* MAIN HEADER */
+/* HEADER */
 .app-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1.4rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-card);
+}
+
+.header-title {
+  font-size: 2.2rem;
+  font-weight: 900;
+  letter-spacing: -0.8px;
+  line-height: 1.05;
 }
 
 .headline-link {
@@ -120,41 +72,20 @@ body.nike-pro-theme {
   color: var(--apple-green);
 }
 
+.header-subtitle {
+  margin-top: 0.2rem;
+}
+
 .headline-meta-link {
   color: var(--apple-cyan);
   text-decoration: none;
   font-size: 0.85rem;
   font-weight: 700;
-  letter-spacing: 0.3px;
-  transition: var(--transition);
+  letter-spacing: 0.2px;
 }
 
 .headline-meta-link:hover {
-  opacity: 0.85;
   text-decoration: underline;
-}
-
-.header-main-title {
-  font-size: 2.5rem;
-  font-weight: 900;
-  letter-spacing: -0.9px;
-  line-height: 1.02;
-  display: flex;
-  align-items: center;
-}
-
-.version-tag-pill {
-  display: inline-block;
-  font-size: 0.62rem;
-  font-weight: 900;
-  color: var(--apple-green);
-  background: rgba(48, 209, 88, 0.15);
-  border: 1px solid rgba(48, 209, 88, 0.35);
-  padding: 0.2rem 0.6rem;
-  border-radius: 8px;
-  letter-spacing: 0.8px;
-  vertical-align: middle;
-  margin-left: 0.6rem;
 }
 
 .header-controls {
@@ -167,31 +98,18 @@ body.nike-pro-theme {
   background: var(--bg-card);
   border: 1px solid var(--border-card);
   border-radius: var(--radius-pill);
-  height: 40px;
-  padding: 0 1.25rem;
+  height: 38px;
+  padding: 0 1.1rem;
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
-  backdrop-filter: blur(30px);
-  box-shadow: var(--glass-inner-shadow);
-  box-sizing: border-box;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
 }
 
-.countdown-pill svg {
+.countdown-pill strong {
   color: var(--apple-green);
-  flex-shrink: 0;
-}
-
-.cd-txt {
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--text-white);
-  letter-spacing: -0.1px;
-}
-
-.cd-txt strong {
   font-weight: 800;
-  color: var(--apple-green);
+  margin-left: 0.25rem;
 }
 
 .kw-select-wrapper select {
@@ -199,25 +117,24 @@ body.nike-pro-theme {
   background: var(--bg-card);
   border: 1px solid var(--border-card);
   color: var(--text-white);
-  padding: 0.5rem 2.2rem 0.5rem 1rem;
+  padding: 0.5rem 2rem 0.5rem 0.9rem;
   border-radius: var(--radius-pill);
   font-family: inherit;
   font-size: 0.82rem;
   font-weight: 700;
   cursor: pointer;
   outline: none;
-  box-shadow: var(--glass-inner-shadow);
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23FFFFFF' viewBox='0 0 16 16'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>");
   background-repeat: no-repeat;
-  background-position: calc(100% - 0.8rem) center;
+  background-position: calc(100% - 0.75rem) center;
 }
 
 .btn-icon-fullscreen {
   background: var(--bg-card);
   border: 1px solid var(--border-card);
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -231,266 +148,94 @@ body.nike-pro-theme {
   color: var(--apple-green);
 }
 
-/* AI TRAIL COACH IMPULSE CARD */
-.coach-impulse-card {
-  background: linear-gradient(135deg, rgba(48, 209, 88, 0.08), rgba(22, 22, 30, 0.9));
-  border: 1px solid rgba(48, 209, 88, 0.3);
-  border-radius: 18px;
-  padding: 1.1rem 1.4rem;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), var(--glass-inner-shadow);
-}
-
-.coach-avatar-row {
+/* CLEAN HERO BAR */
+.clean-hero-bar {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-card);
+  padding: 1.2rem 1.4rem;
+  margin-bottom: 1.8rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.5rem;
+  gap: 1.5rem;
 }
 
-.coach-badge {
-  font-size: 0.65rem;
-  font-weight: 900;
-  color: var(--apple-green);
-  letter-spacing: 1px;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-}
-
-.coach-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--apple-green);
-  box-shadow: 0 0 8px var(--apple-green);
-}
-
-.coach-positive-feedback {
-  font-size: 0.75rem;
-  font-weight: 800;
-  color: var(--apple-green);
-  background: rgba(48, 209, 88, 0.12);
-  padding: 0.2rem 0.6rem;
-  border-radius: 6px;
-  font-feature-settings: "tnum";
-}
-
-.coach-message {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--text-white);
-  line-height: 1.45;
-}
-
-/* TOP MISSION GRID: HERO MISSION (70%) & WEEKLY MISSION BARS (30%) */
-.top-mission-grid {
-  display: grid;
-  grid-template-columns: 2.2fr 1fr;
-  gap: 1.4rem;
-  margin-bottom: 2rem;
-}
-
-@media (max-width: 900px) {
-  .top-mission-grid {
-    grid-template-columns: 1fr;
+@media (max-width: 800px) {
+  .clean-hero-bar {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 
-/* HERO MISSION CARD */
-.hero-mission-card {
-  background: linear-gradient(135deg, rgba(255, 159, 10, 0.16), rgba(255, 69, 58, 0.10), rgba(22, 22, 30, 0.95));
-  border: 1.5px solid var(--apple-orange);
-  border-radius: 20px;
-  padding: 1.4rem;
-  box-shadow: 0 12px 32px rgba(255, 159, 10, 0.2), var(--glass-inner-shadow);
-  display: flex;
-  flex-direction: column;
-}
-
-.hero-mission-badge-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.85rem;
-}
-
-.hero-mission-pill {
-  font-size: 0.65rem;
+.hero-bar-tag {
+  font-size: 0.62rem;
   font-weight: 900;
-  color: #FFFFFF;
-  background: var(--apple-orange);
-  padding: 0.25rem 0.75rem;
-  border-radius: 6px;
-  letter-spacing: 0.8px;
-}
-
-.hero-countdown-tag {
-  font-size: 0.78rem;
-  font-weight: 800;
   color: var(--apple-orange);
-  background: rgba(255, 159, 10, 0.15);
-  padding: 0.25rem 0.65rem;
-  border-radius: 6px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
 }
 
-.hero-mission-main-body {
-  display: grid;
-  grid-template-columns: 1.3fr 1fr;
-  gap: 1.2rem;
-  align-items: center;
+.hero-bar-title {
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: var(--text-white);
+  letter-spacing: -0.4px;
+  margin-bottom: 0.15rem;
+}
+
+.hero-bar-sub {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-feature-settings: "tnum";
+}
+
+.hero-bar-right {
+  display: flex;
+  gap: 1.4rem;
+  min-width: 280px;
 }
 
 @media (max-width: 600px) {
-  .hero-mission-main-body {
-    grid-template-columns: 1fr;
+  .hero-bar-right {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.8rem;
   }
 }
 
-.hero-day-lbl {
-  font-size: 0.72rem;
+.hero-progress-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.hp-label-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.65rem;
   font-weight: 800;
   color: var(--text-secondary);
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+  letter-spacing: 0.5px;
 }
 
-.hero-mission-title {
-  font-size: 1.8rem;
-  font-weight: 900;
+.hp-label-row strong {
   color: var(--text-white);
-  letter-spacing: -0.5px;
-  margin-bottom: 0.6rem;
-  line-height: 1.1;
-}
-
-.hero-mission-metrics {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
   font-feature-settings: "tnum";
 }
 
-.h-metric {
-  display: flex;
-  flex-direction: column;
-}
-
-.h-metric .h-val {
-  font-size: 1.5rem;
-  font-weight: 900;
-  line-height: 1;
-}
-
-.h-metric .h-lbl {
-  font-size: 0.58rem;
-  font-weight: 800;
-  color: var(--text-secondary);
-  margin-top: 0.15rem;
-}
-
-.h-sep {
-  opacity: 0.3;
-  font-weight: 300;
-  font-size: 1.2rem;
-}
-
-.hero-preview-box {
-  background: rgba(0, 0, 0, 0.4);
-  border: 1px solid var(--border-card);
-  border-radius: 14px;
-  padding: 0.9rem;
-}
-
-.prev-title {
-  font-size: 0.62rem;
-  font-weight: 900;
-  color: var(--apple-cyan);
-  letter-spacing: 0.8px;
-  display: block;
-  margin-bottom: 0.4rem;
-}
-
-.prev-list {
-  padding-left: 1rem;
-  font-size: 0.76rem;
-  color: var(--text-secondary);
-  line-height: 1.45;
-  margin-bottom: 0.8rem;
-}
-
-.prev-list strong {
-  color: var(--text-white);
-}
-
-.btn-hero-cta {
+.hp-track {
   width: 100%;
-  background: var(--apple-orange);
-  color: #000000;
-  font-family: inherit;
-  font-size: 0.78rem;
-  font-weight: 900;
-  padding: 0.55rem 0.9rem;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: var(--transition);
-}
-
-.btn-hero-cta:hover {
-  background: var(--apple-yellow);
-  transform: translateY(-1px);
-}
-
-/* WEEKLY MISSION PROGRESS BARS */
-.weekly-mission-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-card);
-  border-radius: 20px;
-  padding: 1.3rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.wm-card-title {
-  font-size: 0.72rem;
-  font-weight: 900;
-  color: var(--text-secondary);
-  letter-spacing: 0.8px;
-  margin-bottom: 0.8rem;
-  display: block;
-}
-
-.wm-bar-group {
-  margin-bottom: 0.85rem;
-}
-
-.wm-bar-group:last-child {
-  margin-bottom: 0;
-}
-
-.wm-bar-header {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.72rem;
-  font-weight: 800;
-  margin-bottom: 0.3rem;
-}
-
-.wm-lbl { color: var(--text-secondary); }
-.wm-val { color: var(--text-white); font-feature-settings: "tnum"; }
-
-.wm-track {
-  width: 100%;
-  height: 8px;
+  height: 6px;
   background: rgba(255, 255, 255, 0.08);
   border-radius: 999px;
   overflow: hidden;
-  margin-bottom: 0.25rem;
 }
 
-.wm-fill {
+.hp-fill {
   height: 100%;
   border-radius: 999px;
   transition: width 0.4s ease;
@@ -498,49 +243,48 @@ body.nike-pro-theme {
 
 .fill-green { background: var(--apple-green); }
 .fill-orange { background: var(--apple-orange); }
-.fill-cyan { background: var(--apple-cyan); }
 
-.wm-sub {
-  font-size: 0.65rem;
-  color: var(--text-muted);
-  font-weight: 600;
-  display: block;
-}
-
-/* SCHEDULE SECTION WITH ARROWS */
+/* SCHEDULE SECTION */
 .schedule-section {
-  margin-bottom: 2.2rem;
+  margin-bottom: 1.8rem;
 }
 
 .section-title-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1.1rem;
+  margin-bottom: 0.9rem;
 }
 
 .title-with-arrows {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
+  gap: 0.75rem;
 }
 
 .schedule-title-clickable {
   cursor: pointer;
   transition: var(--transition);
   user-select: none;
+  font-size: 1.25rem;
+  font-weight: 900;
 }
 
 .schedule-title-clickable:hover {
   color: var(--apple-green);
 }
 
+.kw-title-inline {
+  color: var(--text-secondary);
+  margin-left: 0.35rem;
+}
+
 .btn-nav-circle {
   background: var(--bg-card);
   border: 1px solid var(--border-card);
   border-radius: 50%;
-  width: 42px;
-  height: 42px;
+  width: 36px;
+  height: 36px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -550,29 +294,40 @@ body.nike-pro-theme {
 }
 
 .btn-nav-circle:hover:not(:disabled) {
-  background: rgba(255, 255, 255, 0.1);
   border-color: var(--apple-green);
   color: var(--apple-green);
 }
 
 .btn-nav-circle:disabled {
-  opacity: 0.22;
+  opacity: 0.2;
   cursor: not-allowed;
 }
 
 .schedule-row {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 0.85rem;
+  gap: 0.75rem;
 }
 
-/* DYNAMIC DAY CARD SIZING (70% / 20% / 10%) */
+@media (max-width: 900px) {
+  .schedule-row {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .schedule-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* DAY CARD SWISS TYPOGRAPHY (UNCLUTTERED) */
 .apple-day-card {
   background: var(--bg-card);
   border: 1px solid var(--border-card);
-  border-radius: 18px;
-  padding: 1.1rem 0.85rem;
-  min-height: 168px;
+  border-radius: var(--radius-card);
+  padding: 1rem 0.85rem;
+  min-height: 155px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -582,40 +337,29 @@ body.nike-pro-theme {
 }
 
 .apple-day-card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
   border-color: rgba(255, 255, 255, 0.2);
+  background: var(--bg-card-hover);
 }
 
-/* HEUTE NOTIFICATION CARD HIGHLIGHT */
 .apple-day-card.card-today {
-  border: 2px solid var(--apple-cyan) !important;
-  background: linear-gradient(135deg, rgba(100, 210, 255, 0.15), rgba(22, 22, 30, 0.95)) !important;
-  box-shadow: 0 0 20px rgba(100, 210, 255, 0.25) !important;
+  border: 1.5px solid var(--apple-cyan) !important;
+  box-shadow: 0 0 12px rgba(100, 210, 255, 0.2);
 }
 
-.today-notification-pill {
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--apple-cyan);
-  color: #000000;
-  font-size: 0.6rem;
-  font-weight: 900;
-  padding: 0.15rem 0.55rem;
-  border-radius: 999px;
-  letter-spacing: 0.6px;
-  box-shadow: 0 4px 10px rgba(100, 210, 255, 0.4);
+.apple-day-card.card-race {
+  border: 1.5px solid var(--apple-orange) !important;
+  background: rgba(255, 159, 10, 0.12) !important;
 }
 
-/* 70% LONGRUN CARD / 20% WORKOUT / 10% REST */
-.apple-day-card.card-longrun-hero {
-  border: 1.5px solid var(--apple-orange);
-  background: linear-gradient(135deg, rgba(255, 159, 10, 0.2), rgba(22, 22, 30, 0.95));
+.apple-day-card.card-test-race {
+  border: 1.5px solid var(--apple-cyan) !important;
+  background: rgba(100, 210, 255, 0.1) !important;
 }
 
-.apple-day-card.card-rest-muted {
-  opacity: 0.65;
+.apple-day-card.card-key-workout {
+  border: 1.5px solid var(--apple-yellow) !important;
+  background: rgba(255, 214, 10, 0.08) !important;
 }
 
 .apple-day-card.card-completed {
@@ -627,15 +371,20 @@ body.nike-pro-theme {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 800;
   color: var(--text-secondary);
+}
+
+.day-header .date-num {
+  color: var(--text-white);
+  font-feature-settings: "tnum";
 }
 
 .hero-val-wrap {
   display: flex;
   align-items: baseline;
-  gap: 0.25rem;
+  gap: 0.2rem;
   margin: 0.2rem 0;
 }
 
@@ -648,22 +397,23 @@ body.nike-pro-theme {
 }
 
 .hero-unit {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 800;
   color: var(--text-secondary);
 }
 
 .hero-rest-txt {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   font-weight: 900;
   color: var(--text-secondary);
 }
 
 .hero-sub-micro {
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   font-weight: 700;
   color: var(--text-secondary);
   font-feature-settings: "tnum";
+  white-space: nowrap;
 }
 
 .day-footer-row {
@@ -706,8 +456,8 @@ body.nike-pro-theme {
 }
 
 .status-dot {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.2);
 }
@@ -721,7 +471,7 @@ body.nike-pro-theme {
 .bottom-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.4rem;
+  gap: 1.2rem;
   margin-bottom: 1.5rem;
 }
 
@@ -729,122 +479,88 @@ body.nike-pro-theme {
   .bottom-grid { grid-template-columns: 1fr; }
 }
 
-.phase-card {
-  display: flex;
-  flex-direction: column;
+.clean-card {
   background: var(--bg-card);
   border: 1px solid var(--border-card);
-  border-radius: 18px;
-  padding: 1.3rem;
+  border-radius: var(--radius-card);
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.phase-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
 }
 
 .phase-badge-pill {
-  align-self: flex-start;
   font-size: 0.65rem;
   font-weight: 800;
   color: var(--apple-green);
   background: rgba(48, 209, 88, 0.12);
   padding: 0.2rem 0.6rem;
-  border-radius: 8px;
-  margin-bottom: 0.6rem;
-}
-
-.phase-name {
-  font-size: 1.3rem;
-  font-weight: 900;
-  margin-bottom: 0.1rem;
+  border-radius: 6px;
 }
 
 .phase-dates {
-  font-size: 0.8rem;
+  font-size: 0.76rem;
   color: var(--text-secondary);
   font-weight: 600;
-  margin-bottom: 0.8rem;
 }
 
-.phase-scannable-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.6rem;
-  margin-bottom: 1rem;
-  background: rgba(0, 0, 0, 0.35);
-  border: 1px solid var(--border-subtle);
-  border-radius: 12px;
-  padding: 0.8rem;
-}
-
-.ps-item {
-  display: flex;
-  flex-direction: column;
-}
-
-.ps-lbl {
-  font-size: 0.58rem;
+.phase-name {
+  font-size: 1.2rem;
   font-weight: 900;
-  color: var(--text-secondary);
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.3rem;
 }
 
-.ps-val {
-  font-size: 0.78rem;
-  font-weight: 800;
-  color: var(--text-white);
-  line-height: 1.3;
+.phase-desc {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
 }
 
 .checkpoint-banner {
-  margin-top: auto;
-  background: rgba(0, 0, 0, 0.4);
+  margin-top: 0.8rem;
+  background: rgba(0, 0, 0, 0.35);
   border: 1px solid var(--border-card);
-  border-radius: 14px;
-  padding: 0.9rem 1.1rem;
+  border-radius: 12px;
+  padding: 0.8rem 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .cp-label {
-  font-size: 0.6rem;
+  font-size: 0.58rem;
   font-weight: 800;
   color: var(--text-secondary);
   display: block;
 }
 
 .cp-name {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 800;
   display: block;
 }
 
 .cp-meta {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   color: var(--text-secondary);
 }
 
 .corridor-value {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 900;
   color: var(--apple-green);
-  text-align: right;
   font-feature-settings: "tnum";
 }
 
-.corridor-lbl {
-  font-size: 0.6rem;
-  color: var(--text-secondary);
-  text-align: right;
-  font-weight: 700;
-}
-
-/* ACTIVITY CARD (COLLAPSIBLE) */
+/* ACTIVITY CARD */
 .activity-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-card);
-  border-radius: 18px;
-  padding: 1.3rem;
-  display: flex;
-  flex-direction: column;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: var(--transition);
 }
 
 .act-header {
@@ -855,18 +571,19 @@ body.nike-pro-theme {
   user-select: none;
 }
 
-.activity-card.collapsed .act-header {
-  margin-bottom: 0;
-}
-
 .act-header-left {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.6rem;
+}
+
+.act-title {
+  font-size: 0.88rem;
+  font-weight: 800;
 }
 
 .act-summary-micro {
-  font-size: 0.76rem;
+  font-size: 0.75rem;
   font-weight: 700;
   color: var(--text-secondary);
   font-feature-settings: "tnum";
@@ -880,7 +597,7 @@ body.nike-pro-theme {
 .collapse-chevron {
   font-size: 0.68rem;
   color: var(--text-secondary);
-  transition: transform 0.3s ease;
+  transition: transform 0.2s ease;
   margin-left: 0.35rem;
 }
 
@@ -895,12 +612,7 @@ body.nike-pro-theme {
 .act-header-right {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-}
-
-.act-title {
-  font-size: 0.9rem;
-  font-weight: 800;
+  gap: 0.6rem;
 }
 
 .act-tag {
@@ -912,20 +624,20 @@ body.nike-pro-theme {
 .act-metrics {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 0.6rem;
-  margin: 0.9rem 0;
+  gap: 0.5rem;
+  margin: 0.8rem 0;
 }
 
 .act-box {
   background: rgba(0, 0, 0, 0.35);
   border: 1px solid var(--border-subtle);
-  border-radius: 12px;
-  padding: 0.65rem 0.4rem;
+  border-radius: 10px;
+  padding: 0.6rem 0.4rem;
   text-align: center;
 }
 
 .act-box .val {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   font-weight: 900;
   font-feature-settings: "tnum";
   display: block;
@@ -938,27 +650,27 @@ body.nike-pro-theme {
 }
 
 .act-notes {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: var(--text-secondary);
-  margin-bottom: 0.9rem;
+  margin-bottom: 0.8rem;
 }
 
 .action-buttons-row {
   display: flex;
-  gap: 0.6rem;
+  gap: 0.5rem;
 }
 
 .btn {
   font-family: inherit;
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   font-weight: 800;
-  padding: 0.5rem 0.9rem;
+  padding: 0.45rem 0.85rem;
   border-radius: var(--radius-pill);
   border: none;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.35rem;
   transition: var(--transition);
 }
 
@@ -979,7 +691,7 @@ body.nike-pro-theme {
   border: 1px solid rgba(255, 69, 58, 0.25);
   font-size: 0.68rem;
   font-weight: 700;
-  padding: 0.2rem 0.55rem;
+  padding: 0.2rem 0.5rem;
   border-radius: 6px;
   cursor: pointer;
 }
@@ -992,7 +704,7 @@ body.nike-pro-theme {
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(16px);
+  backdrop-filter: blur(12px);
   z-index: 999;
   display: flex;
   align-items: center;
@@ -1003,7 +715,7 @@ body.nike-pro-theme {
 .modal-card {
   background: #12121A;
   border: 1px solid var(--border-card);
-  border-radius: 24px;
+  border-radius: 20px;
   width: 100%;
   max-width: 520px;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
@@ -1011,11 +723,11 @@ body.nike-pro-theme {
 }
 
 .modal-card-wide {
-  max-width: 820px;
+  max-width: 780px;
 }
 
 .modal-header {
-  padding: 1.3rem 1.5rem;
+  padding: 1.1rem 1.4rem;
   border-bottom: 1px solid var(--border-subtle);
   display: flex;
   justify-content: space-between;
@@ -1032,15 +744,15 @@ body.nike-pro-theme {
   background: rgba(255, 255, 255, 0.08);
   border: none;
   color: var(--text-white);
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   font-size: 1rem;
   cursor: pointer;
 }
 
 .modal-body {
-  padding: 1.5rem;
+  padding: 1.4rem;
   max-height: 80vh;
   overflow-y: auto;
 }
@@ -1049,10 +761,10 @@ body.nike-pro-theme {
   background: rgba(0, 0, 0, 0.4);
   border: 1px solid var(--border-card);
   color: var(--text-white);
-  padding: 0.6rem 0.8rem;
+  padding: 0.55rem 0.75rem;
   border-radius: 8px;
   font-family: inherit;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
 }
 
 .hidden {
