@@ -1157,7 +1157,8 @@ function renderScheduleRow(kw) {
     const isMajorRaceOrTestDay = d.dist >= 15 || d.day === 'SON';
     const isToday = isCurrentActiveKw && d.day === realTodayDayName;
     const isKtDay = (!d.dist || d.dist === 0) && (tagLower.includes('stabi') || tagLower.includes('kt') || tagLower.includes('kraft'));
-    const isRestDay = (!d.dist || d.dist === 0) && !isKtDay;
+    const isRaveDay = (!d.dist || d.dist === 0) && (tagLower.includes('rave') || tagLower.includes('tanz') || tagLower.includes('amsterdam') || tagLower.includes('event'));
+    const isRestDay = (!d.dist || d.dist === 0) && !isKtDay && !isRaveDay;
 
     if (isToday) {
       specialCardClass += ' card-today';
@@ -1187,6 +1188,9 @@ function renderScheduleRow(kw) {
     } else if (isKtDay) {
       displayTagTxt = 'Kraft';
       pillExtraClass = 'pill-kraft';
+    } else if (isRaveDay) {
+      displayTagTxt = 'Tanz-Event';
+      pillExtraClass = 'pill-ersatz';
     } else if (d.dist > 0) {
       displayTagTxt = d.tag || 'Grundlage';
     } else if (isRestDay) {
@@ -1262,9 +1266,9 @@ function renderScheduleRow(kw) {
         `;
         subMicroHtml = `<span style="color: var(--apple-green); font-weight: 800;">${d.hm > 0 ? d.hm + ' Hm · ' : ''}${estDur}</span>`;
       }
-    } else if (tagLower.includes('rave')) {
-      heroHtml = `<div class="hero-val-wrap"><span class="hero-rest-txt" style="color: #FF9F0A; font-weight: 900;">RAVE Tanzen</span></div>`;
-      subMicroHtml = `<span style="color: #FF9F0A; font-weight: 800;">5–7 Std.</span>`;
+    } else if (isRaveDay || tagLower.includes('rave') || tagLower.includes('tanz') || tagLower.includes('amsterdam')) {
+      heroHtml = `<div class="hero-val-wrap"><span class="hero-rest-txt" style="color: #FF9F0A; font-weight: 900;">Tanz-Event</span></div>`;
+      subMicroHtml = `<span style="color: #FF9F0A; font-weight: 800;">2 Std.</span>`;
     } else if (isRestDay) {
       heroHtml = `<div class="hero-val-wrap"><span class="hero-rest-txt">CHILL</span></div>`;
       subMicroHtml = `<span style="color: var(--text-secondary); font-weight: 700;">Übungen</span>`;
