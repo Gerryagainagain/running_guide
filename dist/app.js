@@ -703,11 +703,11 @@ const appleScheduleData = {
   ],
   34: [
     { day: 'MON', date: '17.08', tag: 'Regeneration', dist: 0, hm: 0, done: false },
-    { day: 'DIE', date: '18.08', tag: 'Rampen Ddorf', dist: 9.0, hm: 120, done: false },
+    { day: 'DIE', date: '18.08', tag: 'Rampen Ddorf', dist: 9.0, hm: 120, done: true },
     { day: 'MIT', date: '19.08', tag: 'Regeneration', dist: 0, hm: 0, done: false },
-    { day: 'DON', date: '20.08', tag: 'Locker Rhein', dist: 7.0, hm: 0, done: false },
+    { day: 'DON', date: '20.08', tag: 'Locker Rhein', dist: 7.2, hm: 17, done: true },
     { day: 'FRE', date: '21.08', tag: 'Höhenmeter-Trail Erkrath', dist: 12.0, hm: 400, done: false },
-    { day: 'SAM', date: '22.08', tag: 'Amsterdam Trip', dist: 0, hm: 0, done: false },
+    { day: 'SAM', date: '22.08', tag: 'Amsterdam Rave (2 Std)', dist: 0, hm: 0, done: false },
     { day: 'SON', date: '23.08', tag: 'Lockerer Abendlauf Ddorf', dist: 8.0, hm: 0, done: false }
   ],
   35: [
