@@ -2215,3 +2215,40 @@ function saveOcrRun() {
   closeScreenshotModal();
   renderDashboard();
 }
+
+/* ==========================================================================
+   AUTH GATE FUNCTIONS (PASSWORD PROTECTION)
+   ========================================================================== */
+const SITE_AUTH_PASSWORD = 'drachenlauf2026';
+
+function checkSiteAuth() {
+  const isAuth = sessionStorage.getItem('drachenlauf_authenticated');
+  const modal = document.getElementById('authGateModal');
+  if (isAuth === 'true') {
+    if (modal) modal.classList.add('unlocked');
+  } else {
+    if (modal) modal.classList.remove('unlocked');
+  }
+}
+
+function verifyAuthPassword(e) {
+  if (e) e.preventDefault();
+  const input = document.getElementById('authPasswordInput');
+  const err = document.getElementById('authGateError');
+  if (!input) return;
+
+  if (input.value.trim() === SITE_AUTH_PASSWORD) {
+    sessionStorage.setItem('drachenlauf_authenticated', 'true');
+    const modal = document.getElementById('authGateModal');
+    if (modal) modal.classList.add('unlocked');
+    if (err) err.classList.add('hidden');
+  } else {
+    if (err) err.classList.remove('hidden');
+    input.value = '';
+    input.focus();
+  }
+}
+
+document.addEventListener('DOMContentLoaded', checkSiteAuth);
+checkSiteAuth();
+

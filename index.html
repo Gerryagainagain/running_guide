@@ -433,7 +433,21 @@
     </div>
   </div>
 
+  <!-- FULLSCREEN AUTH GATE MODAL (PASSWORD PROTECTED) -->
+  <div class="auth-gate-backdrop" id="authGateModal">
+    <div class="auth-gate-card">
+      <div class="auth-gate-icon">🔒</div>
+      <h2>Drachenlauf 2026</h2>
+      <p>Geschützter Trainingsbereich. Bitte Passwort eingeben:</p>
+      <form onsubmit="verifyAuthPassword(event)" style="width: 100%;">
+        <input type="password" id="authPasswordInput" class="input-dark input-full" placeholder="Passwort eingeben..." autofocus required style="text-align: center; font-size: 1.1rem; letter-spacing: 2px;">
+        <div id="authGateError" class="auth-error-msg hidden">Falsches Passwort! Bitte erneut versuchen.</div>
+        <button type="submit" class="btn btn-pill-green btn-full-width" style="margin-top: 1.2rem; width: 100%;">Zugang Freischalten</button>
+      </form>
+    </div>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
-  <script src="app.js?v=2.4"></script>
+  <script src="app.js?v=2.5"></script>
 </body>
 </html>

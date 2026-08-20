@@ -2100,3 +2100,54 @@ body, body.clean-theme {
   justify-content: center;
   font-size: 0.85rem;
 }
+
+/* ==========================================================================
+   AUTH GATE MODAL (PASSWORD PROTECTED)
+   ========================================================================== */
+.auth-gate-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(0, 0, 0, 0.94);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+.auth-gate-backdrop.unlocked {
+  display: none !important;
+}
+.auth-gate-card {
+  background: rgba(25, 25, 27, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 22px;
+  padding: 2.5rem 2rem;
+  max-width: 380px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
+}
+.auth-gate-icon {
+  font-size: 2.8rem;
+  margin-bottom: 0.8rem;
+}
+.auth-gate-card h2 {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--text-white, #FFFFFF);
+  margin-bottom: 0.4rem;
+}
+.auth-gate-card p {
+  font-size: 0.88rem;
+  color: var(--text-secondary, #8E8E93);
+  margin-bottom: 1.2rem;
+}
+.auth-error-msg {
+  color: #FF3B30;
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-top: 0.8rem;
+}
+
