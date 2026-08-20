@@ -2246,7 +2246,7 @@ function verifyAuthPassword(e) {
   } else {
     if (err) err.classList.remove('hidden');
     input.value = '';
-    input.placeholder = 'Go again.';
+    input.placeholder = '';
     input.focus();
   }
 }
