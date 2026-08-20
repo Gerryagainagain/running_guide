@@ -2102,52 +2102,154 @@ body, body.clean-theme {
 }
 
 /* ==========================================================================
-   AUTH GATE MODAL (PASSWORD PROTECTED)
+   AUTH GATE MODAL (APPLE HIG DESIGN STANDARD)
    ========================================================================== */
 .auth-gate-backdrop {
   position: fixed;
   inset: 0;
   z-index: 99999;
-  background: rgba(0, 0, 0, 0.94);
-  backdrop-filter: blur(30px);
-  -webkit-backdrop-filter: blur(30px);
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s;
 }
+
 .auth-gate-backdrop.unlocked {
-  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
 }
+
 .auth-gate-card {
-  background: rgba(25, 25, 27, 0.95);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 22px;
-  padding: 2.5rem 2rem;
-  max-width: 380px;
+  background: rgba(30, 30, 32, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 24px;
+  padding: 2.5rem 2rem 2.2rem 2rem;
+  max-width: 360px;
   width: 100%;
   text-align: center;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.75), 0 0 1px rgba(255, 255, 255, 0.2) inset;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.auth-gate-icon {
-  font-size: 2.8rem;
-  margin-bottom: 0.8rem;
-}
-.auth-gate-card h2 {
-  font-size: 1.5rem;
-  font-weight: 900;
-  color: var(--text-white, #FFFFFF);
-  margin-bottom: 0.4rem;
-}
-.auth-gate-card p {
-  font-size: 0.88rem;
-  color: var(--text-secondary, #8E8E93);
+
+.auth-gate-badge {
+  width: 58px;
+  height: 58px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(48, 209, 88, 0.2), rgba(10, 132, 255, 0.15));
+  border: 1px solid rgba(48, 209, 88, 0.35);
+  color: var(--apple-green, #30D158);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 1.2rem;
+  box-shadow: 0 8px 24px rgba(48, 209, 88, 0.15);
 }
+
+.auth-gate-micro {
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--apple-green, #30D158);
+  margin-bottom: 0.3rem;
+}
+
+.auth-gate-title {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 0.4rem;
+  letter-spacing: -0.02em;
+}
+
+.auth-gate-sub {
+  font-size: 0.85rem;
+  color: rgba(235, 235, 245, 0.6);
+  line-height: 1.4;
+  margin-bottom: 1.5rem;
+  max-width: 280px;
+}
+
+.auth-gate-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.auth-input-wrapper {
+  width: 100%;
+}
+
+.auth-input-hig {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 14px;
+  padding: 0.85rem 1rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  text-align: center;
+  letter-spacing: 3px;
+  outline: none;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.auth-input-hig:focus {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--apple-green, #30D158);
+  box-shadow: 0 0 0 3px rgba(48, 209, 88, 0.25);
+}
+
 .auth-error-msg {
-  color: #FF3B30;
-  font-size: 0.82rem;
+  background: rgba(255, 69, 58, 0.15);
+  border: 1px solid rgba(255, 69, 58, 0.3);
+  color: #FF453A;
+  font-size: 0.8rem;
   font-weight: 700;
-  margin-top: 0.8rem;
+  padding: 0.55rem 0.8rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
 }
+
+.btn-auth-submit-hig {
+  width: 100%;
+  background: var(--apple-green, #30D158);
+  color: #000000;
+  font-size: 0.95rem;
+  font-weight: 800;
+  padding: 0.85rem 1.2rem;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(48, 209, 88, 0.3);
+}
+
+.btn-auth-submit-hig:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(48, 209, 88, 0.4);
+}
+
+.btn-auth-submit-hig:active {
+  transform: scale(0.98);
+}
+
 
