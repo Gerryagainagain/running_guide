@@ -2219,7 +2219,7 @@ function saveOcrRun() {
 /* ==========================================================================
    AUTH GATE FUNCTIONS (PASSWORD PROTECTION)
    ========================================================================== */
-const SITE_AUTH_PASSWORD = 'Achilles';
+const VALID_SITE_PASSWORDS = ['achilles', 'achillessehne'];
 
 function checkSiteAuth() {
   const isAuth = sessionStorage.getItem('drachenlauf_authenticated');
@@ -2237,7 +2237,8 @@ function verifyAuthPassword(e) {
   const err = document.getElementById('authGateError');
   if (!input) return;
 
-  if (input.value.trim().toLowerCase() === SITE_AUTH_PASSWORD.toLowerCase()) {
+  const val = input.value.trim().toLowerCase();
+  if (VALID_SITE_PASSWORDS.includes(val)) {
     sessionStorage.setItem('drachenlauf_authenticated', 'true');
     const modal = document.getElementById('authGateModal');
     if (modal) modal.classList.add('unlocked');
@@ -2245,6 +2246,7 @@ function verifyAuthPassword(e) {
   } else {
     if (err) err.classList.remove('hidden');
     input.value = '';
+    input.placeholder = 'Go again.';
     input.focus();
   }
 }
