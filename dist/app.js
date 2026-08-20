@@ -2219,7 +2219,7 @@ function saveOcrRun() {
 /* ==========================================================================
    AUTH GATE FUNCTIONS (PASSWORD PROTECTION)
    ========================================================================== */
-const SITE_AUTH_PASSWORD = 'okok';
+const SITE_AUTH_PASSWORD = 'Achilles';
 
 function checkSiteAuth() {
   const isAuth = sessionStorage.getItem('drachenlauf_authenticated');
