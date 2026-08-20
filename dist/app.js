@@ -86,6 +86,21 @@ const kwMap = {
 const defaultInitialRuns = [
   // KW 34
   {
+    id: 1787152000002,
+    kw: 34,
+    date: '20.08.2026',
+    dayDate: '20.08',
+    dist: 7.2,
+    hm: 17,
+    duration: '00:53:00',
+    hr: 117,
+    pace: '7:21',
+    type: 'laufen',
+    isErsatz: false,
+    tag: 'Locker Rhein',
+    notes: 'Lockerer Lauf am Rhein (7.2 km / 17 Hm)'
+  },
+  {
     id: 1787152000001,
     kw: 34,
     date: '18.08.2026',
