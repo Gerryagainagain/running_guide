@@ -71,7 +71,7 @@ const kwMap = {
   31: { phase: 1, travel: 'KW 31 · Vorbereitung Erkrath (380 Hm)' },
   32: { phase: 1, travel: 'KW 32 · London (Abfahrt Di Abend)' },
   33: { phase: 1, travel: 'KW 33 · Jurassic Coast (Rückreise Mi) & Longrun Erkrath (456 Hm)' },
-  34: { phase: 2, travel: 'KW 34 · Fr 400 Hm Erkrath & Amsterdam Trip' },
+  34: { phase: 2, travel: 'KW 34 · Fr 400 Hm Erkrath & Amsterdam Tanz-Event (2 Std)' },
   35: { phase: 2, travel: 'KW 35 · Siebengebirge (800 Hm)' },
   36: { phase: 2, travel: 'KW 36 · Siebengebirge (950 Hm)' },
   37: { phase: 3, travel: 'KW 37 · Côte d’Opal Trail (Abfahrt Do Nachmittag)' },
@@ -707,7 +707,7 @@ const appleScheduleData = {
     { day: 'MIT', date: '19.08', tag: 'Regeneration', dist: 0, hm: 0, done: false },
     { day: 'DON', date: '20.08', tag: 'Locker Rhein', dist: 7.2, hm: 17, done: true },
     { day: 'FRE', date: '21.08', tag: 'Höhenmeter-Trail Erkrath', dist: 12.0, hm: 400, done: false },
-    { day: 'SAM', date: '22.08', tag: 'Amsterdam Rave (2 Std)', dist: 0, hm: 0, done: false },
+    { day: 'SAM', date: '22.08', tag: 'Amsterdam Tanz-Event (2 Std)', dist: 0, hm: 0, done: false },
     { day: 'SON', date: '23.08', tag: 'Lockerer Abendlauf Ddorf', dist: 8.0, hm: 0, done: false }
   ],
   35: [
