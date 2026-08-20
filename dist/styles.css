@@ -1013,9 +1013,14 @@ body, body.clean-theme {
   background: linear-gradient(135deg, rgba(100, 210, 255, 0.08), var(--color-background-card, rgba(22, 22, 30, 0.85))) !important;
 }
 
-.apple-day-card.card-today .hero-val,
-.apple-day-card.card-today .hero-unit {
+.apple-day-card.card-today:not(.card-completed) .hero-val,
+.apple-day-card.card-today:not(.card-completed) .hero-unit {
   color: var(--color-brand-cyan, #64D2FF) !important;
+}
+
+.apple-day-card.card-completed .hero-val,
+.apple-day-card.card-completed .hero-unit {
+  color: var(--apple-green, #30D158) !important;
 }
 
 .badge-today-blue {
