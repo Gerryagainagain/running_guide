@@ -2237,7 +2237,7 @@ function verifyAuthPassword(e) {
   const err = document.getElementById('authGateError');
   if (!input) return;
 
-  if (input.value.trim() === SITE_AUTH_PASSWORD) {
+  if (input.value.trim().toLowerCase() === SITE_AUTH_PASSWORD.toLowerCase()) {
     sessionStorage.setItem('drachenlauf_authenticated', 'true');
     const modal = document.getElementById('authGateModal');
     if (modal) modal.classList.add('unlocked');
