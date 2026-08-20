@@ -1,4 +1,4 @@
-// Gerrys Trailcoach: Auf zum Drachen! (App Logic)
+// Gerrys Personal Trail Coach: Auf zum Drachen! (App Logic)
 
 let selectedKw = 31;
 
@@ -14,7 +14,7 @@ const phaseData = {
     targetLongDist: 16,
     targetLongHm: 600,
     cpName: 'Côte d’Opal Trail (Test 1)',
-    cpMeta: '13. September // 25 km // 250 Hm'
+    cpMeta: '13. September · 25 km · 250 Hm'
   },
   2: {
     code: 'PHASE 2',
@@ -26,7 +26,7 @@ const phaseData = {
     targetLongDist: 20,
     targetLongHm: 950,
     cpName: 'Côte d’Opal Trail (Test 1)',
-    cpMeta: '13. September // 25 km // 250 Hm'
+    cpMeta: '13. September · 25 km · 250 Hm'
   },
   3: {
     code: 'PHASE 3',
@@ -38,7 +38,7 @@ const phaseData = {
     targetLongDist: 24,
     targetLongHm: 1250,
     cpName: 'Probedrachenlauf (HF-Test FIX: 27.09.)',
-    cpMeta: '27. September // 24 km // 1.250 Hm (HF 120–140 bpm)'
+    cpMeta: '27. September · 24 km · 1.250 Hm (HF 120–140 bpm)'
   },
   4: {
     code: 'PHASE 4',
@@ -50,7 +50,7 @@ const phaseData = {
     targetLongDist: 15,
     targetLongHm: 400,
     cpName: 'Drachenlauf 2026',
-    cpMeta: '25. Oktober // 26 km // 1.250 Hm'
+    cpMeta: '25. Oktober · 26 km · 1.250 Hm'
   },
   5: {
     code: 'PHASE 5',
@@ -62,40 +62,129 @@ const phaseData = {
     targetLongDist: 26,
     targetLongHm: 1250,
     cpName: 'Drachenlauf 2026 (Königswinter)',
-    cpMeta: '25. Oktober // Start 10:00 Uhr // 1.250 Hm'
+    cpMeta: '25. Oktober · Start 10:00 Uhr · 1.250 Hm'
   }
 };
 
 const kwMap = {
-  30: { phase: 1, travel: 'KW 30 // Basis Erkrath (350 Hm)' },
-  31: { phase: 1, travel: 'KW 31 // Vorbereitung Erkrath (380 Hm)' },
-  32: { phase: 1, travel: 'KW 32 // London (Abfahrt Di Abend)' },
-  33: { phase: 1, travel: 'KW 33 // Jurassic Coast (Rückreise Mi) & Siebengebirge (600 Hm)' },
-  34: { phase: 2, travel: 'KW 34 // Siebengebirge (650 Hm)' },
-  35: { phase: 2, travel: 'KW 35 // Siebengebirge (800 Hm)' },
-  36: { phase: 2, travel: 'KW 36 // Siebengebirge (950 Hm)' },
-  37: { phase: 3, travel: 'KW 37 // Côte d’Opal Trail (Abfahrt Do Nachmittag)' },
-  38: { phase: 3, travel: 'KW 38 // Normandie & Bretagne (Abfahrt Fr Morgen)' },
-  39: { phase: 3, travel: 'KW 39 // Siebengebirge PROBEDRACHEN (27.09 FIX)' },
-  40: { phase: 4, travel: 'KW 40 // Zoutelande (Fr Morgen – So Abend)' },
-  41: { phase: 4, travel: 'KW 41 // Erkrath Tapering (400 Hm)' },
-  42: { phase: 4, travel: 'KW 42 // Erkrath Tapering (300 Hm)' },
-  43: { phase: 5, travel: 'KW 43 // Königswinter Drachenlauf' }
+  30: { phase: 1, travel: 'KW 30 · Basis Erkrath (350 Hm)' },
+  31: { phase: 1, travel: 'KW 31 · Vorbereitung Erkrath (380 Hm)' },
+  32: { phase: 1, travel: 'KW 32 · London (Abfahrt Di Abend)' },
+  33: { phase: 1, travel: 'KW 33 · Jurassic Coast (Rückreise Mi) & Siebengebirge (600 Hm)' },
+  34: { phase: 2, travel: 'KW 34 · Siebengebirge (650 Hm)' },
+  35: { phase: 2, travel: 'KW 35 · Siebengebirge (800 Hm)' },
+  36: { phase: 2, travel: 'KW 36 · Siebengebirge (950 Hm)' },
+  37: { phase: 3, travel: 'KW 37 · Côte d’Opal Trail (Abfahrt Do Nachmittag)' },
+  38: { phase: 3, travel: 'KW 38 · Normandie & Bretagne (Abfahrt Fr Morgen)' },
+  39: { phase: 3, travel: 'KW 39 · Siebengebirge PROBEDRACHEN (27.09 FIX)' },
+  40: { phase: 4, travel: 'KW 40 · Zoutelande (Fr Morgen – So Abend)' },
+  41: { phase: 4, travel: 'KW 41 · Erkrath Tapering (400 Hm)' },
+  42: { phase: 4, travel: 'KW 42 · Erkrath Tapering (300 Hm)' },
+  43: { phase: 5, travel: 'KW 43 · Königswinter Drachenlauf' }
 };
 
-let runsData = JSON.parse(localStorage.getItem('drachenlauf_runs') || '[]');
+const defaultInitialRuns = [
+  // KW 31
+  {
+    id: 1722420000005,
+    kw: 31,
+    date: '30.07.2026',
+    dayDate: '30.07',
+    dist: 6.0,
+    hm: 0,
+    duration: '00:43:00',
+    hr: 124,
+    pace: '7:10',
+    tag: 'Locker Rhein',
+    notes: 'Lockerer Lauf am Rhein'
+  },
+  {
+    id: 1722420000004,
+    kw: 31,
+    date: '28.07.2026',
+    dayDate: '28.07',
+    dist: 7.0,
+    hm: 100,
+    duration: '00:52:00',
+    hr: 122,
+    pace: '7:25',
+    tag: 'Rampen Ddorf',
+    notes: 'Rampentraining Düsseldorf Oberkassel'
+  },
 
-runsData.forEach(r => {
-  if (r.dayDate === '26.07' || r.date === '26.07.2026' || r.date === '26.07') {
-    if (r.duration === '00:01:00' || r.duration === '1' || r.duration === '1 Min.') {
-      r.duration = '01:00:00';
-      if (r.dist > 0) {
-        r.pace = calculatePace(r.dist, '01:00:00');
-      }
-    }
+  // KW 30 (Alle Läufe absolviert)
+  {
+    id: 1722420000003,
+    kw: 30,
+    date: '26.07.2026',
+    dayDate: '26.07',
+    dist: 12.0,
+    hm: 350,
+    duration: '01:26:00',
+    hr: 128,
+    pace: '7:10',
+    tag: 'Longrun Erkrath',
+    notes: 'Longrun Einstieg Erkrath'
+  },
+  {
+    id: 1722420000002,
+    kw: 30,
+    date: '25.07.2026',
+    dayDate: '25.07',
+    dist: 5.0,
+    hm: 0,
+    duration: '00:35:00',
+    hr: 120,
+    pace: '7:00',
+    tag: 'Locker',
+    notes: 'Lockerer Lauf'
+  },
+  {
+    id: 1722420000001,
+    kw: 30,
+    date: '23.07.2026',
+    dayDate: '23.07',
+    dist: 6.0,
+    hm: 0,
+    duration: '00:43:00',
+    hr: 123,
+    pace: '7:10',
+    tag: 'Locker Rhein',
+    notes: 'Lockerer Lauf am Rhein'
+  },
+  {
+    id: 1722420000000,
+    kw: 30,
+    date: '21.07.2026',
+    dayDate: '21.07',
+    dist: 7.0,
+    hm: 100,
+    duration: '00:52:00',
+    hr: 130,
+    pace: '7:25',
+    tag: 'Rampen Ddorf',
+    notes: 'Rampentraining Düsseldorf Oberkassel'
   }
-});
-localStorage.setItem('drachenlauf_runs', JSON.stringify(runsData));
+];
+
+// Smart runsData initialization (preserving user localStorage inputs)
+let runsData = [];
+try {
+  const storedRuns = localStorage.getItem('drachenlauf_runs');
+  if (storedRuns) {
+    runsData = JSON.parse(storedRuns);
+  } else {
+    runsData = defaultInitialRuns;
+  }
+} catch (e) {
+  runsData = defaultInitialRuns;
+}
+
+// Explicitly remove 01.08 run if stored from testing
+runsData = runsData.filter(r => r.date !== '01.08.2026' && r.dayDate !== '01.08' && r.date !== '01.08');
+try {
+  localStorage.setItem('drachenlauf_runs', JSON.stringify(runsData));
+} catch (e) {}
 
 function getISOWeekNumber(d) {
   const date = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
@@ -198,30 +287,22 @@ function navigateKw(delta) {
   }
 }
 
-// MALTODEXTRIN RECHNER: STRIKT GANZZAHLIGE SOFTFLASKS (1, 2, 3, 4 FLASKS) @ 60G PRO 500ML FLASK
 function getMaltoNutritionPlan(durationMin) {
   if (!durationMin || durationMin <= 45) {
     return '1 Softflask Wasser (ohne Carbs)';
   }
   const hours = durationMin / 60.0;
-  let flasks = Math.max(1, Math.round(hours)); // Strikt ganzzahlig: 1, 2, 3, 4 Softflasks
-
+  let flasks = Math.max(1, Math.round(hours));
   const maltoGrams = flasks * 60;
   const flaskStr = flasks === 1 ? '1 Softflask' : `${flasks} Softflasks`;
-  
-  return `${flaskStr} // ${maltoGrams} g Maltodextrin`;
+  return `${flaskStr} · ${maltoGrams} g Maltodextrin`;
 }
 
-// EXAKTE PACING-KALIBRIERUNG AUF BASIS DER ATHLETEN-HISTORIE (SUMMARY 1. HALBJAHR 2026 & TRAINIG VORPLANGROB)
-// Baseline: GA1 Low-HR (HF 113-125 bpm, Chouffe 18,2k 549Hm @ 2:47:37 h, Erkrath 15k 551Hm @ 2:37:51 h)
 function getEmpiricalUserPaceProfile() {
   const validRuns = runsData.filter(r => r.dist && r.dist > 0 && r.duration);
 
   if (validRuns.length === 0) {
-    return {
-      flatPaceMin: 7.20, // GA1 Flach-Pace Athlet
-      elevCostPer10m: 0.67 // Hm-Zuschlag exakt abgestimmt auf Chouffe & Vorplan
-    };
+    return { flatPaceMin: 7.20, elevCostPer10m: 0.67 };
   }
 
   let totalFlatSecs = 0;
@@ -240,7 +321,6 @@ function getEmpiricalUserPaceProfile() {
     }
 
     if (durSecs <= 0) return;
-
     const hm = r.hm || 0;
     const hmDensity = hm / r.dist;
 
@@ -283,28 +363,15 @@ function getEmpiricalUserPaceProfile() {
   };
 }
 
-function getRollingAvgPaceMin() {
-  const profile = getEmpiricalUserPaceProfile();
-  return profile.flatPaceMin;
-}
-
 function getEstimatedDurationMinutes(distKm, hm = 0, tag = '') {
   if (!distKm || distKm <= 0) return 0;
   const tagLower = (tag || '').toLowerCase();
 
-  // Exakte Zeitvorgaben aus trainig vorplangrob.numbers (Nur für die eigentlichen Haupt-Testrennen / Wettkämpfe)
-  if (tagLower.includes('drachenlauf') && !tagLower.includes('probedrachen') && distKm >= 20) {
-    return 255; // 4:15 h Wettkampfziel
-  }
-  if (tagLower.includes('probedrachen') && distKm >= 20) {
-    return 257; // 4:17 h Peak Test
-  }
-  if (tagLower.includes('opal') && distKm >= 20) {
-    return 175; // 2:55 h Opal Trail Test 1
-  }
+  if (tagLower.includes('drachenlauf') && !tagLower.includes('probedrachen') && distKm >= 20) return 255;
+  if (tagLower.includes('probedrachen') && distKm >= 20) return 257;
+  if (tagLower.includes('opal') && distKm >= 20) return 175;
 
   const profile = getEmpiricalUserPaceProfile();
-
   let intensityFactor = 1.00;
   if (tagLower.includes('fahrtspiel') || tagLower.includes('rampen') || tagLower.includes('berg')) {
     intensityFactor = 0.90;
@@ -312,92 +379,72 @@ function getEstimatedDurationMinutes(distKm, hm = 0, tag = '') {
 
   const effectiveFlatPaceMin = profile.flatPaceMin * intensityFactor;
   const elevTaxMin = (hm / 10) * profile.elevCostPer10m;
-
   return Math.round((distKm * effectiveFlatPaceMin) + elevTaxMin);
 }
 
-function formatWorkoutDuration(distKm, hm = 0, tag = '') {
-  if (!distKm || distKm <= 0) return 'Ruhetag';
-  const totalMin = getEstimatedDurationMinutes(distKm, hm, tag);
-  const hrs = Math.floor(totalMin / 60);
-  const mins = totalMin % 60;
+function formatWorkoutDuration(dist, hm, tag) {
+  if (!dist || dist === 0) return "30 Min";
+  let totalMinutes = Math.round(dist * 6.5 + (hm / 100) * 8);
+  return formatTimeNice(totalMinutes);
+}
 
-  if (hrs > 0) {
-    return `${hrs}:${mins < 10 ? '0' : ''}${mins} Std.`;
+function formatTimeNice(mins) {
+  if (!mins || isNaN(mins) || mins <= 0) return "";
+  mins = Math.round(mins);
+  if (mins < 60) return mins + " Min";
+  const hrs = Math.floor(mins / 60);
+  const rem = mins % 60;
+  if (rem === 0) return hrs + " Std";
+  return hrs + " Std " + rem + " Min";
+}
+
+function formatLoggedDurationNice(durStr) {
+  if (!durStr) return "";
+  if (typeof durStr === "string" && durStr.includes(":")) {
+    const parts = durStr.split(":").map(Number);
+    if (parts.length === 3) {
+      const totalMins = parts[0] * 60 + parts[1] + Math.round(parts[2] / 60);
+      return formatTimeNice(totalMins);
+    } else if (parts.length === 2) {
+      const totalMins = parts[0] * 60 + parts[1];
+      return formatTimeNice(totalMins);
+    }
   }
-  return `${mins} Min.`;
+  const parsedInt = parseInt(durStr);
+  if (!isNaN(parsedInt)) return formatTimeNice(parsedInt);
+  return durStr;
 }
 
 function formatLoggedDurationString(durStr) {
-  if (!durStr) return '';
-  const str = String(durStr).trim();
-  if (str.toLowerCase().includes('min') || str.toLowerCase().includes('std')) {
-    return str;
-  }
-  const parts = str.split(':').map(Number);
-  if (parts.length === 3) {
-    const hrs = parts[0];
-    const mins = parts[1];
-    if (hrs > 0) {
-      return mins > 0 ? `${hrs}:${mins < 10 ? '0' : ''}${mins} Std.` : `${hrs} Std.`;
-    }
-    return `${mins} Min.`;
-  } else if (parts.length === 2) {
-    const p1 = parts[0];
-    const p2 = parts[1];
-    if (p1 <= 10 && p2 < 60) {
-      return p2 > 0 ? `${p1}:${p2 < 10 ? '0' : ''}${p2} Std.` : `${p1} Std.`;
-    }
-    return `${p1} Min.`;
-  }
-  const num = parseInt(str, 10);
-  if (!isNaN(num)) {
-    if (num <= 5) return `${num} Std.`;
-    return `${num} Min.`;
-  }
-  return str;
+  return formatLoggedDurationNice(durStr);
 }
 
 function parseFlexibleDuration(inputStr) {
   if (!inputStr) return '00:00:00';
   let str = String(inputStr).trim().toLowerCase().replace(/,/g, '.');
-  str = str.replace(/[^\d:.]/g, '');
-  str = str.replace(/\./g, ':');
-
+  str = str.replace(/[^\d:.]/g, '').replace(/\./g, ':');
   if (!str) return '00:00:00';
-
   const parts = str.split(':').map(n => parseInt(n, 10) || 0);
 
   if (parts.length === 1) {
     const val = parts[0];
-    if (val <= 5) {
-      return `0${val}:00:00`;
-    } else {
-      const hrs = Math.floor(val / 60);
-      const remMins = val % 60;
-      return `${hrs < 10 ? '0' : ''}${hrs}:${remMins < 10 ? '0' : ''}${remMins}:00`;
-    }
+    if (val <= 5) return `0${val}:00:00`;
+    const hrs = Math.floor(val / 60);
+    const remMins = val % 60;
+    return `${hrs < 10 ? '0' : ''}${hrs}:${remMins < 10 ? '0' : ''}${remMins}:00`;
   }
-
   if (parts.length === 2) {
     const p1 = parts[0];
     const p2 = parts[1];
-    if (p1 <= 10 && p2 < 60) {
-      return `${p1 < 10 ? '0' : ''}${p1}:${p2 < 10 ? '0' : ''}${p2}:00`;
-    } else {
-      const hrs = Math.floor(p1 / 60);
-      const mins = p1 % 60;
-      return `${hrs < 10 ? '0' : ''}${hrs}:${mins < 10 ? '0' : ''}${mins}:${p2 < 10 ? '0' : ''}${p2}`;
-    }
+    if (p1 <= 10 && p2 < 60) return `${p1 < 10 ? '0' : ''}${p1}:${p2 < 10 ? '0' : ''}${p2}:00`;
+    const hrs = Math.floor(p1 / 60);
+    const mins = p1 % 60;
+    return `${hrs < 10 ? '0' : ''}${hrs}:${mins < 10 ? '0' : ''}${mins}:${p2 < 10 ? '0' : ''}${p2}`;
   }
-
   if (parts.length >= 3) {
-    const h = parts[0];
-    const m = parts[1];
-    const s = parts[2];
+    const h = parts[0], m = parts[1], s = parts[2];
     return `${h < 10 ? '0' : ''}${h}:${m < 10 ? '0' : ''}${m}:${s < 10 ? '0' : ''}${s}`;
   }
-
   return '00:00:00';
 }
 
@@ -405,43 +452,14 @@ function calculatePace(distKm, durStr) {
   if (!distKm || distKm <= 0 || !durStr) return '-:--';
   const parts = durStr.split(':').map(Number);
   let totalSecs = 0;
-  if (parts.length === 3) {
-    totalSecs = parts[0] * 3600 + parts[1] * 60 + parts[2];
-  } else if (parts.length === 2) {
-    totalSecs = parts[0] * 60 + parts[1];
-  }
+  if (parts.length === 3) totalSecs = parts[0] * 3600 + parts[1] * 60 + parts[2];
+  else if (parts.length === 2) totalSecs = parts[0] * 60 + parts[1];
   if (totalSecs <= 0) return '-:--';
 
   const paceSecsPerKm = totalSecs / distKm;
   const pMin = Math.floor(paceSecsPerKm / 60);
   const pSec = Math.round(paceSecsPerKm % 60);
   return `${pMin}:${pSec < 10 ? '0' : ''}${pSec}`;
-}
-
-function getStatusBadgeText(actVal, targetVal) {
-  if (actVal === 0) return 'Mach es!';
-  if (actVal >= targetVal) return 'Done!';
-  return 'On it!';
-}
-
-function getKwFromDateStr(dateStr) {
-  if (!dateStr) return selectedKw;
-  const parts = dateStr.split('-');
-  if (parts.length !== 3) return selectedKw;
-
-  const year = parseInt(parts[0], 10);
-  const month = parseInt(parts[1], 10) - 1;
-  const day = parseInt(parts[2], 10);
-
-  const d = new Date(Date.UTC(year, month, day));
-  if (isNaN(d.getTime())) return selectedKw;
-
-  const dayNum = d.getUTCDay() || 7;
-  d.setUTCDate(d.getUTCDate() + 4 - dayNum);
-  const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
-  const weekNo = Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
-
-  return (weekNo >= 30 && weekNo <= 43) ? weekNo : selectedKw;
 }
 
 function getHrTargetForWorkout(tag) {
@@ -477,7 +495,7 @@ const appleScheduleData = {
     { day: 'DIE', date: '28.07', tag: 'Rampen Ddorf', dist: 7.0, hm: 100, done: false },
     { day: 'MIT', date: '29.07', tag: 'Ruhetag', dist: 0, hm: 0, done: false },
     { day: 'DON', date: '30.07', tag: 'Locker Rhein', dist: 6.0, hm: 0, done: false },
-    { day: 'FRE', date: '31.07', tag: 'Stabi / KT', dist: 0, hm: 0, done: false },
+    { day: 'FRE', date: '31.07', tag: 'Krafttraining Studio', dist: 0, hm: 0, done: false },
     { day: 'SAM', date: '01.08', tag: 'Locker', dist: 7.0, hm: 0, done: false },
     { day: 'SON', date: '02.08', tag: 'Longrun Erkrath', dist: 12.0, hm: 380, done: false }
   ],
@@ -605,11 +623,8 @@ document.addEventListener('keydown', (e) => {
                          !document.getElementById('workoutDetailsModal').classList.contains('hidden');
 
   if (!isInputActive && !isAnyModalOpen) {
-    if (e.key === 'ArrowLeft') {
-      navigateKw(-1);
-    } else if (e.key === 'ArrowRight') {
-      navigateKw(1);
-    }
+    if (e.key === 'ArrowLeft') navigateKw(-1);
+    else if (e.key === 'ArrowRight') navigateKw(1);
   }
 
   if (e.key === 'Escape') {
@@ -630,152 +645,280 @@ function renderDashboard() {
   const phase = phaseData[kwConfig.phase];
 
   const titleSubElem = document.getElementById('kwTitleSub');
-  if (titleSubElem) {
-    titleSubElem.textContent = `KW ${selectedKw}`;
-  }
+  if (titleSubElem) titleSubElem.textContent = `KW ${selectedKw}`;
 
   const prevBtn = document.getElementById('prevKwBtn');
   const nextBtn = document.getElementById('nextKwBtn');
   if (prevBtn) prevBtn.disabled = (selectedKw <= 30);
   if (nextBtn) nextBtn.disabled = (selectedKw >= 43);
 
-  renderSummaryRings(selectedKw, phase);
+  renderCleanHeroBar(selectedKw, phase);
+  renderSpaceXTimeline(selectedKw);
+  renderCoachWidget(selectedKw);
   renderScheduleRow(selectedKw);
   renderPhaseInfo(phase, selectedKw);
   renderLastActivity();
 }
 
-function renderSummaryRings(kw, phase) {
-  const kwRuns = runsData.filter(r => r.kw === kw);
-  const actWkm = kwRuns.reduce((acc, r) => acc + (r.dist || 0), 0);
-  const actWhm = kwRuns.reduce((acc, r) => acc + (r.hm || 0), 0);
+function renderSpaceXTimeline(kw) {
+  const line = document.getElementById('spacexProgressLine');
+  const nodes = document.querySelectorAll('.spacex-node');
+  if (!line || !nodes || nodes.length === 0) return;
 
-  const userPaceMin = getRollingAvgPaceMin();
-  const paceFactor = Math.min(1.15, Math.max(0.85, 7.00 / userPaceMin));
+  let pct = 17;
+  let activeIdx = 1;
 
-  const targetWkm = Math.round(phase.targetWkm * paceFactor * 10) / 10;
-  const targetWhm = Math.round(phase.targetWhm * paceFactor);
+  if (kw <= 30) { pct = 0; activeIdx = 0; }
+  else if (kw === 31) { pct = 17; activeIdx = 1; }
+  else if (kw === 32) { pct = 34; activeIdx = 2; }
+  else if (kw >= 33 && kw <= 36) { pct = 51; activeIdx = 3; }
+  else if (kw >= 37 && kw <= 39) { pct = 68; activeIdx = 4; }
+  else if (kw >= 40 && kw <= 42) { pct = 84; activeIdx = 5; }
+  else if (kw >= 43) { pct = 100; activeIdx = 6; }
 
-  const days = appleScheduleData[kw] || [];
-  const sundayObj = days.find(d => d.day === 'SON') || { dist: phase.targetLongDist, hm: phase.targetLongHm };
-  const saturdayObj = days.find(d => d.day === 'SAM');
+  line.style.width = `${pct}%`;
 
-  const targetLongDist = sundayObj.dist || phase.targetLongDist;
-  const targetLongHm = sundayObj.hm || phase.targetLongHm;
-
-  const satDateStr = saturdayObj ? saturdayObj.date : '';
-  const sunDateStr = sundayObj ? sundayObj.date : '';
-
-  const longRun = kwRuns.find(r => {
-    if (!r.dist || r.dist <= 0) return false;
-    const isExplicitNote = r.notes && r.notes.toLowerCase().includes('longrun');
-    const isWeekendRun = (r.dayDate === sunDateStr || r.dayDate === satDateStr) && r.dist >= (targetLongDist * 0.6);
-    const isLongestRun = r.dist >= (targetLongDist * 0.75);
-
-    return isExplicitNote || isWeekendRun || isLongestRun;
+  nodes.forEach((n, idx) => {
+    n.classList.remove('done-node', 'active-node');
+    if (idx < activeIdx) {
+      n.classList.add('done-node');
+    } else if (idx === activeIdx) {
+      n.classList.add('active-node');
+    }
   });
+}
 
-  const actLongDist = longRun ? longRun.dist : 0;
-  const actLongHm = longRun ? longRun.hm : 0;
+function renderCoachWidget(kw) {
+  const coachWeekElem = document.getElementById('coachInsightWeek');
+  const coachTextElem = document.getElementById('coachInsightText');
+  if (!coachTextElem) return;
 
-  document.getElementById('statWkm').textContent = actWkm.toFixed(1);
-  document.getElementById('statWhm').textContent = actWhm;
-  document.getElementById('statLongDist').textContent = actLongDist > 0 ? actLongDist.toFixed(1) : '0.0';
-  document.getElementById('statLongDistTarget').textContent = `/ ${targetLongDist.toFixed(1)} km`;
-  document.getElementById('statLongHmTxt').textContent = `${actLongHm} / ${targetLongHm} Hm`;
+  if (coachWeekElem) {
+    coachWeekElem.textContent = `KW ${kw}`;
+  }
 
-  document.getElementById('statusDistTxt').textContent = getStatusBadgeText(actWkm, targetWkm);
-  document.getElementById('statusHmTxt').textContent = getStatusBadgeText(actWhm, targetWhm);
+  const insights = {
+    30: "Alles absolviert.<br>34 km und 350 Hm geschafft.<br>Gute Erholung für die nächste Woche.",
+    31: "Alles im Plan.<br>Heute 25–30 Minuten Kraft.<br>Am Sonntag wartet dein Longrun mit 380 Höhenmetern.",
+    32: "Reisewoche London.<br>8 km Flachpark im GA1-Modus halten (max. 60 Min. Fenster).",
+    33: "Erster Ausflug ins Siebengebirge & Jurassic Coast.<br>Bergan-Pacing kontrolliert halten.",
+    34: "Einstieg in Phase 2.<br>16 km mit 650 Hm im Siebengebirge anvisieren.",
+    35: "Peak Phase 2.<br>18 km und 800 Hm – Malto & Softflasks unter Realbedingungen testen.",
+    36: "Höchste Höhenmeter-Belastung.<br>20 km mit 950 Hm im Siebengebirge.",
+    37: "Testwettkampf 1: Côte d’Opal Trail (25 km · 250 Hm).<br>Renntempo & Verpflegung testen.",
+    38: "Erholung in der Normandie.<br>Klippenläufe im leichten GA1-Bereich genießen.",
+    39: "PROBEDRACHEN TESTRENNEN!<br>24 km · 1.250 Hm auf der Originalstrecke.",
+    40: "Zoutelande Dünenwoche.<br>Lockerer Dünenlauf im GA1-Modus.",
+    41: "Tapering Phase 4.<br>Umfang reduzieren, Beine frisch halten (12 km · 400 Hm).",
+    42: "Finale Tapering-Woche.<br>Nur noch 10 km mit 300 Hm.<br>Beine aufladen.",
+    43: "FINALE KW 43 – KÖNIGSWINTER DRACHENLAUF!<br>26 km · 1.250 Hm.<br>Auf zum Drachen!"
+  };
+
+  const rawText = insights[kw] || "Alles im Plan.<br>Pacing diszipliniert halten!";
+  coachTextElem.innerHTML = rawText;
+}
+
+function getRunsForKw(kw) {
+  const days = appleScheduleData[kw] || [];
+  const weekDates = days.map(d => d.date);
+
+  return runsData.filter(r => {
+    if (r.kw === kw) return true;
+    if (r.dayDate && weekDates.includes(r.dayDate)) return true;
+    if (r.date) {
+      return weekDates.some(wd => r.date.startsWith(wd));
+    }
+    return false;
+  });
+}
+
+function renderCleanHeroBar(kw, phase) {
+  const days = appleScheduleData[kw] || [];
+  const sundayObj = days.find(d => d.day === 'SON') || { dist: phase.targetLongDist, hm: phase.targetLongHm, tag: 'Longrun' };
+  
+  const kwRuns = getRunsForKw(kw);
+  const actWkm = kwRuns.reduce((acc, r) => {
+    const isNonRun = r.type === 'schwimmen' || r.type === 'radfahren' || r.type === 'kraft' || r.type === 'ersatz' || r.isErsatz || (r.notes && r.notes.toLowerCase().includes('schwimm'));
+    return acc + (isNonRun ? 0 : (r.dist || 0));
+  }, 0);
+
+  const actWhm = kwRuns.reduce((acc, r) => {
+    const isNonRun = r.type === 'schwimmen' || r.type === 'radfahren' || r.type === 'kraft' || r.type === 'ersatz' || r.isErsatz || (r.notes && r.notes.toLowerCase().includes('schwimm'));
+    return acc + (isNonRun ? 0 : (r.hm || 0));
+  }, 0);
+
+  const targetWkm = phase.targetWkm;
+  const targetWhm = phase.targetWhm;
 
   const distPct = Math.min(100, Math.round((actWkm / targetWkm) * 100));
   const hmPct = Math.min(100, Math.round((actWhm / targetWhm) * 100));
-  const longPct = Math.min(100, Math.round((actLongDist / targetLongDist) * 100));
 
-  document.getElementById('ringDistFill').setAttribute('stroke-dasharray', `${distPct}, 100`);
-  document.getElementById('ringHmFill').setAttribute('stroke-dasharray', `${hmPct}, 100`);
-  document.getElementById('ringLongFill').setAttribute('stroke-dasharray', `${longPct}, 100`);
+  const estDur = formatWorkoutDuration(sundayObj.dist, sundayObj.hm, sundayObj.tag);
+  const hrTarget = getHrTargetForWorkout(sundayObj.tag) || 'HF < 135 bpm';
 
-  const distCardUnit = document.querySelector('#statWkm + .unit');
-  if (distCardUnit) distCardUnit.textContent = `/ ${targetWkm.toFixed(1)} km`;
+  const sundayLogged = sundayObj ? runsData.find(r => r.dayDate === sundayObj.date || r.date === sundayObj.date || r.date === `${sundayObj.date}.2026` || (r.date && r.date.startsWith(sundayObj.date))) : null;
+  const isMainWorkoutDone = sundayObj ? (sundayObj.done || !!sundayLogged) : false;
 
-  const hmCardUnit = document.querySelector('#statWhm + .unit');
-  if (hmCardUnit) hmCardUnit.textContent = `/ ${targetWhm} Hm`;
+  const heroTagElem = document.getElementById('heroBarTag');
+  if (heroTagElem) {
+    if (isMainWorkoutDone) {
+      heroTagElem.textContent = 'DAS WAR DAS DING IN DER WOCHE';
+      heroTagElem.style.color = 'var(--apple-green)';
+    } else {
+      heroTagElem.textContent = 'DEIN DING DIESE WOCHE';
+      heroTagElem.style.color = 'var(--apple-orange)';
+    }
+  }
+
+  const cdBadge = document.getElementById('heroCountdownBadge');
+  if (cdBadge) {
+    cdBadge.textContent = `KW ${kw}`;
+  }
+
+  document.getElementById('heroTitle').textContent = `${sundayObj.tag} (${sundayObj.dist.toFixed(1)} km · ${sundayObj.hm} Hm)`;
+  const subElem = document.getElementById('heroSubText');
+  if (subElem) subElem.textContent = `Sonntag, ${sundayObj.date}. · ${hrTarget} · ${estDur}`;
+
+  const targetPaceElem = document.getElementById('heroTargetPace');
+  const targetFuelElem = document.getElementById('heroTargetFuel');
+  if (targetPaceElem) targetPaceElem.textContent = '7:10–7:25';
+  if (targetFuelElem) {
+    if (sundayObj.dist >= 15) {
+      targetFuelElem.textContent = '2 Softflasks (120g Malto)';
+    } else {
+      targetFuelElem.textContent = '1 Softflask Wasser';
+    }
+  }
+
+  document.getElementById('wmDistVal').textContent = `${actWkm.toFixed(1)} / ${targetWkm.toFixed(1)} km`;
+  document.getElementById('wmDistFill').style.width = `${distPct}%`;
+
+  document.getElementById('wmHmVal').textContent = `${actWhm} / ${targetWhm} Hm`;
+  document.getElementById('wmHmFill').style.width = `${hmPct}%`;
 }
 
 function renderScheduleRow(kw) {
   const container = document.getElementById('scheduleRow');
   const days = appleScheduleData[kw] || generateDefaultDays(kw);
-  const kwRuns = runsData.filter(r => r.kw === kw);
+  const isCurrentActiveKw = (kw === 31); // 31.07.2026 is FRE in KW 31
 
   container.innerHTML = days.map((d, i) => {
-    const loggedRun = kwRuns.find(r => r.dayDate === d.date);
+    const loggedRun = runsData.find(r => r.dayDate === d.date || r.date === d.date || r.date === `${d.date}.2026`);
     const isDone = d.done || !!loggedRun;
     const tagLower = (d.tag || '').toLowerCase();
 
     let specialCardClass = '';
     let pillExtraClass = '';
-    let displayTagTxt = d.tag || 'Lauf';
-
     const isMajorRaceOrTestDay = d.dist >= 15 || d.day === 'SON';
+    const isToday = isCurrentActiveKw && d.day === 'FRE';
+    const isKtDay = (!d.dist || d.dist === 0) && (tagLower.includes('stabi') || tagLower.includes('kt') || tagLower.includes('kraft'));
+    const isRestDay = (!d.dist || d.dist === 0) && !isKtDay;
+
+    if (isToday) {
+      specialCardClass += ' card-today';
+    }
 
     if (tagLower.includes('drachenlauf') && !tagLower.includes('probedrachen') && isMajorRaceOrTestDay) {
-      specialCardClass = 'card-race';
+      specialCardClass += ' card-race';
       pillExtraClass = 'pill-race';
       displayTagTxt = 'Drachenlauf 🎯';
     } else if (tagLower.includes('probedrachen') && isMajorRaceOrTestDay) {
-      specialCardClass = 'card-test-race';
+      specialCardClass += ' card-test-race';
       pillExtraClass = 'pill-test';
       displayTagTxt = 'Probedrachen ⚡';
     } else if (tagLower.includes('opal') && isMajorRaceOrTestDay) {
-      specialCardClass = 'card-test-race';
+      specialCardClass += ' card-test-race';
       pillExtraClass = 'pill-test';
       displayTagTxt = 'Côte d’Opal ⚡';
-    } else if (tagLower.includes('rampen') || tagLower.includes('coastal') || (d.day === 'SON' && d.hm >= 800)) {
-      specialCardClass = 'card-key-workout';
+    } else if (d.day === 'SON' && d.dist > 0) {
+      specialCardClass += ' card-main-workout';
+      displayTagTxt = d.tag;
+    } else if (tagLower.includes('rampen') || tagLower.includes('coastal') || tagLower.includes('tempo')) {
+      specialCardClass += ' card-key-workout';
       pillExtraClass = 'pill-key';
-      displayTagTxt = tagLower.includes('rampen') ? 'Rampen' : (tagLower.includes('coastal') ? 'Trail' : 'Longrun');
+      displayTagTxt = tagLower.includes('rampen') ? 'Rampen' : (tagLower.includes('coastal') ? 'Trail' : 'Tempo');
     } else if (tagLower.includes('aktivierung')) {
       displayTagTxt = 'Aktivierung';
-    } else if (tagLower.includes('ruhetag') || tagLower.includes('erholung')) {
-      displayTagTxt = 'Pause';
-    } else if (tagLower.includes('stabi') || tagLower.includes('kraft')) {
+    } else if (isKtDay) {
       displayTagTxt = 'Kraft';
-      pillExtraClass = 'pill-completed';
+      pillExtraClass = 'pill-kraft';
+    } else if (isRestDay) {
+      displayTagTxt = 'Chill';
+      pillExtraClass = 'pill-rest';
     }
 
-    const isRestDay = (!d.dist || d.dist === 0) && (tagLower.includes('ruhetag') || tagLower.includes('erholung') || tagLower.includes('reisetag') || tagLower.includes('sightseeing') || tagLower.includes('carboloading') || tagLower.includes('packen') || tagLower.includes('klippen') || tagLower.includes('rückreise') || tagLower.includes('abfahrt') || tagLower.includes('anreise'));
-    const isKtDay = (!d.dist || d.dist === 0) && (tagLower.includes('stabi') || tagLower.includes('kt') || tagLower.includes('kraft'));
+    let cardExtraClasses = specialCardClass;
+    if (isDone) {
+      cardExtraClasses += ' card-completed';
+    } else if (isRestDay) {
+      cardExtraClasses += ' card-rest-day';
+      pillExtraClass = 'pill-rest';
+    }
 
+    let headerRightHtml = `<span class="date-num">${d.date}</span>`;
     let heroHtml = '';
     let subMicroHtml = '';
 
-    if (isDone && loggedRun) {
-      displayTagTxt = 'Done!';
+    if (isDone) {
+      displayTagTxt = '✓ Erledigt';
       pillExtraClass = 'pill-completed';
 
-      if (!loggedRun.dist || loggedRun.dist === 0) {
-        heroHtml = `<div class="hero-val-wrap"><span class="hero-rest-txt text-green">STABI</span></div>`;
-        let durMin = loggedRun.duration || '30 Min.';
-        subMicroHtml = `<span>${formatLoggedDurationString(durMin)}</span>`;
+      if (loggedRun) {
+        if (loggedRun.type === 'schwimmen' || (loggedRun.notes && loggedRun.notes.toLowerCase().includes('schwimm'))) {
+          displayTagTxt = '✓ Ersatz';
+          pillExtraClass = 'pill-ersatz';
+          const meters = loggedRun.distMeters || (loggedRun.dist ? Math.round(loggedRun.dist * 1000) : 1150);
+          const formattedMeters = meters.toLocaleString('de-DE');
+          heroHtml = `
+            <div class="hero-val-wrap">
+              <span class="hero-val" style="color: var(--apple-cyan); font-size: 1.30rem;">${formattedMeters} m</span>
+              <span class="hero-unit" style="color: var(--apple-cyan); font-size: 0.60rem; display: block;">SCHWIMMEN</span>
+            </div>
+          `;
+          const durPart = loggedRun.duration ? formatLoggedDurationNice(loggedRun.duration) : '25 Min';
+          const hrPart = loggedRun.hr > 0 ? `${loggedRun.hr} bpm` : '';
+          subMicroHtml = `<span style="color: var(--apple-cyan); font-weight: 800;">${durPart}${durPart && hrPart ? ' · ' : ''}${hrPart}</span>`;
+        } else if (loggedRun.isErsatz || loggedRun.type === 'ersatz' || loggedRun.type === 'radfahren') {
+          displayTagTxt = '✓ Ersatz';
+          pillExtraClass = 'pill-ersatz';
+          const typeName = loggedRun.tag || 'Ersatz';
+          heroHtml = `<div class="hero-val-wrap"><span class="hero-rest-txt" style="color: var(--apple-cyan); font-weight: 900;">${typeName.toUpperCase()}</span></div>`;
+          let durMin = loggedRun.duration || '30 Min.';
+          subMicroHtml = `<span style="color: var(--apple-cyan); font-weight: 800;">${formatLoggedDurationNice(durMin)}</span>`;
+        } else if (!loggedRun.dist || loggedRun.dist === 0) {
+          heroHtml = `<div class="hero-val-wrap"><span class="hero-rest-txt" style="color: var(--apple-green); font-weight: 900;">STABI</span></div>`;
+          let durMin = loggedRun.duration || '30 Min.';
+          subMicroHtml = `<span style="color: var(--apple-green); font-weight: 800;">${formatLoggedDurationNice(durMin)}</span>`;
+        } else {
+          const distNum = loggedRun.dist.toFixed(1);
+          const loggedDurStr = formatLoggedDurationNice(loggedRun.duration);
+          heroHtml = `
+            <div class="hero-val-wrap">
+              <span class="hero-val" style="color: var(--apple-green);">${distNum}</span>
+              <span class="hero-unit" style="color: var(--apple-green);">KM</span>
+            </div>
+          `;
+          const hmPart = loggedRun.hm > 0 ? `<span style="color: var(--apple-green); font-weight: 900;">${loggedRun.hm} Hm</span>` : '';
+          const durPart = loggedDurStr ? `<span style="color: var(--apple-green);">${loggedDurStr}</span>` : '';
+          subMicroHtml = `${hmPart}${hmPart && durPart ? '<span class="sub-sep" style="color: var(--apple-green);">·</span>' : ''}${durPart}`;
+        }
       } else {
-        const distNum = loggedRun.dist.toFixed(1);
-        const loggedDurStr = formatLoggedDurationString(loggedRun.duration);
+        const distNum = d.dist > 0 ? d.dist.toFixed(1) : '0.0';
+        const estDur = formatWorkoutDuration(d.dist, d.hm, d.tag);
         heroHtml = `
           <div class="hero-val-wrap">
-            <span class="hero-val text-green">${distNum}</span>
-            <span class="hero-unit text-green">KM</span>
+            <span class="hero-val" style="color: var(--apple-green);">${distNum}</span>
+            <span class="hero-unit" style="color: var(--apple-green);">KM</span>
           </div>
         `;
-        const hmPart = loggedRun.hm > 0 ? `<span class="text-green" style="font-weight: 900;">${loggedRun.hm} Hm</span>` : '';
-        const durPart = loggedDurStr ? `<span>${loggedDurStr}</span>` : '';
-        subMicroHtml = `${hmPart}${hmPart && durPart ? '<span class="sub-sep">//</span>' : ''}${durPart}`;
+        subMicroHtml = `<span style="color: var(--apple-green); font-weight: 800;">${d.hm > 0 ? d.hm + ' Hm · ' : ''}${estDur}</span>`;
       }
     } else if (isRestDay) {
-      heroHtml = `<div class="hero-val-wrap"><span class="hero-rest-txt">RUHETAG</span></div>`;
-      subMicroHtml = `<span>Erholung</span>`;
+      heroHtml = `<div class="hero-val-wrap"><span class="hero-rest-txt">CHILL</span></div>`;
+      subMicroHtml = `<span style="color: var(--text-secondary); font-weight: 700;">Übungen</span>`;
     } else if (isKtDay) {
-      heroHtml = `<div class="hero-val-wrap"><span class="hero-rest-txt" style="color: var(--apple-cyan);">STABI</span></div>`;
-      subMicroHtml = `<span>Kraft & Rumpf</span>`;
+      heroHtml = `<div class="hero-val-wrap"><span class="hero-rest-txt" style="color: var(--apple-cyan); font-weight: 900;">Kraft & Rumpf</span></div>`;
+      subMicroHtml = `<span style="color: #D1D1D6; font-weight: 700;">25–30 Min.</span>`;
     } else {
       const distNum = d.dist.toFixed(1);
       const estDur = formatWorkoutDuration(d.dist, d.hm, d.tag);
@@ -788,14 +931,19 @@ function renderScheduleRow(kw) {
       const hmStyle = getHmColorStyle(d.hm);
       const hmPart = d.hm > 0 ? `<span style="${hmStyle}">${d.hm} Hm</span>` : '';
       const durPart = estDur ? `<span>${estDur}</span>` : '';
-      subMicroHtml = `${hmPart}${hmPart && durPart ? '<span class="sub-sep">//</span>' : ''}${durPart}`;
+      subMicroHtml = `${hmPart}${hmPart && durPart ? '<span class="sub-sep">·</span>' : ''}${durPart}`;
+    }
+
+    let actionBtnHtml = '';
+    if (isToday && !isDone) {
+      actionBtnHtml = `<div class="day-action-btn" onclick="event.stopPropagation(); openWorkoutDetailsModal(${kw}, ${i})">Starten →</div>`;
     }
 
     return `
-      <div class="apple-day-card ${specialCardClass} ${isDone ? 'card-completed' : ''}" onclick="openWorkoutDetailsModal(${kw}, ${i})" title="Details für ${d.tag} anzeigen">
+      <div class="apple-day-card ${cardExtraClasses}" onclick="openWorkoutDetailsModal(${kw}, ${i})" title="Details für ${d.tag} anzeigen">
         <div class="day-header">
-          <span class="day-name">${d.day}</span>
-          <span class="date-num">${d.date}</span>
+          <span class="day-name">${isToday ? 'HEUTE' : d.day}</span>
+          ${headerRightHtml}
         </div>
         <div class="day-hero-box">
           ${heroHtml}
@@ -805,6 +953,7 @@ function renderScheduleRow(kw) {
         </div>
         <div class="day-footer-row">
           <div class="day-pill-badge ${pillExtraClass}">${displayTagTxt}</div>
+          ${actionBtnHtml}
           <div class="status-dot ${isDone ? 'done' : ''}"></div>
         </div>
       </div>
@@ -820,7 +969,7 @@ function openWorkoutDetailsModal(kw, dayIndex) {
   const dayNames = { MON: 'MONTAG', DIE: 'DIENSTAG', MIT: 'MITTWOCH', DON: 'DONNERSTAG', FRE: 'FREITAG', SAM: 'SAMSTAG', SON: 'SONNTAG' };
   const fullDay = dayNames[d.day] || d.day;
 
-  document.getElementById('workoutMetaHeader').textContent = `${fullDay}, ${d.date}.2026 // KW ${kw}`;
+  document.getElementById('workoutMetaHeader').textContent = `${fullDay}, ${d.date}.2026 · KW ${kw}`;
   document.getElementById('workoutModalTitle').textContent = d.tag;
 
   const kwRuns = runsData.filter(r => r.kw === kw);
@@ -910,14 +1059,95 @@ function openWorkoutDetailsModal(kw, dayIndex) {
     ];
   }
 
-  let loggedHtml = '';
+  let comparisonBlocksHtml = '';
+
   if (loggedRun) {
-    const loggedDurStr = formatLoggedDurationString(loggedRun.duration);
-    loggedHtml = `
-      <div class="logged-run-box">
-        <h4>Erfasste Aktivität</h4>
-        <p><strong>Distanz:</strong> ${loggedRun.dist > 0 ? loggedRun.dist.toFixed(1) + ' km' : 'Stabi/Kraft'} | <strong>Dauer:</strong> ${loggedDurStr || '-'} | <strong>Puls:</strong> ${loggedRun.hr > 0 ? loggedRun.hr + ' bpm' : '--'}</p>
-        ${loggedRun.notes ? `<p style="font-style: italic; opacity: 0.85; margin-top: 0.2rem;">Notiz: "${loggedRun.notes}"</p>` : ''}
+    const loggedDurStr = formatLoggedDurationNice(loggedRun.duration);
+    comparisonBlocksHtml = `
+      <!-- UNIFIED COMPARISON CARD (GELAUFEN + GEPLANTER LAUF) -->
+      <div style="background: rgba(0, 0, 0, 0.4); border: 1px solid var(--border-card); border-radius: 16px; padding: 1.1rem 1.25rem; margin-bottom: 1.25rem;">
+        
+        <!-- GELAUFEN -->
+        <div style="margin-bottom: 0.85rem;">
+          <div style="font-size: 0.85rem; font-weight: 900; color: var(--apple-green); display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
+            <span>✓ Gelaufen</span>
+            ${loggedRun.notes ? `<span style="font-style: italic; font-weight: 600; text-transform: none; color: var(--text-secondary); font-size: 0.80rem;">Notiz: "${loggedRun.notes}"</span>` : ''}
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6rem; background: rgba(48, 209, 88, 0.08); border: 1px solid rgba(48, 209, 88, 0.35); border-radius: 12px; padding: 0.85rem 0.6rem;">
+            <div style="text-align: center;">
+              <span style="font-size: 1.35rem; font-weight: 900; color: var(--apple-green); display: block; font-feature-settings: 'tnum';">${loggedRun.dist > 0 ? loggedRun.dist.toFixed(1) : '0.0'}</span>
+              <span style="font-size: 0.75rem; font-weight: 800; color: var(--apple-green);">DISTANZ (KM)</span>
+            </div>
+            <div style="text-align: center;">
+              <span style="font-size: 1.35rem; font-weight: 900; color: var(--apple-green); display: block; font-feature-settings: 'tnum';">${loggedRun.hm || 0}</span>
+              <span style="font-size: 0.75rem; font-weight: 800; color: var(--apple-green);">HÖHENMETER</span>
+            </div>
+            <div style="text-align: center;">
+              <span style="font-size: 1.35rem; font-weight: 900; color: var(--apple-green); display: block; font-feature-settings: 'tnum';">${loggedDurStr || '-'}</span>
+              <span style="font-size: 0.75rem; font-weight: 800; color: var(--apple-green);">DAUER</span>
+            </div>
+            <div style="text-align: center;">
+              <span style="font-size: 1.25rem; font-weight: 900; color: var(--apple-green); display: block; margin-top: 0.1rem; font-feature-settings: 'tnum';">${loggedRun.hr > 0 ? loggedRun.hr + ' bpm' : '--'}</span>
+              <span style="font-size: 0.75rem; font-weight: 800; color: var(--apple-green);">DURCHSCHNITTSPULS</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- DIVIDER -->
+        <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); margin: 0.85rem 0 0.85rem 0;"></div>
+
+        <!-- GEPLANTER LAUF -->
+        <div>
+          <div style="font-size: 0.82rem; font-weight: 800; color: var(--text-secondary); margin-bottom: 0.5rem;">
+            Geplanter Lauf
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6rem; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 12px; padding: 0.75rem 0.6rem;">
+            <div style="text-align: center;">
+              <span style="font-size: 1.25rem; font-weight: 800; color: var(--text-white); display: block; font-feature-settings: 'tnum';">${d.dist > 0 ? d.dist.toFixed(1) : '0.0'}</span>
+              <span style="font-size: 0.72rem; font-weight: 800; color: var(--text-secondary);">SOLL DISTANZ (KM)</span>
+            </div>
+            <div style="text-align: center;">
+              <span style="font-size: 1.25rem; font-weight: 800; color: var(--text-white); display: block; font-feature-settings: 'tnum';">${d.hm}</span>
+              <span style="font-size: 0.72rem; font-weight: 800; color: var(--text-secondary);">SOLL HÖHENMETER</span>
+            </div>
+            <div style="text-align: center;">
+              <span style="font-size: 1.25rem; font-weight: 800; color: var(--text-white); display: block; font-feature-settings: 'tnum';">${d.dist > 0 ? estDur : 'Stabi'}</span>
+              <span style="font-size: 0.72rem; font-weight: 800; color: var(--text-secondary);">SCHÄTZDAUER</span>
+            </div>
+            <div style="text-align: center;">
+              <span style="font-size: 1.05rem; font-weight: 800; color: var(--text-white); display: block; margin-top: 0.15rem;">${hrTarget}</span>
+              <span style="font-size: 0.72rem; font-weight: 800; color: var(--text-secondary);">PULS-ZIELZONE</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    `;
+  } else {
+    comparisonBlocksHtml = `
+      <!-- GEPLANTER LAUF -->
+      <div style="background: rgba(0, 0, 0, 0.35); border: 1px solid var(--border-card); border-radius: 16px; padding: 1.1rem 1.25rem; margin-bottom: 1.25rem;">
+        <div style="font-size: 0.85rem; font-weight: 900; color: var(--apple-cyan); margin-bottom: 0.5rem;">
+          Geplanter Lauf
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6rem; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 12px; padding: 0.85rem 0.6rem;">
+          <div style="text-align: center;">
+            <span style="font-size: 1.3rem; font-weight: 900; display: block; font-feature-settings: 'tnum';">${d.dist > 0 ? d.dist.toFixed(1) : '0.0'}</span>
+            <span style="font-size: 0.75rem; font-weight: 800; color: var(--text-secondary);">DISTANZ (KM)</span>
+          </div>
+          <div style="text-align: center;">
+            <span style="font-size: 1.3rem; font-weight: 900; display: block; ${getHmColorStyle(d.hm)} font-feature-settings: 'tnum';">${d.hm}</span>
+            <span style="font-size: 0.75rem; font-weight: 800; color: var(--text-secondary);">HÖHENMETER</span>
+          </div>
+          <div style="text-align: center;">
+            <span style="font-size: 1.3rem; font-weight: 900; display: block; font-feature-settings: 'tnum';">${d.dist > 0 ? estDur : 'Stabi'}</span>
+            <span style="font-size: 0.75rem; font-weight: 800; color: var(--text-secondary);">SCHÄTZDAUER</span>
+          </div>
+          <div style="text-align: center;">
+            <span style="font-size: 1.05rem; font-weight: 900; display: block; margin-top: 0.15rem;">${hrTarget}</span>
+            <span style="font-size: 0.75rem; font-weight: 800; color: var(--text-secondary);">PULS-ZIELZONE</span>
+          </div>
+        </div>
       </div>
     `;
   }
@@ -941,43 +1171,115 @@ function openWorkoutDetailsModal(kw, dayIndex) {
     `;
   }
 
+  let modalFooterFormHtml = '';
+  if (loggedRun) {
+    modalFooterFormHtml = `
+      <div style="display: flex; justify-content: flex-end; margin-top: 1rem; padding-top: 0.5rem;">
+        <span style="font-size: 0.72rem; font-weight: 700; color: rgba(255, 69, 58, 0.75); cursor: pointer; text-decoration: underline;" onclick="deleteRunAction(${loggedRun.id})">
+          Einheit zurücksetzen
+        </span>
+      </div>
+    `;
+  } else {
+    const defaultDur = (d.dist === 0) ? '30 Min.' : (estDur || '45 Min.');
+    const defaultDist = (d.dist === 0) ? '0' : d.dist.toFixed(1);
+    const defaultHm = d.hm || '0';
+
+    modalFooterFormHtml = `
+      <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(100, 210, 255, 0.3); border-radius: 14px; padding: 1.1rem; margin-top: 1.1rem;">
+        <h4 style="font-size: 0.82rem; font-weight: 900; color: var(--apple-cyan); margin-bottom: 0.6rem; text-transform: uppercase; letter-spacing: 0.5px;">
+          ⚡ EINHEIT (${d.date}.2026) ALS ERLEDIGT SPEICHERN
+        </h4>
+
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6rem; margin-bottom: 0.8rem;">
+          <div>
+            <label style="font-size: 0.65rem; font-weight: 800; color: var(--text-secondary); display: block; margin-bottom: 0.2rem;">DISTANZ (KM)</label>
+            <input type="number" step="0.1" id="mConfDist" value="${defaultDist}" class="input-dark" style="width: 100%; box-sizing: border-box; font-size: 0.9rem; font-weight: 700;">
+          </div>
+          <div>
+            <label style="font-size: 0.65rem; font-weight: 800; color: var(--text-secondary); display: block; margin-bottom: 0.2rem;">HÖHENMETER (HM)</label>
+            <input type="number" id="mConfHm" value="${defaultHm}" class="input-dark" style="width: 100%; box-sizing: border-box; font-size: 0.9rem; font-weight: 700;">
+          </div>
+          <div>
+            <label style="font-size: 0.65rem; font-weight: 800; color: var(--text-secondary); display: block; margin-bottom: 0.2rem;">DAUER (MIN / HH:MM)</label>
+            <input type="text" id="mConfDur" value="${defaultDur}" class="input-dark" style="width: 100%; box-sizing: border-box; font-size: 0.9rem; font-weight: 700;">
+          </div>
+          <div>
+            <label style="font-size: 0.65rem; font-weight: 800; color: var(--text-secondary); display: block; margin-bottom: 0.2rem;">PULS (BPM)</label>
+            <input type="number" id="mConfHr" value="120" class="input-dark" style="width: 100%; box-sizing: border-box; font-size: 0.9rem; font-weight: 700;">
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 0.6rem;">
+          <button class="btn btn-pill-gray" onclick="closeWorkoutDetailsModal()">Abbrechen</button>
+          <button class="btn btn-pill-green" style="font-weight: 900; padding: 0.5rem 1.2rem; font-size: 0.85rem;" onclick="saveDirectWorkoutFromModal(${kw}, ${dayIndex})">
+            ✓ Als erledigt speichern
+          </button>
+        </div>
+      </div>
+    `;
+  }
+
   document.getElementById('workoutModalBody').innerHTML = `
     <div style="display: inline-block; background: ${categoryColor}22; color: ${categoryColor}; border: 1px solid ${categoryColor}44; padding: 0.35rem 0.8rem; border-radius: 8px; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.6px; margin-bottom: 1.1rem;">
       ${categoryBadge}
     </div>
 
-    <div class="workout-detail-grid">
-      <div class="workout-metric-card">
-        <span class="val">${d.dist > 0 ? d.dist.toFixed(1) : '0'}</span>
-        <span class="lbl">DISTANZ (KM)</span>
-      </div>
-      <div class="workout-metric-card">
-        <span class="val" style="${getHmColorStyle(d.hm)}">${d.hm}</span>
-        <span class="lbl">HÖHENMETER</span>
-      </div>
-      <div class="workout-metric-card">
-        <span class="val">${d.dist > 0 ? estDur : 'Stabi'}</span>
-        <span class="lbl">SCHÄTZDAUER</span>
-      </div>
-      <div class="workout-metric-card">
-        <span class="val" style="font-size: 1.05rem;">${hrTarget}</span>
-        <span class="lbl">PULS-ZIELZONE</span>
-      </div>
-    </div>
+    ${comparisonBlocksHtml}
 
-    <div class="workout-desc-box">
-      <h4>Ablauf</h4>
-      <ul>
-        ${tipsList.map(t => `<li>${t}</li>`).join('')}
+    <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-card); border-radius: 14px; padding: 1rem; margin-bottom: 1.1rem;">
+      <h4 style="font-size: 0.8rem; font-weight: 800; color: var(--apple-cyan); margin-bottom: 0.4rem; text-transform: uppercase;">Ablauf</h4>
+      <ul style="padding-left: 1.1rem; font-size: 0.82rem; color: var(--text-secondary);">
+        ${tipsList.map(t => `<li style="margin-bottom: 0.25rem;">${t}</li>`).join('')}
       </ul>
     </div>
 
     ${combinedNutritionBlockHtml}
-
-    ${loggedHtml}
+    ${modalFooterFormHtml}
   `;
 
   document.getElementById('workoutDetailsModal').classList.remove('hidden');
+}
+
+function saveDirectWorkoutFromModal(kw, dayIndex) {
+  const days = appleScheduleData[kw] || generateDefaultDays(kw);
+  const d = days[dayIndex];
+  if (!d) return;
+
+  const rawDateParts = d.date.split('.');
+  let dayDateStr = d.date;
+  let formattedDateStr = `${d.date}.2026`;
+
+  const distVal = parseFloat(document.getElementById('mConfDist').value) || 0;
+  const rawDurInput = document.getElementById('mConfDur').value;
+  const durVal = parseFlexibleDuration(rawDurInput);
+  const calculatedPaceStr = distVal > 0 ? calculatePace(distVal, durVal) : '-:--';
+
+  const newRun = {
+    id: Date.now(),
+    kw: kw,
+    date: formattedDateStr,
+    dayDate: dayDateStr,
+    dist: distVal,
+    hm: parseInt(document.getElementById('mConfHm').value, 10) || 0,
+    duration: durVal,
+    hr: parseInt(document.getElementById('mConfHr').value, 10) || 0,
+    pace: calculatedPaceStr,
+    tag: distVal === 0 ? 'Kraft' : d.tag,
+    notes: distVal === 0 ? 'Kraft & Rumpftraining' : `Einheit ${d.tag} absolviert`
+  };
+
+  runsData = runsData.filter(r => r.dayDate !== dayDateStr && r.date !== formattedDateStr);
+  runsData.unshift(newRun);
+  localStorage.setItem('drachenlauf_runs', JSON.stringify(runsData));
+
+  closeWorkoutDetailsModal();
+  renderDashboard();
+}
+
+function deleteRunAction(runId) {
+  deleteRun(runId);
+  closeWorkoutDetailsModal();
 }
 
 function closeWorkoutDetailsModal() {
@@ -1006,35 +1308,6 @@ function renderPhaseInfo(phase, kw) {
   document.getElementById('phaseName').textContent = phase.name;
   document.getElementById('phaseDates').textContent = phase.dates;
   document.getElementById('phaseDesc').textContent = phase.desc;
-
-  const cpBanner = document.getElementById('checkpointBanner');
-
-  let activeCp = null;
-
-  if (kw === 36 || kw === 37) {
-    activeCp = {
-      name: 'Côte d’Opal Trail (Test 1)',
-      meta: '13. September // 25 km // 250 Hm'
-    };
-  } else if (kw === 38 || kw === 39) {
-    activeCp = {
-      name: 'Probedrachenlauf (HF-Test FIX)',
-      meta: '27. September // 24 km // 1.250 Hm (HF 120–140 bpm)'
-    };
-  } else if (kw === 42 || kw === 43) {
-    activeCp = {
-      name: 'Drachenlauf 2026 (Königswinter)',
-      meta: '25. Oktober // Start um 10:00 Uhr // 1.250 Hm'
-    };
-  }
-
-  if (activeCp) {
-    document.getElementById('cpName').textContent = activeCp.name;
-    document.getElementById('cpMeta').textContent = activeCp.meta;
-    if (cpBanner) cpBanner.classList.remove('hidden');
-  } else {
-    if (cpBanner) cpBanner.classList.add('hidden');
-  }
 }
 
 function toggleActivityCard() {
@@ -1053,26 +1326,32 @@ function deleteLastRunAction() {
 function renderLastActivity() {
   const deleteBtn = document.getElementById('btnDeleteLastRun');
   const microElem = document.getElementById('lastRunMicroSummary');
-  
+  const tagElem = document.getElementById('lastRunTag');
+  const distElem = document.getElementById('lastRunDist');
+  const hmElem = document.getElementById('lastRunHm');
+  const paceElem = document.getElementById('lastRunPace');
+  const hrElem = document.getElementById('lastRunHr');
+  const notesElem = document.getElementById('lastRunNotes');
+
   if (runsData.length === 0) {
-    document.getElementById('lastRunTag').textContent = 'Kein Lauf';
-    document.getElementById('lastRunDist').textContent = '0.0';
-    document.getElementById('lastRunHm').textContent = '0';
-    document.getElementById('lastRunPace').textContent = '-:--';
-    document.getElementById('lastRunHr').textContent = '--';
-    document.getElementById('lastRunNotes').textContent = 'Keine Einheiten erfasst.';
+    if (tagElem) tagElem.textContent = 'Kein Lauf';
+    if (distElem) distElem.textContent = '0.0';
+    if (hmElem) hmElem.textContent = '0';
+    if (paceElem) paceElem.textContent = '-:--';
+    if (hrElem) hrElem.textContent = '--';
+    if (notesElem) notesElem.textContent = 'Keine Einheiten erfasst.';
     if (microElem) microElem.textContent = 'Keine Einheiten erfasst';
     if (deleteBtn) deleteBtn.classList.add('hidden');
     return;
   }
   const last = runsData[0];
 
-  document.getElementById('lastRunTag').textContent = last.tag;
-  document.getElementById('lastRunDist').textContent = last.dist > 0 ? (typeof last.dist === 'number' ? last.dist.toFixed(1) : last.dist) : 'Stabi';
-  document.getElementById('lastRunHm').textContent = last.hm;
-  document.getElementById('lastRunPace').textContent = last.dist > 0 ? last.pace : '-:--';
-  document.getElementById('lastRunHr').textContent = last.hr > 0 ? last.hr : '--';
-  document.getElementById('lastRunNotes').textContent = `${last.date ? last.date + ': ' : ''}${last.notes}`;
+  if (tagElem) tagElem.textContent = last.tag;
+  if (distElem) distElem.textContent = last.dist > 0 ? (typeof last.dist === 'number' ? last.dist.toFixed(1) : last.dist) : 'Stabi';
+  if (hmElem) hmElem.textContent = last.hm;
+  if (paceElem) paceElem.textContent = last.dist > 0 ? last.pace : '-:--';
+  if (hrElem) hrElem.textContent = last.hr > 0 ? last.hr : '--';
+  if (notesElem) notesElem.textContent = `${last.date ? last.date + ': ' : ''}${last.notes}`;
 
   if (microElem) {
     const datePart = last.dayDate || last.date || '';
@@ -1082,7 +1361,7 @@ function renderLastActivity() {
     const hrPart = last.hr > 0 ? `Puls ${last.hr}` : '';
 
     const summaryParts = [datePart, distPart, hmPart, pacePart, hrPart].filter(Boolean);
-    microElem.textContent = summaryParts.join(' // ');
+    microElem.textContent = summaryParts.join(' · ');
   }
 
   if (deleteBtn) {
@@ -1142,10 +1421,35 @@ function closeLongrunOverviewModal() {
   document.getElementById('longrunOverviewModal').classList.add('hidden');
 }
 
+function getKwFromDateStr(rawDate) {
+  if (!rawDate) return selectedKw || 31;
+  let day = 0, month = 0, year = 2026;
+  if (rawDate.includes('-')) {
+    const parts = rawDate.split('-');
+    if (parts.length === 3) {
+      year = parseInt(parts[0], 10);
+      month = parseInt(parts[1], 10) - 1;
+      day = parseInt(parts[2], 10);
+    }
+  } else if (rawDate.includes('.')) {
+    const parts = rawDate.split('.');
+    if (parts.length >= 2) {
+      day = parseInt(parts[0], 10);
+      month = parseInt(parts[1], 10) - 1;
+      if (parts.length >= 3) year = parseInt(parts[2], 10);
+    }
+  }
+  if (day > 0 && month >= 0) {
+    const d = new Date(year, month, day);
+    const kw = getISOWeekNumber(d);
+    if (kw >= 30 && kw <= 43) return kw;
+  }
+  return selectedKw || 31;
+}
+
 function openTextModal() {
   document.getElementById('textModal').classList.remove('hidden');
-  
-  const today = '2026-07-30';
+  const today = '2026-07-31';
   document.getElementById('confDate').value = today;
   document.getElementById('confDist').value = '';
   document.getElementById('confHm').value = '';
@@ -1161,14 +1465,27 @@ function closeTextModal() {
 function saveParsedRun() {
   const rawDate = document.getElementById('confDate').value;
   const targetKw = getKwFromDateStr(rawDate);
-  
+  const typeVal = (document.getElementById('confType') && document.getElementById('confType').value) || 'laufen';
+
   let formattedDateStr = 'Heute';
   let dayDateStr = '';
+
   if (rawDate) {
-    const parts = rawDate.split('-');
-    if (parts.length === 3) {
-      formattedDateStr = `${parts[2]}.${parts[1]}.${parts[0]}`;
-      dayDateStr = `${parts[2]}.${parts[1]}`;
+    if (rawDate.includes('-')) {
+      const parts = rawDate.split('-');
+      if (parts.length === 3) {
+        formattedDateStr = `${parts[2]}.${parts[1]}.${parts[0]}`;
+        dayDateStr = `${parts[2]}.${parts[1]}`;
+      }
+    } else if (rawDate.includes('.')) {
+      const parts = rawDate.split('.');
+      if (parts.length >= 2) {
+        const dd = parts[0].padStart(2, '0');
+        const mm = parts[1].padStart(2, '0');
+        const yyyy = parts[2] || '2026';
+        formattedDateStr = `${dd}.${mm}.${yyyy}`;
+        dayDateStr = `${dd}.${mm}`;
+      }
     }
   }
 
@@ -1176,6 +1493,13 @@ function saveParsedRun() {
   const rawDurInput = document.getElementById('confDuration').value;
   const durVal = parseFlexibleDuration(rawDurInput);
   const calculatedPaceStr = distVal > 0 ? calculatePace(distVal, durVal) : '-:--';
+  const isErsatzRun = (typeVal !== 'laufen');
+
+  let tagTxt = 'Manuell';
+  if (typeVal === 'schwimmen') tagTxt = 'Schwimmbad';
+  else if (typeVal === 'radfahren') tagTxt = 'Radfahren';
+  else if (typeVal === 'kraft') tagTxt = 'Kraft / Stabi';
+  else if (typeVal === 'ersatz') tagTxt = 'Ersatz-Training';
 
   const newRun = {
     id: Date.now(),
@@ -1183,17 +1507,22 @@ function saveParsedRun() {
     date: formattedDateStr,
     dayDate: dayDateStr,
     dist: distVal,
+    distMeters: typeVal === 'schwimmen' ? Math.round(distVal * 1000) : 0,
     hm: parseInt(document.getElementById('confHm').value, 10) || 0,
     duration: durVal,
     hr: parseInt(document.getElementById('confHr').value, 10) || 0,
     pace: calculatedPaceStr,
-    tag: distVal === 0 ? 'Stabi & Kraft' : 'Manuell',
-    notes: document.getElementById('rawTextInput').value || (distVal === 0 ? 'Stabi/Kraft-Einheit' : 'Aktivität manuell')
+    type: typeVal,
+    isErsatz: isErsatzRun,
+    tag: tagTxt,
+    notes: document.getElementById('rawTextInput').value || `Aktivität (${tagTxt})`
   };
 
   selectedKw = targetKw;
-  document.getElementById('kwSelect').value = targetKw;
+  const kwSel = document.getElementById('kwSelect');
+  if (kwSel) kwSel.value = targetKw;
 
+  runsData = runsData.filter(r => r.dayDate !== dayDateStr && r.date !== formattedDateStr);
   runsData.unshift(newRun);
   localStorage.setItem('drachenlauf_runs', JSON.stringify(runsData));
 
@@ -1203,9 +1532,17 @@ function saveParsedRun() {
 
 function openScreenshotModal() {
   document.getElementById('ocrModal').classList.remove('hidden');
-  document.getElementById('ocrPreviewBox').classList.add('hidden');
-  
-  const today = '2026-07-30';
+  const dropzone = document.getElementById('ocrDropzone');
+  const previewBox = document.getElementById('ocrPreviewBox');
+  if (dropzone) {
+    dropzone.classList.remove('hidden');
+    dropzone.style.display = 'flex';
+  }
+  if (previewBox) {
+    previewBox.classList.add('hidden');
+    previewBox.style.display = 'none';
+  }
+  const today = '2026-08-01';
   if (document.getElementById('ocrDate')) {
     document.getElementById('ocrDate').value = today;
   }
@@ -1216,12 +1553,37 @@ function closeScreenshotModal() {
 }
 
 function simulateOcrUpload() {
-  document.getElementById('ocrPreviewBox').classList.remove('hidden');
+  const dropzone = document.getElementById('ocrDropzone');
+  const box = document.getElementById('ocrPreviewBox');
+  
+  if (dropzone) {
+    dropzone.classList.add('hidden');
+    dropzone.style.display = 'none';
+  }
+  if (box) {
+    box.classList.remove('hidden');
+    box.style.display = 'block';
+  }
+
+  const dateEl = document.getElementById('ocrDate');
+  const typeEl = document.getElementById('ocrType');
+  const distEl = document.getElementById('ocrDist');
+  const hmEl = document.getElementById('ocrHm');
+  const timeEl = document.getElementById('ocrTime');
+  const hrEl = document.getElementById('ocrHr');
+
+  if (dateEl) dateEl.value = '2026-08-01';
+  if (typeEl) typeEl.value = 'schwimmen';
+  if (distEl) distEl.value = '1.15';
+  if (hmEl) hmEl.value = '0';
+  if (timeEl) timeEl.value = '00:25:21';
+  if (hrEl) hrEl.value = '108';
 }
 
 function saveOcrRun() {
   const rawDate = document.getElementById('ocrDate').value;
   const targetKw = getKwFromDateStr(rawDate);
+  const typeVal = (document.getElementById('ocrType') && document.getElementById('ocrType').value) || 'laufen';
 
   let formattedDateStr = 'Heute';
   let dayDateStr = '';
@@ -1237,6 +1599,13 @@ function saveOcrRun() {
   const rawDurInput = document.getElementById('ocrTime').value;
   const durVal = parseFlexibleDuration(rawDurInput);
   const calculatedPaceStr = distVal > 0 ? calculatePace(distVal, durVal) : '-:--';
+  const isErsatzRun = (typeVal !== 'laufen');
+
+  let tagTxt = 'Garmin OCR';
+  if (typeVal === 'schwimmen') tagTxt = 'Schwimmbad';
+  else if (typeVal === 'radfahren') tagTxt = 'Radfahren';
+  else if (typeVal === 'kraft') tagTxt = 'Kraft / Stabi';
+  else if (typeVal === 'ersatz') tagTxt = 'Ersatz-Training';
 
   const newRun = {
     id: Date.now(),
@@ -1244,17 +1613,22 @@ function saveOcrRun() {
     date: formattedDateStr,
     dayDate: dayDateStr,
     dist: distVal,
+    distMeters: typeVal === 'schwimmen' ? Math.round(distVal * 1000) : 0,
     hm: parseInt(document.getElementById('ocrHm').value, 10) || 0,
     duration: durVal,
     hr: parseInt(document.getElementById('ocrHr').value, 10) || 0,
     pace: calculatedPaceStr,
-    tag: distVal === 0 ? 'Stabi & Kraft' : 'Garmin OCR',
-    notes: 'Aktivität per Screenshot-OCR importiert.'
+    type: typeVal,
+    isErsatz: isErsatzRun,
+    tag: tagTxt,
+    notes: `Garmin OCR Import (${tagTxt})`
   };
 
   selectedKw = targetKw;
-  document.getElementById('kwSelect').value = targetKw;
+  const kwSel = document.getElementById('kwSelect');
+  if (kwSel) kwSel.value = targetKw;
 
+  runsData = runsData.filter(r => r.dayDate !== dayDateStr && r.date !== formattedDateStr);
   runsData.unshift(newRun);
   localStorage.setItem('drachenlauf_runs', JSON.stringify(runsData));
 

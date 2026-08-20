@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drachenlauf 2026 — Master Design System Showcase</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      background: #09090D;
+      color: #F2F2F7;
+      padding: 3rem;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif;
+    }
+    .showcase-header {
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 1.5rem;
+    }
+    .showcase-title {
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      color: var(--apple-cyan);
+      margin: 0 0 0.5rem 0;
+    }
+    .showcase-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      font-weight: 600;
+    }
+    .section-label {
+      font-size: 0.82rem;
+      font-weight: 900;
+      color: var(--apple-orange);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin: 2.5rem 0 1.2rem 0;
+    }
+    .grid-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+    .cards-row-7 {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 1.2rem;
+    }
+    @media (max-width: 1200px) {
+      .cards-row-7 { grid-template-columns: repeat(4, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="showcase-header">
+    <h1 class="showcase-title">MASTER DESIGN SYSTEM SHOWCASE</h1>
+    <div class="showcase-subtitle">Alle Einzel-Container & UI-Typen im Überblick zur Freigabe</div>
+  </div>
+
+  <!-- SECTION 1: TOP SPLIT GRID CONTAINERS -->
+  <div class="section-label">1. TOP SPLIT GRID CONTAINERS (COACH INSIGHT & HERO BAR)</div>
+  <div class="grid-row">
+    <!-- COACH TEXT CONTAINER -->
+    <div class="clean-card coach-split-card">
+      <p class="coach-text">
+        Alles im Plan. Heute 25–30 Minuten Kraft. Am Sonntag wartet dein erster Longrun mit 380 Höhenmetern im Siebengebirge.
+      </p>
+    </div>
+
+    <!-- MAIN WORKOUT HERO CONTAINER (OPEN STATE) -->
+    <div class="clean-card hero-split-card">
+      <div class="hero-card-header">
+        <span class="hero-bar-tag" style="color: var(--apple-orange);">DEIN DING DIESE WOCHE</span>
+        <span class="hero-bar-badge">KW 32</span>
+      </div>
+      <div class="hero-bar-title">
+        Longrun Siebengebirge (16.0 km // 600 Hm)
+      </div>
+      <div class="hero-integrated-progress">
+        <div class="hero-progress-item">
+          <div class="hp-label-row">
+            <span>WOCHENKILOMETER</span>
+            <strong>13.0 / 30.0 km</strong>
+          </div>
+          <div class="hp-track-container">
+            <div class="hp-track"><div class="hp-fill fill-green" style="width: 43%;"></div></div>
+          </div>
+        </div>
+        <div class="hero-progress-item">
+          <div class="hp-label-row">
+            <span>HÖHENMETER</span>
+            <strong>100 / 450 Hm</strong>
+          </div>
+          <div class="hp-track-container">
+            <div class="hp-track"><div class="hp-fill fill-cyan" style="width: 22%;"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN WORKOUT HERO CONTAINER (COMPLETED STATE) -->
+    <div class="clean-card hero-split-card">
+      <div class="hero-card-header">
+        <span class="hero-bar-tag" style="color: var(--apple-green);">DAS WAR DAS DING IN DER WOCHE</span>
+        <span class="hero-bar-badge">KW 32</span>
+      </div>
+      <div class="hero-bar-title">
+        Longrun Siebengebirge (16.0 km // 600 Hm)
+      </div>
+      <div class="hero-integrated-progress">
+        <div class="hero-progress-item">
+          <div class="hp-label-row">
+            <span>WOCHENKILOMETER</span>
+            <strong style="color: var(--apple-green);">30.0 / 30.0 km</strong>
+          </div>
+          <div class="hp-track-container">
+            <div class="hp-track"><div class="hp-fill fill-green" style="width: 100%;"></div></div>
+          </div>
+        </div>
+        <div class="hero-progress-item">
+          <div class="hp-label-row">
+            <span>HÖHENMETER</span>
+            <strong style="color: var(--apple-cyan);">450 / 450 Hm</strong>
+          </div>
+          <div class="hp-track-container">
+            <div class="hp-track"><div class="hp-fill fill-cyan" style="width: 100%;"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: WOCHENPLAN DAY CARD TYPES -->
+  <div class="section-label">2. WOCHENPLAN DAY CARD TYPES (ALLE TAGES-CONTAINER)</div>
+  <div class="cards-row-7">
+    <!-- STANDARD GA1 RUN -->
+    <div class="apple-day-card">
+      <div class="day-header">
+        <span>MON</span>
+        <span class="date-num">03.08</span>
+      </div>
+      <div class="hero-val-wrap">
+        <span class="hero-val">8.0</span>
+        <span class="hero-unit">KM</span>
+      </div>
+      <div class="hero-sub-micro">120 Hm // 58 Min.</div>
+      <div class="day-footer-row">
+        <span class="day-pill-badge">Locker</span>
+        <div class="status-dot"></div>
+      </div>
+    </div>
+
+    <!-- KEY WORKOUT / RAMPEN -->
+    <div class="apple-day-card">
+      <div class="day-header">
+        <span>DIE</span>
+        <span class="date-num">04.08</span>
+      </div>
+      <div class="hero-val-wrap">
+        <span class="hero-val">7.0</span>
+        <span class="hero-unit">KM</span>
+      </div>
+      <div class="hero-sub-micro">100 Hm // 52 Min.</div>
+      <div class="day-footer-row">
+        <span class="day-pill-badge pill-key">Rampen</span>
+        <div class="status-dot"></div>
+      </div>
+    </div>
+
+    <!-- CHILL / REST DAY -->
+    <div class="apple-day-card card-rest-day">
+      <div class="day-header">
+        <span>MIT</span>
+        <span class="date-num">05.08</span>
+      </div>
+      <div class="hero-val-wrap">
+        <span class="hero-rest-txt">CHILL</span>
+      </div>
+      <div class="hero-sub-micro">Übungen</div>
+      <div class="day-footer-row">
+        <span class="day-pill-badge pill-rest">Chill</span>
+        <div class="status-dot"></div>
+      </div>
+    </div>
+
+    <!-- KRAFT / STABI -->
+    <div class="apple-day-card">
+      <div class="day-header">
+        <span>FRE</span>
+        <span class="date-num">07.08</span>
+      </div>
+      <div class="hero-val-wrap">
+        <span class="hero-rest-txt" style="color: var(--apple-cyan); font-weight: 900;">Kraft & Rumpf</span>
+      </div>
+      <div class="hero-sub-micro">25–30 Min.</div>
+      <div class="day-footer-row">
+        <span class="day-pill-badge pill-kraft">Kraft</span>
+        <div class="status-dot"></div>
+      </div>
+    </div>
+
+    <!-- TEST / RACE CARD -->
+    <div class="apple-day-card">
+      <div class="day-header">
+        <span>SON</span>
+        <span class="date-num">25.10</span>
+      </div>
+      <div class="hero-val-wrap">
+        <span class="hero-val" style="color: var(--apple-orange);">26.0</span>
+        <span class="hero-unit" style="color: var(--apple-orange);">KM</span>
+      </div>
+      <div class="hero-sub-micro" style="color: var(--apple-orange);">1250 Hm // 3:30 h</div>
+      <div class="day-footer-row">
+        <span class="day-pill-badge pill-race">Drachenlauf 🎯</span>
+        <div class="status-dot"></div>
+      </div>
+    </div>
+
+    <!-- COMPLETED CARD (ERLEDIGT) -->
+    <div class="apple-day-card card-completed">
+      <div class="day-header">
+        <span>DON</span>
+        <span class="date-num">30.07</span>
+      </div>
+      <div class="hero-val-wrap">
+        <span class="hero-val" style="color: var(--apple-green);">6.0</span>
+        <span class="hero-unit" style="color: var(--apple-green);">KM</span>
+      </div>
+      <div class="hero-sub-micro" style="color: var(--apple-green);">43 Min.</div>
+      <div class="day-footer-row">
+        <span class="day-pill-badge pill-completed">✓ Erledigt</span>
+        <div class="status-dot done"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: PHASE & ACTION SUB-GRID -->
+  <div class="section-label">3. PHASE CARD & ACTIVITY LOGGING 50/50 CONTAINER</div>
+  <div class="grid-row">
+    <!-- PHASE CARD -->
+    <div class="clean-card phase-card">
+      <div class="phase-header-row">
+        <span class="phase-badge-pill">PHASE 1</span>
+        <span class="phase-dates">KW 30–33 (20.07 – 16.08)</span>
+      </div>
+      <h3 class="phase-name">Grundlagenerhalt & Reisen</h3>
+      <div class="phase-desc">
+        Erhalt der aeroben Basis. Longruns bis 450 Hm in Erkrath, darüber im Siebengebirge. In London (KW 32) max. 1 Std. Fenster. Malto bei Longruns (> 15 km / Siebengebirge): 500ml Softflasks, Marzipan & Feigen. Schutz: Mosquito- & Sonnenspray.
+      </div>
+    </div>
+
+    <!-- COMPACT ACTIVITY LOGGING CONTAINER -->
+    <div class="clean-card activity-card-compact" style="justify-content: center;">
+      <div class="act-compact-actions">
+        <button class="btn btn-cta-primary">
+          + Aktivität erfassen
+        </button>
+        <button class="btn btn-cta-secondary">
+          Garmin Screenshot Import ↗
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: SPACEX TIMELINE CONTAINER (SAISONPFAD) -->
+  <div class="section-label">4. SAISONPFAD TIMELINE CONTAINER</div>
+  <div class="clean-card season-timeline-card">
+    <div class="season-timeline-header">
+      <span class="season-timeline-title">SAISONPFAD</span>
+    </div>
+    
+    <div class="spacex-timeline-wrap">
+      <div class="spacex-track-base"></div>
+      <div class="spacex-track-progress" style="width: 34%;"></div>
+
+      <div class="spacex-nodes-container">
+        <div class="spacex-node done-node" style="left: 0%;">
+          <div class="node-dot"></div>
+          <div class="node-label-top">BASIS</div>
+          <div class="node-sub-bottom">Erkrath 350m</div>
+        </div>
+
+        <div class="spacex-node done-node" style="left: 17%;">
+          <div class="node-dot"></div>
+          <div class="node-label-top">VORBEREITUNG</div>
+          <div class="node-sub-bottom">KW 31 // 380m</div>
+        </div>
+
+        <div class="spacex-node active-node" style="left: 34%;">
+          <div class="node-ring"><div class="node-core"></div></div>
+          <div class="node-label-top">LONDON</div>
+          <div class="node-sub-bottom">KW 32 GA1</div>
+        </div>
+
+        <div class="spacex-node" style="left: 51%;">
+          <div class="node-dot"></div>
+          <div class="node-label-top">PEAK</div>
+          <div class="node-sub-bottom">7gebirge 950m</div>
+        </div>
+
+        <div class="spacex-node" style="left: 68%;">
+          <div class="node-dot"></div>
+          <div class="node-label-top">TEST</div>
+          <div class="node-sub-bottom">Côte d’Opal / Probe</div>
+        </div>
+
+        <div class="spacex-node" style="left: 84%;">
+          <div class="node-dot"></div>
+          <div class="node-label-top">TAPERING</div>
+          <div class="node-sub-bottom">Erholung 400m</div>
+        </div>
+
+        <div class="spacex-node target-node" style="left: 100%;">
+          <div class="node-dot target-dot"></div>
+          <div class="node-label-top highlight-orange">DRACHENLAUF</div>
+          <div class="node-sub-bottom highlight-orange">25. Okt 🎯</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: WORKOUT DETAILS MODAL UNIFIED COMPARISON CONTAINER -->
+  <div class="section-label">5. WORKOUT DETAILS MODAL COMPARISON CONTAINER</div>
+  <div class="clean-card" style="max-width: 680px;">
+    <div style="font-size: 1.25rem; font-weight: 900; color: var(--text-white); margin-bottom: 1rem;">
+      Longrun Erkrath <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-secondary);">(Sonntag, 26.07)</span>
+    </div>
+
+    <!-- UNIFIED COMPARISON CARD (GELAUFEN + GEPLANTER LAUF) -->
+    <div style="background: rgba(0, 0, 0, 0.4); border: 1px solid var(--border-card); border-radius: 16px; padding: 1.1rem 1.25rem;">
+      <!-- GELAUFEN -->
+      <div style="margin-bottom: 0.85rem;">
+        <div style="font-size: 0.85rem; font-weight: 900; color: var(--apple-green); display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
+          <span>✓ Gelaufen</span>
+          <span style="font-style: italic; font-weight: 600; color: var(--text-secondary); font-size: 0.80rem;">Notiz: "Einstieg Erkrath locker"</span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6rem; background: rgba(48, 209, 88, 0.08); border: 1px solid rgba(48, 209, 88, 0.35); border-radius: 12px; padding: 0.85rem 0.6rem;">
+          <div style="text-align: center;">
+            <span style="font-size: 1.35rem; font-weight: 900; color: var(--apple-green); display: block;">12.0</span>
+            <span style="font-size: 0.75rem; font-weight: 800; color: var(--apple-green);">DISTANZ (KM)</span>
+          </div>
+          <div style="text-align: center;">
+            <span style="font-size: 1.35rem; font-weight: 900; color: var(--apple-green); display: block;">350</span>
+            <span style="font-size: 0.75rem; font-weight: 800; color: var(--apple-green);">HÖHENMETER</span>
+          </div>
+          <div style="text-align: center;">
+            <span style="font-size: 1.35rem; font-weight: 900; color: var(--apple-green); display: block;">1:26 h</span>
+            <span style="font-size: 0.75rem; font-weight: 800; color: var(--apple-green);">DAUER</span>
+          </div>
+          <div style="text-align: center;">
+            <span style="font-size: 1.25rem; font-weight: 900; color: var(--apple-green); display: block; margin-top: 0.1rem;">128 bpm</span>
+            <span style="font-size: 0.75rem; font-weight: 800; color: var(--apple-green);">DURCHSCHNITTSPULS</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- DIVIDER -->
+      <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); margin: 0.85rem 0 0.85rem 0;"></div>
+
+      <!-- GEPLANTER LAUF -->
+      <div>
+        <div style="font-size: 0.82rem; font-weight: 800; color: var(--text-secondary); margin-bottom: 0.5rem;">
+          Geplanter Lauf
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6rem; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 12px; padding: 0.75rem 0.6rem;">
+          <div style="text-align: center;">
+            <span style="font-size: 1.25rem; font-weight: 800; color: var(--text-white); display: block;">12.0</span>
+            <span style="font-size: 0.72rem; font-weight: 800; color: var(--text-secondary);">SOLL DISTANZ (KM)</span>
+          </div>
+          <div style="text-align: center;">
+            <span style="font-size: 1.25rem; font-weight: 800; color: var(--text-white); display: block;">350</span>
+            <span style="font-size: 0.72rem; font-weight: 800; color: var(--text-secondary);">SOLL HÖHENMETER</span>
+          </div>
+          <div style="text-align: center;">
+            <span style="font-size: 1.25rem; font-weight: 800; color: var(--text-white); display: block;">1:25 h</span>
+            <span style="font-size: 0.72rem; font-weight: 800; color: var(--text-secondary);">SCHÄTZDAUER</span>
+          </div>
+          <div style="text-align: center;">
+            <span style="font-size: 1.05rem; font-weight: 800; color: var(--text-white); display: block; margin-top: 0.15rem;">HF 110–135 bpm</span>
+            <span style="font-size: 0.72rem; font-weight: 800; color: var(--text-secondary);">PULS-ZIELZONE</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MICRO DANGER LINK BOTTOM RIGHT -->
+    <div style="display: flex; justify-content: flex-end; margin-top: 0.8rem;">
+      <span style="font-size: 0.72rem; font-weight: 700; color: rgba(255, 69, 58, 0.75); cursor: pointer; text-decoration: underline;">
+        Einheit zurücksetzen
+      </span>
+    </div>
+  </div>
+
+</body>
+</html>

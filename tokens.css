@@ -1,0 +1,105 @@
+/* DRACHENLAUF 2026: GENERATED CSS DESIGN TOKENS */
+/* AUTOMATICALLY GENERATED FROM W3C TOKENS.JSON */
+
+:root {
+  /* --- COLOR TOKENS --- */
+  --color-brand-green: #30D158;
+  --color-brand-green-hover: #34E05E;
+  --color-brand-cyan: #64D2FF;
+  --color-brand-orange: #FF9F0A;
+  --color-brand-orange-hover: #FFB340;
+  --color-brand-red: #FF453A;
+  --color-brand-yellow: #FFD60A;
+  --color-brand-blue: #007AFF;
+  --color-background-app: #0B0B10;
+  --color-background-card: rgba(22, 22, 30, 0.85);
+  --color-background-card-hover: rgba(32, 32, 44, 0.95);
+  --color-background-rest-card: rgba(14, 14, 20, 0.70);
+  --color-background-rest-card-hover: rgba(22, 22, 30, 0.85);
+  --color-background-modal: #12121A;
+  --color-background-modal-backdrop: rgba(0, 0, 0, 0.75);
+  --color-background-node-dark: #1C1C1E;
+  --color-background-track-base: rgba(255, 255, 255, 0.12);
+  --color-text-white: #FFFFFF;
+  --color-text-secondary: #A1A1A6;
+  --color-text-muted: #6E6E73;
+  --color-text-subtle-light: #D1D1D6;
+  --color-text-dark: #000000;
+  --color-border-card: rgba(255, 255, 255, 0.08);
+  --color-border-subtle: rgba(255, 255, 255, 0.05);
+  --color-border-hover: rgba(255, 255, 255, 0.20);
+
+  /* --- TYPOGRAPHY TOKENS --- */
+  --typography-font-family-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --typography-font-size-3xs: 0.60rem;
+  --typography-font-size-2xs: 0.65rem;
+  --typography-font-size-xs: 0.72rem;
+  --typography-font-size-sm: 0.78rem;
+  --typography-font-size-md: 0.85rem;
+  --typography-font-size-base: 1.00rem;
+  --typography-font-size-lg: 1.15rem;
+  --typography-font-size-xl: 1.25rem;
+  --typography-font-size-2xl: 1.45rem;
+  --typography-font-size-3xl: 2.20rem;
+  --typography-font-size-4xl: 2.35rem;
+  --typography-font-weight-light: 300;
+  --typography-font-weight-regular: 400;
+  --typography-font-weight-medium: 500;
+  --typography-font-weight-semibold: 600;
+  --typography-font-weight-bold: 700;
+  --typography-font-weight-extrabold: 800;
+  --typography-font-weight-black: 900;
+  --typography-line-height-none: 1.0;
+  --typography-line-height-tight: 1.05;
+  --typography-line-height-snug: 1.25;
+  --typography-line-height-normal: 1.4;
+  --typography-line-height-relaxed: 1.45;
+  --typography-line-height-loose: 1.6;
+  --typography-letter-spacing-tight: -0.8px;
+  --typography-letter-spacing-snug: -0.5px;
+  --typography-letter-spacing-normal: 0.2px;
+  --typography-letter-spacing-wide: 0.8px;
+  --typography-letter-spacing-wider: 1.0px;
+  --typography-letter-spacing-widest: 1.2px;
+
+  /* --- SPACING TOKENS --- */
+  --spacing-2xs: 0.25rem;
+  --spacing-xs: 0.50rem;
+  --spacing-sm: 0.75rem;
+  --spacing-md: 1.00rem;
+  --spacing-lg: 1.50rem;
+  --spacing-xl: 2.00rem;
+  --spacing-2xl: 2.50rem;
+  --spacing-3xl: 3.20rem;
+
+  /* --- BORDER RADIUS TOKENS --- */
+  --border-radius-sm: 4px;
+  --border-radius-md: 6px;
+  --border-radius-lg: 10px;
+  --border-radius-xl: 12px;
+  --border-radius-card: 16px;
+  --border-radius-modal: 20px;
+  --border-radius-pill: 999px;
+
+  /* --- ELEVATION / SHADOW TOKENS --- */
+  --elevation-card-glow: 0 0 12px rgba(100, 210, 255, 0.2);
+  --elevation-green-glow: 0 0 8px rgba(48, 209, 88, 0.15);
+  --elevation-green-pill-glow: 0 2px 8px rgba(48, 209, 88, 0.4);
+  --elevation-orange-button: 0 4px 14px rgba(255, 159, 10, 0.3);
+  --elevation-green-button: 0 4px 16px rgba(48, 209, 88, 0.3);
+  --elevation-modal: 0 20px 50px rgba(0, 0, 0, 0.8);
+
+  /* --- TRANSITION TOKENS --- */
+  --transition-default: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: all 0.15s ease;
+  --transition-progress: width 0.5s ease;
+
+  /* --- SEMANTIC ALIASES --- */
+  --color-primary: var(--color-brand-cyan);
+  --color-success: var(--color-brand-green);
+  --color-warning: var(--color-brand-orange);
+  --color-danger: var(--color-brand-red);
+  --font-size-h1: var(--typography-font-size-3xl);
+  --font-size-h2: var(--typography-font-size-2xl);
+  --font-size-h3: var(--typography-font-size-xl);
+}
