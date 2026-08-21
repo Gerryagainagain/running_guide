@@ -86,6 +86,21 @@ const kwMap = {
 const defaultInitialRuns = [
   // KW 34
   {
+    id: 1787339642677,
+    kw: 34,
+    date: '21.08.2026',
+    dayDate: '21.08',
+    dist: 8.0,
+    hm: 20,
+    duration: '00:53:47',
+    hr: 125,
+    pace: '6:43',
+    type: 'laufen',
+    isErsatz: false,
+    tag: 'Lockerer Abendlauf Ddorf',
+    notes: 'Lockerer Abendlauf Düsseldorf (8.0 km / 20 Hm)'
+  },
+  {
     id: 1787152000002,
     kw: 34,
     date: '20.08.2026',
@@ -706,7 +721,7 @@ const appleScheduleData = {
     { day: 'DIE', date: '18.08', tag: 'Rampen Ddorf', dist: 9.0, hm: 120, done: true },
     { day: 'MIT', date: '19.08', tag: 'Regeneration', dist: 0, hm: 0, done: false },
     { day: 'DON', date: '20.08', tag: 'Locker Rhein', dist: 7.2, hm: 17, done: true },
-    { day: 'FRE', date: '21.08', tag: 'Lockerer Abendlauf Ddorf', dist: 8.0, hm: 0, done: false },
+    { day: 'FRE', date: '21.08', tag: 'Lockerer Abendlauf Ddorf', dist: 8.0, hm: 20, done: true },
     { day: 'SAM', date: '22.08', tag: 'Amsterdam Tanz-Event (2 Std)', dist: 0, hm: 0, done: false },
     { day: 'SON', date: '23.08', tag: 'Höhenmeter-Trail Erkrath', dist: 12.0, hm: 400, done: false }
   ],
