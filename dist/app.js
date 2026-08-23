@@ -391,6 +391,13 @@ if (runsData && runsData.length > 0) {
       if (r.notes) r.notes = r.notes.replace('Siebengebirge', 'Erkrath');
       needsSave = true;
     }
+    if (r.date === '23.08.2026' || r.dayDate === '23.08') {
+      if (r.duration === '02:33:00') {
+        r.duration = '01:53:00';
+        r.pace = '8:57';
+        needsSave = true;
+      }
+    }
   });
   if (needsSave) {
     try { localStorage.setItem('drachenlauf_runs', JSON.stringify(runsData)); } catch (e) {}
