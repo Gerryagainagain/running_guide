@@ -86,6 +86,21 @@ const kwMap = {
 const defaultInitialRuns = [
   // KW 34
   {
+    id: 1787513372870,
+    kw: 34,
+    date: '23.08.2026',
+    dayDate: '23.08',
+    dist: 12.62,
+    hm: 376,
+    duration: '02:33:00',
+    hr: 118,
+    pace: '12:07',
+    type: 'laufen',
+    isErsatz: false,
+    tag: 'Höhenmeter-Trail Erkrath',
+    notes: 'Höhenmeter-Trail Erkrath (12.62 km / 376 Hm / 118 bpm)'
+  },
+  {
     id: 1787339642677,
     kw: 34,
     date: '21.08.2026',
@@ -723,7 +738,7 @@ const appleScheduleData = {
     { day: 'DON', date: '20.08', tag: 'Locker Rhein', dist: 7.2, hm: 17, done: true },
     { day: 'FRE', date: '21.08', tag: 'Lockerer Abendlauf Ddorf', dist: 8.0, hm: 20, done: true },
     { day: 'SAM', date: '22.08', tag: 'Amsterdam Tanz-Event (2 Std)', dist: 0, hm: 0, done: false },
-    { day: 'SON', date: '23.08', tag: 'Höhenmeter-Trail Erkrath', dist: 12.0, hm: 400, done: false }
+    { day: 'SON', date: '23.08', tag: 'Höhenmeter-Trail Erkrath', dist: 12.62, hm: 376, done: true }
   ],
   35: [
     { day: 'MON', date: '24.08', tag: 'Regeneration', dist: 0, hm: 0, done: false },
