@@ -749,8 +749,8 @@ const appleScheduleData = {
   ],
   35: [
     { day: 'MON', date: '24.08', tag: 'Regeneration', dist: 0, hm: 0, done: false },
-    { day: 'DIE', date: '25.08', tag: 'Rampen Ddorf', dist: 9.0, hm: 120, done: false },
-    { day: 'MIT', date: '26.08', tag: 'Regeneration', dist: 0, hm: 0, done: false },
+    { day: 'DIE', date: '25.08', tag: 'Regeneration', dist: 0, hm: 0, done: false },
+    { day: 'MIT', date: '26.08', tag: 'Rampen Ddorf', dist: 9.0, hm: 120, done: false },
     { day: 'DON', date: '27.08', tag: 'Locker Rhein', dist: 9.0, hm: 0, done: false },
     { day: 'FRE', date: '28.08', tag: 'Krafttraining Studio', dist: 0, hm: 0, done: false },
     { day: 'SAM', date: '29.08', tag: 'Locker', dist: 7.0, hm: 0, done: false },
