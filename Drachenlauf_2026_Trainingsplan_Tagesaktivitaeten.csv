@@ -1,4 +1,4 @@
-﻿Woche (KW);Phase;Wochentag;Datum;Aktivität / Beschreibung;Soll-Distanz (km);Soll-Höhenmeter (Hm);Schätzdauer;Verpflegungs-Empfehlung
+Woche (KW);Phase;Wochentag;Datum;Aktivität / Beschreibung;Soll-Distanz (km);Soll-Höhenmeter (Hm);Schätzdauer;Verpflegungs-Empfehlung
 KW 30;Phase 1: Grundlagenerhalt & Reisen (KW 30–33);MON;20.07.2026;Ruhetag;0,0;0;Erholung;Keine
 KW 30;Phase 1: Grundlagenerhalt & Reisen (KW 30–33);DIE;21.07.2026;Rampen Ddorf;9,0;120;1:08 h;Wasser
 KW 30;Phase 1: Grundlagenerhalt & Reisen (KW 30–33);MIT;22.07.2026;Ruhetag;0,0;0;Erholung;Keine
@@ -35,8 +35,8 @@ KW 34;Phase 2: Grundlagenausdauer & Hm-Aufbau (KW 34–36);FRE;21.08.2026;Kraftt
 KW 34;Phase 2: Grundlagenausdauer & Hm-Aufbau (KW 34–36);SAM;22.08.2026;Amsterdam Trip;0,0;0;Erholung;Keine
 KW 34;Phase 2: Grundlagenausdauer & Hm-Aufbau (KW 34–36);SON;23.08.2026;Longrun Siebengebirge;16,0;650;2:00 h;2 Softflasks (120g Malto)
 KW 35;Phase 2: Grundlagenausdauer & Hm-Aufbau (KW 34–36);MON;24.08.2026;Regeneration;0,0;0;Erholung;Keine
-KW 35;Phase 2: Grundlagenausdauer & Hm-Aufbau (KW 34–36);DIE;25.08.2026;Rampen Ddorf;9,0;120;1:08 h;Wasser
-KW 35;Phase 2: Grundlagenausdauer & Hm-Aufbau (KW 34–36);MIT;26.08.2026;Regeneration;0,0;0;Erholung;Keine
+KW 35;Phase 2: Grundlagenausdauer & Hm-Aufbau (KW 34–36);DIE;25.08.2026;Regeneration;0,0;0;Erholung;Keine
+KW 35;Phase 2: Grundlagenausdauer & Hm-Aufbau (KW 34–36);MIT;26.08.2026;Rampen Ddorf;9,0;120;1:08 h;Wasser
 KW 35;Phase 2: Grundlagenausdauer & Hm-Aufbau (KW 34–36);DON;27.08.2026;Locker Rhein;9,0;0;1:05 h;Wasser
 KW 35;Phase 2: Grundlagenausdauer & Hm-Aufbau (KW 34–36);FRE;28.08.2026;Krafttraining Studio;0,0;0;30 Min.;Keine
 KW 35;Phase 2: Grundlagenausdauer & Hm-Aufbau (KW 34–36);SAM;29.08.2026;Locker;7,0;0;0:50 h;Wasser
