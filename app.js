@@ -485,18 +485,34 @@ document.addEventListener('fullscreenchange', () => {
 
 function updateCountdown() {
   const raceDate = new Date('2026-10-25T10:00:00');
-  const today = new Date('2026-07-31');
+  const now = new Date();
+  
+  let today = now;
+  // If system date is not in 2026, construct date from current selectedKw
+  if (now.getFullYear() !== 2026) {
+    const kwStartDates = {
+      30: '2026-07-20', 31: '2026-07-27', 32: '2026-08-03', 33: '2026-08-10',
+      34: '2026-08-17', 35: '2026-08-24', 36: '2026-08-31', 37: '2026-09-07',
+      38: '2026-09-14', 39: '2026-09-21', 40: '2026-09-28', 41: '2026-10-05',
+      42: '2026-10-12', 43: '2026-10-19'
+    };
+    const startDateStr = kwStartDates[selectedKw] || '2026-08-24';
+    today = new Date(startDateStr + 'T00:00:00');
+  }
+
   const diffTime = raceDate - today;
-  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  const diffDays = Math.max(0, Math.ceil(diffTime / (1000 * 60 * 60 * 24)));
   
   const cdTxtElem = document.getElementById('cdTxtContainer');
   if (!cdTxtElem) return;
 
-  if (diffDays > 30) {
+  if (diffDays > 21) {
     const weeks = Math.floor(diffDays / 7);
     cdTxtElem.innerHTML = `Noch <strong>${weeks} Wochen</strong>`;
+  } else if (diffDays > 0) {
+    cdTxtElem.innerHTML = `Noch <strong>${diffDays} Tage</strong>`;
   } else {
-    cdTxtElem.innerHTML = `Noch <strong>${diffDays > 0 ? diffDays : 0} Tage</strong>`;
+    cdTxtElem.innerHTML = `<strong>RENNTAG! 🏆</strong>`;
   }
 }
 
@@ -895,6 +911,7 @@ function renderDashboard() {
   renderScheduleRow(selectedKw);
   renderPhaseInfo(phase, selectedKw);
   renderLastActivity();
+  updateCountdown();
 }
 
 const expeditionPhasesData = [
