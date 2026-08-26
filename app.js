@@ -2308,7 +2308,7 @@ function saveOcrRun() {
 /* ==========================================================================
    AUTH GATE FUNCTIONS (PASSWORD PROTECTION)
    ========================================================================== */
-const VALID_SITE_PASSWORDS = ['achilles', 'achillessehne', 'achillesferse', 'hermann', 'hermannsche'];
+const VALID_SITE_PASSWORDS = ['achilles', 'achillessehne'];
 
 function checkSiteAuth() {
   let isAuth = false;
@@ -2347,14 +2347,7 @@ function verifyAuthPassword(e) {
   if (!input) return false;
 
   const rawVal = String(input.value || '').trim().toLowerCase();
-
-  const isMatched = rawVal.length > 0 && (
-    rawVal === 'achilles' ||
-    rawVal === 'achillessehne' ||
-    rawVal.includes('achill') ||
-    rawVal.includes('hermann') ||
-    VALID_SITE_PASSWORDS.some(pwd => rawVal.includes(pwd))
-  );
+  const isMatched = VALID_SITE_PASSWORDS.includes(rawVal);
 
   if (isMatched) {
     try { sessionStorage.setItem('drachenlauf_authenticated', 'true'); } catch(ex){}
