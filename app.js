@@ -8,7 +8,7 @@ const phaseData = {
     code: 'PHASE 1',
     name: 'Grundlagenerhalt & Reisen',
     dates: 'KW 30–33 (20.07 – 16.08)',
-    desc: 'Erhalt der aeroben Basis. Alle Longruns bis 500 Hm werden in Erkrath absolviert (erst Läufe mit > 500 Hm wechseln ins Siebengebirge). In London (KW 32) max. 1 Std. Fenster. Malto bei Longruns (> 15 km): 500ml Softflasks, Marzipan & Feigen. Schutz: Mosquito- & Sonnenspray.',
+    desc: 'Erhalt der aeroben Basis. Alle Longruns bis 500 Hm werden in Erkrath absolviert (erst Läufe mit > 500 Hm wechseln ins Siebengebirge). In London (KW 32) max. 1 Std. Fenster. Malto bei Longruns (> 15 km): 500ml Softflasks, Marzipan & Feigen. Schutz: Sonnenspray.',
     targetWkm: 30,
     targetWhm: 450,
     targetLongDist: 16,
@@ -924,7 +924,7 @@ const expeditionPhasesData = [
     dates: "KW 37–38 (07.09 – 20.09)",
     goal: "Langer Testlauf unter Renntempo (25 km Klippentrail)",
     workouts: "25 km Wettkampftest an der Küste unter Renntempo, gefolgt von GA1-Regeneration.",
-    notes: "Wettkampfausrüstung auf Coastal Trails testen. Kälteschutz & Mückenspray."
+    notes: "Wettkampfausrüstung auf Coastal Trails testen. Kälteschutz."
   },
   {
     name: "Probedrachen",
@@ -1613,7 +1613,7 @@ function openWorkoutDetailsModal(kw, dayIndex) {
         </p>
         <ul style="padding-left: 1.1rem; font-size: 0.82rem; color: var(--text-secondary);">
           <li style="margin-bottom: 0.25rem;"><strong>Snack-Packliste:</strong> ${snackListText}</li>
-          <li style="margin-bottom: 0.25rem;"><strong>Schutz:</strong> Mosquito- & Sonnenspray vorab auftragen</li>
+          <li style="margin-bottom: 0.25rem;"><strong>Schutz:</strong> Sonnenspray vorab auftragen</li>
           <li style="margin-bottom: 0.25rem;"><strong>Einnahme-Schema:</strong> Alle 15–20 Min. Malto schluckweise trinken (mit Wasser nachspülen); ab Std. 1,5 alle 25–30 Min. Snacks kauen.</li>
           ${isKeyRaceOrPeakTest ? `<li style="margin-bottom: 0.25rem; color: #FF9F0A;"><strong>Refill-Option:</strong> Wasser-Flask an Quellen / Verpflegungsstationen (VPs) nachfüllen.</li>` : ''}
         </ul>
