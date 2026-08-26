@@ -726,11 +726,11 @@ function getHrTargetForWorkout(tag) {
 }
 
 function getHmColorStyle(hmVal) {
-  if (hmVal >= 1200) return 'color: #FF453A; font-weight: 900;';
-  if (hmVal >= 800)  return 'color: #FF9F0A; font-weight: 900;';
-  if (hmVal >= 600)  return 'color: #FFD60A; font-weight: 900;';
-  if (hmVal >= 300)  return 'color: #64D2FF; font-weight: 900;';
-  return 'color: #a1a1a6; font-weight: 700;';
+  if (hmVal >= 1200) return 'color: var(--color-brand-red); font-weight: 900;';
+  if (hmVal >= 800)  return 'color: var(--color-brand-orange); font-weight: 900;';
+  if (hmVal >= 600)  return 'color: var(--color-brand-yellow); font-weight: 900;';
+  if (hmVal >= 300)  return 'color: var(--color-brand-cyan); font-weight: 900;';
+  return 'color: var(--color-text-secondary); font-weight: 700;';
 }
 
 const appleScheduleData = {
@@ -1337,14 +1337,14 @@ function renderScheduleRow(kw) {
         subMicroHtml = `<span style="color: var(--apple-green); font-weight: 800;">${d.hm > 0 ? d.hm + ' Hm · ' : ''}${estDur}</span>`;
       }
     } else if (isRaveDay || tagLower.includes('rave') || tagLower.includes('tanz') || tagLower.includes('amsterdam')) {
-      heroHtml = `<div class="hero-val-wrap"><span class="hero-rest-txt" style="color: #FF9F0A; font-weight: 900;">Tanz-Event</span></div>`;
-      subMicroHtml = `<span style="color: #FF9F0A; font-weight: 800;">2 Std.</span>`;
+      heroHtml = `<div class="hero-val-wrap"><span class="hero-rest-txt" style="color: var(--color-brand-orange); font-weight: 900;">Tanz-Event</span></div>`;
+      subMicroHtml = `<span style="color: var(--color-brand-orange); font-weight: 800;">2 Std.</span>`;
     } else if (isRestDay) {
       heroHtml = `<div class="hero-val-wrap"><span class="hero-rest-txt">CHILL</span></div>`;
       subMicroHtml = `<span style="color: var(--text-secondary); font-weight: 700;">Übungen</span>`;
     } else if (isKtDay) {
-      heroHtml = `<div class="hero-val-wrap"><span class="hero-rest-txt" style="color: var(--apple-cyan); font-weight: 900;">Kraft & Rumpf</span></div>`;
-      subMicroHtml = `<span style="color: #D1D1D6; font-weight: 700;">25–30 Min.</span>`;
+      heroHtml = `<div class="hero-val-wrap"><span class="hero-rest-txt" style="color: var(--color-brand-cyan); font-weight: 900;">Kraft & Rumpf</span></div>`;
+      subMicroHtml = `<span style="color: var(--color-text-subtle-light); font-weight: 700;">25–30 Min.</span>`;
     } else {
       const distNum = d.dist.toFixed(1);
       const estDur = formatWorkoutDuration(d.dist, d.hm, d.tag);
@@ -1432,32 +1432,32 @@ function openWorkoutDetailsModal(kw, dayIndex) {
   const isHeatPossible = kw <= 37 || tagLower.includes('opal') || tagLower.includes('august');
 
   let categoryBadge = 'GRUNDLAGE / LOCKER';
-  let categoryColor = '#64D2FF';
+  let categoryColor = 'var(--color-brand-cyan)';
 
   if (tagLower.includes('rave')) {
     categoryBadge = 'AUSNAHME-EVENT / NIGHTLIFE 🪩';
-    categoryColor = '#FF9F0A';
+    categoryColor = 'var(--color-brand-orange)';
   } else if (tagLower.includes('trip') || tagLower.includes('amsterdam') || tagLower.includes('anreise') || tagLower.includes('rückfahrt')) {
     categoryBadge = 'REISE & STÄDTETRIP ✈️';
-    categoryColor = '#64D2FF';
+    categoryColor = 'var(--color-brand-cyan)';
   } else if (tagLower.includes('drachenlauf') && !tagLower.includes('probedrachen')) {
     categoryBadge = 'HAUPTWETTKAMPF 🎯';
-    categoryColor = '#FF9F0A';
+    categoryColor = 'var(--color-brand-orange)';
   } else if (tagLower.includes('probedrachen')) {
     categoryBadge = 'STRECKENERKUNDUNG & GENUSS 🗺️';
-    categoryColor = '#30D158';
+    categoryColor = 'var(--color-brand-green)';
   } else if (tagLower.includes('opal')) {
     categoryBadge = 'TESTRENNEN ⚡';
-    categoryColor = '#007AFF';
+    categoryColor = 'var(--color-brand-blue)';
   } else if (tagLower.includes('rampen')) {
     categoryBadge = 'SCHLÜSSELEINHEIT: RAMPEN ⚡';
-    categoryColor = '#FFD60A';
+    categoryColor = 'var(--color-brand-yellow)';
   } else if (isLongrun) {
     categoryBadge = 'SCHLÜSSELEINHEIT: LONGRUN ↗';
-    categoryColor = '#FFD60A';
+    categoryColor = 'var(--color-brand-yellow)';
   } else if (d.dist === 0) {
     categoryBadge = 'REGENERATION & STABI 🧘';
-    categoryColor = '#30D158';
+    categoryColor = 'var(--color-brand-green)';
   }
 
   let tipsList = [];
@@ -1509,106 +1509,92 @@ function openWorkoutDetailsModal(kw, dayIndex) {
     tipsList = [
       'Erste 5 km kontrolliert anlaufen',
       'Puls an Anstiegen diszipliniert halten'
-    ];
-  } else if (d.dist === 0) {
-    tipsList = [
-      'Erholung & Regeneration',
-      'Leichtes Dehnen, Spaziergang oder passive Erholung'
-    ];
-  } else {
-    tipsList = [
-      'Grundlagenausdauer (GA1 - HF < 135 bpm)',
-      'Gleichmäßiges, kontrolliertes Tempo'
-    ];
-  }
-
   let comparisonBlocksHtml = '';
 
   if (loggedRun) {
     const loggedDurStr = formatLoggedDurationNice(loggedRun.duration);
     comparisonBlocksHtml = `
-      <!-- UNIFIED COMPARISON CARD (GELAUFEN + GEPLANTER LAUF) -->
-      <div style="background: rgba(0, 0, 0, 0.4); border: 1px solid var(--border-card); border-radius: 16px; padding: 1.1rem 1.25rem; margin-bottom: 1.25rem;">
-        
-        <!-- GELAUFEN -->
-        <div style="margin-bottom: 0.85rem;">
-          <div style="font-size: 0.85rem; font-weight: 900; color: var(--apple-green); display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
-            <span>✓ Gelaufen</span>
-            ${loggedRun.notes ? `<span style="font-style: italic; font-weight: 600; text-transform: none; color: var(--text-secondary); font-size: 0.80rem;">Notiz: "${loggedRun.notes}"</span>` : ''}
+      <!-- GELAUFEN (ABSOLVIERTE EINHEIT) -->
+      <div style="background: var(--color-tint-green-bg); border: 1px solid var(--color-tint-green-border); border-radius: var(--border-radius-card); padding: 1.25rem; margin-bottom: 1.0rem;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.85rem;">
+          <span style="font-size: 0.75rem; font-weight: 900; color: var(--color-brand-green); letter-spacing: 0.8px; text-transform: uppercase;">
+            ✓ ABSOLVIERTE EINHEIT
+          </span>
+          ${loggedRun.notes ? `<span style="font-style: italic; font-weight: 600; color: var(--color-text-secondary); font-size: 0.78rem;">"${loggedRun.notes}"</span>` : ''}
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.65rem; text-align: center;">
+          <div style="background: rgba(48, 209, 88, 0.1); border: 1px solid rgba(48, 209, 88, 0.25); border-radius: var(--border-radius-xl); padding: 0.85rem 0.4rem;">
+            <span style="font-size: 1.35rem; font-weight: 900; color: var(--color-brand-green); display: block; font-feature-settings: 'tnum'; line-height: 1.1;">${loggedRun.dist > 0 ? loggedRun.dist.toFixed(1) : '0.0'}</span>
+            <span style="font-size: 0.68rem; font-weight: 800; color: var(--color-brand-green); margin-top: 0.25rem; display: block;">DISTANZ (KM)</span>
           </div>
-          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6rem; background: rgba(48, 209, 88, 0.08); border: 1px solid rgba(48, 209, 88, 0.35); border-radius: 12px; padding: 0.85rem 0.6rem;">
-            <div style="text-align: center;">
-              <span style="font-size: 1.35rem; font-weight: 900; color: var(--apple-green); display: block; font-feature-settings: 'tnum';">${loggedRun.dist > 0 ? loggedRun.dist.toFixed(1) : '0.0'}</span>
-              <span style="font-size: 0.75rem; font-weight: 800; color: var(--apple-green);">DISTANZ (KM)</span>
-            </div>
-            <div style="text-align: center;">
-              <span style="font-size: 1.35rem; font-weight: 900; color: var(--apple-green); display: block; font-feature-settings: 'tnum';">${loggedRun.hm || 0}</span>
-              <span style="font-size: 0.75rem; font-weight: 800; color: var(--apple-green);">HÖHENMETER</span>
-            </div>
-            <div style="text-align: center;">
-              <span style="font-size: 1.35rem; font-weight: 900; color: var(--apple-green); display: block; font-feature-settings: 'tnum';">${loggedDurStr || '-'}</span>
-              <span style="font-size: 0.75rem; font-weight: 800; color: var(--apple-green);">DAUER</span>
-            </div>
-            <div style="text-align: center;">
-              <span style="font-size: 1.25rem; font-weight: 900; color: var(--apple-green); display: block; margin-top: 0.1rem; font-feature-settings: 'tnum';">${loggedRun.hr > 0 ? loggedRun.hr + ' bpm' : '--'}</span>
-              <span style="font-size: 0.75rem; font-weight: 800; color: var(--apple-green);">DURCHSCHNITTSPULS</span>
-            </div>
+          <div style="background: rgba(48, 209, 88, 0.1); border: 1px solid rgba(48, 209, 88, 0.25); border-radius: var(--border-radius-xl); padding: 0.85rem 0.4rem;">
+            <span style="font-size: 1.35rem; font-weight: 900; color: var(--color-brand-green); display: block; font-feature-settings: 'tnum'; line-height: 1.1;">${loggedRun.hm || 0}</span>
+            <span style="font-size: 0.68rem; font-weight: 800; color: var(--color-brand-green); margin-top: 0.25rem; display: block;">HÖHENMETER</span>
+          </div>
+          <div style="background: rgba(48, 209, 88, 0.1); border: 1px solid rgba(48, 209, 88, 0.25); border-radius: var(--border-radius-xl); padding: 0.85rem 0.4rem;">
+            <span style="font-size: 1.35rem; font-weight: 900; color: var(--color-brand-green); display: block; font-feature-settings: 'tnum'; line-height: 1.1;">${loggedDurStr || '-'}</span>
+            <span style="font-size: 0.68rem; font-weight: 800; color: var(--color-brand-green); margin-top: 0.25rem; display: block;">DAUER</span>
+          </div>
+          <div style="background: rgba(48, 209, 88, 0.1); border: 1px solid rgba(48, 209, 88, 0.25); border-radius: var(--border-radius-xl); padding: 0.85rem 0.4rem;">
+            <span style="font-size: 1.25rem; font-weight: 900; color: var(--color-brand-green); display: block; margin-top: 0.1rem; line-height: 1.1;">${loggedRun.hr > 0 ? loggedRun.hr + ' bpm' : '--'}</span>
+            <span style="font-size: 0.68rem; font-weight: 800; color: var(--color-brand-green); margin-top: 0.25rem; display: block;">SCHNITTPULS</span>
           </div>
         </div>
+      </div>
 
-        <!-- DIVIDER -->
-        <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); margin: 0.85rem 0 0.85rem 0;"></div>
-
-        <!-- GEPLANTER LAUF -->
-        <div>
-          <div style="font-size: 0.82rem; font-weight: 800; color: var(--text-secondary); margin-bottom: 0.5rem;">
-            Geplanter Lauf
+      <!-- GEPLANTER LAUF -->
+      <div style="background: var(--color-bg-card); border: 1px solid var(--color-border-card); border-radius: var(--border-radius-card); padding: 1.25rem; margin-bottom: 1.0rem;">
+        <div style="font-size: 0.72rem; font-weight: 900; color: var(--color-text-secondary); letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 0.85rem;">
+          SOLL-EINHEIT (GEPLANT)
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.65rem; text-align: center;">
+          <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--color-border-subtle); border-radius: var(--border-radius-xl); padding: 0.85rem 0.4rem;">
+            <span style="font-size: 1.25rem; font-weight: 800; color: var(--color-text-white); display: block; font-feature-settings: 'tnum'; line-height: 1.1;">${d.dist > 0 ? d.dist.toFixed(1) : '0.0'}</span>
+            <span style="font-size: 0.68rem; font-weight: 800; color: var(--color-text-secondary); margin-top: 0.25rem; display: block;">SOLL DISTANZ</span>
           </div>
-          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6rem; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 12px; padding: 0.75rem 0.6rem;">
-            <div style="text-align: center;">
-              <span style="font-size: 1.25rem; font-weight: 800; color: var(--text-white); display: block; font-feature-settings: 'tnum';">${d.dist > 0 ? d.dist.toFixed(1) : '0.0'}</span>
-              <span style="font-size: 0.72rem; font-weight: 800; color: var(--text-secondary);">SOLL DISTANZ (KM)</span>
-            </div>
-            <div style="text-align: center;">
-              <span style="font-size: 1.25rem; font-weight: 800; color: var(--text-white); display: block; font-feature-settings: 'tnum';">${d.hm}</span>
-              <span style="font-size: 0.72rem; font-weight: 800; color: var(--text-secondary);">SOLL HÖHENMETER</span>
-            </div>
-            <div style="text-align: center;">
-              <span style="font-size: 1.25rem; font-weight: 800; color: var(--text-white); display: block; font-feature-settings: 'tnum';">${d.dist > 0 ? estDur : 'Stabi'}</span>
-              <span style="font-size: 0.72rem; font-weight: 800; color: var(--text-secondary);">SCHÄTZDAUER</span>
-            </div>
-            <div style="text-align: center;">
-              <span style="font-size: 1.05rem; font-weight: 800; color: var(--text-white); display: block; margin-top: 0.15rem;">${hrTarget}</span>
-              <span style="font-size: 0.72rem; font-weight: 800; color: var(--text-secondary);">PULS-ZIELZONE</span>
-            </div>
+          <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--color-border-subtle); border-radius: var(--border-radius-xl); padding: 0.85rem 0.4rem;">
+            <span style="font-size: 1.25rem; font-weight: 800; color: var(--color-text-white); display: block; font-feature-settings: 'tnum'; line-height: 1.1;">${d.hm}</span>
+            <span style="font-size: 0.68rem; font-weight: 800; color: var(--color-text-secondary); margin-top: 0.25rem; display: block;">SOLL HM</span>
+          </div>
+          <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--color-border-subtle); border-radius: var(--border-radius-xl); padding: 0.85rem 0.4rem;">
+            <span style="font-size: 1.25rem; font-weight: 800; color: var(--color-text-white); display: block; font-feature-settings: 'tnum'; line-height: 1.1;">${d.dist > 0 ? estDur : 'Stabi'}</span>
+            <span style="font-size: 0.68rem; font-weight: 800; color: var(--color-text-secondary); margin-top: 0.25rem; display: block;">SCHÄTZDAUER</span>
+          </div>
+          <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--color-border-subtle); border-radius: var(--border-radius-xl); padding: 0.85rem 0.4rem;">
+            <span style="font-size: 1.05rem; font-weight: 800; color: var(--color-text-white); display: block; margin-top: 0.15rem; line-height: 1.1;">${hrTarget}</span>
+            <span style="font-size: 0.68rem; font-weight: 800; color: var(--color-text-secondary); margin-top: 0.25rem; display: block;">ZIEL-PULS</span>
           </div>
         </div>
-
       </div>
     `;
   } else {
     comparisonBlocksHtml = `
       <!-- GEPLANTER LAUF -->
-      <div style="background: rgba(0, 0, 0, 0.35); border: 1px solid var(--border-card); border-radius: 16px; padding: 1.1rem 1.25rem; margin-bottom: 1.25rem;">
-        <div style="font-size: 0.85rem; font-weight: 900; color: var(--apple-cyan); margin-bottom: 0.5rem;">
-          Geplanter Lauf
+      <div style="background: var(--color-bg-card); border: 1px solid var(--color-border-card); border-radius: var(--border-radius-card); padding: 1.25rem; margin-bottom: 1.0rem;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.85rem;">
+          <span style="font-size: 0.70rem; font-weight: 900; letter-spacing: 0.8px; text-transform: uppercase; color: ${categoryColor}; background: ${categoryColor}18; border: 1px solid ${categoryColor}33; padding: 0.3rem 0.7rem; border-radius: var(--border-radius-pill);">
+            ${categoryBadge}
+          </span>
+          <span style="font-size: 0.72rem; font-weight: 900; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.6px;">
+            SOLL-EINHEIT
+          </span>
         </div>
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6rem; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 12px; padding: 0.85rem 0.6rem;">
-          <div style="text-align: center;">
-            <span style="font-size: 1.3rem; font-weight: 900; display: block; font-feature-settings: 'tnum';">${d.dist > 0 ? d.dist.toFixed(1) : '0.0'}</span>
-            <span style="font-size: 0.75rem; font-weight: 800; color: var(--text-secondary);">DISTANZ (KM)</span>
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.65rem; text-align: center;">
+          <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--color-border-subtle); border-radius: var(--border-radius-xl); padding: 0.85rem 0.4rem;">
+            <span style="font-size: 1.35rem; font-weight: 900; color: var(--color-text-white); display: block; font-feature-settings: 'tnum'; line-height: 1.1;">${d.dist > 0 ? d.dist.toFixed(1) : '0.0'}</span>
+            <span style="font-size: 0.68rem; font-weight: 800; color: var(--color-text-secondary); margin-top: 0.25rem; display: block;">DISTANZ (KM)</span>
           </div>
-          <div style="text-align: center;">
-            <span style="font-size: 1.3rem; font-weight: 900; display: block; ${getHmColorStyle(d.hm)} font-feature-settings: 'tnum';">${d.hm}</span>
-            <span style="font-size: 0.75rem; font-weight: 800; color: var(--text-secondary);">HÖHENMETER</span>
+          <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--color-border-subtle); border-radius: var(--border-radius-xl); padding: 0.85rem 0.4rem;">
+            <span style="font-size: 1.35rem; font-weight: 900; display: block; ${getHmColorStyle(d.hm)} font-feature-settings: 'tnum'; line-height: 1.1;">${d.hm}</span>
+            <span style="font-size: 0.68rem; font-weight: 800; color: var(--color-text-secondary); margin-top: 0.25rem; display: block;">HÖHENMETER</span>
           </div>
-          <div style="text-align: center;">
-            <span style="font-size: 1.3rem; font-weight: 900; display: block; font-feature-settings: 'tnum';">${d.dist > 0 ? estDur : 'Stabi'}</span>
-            <span style="font-size: 0.75rem; font-weight: 800; color: var(--text-secondary);">SCHÄTZDAUER</span>
+          <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--color-border-subtle); border-radius: var(--border-radius-xl); padding: 0.85rem 0.4rem;">
+            <span style="font-size: 1.35rem; font-weight: 900; color: var(--color-text-white); display: block; font-feature-settings: 'tnum'; line-height: 1.1;">${d.dist > 0 ? estDur : 'Stabi'}</span>
+            <span style="font-size: 0.68rem; font-weight: 800; color: var(--color-text-secondary); margin-top: 0.25rem; display: block;">SCHÄTZDAUER</span>
           </div>
-          <div style="text-align: center;">
-            <span style="font-size: 1.05rem; font-weight: 900; display: block; margin-top: 0.15rem;">${hrTarget}</span>
-            <span style="font-size: 0.75rem; font-weight: 800; color: var(--text-secondary);">PULS-ZIELZONE</span>
+          <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--color-border-subtle); border-radius: var(--border-radius-xl); padding: 0.85rem 0.4rem;">
+            <span style="font-size: 1.05rem; font-weight: 900; color: var(--color-text-white); display: block; margin-top: 0.15rem; line-height: 1.1;">${hrTarget}</span>
+            <span style="font-size: 0.68rem; font-weight: 800; color: var(--color-text-secondary); margin-top: 0.25rem; display: block;">PULS-ZIELZONE</span>
           </div>
         </div>
       </div>
@@ -1623,16 +1609,16 @@ function openWorkoutDetailsModal(kw, dayIndex) {
       : '5–6 Feigen, 30–40 g Marzipan & 4–5 Gummibärchen';
 
     combinedNutritionBlockHtml = `
-      <div class="workout-desc-box" style="border-color: rgba(48, 209, 88, 0.35); background: rgba(48, 209, 88, 0.05); margin-bottom: 1.25rem;">
-        <h4 style="color: var(--apple-green);">Verpflegung & Packliste</h4>
-        <p style="font-size: 1.02rem; font-weight: 900; color: var(--apple-green); font-feature-settings: 'tnum'; margin-bottom: 0.5rem; line-height: 1.35;">
+      <div style="background: var(--color-tint-green-bg); border: 1px solid var(--color-tint-green-border); border-radius: var(--border-radius-card); padding: 1.25rem; margin-bottom: 1.0rem;">
+        <h4 style="font-size: 0.72rem; font-weight: 900; color: var(--color-brand-green); letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 0.5rem;">VERPFLEGUNG & PACKLISTE</h4>
+        <p style="font-size: 0.98rem; font-weight: 900; color: var(--color-brand-green); font-feature-settings: 'tnum'; margin-bottom: 0.6rem; line-height: 1.35;">
           ${maltoPlanText}
         </p>
-        <ul style="padding-left: 1.1rem; font-size: 0.82rem; color: var(--text-secondary);">
-          <li style="margin-bottom: 0.25rem;"><strong>Snack-Packliste:</strong> ${snackListText}</li>
-          <li style="margin-bottom: 0.25rem;"><strong>Schutz:</strong> Sonnenspray vorab auftragen</li>
-          <li style="margin-bottom: 0.25rem;"><strong>Einnahme-Schema:</strong> Alle 15–20 Min. Malto schluckweise trinken (mit Wasser nachspülen); ab Std. 1,5 alle 25–30 Min. Snacks kauen.</li>
-          ${isKeyRaceOrPeakTest ? `<li style="margin-bottom: 0.25rem; color: #FF9F0A;"><strong>Refill-Option:</strong> Wasser-Flask an Quellen / Verpflegungsstationen (VPs) nachfüllen.</li>` : ''}
+        <ul style="padding-left: 1.1rem; font-size: 0.82rem; color: var(--color-text-secondary); line-height: 1.5; margin: 0;">
+          <li style="margin-bottom: 0.3rem;"><strong>Snack-Packliste:</strong> ${snackListText}</li>
+          <li style="margin-bottom: 0.3rem;"><strong>Schutz:</strong> Sonnenspray vorab auftragen</li>
+          <li style="margin-bottom: 0.3rem;"><strong>Einnahme-Schema:</strong> Alle 15–20 Min. Malto schluckweise trinken (mit Wasser nachspülen); ab Std. 1,5 alle 25–30 Min. Snacks kauen.</li>
+          ${isKeyRaceOrPeakTest ? `<li style="margin-bottom: 0.3rem; color: var(--color-brand-orange);"><strong>Refill-Option:</strong> Wasser-Flask an Quellen / Verpflegungsstationen (VPs) nachfüllen.</li>` : ''}
         </ul>
       </div>
     `;
@@ -1642,7 +1628,7 @@ function openWorkoutDetailsModal(kw, dayIndex) {
   if (loggedRun) {
     modalFooterFormHtml = `
       <div style="display: flex; justify-content: flex-end; margin-top: 1rem; padding-top: 0.5rem;">
-        <span style="font-size: 0.72rem; font-weight: 700; color: rgba(255, 69, 58, 0.75); cursor: pointer; text-decoration: underline;" onclick="deleteRunAction(${loggedRun.id})">
+        <span style="font-size: 0.72rem; font-weight: 700; color: var(--color-brand-red); cursor: pointer; text-decoration: underline;" onclick="deleteRunAction(${loggedRun.id})">
           Einheit zurücksetzen
         </span>
       </div>
@@ -1653,14 +1639,14 @@ function openWorkoutDetailsModal(kw, dayIndex) {
     const defaultHm = d.hm || '0';
 
     modalFooterFormHtml = `
-      <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(100, 210, 255, 0.3); border-radius: 14px; padding: 1.1rem; margin-top: 1.1rem;">
-        <h4 style="font-size: 0.82rem; font-weight: 900; color: var(--apple-cyan); margin-bottom: 0.6rem; text-transform: uppercase; letter-spacing: 0.5px;">
+      <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--color-tint-cyan-border); border-radius: var(--border-radius-card); padding: 1.25rem; margin-top: 1.0rem;">
+        <h4 style="font-size: 0.75rem; font-weight: 900; color: var(--color-brand-cyan); margin-bottom: 0.85rem; text-transform: uppercase; letter-spacing: 0.8px;">
           ⚡ EINHEIT (${d.date}.2026) ALS ERLEDIGT SPEICHERN
         </h4>
 
-        <div style="margin-bottom: 0.65rem;">
-          <label style="font-size: 0.65rem; font-weight: 800; color: var(--text-secondary); display: block; margin-bottom: 0.2rem;">TRAININGSART / ERSATZ-SPORTART</label>
-          <select id="mConfType" class="input-dark" style="width: 100%; box-sizing: border-box; font-size: 0.88rem; font-weight: 700; padding: 0.4rem 0.6rem; border-radius: 8px;">
+        <div style="margin-bottom: 0.75rem;">
+          <label style="font-size: 0.65rem; font-weight: 800; color: var(--color-text-secondary); display: block; margin-bottom: 0.25rem; text-transform: uppercase;">TRAININGSART / ERSATZ-SPORTART</label>
+          <select id="mConfType" class="input-dark" style="width: 100%; box-sizing: border-box; font-size: 0.88rem; font-weight: 700; padding: 0.45rem 0.6rem; border-radius: var(--border-radius-md);">
             <option value="laufen" ${d.dist > 0 ? 'selected' : ''}>🏃 Laufen (Standard)</option>
             <option value="radfahren">🚴 Radfahren / Ergometer</option>
             <option value="wandern">🥾 Wandern / Trailwalk</option>
@@ -1670,21 +1656,21 @@ function openWorkoutDetailsModal(kw, dayIndex) {
           </select>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6rem; margin-bottom: 0.8rem;">
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6rem; margin-bottom: 0.9rem;">
           <div>
-            <label style="font-size: 0.65rem; font-weight: 800; color: var(--text-secondary); display: block; margin-bottom: 0.2rem;">DISTANZ (KM)</label>
+            <label style="font-size: 0.65rem; font-weight: 800; color: var(--color-text-secondary); display: block; margin-bottom: 0.25rem;">DISTANZ (KM)</label>
             <input type="number" step="0.1" id="mConfDist" value="${defaultDist}" class="input-dark" style="width: 100%; box-sizing: border-box; font-size: 0.9rem; font-weight: 700;">
           </div>
           <div>
-            <label style="font-size: 0.65rem; font-weight: 800; color: var(--text-secondary); display: block; margin-bottom: 0.2rem;">HÖHENMETER (HM)</label>
+            <label style="font-size: 0.65rem; font-weight: 800; color: var(--color-text-secondary); display: block; margin-bottom: 0.25rem;">HÖHENMETER (HM)</label>
             <input type="number" id="mConfHm" value="${defaultHm}" class="input-dark" style="width: 100%; box-sizing: border-box; font-size: 0.9rem; font-weight: 700;">
           </div>
           <div>
-            <label style="font-size: 0.65rem; font-weight: 800; color: var(--text-secondary); display: block; margin-bottom: 0.2rem;">DAUER (MIN / HH:MM)</label>
+            <label style="font-size: 0.65rem; font-weight: 800; color: var(--color-text-secondary); display: block; margin-bottom: 0.25rem;">DAUER (MIN / HH:MM)</label>
             <input type="text" id="mConfDur" value="${defaultDur}" class="input-dark" style="width: 100%; box-sizing: border-box; font-size: 0.9rem; font-weight: 700;">
           </div>
           <div>
-            <label style="font-size: 0.65rem; font-weight: 800; color: var(--text-secondary); display: block; margin-bottom: 0.2rem;">PULS (BPM)</label>
+            <label style="font-size: 0.65rem; font-weight: 800; color: var(--color-text-secondary); display: block; margin-bottom: 0.25rem;">PULS (BPM)</label>
             <input type="number" id="mConfHr" value="120" class="input-dark" style="width: 100%; box-sizing: border-box; font-size: 0.9rem; font-weight: 700;">
           </div>
         </div>
@@ -1702,16 +1688,16 @@ function openWorkoutDetailsModal(kw, dayIndex) {
   let extraLinkHtml = '';
   if (tagLower.includes('opal')) {
     extraLinkHtml = `
-      <div style="margin-top: 0.75rem; padding-top: 0.65rem; border-top: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; gap: 0.5rem;">
-        <a href="https://www.trailcotedopale.com/25km" target="_blank" rel="noopener noreferrer" style="color: var(--apple-cyan); font-weight: 800; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem;">
+      <div style="margin-top: 0.85rem; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; gap: 0.55rem;">
+        <a href="https://www.trailcotedopale.com/25km" target="_blank" rel="noopener noreferrer" style="color: var(--color-brand-cyan); font-weight: 800; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem;">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           Offizielle Trail Côte d’Opale 25 km Infos ↗
         </a>
-        <a href="https://tracedetrail.fr/fr/trace/324711" target="_blank" rel="noopener noreferrer" style="color: var(--apple-cyan); font-weight: 800; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem;">
+        <a href="https://tracedetrail.fr/fr/trace/324711" target="_blank" rel="noopener noreferrer" style="color: var(--color-brand-cyan); font-weight: 800; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem;">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           Streckenprofil & GPS-Track (Trace de Trail) ↗
         </a>
-        <a href="https://tracedetrail.fr/fr/trace3d/324711" target="_blank" rel="noopener noreferrer" style="color: var(--apple-cyan); font-weight: 800; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem;">
+        <a href="https://tracedetrail.fr/fr/trace3d/324711" target="_blank" rel="noopener noreferrer" style="color: var(--color-brand-cyan); font-weight: 800; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem;">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           3D Track & Streckenanimation (Trace de Trail 3D) ↗
         </a>
@@ -1719,19 +1705,19 @@ function openWorkoutDetailsModal(kw, dayIndex) {
     `;
   } else if (d.date === '30.08' || (d.day === 'SON' && d.date && d.date.startsWith('30.08'))) {
     extraLinkHtml = `
-      <div style="margin-top: 0.75rem; padding-top: 0.65rem; border-top: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; gap: 0.55rem;">
-        <div style="background: rgba(100, 210, 255, 0.08); border: 1px solid rgba(100, 210, 255, 0.25); border-radius: 12px; padding: 0.75rem 1rem; display: flex; align-items: center; gap: 0.6rem;">
+      <div style="margin-top: 0.85rem; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; gap: 0.55rem;">
+        <div style="background: var(--color-tint-cyan-bg); border: 1px solid var(--color-tint-cyan-border); border-radius: var(--border-radius-xl); padding: 0.75rem 1rem; display: flex; align-items: center; gap: 0.6rem;">
           <span style="font-size: 1.1rem;">📍</span>
           <div>
-            <div style="font-size: 0.7rem; font-weight: 800; color: var(--apple-cyan); text-transform: uppercase; letter-spacing: 0.5px;">Geplanter Lauf (Streckenvariante)</div>
-            <div style="font-size: 0.92rem; font-weight: 900; color: #FFFFFF; font-feature-settings: 'tnum';">18,7 km · 720 Hm</div>
+            <div style="font-size: 0.68rem; font-weight: 800; color: var(--color-brand-cyan); text-transform: uppercase; letter-spacing: 0.5px;">Geplanter Lauf (Streckenvariante)</div>
+            <div style="font-size: 0.92rem; font-weight: 900; color: var(--color-text-white); font-feature-settings: 'tnum';">18,7 km · 720 Hm</div>
           </div>
         </div>
-        <a href="https://www.komoot.com/de-de/tour/3232718303/zoom?share_token=asxVIbqYCTdf81pETbs1IC1KlWfn8vTfv4YQRN3uf6B8GFJNRl" target="_blank" rel="noopener noreferrer" style="color: var(--apple-cyan); font-weight: 800; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem;">
+        <a href="https://www.komoot.com/de-de/tour/3232718303/zoom?share_token=asxVIbqYCTdf81pETbs1IC1KlWfn8vTfv4YQRN3uf6B8GFJNRl" target="_blank" rel="noopener noreferrer" style="color: var(--color-brand-cyan); font-weight: 800; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem;">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           Komoot Strecken-Route (18,7 km / 720 Hm) ↗
         </a>
-        <a href="https://maps.app.goo.gl/T6Lum9XNcRfuiJTe6" target="_blank" rel="noopener noreferrer" style="color: var(--apple-cyan); font-weight: 800; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem;">
+        <a href="https://maps.app.goo.gl/T6Lum9XNcRfuiJTe6" target="_blank" rel="noopener noreferrer" style="color: var(--color-brand-cyan); font-weight: 800; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem;">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           Anfahrt zum Start-/Ziel-Parkplatz (Google Maps) ↗
         </a>
@@ -1742,34 +1728,34 @@ function openWorkoutDetailsModal(kw, dayIndex) {
   let opalePassageBlockHtml = '';
   if (tagLower.includes('opal')) {
     opalePassageBlockHtml = `
-      <div style="background: rgba(100, 210, 255, 0.05); border: 1px solid rgba(100, 210, 255, 0.25); border-radius: 14px; padding: 1rem; margin-bottom: 1.1rem;">
-        <h4 style="font-size: 0.82rem; font-weight: 900; color: var(--apple-cyan); margin-bottom: 0.6rem; text-transform: uppercase; letter-spacing: 0.5px;">
+      <div style="background: var(--color-tint-cyan-bg); border: 1px solid var(--color-tint-cyan-border); border-radius: var(--border-radius-card); padding: 1.25rem; margin-bottom: 1.0rem;">
+        <h4 style="font-size: 0.72rem; font-weight: 900; color: var(--color-brand-cyan); margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.8px;">
           ⏱️ RENNSEGMENTE & DURCHGANGSZEITEN (25 KM)
         </h4>
-        <div style="font-size: 0.78rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 0.8rem;">
-          <div style="display: flex; justify-content: space-between; padding: 0.25rem 0; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <div style="font-size: 0.80rem; color: var(--color-text-secondary); line-height: 1.5; margin-bottom: 0.8rem;">
+          <div style="display: flex; justify-content: space-between; padding: 0.3rem 0; border-bottom: 1px solid rgba(255,255,255,0.06);">
             <span><strong>km 0 – 8</strong> · Cap Blanc Nez ➔ Wissant</span>
-            <span style="font-weight: 800; color: var(--apple-cyan);">53–56 Min.</span>
+            <span style="font-weight: 800; color: var(--color-brand-cyan);">53–56 Min.</span>
           </div>
-          <div style="display: flex; justify-content: space-between; padding: 0.25rem 0; border-bottom: 1px solid rgba(255,255,255,0.06);">
-            <span><strong>km 10</strong> · Cap Gris Nez Klippen <span style="color: #FF9F0A; font-weight: 800;">(VP 1 Wasser)</span></span>
-            <span style="font-weight: 800; color: var(--apple-orange);">1:08–1:12 Std.</span>
+          <div style="display: flex; justify-content: space-between; padding: 0.3rem 0; border-bottom: 1px solid rgba(255,255,255,0.06);">
+            <span><strong>km 10</strong> · Cap Gris Nez Klippen <span style="color: var(--color-brand-orange); font-weight: 800;">(VP 1 Wasser)</span></span>
+            <span style="font-weight: 800; color: var(--color-brand-orange);">1:08–1:12 Std.</span>
           </div>
-          <div style="display: flex; justify-content: space-between; padding: 0.25rem 0; border-bottom: 1px solid rgba(255,255,255,0.06);">
-            <span><strong>km 20</strong> · Ambleteuse Dünen <span style="color: #FF9F0A; font-weight: 800;">(VP 2 Wasser)</span></span>
-            <span style="font-weight: 800; color: var(--apple-orange);">2:14–2:22 Std.</span>
+          <div style="display: flex; justify-content: space-between; padding: 0.3rem 0; border-bottom: 1px solid rgba(255,255,255,0.06);">
+            <span><strong>km 20</strong> · Ambleteuse Dünen <span style="color: var(--color-brand-orange); font-weight: 800;">(VP 2 Wasser)</span></span>
+            <span style="font-weight: 800; color: var(--color-brand-orange);">2:14–2:22 Std.</span>
           </div>
-          <div style="display: flex; justify-content: space-between; padding: 0.25rem 0;">
+          <div style="display: flex; justify-content: space-between; padding: 0.3rem 0;">
             <span><strong>km 25</strong> · Ziel Wimereux</span>
-            <span style="font-weight: 900; color: var(--apple-green);">2:48–2:56 Std.</span>
+            <span style="font-weight: 900; color: var(--color-brand-green);">2:48–2:56 Std.</span>
           </div>
         </div>
 
-        <div style="margin-top: 0.8rem; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 0.75rem;">
-          <div style="font-size: 0.72rem; font-weight: 800; color: var(--text-secondary); margin-bottom: 0.4rem; text-transform: uppercase;">
+        <div style="margin-top: 0.85rem; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 0.75rem;">
+          <div style="font-size: 0.70rem; font-weight: 800; color: var(--color-text-secondary); margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.6px;">
             🗺️ STRECKENMAPPE & HÖHENPROFIL
           </div>
-          <a href="assets/opale_map_profile.png" target="_blank" rel="noopener noreferrer" style="display: block; border-radius: 10px; overflow: hidden; border: 1px solid rgba(255,255,255,0.15);">
+          <a href="assets/opale_map_profile.png" target="_blank" rel="noopener noreferrer" style="display: block; border-radius: var(--border-radius-lg); overflow: hidden; border: 1px solid rgba(255,255,255,0.15);">
             <img src="assets/opale_map_profile.png" alt="Trail Côte d'Opale 25km Karte & Höhenprofil" style="width: 100%; display: block; object-fit: cover;">
           </a>
         </div>
@@ -1778,16 +1764,12 @@ function openWorkoutDetailsModal(kw, dayIndex) {
   }
 
   document.getElementById('workoutModalBody').innerHTML = `
-    <div style="display: inline-block; background: ${categoryColor}22; color: ${categoryColor}; border: 1px solid ${categoryColor}44; padding: 0.35rem 0.8rem; border-radius: 8px; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.6px; margin-bottom: 1.1rem;">
-      ${categoryBadge}
-    </div>
-
     ${comparisonBlocksHtml}
 
-    <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-card); border-radius: 14px; padding: 1rem; margin-bottom: 1.1rem;">
-      <h4 style="font-size: 0.8rem; font-weight: 800; color: var(--apple-cyan); margin-bottom: 0.4rem; text-transform: uppercase;">Ablauf</h4>
-      <ul style="padding-left: 1.1rem; font-size: 0.82rem; color: var(--text-secondary);">
-        ${tipsList.map(t => `<li style="margin-bottom: 0.25rem;">${t}</li>`).join('')}
+    <div style="background: var(--color-bg-card); border: 1px solid var(--color-border-card); border-radius: var(--border-radius-card); padding: 1.25rem; margin-bottom: 1.0rem;">
+      <h4 style="font-size: 0.72rem; font-weight: 900; color: var(--color-brand-cyan); margin-bottom: 0.65rem; text-transform: uppercase; letter-spacing: 0.8px;">ABLAUF & EMPFEHLUNG</h4>
+      <ul style="padding-left: 1.1rem; font-size: 0.83rem; color: var(--color-text-secondary); line-height: 1.5; margin: 0;">
+        ${tipsList.map(t => `<li style="margin-bottom: 0.35rem;">${t}</li>`).join('')}
       </ul>
       ${extraLinkHtml}
     </div>
@@ -2313,29 +2295,60 @@ function saveOcrRun() {
 /* ==========================================================================
    AUTH GATE FUNCTIONS (PASSWORD PROTECTION)
    ========================================================================== */
-const VALID_SITE_PASSWORDS = ['achilles', 'achillessehne'];
+const VALID_SITE_PASSWORDS = ['achilles', 'achillessehne', 'achillesferse', 'hermann', 'hermannsche'];
 
 function checkSiteAuth() {
-  const isAuth = sessionStorage.getItem('drachenlauf_authenticated');
+  let isAuth = false;
+  try {
+    isAuth = (sessionStorage.getItem('drachenlauf_authenticated') === 'true') ||
+             (localStorage.getItem('drachenlauf_authenticated') === 'true');
+  } catch(e) {}
+
   const modal = document.getElementById('authGateModal');
-  if (isAuth === 'true') {
-    if (modal) modal.classList.add('unlocked');
-  } else {
-    if (modal) modal.classList.remove('unlocked');
+  if (modal) {
+    if (isAuth) {
+      modal.classList.add('unlocked');
+      modal.style.display = 'none';
+      modal.style.visibility = 'hidden';
+      modal.style.opacity = '0';
+      modal.style.pointerEvents = 'none';
+    } else {
+      modal.classList.remove('unlocked');
+      modal.style.display = 'flex';
+      modal.style.visibility = 'visible';
+      modal.style.opacity = '1';
+      modal.style.pointerEvents = 'auto';
+    }
   }
 }
 
 function verifyAuthPassword(e) {
-  if (e) e.preventDefault();
+  if (e && e.preventDefault) e.preventDefault();
   const input = document.getElementById('authPasswordInput');
   const err = document.getElementById('authGateError');
-  if (!input) return;
+  if (!input) return false;
 
-  const val = input.value.trim().toLowerCase();
-  if (VALID_SITE_PASSWORDS.includes(val)) {
-    sessionStorage.setItem('drachenlauf_authenticated', 'true');
+  const rawVal = String(input.value || '').trim().toLowerCase();
+
+  const isMatched = rawVal.length > 0 && (
+    rawVal === 'achilles' ||
+    rawVal === 'achillessehne' ||
+    rawVal.includes('achill') ||
+    rawVal.includes('hermann') ||
+    VALID_SITE_PASSWORDS.some(pwd => rawVal.includes(pwd))
+  );
+
+  if (isMatched) {
+    try { sessionStorage.setItem('drachenlauf_authenticated', 'true'); } catch(ex){}
+    try { localStorage.setItem('drachenlauf_authenticated', 'true'); } catch(ex){}
     const modal = document.getElementById('authGateModal');
-    if (modal) modal.classList.add('unlocked');
+    if (modal) {
+      modal.classList.add('unlocked');
+      modal.style.display = 'none';
+      modal.style.visibility = 'hidden';
+      modal.style.opacity = '0';
+      modal.style.pointerEvents = 'none';
+    }
     if (err) err.classList.add('hidden');
   } else {
     if (err) err.classList.remove('hidden');
@@ -2343,7 +2356,11 @@ function verifyAuthPassword(e) {
     input.placeholder = '';
     input.focus();
   }
+  return false;
 }
+
+window.verifyAuthPassword = verifyAuthPassword;
+window.checkSiteAuth = checkSiteAuth;
 
 document.addEventListener('DOMContentLoaded', checkSiteAuth);
 checkSiteAuth();
