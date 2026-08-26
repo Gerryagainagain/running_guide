@@ -1509,6 +1509,19 @@ function openWorkoutDetailsModal(kw, dayIndex) {
     tipsList = [
       'Erste 5 km kontrolliert anlaufen',
       'Puls an Anstiegen diszipliniert halten'
+    ];
+  } else if (d.dist === 0) {
+    tipsList = [
+      'Erholung & Regeneration',
+      'Leichtes Dehnen, Spaziergang oder passive Erholung'
+    ];
+  } else {
+    tipsList = [
+      'Grundlagenausdauer (GA1 - HF < 135 bpm)',
+      'Gleichmäßiges, kontrolliertes Tempo'
+    ];
+  }
+
   let comparisonBlocksHtml = '';
 
   if (loggedRun) {
