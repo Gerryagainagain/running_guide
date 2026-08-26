@@ -2304,6 +2304,11 @@ function checkSiteAuth() {
              (localStorage.getItem('drachenlauf_authenticated') === 'true');
   } catch(e) {}
 
+  // Auto-unlock when running as local file:/// so local review is NEVER blocked
+  if (window.location.protocol === 'file:') {
+    isAuth = true;
+  }
+
   const modal = document.getElementById('authGateModal');
   if (modal) {
     if (isAuth) {
