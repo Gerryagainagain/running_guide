@@ -816,7 +816,7 @@ const appleScheduleData = {
     { day: 'DON', date: '27.08', tag: 'Locker Rhein', dist: 9.0, hm: 0, done: true },
     { day: 'FRE', date: '28.08', tag: 'Krafttraining Studio', dist: 0, hm: 0, done: false },
     { day: 'SAM', date: '29.08', tag: 'Locker', dist: 7.0, hm: 5, done: true },
-    { day: 'SON', date: '30.08', tag: 'Longrun Siebengebirge', dist: 18.0, hm: 800, done: false }
+    { day: 'SON', date: '30.08', tag: 'Longrun Siebengebirge', dist: 18.0, hm: 700, done: false }
   ],
   36: [
     { day: 'MON', date: '31.08', tag: 'Regeneration', dist: 0, hm: 0, done: false },
@@ -1752,13 +1752,13 @@ function openWorkoutDetailsModal(kw, dayIndex) {
         <div style="background: var(--color-tint-cyan-bg); border: 1px solid var(--color-tint-cyan-border); border-radius: var(--border-radius-xl); padding: 0.75rem 1rem; display: flex; align-items: center; gap: 0.6rem;">
           <span style="font-size: 1.1rem;">📍</span>
           <div>
-            <div style="font-size: 0.68rem; font-weight: 800; color: var(--color-brand-cyan); text-transform: uppercase; letter-spacing: 0.5px;">Geplanter Lauf (Streckenvariante)</div>
-            <div style="font-size: 0.92rem; font-weight: 900; color: var(--color-text-white); font-feature-settings: 'tnum';">18,7 km · 720 Hm</div>
+            <div style="font-size: 0.68rem; font-weight: 800; color: var(--color-brand-cyan); text-transform: uppercase; letter-spacing: 0.5px;">Geplanter Lauf</div>
+            <div style="font-size: 0.92rem; font-weight: 900; color: var(--color-text-white); font-feature-settings: 'tnum';">18,0 km · 700 Hm</div>
           </div>
         </div>
-        <a href="https://www.komoot.com/de-de/tour/3232718303/zoom?share_token=asxVIbqYCTdf81pETbs1IC1KlWfn8vTfv4YQRN3uf6B8GFJNRl" target="_blank" rel="noopener noreferrer" style="color: var(--color-brand-cyan); font-weight: 800; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem;">
+        <a href="https://www.komoot.com/de-de/tour/3232718303?share_token=asxVIbqYCTdf81pETbs1IC1KlWfn8vTfv4YQRN3uf6B8GFJNRl&ref=wtd&t_s=referral&t_cid=route_share&t_ref_username=5238953605179" target="_blank" rel="noopener noreferrer" style="color: var(--color-brand-cyan); font-weight: 800; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem;">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          Komoot Strecken-Route (18,7 km / 720 Hm) ↗
+          Komoot Strecken-Route (18,0 km / 700 Hm) ↗
         </a>
         <a href="https://maps.app.goo.gl/T6Lum9XNcRfuiJTe6" target="_blank" rel="noopener noreferrer" style="color: var(--color-brand-cyan); font-weight: 800; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem;">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -1981,7 +1981,7 @@ function openLongrunOverviewModal() {
     { kw: 32, date: '09.08', loc: 'London', wkm: '21.8 km', whm: '50 Hm', dist: '5.0 km', hm: '0 Hm', focus: 'Recovery (5 km nach Rave)', type: 'travel' },
     { kw: 33, date: '16.08', loc: 'Erkrath', wkm: '35.0 km', whm: '1.050 Hm', dist: '15.0 km', hm: '456 Hm', focus: 'Erkrath Longrun', type: 'normal' },
     { kw: 34, date: '21.08', loc: 'Erkrath / Ddorf', wkm: '36.0 km', whm: '520 Hm', dist: '12.0 km', hm: '400 Hm', focus: 'Fr 400 Hm Erkrath + So 8 km Ddorf', type: 'normal' },
-    { kw: 35, date: '30.08', loc: 'Siebengebirge', wkm: '43.0 km', whm: '920 Hm', dist: '18.0 km', hm: '800 Hm', focus: 'Höhenmeter-Aufbau', type: 'normal' },
+    { kw: 35, date: '30.08', loc: 'Siebengebirge', wkm: '43.0 km', whm: '832 Hm', dist: '18.0 km', hm: '700 Hm', focus: 'Höhenmeter-Aufbau', type: 'normal' },
     { kw: 36, date: '06.09', loc: 'Siebengebirge', wkm: '47.0 km', whm: '1.070 Hm', dist: '20.0 km', hm: '950 Hm', focus: 'Siebengebirge Peak', type: 'normal' },
     { kw: 37, date: '13.09', loc: 'Côte d’Opal', wkm: '42.0 km', whm: '450 Hm', dist: '25.0 km', hm: '250 Hm', focus: 'Côte d’Opal Trail Test', type: 'test' },
     { kw: 38, date: '20.09', loc: 'Normandie', wkm: '30.0 km', whm: '500 Hm', dist: '12.0 km', hm: '400 Hm', focus: 'Coastal Trail Erholung', type: 'travel' },
