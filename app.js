@@ -84,6 +84,22 @@ const kwMap = {
 };
 
 const defaultInitialRuns = [
+  // KW 36
+  {
+    id: 1788246845409,
+    kw: 36,
+    date: '01.09.2026',
+    dayDate: '01.09',
+    dist: 9.0,
+    hm: 160,
+    duration: '01:16:00',
+    hr: 118,
+    pace: '8:27',
+    type: 'laufen',
+    isErsatz: false,
+    tag: 'Rampen Ddorf',
+    notes: 'Rampentraining Düsseldorf (9.0 km / 160 Hm / 01:16:00 / 118 bpm)'
+  },
   // KW 35
   {
     id: 1788119010274,
@@ -835,7 +851,7 @@ const appleScheduleData = {
   ],
   36: [
     { day: 'MON', date: '31.08', tag: 'Regeneration', dist: 0, hm: 0, done: false },
-    { day: 'DIE', date: '01.09', tag: 'Rampen Ddorf', dist: 10.0, hm: 150, done: false },
+    { day: 'DIE', date: '01.09', tag: 'Rampen Ddorf', dist: 9.0, hm: 160, done: true },
     { day: 'MIT', date: '02.09', tag: 'Regeneration', dist: 0, hm: 0, done: false },
     { day: 'DON', date: '03.09', tag: 'Locker Rhein', dist: 9.0, hm: 0, done: false },
     { day: 'FRE', date: '04.09', tag: 'Krafttraining Studio', dist: 0, hm: 0, done: false },
