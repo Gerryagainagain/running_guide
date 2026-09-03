@@ -1792,6 +1792,26 @@ function openWorkoutDetailsModal(kw, dayIndex) {
         </a>
       </div>
     `;
+  } else if (d.date === '06.09' || (d.day === 'SON' && d.date && d.date.startsWith('06.09'))) {
+    extraLinkHtml = `
+      <div style="margin-top: 0.85rem; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; gap: 0.55rem;">
+        <div style="background: var(--color-tint-cyan-bg); border: 1px solid var(--color-tint-cyan-border); border-radius: var(--border-radius-xl); padding: 0.75rem 1rem; display: flex; align-items: center; gap: 0.6rem;">
+          <span style="font-size: 1.1rem;">📍</span>
+          <div>
+            <div style="font-size: 0.68rem; font-weight: 800; color: var(--color-brand-cyan); text-transform: uppercase; letter-spacing: 0.5px;">Geplanter Longrun (Siebengebirge Peak)</div>
+            <div style="font-size: 0.92rem; font-weight: 900; color: var(--color-text-white); font-feature-settings: 'tnum';">20,0 km · 950 Hm</div>
+          </div>
+        </div>
+        <a href="https://www.komoot.com/de-de/tour/3255192590?share_token=acECfjNmHM7LkbrlKvzlSk86wA0v8jFTVeDsmH8LMu9YIvLxN5&ref=wtd&t_s=referral&t_cid=route_share&t_ref_username=5238953605179" target="_blank" rel="noopener noreferrer" style="color: var(--color-brand-cyan); font-weight: 800; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Komoot Strecken-Route (20,0 km / 950 Hm) ↗
+        </a>
+        <a href="https://maps.app.goo.gl/YebojYCYVxuEiF3z7" target="_blank" rel="noopener noreferrer" style="color: var(--color-brand-cyan); font-weight: 800; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Anfahrt zum Parkplatz Stenzelberg (Google Maps) ↗
+        </a>
+      </div>
+    `;
   } else if (d.date === '30.08' || (d.day === 'SON' && d.date && d.date.startsWith('30.08'))) {
     extraLinkHtml = `
       <div style="margin-top: 0.85rem; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; gap: 0.55rem;">
