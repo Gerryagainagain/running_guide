@@ -464,12 +464,20 @@ const defaultInitialRuns = [
 // Smart runsData initialization (preserving user localStorage inputs)
 let runsData = [];
 try {
-  const storedRuns = localStorage.getItem('drachenlauf_runs');
-  if (storedRuns) {
-    runsData = JSON.parse(storedRuns);
-  } else {
-    runsData = defaultInitialRuns;
-  }
+  const storedRunsStr = localStorage.getItem('drachenlauf_runs');
+  const storedRuns = storedRunsStr ? JSON.parse(storedRunsStr) : [];
+
+  const storedKeys = new Set(storedRuns.map(r => r.dayDate || r.date));
+  const mergedRuns = [...storedRuns];
+
+  defaultInitialRuns.forEach(defRun => {
+    const key = defRun.dayDate || defRun.date;
+    if (key && !storedKeys.has(key)) {
+      mergedRuns.push(defRun);
+    }
+  });
+
+  runsData = mergedRuns.length > 0 ? mergedRuns : defaultInitialRuns;
 } catch (e) {
   runsData = defaultInitialRuns;
 }
