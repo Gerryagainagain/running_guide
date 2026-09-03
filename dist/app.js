@@ -467,17 +467,37 @@ try {
   const storedRunsStr = localStorage.getItem('drachenlauf_runs');
   const storedRuns = storedRunsStr ? JSON.parse(storedRunsStr) : [];
 
-  const storedKeys = new Set(storedRuns.map(r => r.dayDate || r.date));
-  const mergedRuns = [...storedRuns];
+  const storedMap = new Map();
+  storedRuns.forEach(r => {
+    const key = r.dayDate || r.date;
+    if (key) storedMap.set(key, r);
+  });
+
+  const finalRuns = [];
+  const processedKeys = new Set();
 
   defaultInitialRuns.forEach(defRun => {
     const key = defRun.dayDate || defRun.date;
-    if (key && !storedKeys.has(key)) {
-      mergedRuns.push(defRun);
+    if (key) {
+      processedKeys.add(key);
+      const stored = storedMap.get(key);
+      if (stored) {
+        finalRuns.push(stored);
+      } else {
+        finalRuns.push(defRun);
+      }
     }
   });
 
-  runsData = mergedRuns.length > 0 ? mergedRuns : defaultInitialRuns;
+  storedRuns.forEach(r => {
+    const key = r.dayDate || r.date;
+    if (key && !processedKeys.has(key)) {
+      finalRuns.push(r);
+    }
+  });
+
+  runsData = finalRuns;
+  try { localStorage.setItem('drachenlauf_runs', JSON.stringify(runsData)); } catch (e) {}
 } catch (e) {
   runsData = defaultInitialRuns;
 }
