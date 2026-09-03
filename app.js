@@ -86,6 +86,21 @@ const kwMap = {
 const defaultInitialRuns = [
   // KW 36
   {
+    id: 1788421473948,
+    kw: 36,
+    date: '03.09.2026',
+    dayDate: '03.09',
+    dist: 9.0,
+    hm: 15,
+    duration: '01:08:00',
+    hr: 114,
+    pace: '7:33',
+    type: 'laufen',
+    isErsatz: false,
+    tag: 'Locker Rhein',
+    notes: 'Lockerer Lauf am Rhein (9.0 km / 15 Hm / 01:08:00 / 114 bpm)'
+  },
+  {
     id: 1788246845409,
     kw: 36,
     date: '01.09.2026',
@@ -853,7 +868,7 @@ const appleScheduleData = {
     { day: 'MON', date: '31.08', tag: 'Regeneration', dist: 0, hm: 0, done: false },
     { day: 'DIE', date: '01.09', tag: 'Rampen Ddorf', dist: 9.0, hm: 160, done: true },
     { day: 'MIT', date: '02.09', tag: 'Regeneration', dist: 0, hm: 0, done: false },
-    { day: 'DON', date: '03.09', tag: 'Locker Rhein', dist: 9.0, hm: 0, done: false },
+    { day: 'DON', date: '03.09', tag: 'Locker Rhein', dist: 9.0, hm: 15, done: true },
     { day: 'FRE', date: '04.09', tag: 'Krafttraining Studio', dist: 0, hm: 0, done: false },
     { day: 'SAM', date: '05.09', tag: 'Locker', dist: 8.0, hm: 0, done: false },
     { day: 'SON', date: '06.09', tag: 'Longrun Siebengebirge', dist: 20.0, hm: 950, done: false }
