@@ -32,13 +32,13 @@ const phaseData = {
     code: 'PHASE 3',
     name: 'Spezifische Testläufe & Peak-Belastung',
     dates: 'KW 37–39 (07.09 – 27.09)',
-    desc: 'Zwei Haupttests: Côte d’Opal Trail (25 km / 250 Hm am 13.09) und HAUPT-PROBEDRACHENLAUF (24 km / 1.250 Hm am 27.09 FIX im Siebengebirge). Malto-Softflasks + Marzipan/Feigen.',
-    targetWkm: 51,
-    targetWhm: 1250,
-    targetLongDist: 24,
-    targetLongHm: 1250,
+    desc: 'Zwei Haupttests: Côte d’Opal Trail (25 km / 250 Hm am 13.09) und HAUPT-PROBEDRACHENLAUF (18 km / 900 Hm am 27.09 FIX im Siebengebirge). Malto-Softflasks + Marzipan/Feigen.',
+    targetWkm: 45,
+    targetWhm: 1020,
+    targetLongDist: 18,
+    targetLongHm: 900,
     cpName: 'Probedrachenlauf (HF-Test FIX: 27.09.)',
-    cpMeta: '27. September · 24 km · 1.250 Hm (HF 120–140 bpm)'
+    cpMeta: '27. September · 18 km · 900 Hm (HF 120–140 bpm)'
   },
   4: {
     code: 'PHASE 4',
@@ -926,7 +926,7 @@ const appleScheduleData = {
     { day: 'DON', date: '24.09', tag: 'Locker Rhein', dist: 10.0, hm: 0, done: false },
     { day: 'FRE', date: '25.09', tag: 'Krafttraining Studio', dist: 0, hm: 0, done: false },
     { day: 'SAM', date: '26.09', tag: 'Beine lockern', dist: 7.0, hm: 0, done: false },
-    { day: 'SON', date: '27.09', tag: 'PROBEDRACHEN (HF 120-140)', dist: 18.0, hm: 1000, done: false }
+    { day: 'SON', date: '27.09', tag: 'PROBEDRACHEN (HF 120-140)', dist: 18.0, hm: 900, done: false }
   ],
   40: [
     { day: 'MON', date: '28.09', tag: 'Regeneration', dist: 0, hm: 0, done: false },
@@ -1051,7 +1051,7 @@ const expeditionPhasesData = [
     name: "Probedrachen",
     dates: "KW 39 (21.09 – 27.09)",
     goal: "Generalprobe auf den Drachenlauf-Kernabschnitten (max. 4 Std.)",
-    workouts: "18 km Probedrachen auf den Kern-Abschnitten der Originalstrecke mit ca. 1.000 Höhenmetern (max. 4 Std.).",
+    workouts: "18 km Probedrachen auf den Kern-Abschnitten der Originalstrecke mit ca. 900 Höhenmetern (max. 4 Std.).",
     notes: "Streckenerkundung & Test. Pacing & Malto-/Snack-Timing (Marzipan & Feigen) exakt wie am Renntag steuern."
   },
   {
@@ -2079,7 +2079,7 @@ function openLongrunOverviewModal() {
     { kw: 36, date: '06.09', loc: 'Siebengebirge', wkm: '47.0 km', whm: '1.070 Hm', dist: '20.0 km', hm: '950 Hm', focus: 'Siebengebirge Peak', type: 'normal' },
     { kw: 37, date: '13.09', loc: 'Côte d’Opal', wkm: '42.0 km', whm: '450 Hm', dist: '25.0 km', hm: '250 Hm', focus: 'Côte d’Opal Trail Test', type: 'test' },
     { kw: 38, date: '20.09', loc: 'Normandie', wkm: '30.0 km', whm: '500 Hm', dist: '12.0 km', hm: '400 Hm', focus: 'Coastal Trail Erholung', type: 'travel' },
-    { kw: 39, date: '27.09', loc: 'Siebengebirge', wkm: '45.0 km', whm: '1.120 Hm', dist: '18.0 km', hm: '1.000 Hm', focus: 'Probedrachen Kernstrecke (max 4 Std.)', type: 'test' },
+    { kw: 39, date: '27.09', loc: 'Siebengebirge', wkm: '45.0 km', whm: '1.020 Hm', dist: '18.0 km', hm: '900 Hm', focus: 'Probedrachen Kernstrecke (max 4 Std.)', type: 'test' },
     { kw: 40, date: '04.10', loc: 'Zoutelande', wkm: '41.0 km', whm: '520 Hm', dist: '17.0 km', hm: '400 Hm', focus: 'Dünen-Wiederholungen (Zoutelande)', type: 'travel' },
     { kw: 41, date: '11.10', loc: 'Erkrath', wkm: '35.0 km', whm: '480 Hm', dist: '12.0 km', hm: '400 Hm', focus: 'Tapering Longrun', type: 'normal' },
     { kw: 42, date: '18.10', loc: 'Erkrath', wkm: '27.0 km', whm: '300 Hm', dist: '10.0 km', hm: '300 Hm', focus: 'Tapering Sharpening', type: 'normal' },
