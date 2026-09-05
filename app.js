@@ -86,6 +86,36 @@ const kwMap = {
 const defaultInitialRuns = [
   // KW 36
   {
+    id: 1788598338612,
+    kw: 36,
+    date: '05.09.2026',
+    dayDate: '05.09',
+    dist: 8.0,
+    hm: 26,
+    duration: '01:02:00',
+    hr: 114,
+    pace: '7:45',
+    type: 'laufen',
+    isErsatz: false,
+    tag: 'Locker',
+    notes: 'Einheit Locker absolviert (8.0 km / 26 Hm / 01:02:00 / 114 bpm)'
+  },
+  {
+    id: 1788520000000,
+    kw: 36,
+    date: '04.09.2026',
+    dayDate: '04.09',
+    dist: 0,
+    hm: 0,
+    duration: '00:30:00',
+    hr: 0,
+    pace: '-:--',
+    type: 'kraft',
+    isErsatz: true,
+    tag: 'Kraft & Rumpf',
+    notes: 'Kraft & Rumpftraining absolviert (30 Min)'
+  },
+  {
     id: 1788421473948,
     kw: 36,
     date: '03.09.2026',
@@ -897,8 +927,8 @@ const appleScheduleData = {
     { day: 'DIE', date: '01.09', tag: 'Rampen Ddorf', dist: 9.0, hm: 160, done: true },
     { day: 'MIT', date: '02.09', tag: 'Regeneration', dist: 0, hm: 0, done: false },
     { day: 'DON', date: '03.09', tag: 'Locker Rhein', dist: 9.0, hm: 15, done: true },
-    { day: 'FRE', date: '04.09', tag: 'Krafttraining Studio', dist: 0, hm: 0, done: false },
-    { day: 'SAM', date: '05.09', tag: 'Locker', dist: 8.0, hm: 0, done: false },
+    { day: 'FRE', date: '04.09', tag: 'Kraft & Rumpf', dist: 0, hm: 0, done: true },
+    { day: 'SAM', date: '05.09', tag: 'Locker', dist: 8.0, hm: 26, done: true },
     { day: 'SON', date: '06.09', tag: 'Longrun Siebengebirge', dist: 20.0, hm: 950, done: false }
   ],
   37: [
