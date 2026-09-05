@@ -1860,7 +1860,7 @@ function openWorkoutDetailsModal(kw, dayIndex) {
             <div style="font-size: 0.92rem; font-weight: 900; color: var(--color-text-white); font-feature-settings: 'tnum';">20,0 km · 950 Hm</div>
           </div>
         </div>
-        <a href="https://www.komoot.com/de-de/tour/3255192590?share_token=acECfjNmHM7LkbrlKvzlSk86wA0v8jFTVeDsmH8LMu9YIvLxN5&ref=wtd&t_s=referral&t_cid=route_share&t_ref_username=5238953605179" target="_blank" rel="noopener noreferrer" style="color: var(--color-brand-cyan); font-weight: 800; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem;">
+        <a href="https://www.komoot.com/de-de/tour/3257568662?share_token=aychbHOwV82GlHNNyaU47UvBeZOfCjegj2X4ey1qqYCO8GKfWy&ref=wtd&t_s=referral&t_cid=route_share&t_ref_username=5238953605179" target="_blank" rel="noopener noreferrer" style="color: var(--color-brand-cyan); font-weight: 800; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem;">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           Komoot Strecken-Route (20,0 km / 950 Hm) ↗
         </a>
