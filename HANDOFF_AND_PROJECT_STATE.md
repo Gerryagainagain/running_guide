@@ -66,7 +66,9 @@ If the user logs a run or workout via Chrome browser that needs to be permanentl
   2. KM 8–13: +211.8 Hm Wellenklettern
   3. KM 17–19: +175.6 Hm Anstieg nach Tiefpunkt (78m)
   4. KM 22–24: +238.2 Hm Drachenfels-Schlussanstieg *(KM 22–23: +147.1 Hm auf 1 km!)*
-- **Target Time Plan:** **4:00 bis 4:30 Std.** (Power Hiking an allen Steilabschnitten).
+- **Target Time Plan & Uphill Strategy:** **4:00 bis 4:15 Std.** 
+  - **Uphill Power-Hiking Sweetspot:** **120–125 bpm**. Lokale Kraftausdauer erzeugt periphere Atemnot an Steilanstiegen; Puls nicht forcieren, sondern bei 120–125 bpm sauber hiken.
+  - **6 Verpflegungsstationen (VPs):** Margarethenhöhe (km 5), Löwenburger Hof (km 11), Rhöndorf (km 16,5), Drachenfels (km 18,5), Tennisplätze Königswinter (km 22,5), Petersberg (km 24). Minimales Eigengewicht tragen!
 
 ### C. Belgenbachtrail 30k (März 2027)
 - **GPX Track Analysis (`2026-BBT-StrongTrailDeluxe.gpx`):** 30,39 km · 941 Hm.
