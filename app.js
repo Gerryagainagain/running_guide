@@ -1671,7 +1671,7 @@ function openWorkoutDetailsModal(kw, dayIndex) {
     tipsList = [
       'Fester Ebbesand: Flaches Strandsegment flüssig im GA1-Laufschritt (~128–132 bpm) rollen lassen',
       'Klippenanstiege: An den Kreidefelsen-Uphills (Cap Blanc Nez / Gris Nez) in Power Hiking (120–125 bpm) wechseln',
-      'Fueling-Test: 1x 500ml Malto-Flask + VPs an km 10 (Gris Nez) & km 20 (Ambleteuse) austesten'
+      'Fueling-Setup (2x 500ml): 1x Malto + 1x Wasser am Körper tragen (Wasser an VP 1 km 10 nachfüllen)'
     ];
   } else if (d.dist === 0) {
     tipsList = [
@@ -1870,7 +1870,7 @@ function openWorkoutDetailsModal(kw, dayIndex) {
           <div style="font-size: 0.82rem; color: var(--color-text-white); line-height: 1.4;">
             • <strong>Fester Ebbesand:</strong> Sehr kompakter Stranduntergrund am Meer – flüssig & rhythmisch bei ~128–132 bpm (GA1) durchlaufen.<br>
             • <strong>Klippenanstiege:</strong> Steilpassagen zu den Kreidefelsen in Power Hiking (120–125 bpm) nehmen.<br>
-            • <strong>Fueling-Test:</strong> 1x 500ml Flask mit Malto + VP 1 (km 10 Wasser/Banane) & VP 2 (km 20 Wasser/Salziges) antesten.
+            • <strong>Fueling-Setup (2x 500ml):</strong> 1x Flask Malto + 1x Flask Wasser am Körper tragen. Reines Wasser an VP 1 (km 10 Cap Gris Nez) nachfüllen!
           </div>
         </div>
         <a href="https://www.trailcotedopale.com/25km" target="_blank" rel="noopener noreferrer" style="color: var(--color-brand-cyan); font-weight: 800; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem;">
