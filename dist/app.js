@@ -1669,8 +1669,8 @@ function openWorkoutDetailsModal(kw, dayIndex) {
     ];
   } else if (tagLower.includes('opal')) {
     tipsList = [
-      'Tiefsand & Dünen sofort im Power Hiking (120–125 bpm) nehmen (kein Anlaufen im tiefen Sand)',
-      'Wettkampf-GA1-Pacing (~128–132 bpm) auf den flachen Klippenpassagen flüssig halten',
+      'Fester Ebbesand: Flaches Strandsegment flüssig im GA1-Laufschritt (~128–132 bpm) rollen lassen',
+      'Klippenanstiege: An den Kreidefelsen-Uphills (Cap Blanc Nez / Gris Nez) in Power Hiking (120–125 bpm) wechseln',
       'Fueling-Test: 1x 500ml Malto-Flask + VPs an km 10 (Gris Nez) & km 20 (Ambleteuse) austesten'
     ];
   } else if (d.dist === 0) {
@@ -1868,8 +1868,8 @@ function openWorkoutDetailsModal(kw, dayIndex) {
         <div style="background: var(--color-tint-cyan-bg); border: 1px solid var(--color-tint-cyan-border); border-radius: var(--border-radius-xl); padding: 0.75rem 1rem; display: flex; flex-direction: column; gap: 0.4rem;">
           <div style="font-size: 0.70rem; font-weight: 800; color: var(--color-brand-cyan); text-transform: uppercase; letter-spacing: 0.5px;">📍 TEST-FOKUS: TRAIL CÔTE D'OPALE (25 KM / 250 HM)</div>
           <div style="font-size: 0.82rem; color: var(--color-text-white); line-height: 1.4;">
-            • <strong>Dünensegment & Tiefsand:</strong> Dünen sofort im Power Hiking (120–125 bpm) angehen – kein Anlaufen im tiefen Sand!<br>
-            • <strong>Wettkampf-GA1-Puls:</strong> Auf flachen Klippenabschnitten entspannt bei ~128–132 bpm rollen lassen.<br>
+            • <strong>Fester Ebbesand:</strong> Sehr kompakter Stranduntergrund am Meer – flüssig & rhythmisch bei ~128–132 bpm (GA1) durchlaufen.<br>
+            • <strong>Klippenanstiege:</strong> Steilpassagen zu den Kreidefelsen in Power Hiking (120–125 bpm) nehmen.<br>
             • <strong>Fueling-Test:</strong> 1x 500ml Flask mit Malto + VP 1 (km 10 Wasser/Banane) & VP 2 (km 20 Wasser/Salziges) antesten.
           </div>
         </div>
