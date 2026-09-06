@@ -1657,8 +1657,8 @@ function openWorkoutDetailsModal(kw, dayIndex) {
   } else if (tagLower.includes('probedrachen')) {
     tipsList = [
       'Uphill-Pacing: Kontrolliertes Power Hiking bei 120–125 bpm (Atemrhythmus im Steilhang wahren)',
-      'Fueling-Generalprobe: 1x 500ml Flask mit Malto (30–40g) + 1-2 kleine VP-Snacks antesten',
-      'Fokus: 1:1 Strecken- & Verpflegungscheck im Siebengebirge'
+      'Autarke Verpflegung (Keine VPs!): Ursprüngliches Malto-Regiment mit 2x 500ml Flasks + Marzipan/Feigen',
+      'Fokus: 1:1 Strecken- & Belastungstest auf der Kernstrecke im Siebengebirge'
     ];
   } else if (tagLower.includes('drachenlauf')) {
     tipsList = [
@@ -1925,8 +1925,8 @@ function openWorkoutDetailsModal(kw, dayIndex) {
           <div style="font-size: 0.70rem; font-weight: 800; color: var(--color-brand-cyan); text-transform: uppercase; letter-spacing: 0.5px;">📍 COACH-TAKTIK: PROBEDRACHENLAUF (18 KM / 900 HM)</div>
           <div style="font-size: 0.82rem; color: var(--color-text-white); line-height: 1.4;">
             • <strong>Uphill Power-Hiking:</strong> Kontrolliertes Hiken bei 120–125 bpm (Atemrhythmus im Steilhang wahren).<br>
-            • <strong>Fueling-Generalprobe:</strong> 1x 500ml Flask (30–40g Malto) + 1-2 kleine VP-Snacks austesten.<br>
-            • <strong>Ziel:</strong> 1:1 Strecken- & Pacing-Test für den Renntag!
+            • <strong>Autarkes Malto-Regiment:</strong> KEINE VPs am Probedrachen-Tag! 2x 500ml Flasks mit Malto + Marzipan/Feigen am Körper tragen.<br>
+            • <strong>Ziel:</strong> 1:1 Strecken- & Pacing-Test auf der Kernstrecke!
           </div>
         </div>
         <a href="https://maps.app.goo.gl/3tC4MeJmbNd8o6mk7" target="_blank" rel="noopener noreferrer" style="color: var(--color-brand-cyan); font-weight: 800; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem;">
