@@ -1669,8 +1669,9 @@ function openWorkoutDetailsModal(kw, dayIndex) {
     ];
   } else if (tagLower.includes('opal')) {
     tipsList = [
-      'Erste 5 km kontrolliert anlaufen (Sand- & Dünensegmente einteilen)',
-      'Puls an Anstiegen diszipliniert auf GA1 (~130 bpm) halten'
+      'Tiefsand & Dünen sofort im Power Hiking (120–125 bpm) nehmen (kein Anlaufen im tiefen Sand)',
+      'Wettkampf-GA1-Pacing (~128–132 bpm) auf den flachen Klippenpassagen flüssig halten',
+      'Fueling-Test: 1x 500ml Malto-Flask + VPs an km 10 (Gris Nez) & km 20 (Ambleteuse) austesten'
     ];
   } else if (d.dist === 0) {
     tipsList = [
@@ -1864,6 +1865,14 @@ function openWorkoutDetailsModal(kw, dayIndex) {
   if (tagLower.includes('opal')) {
     extraLinkHtml = `
       <div style="margin-top: 0.85rem; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; gap: 0.55rem;">
+        <div style="background: var(--color-tint-cyan-bg); border: 1px solid var(--color-tint-cyan-border); border-radius: var(--border-radius-xl); padding: 0.75rem 1rem; display: flex; flex-direction: column; gap: 0.4rem;">
+          <div style="font-size: 0.70rem; font-weight: 800; color: var(--color-brand-cyan); text-transform: uppercase; letter-spacing: 0.5px;">📍 TEST-FOKUS: TRAIL CÔTE D'OPALE (25 KM / 250 HM)</div>
+          <div style="font-size: 0.82rem; color: var(--color-text-white); line-height: 1.4;">
+            • <strong>Dünensegment & Tiefsand:</strong> Dünen sofort im Power Hiking (120–125 bpm) angehen – kein Anlaufen im tiefen Sand!<br>
+            • <strong>Wettkampf-GA1-Puls:</strong> Auf flachen Klippenabschnitten entspannt bei ~128–132 bpm rollen lassen.<br>
+            • <strong>Fueling-Test:</strong> 1x 500ml Flask mit Malto + VP 1 (km 10 Wasser/Banane) & VP 2 (km 20 Wasser/Salziges) antesten.
+          </div>
+        </div>
         <a href="https://www.trailcotedopale.com/25km" target="_blank" rel="noopener noreferrer" style="color: var(--color-brand-cyan); font-weight: 800; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem;">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           Offizielle Trail Côte d’Opale 25 km Infos ↗
