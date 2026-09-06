@@ -86,6 +86,21 @@ const kwMap = {
 const defaultInitialRuns = [
   // KW 36
   {
+    id: 1788708030148,
+    kw: 36,
+    date: '06.09.2026',
+    dayDate: '06.09',
+    dist: 25.0,
+    hm: 965,
+    duration: '04:02:00',
+    hr: 116,
+    pace: '9:41',
+    type: 'laufen',
+    isErsatz: false,
+    tag: 'Longrun Siebengebirge',
+    notes: 'Einheit Longrun Siebengebirge absolviert (25.0 km / 965 Hm / 04:02:00 / 116 bpm)'
+  },
+  {
     id: 1788598338612,
     kw: 36,
     date: '05.09.2026',
@@ -929,7 +944,7 @@ const appleScheduleData = {
     { day: 'DON', date: '03.09', tag: 'Locker Rhein', dist: 9.0, hm: 15, done: true },
     { day: 'FRE', date: '04.09', tag: 'Kraft & Rumpf', dist: 0, hm: 0, done: true },
     { day: 'SAM', date: '05.09', tag: 'Locker', dist: 8.0, hm: 26, done: true },
-    { day: 'SON', date: '06.09', tag: 'Longrun Siebengebirge', dist: 20.0, hm: 950, done: false }
+    { day: 'SON', date: '06.09', tag: 'Longrun Siebengebirge', dist: 25.0, hm: 965, done: true }
   ],
   37: [
     { day: 'MON', date: '07.09', tag: 'Regeneration', dist: 0, hm: 0, done: false },
@@ -2106,7 +2121,7 @@ function openLongrunOverviewModal() {
     { kw: 33, date: '16.08', loc: 'Erkrath', wkm: '35.0 km', whm: '1.050 Hm', dist: '15.0 km', hm: '456 Hm', focus: 'Erkrath Longrun', type: 'normal' },
     { kw: 34, date: '21.08', loc: 'Erkrath / Ddorf', wkm: '36.0 km', whm: '520 Hm', dist: '12.0 km', hm: '400 Hm', focus: 'Fr 400 Hm Erkrath + So 8 km Ddorf', type: 'normal' },
     { kw: 35, date: '30.08', loc: 'Siebengebirge', wkm: '43.8 km', whm: '952 Hm', dist: '18.8 km', hm: '820 Hm', focus: 'Höhenmeter-Aufbau (820 Hm absolviert!)', type: 'normal' },
-    { kw: 36, date: '06.09', loc: 'Siebengebirge', wkm: '47.0 km', whm: '1.070 Hm', dist: '20.0 km', hm: '950 Hm', focus: 'Siebengebirge Peak', type: 'normal' },
+    { kw: 36, date: '06.09', loc: 'Siebengebirge', wkm: '51.0 km', whm: '1.166 Hm', dist: '25.0 km', hm: '965 Hm', focus: 'Siebengebirge Peak (25.0 km / 965 Hm absolviert!)', type: 'normal' },
     { kw: 37, date: '13.09', loc: 'Côte d’Opal', wkm: '42.0 km', whm: '450 Hm', dist: '25.0 km', hm: '250 Hm', focus: 'Côte d’Opal Trail Test', type: 'test' },
     { kw: 38, date: '20.09', loc: 'Normandie', wkm: '30.0 km', whm: '500 Hm', dist: '12.0 km', hm: '400 Hm', focus: 'Coastal Trail Erholung', type: 'travel' },
     { kw: 39, date: '27.09', loc: 'Siebengebirge', wkm: '45.0 km', whm: '1.020 Hm', dist: '18.0 km', hm: '900 Hm', focus: 'Probedrachen Kernstrecke (max 4 Std.)', type: 'test' },
