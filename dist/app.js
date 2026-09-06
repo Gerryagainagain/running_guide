@@ -1654,10 +1654,23 @@ function openWorkoutDetailsModal(kw, dayIndex) {
       'GA1-Pacing (HF Flach < 130, Berg < 140)',
       'Steile Anstiege früh in Zügig-Gehen wechseln'
     ];
-  } else if (tagLower.includes('drachenlauf') || tagLower.includes('probedrachen') || tagLower.includes('opal')) {
+  } else if (tagLower.includes('probedrachen')) {
     tipsList = [
-      'Erste 5 km kontrolliert anlaufen',
-      'Puls an Anstiegen diszipliniert halten'
+      'Uphill-Pacing: Kontrolliertes Power Hiking bei 120–125 bpm (Atemrhythmus im Steilhang wahren)',
+      'Fueling-Generalprobe: 1x 500ml Flask mit Malto (30–40g) + 1-2 kleine VP-Snacks antesten',
+      'Fokus: 1:1 Strecken- & Verpflegungscheck im Siebengebirge'
+    ];
+  } else if (tagLower.includes('drachenlauf')) {
+    tipsList = [
+      'Renntag-Pacing: Puls stellt sich durch Adrenalin/Rennstimmung auf ~130–135 bpm ein. Anstiege kontrolliert im Power Hiking nehmen!',
+      '6 Verpflegungsstationen (VPs): km 5, 11, 16.5, 18.5, 22.5 & 24. Bananen ab km 11, Salzstangen am Drachenfels',
+      '⚡ Geheimwaffe Cola: 1–2 Schluck Cola an VP 3 (km 16.5) & VP 4 (Drachenfels) für den Endspurt-Push',
+      'Zielzeit-Prognose: 4:00:00 – 4:15:00 Std. (sicher & kraftsparend)'
+    ];
+  } else if (tagLower.includes('opal')) {
+    tipsList = [
+      'Erste 5 km kontrolliert anlaufen (Sand- & Dünensegmente einteilen)',
+      'Puls an Anstiegen diszipliniert auf GA1 (~130 bpm) halten'
     ];
   } else if (d.dist === 0) {
     tipsList = [
@@ -1902,6 +1915,41 @@ function openWorkoutDetailsModal(kw, dayIndex) {
         <a href="https://maps.app.goo.gl/T6Lum9XNcRfuiJTe6" target="_blank" rel="noopener noreferrer" style="color: var(--color-brand-cyan); font-weight: 800; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem;">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           Anfahrt zum Start-/Ziel-Parkplatz (Google Maps) ↗
+        </a>
+      </div>
+    `;
+  } else if (d.date === '27.09' || tagLower.includes('probedrachen')) {
+    extraLinkHtml = `
+      <div style="margin-top: 0.85rem; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; gap: 0.55rem;">
+        <div style="background: var(--color-tint-cyan-bg); border: 1px solid var(--color-tint-cyan-border); border-radius: var(--border-radius-xl); padding: 0.75rem 1rem; display: flex; flex-direction: column; gap: 0.4rem;">
+          <div style="font-size: 0.70rem; font-weight: 800; color: var(--color-brand-cyan); text-transform: uppercase; letter-spacing: 0.5px;">📍 COACH-TAKTIK: PROBEDRACHENLAUF (18 KM / 900 HM)</div>
+          <div style="font-size: 0.82rem; color: var(--color-text-white); line-height: 1.4;">
+            • <strong>Uphill Power-Hiking:</strong> Kontrolliertes Hiken bei 120–125 bpm (Atemrhythmus im Steilhang wahren).<br>
+            • <strong>Fueling-Generalprobe:</strong> 1x 500ml Flask (30–40g Malto) + 1-2 kleine VP-Snacks austesten.<br>
+            • <strong>Ziel:</strong> 1:1 Strecken- & Pacing-Test für den Renntag!
+          </div>
+        </div>
+        <a href="https://maps.app.goo.gl/3tC4MeJmbNd8o6mk7" target="_blank" rel="noopener noreferrer" style="color: var(--color-brand-cyan); font-weight: 800; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Anfahrt zum Start-/Ziel-Parkplatz (Google Maps) ↗
+        </a>
+      </div>
+    `;
+  } else if (d.date === '25.10' || tagLower.includes('drachenlauf')) {
+    extraLinkHtml = `
+      <div style="margin-top: 0.85rem; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; gap: 0.55rem;">
+        <div style="background: rgba(48, 209, 88, 0.1); border: 1px solid rgba(48, 209, 88, 0.3); border-radius: var(--border-radius-xl); padding: 0.75rem 1rem; display: flex; flex-direction: column; gap: 0.4rem;">
+          <div style="font-size: 0.70rem; font-weight: 800; color: var(--color-brand-green); text-transform: uppercase; letter-spacing: 0.5px;">🐉 RENNSPIELPLAN: DRACHENLAUF (25 KM / 1.050–1.250 HM)</div>
+          <div style="font-size: 0.82rem; color: var(--color-text-white); line-height: 1.4;">
+            • <strong>Renntag-Puls:</strong> ~130–135 bpm (Adrenalin). Steilanstiege im Power Hiking meistern.<br>
+            • <strong>6 Verpflegungsstationen:</strong> km 5, 11, 16.5, 18.5, 22.5 & 24. Bananen ab km 11, Salzstangen am Drachenfels.<br>
+            • <strong>⚡ Cola-Push:</strong> An VP 3 (km 16.5) & VP 4 (Drachenfels) 1–2 Schluck Cola trinken.<br>
+            • <strong>Zielzeit:</strong> 4:00:00 – 4:15:00 Std.
+          </div>
+        </div>
+        <a href="https://www.drachenlauf.de" target="_blank" rel="noopener noreferrer" style="color: var(--color-brand-cyan); font-weight: 800; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Offizielle Drachenlauf Website & Infos ↗
         </a>
       </div>
     `;
