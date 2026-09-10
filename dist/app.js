@@ -84,6 +84,22 @@ const kwMap = {
 };
 
 const defaultInitialRuns = [
+  // KW 37
+  {
+    id: 1789024636842,
+    kw: 37,
+    date: '10.09.2026',
+    dayDate: '10.09',
+    dist: 7.0,
+    hm: 100,
+    duration: '01:00:00',
+    hr: 122,
+    pace: '8:34',
+    type: 'laufen',
+    isErsatz: false,
+    tag: 'Beine lockern (Abf. Nachmittag)',
+    notes: 'Einheit Beine lockern (Abf. Nachmittag) absolviert (7.0 km / 100 Hm / 01:00:00 / 122 bpm)'
+  },
   // KW 36
   {
     id: 1788708030148,
@@ -950,7 +966,7 @@ const appleScheduleData = {
     { day: 'MON', date: '07.09', tag: 'Regeneration', dist: 0, hm: 0, done: false },
     { day: 'DIE', date: '08.09', tag: 'Rampen Ddorf', dist: 7.0, hm: 100, done: false },
     { day: 'MIT', date: '09.09', tag: 'Regeneration', dist: 0, hm: 0, done: false },
-    { day: 'DON', date: '10.09', tag: 'Beine lockern (Abf. Nachmittag)', dist: 6.0, hm: 0, done: false },
+    { day: 'DON', date: '10.09', tag: 'Beine lockern (Abf. Nachmittag)', dist: 7.0, hm: 100, done: true },
     { day: 'FRE', date: '11.09', tag: 'Opal Aktivierung', dist: 4.0, hm: 0, done: false },
     { day: 'SAM', date: '12.09', tag: 'Ruhetag Vorbereitung', dist: 0, hm: 0, done: false },
     { day: 'SON', date: '13.09', tag: 'Côte d’Opal Trail', dist: 25.0, hm: 250, done: false }
