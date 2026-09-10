@@ -1987,22 +1987,27 @@ function openWorkoutDetailsModal(kw, dayIndex) {
         <h4 style="font-size: 0.72rem; font-weight: 900; color: var(--color-brand-cyan); margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.8px;">
           ⏱️ RENNSEGMENTE & DURCHGANGSZEITEN (25 KM)
         </h4>
+
+        <div style="background: rgba(255, 159, 10, 0.12); border: 1px solid rgba(255, 159, 10, 0.35); border-radius: var(--border-radius-md); padding: 0.65rem 0.85rem; margin-bottom: 0.85rem; font-size: 0.78rem; color: var(--color-text-white); line-height: 1.4;">
+          <strong style="color: var(--color-brand-orange);">🌬️ WETTER- & WINDTAKTIK (SO 13.09.):</strong> Westwind 25–30 km/h mit <strong>Böen bis 45 km/h</strong> am Meer! Auf den Klippen & Strandabschnitten Windschatten in Gruppen nutzen. Gegenwind-Zeiten Puffer: +5 bis +12 Min. einkalkulieren.
+        </div>
+
         <div style="font-size: 0.80rem; color: var(--color-text-secondary); line-height: 1.5; margin-bottom: 0.8rem;">
           <div style="display: flex; justify-content: space-between; padding: 0.3rem 0; border-bottom: 1px solid rgba(255,255,255,0.06);">
             <span><strong>km 0 – 8</strong> · Cap Blanc Nez ➔ Wissant</span>
-            <span style="font-weight: 800; color: var(--color-brand-cyan);">53–56 Min.</span>
+            <span style="font-weight: 800; color: var(--color-brand-cyan);">56–60 Min. <span style="font-size: 0.68rem; opacity: 0.7;">(+Wind Puffer)</span></span>
           </div>
           <div style="display: flex; justify-content: space-between; padding: 0.3rem 0; border-bottom: 1px solid rgba(255,255,255,0.06);">
             <span><strong>km 10</strong> · Cap Gris Nez Klippen <span style="color: var(--color-brand-orange); font-weight: 800;">(VP 1 Wasser)</span></span>
-            <span style="font-weight: 800; color: var(--color-brand-orange);">1:08–1:12 Std.</span>
+            <span style="font-weight: 800; color: var(--color-brand-orange);">1:12–1:16 Std.</span>
           </div>
           <div style="display: flex; justify-content: space-between; padding: 0.3rem 0; border-bottom: 1px solid rgba(255,255,255,0.06);">
-            <span><strong>km 20</strong> · Ambleteuse Dünen <span style="color: var(--color-brand-orange); font-weight: 800;">(VP 2 Wasser)</span></span>
-            <span style="font-weight: 800; color: var(--color-brand-orange);">2:14–2:22 Std.</span>
+            <span><strong>km 20</strong> · Ambleteuse Strand <span style="color: var(--color-brand-orange); font-weight: 800;">(VP 2 Wasser)</span></span>
+            <span style="font-weight: 800; color: var(--color-brand-orange);">2:20–2:28 Std.</span>
           </div>
           <div style="display: flex; justify-content: space-between; padding: 0.3rem 0;">
             <span><strong>km 25</strong> · Ziel Wimereux</span>
-            <span style="font-weight: 900; color: var(--color-brand-green);">2:48–2:56 Std.</span>
+            <span style="font-weight: 900; color: var(--color-brand-green);">2:55–3:12 Std.</span>
           </div>
         </div>
 

@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 6.9  
+**Document Version:** 7.0  
 **Last Updated:** September 10, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -10,7 +10,7 @@
 
 ## 📌 1. Project Overview & Current Trajectory
 
-- **Current Script Version:** `app.js?v=6.9` (in `index.html` and `dist/index.html`).
+- **Current Script Version:** `app.js?v=7.0` (in `index.html` and `dist/index.html`).
 - **Auth Gate Status:** Completely removed (site is 100% open without password prompt).
 - **UI & Modal Design:** Apple HIG flat card architecture (`1.25rem` padding, `16px` border-radius, single merged metric header cards).
 - **Data Persistence:** 2-way automatic synchronization between `defaultInitialRuns` (code defaults) and `localStorage` (`drachenlauf_runs`), preventing data loss or missing weekly elevation totals.
@@ -53,11 +53,11 @@ If the user logs a run or workout via Chrome browser that needs to be permanentl
 ## 🏔️ 4. Coach Findings & Race Analysis Summary
 
 ### A. Trail Côte d’Opale 25k (13.09.2026 – KW 37)
-- **Specs:** 25,0 km · 250 Hm (Klippentrail, Tiefsand, Dünen).
-- **Target Heart Rate:** **HF ~130 bpm (GA1)**.
-- **Venlo HM Benchmark (21 km / 108 Hm @ 143 bpm in 2:31:22):** Demonstrates strong 21+ km endurance baseline. Drosselungs-Puls von 143 auf 130 bpm gleicht den höheren Bodenwiderstand im Sand perfekt aus.
-- **Estimated Race Time:** **3:05:00 – 3:15:00**.
-- **Fueling:** 2x 500ml Softflasks mit Maltodextrin (alle 15–20 Min.) + Marzipan/Feigen ab Std. 1.5.
+- **Specs:** 25,0 km · 250 Hm (Klippentrail, fester Ebbesand am Meer, Kreidefelsen).
+- **Target Heart Rate & Pacing:** **HF ~128–132 bpm (GA1)** am Strand / 120–125 bpm Power Hiking an den Klippensteilgängen.
+- **Wetter & Wind-Taktik (So 13.09.):** Westwind/WSW 25–30 km/h mit **Böen bis 45 km/h** am Meer. Windschatten in Gruppen nutzen; bei Gegenwind nicht krampfhaft gegenhalten, sondern Puls stabil halten.
+- **Estimated Race Time (mit Wind-Puffer):** **2:55:00 – 3:12:00 h** (Segmentpuffer: +5 bis +12 Min. bei Gegenwind).
+- **Fueling-Setup:** 2x 500ml Softflasks (1x Malto + 1x Wasser) + Wasser-Refill an VP 1 (km 10 Cap Gris Nez). Optional 1x Zip-Beutel mit Malto-Pulver.
 
 ### B. Drachenlauf 2026 (25.10.2026 – KW 43)
 - **GPX Track Analysis (`2026-07-10_3098880682_Drachenlauf OG.gpx`):** 24,82 km · 847,6 Hm (GPX) ➔ 1.050 Hm (Offizielles DEM-Höhenmodell).
