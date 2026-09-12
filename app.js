@@ -86,6 +86,21 @@ const kwMap = {
 const defaultInitialRuns = [
   // KW 37
   {
+    id: 1789215930377,
+    kw: 37,
+    date: '12.09.2026',
+    dayDate: '12.09',
+    dist: 3.5,
+    hm: 70,
+    duration: '00:25:00',
+    hr: 115,
+    pace: '7:09',
+    type: 'ersatz',
+    isErsatz: true,
+    tag: 'Ersatz-Einheit',
+    notes: 'Ersatz-Einheit an Ruhetag/Ersatz (3.5 km)'
+  },
+  {
     id: 1789024636842,
     kw: 37,
     date: '10.09.2026',
@@ -968,7 +983,7 @@ const appleScheduleData = {
     { day: 'MIT', date: '09.09', tag: 'Regeneration', dist: 0, hm: 0, done: false },
     { day: 'DON', date: '10.09', tag: 'Beine lockern (Abf. Nachmittag)', dist: 7.0, hm: 100, done: true },
     { day: 'FRE', date: '11.09', tag: 'Opal Aktivierung', dist: 4.0, hm: 0, done: false },
-    { day: 'SAM', date: '12.09', tag: 'Ruhetag Vorbereitung', dist: 0, hm: 0, done: false },
+    { day: 'SAM', date: '12.09', tag: 'Ruhetag Vorbereitung', dist: 3.5, hm: 70, done: true },
     { day: 'SON', date: '13.09', tag: 'Côte d’Opal Trail', dist: 25.0, hm: 250, done: false }
   ],
   38: [
