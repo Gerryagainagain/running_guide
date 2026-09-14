@@ -86,6 +86,21 @@ const kwMap = {
 const defaultInitialRuns = [
   // KW 37
   {
+    id: 1789300000000,
+    kw: 37,
+    date: '13.09.2026',
+    dayDate: '13.09',
+    dist: 24.9,
+    hm: 290,
+    duration: '03:26:00',
+    hr: 129,
+    pace: '8:16',
+    type: 'laufen',
+    isErsatz: false,
+    tag: 'Côte d’Opal Trail',
+    notes: 'Trail Côte d’Opale 25k absolviert (24.9 km / 290 Hm / 03:26:00 / 129 bpm)'
+  },
+  {
     id: 1789215930377,
     kw: 37,
     date: '12.09.2026',
@@ -984,7 +999,7 @@ const appleScheduleData = {
     { day: 'DON', date: '10.09', tag: 'Beine lockern (Abf. Nachmittag)', dist: 7.0, hm: 100, done: true },
     { day: 'FRE', date: '11.09', tag: 'Opal Aktivierung', dist: 4.0, hm: 0, done: false },
     { day: 'SAM', date: '12.09', tag: 'Ruhetag Vorbereitung', dist: 3.5, hm: 70, done: true },
-    { day: 'SON', date: '13.09', tag: 'Côte d’Opal Trail', dist: 25.0, hm: 250, done: false }
+    { day: 'SON', date: '13.09', tag: 'Côte d’Opal Trail', dist: 24.9, hm: 290, done: true }
   ],
   38: [
     { day: 'MON', date: '14.09', tag: 'Rückfahrt Côte d’Opal', dist: 0, hm: 0, done: false },
@@ -2215,7 +2230,7 @@ function openLongrunOverviewModal() {
     { kw: 34, date: '21.08', loc: 'Erkrath / Ddorf', wkm: '36.0 km', whm: '520 Hm', dist: '12.0 km', hm: '400 Hm', focus: 'Fr 400 Hm Erkrath + So 8 km Ddorf', type: 'normal' },
     { kw: 35, date: '30.08', loc: 'Siebengebirge', wkm: '43.8 km', whm: '952 Hm', dist: '18.8 km', hm: '820 Hm', focus: 'Höhenmeter-Aufbau (820 Hm absolviert!)', type: 'normal' },
     { kw: 36, date: '06.09', loc: 'Siebengebirge', wkm: '51.0 km', whm: '1.166 Hm', dist: '25.0 km', hm: '965 Hm', focus: 'Siebengebirge Peak (25.0 km / 965 Hm absolviert!)', type: 'normal' },
-    { kw: 37, date: '13.09', loc: 'Côte d’Opal', wkm: '42.0 km', whm: '450 Hm', dist: '25.0 km', hm: '250 Hm', focus: 'Côte d’Opal Trail Test', type: 'test' },
+    { kw: 37, date: '13.09', loc: 'Côte d’Opal', wkm: '35.4 km', whm: '460 Hm', dist: '24.9 km', hm: '290 Hm', focus: 'Côte d’Opal Trail (24.9 km / 290 Hm / 03:26:00 / 129 bpm absolviert!)', type: 'test' },
     { kw: 38, date: '20.09', loc: 'Normandie', wkm: '30.0 km', whm: '500 Hm', dist: '12.0 km', hm: '400 Hm', focus: 'Coastal Trail Erholung', type: 'travel' },
     { kw: 39, date: '27.09', loc: 'Siebengebirge', wkm: '45.0 km', whm: '1.020 Hm', dist: '18.0 km', hm: '900 Hm', focus: 'Probedrachen Kernstrecke (max 4 Std.)', type: 'test' },
     { kw: 40, date: '04.10', loc: 'Zoutelande', wkm: '41.0 km', whm: '520 Hm', dist: '17.0 km', hm: '400 Hm', focus: 'Dünen-Wiederholungen (Zoutelande)', type: 'travel' },
