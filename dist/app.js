@@ -84,6 +84,22 @@ const kwMap = {
 };
 
 const defaultInitialRuns = [
+  // KW 38
+  {
+    id: 1789420000000,
+    kw: 38,
+    date: '15.09.2026',
+    dayDate: '15.09',
+    dist: 6.3,
+    hm: 102,
+    duration: '00:51:00',
+    hr: 118,
+    pace: '8:05',
+    type: 'laufen',
+    isErsatz: false,
+    tag: 'Rampen Ddorf',
+    notes: 'Rampentraining Düsseldorf absolviert (6.3 km / 102 Hm / 00:51:00 / 118 bpm)'
+  },
   // KW 37
   {
     id: 1789300000000,
@@ -1003,7 +1019,7 @@ const appleScheduleData = {
   ],
   38: [
     { day: 'MON', date: '14.09', tag: 'Rückfahrt Côte d’Opal', dist: 0, hm: 0, done: false },
-    { day: 'DIE', date: '15.09', tag: 'Rampen Ddorf', dist: 7.0, hm: 100, done: false },
+    { day: 'DIE', date: '15.09', tag: 'Rampen Ddorf', dist: 6.3, hm: 102, done: true },
     { day: 'MIT', date: '16.09', tag: 'Regeneration', dist: 0, hm: 0, done: false },
     { day: 'DON', date: '17.09', tag: 'Locker Rhein', dist: 7.0, hm: 0, done: false },
     { day: 'FRE', date: '18.09', tag: 'Abfahrt Fr Morgen (Normandie)', dist: 0, hm: 0, done: false },
