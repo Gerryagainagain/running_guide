@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 7.4  
+**Document Version:** 7.5  
 **Last Updated:** September 17, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -10,7 +10,7 @@
 
 ## 📌 1. Project Overview & Current Trajectory
 
-- **Current Script Version:** `app.js?v=7.4` (in `index.html` and `dist/index.html`).
+- **Current Script Version:** `app.js?v=7.5` (in `index.html` and `dist/index.html`).
 - **Auth Gate Status:** Completely removed (site is 100% open without password prompt).
 - **UI & Modal Design:** Apple HIG flat card architecture (`1.25rem` padding, `16px` border-radius, single merged metric header cards).
 - **Data Persistence:** 2-way automatic synchronization between `defaultInitialRuns` (code defaults) and `localStorage` (`drachenlauf_runs`), preventing data loss or missing weekly elevation totals.
@@ -56,6 +56,7 @@ If the user logs a run or workout via Chrome browser that needs to be permanentl
 - **Ergebnis:** **24,9 km · 290 Hm in 03:26:38 h** (Laufzeit: 3:01:07 h, Gehzeit: 22:04 min).
 - **Herzfrequenz & Pacing:** **Ø 129 bpm** (100% Ziel-GA1-Punktlandung!), Max 165 bpm. 143 spm Ø Cadence, 258 W Ø Leistung.
 - **Rennbedingungen & Verlauf:** Stunde 1 mit Gegenwind von vorne rechts & Nieselregen auf den Klippen (HF perfekt diszipliniert bei ~129 bpm gehalten!). Stunden 2 & 3: Wind flachte ab, kein Niesel, flüssiges Laufen über die Sandabschnitte.
+- **Regeneration & Rückmeldung:** **Kein Muskelkater (zero DOMS)** nach dem Wettkampf. Nur leichte zentrale Erschöpfung an Tag 1 & 2. Belegt exzellente exzentrische Muskelanpassung & schonende Downhill-Technik. Grünes Licht für den Haupt-Probedrachenlauf (18 km / 900 Hm) in KW 39 (27.09.2026).
 - **Fueling:** 2x 500ml Softflasks (Malto + Wasser) + VP-Refill. Magen- & Energiestatus während des gesamten Rennens stabil.
 
 ### B. Drachenlauf 2026 (25.10.2026 – KW 43)
