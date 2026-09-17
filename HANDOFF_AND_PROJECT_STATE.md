@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 7.7  
+**Document Version:** 7.8  
 **Last Updated:** September 17, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -10,7 +10,7 @@
 
 ## 📌 1. Project Overview & Current Trajectory
 
-- **Current Script Version:** `app.js?v=7.7` (in `index.html` and `dist/index.html`).
+- **Current Script Version:** `app.js?v=7.8` (in `index.html` and `dist/index.html`).
 - **Auth Gate Status:** Completely removed (site is 100% open without password prompt).
 - **UI & Modal Design:** Apple HIG flat card architecture (`1.25rem` padding, `16px` border-radius, single merged metric header cards).
 - **Data Persistence:** 2-way automatic synchronization between `defaultInitialRuns` (code defaults) and `localStorage` (`drachenlauf_runs`), preventing data loss or missing weekly elevation totals.
@@ -47,6 +47,7 @@ If the user logs a run or workout via Chrome browser that needs to be permanentl
 - **Modal Links:** Always format external links (Komoot, Google Maps, Trace de Trail) using cyan brand styling (`var(--color-brand-cyan)`), SVG icons, `target="_blank"`, and `rel="noopener noreferrer"`.
 - **Cumulative Elevation Aggregation:** Ensure `renderCleanHeroBar` and `renderCoachWidget` sum up both `actWkm` and `actWhm` from the merged `runsData` array across all run types.
 - **1-Page Document Generation:** For Race Day Cheatsheets or Decision Reminders, use `python-docx` with 0.5-inch margins, 8.5–10pt typography, and styled table borders to guarantee output fits on exactly **1 single printed page**.
+- **Coach Communication & Tone Directive:** Niemals übertreiben, keine absoluten Schein-Garantien oder Hyperbeln („100% perfekt“, „Lehrbuch-Beispiel“, „exakt 14 Tage“). Analysen stets sachlich, realistisch, nuanciert und mit Blick auf individuelle Variablen (Restermüdung, Belastungssteuerung, Tagesform) formulieren.
 
 ---
 
