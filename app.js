@@ -86,6 +86,21 @@ const kwMap = {
 const defaultInitialRuns = [
   // KW 38
   {
+    id: 1789852800000,
+    kw: 38,
+    date: '20.09.2026',
+    dayDate: '20.09',
+    dist: 5.0,
+    hm: 110,
+    duration: '00:41:24',
+    hr: 120,
+    pace: '8:17',
+    type: 'laufen',
+    isErsatz: false,
+    tag: 'Coastal Trail Erholung',
+    notes: 'Coastal Trail Erholung (5.0 km / 110 Hm / 00:41:24 / 120 bpm)'
+  },
+  {
     id: 1789766400000,
     kw: 38,
     date: '19.09.2026',
@@ -671,6 +686,14 @@ if (runsData && runsData.length > 0) {
       r.pace = '9:21';
       needsSave = true;
     }
+    if (r.date === '20.09.2026' || r.dayDate === '20.09') {
+      r.dist = 5.0;
+      r.hm = 110;
+      r.duration = '00:41:24';
+      r.hr = 120;
+      r.pace = '8:17';
+      needsSave = true;
+    }
   });
   if (needsSave) {
     try { localStorage.setItem('drachenlauf_runs', JSON.stringify(runsData)); } catch (e) {}
@@ -1070,7 +1093,7 @@ const appleScheduleData = {
     { day: 'DON', date: '17.09', tag: 'Lockerer Lauf', dist: 6.0, hm: 102, done: true },
     { day: 'FRE', date: '18.09', tag: 'Abfahrt Fr Morgen (Normandie)', dist: 0, hm: 0, done: false },
     { day: 'SAM', date: '19.09', tag: 'Klippenlauf Normandie', dist: 6.2, hm: 60, done: true },
-    { day: 'SON', date: '20.09', tag: 'Coastal Trail Erholung', dist: 12.0, hm: 400, done: false }
+    { day: 'SON', date: '20.09', tag: 'Coastal Trail Erholung', dist: 5.0, hm: 110, done: true }
   ],
   39: [
     { day: 'MON', date: '21.09', tag: 'Rückfahrt Mo Nachmittag', dist: 0, hm: 0, done: false },
