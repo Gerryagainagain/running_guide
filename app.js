@@ -1126,7 +1126,7 @@ const appleScheduleData = {
     { day: 'DON', date: '24.09', tag: 'Locker Rhein', dist: 10.0, hm: 0, done: false },
     { day: 'FRE', date: '25.09', tag: 'Krafttraining Studio', dist: 0, hm: 0, done: false },
     { day: 'SAM', date: '26.09', tag: 'Beine lockern', dist: 7.0, hm: 0, done: false },
-    { day: 'SON', date: '27.09', tag: 'PROBEDRACHEN (HF 120-140)', dist: 18.0, hm: 900, done: false }
+    { day: 'SON', date: '27.09', tag: 'PROBEDRACHEN (HF 120-140)', dist: 19.9, hm: 650, done: false }
   ],
   40: [
     { day: 'MON', date: '28.09', tag: 'Regeneration', dist: 0, hm: 0, done: false },
@@ -2085,7 +2085,7 @@ function openWorkoutDetailsModal(kw, dayIndex) {
     extraLinkHtml = `
       <div style="margin-top: 0.85rem; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; gap: 0.55rem;">
         <div style="background: var(--color-tint-cyan-bg); border: 1px solid var(--color-tint-cyan-border); border-radius: var(--border-radius-xl); padding: 0.75rem 1rem; display: flex; flex-direction: column; gap: 0.4rem;">
-          <div style="font-size: 0.70rem; font-weight: 800; color: var(--color-brand-cyan); text-transform: uppercase; letter-spacing: 0.5px;">📍 COACH-TAKTIK: PROBEDRACHENLAUF (18 KM / 900 HM)</div>
+          <div style="font-size: 0.70rem; font-weight: 800; color: var(--color-brand-cyan); text-transform: uppercase; letter-spacing: 0.5px;">📍 COACH-TAKTIK: PROBEDRACHENLAUF (19,9 KM / 650 HM)</div>
           <div style="font-size: 0.82rem; color: var(--color-text-white); line-height: 1.4;">
             • <strong>Uphill Power-Hiking:</strong> Kontrolliertes Hiken bei 120–125 bpm (Atemrhythmus im Steilhang wahren).<br>
             • <strong>Autarkes Malto-Regiment:</strong> KEINE VPs am Probedrachen-Tag! 2x 500ml Flasks mit Malto + Marzipan/Feigen am Körper tragen.<br>
