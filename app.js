@@ -1949,7 +1949,6 @@ function openWorkoutDetailsModal(kw, dayIndex) {
           <li style="margin-bottom: 0.3rem;"><strong>Snack-Packliste:</strong> ${snackListText}</li>
           <li style="margin-bottom: 0.3rem;"><strong>Schutz:</strong> Sonnenspray vorab auftragen</li>
           <li style="margin-bottom: 0.3rem;"><strong>Einnahme-Schema:</strong> Alle 15–20 Min. Malto schluckweise trinken (mit Wasser nachspülen); ab Std. 1,5 alle 25–30 Min. Snacks kauen.</li>
-          ${isKeyRaceOrPeakTest ? `<li style="margin-bottom: 0.3rem; color: var(--color-brand-orange);"><strong>Refill-Option:</strong> Wasser-Flask an Quellen / Verpflegungsstationen (VPs) nachfüllen.</li>` : ''}
         </ul>
       </div>
     `;
@@ -2093,9 +2092,9 @@ function openWorkoutDetailsModal(kw, dayIndex) {
             • <strong>Ziel:</strong> 1:1 Strecken- & Pacing-Test auf der Kernstrecke!
           </div>
         </div>
-        <a href="https://maps.app.goo.gl/3tC4MeJmbNd8o6mk7" target="_blank" rel="noopener noreferrer" style="color: var(--color-brand-cyan); font-weight: 800; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem;">
+        <a href="https://maps.app.goo.gl/KFxxAhZ5sTdX2xux5" target="_blank" rel="noopener noreferrer" style="color: var(--color-brand-cyan); font-weight: 800; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem;">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Anfahrt zum Start-/Ziel-Parkplatz (Google Maps) ↗
+          Anfahrt Parkplatz Stenzelberg & Probestrecke (Google Maps) ↗
         </a>
       </div>
     `;
