@@ -84,6 +84,22 @@ const kwMap = {
 };
 
 const defaultInitialRuns = [
+  // KW 39
+  {
+    id: 1790025600000,
+    kw: 39,
+    date: '22.09.2026',
+    dayDate: '22.09',
+    dist: 4.2,
+    hm: 16,
+    duration: '00:39:08',
+    hr: 138,
+    pace: '9:19',
+    type: 'laufen',
+    isErsatz: false,
+    tag: 'Rampen Ddorf (Sturz-Stopp)',
+    notes: 'Rampen Ddorf (4.2 km / 16 Hm / 00:39:08 / 138 bpm) - Sturz mit Schürfwunde am Knie'
+  },
   // KW 38
   {
     id: 1789852800000,
@@ -694,6 +710,14 @@ if (runsData && runsData.length > 0) {
       r.pace = '8:17';
       needsSave = true;
     }
+    if (r.date === '22.09.2026' || r.dayDate === '22.09') {
+      r.dist = 4.2;
+      r.hm = 16;
+      r.duration = '00:39:08';
+      r.hr = 138;
+      r.pace = '9:19';
+      needsSave = true;
+    }
   });
   if (needsSave) {
     try { localStorage.setItem('drachenlauf_runs', JSON.stringify(runsData)); } catch (e) {}
@@ -1097,7 +1121,7 @@ const appleScheduleData = {
   ],
   39: [
     { day: 'MON', date: '21.09', tag: 'Rückfahrt Mo Nachmittag', dist: 0, hm: 0, done: false },
-    { day: 'DIE', date: '22.09', tag: 'Rampen Ddorf', dist: 10.0, hm: 120, done: false },
+    { day: 'DIE', date: '22.09', tag: 'Rampen Ddorf (Sturz-Stopp)', dist: 4.2, hm: 16, done: true },
     { day: 'MIT', date: '23.09', tag: 'Regeneration', dist: 0, hm: 0, done: false },
     { day: 'DON', date: '24.09', tag: 'Locker Rhein', dist: 10.0, hm: 0, done: false },
     { day: 'FRE', date: '25.09', tag: 'Krafttraining Studio', dist: 0, hm: 0, done: false },
