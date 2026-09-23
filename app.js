@@ -2092,9 +2092,13 @@ function openWorkoutDetailsModal(kw, dayIndex) {
             • <strong>Ziel:</strong> 1:1 Strecken- & Pacing-Test auf der Kernstrecke!
           </div>
         </div>
+        <a href="https://www.komoot.com/de-de/tour/3304019423" target="_blank" rel="noopener noreferrer" style="color: var(--color-brand-cyan); font-weight: 800; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Komoot Strecken-Route (Probedrachenlauf 18 km) ↗
+        </a>
         <a href="https://maps.app.goo.gl/KFxxAhZ5sTdX2xux5" target="_blank" rel="noopener noreferrer" style="color: var(--color-brand-cyan); font-weight: 800; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem;">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Anfahrt Parkplatz Stenzelberg & Probestrecke (Google Maps) ↗
+          Anfahrt Parkplatz Stenzelberg (Google Maps) ↗
         </a>
       </div>
     `;
