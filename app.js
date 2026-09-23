@@ -98,7 +98,7 @@ const defaultInitialRuns = [
     type: 'laufen',
     isErsatz: false,
     tag: 'Rampen Ddorf (Sturz-Stopp)',
-    notes: 'Rampen Ddorf (4.2 km / 16 Hm / 00:39:08 / 138 bpm) - Sturz mit Schürfwunde am Knie'
+    notes: 'Rampen Ddorf (4.2 km / 16 Hm / 00:39:08 / 138 bpm Cadence Lock) - Sturz mit Schürfwunde am Knie (Uhr gelockert)'
   },
   // KW 38
   {
