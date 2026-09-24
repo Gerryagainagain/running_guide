@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 8.6  
+**Document Version:** 8.7  
 **Last Updated:** September 24, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -10,7 +10,7 @@
 
 ## 📌 1. Project Overview & Current Trajectory
 
-- **Current Script Version:** `app.js?v=8.6` (in `index.html` and `dist/index.html`).
+- **Current Script Version:** `app.js?v=8.7` (in `index.html` and `dist/index.html`).
 - **Auth Gate Status:** Completely removed (site is 100% open without password prompt).
 - **UI & Modal Design:** Apple HIG flat card architecture (`1.25rem` padding, `16px` border-radius, single merged metric header cards).
 - **Data Persistence:** 2-way automatic synchronization between `defaultInitialRuns` (code defaults) and `localStorage` (`drachenlauf_runs`), preventing data loss or missing weekly elevation totals.
@@ -70,11 +70,15 @@ If the user logs a run or workout via Chrome browser that needs to be permanentl
 - **Target Time Plan & Uphill Strategy:** **4:00 bis 4:15 Std.** 
   - **Uphill Power-Hiking Sweetspot:** **120–125 bpm**. Lokale Kraftausdauer erzeugt periphere Atemnot an Steilanstiegen; Puls nicht forcieren, sondern bei 120–125 bpm sauber hiken.
   - **6 Verpflegungsstationen (VPs) & Fueling-Mischung:** VPs bei km 5, 11, 16.5, 18.5, 22.5 & 24. **Taktik:** 1x 500ml Flask mit Malto (30–40g) als magenschonende Basis (alle 15–20 Min. ein Schluck) + VP-Snacks (Bananen ab km 11, Salzstangen am Drachenfels gegen Krämpfe). Minimales Eigengewicht tragen!
-- **Tapering-Philosophie & Nuancierung (KW 41–43):**
-  - **Prinzip:** Konservieren statt Aufbauen. Das Risiko am Renntag ist nicht ein Mangel an Höhenmetern, sondern Restermüdung in den Beinen.
-  - **KW 41 (Übergangswoche, 35 km / 480 Hm):** Hohe Kontrolle! Die 12 km / 400 Hm Key-Einheit darf KEIN kleiner Probedrachenlauf werden (kein Tempojagen, keine harten Downhills).
-  - **KW 42 (Echter Taper, 27 km / 300 Hm):** 10 km / 300 Hm nur als kurzer spezifischer Reiz (mit kurzen zügigen Abschnitten) ohne Muskelermüdung.
-  - **KW 43 (Rennwoche):** Frische maximieren, Muskeln locker halten.
+  - **Tapering-Philosophie & Nuancierung (KW 41–43):**
+    - **Prinzip:** Konservieren statt Aufbauen. Das Risiko am Renntag ist nicht ein Mangel an Höhenmetern, sondern Restermüdung in den Beinen.
+    - **KW 41 (Übergangswoche, 35 km / 480 Hm):** Hohe Kontrolle! Die 12 km / 400 Hm Key-Einheit darf KEIN kleiner Probedrachenlauf werden (kein Tempojagen, keine harten Downhills).
+    - **KW 42 (Echter Taper, 27 km / 300 Hm):** 10 km / 300 Hm nur als kurzer spezifischer Reiz (mit kurzen zügigen Abschnitten) ohne Muskelermüdung.
+    - **KW 43 (Rennwoche):** Frische maximieren, Muskeln locker halten.
+- **Individuelle Pulskalibrierung (Athleten-Feedback):**
+  - **Echtes GA1 / Sprechgrenze (VT1):** **105–118 bpm** (in diesem Fenster ist flüssige Unterhaltung problemlos möglich, siehe 110 bpm Läufe).
+  - **GA2 / Übergangsbereich:** Ab **125–132 bpm** wird die Sprechgrenze überschritten (Vertiefung der Atmung, kein ruhiges Gespräch mehr).
+  - **Probedrachen-Ziel:** Flachpassagen bei **110–120 bpm** halten, Steilanstiege im Power-Hiking bei **120–125 bpm** deckeln.
 
 ### C. Belgenbachtrail 30k (März 2027)
 - **GPX Track Analysis (`2026-BBT-StrongTrailDeluxe.gpx`):** 30,39 km · 941 Hm.
