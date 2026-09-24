@@ -86,6 +86,21 @@ const kwMap = {
 const defaultInitialRuns = [
   // KW 39
   {
+    id: 1790198400000,
+    kw: 39,
+    date: '24.09.2026',
+    dayDate: '24.09',
+    dist: 9.0,
+    hm: 41,
+    duration: '01:15:00',
+    hr: 110,
+    pace: '8:20',
+    type: 'laufen',
+    isErsatz: false,
+    tag: 'Locker Rhein',
+    notes: 'Locker Rhein (9.0 km / 41 Hm / 01:15:00 / 110 bpm)'
+  },
+  {
     id: 1790025600000,
     kw: 39,
     date: '22.09.2026',
@@ -718,6 +733,14 @@ if (runsData && runsData.length > 0) {
       r.pace = '9:19';
       needsSave = true;
     }
+    if (r.date === '24.09.2026' || r.dayDate === '24.09') {
+      r.dist = 9.0;
+      r.hm = 41;
+      r.duration = '01:15:00';
+      r.hr = 110;
+      r.pace = '8:20';
+      needsSave = true;
+    }
   });
   if (needsSave) {
     try { localStorage.setItem('drachenlauf_runs', JSON.stringify(runsData)); } catch (e) {}
@@ -1123,7 +1146,7 @@ const appleScheduleData = {
     { day: 'MON', date: '21.09', tag: 'Rückfahrt Mo Nachmittag', dist: 0, hm: 0, done: false },
     { day: 'DIE', date: '22.09', tag: 'Rampen Ddorf (Sturz-Stopp)', dist: 4.2, hm: 16, done: true },
     { day: 'MIT', date: '23.09', tag: 'Regeneration', dist: 0, hm: 0, done: false },
-    { day: 'DON', date: '24.09', tag: 'Locker Rhein', dist: 10.0, hm: 0, done: false },
+    { day: 'DON', date: '24.09', tag: 'Locker Rhein', dist: 9.0, hm: 41, done: true },
     { day: 'FRE', date: '25.09', tag: 'Krafttraining Studio', dist: 0, hm: 0, done: false },
     { day: 'SAM', date: '26.09', tag: 'Beine lockern', dist: 7.0, hm: 0, done: false },
     { day: 'SON', date: '27.09', tag: 'PROBEDRACHEN (HF 120-140)', dist: 19.9, hm: 650, done: false }
