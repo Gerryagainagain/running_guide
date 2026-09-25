@@ -963,7 +963,7 @@ function getEstimatedDurationMinutes(distKm, hm = 0, tag = '') {
   const tagLower = (tag || '').toLowerCase();
 
   if (tagLower.includes('drachenlauf') && !tagLower.includes('probedrachen') && distKm >= 20) return 255;
-  if (tagLower.includes('probedrachen') && distKm >= 20) return 270;
+  if (tagLower.includes('probedrachen') && distKm >= 20) return 210;
   if (tagLower.includes('opal') && distKm >= 20) return 175;
 
   const profile = getEmpiricalUserPaceProfile();
@@ -1288,8 +1288,8 @@ const expeditionPhasesData = [
   {
     name: "Probedrachen",
     dates: "KW 39 (21.09 – 27.09)",
-    goal: "Generalprobe auf den Drachenlauf-Kernabschnitten (max. 4 Std.)",
-    workouts: "18 km Probedrachen auf den Kern-Abschnitten der Originalstrecke mit ca. 900 Höhenmetern (max. 4 Std.).",
+    goal: "Generalprobe auf den Drachenlauf-Kernabschnitten (21,7 km / 800 Hm / ca. 3:30 Std.)",
+    workouts: "21,7 km Probedrachen auf den Kern-Abschnitten der Originalstrecke mit ca. 800 Höhenmetern (ca. 3:30 Std.).",
     notes: "Streckenerkundung & Test. Pacing & Malto-/Snack-Timing (Marzipan & Feigen) exakt wie am Renntag steuern."
   },
   {
