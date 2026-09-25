@@ -2125,12 +2125,12 @@ function openWorkoutDetailsModal(kw, dayIndex) {
         <div style="background: var(--color-tint-cyan-bg); border: 1px solid var(--color-tint-cyan-border); border-radius: var(--border-radius-xl); padding: 0.75rem 1rem; display: flex; flex-direction: column; gap: 0.4rem;">
           <div style="font-size: 0.70rem; font-weight: 800; color: var(--color-brand-cyan); text-transform: uppercase; letter-spacing: 0.5px;">📍 COACH-TAKTIK: PROBEDRACHENLAUF (21,7 KM / 800 HM)</div>
           <div style="font-size: 0.82rem; color: var(--color-text-white); line-height: 1.4;">
+            • <strong>Gipfelabfolge:</strong> Ölberg ➔ Löwenburg ➔ Drachenfels (Refill km 16) ➔ Petersberg (Anstieg km 19–20 bei ~24 °C) ➔ Stenzelberg Ziel.<br>
             • <strong>Uphill Power-Hiking:</strong> Kontrolliertes Hiken bei 120–125 bpm (Atemrhythmus im Steilhang wahren).<br>
-            • <strong>Autarkes Malto-Regiment:</strong> KEINE VPs am Probedrachen-Tag! 2x 500ml Flasks mit Malto + Marzipan/Feigen am Körper tragen.<br>
-            • <strong>Ziel:</strong> 1:1 Strecken- & Pacing-Test auf der Kernstrecke (21,7 km / 800 Hm / ~3:40 Std.)!
+            • <strong>Refill & Pacing:</strong> Wasser-Refill am Drachenfels für den finalen Petersberg-Anstieg nutzen.
           </div>
         </div>
-        <a href="https://www.komoot.com/de-de/tour/3307972723?share_token=a68V8qy8QbuNNMSpSafPV6G2z1pA3R272koKAX4ImAdzTBQunn" target="_blank" rel="noopener noreferrer" style="color: var(--color-brand-cyan); font-weight: 800; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem;">
+        <a href="https://www.komoot.com/de-de/tour/3307972723" target="_blank" rel="noopener noreferrer" style="color: var(--color-brand-cyan); font-weight: 800; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem;">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           Komoot Strecken-Route (Probedrachenlauf 21,7 km / 800 Hm) ↗
         </a>
