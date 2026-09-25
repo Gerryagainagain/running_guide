@@ -32,13 +32,13 @@ const phaseData = {
     code: 'PHASE 3',
     name: 'Spezifische Testläufe & Peak-Belastung',
     dates: 'KW 37–39 (07.09 – 27.09)',
-    desc: 'Zwei Haupttests: Côte d’Opal Trail (25 km / 250 Hm am 13.09) und HAUPT-PROBEDRACHENLAUF (18 km / 900 Hm am 27.09 FIX im Siebengebirge). Malto-Softflasks + Marzipan/Feigen.',
+    desc: 'Zwei Haupttests: Côte d’Opal Trail (25 km / 250 Hm am 13.09) und HAUPT-PROBEDRACHENLAUF (21,7 km / 800 Hm am 27.09 FIX im Siebengebirge). Malto-Softflasks + Marzipan/Feigen.',
     targetWkm: 45,
     targetWhm: 1020,
-    targetLongDist: 18,
-    targetLongHm: 900,
+    targetLongDist: 21.7,
+    targetLongHm: 800,
     cpName: 'Probedrachenlauf (HF-Test FIX: 27.09.)',
-    cpMeta: '27. September · 18 km · 900 Hm (HF 120–140 bpm)'
+    cpMeta: '27. September · 21,7 km · 800 Hm (HF 120–140 bpm)'
   },
   4: {
     code: 'PHASE 4',
@@ -1162,9 +1162,9 @@ const appleScheduleData = {
     { day: 'DIE', date: '22.09', tag: 'Rampen Ddorf (Sturz-Stopp)', dist: 4.2, hm: 16, done: true },
     { day: 'MIT', date: '23.09', tag: 'Regeneration', dist: 0, hm: 0, done: false },
     { day: 'DON', date: '24.09', tag: 'Locker Rhein', dist: 9.0, hm: 41, done: true },
-    { day: 'FRE', date: '25.09', tag: 'Krafttraining Studio', dist: 0, hm: 0, done: false },
+    { day: 'FRE', date: '25.09', tag: 'Krafttraining Studio', dist: 0, hm: 0, done: true },
     { day: 'SAM', date: '26.09', tag: 'Beine lockern', dist: 7.0, hm: 0, done: false },
-    { day: 'SON', date: '27.09', tag: 'PROBEDRACHEN (HF 120-140)', dist: 19.9, hm: 650, done: false }
+    { day: 'SON', date: '27.09', tag: 'PROBEDRACHEN (HF 120-140)', dist: 21.7, hm: 800, done: false }
   ],
   40: [
     { day: 'MON', date: '28.09', tag: 'Regeneration', dist: 0, hm: 0, done: false },
