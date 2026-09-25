@@ -86,6 +86,21 @@ const kwMap = {
 const defaultInitialRuns = [
   // KW 39
   {
+    id: 1790284800000,
+    kw: 39,
+    date: '25.09.2026',
+    dayDate: '25.09',
+    dist: 0,
+    hm: 0,
+    duration: '00:30:00',
+    hr: 0,
+    pace: '-:--',
+    type: 'kraft',
+    isErsatz: true,
+    tag: 'Kraft & Rumpf',
+    notes: 'Kraft & Rumpftraining absolviert (30 Min)'
+  },
+  {
     id: 1790198400000,
     kw: 39,
     date: '24.09.2026',
@@ -2108,16 +2123,16 @@ function openWorkoutDetailsModal(kw, dayIndex) {
     extraLinkHtml = `
       <div style="margin-top: 0.85rem; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; gap: 0.55rem;">
         <div style="background: var(--color-tint-cyan-bg); border: 1px solid var(--color-tint-cyan-border); border-radius: var(--border-radius-xl); padding: 0.75rem 1rem; display: flex; flex-direction: column; gap: 0.4rem;">
-          <div style="font-size: 0.70rem; font-weight: 800; color: var(--color-brand-cyan); text-transform: uppercase; letter-spacing: 0.5px;">📍 COACH-TAKTIK: PROBEDRACHENLAUF (19,9 KM / 650 HM)</div>
+          <div style="font-size: 0.70rem; font-weight: 800; color: var(--color-brand-cyan); text-transform: uppercase; letter-spacing: 0.5px;">📍 COACH-TAKTIK: PROBEDRACHENLAUF (21,7 KM / 800 HM)</div>
           <div style="font-size: 0.82rem; color: var(--color-text-white); line-height: 1.4;">
             • <strong>Uphill Power-Hiking:</strong> Kontrolliertes Hiken bei 120–125 bpm (Atemrhythmus im Steilhang wahren).<br>
             • <strong>Autarkes Malto-Regiment:</strong> KEINE VPs am Probedrachen-Tag! 2x 500ml Flasks mit Malto + Marzipan/Feigen am Körper tragen.<br>
-            • <strong>Ziel:</strong> 1:1 Strecken- & Pacing-Test auf der Kernstrecke!
+            • <strong>Ziel:</strong> 1:1 Strecken- & Pacing-Test auf der Kernstrecke (21,7 km / 800 Hm / ~3:40 Std.)!
           </div>
         </div>
-        <a href="https://www.komoot.com/de-de/tour/3304019423" target="_blank" rel="noopener noreferrer" style="color: var(--color-brand-cyan); font-weight: 800; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem;">
+        <a href="https://www.komoot.com/de-de/tour/3307972723?share_token=a68V8qy8QbuNNMSpSafPV6G2z1pA3R272koKAX4ImAdzTBQunn" target="_blank" rel="noopener noreferrer" style="color: var(--color-brand-cyan); font-weight: 800; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem;">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          Komoot Strecken-Route (Probedrachenlauf 18 km) ↗
+          Komoot Strecken-Route (Probedrachenlauf 21,7 km / 800 Hm) ↗
         </a>
         <a href="https://maps.app.goo.gl/KFxxAhZ5sTdX2xux5" target="_blank" rel="noopener noreferrer" style="color: var(--color-brand-cyan); font-weight: 800; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem;">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -2367,7 +2382,7 @@ function openLongrunOverviewModal() {
     { kw: 36, date: '06.09', loc: 'Siebengebirge', wkm: '51.0 km', whm: '1.166 Hm', dist: '25.0 km', hm: '965 Hm', focus: 'Siebengebirge Peak (25.0 km / 965 Hm absolviert!)', type: 'normal' },
     { kw: 37, date: '13.09', loc: 'Côte d’Opal', wkm: '35.4 km', whm: '460 Hm', dist: '24.9 km', hm: '290 Hm', focus: 'Côte d’Opal Trail (24.9 km / 290 Hm / 03:26:00 / 129 bpm absolviert!)', type: 'test' },
     { kw: 38, date: '20.09', loc: 'Normandie', wkm: '30.0 km', whm: '500 Hm', dist: '12.0 km', hm: '400 Hm', focus: 'Coastal Trail Erholung', type: 'travel' },
-    { kw: 39, date: '27.09', loc: 'Siebengebirge', wkm: '45.0 km', whm: '1.020 Hm', dist: '18.0 km', hm: '900 Hm', focus: 'Probedrachen Kernstrecke (max 4 Std.)', type: 'test' },
+    { kw: 39, date: '27.09', loc: 'Siebengebirge', wkm: '45.0 km', whm: '1.020 Hm', dist: '21.7 km', hm: '800 Hm', focus: 'Probedrachen 21,7 km / 800 Hm (max 3:40 Std.)', type: 'test' },
     { kw: 40, date: '04.10', loc: 'Zoutelande', wkm: '41.0 km', whm: '520 Hm', dist: '17.0 km', hm: '400 Hm', focus: 'Dünen-Wiederholungen (Zoutelande)', type: 'travel' },
     { kw: 41, date: '11.10', loc: 'Erkrath', wkm: '35.0 km', whm: '480 Hm', dist: '12.0 km', hm: '400 Hm', focus: 'Tapering Longrun', type: 'normal' },
     { kw: 42, date: '18.10', loc: 'Erkrath', wkm: '27.0 km', whm: '300 Hm', dist: '10.0 km', hm: '300 Hm', focus: 'Tapering Sharpening', type: 'normal' },
