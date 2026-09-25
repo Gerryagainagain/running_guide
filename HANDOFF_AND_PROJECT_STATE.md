@@ -23,7 +23,7 @@
 Whenever modifying code (`app.js`, `index.html`, `styles.css`, or `tokens.css`), ALWAYS execute the following sequence:
 
 1. **Apply Changes** in root workspace files.
-2. **Bump Script Version Tag** in `index.html` (e.g. `app.js?v=6.1`).
+2. **Bump Script Version Tag** in `index.html` (e.g. `app.js?v=8.8`).
 3. **Synchronize Distribution Directory:**
    ```bash
    cp index.html dist/index.html && cp app.js dist/app.js && cp styles.css dist/styles.css && cp tokens.css dist/tokens.css
@@ -32,7 +32,7 @@ Whenever modifying code (`app.js`, `index.html`, `styles.css`, or `tokens.css`),
    ```bash
    git commit -am "Detailed descriptive commit message (vX.Y)" && git push
    ```
-   *(Note: Use `BypassSandbox: true` for the `git push` command).*
+   *(Note: SSH over port 443 with `MacBook Pro` key is fully configured; `git push` runs seamlessly without password prompts).*
 
 ### Local Storage & LevelDB Data Extraction Protocol
 If the user logs a run or workout via Chrome browser that needs to be permanently baked into `defaultInitialRuns`:
