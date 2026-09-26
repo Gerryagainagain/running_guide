@@ -32,13 +32,13 @@ const phaseData = {
     code: 'PHASE 3',
     name: 'Spezifische Testläufe & Peak-Belastung',
     dates: 'KW 37–39 (07.09 – 27.09)',
-    desc: 'Zwei Haupttests: Côte d’Opal Trail (25 km / 250 Hm am 13.09) und HAUPT-PROBEDRACHENLAUF (18,0 km / 670 Hm am 27.09 FIX im Siebengebirge). Malto-Softflasks + Marzipan/Feigen.',
+    desc: 'Zwei Haupttests: Côte d’Opal Trail (25 km / 250 Hm am 13.09) und HAUPT-PROBEDRACHENLAUF (19,0 km / 710 Hm am 27.09 FIX im Siebengebirge). Malto-Softflasks + Marzipan/Feigen.',
     targetWkm: 45,
     targetWhm: 1020,
-    targetLongDist: 18.0,
-    targetLongHm: 670,
+    targetLongDist: 19.0,
+    targetLongHm: 710,
     cpName: 'Probedrachenlauf (HF-Test FIX: 27.09.)',
-    cpMeta: '27. September · 18,0 km · 670 Hm (HF 120–140 bpm)'
+    cpMeta: '27. September · 19,0 km · 710 Hm (HF 120–140 bpm)'
   },
   4: {
     code: 'PHASE 4',
@@ -963,7 +963,7 @@ function getEstimatedDurationMinutes(distKm, hm = 0, tag = '') {
   const tagLower = (tag || '').toLowerCase();
 
   if (tagLower.includes('drachenlauf') && !tagLower.includes('probedrachen') && distKm >= 20) return 255;
-  if (tagLower.includes('probedrachen') && distKm >= 15) return 165;
+  if (tagLower.includes('probedrachen') && distKm >= 15) return 180;
   if (tagLower.includes('opal') && distKm >= 20) return 175;
 
   const profile = getEmpiricalUserPaceProfile();
@@ -1164,7 +1164,7 @@ const appleScheduleData = {
     { day: 'DON', date: '24.09', tag: 'Locker Rhein', dist: 9.0, hm: 41, done: true },
     { day: 'FRE', date: '25.09', tag: 'Krafttraining Studio', dist: 0, hm: 0, done: true },
     { day: 'SAM', date: '26.09', tag: 'Ruhetag / Recovery', dist: 0, hm: 0, done: true },
-    { day: 'SON', date: '27.09', tag: 'PROBEDRACHEN (HF 120-140)', dist: 18.0, hm: 670, done: false }
+    { day: 'SON', date: '27.09', tag: 'PROBEDRACHEN (HF 120-140)', dist: 19.0, hm: 710, done: false }
   ],
   40: [
     { day: 'MON', date: '28.09', tag: 'Regeneration', dist: 0, hm: 0, done: false },
@@ -2123,16 +2123,16 @@ function openWorkoutDetailsModal(kw, dayIndex) {
     extraLinkHtml = `
       <div style="margin-top: 0.85rem; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; gap: 0.55rem;">
         <div style="background: var(--color-tint-cyan-bg); border: 1px solid var(--color-tint-cyan-border); border-radius: var(--border-radius-xl); padding: 0.75rem 1rem; display: flex; flex-direction: column; gap: 0.4rem;">
-          <div style="font-size: 0.70rem; font-weight: 800; color: var(--color-brand-cyan); text-transform: uppercase; letter-spacing: 0.5px;">📍 COACH-TAKTIK: PROBEDRACHENLAUF (18,0 KM / 670 HM / 2:45 STD.)</div>
+          <div style="font-size: 0.70rem; font-weight: 800; color: var(--color-brand-cyan); text-transform: uppercase; letter-spacing: 0.5px;">📍 COACH-TAKTIK: PROBEDRACHENLAUF (19,0 KM / 710 HM / 3:00 STD.)</div>
           <div style="font-size: 0.82rem; color: var(--color-text-white); line-height: 1.4;">
-            • <strong>Belastungssteuerung:</strong> Zeit auf den Beinen reduziert (2:45 Std. Zielzeit) für höhere Reizdichte in den Anstiegen.<br>
+            • <strong>Belastungssteuerung:</strong> Zeit auf den Beinen kontrolliert (3:00 Std. Zielzeit) für höhere Reizdichte in den Anstiegen.<br>
             • <strong>Uphill Power-Hiking:</strong> Kontrollierter Druck bei 120–125 bpm im Steilhang.<br>
             • <strong>Hydration:</strong> 2x Malto + 1-2x Wasser-Flasks am Körper tragen.
           </div>
         </div>
-        <a href="https://www.komoot.com/de-de/tour/3309834052" target="_blank" rel="noopener noreferrer" style="color: var(--color-brand-cyan); font-weight: 800; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem;">
+        <a href="https://www.komoot.com/de-de/tour/3309934191" target="_blank" rel="noopener noreferrer" style="color: var(--color-brand-cyan); font-weight: 800; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem;">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          Komoot Strecken-Route (Probedrachenlauf 18,0 km / 670 Hm / 2:45 Std.) ↗
+          Komoot Strecken-Route (Probedrachenlauf 19,0 km / 710 Hm / 3:00 Std.) ↗
         </a>
         <a href="https://maps.app.goo.gl/KFxxAhZ5sTdX2xux5" target="_blank" rel="noopener noreferrer" style="color: var(--color-brand-cyan); font-weight: 800; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem;">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -2382,7 +2382,7 @@ function openLongrunOverviewModal() {
     { kw: 36, date: '06.09', loc: 'Siebengebirge', wkm: '51.0 km', whm: '1.166 Hm', dist: '25.0 km', hm: '965 Hm', focus: 'Siebengebirge Peak (25.0 km / 965 Hm absolviert!)', type: 'normal' },
     { kw: 37, date: '13.09', loc: 'Côte d’Opal', wkm: '35.4 km', whm: '460 Hm', dist: '24.9 km', hm: '290 Hm', focus: 'Côte d’Opal Trail (24.9 km / 290 Hm / 03:26:00 / 129 bpm absolviert!)', type: 'test' },
     { kw: 38, date: '20.09', loc: 'Normandie', wkm: '30.0 km', whm: '500 Hm', dist: '12.0 km', hm: '400 Hm', focus: 'Coastal Trail Erholung', type: 'travel' },
-    { kw: 39, date: '27.09', loc: 'Siebengebirge', wkm: '45.0 km', whm: '1.020 Hm', dist: '18.0 km', hm: '670 Hm', focus: 'Probedrachen 18,0 km / 670 Hm (ca. 2:45 Std.)', type: 'test' },
+    { kw: 39, date: '27.09', loc: 'Siebengebirge', wkm: '45.0 km', whm: '1.020 Hm', dist: '19.0 km', hm: '710 Hm', focus: 'Probedrachen 19,0 km / 710 Hm (ca. 3:00 Std.)', type: 'test' },
     { kw: 40, date: '04.10', loc: 'Zoutelande', wkm: '41.0 km', whm: '520 Hm', dist: '17.0 km', hm: '400 Hm', focus: 'Dünen-Wiederholungen (Zoutelande)', type: 'travel' },
     { kw: 41, date: '11.10', loc: 'Erkrath', wkm: '35.0 km', whm: '480 Hm', dist: '12.0 km', hm: '400 Hm', focus: 'Tapering Longrun', type: 'normal' },
     { kw: 42, date: '18.10', loc: 'Erkrath', wkm: '27.0 km', whm: '300 Hm', dist: '10.0 km', hm: '300 Hm', focus: 'Tapering Sharpening', type: 'normal' },
