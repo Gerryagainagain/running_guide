@@ -86,6 +86,21 @@ const kwMap = {
 const defaultInitialRuns = [
   // KW 39
   {
+    id: 1790457600000,
+    kw: 39,
+    date: '27.09.2026',
+    dayDate: '27.09',
+    dist: 18.0,
+    hm: 710,
+    duration: '03:02:59',
+    hr: 126,
+    pace: '10:10',
+    type: 'laufen',
+    isErsatz: false,
+    tag: 'Probedrachen Siebengebirge',
+    notes: 'Probedrachen Siebengebirge absolviert (18.0 km / 710 Hm / 03:02:59 / 10:10 min/km / 126 bpm Ø / 209 W Ø / 75% Z3 / 4.0 Aerob TE)'
+  },
+  {
     id: 1790284800000,
     kw: 39,
     date: '25.09.2026',
@@ -1164,7 +1179,7 @@ const appleScheduleData = {
     { day: 'DON', date: '24.09', tag: 'Locker Rhein', dist: 9.0, hm: 41, done: true },
     { day: 'FRE', date: '25.09', tag: 'Krafttraining Studio', dist: 0, hm: 0, done: true },
     { day: 'SAM', date: '26.09', tag: 'Ruhetag / Recovery', dist: 0, hm: 0, done: true },
-    { day: 'SON', date: '27.09', tag: 'PROBEDRACHEN (HF 120-140)', dist: 19.0, hm: 710, done: false }
+    { day: 'SON', date: '27.09', tag: 'PROBEDRACHEN (HF 120-140)', dist: 18.0, hm: 710, done: true }
   ],
   40: [
     { day: 'MON', date: '28.09', tag: 'Regeneration', dist: 0, hm: 0, done: false },

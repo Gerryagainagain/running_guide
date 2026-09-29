@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.6  
+**Document Version:** 9.7  
 **Last Updated:** September 29, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -10,7 +10,7 @@
 
 ## 📌 1. Project Overview & Current Trajectory
 
-- **Current Script Version:** `app.js?v=9.6` (in `index.html` and `dist/index.html`).
+- **Current Script Version:** `app.js?v=9.7` (in `index.html` and `dist/index.html`).
 - **Auth Gate Status:** Active (Apple HIG Modal: *"Was riss Hermännsche am Strand von Charita?"* / Passwort: `achilles`).
 - **UI & Modal Design:** Apple HIG flat card architecture (`1.25rem` padding, `16px` border-radius, single merged metric header cards).
 - **Data Persistence:** 2-way automatic synchronization between `defaultInitialRuns` (code defaults) and `localStorage` (`drachenlauf_runs`), preventing data loss or missing weekly elevation totals.
@@ -53,12 +53,11 @@ If the user logs a run or workout via Chrome browser that needs to be permanentl
 
 ## 🏔️ 4. Coach Findings & Race Analysis Summary
 
-### A. Trail Côte d’Opale 25k (13.09.2026 – KW 37)
-- **Ergebnis:** **24,9 km · 290 Hm in 03:26:38 h** (Laufzeit: 3:01:07 h, Gehzeit: 22:04 min).
-- **Herzfrequenz & Pacing:** **Ø 129 bpm** (100% Ziel-GA1-Punktlandung!), Max 165 bpm. 143 spm Ø Cadence, 258 W Ø Leistung.
-- **Rennbedingungen & Verlauf:** Stunde 1 mit Gegenwind von vorne rechts & Nieselregen auf den Klippen (HF perfekt diszipliniert bei ~129 bpm gehalten!). Stunden 2 & 3: Wind flachte ab, kein Niesel, flüssiges Laufen über die Sandabschnitte.
-- **Regeneration & Rückmeldung:** **Kein Muskelkater (zero DOMS)** nach dem Wettkampf. Nur leichte zentrale Erschöpfung an Tag 1 & 2. Belegt exzellente exzentrische Muskelanpassung & schonende Downhill-Technik. Grünes Licht für den Haupt-Probedrachenlauf (18 km / 900 Hm) in KW 39 (27.09.2026).
-- **Fueling:** 2x 500ml Softflasks (Malto + Wasser) + VP-Refill. Magen- & Energiestatus während des gesamten Rennens stabil.
+### A2. Probedrachenlauf Siebengebirge (27.09.2026 – KW 39)
+- **Ergebnis:** **18,0 km · 710 Hm in 03:02:59 h** (Ø Pace: 10:10 min/km, Laufzeit: 1:45:12 h [57.5%], Gehzeit: 1:17:47 h [42.5%]).
+- **Herzfrequenz & Belastung:** **Ø 126 bpm** (Max 156 bpm). 75 % der Zeit in Z3 (120–137 bpm), 4 % in Z4 (138–154 bpm), 0 % in Z5. Punktgenaue Einhaltung der Power-Hiking-Vorgabe (120–125 bpm) an den Anstiegen.
+- **Leistung & Kadenz:** **209 W Ø Leistung** (Max 518 W), **123 spm Ø Cadence**.
+- **Physiologischer Training Effect:** Aerob 4,0 (Starker aerober Ausdauerreiz), Anaerob 0,0. Stabile Homöostase ohne späten Leistungseinbruch.
 
 ### B. Drachenlauf 2026 (25.10.2026 – KW 43)
 - **GPX Track Analysis (`2026-07-10_3098880682_Drachenlauf OG.gpx`):** 24,82 km · 847,6 Hm (GPX) ➔ 1.050 Hm (Offizielles DEM-Höhenmodell).
