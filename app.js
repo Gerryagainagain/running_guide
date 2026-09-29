@@ -44,7 +44,7 @@ const phaseData = {
     code: 'PHASE 4',
     name: 'Tapering & Wettkampfvorbereitung',
     dates: 'KW 40–42 (28.09 – 18.10)',
-    desc: 'Gezieltes Tapering. Zoutelande Dünen (350 Hm), anschließend kontrolliertes Tapering in Erkrath (400 Hm & 300 Hm <= 450 Hm).',
+    desc: 'Gezieltes Tapering in Zoutelande & Erkrath. Grundregel: Bewegung erhalten, Beine lockern, Laufgefühl prüfen, keine Ermüdung erzeugen.',
     targetWkm: 30,
     targetWhm: 400,
     targetLongDist: 15,
@@ -56,7 +56,7 @@ const phaseData = {
     code: 'PHASE 5',
     name: 'Wettkampfwoche Drachenlauf',
     dates: 'KW 43 (19.10 – 25.10)',
-    desc: 'Regeneration & Rennvorbereitung. Kurze Aktivierung, Schlaf, Carboloading & Vorbereitung 500ml Softflasks, Marzipan, Feigen.',
+    desc: 'Wettkampfwoche Drachenlauf. Grundregel: Erholung maximieren – Bewegung erhalten, Beine lockern, Laufgefühl prüfen, keine Ermüdung erzeugen.',
     targetWkm: 39,
     targetWhm: 1250,
     targetLongDist: 26,
@@ -1461,10 +1461,10 @@ function renderCoachWidget(kw) {
     37: "Testlauf am Côte d’Opal Trail unter realistischem Renntempo.",
     38: "Regeneriere aktiv an der Küste im strikten GA1-Tempo.",
     39: "Erkunde die Drachenlauf-Originalstrecke entspannt ohne Tempodruck.",
-    40: "Starte das Tapering in Zoutelande und reduziere die Höhenmeter.",
-    41: "Drossle den Umfang gezielt für volle Beinfrische.",
-    42: "Halte die Läufe kurz – fülle deine Kohlenhydratspeicher.",
-    43: "Race week! This is it!"
+    40: "Tapering Zoutelande: Bewegung erhalten, Beine lockern, keine Ermüdung erzeugen.",
+    41: "Tapering Erkrath: Bewegung erhalten, Beine lockern, Laufgefühl prüfen.",
+    42: "Tapering Sharpening: Bewegung erhalten, Beine lockern, maximale Frische aufbauen.",
+    43: "Race Week Drachenlauf: Erholung maximieren – Bewegung erhalten, Beine lockern!"
   };
 
   if (headlineEl) {
@@ -1891,6 +1891,10 @@ function openWorkoutDetailsModal(kw, dayIndex) {
       'Grundlagenausdauer (GA1 - HF < 135 bpm)',
       'Gleichmäßiges, kontrolliertes Tempo'
     ];
+  }
+
+  if (kw >= 40 && !tagLower.includes('drachenlauf')) {
+    tipsList.push('📍 Tapering-Prinzip: Bewegung erhalten · Beine lockern · Laufgefühl prüfen · Keine Ermüdung erzeugen.');
   }
 
   let comparisonBlocksHtml = '';

@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.7  
+**Document Version:** 9.8  
 **Last Updated:** September 29, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -10,10 +10,11 @@
 
 ## 📌 1. Project Overview & Current Trajectory
 
-- **Current Script Version:** `app.js?v=9.7` (in `index.html` and `dist/index.html`).
+- **Current Script Version:** `app.js?v=9.8` (in `index.html` and `dist/index.html`).
 - **Auth Gate Status:** Active (Apple HIG Modal: *"Was riss Hermännsche am Strand von Charita?"* / Passwort: `achilles`).
 - **UI & Modal Design:** Apple HIG flat card architecture (`1.25rem` padding, `16px` border-radius, single merged metric header cards).
 - **Data Persistence:** 2-way automatic synchronization between `defaultInitialRuns` (code defaults) and `localStorage` (`drachenlauf_runs`), preventing data loss or missing weekly elevation totals.
+- **Tapering Principle Integration (v9.8):** Core rule *„Bewegung erhalten, Beine lockern, Laufgefühl prüfen, keine Ermüdung erzeugen“* active across KW 40–43 phase descriptions, coach headlines, and workout modal popups.
 
 ---
 
