@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.9  
+**Document Version:** 9.10  
 **Last Updated:** October 4, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -10,12 +10,12 @@
 
 ## 📌 1. Project Overview & Current Trajectory
 
-- **Current Script Version:** `app.js?v=9.9` (in `index.html` and `dist/index.html`).
+- **Current Script Version:** `app.js?v=9.10` (in `index.html` and `dist/index.html`).
 - **Auth Gate Status:** Active (Apple HIG Modal: *"Was riss Hermännsche am Strand von Charita?"* / Passwort: `achilles`).
 - **UI & Modal Design:** Apple HIG flat card architecture (`1.25rem` padding, `16px` border-radius, single merged metric header cards).
 - **Data Persistence:** 2-way automatic synchronization between `defaultInitialRuns` (code defaults) and `localStorage` (`drachenlauf_runs`), preventing data loss or missing weekly elevation totals.
 - **Tapering Principle Integration (v9.8):** Core rule *„Bewegung erhalten, Beine lockern, Laufgefühl prüfen, keine Ermüdung erzeugen“* active across KW 40–43 phase descriptions, coach headlines, and workout modal popups.
-- **KW 40 Logged & Synced (v9.9):** 4 Läufe nachgetragen und fest in `defaultInitialRuns` gebacken (37,0 km / 644 Hm). Alle 4 Einheiten in `appleScheduleData[40]` als erledigt markiert.
+- **Soll- vs. Ist-Architektur (v9.10):** Die ursprünglichen Soll-Planwerte in `appleScheduleData[40]` (11 km / 180 Hm, 8 km / 0 Hm, 17 km / 400 Hm, 5 km / 0 Hm) sowie in der Progressionstabelle bleiben als Planvorgaben unberührt. Die absolvierten Daten sind in `defaultInitialRuns` / `runsData` gespeichert. In den Modals wird dadurch der direkte Soll-Ist-Vergleich korrekt dargestellt.
 
 ---
 
