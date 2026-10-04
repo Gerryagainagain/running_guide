@@ -1,7 +1,7 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.8  
-**Last Updated:** September 29, 2026  
+**Document Version:** 9.9  
+**Last Updated:** October 4, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
 **Local Workspace Path:** `/Users/Gerhard/Desktop/running_guide`
@@ -10,11 +10,12 @@
 
 ## 📌 1. Project Overview & Current Trajectory
 
-- **Current Script Version:** `app.js?v=9.8` (in `index.html` and `dist/index.html`).
+- **Current Script Version:** `app.js?v=9.9` (in `index.html` and `dist/index.html`).
 - **Auth Gate Status:** Active (Apple HIG Modal: *"Was riss Hermännsche am Strand von Charita?"* / Passwort: `achilles`).
 - **UI & Modal Design:** Apple HIG flat card architecture (`1.25rem` padding, `16px` border-radius, single merged metric header cards).
 - **Data Persistence:** 2-way automatic synchronization between `defaultInitialRuns` (code defaults) and `localStorage` (`drachenlauf_runs`), preventing data loss or missing weekly elevation totals.
 - **Tapering Principle Integration (v9.8):** Core rule *„Bewegung erhalten, Beine lockern, Laufgefühl prüfen, keine Ermüdung erzeugen“* active across KW 40–43 phase descriptions, coach headlines, and workout modal popups.
+- **KW 40 Logged & Synced (v9.9):** 4 Läufe nachgetragen und fest in `defaultInitialRuns` gebacken (37,0 km / 644 Hm). Alle 4 Einheiten in `appleScheduleData[40]` als erledigt markiert.
 
 ---
 
@@ -59,6 +60,15 @@ If the user logs a run or workout via Chrome browser that needs to be permanentl
 - **Herzfrequenz & Belastung:** **Ø 126 bpm** (Max 156 bpm). 75 % der Zeit in Z3 (120–137 bpm), 4 % in Z4 (138–154 bpm), 0 % in Z5. Punktgenaue Einhaltung der Power-Hiking-Vorgabe (120–125 bpm) an den Anstiegen.
 - **Leistung & Kadenz:** **209 W Ø Leistung** (Max 518 W), **123 spm Ø Cadence**.
 - **Physiologischer Training Effect:** Aerob 4,0 (Starker aerober Ausdauerreiz), Anaerob 0,0. Stabile Homöostase ohne späten Leistungseinbruch.
+
+### A3. KW 40 Zoutelande & Tapering (28.09 – 04.10.2026)
+- **Einheiten:**
+  - 29.09 (Di): 7,0 km · 116 Hm in 00:57:08 h (Pace: 8:10 min/km, Ø 120 bpm) – Rampen Ddorf
+  - 01.10 (Do): 8,0 km · 40 Hm in 01:07:00 h (Pace: 8:23 min/km, Ø 111 bpm) – Locker Rhein
+  - 03.10 (Sa): 17,0 km · 409 Hm in 02:45:00 h (Pace: 9:42 min/km, Ø 115 bpm) – Trail Zoutelande Dünen Longrun
+  - 04.10 (So): 5,0 km · 79 Hm in 00:44:18 h (Pace: 8:52 min/km, Ø 105 bpm) – Strand & Dünen Auslaufen Zoutelande
+- **Wochensumme:** **37,0 km · 644 Hm** (alle 4 Läufe absolviert).
+- **Physiologische Analyse:** Strikte Einhaltung des GA1-Fensters (105–115 bpm) beim Dünen-Longrun und Auslaufen. Keine ZNS- oder periphere Überlastung; vollständige Umsetzung des Tapering-Prinzips.
 
 ### B. Drachenlauf 2026 (25.10.2026 – KW 43)
 - **GPX Track Analysis (`2026-07-10_3098880682_Drachenlauf OG.gpx`):** 24,82 km · 847,6 Hm (GPX) ➔ 1.050 Hm (Offizielles DEM-Höhenmodell).

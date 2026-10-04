@@ -84,6 +84,67 @@ const kwMap = {
 };
 
 const defaultInitialRuns = [
+  // KW 40
+  {
+    id: 1791062400000,
+    kw: 40,
+    date: '04.10.2026',
+    dayDate: '04.10',
+    dist: 5.0,
+    hm: 79,
+    duration: '00:44:18',
+    hr: 105,
+    pace: '8:52',
+    type: 'laufen',
+    isErsatz: false,
+    tag: 'Strand Auslaufen',
+    notes: 'Strand & Dünen Auslaufen Zoutelande (5.0 km / 79 Hm / 00:44:18 / 105 bpm Ø)'
+  },
+  {
+    id: 1790976000000,
+    kw: 40,
+    date: '03.10.2026',
+    dayDate: '03.10',
+    dist: 17.0,
+    hm: 409,
+    duration: '02:45:00',
+    hr: 115,
+    pace: '9:42',
+    type: 'laufen',
+    isErsatz: false,
+    tag: 'Zoutelande Dünen Longrun',
+    notes: 'Trail Zoutelande Dünen Longrun (17.0 km / 409 Hm / 02:45:00 / 115 bpm Ø)'
+  },
+  {
+    id: 1790803200000,
+    kw: 40,
+    date: '01.10.2026',
+    dayDate: '01.10',
+    dist: 8.0,
+    hm: 40,
+    duration: '01:07:00',
+    hr: 111,
+    pace: '8:23',
+    type: 'laufen',
+    isErsatz: false,
+    tag: 'Locker Rhein',
+    notes: 'Lockerer Lauf Rhein (8.0 km / 40 Hm / 01:07:00 / 111 bpm Ø)'
+  },
+  {
+    id: 1790630400000,
+    kw: 40,
+    date: '29.09.2026',
+    dayDate: '29.09',
+    dist: 7.0,
+    hm: 116,
+    duration: '00:57:08',
+    hr: 120,
+    pace: '8:10',
+    type: 'laufen',
+    isErsatz: false,
+    tag: 'Rampen Ddorf',
+    notes: 'Rampentraining Düsseldorf (7.0 km / 116 Hm / 00:57:08 / 120 bpm Ø)'
+  },
   // KW 39
   {
     id: 1790457600000,
@@ -771,6 +832,38 @@ if (runsData && runsData.length > 0) {
       r.pace = '8:20';
       needsSave = true;
     }
+    if (r.date === '29.09.2026' || r.dayDate === '29.09') {
+      r.dist = 7.0;
+      r.hm = 116;
+      r.duration = '00:57:08';
+      r.hr = 120;
+      r.pace = '8:10';
+      needsSave = true;
+    }
+    if (r.date === '01.10.2026' || r.dayDate === '01.10') {
+      r.dist = 8.0;
+      r.hm = 40;
+      r.duration = '01:07:00';
+      r.hr = 111;
+      r.pace = '8:23';
+      needsSave = true;
+    }
+    if (r.date === '03.10.2026' || r.dayDate === '03.10') {
+      r.dist = 17.0;
+      r.hm = 409;
+      r.duration = '02:45:00';
+      r.hr = 115;
+      r.pace = '9:42';
+      needsSave = true;
+    }
+    if (r.date === '04.10.2026' || r.dayDate === '04.10') {
+      r.dist = 5.0;
+      r.hm = 79;
+      r.duration = '00:44:18';
+      r.hr = 105;
+      r.pace = '8:52';
+      needsSave = true;
+    }
   });
   if (needsSave) {
     try { localStorage.setItem('drachenlauf_runs', JSON.stringify(runsData)); } catch (e) {}
@@ -1183,12 +1276,12 @@ const appleScheduleData = {
   ],
   40: [
     { day: 'MON', date: '28.09', tag: 'Regeneration', dist: 0, hm: 0, done: false },
-    { day: 'DIE', date: '29.09', tag: 'Rampen Ddorf', dist: 11.0, hm: 180, done: false },
+    { day: 'DIE', date: '29.09', tag: 'Rampen Ddorf', dist: 7.0, hm: 116, done: true },
     { day: 'MIT', date: '30.09', tag: 'Regeneration', dist: 0, hm: 0, done: false },
-    { day: 'DON', date: '01.10', tag: 'Locker Rhein', dist: 8.0, hm: 0, done: false },
+    { day: 'DON', date: '01.10', tag: 'Locker Rhein', dist: 8.0, hm: 40, done: true },
     { day: 'FRE', date: '02.10', tag: 'Abfahrt Fr Morgen (Zoutelande)', dist: 0, hm: 0, done: false },
-    { day: 'SAM', date: '03.10', tag: 'Zoutelande Dünen Longrun', dist: 17.0, hm: 400, done: false },
-    { day: 'SON', date: '04.10', tag: 'Strand Auslaufen (Rückfahrt So Abend)', dist: 5.0, hm: 0, done: false }
+    { day: 'SAM', date: '03.10', tag: 'Zoutelande Dünen Longrun', dist: 17.0, hm: 409, done: true },
+    { day: 'SON', date: '04.10', tag: 'Strand Auslaufen (Rückfahrt So Abend)', dist: 5.0, hm: 79, done: true }
   ],
   41: [
     { day: 'MON', date: '05.10', tag: 'Regeneration', dist: 0, hm: 0, done: false },
@@ -2402,7 +2495,7 @@ function openLongrunOverviewModal() {
     { kw: 37, date: '13.09', loc: 'Côte d’Opal', wkm: '35.4 km', whm: '460 Hm', dist: '24.9 km', hm: '290 Hm', focus: 'Côte d’Opal Trail (24.9 km / 290 Hm / 03:26:00 / 129 bpm absolviert!)', type: 'test' },
     { kw: 38, date: '20.09', loc: 'Normandie', wkm: '30.0 km', whm: '500 Hm', dist: '12.0 km', hm: '400 Hm', focus: 'Coastal Trail Erholung', type: 'travel' },
     { kw: 39, date: '27.09', loc: 'Siebengebirge', wkm: '45.0 km', whm: '1.020 Hm', dist: '19.0 km', hm: '710 Hm', focus: 'Probedrachen 19,0 km / 710 Hm (ca. 3:00 Std.)', type: 'test' },
-    { kw: 40, date: '03.10', loc: 'Zoutelande', wkm: '41.0 km', whm: '520 Hm', dist: '17.0 km', hm: '400 Hm', focus: 'Sa 17 km Dünen-Longrun + So 5 km Auslaufen', type: 'travel' },
+    { kw: 40, date: '03.10', loc: 'Zoutelande', wkm: '37.0 km', whm: '644 Hm', dist: '17.0 km', hm: '409 Hm', focus: 'Zoutelande Dünen (17.0 km / 409 Hm / 02:45:00 / 115 bpm absolviert!)', type: 'travel' },
     { kw: 41, date: '11.10', loc: 'Erkrath', wkm: '35.0 km', whm: '480 Hm', dist: '12.0 km', hm: '400 Hm', focus: 'Tapering Longrun', type: 'normal' },
     { kw: 42, date: '18.10', loc: 'Erkrath', wkm: '27.0 km', whm: '300 Hm', dist: '10.0 km', hm: '300 Hm', focus: 'Tapering Sharpening', type: 'normal' },
     { kw: 43, date: '25.10', loc: 'Königswinter', wkm: '39.0 km', whm: '1.250 Hm', dist: '26.0 km', hm: '1.250 Hm', focus: 'Drachenlauf Renntag', type: 'race' }
