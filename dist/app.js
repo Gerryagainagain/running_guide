@@ -84,6 +84,22 @@ const kwMap = {
 };
 
 const defaultInitialRuns = [
+  // KW 41
+  {
+    id: 1791235200000,
+    kw: 41,
+    date: '06.10.2026',
+    dayDate: '06.10',
+    dist: 8.2,
+    hm: 106,
+    duration: '01:08:00',
+    hr: 116,
+    pace: '8:18',
+    type: 'laufen',
+    isErsatz: false,
+    tag: 'Rampen Ddorf',
+    notes: 'Rampentraining Düsseldorf (8.2 km / 106 Hm / 01:08:00 / 116 bpm Ø)'
+  },
   // KW 40
   {
     id: 1791062400000,
@@ -862,6 +878,15 @@ if (runsData && runsData.length > 0) {
       r.duration = '00:44:18';
       r.hr = 105;
       r.pace = '8:52';
+      needsSave = true;
+    }
+    if (r.date === '06.10.2026' || r.dayDate === '06.10') {
+      r.dist = 8.2;
+      r.hm = 106;
+      r.duration = '01:08:00';
+      r.hr = 116;
+      r.pace = '8:18';
+      r.tag = 'Rampen Ddorf';
       needsSave = true;
     }
   });
