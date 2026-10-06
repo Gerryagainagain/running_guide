@@ -1314,8 +1314,8 @@ const appleScheduleData = {
     { day: 'MIT', date: '07.10', tag: 'Regeneration', dist: 0, hm: 0, done: false },
     { day: 'DON', date: '08.10', tag: 'Locker Rhein', dist: 8.0, hm: 0, done: false },
     { day: 'FRE', date: '09.10', tag: 'Krafttraining (leicht)', dist: 0, hm: 0, done: false },
-    { day: 'SAM', date: '10.10', tag: 'Locker', dist: 6.0, hm: 0, done: false },
-    { day: 'SON', date: '11.10', tag: 'Longrun Erkrath', dist: 12.0, hm: 400, done: false }
+    { day: 'SAM', date: '10.10', tag: 'Longrun Erkrath', dist: 12.0, hm: 400, done: false },
+    { day: 'SON', date: '11.10', tag: 'Locker', dist: 6.0, hm: 0, done: false }
   ],
   42: [
     { day: 'MON', date: '12.10', tag: 'Regeneration', dist: 0, hm: 0, done: false },
@@ -1614,7 +1614,7 @@ function getRunsForKw(kw) {
 
 function renderCleanHeroBar(kw, phase) {
   const days = appleScheduleData[kw] || [];
-  const sundayObj = days.find(d => d.day === 'SON') || { dist: phase.targetLongDist, hm: phase.targetLongHm, tag: 'Longrun' };
+  const sundayObj = days.find(d => (d.day === 'SAM' || d.day === 'SON') && (d.dist >= 10 || (d.tag && d.tag.toLowerCase().includes('longrun')))) || days.find(d => d.day === 'SON') || { dist: phase.targetLongDist, hm: phase.targetLongHm, tag: 'Longrun' };
   
   const kwRuns = getRunsForKw(kw);
   const actWkm = kwRuns.reduce((acc, r) => {
@@ -1664,7 +1664,8 @@ function renderCleanHeroBar(kw, phase) {
   const displayHm = sundayLogged ? sundayLogged.hm : sundayObj.hm;
   document.getElementById('heroTitle').textContent = `${displayTag} (${displayDist.toFixed(1)} km · ${displayHm} Hm)`;
   const subElem = document.getElementById('heroSubText');
-  if (subElem) subElem.textContent = `Sonntag, ${sundayObj.date}. · ${hrTarget} · ${estDur}`;
+  const dayNameFull = sundayObj.day === 'SAM' ? 'Samstag' : (sundayObj.day === 'SON' ? 'Sonntag' : (sundayObj.day || 'Sonntag'));
+  if (subElem) subElem.textContent = `${dayNameFull}, ${sundayObj.date}. · ${hrTarget} · ${estDur}`;
 
   const targetPaceElem = document.getElementById('heroTargetPace');
   const targetFuelElem = document.getElementById('heroTargetFuel');
@@ -2521,7 +2522,7 @@ function openLongrunOverviewModal() {
     { kw: 38, date: '20.09', loc: 'Normandie', wkm: '30.0 km', whm: '500 Hm', dist: '12.0 km', hm: '400 Hm', focus: 'Coastal Trail Erholung', type: 'travel' },
     { kw: 39, date: '27.09', loc: 'Siebengebirge', wkm: '45.0 km', whm: '1.020 Hm', dist: '19.0 km', hm: '710 Hm', focus: 'Probedrachen 19,0 km / 710 Hm (ca. 3:00 Std.)', type: 'test' },
     { kw: 40, date: '03.10', loc: 'Zoutelande', wkm: '41.0 km', whm: '520 Hm', dist: '17.0 km', hm: '400 Hm', focus: 'Sa 17 km Dünen-Longrun + So 5 km Auslaufen', type: 'travel' },
-    { kw: 41, date: '11.10', loc: 'Erkrath', wkm: '35.0 km', whm: '480 Hm', dist: '12.0 km', hm: '400 Hm', focus: 'Tapering Longrun', type: 'normal' },
+    { kw: 41, date: '10.10', loc: 'Erkrath', wkm: '35.0 km', whm: '480 Hm', dist: '12.0 km', hm: '400 Hm', focus: 'Sa 12 km Longrun + So 6 km Locker', type: 'normal' },
     { kw: 42, date: '18.10', loc: 'Erkrath', wkm: '27.0 km', whm: '300 Hm', dist: '10.0 km', hm: '300 Hm', focus: 'Tapering Sharpening', type: 'normal' },
     { kw: 43, date: '25.10', loc: 'Königswinter', wkm: '39.0 km', whm: '1.250 Hm', dist: '26.0 km', hm: '1.250 Hm', focus: 'Drachenlauf Renntag', type: 'race' }
   ];
