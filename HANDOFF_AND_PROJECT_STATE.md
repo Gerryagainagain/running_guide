@@ -1,7 +1,7 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.12  
-**Last Updated:** October 6, 2026  
+**Document Version:** 9.13  
+**Last Updated:** October 8, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
 **Local Workspace Path:** `/Users/Gerhard/Desktop/running_guide`
@@ -10,7 +10,7 @@
 
 ## 📌 1. Project Overview & Current Trajectory
 
-- **Current Script Version:** `app.js?v=9.12` (in `index.html` and `dist/index.html`).
+- **Current Script Version:** `app.js?v=9.13` (in `index.html` and `dist/index.html`).
 - **Auth Gate Status:** Active (Apple HIG Modal: *"Was riss Hermännsche am Strand von Charita?"* / Passwort: `achilles`).
 - **UI & Modal Design:** Apple HIG flat card architecture (`1.25rem` padding, `16px` border-radius, single merged metric header cards).
 - **Data Persistence:** 2-way automatic synchronization between `defaultInitialRuns` (code defaults) and `localStorage` (`drachenlauf_runs`), preventing data loss or missing weekly elevation totals.
@@ -18,6 +18,7 @@
 - **Soll- vs. Ist-Architektur (v9.10):** Die ursprünglichen Soll-Planwerte in `appleScheduleData` sowie in der Progressionstabelle bleiben als Planvorgaben unberührt. Die absolvierten Daten sind in `defaultInitialRuns` / `runsData` gespeichert. In den Modals wird dadurch der direkte Soll-Ist-Vergleich korrekt dargestellt.
 - **KW 41 Auftakt geloggt (v9.11):** Di 06.10 Rampen Ddorf (8,2 km · 106 Hm · 01:08:00 h · 116 bpm Ø) erfasst und synchronisiert.
 - **KW 41 Wochenend-Tausch (v9.12):** Samstag (10.10) auf 12,0 km / 400 Hm Longrun Erkrath und Sonntag (11.10) auf 6,0 km / 0 Hm Locker getauscht. Hero-Bar und Progressionstabelle synchronisiert.
+- **KW 41 Zweiter Lauf geloggt (v9.13):** Do 08.10 Locker Rhein (8,0 km · 13 Hm · 01:02:00 h · 105 bpm Ø · 7:45 min/km) erfasst und synchronisiert. Ideal im tiefen GA1-Regenerationsfenster.
 
 ---
 
