@@ -86,6 +86,21 @@ const kwMap = {
 const defaultInitialRuns = [
   // KW 41
   {
+    id: 1791667200000,
+    kw: 41,
+    date: '11.10.2026',
+    dayDate: '11.10',
+    dist: 4.5,
+    hm: 100,
+    duration: '01:00:00',
+    hr: 100,
+    pace: '-:--',
+    type: 'wandern',
+    isErsatz: true,
+    tag: 'Wandern',
+    notes: 'Wandern Ersatz-Einheit (4.5 km / 100 Hm / 100 bpm Ø)'
+  },
+  {
     id: 1791580800000,
     kw: 41,
     date: '10.10.2026',
@@ -937,6 +952,17 @@ if (runsData && runsData.length > 0) {
       r.tag = 'Longrun Erkrath';
       needsSave = true;
     }
+    if (r.date === '11.10.2026' || r.dayDate === '11.10') {
+      r.dist = 4.5;
+      r.hm = 100;
+      r.duration = '01:00:00';
+      r.hr = 100;
+      r.pace = '-:--';
+      r.type = 'wandern';
+      r.isErsatz = true;
+      r.tag = 'Wandern';
+      needsSave = true;
+    }
   });
   if (needsSave) {
     try { localStorage.setItem('drachenlauf_runs', JSON.stringify(runsData)); } catch (e) {}
@@ -1363,7 +1389,7 @@ const appleScheduleData = {
     { day: 'DON', date: '08.10', tag: 'Locker Rhein', dist: 8.0, hm: 0, done: true },
     { day: 'FRE', date: '09.10', tag: 'Krafttraining (leicht)', dist: 0, hm: 0, done: false },
     { day: 'SAM', date: '10.10', tag: 'Longrun Erkrath', dist: 12.0, hm: 400, done: true },
-    { day: 'SON', date: '11.10', tag: 'Locker', dist: 6.0, hm: 0, done: false }
+    { day: 'SON', date: '11.10', tag: 'Wandern (Ersatz)', dist: 4.5, hm: 100, done: true }
   ],
   42: [
     { day: 'MON', date: '12.10', tag: 'Regeneration', dist: 0, hm: 0, done: false },
