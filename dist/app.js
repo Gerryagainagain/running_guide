@@ -84,6 +84,22 @@ const kwMap = {
 };
 
 const defaultInitialRuns = [
+  // KW 42
+  {
+    id: 1791840000000,
+    kw: 42,
+    date: '13.10.2026',
+    dayDate: '13.10',
+    dist: 8.0,
+    hm: 88,
+    duration: '01:02:00',
+    hr: 117,
+    pace: '7:45',
+    type: 'laufen',
+    isErsatz: false,
+    tag: 'Rampen Ddorf',
+    notes: 'Rampentraining Düsseldorf (8.0 km / 88 Hm / 01:02:00 / 117 bpm Ø / Pace 7:45)'
+  },
   // KW 41
   {
     id: 1791667200000,
@@ -963,6 +979,15 @@ if (runsData && runsData.length > 0) {
       r.tag = 'Wandern';
       needsSave = true;
     }
+    if (r.date === '13.10.2026' || r.dayDate === '13.10') {
+      r.dist = 8.0;
+      r.hm = 88;
+      r.duration = '01:02:00';
+      r.hr = 117;
+      r.pace = '7:45';
+      r.tag = 'Rampen Ddorf';
+      needsSave = true;
+    }
   });
   if (needsSave) {
     try { localStorage.setItem('drachenlauf_runs', JSON.stringify(runsData)); } catch (e) {}
@@ -1393,7 +1418,7 @@ const appleScheduleData = {
   ],
   42: [
     { day: 'MON', date: '12.10', tag: 'Regeneration', dist: 0, hm: 0, done: false },
-    { day: 'DIE', date: '13.10', tag: 'Rampen Ddorf', dist: 7.0, hm: 80, done: false },
+    { day: 'DIE', date: '13.10', tag: 'Rampen Ddorf', dist: 7.0, hm: 80, done: true },
     { day: 'MIT', date: '14.10', tag: 'Regeneration', dist: 0, hm: 0, done: false },
     { day: 'DON', date: '15.10', tag: 'Locker', dist: 6.0, hm: 0, done: false },
     { day: 'FRE', date: '16.10', tag: 'Stabi & Dehnen', dist: 0, hm: 0, done: false },
