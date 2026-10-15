@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.17  
+**Document Version:** 9.18  
 **Last Updated:** October 15, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -10,7 +10,7 @@
 
 ## 📌 1. Project Overview & Current Trajectory
 
-- **Current Script Version:** `app.js?v=9.17` (in `index.html` and `dist/index.html`).
+- **Current Script Version:** `app.js?v=9.18` (in `index.html` and `dist/index.html`).
 - **Auth Gate Status:** Active (Apple HIG Modal: *"Was riss Hermännsche am Strand von Charita?"* / Passwort: `achilles`).
 - **UI & Modal Design:** Apple HIG flat card architecture (`1.25rem` padding, `16px` border-radius, single merged metric header cards).
 - **Data Persistence:** 2-way automatic synchronization between `defaultInitialRuns` (code defaults) and `localStorage` (`drachenlauf_runs`), preventing data loss or missing weekly elevation totals.
@@ -23,6 +23,7 @@
 - **KW 41 Abschluss geloggt (v9.15):** So 11.10 Wandern als Ersatz-Einheit (4,5 km · 100 Hm · 100 bpm Ø) erfasst und synchronisiert. Gelenkschonender Ausklang der Tapering-Woche 41 bei regenerativer Herzfrequenz.
 - **KW 42 Auftakt geloggt (v9.16):** Di 13.10 Rampen Ddorf (8,0 km · 88 Hm · 01:02:00 h · 117 bpm Ø · 7:45 min/km) erfasst und synchronisiert. Sauber im GA1-Fenster (105–118 bpm) absolviert.
 - **KW 42 Zweiter Lauf geloggt (v9.17):** Do 15.10 Locker Rhein (6,0 km · 0 Hm · 00:43:42 h · 113 bpm Ø · 7:17 min/km) erfasst und synchronisiert. Tief im GA1-Bereich (105–118 bpm) absolviert. Tapering-Zustand stabil.
+- **Raceday Modal Bekleidungstipp integriert (v9.18):** Im Detail-Modal für den Drachenlauf (KW 43 So 25.10) den Wetter- und Bekleidungshinweis (7–13 °C Prognose: „Vor dem Start nicht zu warm einpacken – leicht frösteln am Start ist die richtige Betriebstemperatur“) sowie Zielzeitkorridor (3:45–4:15 h) und korrekte Distanzangabe (26 km / 1.250 Hm) ergänzt.
 
 ---
 

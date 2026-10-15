@@ -2113,9 +2113,10 @@ function openWorkoutDetailsModal(kw, dayIndex) {
   } else if (tagLower.includes('drachenlauf')) {
     tipsList = [
       'Renntag-Pacing: Puls stellt sich durch Adrenalin/Rennstimmung auf ~130–135 bpm ein. Anstiege kontrolliert im Power Hiking nehmen!',
+      'Bekleidungs-Tipp: Vor dem Start nicht zu warm einpacken – „leicht frösteln am Start ist die richtige Betriebstemperatur“ (7–13 °C Prognose).',
       '6 Verpflegungsstationen (VPs): km 5, 11, 16.5, 18.5, 22.5 & 24. Bananen ab km 11, Salzstangen am Drachenfels',
       '⚡ Geheimwaffe Cola: 1–2 Schluck Cola an VP 3 (km 16.5) & VP 4 (Drachenfels) für den Endspurt-Push',
-      'Zielzeit-Prognose: 4:00:00 – 4:15:00 Std. (sicher & kraftsparend)'
+      'Zielzeit-Prognose: 3:45:00 – 4:15:00 Std. (sicher & kraftsparend)'
     ];
   } else if (tagLower.includes('opal')) {
     tipsList = [
@@ -2405,12 +2406,13 @@ function openWorkoutDetailsModal(kw, dayIndex) {
     extraLinkHtml = `
       <div style="margin-top: 0.85rem; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; gap: 0.55rem;">
         <div style="background: rgba(48, 209, 88, 0.1); border: 1px solid rgba(48, 209, 88, 0.3); border-radius: var(--border-radius-xl); padding: 0.75rem 1rem; display: flex; flex-direction: column; gap: 0.4rem;">
-          <div style="font-size: 0.70rem; font-weight: 800; color: var(--color-brand-green); text-transform: uppercase; letter-spacing: 0.5px;">🐉 RENNSPIELPLAN: DRACHENLAUF (25 KM / 1.050–1.250 HM)</div>
+          <div style="font-size: 0.70rem; font-weight: 800; color: var(--color-brand-green); text-transform: uppercase; letter-spacing: 0.5px;">🐉 RENNSPIELPLAN: DRACHENLAUF (26 KM / 1.250 HM)</div>
           <div style="font-size: 0.82rem; color: var(--color-text-white); line-height: 1.4;">
             • <strong>Renntag-Puls:</strong> ~130–135 bpm (Adrenalin). Steilanstiege im Power Hiking meistern.<br>
+            • <strong>Bekleidung (7–13 °C):</strong> Vor dem Start nicht zu warm einpacken – <em>„leicht frösteln am Start ist die richtige Betriebstemperatur“</em>.<br>
             • <strong>6 Verpflegungsstationen:</strong> km 5, 11, 16.5, 18.5, 22.5 & 24. Bananen ab km 11, Salzstangen am Drachenfels.<br>
             • <strong>⚡ Cola-Push:</strong> An VP 3 (km 16.5) & VP 4 (Drachenfels) 1–2 Schluck Cola trinken.<br>
-            • <strong>Zielzeit:</strong> 4:00:00 – 4:15:00 Std.
+            • <strong>Zielzeit:</strong> 3:45:00 – 4:15:00 Std.
           </div>
         </div>
         <a href="https://www.drachenlauf.de" target="_blank" rel="noopener noreferrer" style="color: var(--color-brand-cyan); font-weight: 800; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem;">
