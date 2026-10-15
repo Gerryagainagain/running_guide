@@ -2438,6 +2438,82 @@ function openWorkoutDetailsModal(kw, dayIndex) {
     `;
   }
 
+  let drachenlaufStrategyBlockHtml = '';
+  if (tagLower.includes('drachenlauf')) {
+    drachenlaufStrategyBlockHtml = `
+      <div style="background: var(--color-tint-cyan-bg); border: 1px solid var(--color-tint-cyan-border); border-radius: var(--border-radius-card); padding: 1.25rem; margin-bottom: 1.0rem;">
+        <h4 style="font-size: 0.72rem; font-weight: 900; color: var(--color-brand-cyan); margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.8px;">
+          ⏱️ 4-PHASEN RENNTRAKT & MARKEN (26 KM · 1.250 HM)
+        </h4>
+
+        <div style="background: rgba(255, 159, 10, 0.12); border: 1px solid rgba(255, 159, 10, 0.35); border-radius: var(--border-radius-md); padding: 0.65rem 0.85rem; margin-bottom: 0.85rem; font-size: 0.78rem; color: var(--color-text-white); line-height: 1.4;">
+          <strong style="color: var(--color-brand-orange);">🌤️ WITTERUNG & TEMPERATUR-TAKTIK (7–13 °C · TROCKEN):</strong> Start bei kühlen ~7–8 °C (leichtes Frösteln am Start nutzen, nicht überhitzen). Keine thermische Drift. Frühe Anstiege strikt im GA1 (105–118 bpm). Am Petersberg-Schlussanstieg (km 19–23) bei Mittagsmaximum (~12–13 °C) kompromissloses Power-Hiking mit Pulsdeckel unter 125–132 bpm!
+        </div>
+
+        <div style="font-size: 0.80rem; color: var(--color-text-secondary); line-height: 1.5; margin-bottom: 0.8rem; display: flex; flex-direction: column; gap: 0.65rem;">
+          <div style="padding-bottom: 0.55rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.2rem;">
+              <span style="color: var(--color-text-white);"><strong>1. KM 0 – 5,0</strong> · Thomasberg ➔ Großer Ölberg ➔ VP 1</span>
+              <span style="font-weight: 800; color: var(--color-brand-cyan); font-feature-settings: 'tnum';">42–46 Min.</span>
+            </div>
+            <div style="font-size: 0.75rem; color: var(--color-text-secondary); line-height: 1.35;">
+              Einrollphase. Frühe Steilstücke am Ölberg (+280 Hm) diszipliniert im GA1-Power-Hiking (105–118 bpm) nehmen. Glykogenspeicher schonen.
+            </div>
+          </div>
+
+          <div style="padding-bottom: 0.55rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.2rem;">
+              <span style="color: var(--color-text-white);"><strong>2. KM 5,0 – 11,0</strong> · Ölberg-Downhill ➔ Löwenburg ➔ VP 2</span>
+              <span style="font-weight: 800; color: var(--color-brand-cyan); font-feature-settings: 'tnum';">1:35–1:42 Std.</span>
+            </div>
+            <div style="font-size: 0.75rem; color: var(--color-text-secondary); line-height: 1.35;">
+              Wellenklettern (+350 Hm). Technische Abstiege materialschonend ohne harte Bremsstöße laufen. An VP 2 (km 11) Wasser nachspülen & 1/2 Banane greifen.
+            </div>
+          </div>
+
+          <div style="padding-bottom: 0.55rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.2rem;">
+              <span style="color: var(--color-text-white);"><strong>3. KM 11,0 – 18,5</strong> · Löwenburg ➔ Drachenfels ➔ VP 3/4</span>
+              <span style="font-weight: 800; color: var(--color-brand-orange); font-feature-settings: 'tnum';">2:40–2:50 Std.</span>
+            </div>
+            <div style="font-size: 0.75rem; color: var(--color-text-secondary); line-height: 1.35;">
+              Gipfelpassage Drachenfels (+280 Hm). An VP 3 (km 16,5) & VP 4 (km 18,5 Drachenfels): Salzstangen zur Krampfprophylaxe + Cola-Push starten!
+            </div>
+          </div>
+
+          <div style="padding-bottom: 0.55rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.2rem;">
+              <span style="color: var(--color-text-white);"><strong>4. KM 18,5 – 23,3</strong> · Tiefpunkt ➔ Petersberg-Gipfel ➔ VP 5</span>
+              <span style="font-weight: 800; color: var(--color-brand-orange); font-feature-settings: 'tnum';">3:25–3:38 Std.</span>
+            </div>
+            <div style="font-size: 0.75rem; color: var(--color-text-secondary); line-height: 1.35;">
+              Der Scharfrichter (+240 Hm) bei ~12–13 °C Mittagsmaximum. Kompromissloses Power-Hiking mit Hand-auf-Oberschenkel. Z2/Z3-Schwelle (>125–132 bpm) strikt meiden!
+            </div>
+          </div>
+
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.2rem;">
+              <span style="color: var(--color-text-white);"><strong>5. KM 23,3 – 26,0</strong> · Petersberg ➔ Stenzelberg (VP 6) ➔ ZIEL</span>
+              <span style="font-weight: 900; color: var(--color-brand-green); font-feature-settings: 'tnum';">3:45–4:00 Std.</span>
+            </div>
+            <div style="font-size: 0.75rem; color: var(--color-text-secondary); line-height: 1.35;">
+              Harmloser, sehr moderater Abstieg (4–5 % Gefälle). Keine blockierenden Bremskräfte. Beine nach dem Petersberg-Uphill locker rollen lassen und Tempo rhythmisch ins Ziel durchziehen!
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 0.85rem; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 0.75rem;">
+          <div style="font-size: 0.70rem; font-weight: 800; color: var(--color-text-secondary); margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.6px;">
+            🗺️ PANORAMA & STRECKENLANDSCHAFT SIEBENGEBIRGE
+          </div>
+          <div style="border-radius: var(--border-radius-lg); overflow: hidden; border: 1px solid rgba(255,255,255,0.15);">
+            <img src="assets/siebengebirge_panorama-1920x1080.png" alt="Siebengebirge Panorama" style="width: 100%; display: block; object-fit: cover; max-height: 140px;">
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
   let opalePassageBlockHtml = '';
   if (tagLower.includes('opal')) {
     opalePassageBlockHtml = `
@@ -2492,6 +2568,7 @@ function openWorkoutDetailsModal(kw, dayIndex) {
       ${extraLinkHtml}
     </div>
 
+    ${drachenlaufStrategyBlockHtml}
     ${opalePassageBlockHtml}
     ${combinedNutritionBlockHtml}
     ${modalFooterFormHtml}
