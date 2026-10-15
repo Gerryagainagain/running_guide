@@ -1445,9 +1445,9 @@ const appleScheduleData = {
     { day: 'DIE', date: '13.10', tag: 'Rampen Ddorf', dist: 7.0, hm: 80, done: true },
     { day: 'MIT', date: '14.10', tag: 'Regeneration', dist: 0, hm: 0, done: false },
     { day: 'DON', date: '15.10', tag: 'Locker', dist: 6.0, hm: 0, done: true },
-    { day: 'FRE', date: '16.10', tag: 'Stabi & Dehnen', dist: 0, hm: 0, done: false },
-    { day: 'SAM', date: '17.10', tag: 'Lockertrab', dist: 4.0, hm: 0, done: false },
-    { day: 'SON', date: '18.10', tag: 'Longrun Erkrath', dist: 10.0, hm: 300, done: false }
+    { day: 'FRE', date: '16.10', tag: 'Stabi & Rumpf (Oberkörper)', dist: 0, hm: 0, done: false },
+    { day: 'SAM', date: '17.10', tag: 'Longrun Erkrath', dist: 10.0, hm: 300, done: false },
+    { day: 'SON', date: '18.10', tag: 'Lockertrab', dist: 4.0, hm: 0, done: false }
   ],
   43: [
     { day: 'MON', date: '19.10', tag: 'Regeneration', dist: 0, hm: 0, done: false },
@@ -2648,7 +2648,7 @@ function openLongrunOverviewModal() {
     { kw: 39, date: '27.09', loc: 'Siebengebirge', wkm: '45.0 km', whm: '1.020 Hm', dist: '19.0 km', hm: '710 Hm', focus: 'Probedrachen 19,0 km / 710 Hm (ca. 3:00 Std.)', type: 'test' },
     { kw: 40, date: '03.10', loc: 'Zoutelande', wkm: '41.0 km', whm: '520 Hm', dist: '17.0 km', hm: '400 Hm', focus: 'Sa 17 km Dünen-Longrun + So 5 km Auslaufen', type: 'travel' },
     { kw: 41, date: '10.10', loc: 'Erkrath', wkm: '35.0 km', whm: '480 Hm', dist: '12.0 km', hm: '400 Hm', focus: 'Sa 12 km Longrun + So 6 km Locker', type: 'normal' },
-    { kw: 42, date: '18.10', loc: 'Erkrath', wkm: '27.0 km', whm: '300 Hm', dist: '10.0 km', hm: '300 Hm', focus: 'Tapering Sharpening', type: 'normal' },
+    { kw: 42, date: '17.10', loc: 'Erkrath', wkm: '27.0 km', whm: '300 Hm', dist: '10.0 km', hm: '300 Hm', focus: 'Sa 10 km Longrun + So 4 km Locker', type: 'normal' },
     { kw: 43, date: '25.10', loc: 'Königswinter', wkm: '39.0 km', whm: '1.250 Hm', dist: '26.0 km', hm: '1.250 Hm', focus: 'Drachenlauf Renntag', type: 'race' }
   ];
 
