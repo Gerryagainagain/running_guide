@@ -2114,6 +2114,7 @@ function openWorkoutDetailsModal(kw, dayIndex) {
     tipsList = [
       'Renntag-Pacing: Puls stellt sich durch Adrenalin/Rennstimmung auf ~130–135 bpm ein. Anstiege kontrolliert im Power Hiking nehmen!',
       'Bekleidungs-Tipp: Vor dem Start nicht zu warm einpacken – „leicht frösteln am Start ist die richtige Betriebstemperatur“ (7–13 °C Prognose).',
+      'Fueling-Setup (Lösung A): 2× 500 ml Malto-Softflasks (je 40–45 g) am Körper. Wasser an den 6 VPs trinken!',
       '6 Verpflegungsstationen (VPs): km 5, 11, 16.5, 18.5, 22.5 & 24. Bananen ab km 11, Salzstangen am Drachenfels',
       '⚡ Geheimwaffe Cola: 1–2 Schluck Cola an VP 3 (km 16.5) & VP 4 (Drachenfels) für den Endspurt-Push',
       'Zielzeit-Prognose: 3:45:00 – 4:15:00 Std. (sicher & kraftsparend)'
@@ -2233,7 +2234,21 @@ function openWorkoutDetailsModal(kw, dayIndex) {
   }
 
   let combinedNutritionBlockHtml = '';
-  if (requiresMalto) {
+  if (tagLower.includes('drachenlauf')) {
+    combinedNutritionBlockHtml = `
+      <div style="background: var(--color-tint-green-bg); border: 1px solid var(--color-tint-green-border); border-radius: var(--border-radius-card); padding: 1.25rem; margin-bottom: 1.0rem;">
+        <h4 style="font-size: 0.72rem; font-weight: 900; color: var(--color-brand-green); letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 0.5rem;">VERPFLEGUNG & PACKLISTE (LÖSUNG A)</h4>
+        <p style="font-size: 0.98rem; font-weight: 900; color: var(--color-brand-green); font-feature-settings: 'tnum'; margin-bottom: 0.6rem; line-height: 1.35;">
+          2× Malto-Flasks (1.000 ml · je 40–45 g Malto + Prise Salz) · Wasser an den 6 VPs
+        </p>
+        <ul style="padding-left: 1.1rem; font-size: 0.82rem; color: var(--color-text-secondary); line-height: 1.5; margin: 0;">
+          <li style="margin-bottom: 0.3rem;"><strong>Flaschen-Setup:</strong> 2× 500 ml Malto-Softflasks in der Weste (reicht flüssig für ca. 2,5–3 Std. / bis km 18). Kein extra Wasser mitschleppen – Wasser wird an den 6 Stationen getrunken.</li>
+          <li style="margin-bottom: 0.3rem;"><strong>Snack-Reserve:</strong> 3–4 Soft-Feigen & 30–40 g Marzipan als Notreserve (minimales Eigengewicht).</li>
+          <li style="margin-bottom: 0.3rem;"><strong>Einnahme-Schema:</strong> Alle 15–20 Min. 1 Schluck Malto; an den 6 VPs mit 1–2 Bechern Wasser nachspülen. Ab km 16,5 Cola & Salzstangen nutzen.</li>
+        </ul>
+      </div>
+    `;
+  } else if (requiresMalto) {
     const isUltraLong = totalMin > 180 || isKeyRaceOrPeakTest;
     const snackListText = isUltraLong 
       ? '6 Feigen, 100 g Marzipan-Rolle & Gummibärchen'
@@ -2247,7 +2262,6 @@ function openWorkoutDetailsModal(kw, dayIndex) {
         </p>
         <ul style="padding-left: 1.1rem; font-size: 0.82rem; color: var(--color-text-secondary); line-height: 1.5; margin: 0;">
           <li style="margin-bottom: 0.3rem;"><strong>Snack-Packliste:</strong> ${snackListText}</li>
-          <li style="margin-bottom: 0.3rem;"><strong>Schutz:</strong> Sonnenspray vorab auftragen</li>
           <li style="margin-bottom: 0.3rem;"><strong>Einnahme-Schema:</strong> Alle 15–20 Min. Malto schluckweise trinken (mit Wasser nachspülen); ab Std. 1,5 alle 25–30 Min. Snacks kauen.</li>
         </ul>
       </div>
@@ -2410,7 +2424,8 @@ function openWorkoutDetailsModal(kw, dayIndex) {
           <div style="font-size: 0.82rem; color: var(--color-text-white); line-height: 1.4;">
             • <strong>Renntag-Puls:</strong> ~130–135 bpm (Adrenalin). Steilanstiege im Power Hiking meistern.<br>
             • <strong>Bekleidung (7–13 °C):</strong> Vor dem Start nicht zu warm einpacken – <em>„leicht frösteln am Start ist die richtige Betriebstemperatur“</em>.<br>
-            • <strong>6 Verpflegungsstationen:</strong> km 5, 11, 16.5, 18.5, 22.5 & 24. Bananen ab km 11, Salzstangen am Drachenfels.<br>
+            • <strong>Fueling (Lösung A):</strong> 2× 500 ml Malto-Flasks (je 40–45 g) in der Weste. Wasser an den 6 VPs trinken. Bananen ab km 11, Salzstangen am Drachenfels.<br>
+            • <strong>6 Verpflegungsstationen:</strong> km 5, 11, 16.5, 18.5, 22.5 & 24.<br>
             • <strong>⚡ Cola-Push:</strong> An VP 3 (km 16.5) & VP 4 (Drachenfels) 1–2 Schluck Cola trinken.<br>
             • <strong>Zielzeit:</strong> 3:45:00 – 4:15:00 Std.
           </div>
