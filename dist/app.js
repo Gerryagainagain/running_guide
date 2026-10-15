@@ -86,6 +86,21 @@ const kwMap = {
 const defaultInitialRuns = [
   // KW 42
   {
+    id: 1792012800000,
+    kw: 42,
+    date: '15.10.2026',
+    dayDate: '15.10',
+    dist: 6.0,
+    hm: 0,
+    duration: '00:43:42',
+    hr: 113,
+    pace: '7:17',
+    type: 'laufen',
+    isErsatz: false,
+    tag: 'Locker Rhein',
+    notes: 'Lockerer Lauf am Rhein (6.0 km / 0 Hm / 00:43:42 / 113 bpm Ø / Pace 7:17)'
+  },
+  {
     id: 1791840000000,
     kw: 42,
     date: '13.10.2026',
@@ -988,6 +1003,15 @@ if (runsData && runsData.length > 0) {
       r.tag = 'Rampen Ddorf';
       needsSave = true;
     }
+    if (r.date === '15.10.2026' || r.dayDate === '15.10') {
+      r.dist = 6.0;
+      r.hm = 0;
+      r.duration = '00:43:42';
+      r.hr = 113;
+      r.pace = '7:17';
+      r.tag = 'Locker Rhein';
+      needsSave = true;
+    }
   });
   if (needsSave) {
     try { localStorage.setItem('drachenlauf_runs', JSON.stringify(runsData)); } catch (e) {}
@@ -1420,7 +1444,7 @@ const appleScheduleData = {
     { day: 'MON', date: '12.10', tag: 'Regeneration', dist: 0, hm: 0, done: false },
     { day: 'DIE', date: '13.10', tag: 'Rampen Ddorf', dist: 7.0, hm: 80, done: true },
     { day: 'MIT', date: '14.10', tag: 'Regeneration', dist: 0, hm: 0, done: false },
-    { day: 'DON', date: '15.10', tag: 'Locker', dist: 6.0, hm: 0, done: false },
+    { day: 'DON', date: '15.10', tag: 'Locker', dist: 6.0, hm: 0, done: true },
     { day: 'FRE', date: '16.10', tag: 'Stabi & Dehnen', dist: 0, hm: 0, done: false },
     { day: 'SAM', date: '17.10', tag: 'Lockertrab', dist: 4.0, hm: 0, done: false },
     { day: 'SON', date: '18.10', tag: 'Longrun Erkrath', dist: 10.0, hm: 300, done: false }
