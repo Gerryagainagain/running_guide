@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.20  
+**Document Version:** 9.21  
 **Last Updated:** October 15, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -10,7 +10,7 @@
 
 ## 📌 1. Project Overview & Current Trajectory
 
-- **Current Script Version:** `app.js?v=9.20` (in `index.html` and `dist/index.html`).
+- **Current Script Version:** `app.js?v=9.21` (in `index.html` and `dist/index.html`).
 - **Auth Gate Status:** Active (Apple HIG Modal: *"Was riss Hermännsche am Strand von Charita?"* / Passwort: `achilles`).
 - **UI & Modal Design:** Apple HIG flat card architecture (`1.25rem` padding, `16px` border-radius, single merged metric header cards).
 - **Data Persistence:** 2-way automatic synchronization between `defaultInitialRuns` (code defaults) and `localStorage` (`drachenlauf_runs`), preventing data loss or missing weekly elevation totals.
@@ -26,6 +26,7 @@
 - **Raceday Modal Bekleidungstipp integriert (v9.18):** Im Detail-Modal für den Drachenlauf (KW 43 So 25.10) den Wetter- und Bekleidungshinweis (7–13 °C Prognose: „Vor dem Start nicht zu warm einpacken – leicht frösteln am Start ist die richtige Betriebstemperatur“) sowie Zielzeitkorridor (3:45–4:15 h) und korrekte Distanzangabe (26 km / 1.250 Hm) ergänzt.
 - **KW 42 Wochenend-Tausch & KT-Spezifikation (v9.19):** Freitag (16.10) auf „Stabi & Rumpf (Oberkörper)“ ohne Beinbelastung präzisiert. Samstag (17.10) auf 10,0 km / 300 Hm Longrun Erkrath und Sonntag (18.10) auf 4,0 km / 0 Hm Lockertrab getauscht. Hero-Bar und Progressionstabelle synchronisiert.
 - **Drachenlauf Modal Fueling-Setup (Lösung A) & Sonnenschutz-Entfernung (v9.20):** Im Detail-Modal für den Drachenlauf (KW 43 So 25.10) das Verpflegungs-Setup auf Lösung A (2× 500 ml Malto-Flasks mit je 40–45 g Malto + Prise Salz am Körper, Wasser an den 6 VPs) festgelegt. Snack-Reserve auf 3–4 Feigen & 30–40 g Marzipan angepasst. Sonnenspray-Hinweis für den Herbstlauf vollständig entfernt.
+- **Drachenlauf Zielzeit-Harmonisierung (v9.21):** Im Workout-Modal für den Drachenlauf (KW 43 So 25.10) die Schätzdauer (`estDur`) von veralteten 4:15–4:30 Std. auf die aktuelle Realdaten-Kalkulation (3:45–4:00 Std. bei 7–13 °C und trockenem Geläuf; Puffer bis 4:15 Std.) korrigiert. Soll-Einheiten-Card, Tips-Liste und Rennspielplan synchronisiert.
 
 ---
 
@@ -92,9 +93,9 @@ If the user logs a run or workout via Chrome browser that needs to be permanentl
   2. KM 8–13: +211.8 Hm Wellenklettern
   3. KM 17–19: +175.6 Hm Anstieg nach Tiefpunkt (78m)
   4. KM 22–24: +238.2 Hm Drachenfels-Schlussanstieg *(KM 22–23: +147.1 Hm auf 1 km!)*
-- **Target Time Plan & Uphill Strategy:** **4:00 bis 4:15 Std.** 
-  - **Uphill Power-Hiking Sweetspot:** **120–125 bpm**. Lokale Kraftausdauer erzeugt periphere Atemnot an Steilanstiegen; Puls nicht forcieren, sondern bei 120–125 bpm sauber hiken.
-  - **6 Verpflegungsstationen (VPs) & Fueling-Mischung:** VPs bei km 5, 11, 16.5, 18.5, 22.5 & 24. **Taktik:** 1x 500ml Flask mit Malto (30–40g) als magenschonende Basis (alle 15–20 Min. ein Schluck) + VP-Snacks (Bananen ab km 11, Salzstangen am Drachenfels gegen Krämpfe). Minimales Eigengewicht tragen!
+- **Target Time Plan & Uphill Strategy:** **3:45 bis 4:00 Std. (bei 7–13 °C & trockenem Geläuf; Puffer bis 4:15 Std.)** 
+  - **Uphill Power-Hiking Sweetspot:** **105–118 bpm** (VT1-Sprechgrenze; Z2/Z3-Übergang bei 125–132 bpm strikt meiden). Steilanstiege frühzeitig sauber hiken.
+  - **6 Verpflegungsstationen (VPs) & Fueling (Lösung A):** VPs bei km 5, 11, 16.5, 18.5, 22.5 & 24. **Taktik:** 2x 500ml Flasks mit Malto (je 40–45g) in der Weste + Wasser & VP-Snacks (Bananen ab km 11, Salzstangen am Drachenfels, Cola ab km 16.5). Minimales Eigengewicht tragen!
   - **Tapering-Philosophie & Nuancierung (KW 41–43):**
     - **Prinzip:** Konservieren statt Aufbauen. Das Risiko am Renntag ist nicht ein Mangel an Höhenmetern, sondern Restermüdung in den Beinen.
     - **KW 41 (Übergangswoche, 35 km / 480 Hm):** Hohe Kontrolle! Die 12 km / 400 Hm Key-Einheit darf KEIN kleiner Probedrachenlauf werden (kein Tempojagen, keine harten Downhills).

@@ -2004,7 +2004,7 @@ function openWorkoutDetailsModal(kw, dayIndex) {
   const tagLower = (d.tag || '').toLowerCase();
   let estDur = formatWorkoutDuration(d.dist, d.hm, d.tag);
   if (tagLower.includes('drachenlauf') && !tagLower.includes('probedrachen') && d.dist >= 20) {
-    estDur = '4:15 – 4:30 Std.';
+    estDur = '3:45 – 4:00 Std.';
   } else if (tagLower.includes('probedrachen') && d.dist >= 15) {
     estDur = '3:45 – 4:00 Std.';
   } else if (tagLower.includes('opal') && d.dist >= 20) {
@@ -2117,7 +2117,7 @@ function openWorkoutDetailsModal(kw, dayIndex) {
       'Fueling-Setup (Lösung A): 2× 500 ml Malto-Softflasks (je 40–45 g) am Körper. Wasser an den 6 VPs trinken!',
       '6 Verpflegungsstationen (VPs): km 5, 11, 16.5, 18.5, 22.5 & 24. Bananen ab km 11, Salzstangen am Drachenfels',
       '⚡ Geheimwaffe Cola: 1–2 Schluck Cola an VP 3 (km 16.5) & VP 4 (Drachenfels) für den Endspurt-Push',
-      'Zielzeit-Prognose: 3:45:00 – 4:15:00 Std. (sicher & kraftsparend)'
+      'Zielzeit-Prognose: 3:45:00 – 4:00:00 Std. (bei 7–13 °C & trocken; max. 4:15:00 mit Puffer)'
     ];
   } else if (tagLower.includes('opal')) {
     tipsList = [
@@ -2427,7 +2427,7 @@ function openWorkoutDetailsModal(kw, dayIndex) {
             • <strong>Fueling (Lösung A):</strong> 2× 500 ml Malto-Flasks (je 40–45 g) in der Weste. Wasser an den 6 VPs trinken. Bananen ab km 11, Salzstangen am Drachenfels.<br>
             • <strong>6 Verpflegungsstationen:</strong> km 5, 11, 16.5, 18.5, 22.5 & 24.<br>
             • <strong>⚡ Cola-Push:</strong> An VP 3 (km 16.5) & VP 4 (Drachenfels) 1–2 Schluck Cola trinken.<br>
-            • <strong>Zielzeit:</strong> 3:45:00 – 4:15:00 Std.
+            • <strong>Zielzeit (7–13 °C & trocken):</strong> 3:45:00 – 4:00:00 Std. (Puffer bis 4:15:00 Std.).
           </div>
         </div>
         <a href="https://www.drachenlauf.de" target="_blank" rel="noopener noreferrer" style="color: var(--color-brand-cyan); font-weight: 800; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem;">
