@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.24  
+**Document Version:** 9.25  
 **Last Updated:** October 16, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -10,7 +10,7 @@
 
 ## 📌 1. Project Overview & Current Trajectory
 
-- **Current Script Version:** `app.js?v=9.24` (in `index.html` and `dist/index.html`).
+- **Current Script Version:** `app.js?v=9.25` (in `index.html` and `dist/index.html`).
 - **Auth Gate Status:** Active (Apple HIG Modal: *"Was riss Hermännsche am Strand von Charita?"* / Passwort: `achilles`).
 - **UI & Modal Design:** Apple HIG flat card architecture (`1.25rem` padding, `16px` border-radius, single merged metric header cards).
 - **Data Persistence:** 2-way automatic synchronization between `defaultInitialRuns` (code defaults) and `localStorage` (`drachenlauf_runs`), preventing data loss or missing weekly elevation totals.
@@ -30,6 +30,7 @@
 - **Drachenlauf 4-Phasen-Rennstrategie-Block im Modal integriert (v9.22):** Vollwertigen interaktiven Rennstrategie-Block (`drachenlaufStrategyBlockHtml`) mit Streckenabschnitten, Zeitmarken (3:45–4:00 h Zielkorridor), VP-Stationen, Witterungs-Banner und Siebengebirge-Panorama ins Detail-Modal für Sonntag 25.10. eingebaut.
 - **Drachenlauf Wetterprognose auf 7–10 °C sonnig geschärft (v9.23):** Witterungs- und Bekleidungsparameter im Drachenlauf-Modal, Tips-Array und Rennstrategieblock präzisiert (7–10 °C sonnig statt 7–13 °C trocken; Sonnenmaximum ~10 °C am Petersberg-Schlussanstieg). Optimale physiologische Bedingungen ohne kardiovaskuläre Hitzedrift.
 - **System-Regel GEMINI.md Sektion 6 implementiert (v9.24):** Anti-Absolutismus & Trade-Off-Direktive fest verankert (Verbot von Scheinsicherheiten wie „identisch“, „völlig ausreichend“, „Königsklasse“, „kein Verlust“; strikte Pflicht zum Ausweisen des physiologischen Preises/Kompromisses bei Vereinfachungen).
+- **Strategischer Rahmen 2027–2029 in Sektion 4.D verankert (v9.25):** Verbindlicher 3+1-Wochenrhythmus (3 Läufe / 25–30 km + 1 Studio-Krafttraining), 50/50-Longrun-Modell (Erkrath vs. Rhein ab Haustür), 2+1-Event-Gerüst (Belgenbach, Alpentrail im Familienurlaub, Drachenlauf + lokale 10er) und Trade-Off-/Periodisierungsregeln dokumentiert.
 
 ---
 
@@ -117,6 +118,30 @@ If the user logs a run or workout via Chrome browser that needs to be permanentl
   - Cut-Off 2 (km 26,7 @ 13:35 Uhr): Target 13:22 Uhr (**+13 Min. Puffer**).
   - Zielschluss (km 30,4 @ 14:15 Uhr): Target 13:55 Uhr (**+20 Min. Puffer**).
 - **Recommendation:** Bedenkenlos buchen (Grünes Licht).
+
+### D. Strategischer Rahmen 2027–2029 (Sustainable Longevity & Familien-Sync)
+- **Kern-Fundament (3+1-Formel):** 3 Laufeinheiten (25–30 km/Woche) + 1 festes Studio-Krafttraining (45–60 Min.).
+  - *Dienstag (früh):* 7–8 km hügelig/Rampen (Schrittfrequenz, Uphill-Kraft; vor der Familie/Arbeit beendet um 07:15 Uhr).
+  - *Mittwoch:* Ruhetag / passive Erholung.
+  - *Donnerstag (früh):* 7–8 km flach am Rhein, strikt GA1 (105–115 bpm). Null Impact auf den Tag.
+  - *Freitag:* **Krafttraining Studio (45–60 Min.):**
+    - Sehnenpanzerung via Heavy Slow Resistance (HSR) an Waden/Beinpresse (Achillessehnenschutz).
+    - Exzentrische Quadrizeps-Konditionierung (Bulgarian Split Squats / Slow Leg Press) als Downhill-Ersatz im Flachland.
+    - Becken-/Rumpfstabilität (Gluteus medius, Planks, Rücken) gegen Ermüdungseinbrüche ab km 15.
+  - *Samstag / Sonntag:* Longrun 12–15 km (GA1 105–118 bpm, Start frühmorgens vor dem Familienfrühstück).
+  - *Montag:* Fester Ruhetag nach dem Wochenende. Mindestens 48h Regenerationsfenster zwischen allen Einheiten für Sehnen und ZNS.
+- **Wochenend-Logistik (Das 50/50-Modell):**
+  - *Woche A (Erkrath / Neandertal):* 12–14 km mit 250–350 Hm (Fahrzeit 2×20 Min.). Erhalt der Trittsicherheit und Steigmuskulatur.
+  - *Woche B (Rhein ab Haustür):* 12–14 km flach (0 Min. Fahrzeit). Reiner aerober Zeit-auf-den-Beinen-Reiz. Bei Bedarf 2–3 Brückenquerungen (60–100 Hm).
+- **Event-Gerüst („2+1“-Modell):**
+  1. *Frühjahrs-Anker (Ende März):* Belgenbachtrail (30 km / 940 Hm).
+  2. *Sommerurlaubs-Trail (Juli/August):* Alpiner Genusstrail (15–22 km / 800–1.300 Hm) fest eingebettet in den 2-wöchigen Familienurlaub (Start/Ziel im Talort, Familie an Seilbahn/Alm, null Extra-Reiseaufwand).
+  3. *Herbst-Anker (Ende Oktober):* Drachenlauf (26 km / 1.250 Hm) oder adäquater Mittelgebirgstrail.
+  4. *Spontane lokale Temporeize:* 1–2 lokale 10-km-Läufe im Raum Düsseldorf (z. B. Martinslauf Unterbacher See, Neanderthal-Lauf) unvorbereitet aus dem Training mitgenommen (2,5 h Gesamtabwesenheit).
+- **Periodisierungs- & Trade-Off-Regeln:**
+  - *Basis-Modus (Sommer/Winter):* 14-tägiger Erkrath-Rhythmus schont Familienzeit, führt jedoch zu schrittweisem Abbau der exzentrischen Bergab-Härte (>800 Hm).
+  - *Peak-Modus (6–8 Wochen vor Belgenbach & Drachenlauf):* Erkrath wird wöchentlich gelaufen und auf 14–18 km mit 350–450 Hm gesteigert, um die nötige muskuläre Bremskraft und Sehnensteifigkeit rechtzeitig aufzubauen.
+  - *KT-Timing-Regel:* Wenn der Longrun samstags stattfindet, freitags kein schweres Bein-KT (nur Rumpf/Oberkörper) oder KT auf Mittwoch vorziehen.
 
 ---
 
