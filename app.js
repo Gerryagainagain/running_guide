@@ -2113,11 +2113,11 @@ function openWorkoutDetailsModal(kw, dayIndex) {
   } else if (tagLower.includes('drachenlauf')) {
     tipsList = [
       'Renntag-Pacing: Puls stellt sich durch Adrenalin/Rennstimmung auf ~130–135 bpm ein. Anstiege kontrolliert im Power Hiking nehmen!',
-      'Bekleidungs-Tipp: Vor dem Start nicht zu warm einpacken – „leicht frösteln am Start ist die richtige Betriebstemperatur“ (7–13 °C Prognose).',
+      'Bekleidungs-Tipp: Vor dem Start nicht zu warm einpacken – „leicht frösteln am Start ist die richtige Betriebstemperatur“ (7–10 °C sonnig).',
       'Fueling-Setup (Lösung A): 2× 500 ml Malto-Softflasks (je 40–45 g) am Körper. Wasser an den 6 VPs trinken!',
       '6 Verpflegungsstationen (VPs): km 5, 11, 16.5, 18.5, 22.5 & 24. Bananen ab km 11, Salzstangen am Drachenfels',
       '⚡ Geheimwaffe Cola: 1–2 Schluck Cola an VP 3 (km 16.5) & VP 4 (Drachenfels) für den Endspurt-Push',
-      'Zielzeit-Prognose: 3:45:00 – 4:00:00 Std. (bei 7–13 °C & trocken; max. 4:15:00 mit Puffer)'
+      'Zielzeit-Prognose: 3:45:00 – 4:00:00 Std. (bei 7–10 °C & sonnig; max. 4:15:00 mit Puffer)'
     ];
   } else if (tagLower.includes('opal')) {
     tipsList = [
@@ -2423,11 +2423,11 @@ function openWorkoutDetailsModal(kw, dayIndex) {
           <div style="font-size: 0.70rem; font-weight: 800; color: var(--color-brand-green); text-transform: uppercase; letter-spacing: 0.5px;">🐉 RENNSPIELPLAN: DRACHENLAUF (26 KM / 1.250 HM)</div>
           <div style="font-size: 0.82rem; color: var(--color-text-white); line-height: 1.4;">
             • <strong>Renntag-Puls:</strong> ~130–135 bpm (Adrenalin). Steilanstiege im Power Hiking meistern.<br>
-            • <strong>Bekleidung (7–13 °C):</strong> Vor dem Start nicht zu warm einpacken – <em>„leicht frösteln am Start ist die richtige Betriebstemperatur“</em>.<br>
+            • <strong>Bekleidung (7–10 °C · sonnig):</strong> Vor dem Start nicht zu warm einpacken – <em>„leicht frösteln am Start ist die richtige Betriebstemperatur“</em>.<br>
             • <strong>Fueling (Lösung A):</strong> 2× 500 ml Malto-Flasks (je 40–45 g) in der Weste. Wasser an den 6 VPs trinken. Bananen ab km 11, Salzstangen am Drachenfels.<br>
             • <strong>6 Verpflegungsstationen:</strong> km 5, 11, 16.5, 18.5, 22.5 & 24.<br>
             • <strong>⚡ Cola-Push:</strong> An VP 3 (km 16.5) & VP 4 (Drachenfels) 1–2 Schluck Cola trinken.<br>
-            • <strong>Zielzeit (7–13 °C & trocken):</strong> 3:45:00 – 4:00:00 Std. (Puffer bis 4:15:00 Std.).
+            • <strong>Zielzeit (7–10 °C & sonnig):</strong> 3:45:00 – 4:00:00 Std. (Puffer bis 4:15:00 Std.).
           </div>
         </div>
         <a href="https://www.drachenlauf.de" target="_blank" rel="noopener noreferrer" style="color: var(--color-brand-cyan); font-weight: 800; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem;">
@@ -2447,7 +2447,7 @@ function openWorkoutDetailsModal(kw, dayIndex) {
         </h4>
 
         <div style="background: rgba(255, 159, 10, 0.12); border: 1px solid rgba(255, 159, 10, 0.35); border-radius: var(--border-radius-md); padding: 0.65rem 0.85rem; margin-bottom: 0.85rem; font-size: 0.78rem; color: var(--color-text-white); line-height: 1.4;">
-          <strong style="color: var(--color-brand-orange);">🌤️ WITTERUNG & TEMPERATUR-TAKTIK (7–13 °C · TROCKEN):</strong> Start bei kühlen ~7–8 °C (leichtes Frösteln am Start nutzen, nicht überhitzen). Keine thermische Drift. Frühe Anstiege strikt im GA1 (105–118 bpm). Am Petersberg-Schlussanstieg (km 19–23) bei Mittagsmaximum (~12–13 °C) kompromissloses Power-Hiking mit Pulsdeckel unter 125–132 bpm!
+          <strong style="color: var(--color-brand-orange);">☀️ WITTERUNG & TEMPERATUR-TAKTIK (7–10 °C · SONNIG):</strong> Start bei kühlen ~7–8 °C (leichtes Frösteln am Start nutzen, nicht überhitzen). Keine thermische Drift, optimale Sauerstoffsättigung. Frühe Anstiege strikt im GA1 (105–118 bpm). Am Petersberg-Schlussanstieg (km 19–23) bei mildem Sonnen-Maximum (~10 °C) kompromissloses Power-Hiking mit Pulsdeckel unter 125–132 bpm!
         </div>
 
         <div style="font-size: 0.80rem; color: var(--color-text-secondary); line-height: 1.5; margin-bottom: 0.8rem; display: flex; flex-direction: column; gap: 0.65rem;">
@@ -2487,7 +2487,7 @@ function openWorkoutDetailsModal(kw, dayIndex) {
               <span style="font-weight: 800; color: var(--color-brand-orange); font-feature-settings: 'tnum';">3:25–3:38 Std.</span>
             </div>
             <div style="font-size: 0.75rem; color: var(--color-text-secondary); line-height: 1.35;">
-              Der Scharfrichter (+240 Hm) bei ~12–13 °C Mittagsmaximum. Kompromissloses Power-Hiking mit Hand-auf-Oberschenkel. Z2/Z3-Schwelle (>125–132 bpm) strikt meiden!
+              Der Scharfrichter (+240 Hm) bei mildem Sonnenmaximum (~10 °C). Kompromissloses Power-Hiking mit Hand-auf-Oberschenkel. Z2/Z3-Schwelle (>125–132 bpm) strikt meiden!
             </div>
           </div>
 
