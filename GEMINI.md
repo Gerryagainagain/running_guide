@@ -33,3 +33,12 @@ This file contains strict system-level instructions for the AI assistant when op
 ## 📌 5. Design System Strict Enforcement Rule
 - **Regel:** Bei allen UI- und CSS-Änderungen MÜSSEN strikt die Tokens aus `DESIGN.md` und `tokens.css` verwendet werden.
 - **Verbot:** Keine Hartcodierung von unvollständigen Inline-Styles oder Farb-Hex-Codes, die nicht in `DESIGN.md` / `tokens.css` definiert sind.
+
+---
+
+## 📌 6. Anti-Absolutismus & Trade-Off-Direktive (Blacklist & Scheinsicherheiten)
+- **Verbot von Scheinsicherheiten & absoluten Heilsversprechen:**
+  Begriffe wie *„identisch“*, *„völlig ausreichend“*, *„garantiert“*, *„Königsklasse“*, *„kein Verlust“*, *„100% gleichwertig“*, *„du verlierst keine Form“* oder sinngleiche Verharmlosungen sind strikt untersagt.
+- **Pflicht zum Trade-Off:** Jede Trainingsverkürzung, Zeitspar-Maßnahme oder Streckenalternative (z. B. Flachlauf statt Höhenmeter, Deich statt Gelände) MUSS zwingend als physiologischer Kompromiss mit ihren konkreten Abstrichen benannt werden (Was spart Zeit? Welche De-Adaptation entsteht peripher muskulär, exzentrisch oder koordinativ?).
+- **Differenzierung statt Pauschalierung:** Niemals pauschal von „der Form“ sprechen, sondern differenzieren zwischen zentraler Herzkreislauf-Ausdauer (Sauerstoffaufnahme/Fettstoffwechsel) und peripherer muskulär-koordinativer Belastbarkeit (exzentrische Bremskräfte, Trittsicherheit, Sehnen-Steifigkeit).
+

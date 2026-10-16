@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.23  
+**Document Version:** 9.24  
 **Last Updated:** October 16, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -10,7 +10,7 @@
 
 ## 📌 1. Project Overview & Current Trajectory
 
-- **Current Script Version:** `app.js?v=9.23` (in `index.html` and `dist/index.html`).
+- **Current Script Version:** `app.js?v=9.24` (in `index.html` and `dist/index.html`).
 - **Auth Gate Status:** Active (Apple HIG Modal: *"Was riss Hermännsche am Strand von Charita?"* / Passwort: `achilles`).
 - **UI & Modal Design:** Apple HIG flat card architecture (`1.25rem` padding, `16px` border-radius, single merged metric header cards).
 - **Data Persistence:** 2-way automatic synchronization between `defaultInitialRuns` (code defaults) and `localStorage` (`drachenlauf_runs`), preventing data loss or missing weekly elevation totals.
@@ -29,6 +29,7 @@
 - **Drachenlauf Zielzeit-Harmonisierung (v9.21):** Im Workout-Modal für den Drachenlauf (KW 43 So 25.10) die Schätzdauer (`estDur`) von veralteten 4:15–4:30 Std. auf die aktuelle Realdaten-Kalkulation (3:45–4:00 Std. bei 7–13 °C und trockenem Geläuf; Puffer bis 4:15 Std.) korrigiert. Soll-Einheiten-Card, Tips-Liste und Rennspielplan synchronisiert.
 - **Drachenlauf 4-Phasen-Rennstrategie-Block im Modal integriert (v9.22):** Vollwertigen interaktiven Rennstrategie-Block (`drachenlaufStrategyBlockHtml`) mit Streckenabschnitten, Zeitmarken (3:45–4:00 h Zielkorridor), VP-Stationen, Witterungs-Banner und Siebengebirge-Panorama ins Detail-Modal für Sonntag 25.10. eingebaut.
 - **Drachenlauf Wetterprognose auf 7–10 °C sonnig geschärft (v9.23):** Witterungs- und Bekleidungsparameter im Drachenlauf-Modal, Tips-Array und Rennstrategieblock präzisiert (7–10 °C sonnig statt 7–13 °C trocken; Sonnenmaximum ~10 °C am Petersberg-Schlussanstieg). Optimale physiologische Bedingungen ohne kardiovaskuläre Hitzedrift.
+- **System-Regel GEMINI.md Sektion 6 implementiert (v9.24):** Anti-Absolutismus & Trade-Off-Direktive fest verankert (Verbot von Scheinsicherheiten wie „identisch“, „völlig ausreichend“, „Königsklasse“, „kein Verlust“; strikte Pflicht zum Ausweisen des physiologischen Preises/Kompromisses bei Vereinfachungen).
 
 ---
 
