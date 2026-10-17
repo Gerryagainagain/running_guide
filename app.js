@@ -92,13 +92,13 @@ const defaultInitialRuns = [
     dayDate: '17.10',
     dist: 13.3,
     hm: 333,
-    duration: '01:35:00',
-    hr: 116,
-    pace: '7:09',
+    duration: '01:35:41',
+    hr: 115,
+    pace: '7:12',
     type: 'laufen',
     isErsatz: false,
     tag: 'Longrun Erkrath',
-    notes: 'Longrun Erkrath – easy Wald, bisschen nass (13.3 km / 333 Hm / 01:35:00 / 116 bpm Ø / Pace 7:09)'
+    notes: 'Longrun Erkrath – easy Wald, bisschen nass (13.3 km / 333 Hm / 01:35:41 / 115 bpm Ø / Max 158 / TE 3,1 Aerob / 0,0 Anaerob)'
   },
   {
     id: 1792012800000,

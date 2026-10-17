@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.27  
+**Document Version:** 9.28  
 **Last Updated:** October 17, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -10,7 +10,7 @@
 
 ## 📌 1. Project Overview & Current Trajectory
 
-- **Current Script Version:** `app.js?v=9.27` (in `index.html` and `dist/index.html`).
+- **Current Script Version:** `app.js?v=9.28` (in `index.html` and `dist/index.html`).
 - **Auth Gate Status:** Active (Apple HIG Modal: *"Was riss Hermännsche am Strand von Charita?"* / Passwort: `achilles`).
 - **UI & Modal Design:** Apple HIG flat card architecture (`1.25rem` padding, `16px` border-radius, single merged metric header cards).
 - **Data Persistence:** 2-way automatic synchronization between `defaultInitialRuns` (code defaults) and `localStorage` (`drachenlauf_runs`), preventing data loss or missing weekly elevation totals.
@@ -31,7 +31,8 @@
 - **Drachenlauf Wetterprognose auf 7–10 °C sonnig geschärft (v9.23):** Witterungs- und Bekleidungsparameter im Drachenlauf-Modal, Tips-Array und Rennstrategieblock präzisiert (7–10 °C sonnig statt 7–13 °C trocken; Sonnenmaximum ~10 °C am Petersberg-Schlussanstieg). Optimale physiologische Bedingungen ohne kardiovaskuläre Hitzedrift.
 - **System-Regel GEMINI.md Sektion 6 implementiert (v9.24):** Anti-Absolutismus & Trade-Off-Direktive fest verankert (Verbot von Scheinsicherheiten wie „identisch“, „völlig ausreichend“, „Königsklasse“, „kein Verlust“; strikte Pflicht zum Ausweisen des physiologischen Preises/Kompromisses bei Vereinfachungen).
 - **Strategischer Rahmen 2027–2029 in Sektion 4.D verankert (v9.25):** Verbindlicher 3+1-Wochenrhythmus (3 Läufe / 25–30 km + 1 Studio-Krafttraining), 50/50-Longrun-Modell (Erkrath vs. Rhein ab Haustür), 2+1-Event-Gerüst (Belgenbach, Alpentrail im Familienurlaub, Drachenlauf + lokale 10er) und Trade-Off-/Periodisierungsregeln dokumentiert.
-- **KW 42 Kern-Longrun Erkrath geloggt (v9.27):** Sa 17.10 Longrun Erkrath (13,3 km · 333 Hm · 01:35:00 h · 116 bpm Ø · 7:09 min/km) erfasst, synchronisiert und in `defaultInitialRuns` / `runsData` hinterlegt. Wochenstand KW 42: 27,3 km · 421 Hm in 3 Einheiten. Punktgenaue Einhaltung des GA1-Fensters (105–118 bpm); Tapering-Stabilität voll gewährleistet.
+- **KW 42 Kern-Longrun Erkrath geloggt (v9.27):** Sa 17.10 Longrun Erkrath (13,3 km · 333 Hm · 01:35:00 h · 116 bpm Ø · 7:09 min/km) erfasst, synchronisiert und in `defaultInitialRuns` / `runsData` hinterlegt. Wochenstand KW 42: 27,3 km · 421 Hm in 3 Einheiten.
+- **KW 42 Garmin-Präzisierung Sa 17.10 Longrun Erkrath (v9.28):** Realdaten anhand von Garmin-Aktivitätsdiagramm nachjustiert: Exakte Nettozeit 01:35:41 h (Pace 7:12 min/km), Ø 115 bpm (GA1), Max 158 bpm (isolierter Peak bei 1:16:33 h), Training Effect: 3,1 Aerob / 0,0 Anaerob. Null Laktat-Schuld, vollständige vagale Erholung in Abstiegen (Pulsabfall <105 bpm).
 
 ---
 
@@ -99,12 +100,14 @@ If the user logs a run or workout via Chrome browser that needs to be permanentl
 - **Einheiten:**
   - 13.10 (Di): 8,0 km · 88 Hm in 01:02:00 h (Pace: 7:45 min/km, Ø 117 bpm) – Rampen Ddorf
   - 15.10 (Do): 6,0 km · 0 Hm in 00:43:42 h (Pace: 7:17 min/km, Ø 113 bpm) – Locker Rhein
-  - 17.10 (Sa): 13,3 km · 333 Hm in 01:35:00 h (Pace: 7:09 min/km, Ø 116 bpm) – Longrun Erkrath (easy Wald, bisschen nass)
+  - 17.10 (Sa): 13,3 km · 333 Hm in 01:35:41 h (Pace: 7:12 min/km, Ø 115 bpm, Max 158 bpm, TE 3,1 Aerob / 0,0 Anaerob) – Longrun Erkrath (easy Wald, bisschen nass)
   - 18.10 (So): Lockertrab (4,0 km · 0 Hm) – *steht noch aus*.
 - **Zwischenstand KW 42:** **27,3 km · 421 Hm** in 3 Läufen absolviert.
-- **Physiologische Analyse:**
-  - **Kardiovaskuläre Disziplin:** **Ø 116 bpm** über 13,3 km und 333 Hm bei einer flotten Geländepace von 7:09 min/km belegt herausragende aerobe Effizienz. Der Puls blieb trotz nassen Geläufs exakt im kalibrierten GA1-Sollfenster (105–118 bpm).
-  - **Tapering-Effekt:** Reiz optimal gesetzt. Beine haben die 333 Hm ohne ZNS-Überlastung oder exzentrischen Katerschock verarbeitet. Frischezustand für die finale Rennwoche (KW 43) ist voll intakt.
+- **Physiologische Analyse (Garmin-Diagramm-Verifikation):**
+  - **Kardiovaskuläre Baseline:** **Ø 115 bpm** über 13,3 km und 333 Hm (Pace 7:12 min/km) liegt mitten im kalibrierten GA1-Kernbereich (105–118 bpm VT1).
+  - **Spitzen & Belastungsdynamik:** Der Maximalpuls von 158 bpm trat als isolierte Nadelspitze bei 1:16:33 h auf (kurzer steiler Rampenimpuls bzw. Kadenz-Kopplung), gefolgt von sofortiger Rückkehr auf das Grundniveau. Ansonsten blieb das Profil stabil zwischen 110 und 125 bpm gedeckelt.
+  - **Vagale Erholung & Drift-Freiheit:** In Bergabpassagen und Geh-/Lockerungsphasen fällt der Puls zügig auf unter 100–105 bpm ab. Keine kardiovaskuläre Drift gegen Ende der Einheit erkennbar.
+  - **Training Effect:** Mit **3,1 Aerob** und **0,0 Anaerob** wurde exakt der beabsichtigte Formerhaltungs-Reiz gesetzt, ohne jegliche Laktat-Schuld oder metabolischen Ermüdungsrückstand für die finale Rennwoche (KW 43) zu hinterlassen.
 
 ### B. Drachenlauf 2026 (25.10.2026 – KW 43)
 - **GPX Track Analysis (`2026-07-10_3098880682_Drachenlauf OG.gpx`):** 24,82 km · 847,6 Hm (GPX) ➔ 1.050 Hm (Offizielles DEM-Höhenmodell).
