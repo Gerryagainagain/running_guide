@@ -2439,6 +2439,7 @@ function openWorkoutDetailsModal(kw, dayIndex) {
           <div style="font-size: 0.70rem; font-weight: 800; color: var(--color-brand-green); text-transform: uppercase; letter-spacing: 0.5px;">🐉 RENNSPIELPLAN: DRACHENLAUF (26 KM / 1.250 HM)</div>
           <div style="font-size: 0.82rem; color: var(--color-text-white); line-height: 1.4;">
             • <strong>Puls-Taktik (2 Phasen):</strong> KM 0–16 @ 120–125 bpm (Ölberg/Löwenburg) · Ab Drachenfels & Petersberg Freigabe 130–135 bpm (Deckel &lt;140 bpm).<br>
+            • <strong>Tape-Cheatsheet (Split-Zeiten):</strong> KM 5 (0:45) · KM 11 (1:38) · KM 18,5 (2:45) · KM 23,3 (3:30) · Ziel (&lt;4:00).<br>
             • <strong>Drachenfels-Downhill:</strong> Nicht steil, gut laufbar – als Laktat-Flush nutzen (Puls aktiv auf &lt;120 bpm drücken).<br>
             • <strong>Petersberg-Finale:</strong> Alles raushauen im Power-Hiking (130–135 bpm), danach 2,7 km flüssig mit 5:30–5:45 min/km ins Ziel rollen.<br>
             • <strong>Bekleidung (7–10 °C · sonnig):</strong> Leicht frösteln am Start – keine Überhitzung.<br>
@@ -2464,6 +2465,46 @@ function openWorkoutDetailsModal(kw, dayIndex) {
 
         <div style="background: rgba(255, 159, 10, 0.12); border: 1px solid rgba(255, 159, 10, 0.35); border-radius: var(--border-radius-md); padding: 0.65rem 0.85rem; margin-bottom: 0.85rem; font-size: 0.78rem; color: var(--color-text-white); line-height: 1.4;">
           <strong style="color: var(--color-brand-orange);">☀️ WITTERUNG & TEMPERATUR-TAKTIK (7–10 °C · SONNIG):</strong> Start bei kühlen ~7–8 °C (leichtes Frösteln am Start nutzen, nicht überhitzen). Keine thermische Drift. <strong>Puls-Fahrplan:</strong> KM 0–16 kontrolliert bei 120–125 bpm zur Glykogensicherung. Ab Drachenfels (KM 16) und am Petersberg-Schlussanstieg (KM 19–23) kompromisslose Freigabe auf 130–135 bpm (Pulsdeckel &lt;140 bpm, kein anaerober Muskelstau!).
+        </div>
+
+        <!-- DURCHGANGSZEITEN CHEATSHEET STRIP -->
+        <div style="background: rgba(255, 255, 255, 0.04); border: 1px dashed rgba(48, 209, 88, 0.4); border-radius: var(--border-radius-md); padding: 0.75rem 0.85rem; margin-bottom: 0.85rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.45rem;">
+            <div style="font-size: 0.68rem; font-weight: 900; color: var(--color-brand-green); text-transform: uppercase; letter-spacing: 0.6px; display: flex; align-items: center; gap: 0.35rem;">
+              <span>🏷️ UNTERARM- / FLASK-TAPE (SPLIT-KORRIDORE)</span>
+            </div>
+            <span style="font-size: 0.65rem; color: var(--color-text-tertiary); font-weight: 700;">ZIEL: 3:45–4:00 H</span>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.4rem; text-align: center;">
+            <div style="background: rgba(0,0,0,0.3); border-radius: var(--border-radius-sm); padding: 0.35rem 0.2rem; border: 1px solid rgba(255,255,255,0.06);">
+              <div style="font-size: 0.60rem; font-weight: 800; color: var(--color-text-secondary);">KM 5,0</div>
+              <div style="font-size: 0.80rem; font-weight: 900; color: var(--color-text-white); font-feature-settings: 'tnum';">0:45</div>
+              <div style="font-size: 0.55rem; color: var(--color-brand-cyan);">VP 1 Ölberg</div>
+            </div>
+            <div style="background: rgba(0,0,0,0.3); border-radius: var(--border-radius-sm); padding: 0.35rem 0.2rem; border: 1px solid rgba(255,255,255,0.06);">
+              <div style="font-size: 0.60rem; font-weight: 800; color: var(--color-text-secondary);">KM 11,0</div>
+              <div style="font-size: 0.80rem; font-weight: 900; color: var(--color-text-white); font-feature-settings: 'tnum';">1:38</div>
+              <div style="font-size: 0.55rem; color: var(--color-brand-cyan);">VP 2 Löwenb.</div>
+            </div>
+            <div style="background: rgba(0,0,0,0.3); border-radius: var(--border-radius-sm); padding: 0.35rem 0.2rem; border: 1px solid rgba(255,255,255,0.06);">
+              <div style="font-size: 0.60rem; font-weight: 800; color: var(--color-text-secondary);">KM 18,5</div>
+              <div style="font-size: 0.80rem; font-weight: 900; color: var(--color-brand-orange); font-feature-settings: 'tnum';">2:45</div>
+              <div style="font-size: 0.55rem; color: var(--color-brand-orange);">VP 4 Drachenf.</div>
+            </div>
+            <div style="background: rgba(0,0,0,0.3); border-radius: var(--border-radius-sm); padding: 0.35rem 0.2rem; border: 1px solid rgba(255,255,255,0.06);">
+              <div style="font-size: 0.60rem; font-weight: 800; color: var(--color-text-secondary);">KM 23,3</div>
+              <div style="font-size: 0.80rem; font-weight: 900; color: var(--color-brand-orange); font-feature-settings: 'tnum';">3:30</div>
+              <div style="font-size: 0.55rem; color: var(--color-brand-orange);">VP 5 Petersb.</div>
+            </div>
+            <div style="background: rgba(48, 209, 88, 0.12); border-radius: var(--border-radius-sm); padding: 0.35rem 0.2rem; border: 1px solid rgba(48, 209, 88, 0.35);">
+              <div style="font-size: 0.60rem; font-weight: 800; color: var(--color-brand-green);">KM 26,0</div>
+              <div style="font-size: 0.80rem; font-weight: 900; color: var(--color-brand-green); font-feature-settings: 'tnum';">&lt; 4:00</div>
+              <div style="font-size: 0.55rem; color: var(--color-brand-green);">🏁 ZIEL</div>
+            </div>
+          </div>
+          <div style="margin-top: 0.45rem; font-size: 0.68rem; color: var(--color-text-secondary); line-height: 1.35;">
+            💡 <em>Puls-Regel: Der Puls hat immer Vorrang vor der Uhr! Zeiten dienen der Überpace-Kontrolle, keinem riskanten Nachjagen.</em>
+          </div>
         </div>
 
         <div style="font-size: 0.80rem; color: var(--color-text-secondary); line-height: 1.5; margin-bottom: 0.8rem; display: flex; flex-direction: column; gap: 0.65rem;">
