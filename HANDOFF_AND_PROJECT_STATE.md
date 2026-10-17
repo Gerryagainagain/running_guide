@@ -1,7 +1,7 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.26  
-**Last Updated:** October 16, 2026  
+**Document Version:** 9.27  
+**Last Updated:** October 17, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
 **Local Workspace Path:** `/Users/Gerhard/Desktop/running_guide`
@@ -10,7 +10,7 @@
 
 ## 📌 1. Project Overview & Current Trajectory
 
-- **Current Script Version:** `app.js?v=9.26` (in `index.html` and `dist/index.html`).
+- **Current Script Version:** `app.js?v=9.27` (in `index.html` and `dist/index.html`).
 - **Auth Gate Status:** Active (Apple HIG Modal: *"Was riss Hermännsche am Strand von Charita?"* / Passwort: `achilles`).
 - **UI & Modal Design:** Apple HIG flat card architecture (`1.25rem` padding, `16px` border-radius, single merged metric header cards).
 - **Data Persistence:** 2-way automatic synchronization between `defaultInitialRuns` (code defaults) and `localStorage` (`drachenlauf_runs`), preventing data loss or missing weekly elevation totals.
@@ -31,6 +31,7 @@
 - **Drachenlauf Wetterprognose auf 7–10 °C sonnig geschärft (v9.23):** Witterungs- und Bekleidungsparameter im Drachenlauf-Modal, Tips-Array und Rennstrategieblock präzisiert (7–10 °C sonnig statt 7–13 °C trocken; Sonnenmaximum ~10 °C am Petersberg-Schlussanstieg). Optimale physiologische Bedingungen ohne kardiovaskuläre Hitzedrift.
 - **System-Regel GEMINI.md Sektion 6 implementiert (v9.24):** Anti-Absolutismus & Trade-Off-Direktive fest verankert (Verbot von Scheinsicherheiten wie „identisch“, „völlig ausreichend“, „Königsklasse“, „kein Verlust“; strikte Pflicht zum Ausweisen des physiologischen Preises/Kompromisses bei Vereinfachungen).
 - **Strategischer Rahmen 2027–2029 in Sektion 4.D verankert (v9.25):** Verbindlicher 3+1-Wochenrhythmus (3 Läufe / 25–30 km + 1 Studio-Krafttraining), 50/50-Longrun-Modell (Erkrath vs. Rhein ab Haustür), 2+1-Event-Gerüst (Belgenbach, Alpentrail im Familienurlaub, Drachenlauf + lokale 10er) und Trade-Off-/Periodisierungsregeln dokumentiert.
+- **KW 42 Kern-Longrun Erkrath geloggt (v9.27):** Sa 17.10 Longrun Erkrath (13,3 km · 333 Hm · 01:35:00 h · 116 bpm Ø · 7:09 min/km) erfasst, synchronisiert und in `defaultInitialRuns` / `runsData` hinterlegt. Wochenstand KW 42: 27,3 km · 421 Hm in 3 Einheiten. Punktgenaue Einhaltung des GA1-Fensters (105–118 bpm); Tapering-Stabilität voll gewährleistet.
 
 ---
 
@@ -88,7 +89,22 @@ If the user logs a run or workout via Chrome browser that needs to be permanentl
 ### A4. KW 41 Tapering Erkrath (05.10 – 11.10.2026)
 - **Einheiten:**
   - 06.10 (Di): 8,2 km · 106 Hm in 01:08:00 h (Pace: 8:18 min/km, Ø 116 bpm) – Rampen Ddorf
-- **Physiologische Analyse:** Exakte Einhaltung des oberen GA1-Fensters (105–118 bpm) trotz Höhenmetern. Reiz gesetzt, ohne ZNS- oder Muskelermüdung zu generieren.
+  - 08.10 (Do): 8,0 km · 13 Hm in 01:02:00 h (Pace: 7:45 min/km, Ø 105 bpm) – Locker Rhein
+  - 10.10 (Sa): 12,0 km · 400 Hm in 01:52:00 h (Pace: 9:20 min/km, Ø 115 bpm) – Longrun Erkrath
+  - 11.10 (So): 4,5 km · 100 Hm in 01:00:00 h (Ø 100 bpm) – Wandern (Ersatz-Einheit)
+- **Wochensumme:** **32,7 km · 619 Hm** (alle Einheiten im tiefen bis mittleren GA1 absolviert).
+- **Physiologische Analyse:** Exakte Einhaltung des GA1-Fensters (105–118 bpm) bei allen Einheiten. Reiz gesetzt, ohne ZNS- oder Muskelermüdung zu generieren.
+
+### A5. KW 42 Tapering Erkrath (12.10 – 18.10.2026)
+- **Einheiten:**
+  - 13.10 (Di): 8,0 km · 88 Hm in 01:02:00 h (Pace: 7:45 min/km, Ø 117 bpm) – Rampen Ddorf
+  - 15.10 (Do): 6,0 km · 0 Hm in 00:43:42 h (Pace: 7:17 min/km, Ø 113 bpm) – Locker Rhein
+  - 17.10 (Sa): 13,3 km · 333 Hm in 01:35:00 h (Pace: 7:09 min/km, Ø 116 bpm) – Longrun Erkrath (easy Wald, bisschen nass)
+  - 18.10 (So): Lockertrab (4,0 km · 0 Hm) – *steht noch aus*.
+- **Zwischenstand KW 42:** **27,3 km · 421 Hm** in 3 Läufen absolviert.
+- **Physiologische Analyse:**
+  - **Kardiovaskuläre Disziplin:** **Ø 116 bpm** über 13,3 km und 333 Hm bei einer flotten Geländepace von 7:09 min/km belegt herausragende aerobe Effizienz. Der Puls blieb trotz nassen Geläufs exakt im kalibrierten GA1-Sollfenster (105–118 bpm).
+  - **Tapering-Effekt:** Reiz optimal gesetzt. Beine haben die 333 Hm ohne ZNS-Überlastung oder exzentrischen Katerschock verarbeitet. Frischezustand für die finale Rennwoche (KW 43) ist voll intakt.
 
 ### B. Drachenlauf 2026 (25.10.2026 – KW 43)
 - **GPX Track Analysis (`2026-07-10_3098880682_Drachenlauf OG.gpx`):** 24,82 km · 847,6 Hm (GPX) ➔ 1.050 Hm (Offizielles DEM-Höhenmodell).

@@ -86,6 +86,21 @@ const kwMap = {
 const defaultInitialRuns = [
   // KW 42
   {
+    id: 1792185600000,
+    kw: 42,
+    date: '17.10.2026',
+    dayDate: '17.10',
+    dist: 13.3,
+    hm: 333,
+    duration: '01:35:00',
+    hr: 116,
+    pace: '7:09',
+    type: 'laufen',
+    isErsatz: false,
+    tag: 'Longrun Erkrath',
+    notes: 'Longrun Erkrath – easy Wald, bisschen nass (13.3 km / 333 Hm / 01:35:00 / 116 bpm Ø / Pace 7:09)'
+  },
+  {
     id: 1792012800000,
     kw: 42,
     date: '15.10.2026',
@@ -1446,7 +1461,7 @@ const appleScheduleData = {
     { day: 'MIT', date: '14.10', tag: 'Regeneration', dist: 0, hm: 0, done: false },
     { day: 'DON', date: '15.10', tag: 'Locker', dist: 6.0, hm: 0, done: true },
     { day: 'FRE', date: '16.10', tag: 'Stabi & Rumpf (Oberkörper)', dist: 0, hm: 0, done: false },
-    { day: 'SAM', date: '17.10', tag: 'Longrun Erkrath', dist: 10.0, hm: 300, done: false },
+    { day: 'SAM', date: '17.10', tag: 'Longrun Erkrath', dist: 10.0, hm: 300, done: true },
     { day: 'SON', date: '18.10', tag: 'Lockertrab', dist: 4.0, hm: 0, done: false }
   ],
   43: [
