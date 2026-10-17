@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.30  
+**Document Version:** 9.31  
 **Last Updated:** October 17, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -10,7 +10,7 @@
 
 ## 📌 1. Project Overview & Current Trajectory
 
-- **Current Script Version:** `app.js?v=9.30` (in `index.html` and `dist/index.html`).
+- **Current Script Version:** `app.js?v=9.31` (in `index.html` and `dist/index.html`).
 - **Auth Gate Status:** Active (Apple HIG Modal: *"Was riss Hermännsche am Strand von Charita?"* / Passwort: `achilles`).
 - **UI & Modal Design:** Apple HIG flat card architecture (`1.25rem` padding, `16px` border-radius, single merged metric header cards).
 - **Data Persistence:** 2-way automatic synchronization between `defaultInitialRuns` (code defaults) and `localStorage` (`drachenlauf_runs`), preventing data loss or missing weekly elevation totals.
@@ -35,6 +35,7 @@
 - **KW 42 Garmin-Präzisierung Sa 17.10 Longrun Erkrath (v9.28):** Realdaten anhand von Garmin-Aktivitätsdiagramm nachjustiert: Exakte Nettozeit 01:35:41 h (Pace 7:12 min/km), Ø 115 bpm (GA1), Max 158 bpm (isolierter Peak bei 1:16:33 h), Training Effect: 3,1 Aerob / 0,0 Anaerob.
 - **Drachenlauf Modal 2-Phasen-Rennspielplan & Pacing-Freigabe (v9.29):** Detail-Modal für den Drachenlauf (KW 43 So 25.10) auf finalen Rennplan aktualisiert: KM 0–16 kontrolliert bei 120–125 bpm (Glykogensicherung an Ölberg & Löwenburg); Drachenfels-Uphill Freigabe 130–135 bpm; Drachenfels-Downhill als Laktat-Flush (<120 bpm); Petersberg-Schlussanstieg All-in im Power-Hiking (130–135 bpm, Deckel <140 bpm); 2,7 km sanfter Zielabstieg als Easy Rolling mit 5:30–5:45 min/km.
 - **Drachenlauf Modal Tape-Cheatsheet mit Durchgangszeiten (v9.30):** Neues, hochkontrastiges Unterarm- / Flask-Tape-Widget mit den 4 Schlüssel-Split-Korridoren (KM 5 @ 0:45 h, KM 11 @ 1:38 h, KM 18,5 @ 2:45 h, KM 23,3 @ 3:30 h, Ziel < 4:00 h) direkt ins Detail-Modal für den Renntag eingebunden. Ergänzt um die goldene Regel: *„Der Puls hat immer Vorrang vor der Uhr!“*
+- **Drachenlauf Wetterprognose auf 8–12 °C, bewölkt & ggf. Nieselregen aktualisiert (v9.31):** Witterungs- und Bekleidungsparameter im Drachenlauf-Modal, Tips-Array und Rennstrategieblock präzisiert (8–12 °C, bewölkt, ggf. etwas Nieselregen statt 7–10 °C sonnig). Taktischer Fokus: Optimale Hautkühlung, Kappe gegen Niesel, erhöhte Aufmerksamkeit auf nassen Wurzeln/Steinen.
 
 ---
 
@@ -118,7 +119,7 @@ If the user logs a run or workout via Chrome browser that needs to be permanentl
   2. KM 8–13: +211.8 Hm Wellenklettern
   3. KM 17–19: +175.6 Hm Anstieg nach Tiefpunkt (78m)
   4. KM 22–24: +238.2 Hm Drachenfels-Schlussanstieg *(KM 22–23: +147.1 Hm auf 1 km!)*
-- **Target Time Plan & Uphill Strategy (2-Phasen-Pacing & Easy Rolling):** **3:45 bis 4:00 Std. (bei 7–10 °C & sonnig; Puffer bis 4:15 Std.)** 
+- **Target Time Plan & Uphill Strategy (2-Phasen-Pacing & Easy Rolling):** **3:45 bis 4:00 Std. (bei 8–12 °C & bewölkt/feucht; Puffer bis 4:15 Std.)** 
   - **Phase 1 (KM 0–16 · Ölberg & Löwenburg):** Uphill Power-Hiking kontrolliert bei **120–125 bpm** (Glykogenspeicher schonen, Laktat-Gleichgewicht wahren).
   - **Drachenfels-Uphill (KM 16–18):** Erste Freigabe auf **130–135 bpm** im Power-Hiking.
   - **Drachenfels-Downhill (KM 18–19):** Moderater, gut laufbarer Abstieg – als **„Laktat-Flush“** nutzen (Puls aktiv auf **<120 bpm** fallen lassen, Beine mit hoher Trittfrequenz rollen lassen, aerob Laktat abbauen). An VP 3 (km 16,5) und VP 4 (Drachenfels) Cola & Salzstangen tanken!
