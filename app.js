@@ -2127,11 +2127,12 @@ function openWorkoutDetailsModal(kw, dayIndex) {
     ];
   } else if (tagLower.includes('drachenlauf')) {
     tipsList = [
-      'Renntag-Pacing: Puls stellt sich durch Adrenalin/Rennstimmung auf ~130–135 bpm ein. Anstiege kontrolliert im Power Hiking nehmen!',
-      'Bekleidungs-Tipp: Vor dem Start nicht zu warm einpacken – „leicht frösteln am Start ist die richtige Betriebstemperatur“ (7–10 °C sonnig).',
-      'Fueling-Setup (Lösung A): 2× 500 ml Malto-Softflasks (je 40–45 g) am Körper. Wasser an den 6 VPs trinken!',
-      '6 Verpflegungsstationen (VPs): km 5, 11, 16.5, 18.5, 22.5 & 24. Bananen ab km 11, Salzstangen am Drachenfels',
-      '⚡ Geheimwaffe Cola: 1–2 Schluck Cola an VP 3 (km 16.5) & VP 4 (Drachenfels) für den Endspurt-Push',
+      'Renntag-Pacing & 2-Phasen-Puls: KM 0–16 kontrolliert bei 120–125 bpm (Glykogen schonen). Ab Drachenfels (KM 16) & Petersberg (KM 19) Vollfreigabe bis 130–135 bpm!',
+      'Drachenfels-Downhill (KM 18–19): Nicht steil, gut laufbar – Puls aktiv auf <120 bpm fallen lassen, Beine rollen lassen und Laktat aerob abbauen.',
+      'Petersberg-Schlussanstieg (KM 19–23): Maximales Power-Hiking bei 130–135 bpm (Pulsdeckel <140 bpm halten, um anaerobe Muskelkrämpfe zu vermeiden).',
+      'Finales Easy Rolling (KM 23,3–26): Moderates Gefälle (4–5 %) mit 5:30–5:45 min/km ohne Bremskräfte aktiv ins Ziel durchziehen.',
+      'Bekleidungs-Tipp (7–10 °C sonnig): Vor dem Start nicht zu warm einpacken – „leicht frösteln am Start ist die richtige Betriebstemperatur“',
+      'Fueling-Setup (Lösung A): 2× 500 ml Malto-Softflasks (je 40–45 g) am Körper. Wasser an den 6 VPs trinken. Bananen ab km 11, Salzstangen & Cola ab VP 3/4 (Drachenfels)!',
       'Zielzeit-Prognose: 3:45:00 – 4:00:00 Std. (bei 7–10 °C & sonnig; max. 4:15:00 mit Puffer)'
     ];
   } else if (tagLower.includes('opal')) {
@@ -2437,12 +2438,12 @@ function openWorkoutDetailsModal(kw, dayIndex) {
         <div style="background: rgba(48, 209, 88, 0.1); border: 1px solid rgba(48, 209, 88, 0.3); border-radius: var(--border-radius-xl); padding: 0.75rem 1rem; display: flex; flex-direction: column; gap: 0.4rem;">
           <div style="font-size: 0.70rem; font-weight: 800; color: var(--color-brand-green); text-transform: uppercase; letter-spacing: 0.5px;">🐉 RENNSPIELPLAN: DRACHENLAUF (26 KM / 1.250 HM)</div>
           <div style="font-size: 0.82rem; color: var(--color-text-white); line-height: 1.4;">
-            • <strong>Renntag-Puls:</strong> ~130–135 bpm (Adrenalin). Steilanstiege im Power Hiking meistern.<br>
-            • <strong>Bekleidung (7–10 °C · sonnig):</strong> Vor dem Start nicht zu warm einpacken – <em>„leicht frösteln am Start ist die richtige Betriebstemperatur“</em>.<br>
-            • <strong>Fueling (Lösung A):</strong> 2× 500 ml Malto-Flasks (je 40–45 g) in der Weste. Wasser an den 6 VPs trinken. Bananen ab km 11, Salzstangen am Drachenfels.<br>
-            • <strong>6 Verpflegungsstationen:</strong> km 5, 11, 16.5, 18.5, 22.5 & 24.<br>
-            • <strong>⚡ Cola-Push:</strong> An VP 3 (km 16.5) & VP 4 (Drachenfels) 1–2 Schluck Cola trinken.<br>
-            • <strong>Zielzeit (7–10 °C & sonnig):</strong> 3:45:00 – 4:00:00 Std. (Puffer bis 4:15:00 Std.).
+            • <strong>Puls-Taktik (2 Phasen):</strong> KM 0–16 @ 120–125 bpm (Ölberg/Löwenburg) · Ab Drachenfels & Petersberg Freigabe 130–135 bpm (Deckel &lt;140 bpm).<br>
+            • <strong>Drachenfels-Downhill:</strong> Nicht steil, gut laufbar – als Laktat-Flush nutzen (Puls aktiv auf &lt;120 bpm drücken).<br>
+            • <strong>Petersberg-Finale:</strong> Alles raushauen im Power-Hiking (130–135 bpm), danach 2,7 km flüssig mit 5:30–5:45 min/km ins Ziel rollen.<br>
+            • <strong>Bekleidung (7–10 °C · sonnig):</strong> Leicht frösteln am Start – keine Überhitzung.<br>
+            • <strong>Fueling (Lösung A):</strong> 2× 500 ml Malto-Flasks (je 40–45 g) + Wasser an den 6 VPs. Bananen ab km 11, Salzstangen &amp; Cola ab km 16,5.<br>
+            • <strong>Zielzeit (7–10 °C &amp; sonnig):</strong> 3:45:00 – 4:00:00 Std. (Puffer bis 4:15:00 Std.).
           </div>
         </div>
         <a href="https://www.drachenlauf.de" target="_blank" rel="noopener noreferrer" style="color: var(--color-brand-cyan); font-weight: 800; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem;">
@@ -2462,7 +2463,7 @@ function openWorkoutDetailsModal(kw, dayIndex) {
         </h4>
 
         <div style="background: rgba(255, 159, 10, 0.12); border: 1px solid rgba(255, 159, 10, 0.35); border-radius: var(--border-radius-md); padding: 0.65rem 0.85rem; margin-bottom: 0.85rem; font-size: 0.78rem; color: var(--color-text-white); line-height: 1.4;">
-          <strong style="color: var(--color-brand-orange);">☀️ WITTERUNG & TEMPERATUR-TAKTIK (7–10 °C · SONNIG):</strong> Start bei kühlen ~7–8 °C (leichtes Frösteln am Start nutzen, nicht überhitzen). Keine thermische Drift, optimale Sauerstoffsättigung. Frühe Anstiege strikt im GA1 (105–118 bpm). Am Petersberg-Schlussanstieg (km 19–23) bei mildem Sonnen-Maximum (~10 °C) kompromissloses Power-Hiking mit Pulsdeckel unter 125–132 bpm!
+          <strong style="color: var(--color-brand-orange);">☀️ WITTERUNG & TEMPERATUR-TAKTIK (7–10 °C · SONNIG):</strong> Start bei kühlen ~7–8 °C (leichtes Frösteln am Start nutzen, nicht überhitzen). Keine thermische Drift. <strong>Puls-Fahrplan:</strong> KM 0–16 kontrolliert bei 120–125 bpm zur Glykogensicherung. Ab Drachenfels (KM 16) und am Petersberg-Schlussanstieg (KM 19–23) kompromisslose Freigabe auf 130–135 bpm (Pulsdeckel &lt;140 bpm, kein anaerober Muskelstau!).
         </div>
 
         <div style="font-size: 0.80rem; color: var(--color-text-secondary); line-height: 1.5; margin-bottom: 0.8rem; display: flex; flex-direction: column; gap: 0.65rem;">
@@ -2472,7 +2473,7 @@ function openWorkoutDetailsModal(kw, dayIndex) {
               <span style="font-weight: 800; color: var(--color-brand-cyan); font-feature-settings: 'tnum';">42–46 Min.</span>
             </div>
             <div style="font-size: 0.75rem; color: var(--color-text-secondary); line-height: 1.35;">
-              Einrollphase. Frühe Steilstücke am Ölberg (+280 Hm) diszipliniert im GA1-Power-Hiking (105–118 bpm) nehmen. Glykogenspeicher schonen.
+              Einrollphase. Frühe Steilstücke am Ölberg (+280 Hm) diszipliniert im GA1-Power-Hiking (120–125 bpm) nehmen. Glykogenspeicher schonen.
             </div>
           </div>
 
@@ -2482,7 +2483,7 @@ function openWorkoutDetailsModal(kw, dayIndex) {
               <span style="font-weight: 800; color: var(--color-brand-cyan); font-feature-settings: 'tnum';">1:35–1:42 Std.</span>
             </div>
             <div style="font-size: 0.75rem; color: var(--color-text-secondary); line-height: 1.35;">
-              Wellenklettern (+350 Hm). Technische Abstiege materialschonend ohne harte Bremsstöße laufen. An VP 2 (km 11) Wasser nachspülen & 1/2 Banane greifen.
+              Wellenklettern (+350 Hm). Konstantes Uphill-Pacing bei 120–125 bpm. An VP 2 (km 11) Wasser nachspülen & 1/2 Banane greifen.
             </div>
           </div>
 
@@ -2492,7 +2493,7 @@ function openWorkoutDetailsModal(kw, dayIndex) {
               <span style="font-weight: 800; color: var(--color-brand-orange); font-feature-settings: 'tnum';">2:40–2:50 Std.</span>
             </div>
             <div style="font-size: 0.75rem; color: var(--color-text-secondary); line-height: 1.35;">
-              Gipfelpassage Drachenfels (+280 Hm). An VP 3 (km 16,5) & VP 4 (km 18,5 Drachenfels): Salzstangen zur Krampfprophylaxe + Cola-Push starten!
+              Drachenfels-Uphill (+280 Hm): Erste Freigabe auf 130–135 bpm. Folgender Abstieg ist nicht steil und gut laufbar: Puls aktiv auf &lt;120 bpm fallen lassen, Laktat aerob abbauen. An VP 3 (km 16,5) & VP 4 (Drachenfels): Cola & Salzstangen tanken!
             </div>
           </div>
 
@@ -2502,7 +2503,7 @@ function openWorkoutDetailsModal(kw, dayIndex) {
               <span style="font-weight: 800; color: var(--color-brand-orange); font-feature-settings: 'tnum';">3:25–3:38 Std.</span>
             </div>
             <div style="font-size: 0.75rem; color: var(--color-text-secondary); line-height: 1.35;">
-              Der Scharfrichter (+240 Hm) bei mildem Sonnenmaximum (~10 °C). Kompromissloses Power-Hiking mit Hand-auf-Oberschenkel. Z2/Z3-Schwelle (>125–132 bpm) strikt meiden!
+              Der Scharfrichter (+240 Hm): Vollfreigabe auf 130–135 bpm im maximalen Power-Hiking (Hand auf Oberschenkel). Den Tank energetisch leerfahren, aber Deckel &lt;140 bpm halten, um anaerobe Krämpfe zu verhindern!
             </div>
           </div>
 
@@ -2512,7 +2513,7 @@ function openWorkoutDetailsModal(kw, dayIndex) {
               <span style="font-weight: 900; color: var(--color-brand-green); font-feature-settings: 'tnum';">3:45–4:00 Std.</span>
             </div>
             <div style="font-size: 0.75rem; color: var(--color-text-secondary); line-height: 1.35;">
-              Harmloser, sehr moderater Abstieg (4–5 % Gefälle). Keine blockierenden Bremskräfte. Beine nach dem Petersberg-Uphill locker rollen lassen und Tempo rhythmisch ins Ziel durchziehen!
+              Easy Rolling: Moderater Abstieg (4–5 % Gefälle). Keine blockierenden Bremskräfte. Beine mit 5:30–5:45 min/km aktiv und schmerzfrei ins Ziel durchziehen!
             </div>
           </div>
         </div>

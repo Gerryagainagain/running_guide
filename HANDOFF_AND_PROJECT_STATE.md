@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.28  
+**Document Version:** 9.29  
 **Last Updated:** October 17, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -10,7 +10,7 @@
 
 ## 📌 1. Project Overview & Current Trajectory
 
-- **Current Script Version:** `app.js?v=9.28` (in `index.html` and `dist/index.html`).
+- **Current Script Version:** `app.js?v=9.29` (in `index.html` and `dist/index.html`).
 - **Auth Gate Status:** Active (Apple HIG Modal: *"Was riss Hermännsche am Strand von Charita?"* / Passwort: `achilles`).
 - **UI & Modal Design:** Apple HIG flat card architecture (`1.25rem` padding, `16px` border-radius, single merged metric header cards).
 - **Data Persistence:** 2-way automatic synchronization between `defaultInitialRuns` (code defaults) and `localStorage` (`drachenlauf_runs`), preventing data loss or missing weekly elevation totals.
@@ -32,7 +32,8 @@
 - **System-Regel GEMINI.md Sektion 6 implementiert (v9.24):** Anti-Absolutismus & Trade-Off-Direktive fest verankert (Verbot von Scheinsicherheiten wie „identisch“, „völlig ausreichend“, „Königsklasse“, „kein Verlust“; strikte Pflicht zum Ausweisen des physiologischen Preises/Kompromisses bei Vereinfachungen).
 - **Strategischer Rahmen 2027–2029 in Sektion 4.D verankert (v9.25):** Verbindlicher 3+1-Wochenrhythmus (3 Läufe / 25–30 km + 1 Studio-Krafttraining), 50/50-Longrun-Modell (Erkrath vs. Rhein ab Haustür), 2+1-Event-Gerüst (Belgenbach, Alpentrail im Familienurlaub, Drachenlauf + lokale 10er) und Trade-Off-/Periodisierungsregeln dokumentiert.
 - **KW 42 Kern-Longrun Erkrath geloggt (v9.27):** Sa 17.10 Longrun Erkrath (13,3 km · 333 Hm · 01:35:00 h · 116 bpm Ø · 7:09 min/km) erfasst, synchronisiert und in `defaultInitialRuns` / `runsData` hinterlegt. Wochenstand KW 42: 27,3 km · 421 Hm in 3 Einheiten.
-- **KW 42 Garmin-Präzisierung Sa 17.10 Longrun Erkrath (v9.28):** Realdaten anhand von Garmin-Aktivitätsdiagramm nachjustiert: Exakte Nettozeit 01:35:41 h (Pace 7:12 min/km), Ø 115 bpm (GA1), Max 158 bpm (isolierter Peak bei 1:16:33 h), Training Effect: 3,1 Aerob / 0,0 Anaerob. Null Laktat-Schuld, vollständige vagale Erholung in Abstiegen (Pulsabfall <105 bpm).
+- **KW 42 Garmin-Präzisierung Sa 17.10 Longrun Erkrath (v9.28):** Realdaten anhand von Garmin-Aktivitätsdiagramm nachjustiert: Exakte Nettozeit 01:35:41 h (Pace 7:12 min/km), Ø 115 bpm (GA1), Max 158 bpm (isolierter Peak bei 1:16:33 h), Training Effect: 3,1 Aerob / 0,0 Anaerob.
+- **Drachenlauf Modal 2-Phasen-Rennspielplan & Pacing-Freigabe (v9.29):** Detail-Modal für den Drachenlauf (KW 43 So 25.10) auf finalen Rennplan aktualisiert: KM 0–16 kontrolliert bei 120–125 bpm (Glykogensicherung an Ölberg & Löwenburg); Drachenfels-Uphill Freigabe 130–135 bpm; Drachenfels-Downhill als Laktat-Flush (<120 bpm); Petersberg-Schlussanstieg All-in im Power-Hiking (130–135 bpm, Deckel <140 bpm); 2,7 km sanfter Zielabstieg als Easy Rolling mit 5:30–5:45 min/km.
 
 ---
 
@@ -116,8 +117,12 @@ If the user logs a run or workout via Chrome browser that needs to be permanentl
   2. KM 8–13: +211.8 Hm Wellenklettern
   3. KM 17–19: +175.6 Hm Anstieg nach Tiefpunkt (78m)
   4. KM 22–24: +238.2 Hm Drachenfels-Schlussanstieg *(KM 22–23: +147.1 Hm auf 1 km!)*
-- **Target Time Plan & Uphill Strategy:** **3:45 bis 4:00 Std. (bei 7–10 °C & sonnig; Puffer bis 4:15 Std.)** 
-  - **Uphill Power-Hiking Sweetspot:** **105–118 bpm** (VT1-Sprechgrenze; Z2/Z3-Übergang bei 125–132 bpm strikt meiden). Steilanstiege frühzeitig sauber hiken.
+- **Target Time Plan & Uphill Strategy (2-Phasen-Pacing & Easy Rolling):** **3:45 bis 4:00 Std. (bei 7–10 °C & sonnig; Puffer bis 4:15 Std.)** 
+  - **Phase 1 (KM 0–16 · Ölberg & Löwenburg):** Uphill Power-Hiking kontrolliert bei **120–125 bpm** (Glykogenspeicher schonen, Laktat-Gleichgewicht wahren).
+  - **Drachenfels-Uphill (KM 16–18):** Erste Freigabe auf **130–135 bpm** im Power-Hiking.
+  - **Drachenfels-Downhill (KM 18–19):** Moderater, gut laufbarer Abstieg – als **„Laktat-Flush“** nutzen (Puls aktiv auf **<120 bpm** fallen lassen, Beine mit hoher Trittfrequenz rollen lassen, aerob Laktat abbauen). An VP 3 (km 16,5) und VP 4 (Drachenfels) Cola & Salzstangen tanken!
+  - **Phase 2 (KM 19–23,3 · Petersberg-Schlussanstieg):** Scharfrichter-Uphill mit **130–135 bpm** im maximalen Power-Hiking (Hand auf Oberschenkel). Energetisch den Tank leerfahren, aber **Pulsdeckel <140 bpm** strikt einhalten, um anaerobe Muskelkrämpfe/Blockaden zu verhindern.
+  - **Finish-Phase (KM 23,3–26 · Zielabstieg):** **Easy Rolling** – harmloses Gefälle (4–5 %) ohne Bremskräfte mit **5:30–5:45 min/km** aktiv und schmerzfrei ins Ziel laufen.
   - **6 Verpflegungsstationen (VPs) & Fueling (Lösung A):** VPs bei km 5, 11, 16.5, 18.5, 22.5 & 24. **Taktik:** 2x 500ml Flasks mit Malto (je 40–45g) in der Weste + Wasser & VP-Snacks (Bananen ab km 11, Salzstangen am Drachenfels, Cola ab km 16.5). Minimales Eigengewicht tragen!
   - **Tapering-Philosophie & Nuancierung (KW 41–43):**
     - **Prinzip:** Konservieren statt Aufbauen. Das Risiko am Renntag ist nicht ein Mangel an Höhenmetern, sondern Restermüdung in den Beinen.
@@ -127,7 +132,7 @@ If the user logs a run or workout via Chrome browser that needs to be permanentl
 - **Individuelle Pulskalibrierung (Athleten-Feedback):**
   - **Echtes GA1 / Sprechgrenze (VT1):** **105–118 bpm** (in diesem Fenster ist flüssige Unterhaltung problemlos möglich, siehe 110 bpm Läufe).
   - **GA2 / Übergangsbereich:** Ab **125–132 bpm** wird die Sprechgrenze überschritten (Vertiefung der Atmung, kein ruhiges Gespräch mehr).
-  - **Probedrachen-Ziel:** Flachpassagen bei **110–120 bpm** halten, Steilanstiege im Power-Hiking bei **120–125 bpm** deckeln.
+  - **Renntag-Pacing:** Flachpassagen bei **115–125 bpm** halten, Steilanstiege Phase 1 bei **120–125 bpm**, Phase 2 (Drachenfels & Petersberg) bei **130–135 bpm** (Deckel <140 bpm).
 
 ### C. Belgenbachtrail 30k (März 2027)
 - **GPX Track Analysis (`2026-BBT-StrongTrailDeluxe.gpx`):** 30,39 km · 941 Hm.
