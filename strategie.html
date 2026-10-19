@@ -12,15 +12,11 @@
   <style>
     :root {
       --bg: #000000;
-      --card-bg: #111418;
-      --card-hover: #161B22;
-      --border: rgba(255, 255, 255, 0.1);
-      --border-focus: rgba(255, 255, 255, 0.22);
       --text: #FFFFFF;
-      --text-secondary: rgba(255, 255, 255, 0.72);
-      --text-muted: rgba(255, 255, 255, 0.48);
+      --text-secondary: rgba(255, 255, 255, 0.78);
+      --text-muted: rgba(255, 255, 255, 0.5);
       --accent: #E5A024;
-      --accent-glow: rgba(229, 160, 36, 0.12);
+      --divider: rgba(255, 255, 255, 0.12);
     }
     * {
       box-sizing: border-box;
@@ -31,324 +27,193 @@
       background-color: var(--bg);
       color: var(--text);
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", sans-serif;
-      line-height: 1.5;
+      line-height: 1.6;
       letter-spacing: -0.015em;
       -webkit-font-smoothing: antialiased;
-      padding-bottom: 9rem;
+      padding-bottom: 10rem;
     }
 
-    /* TOP BAR */
-    header.apple-nav {
+    /* MINIMAL TOP NAV */
+    header.top-nav {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(0, 0, 0, 0.85);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 1.1rem 3rem;
+      padding: 1.25rem 2.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
-    .nav-title {
-      font-size: 1.15rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: #fff;
-    }
-    .nav-link {
-      color: var(--text-secondary);
-      font-size: 0.95rem;
-      font-weight: 500;
+    .top-nav a {
+      color: var(--text-muted);
       text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
       transition: color 0.2s;
     }
-    .nav-link:hover {
+    .top-nav a:hover {
       color: #fff;
     }
+    .top-nav span.title {
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
 
-    /* CONTAINER */
-    .cinematic-container {
-      max-width: 1140px;
+    /* EDITORIAL STORY CONTAINER */
+    .story-container {
+      max-width: 820px;
       margin: 0 auto;
-      padding: 0 2rem;
+      padding: 5rem 1.75rem 0;
       display: flex;
       flex-direction: column;
-      gap: 6.5rem;
+      gap: 5.5rem;
     }
 
-    /* 1. HERO */
-    .hero-stage {
-      padding-top: 4.5rem;
-      display: grid;
-      grid-template-columns: 1.25fr 0.95fr;
-      gap: 4rem;
-      align-items: center;
-    }
-    .kicker {
-      font-size: 1.2rem;
+    /* TYPOGRAPHY */
+    .time-label {
+      font-size: 1.35rem;
       font-weight: 800;
       color: var(--accent);
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      margin-bottom: 1.25rem;
+      letter-spacing: -0.01em;
+      margin-bottom: 1rem;
     }
-    h1.hero-title {
-      font-size: 4.5rem;
+    h1.main-title {
+      font-size: 4.4rem;
       font-weight: 900;
-      line-height: 1.04;
-      letter-spacing: -0.04em;
+      line-height: 1.05;
+      letter-spacing: -0.035em;
       color: #FFFFFF;
       margin-bottom: 2rem;
     }
-    p.hero-lead {
-      font-size: 1.55rem;
+    p.intro-lead {
+      font-size: 1.75rem;
       font-weight: 400;
       line-height: 1.45;
       color: var(--text-secondary);
-    }
-    .hero-media-wrap {
-      background: radial-gradient(circle at center, #1C232B 0%, #0D1117 75%);
-      border: 1px solid var(--border);
-      border-radius: 36px;
-      padding: 3rem 2rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 50px var(--accent-glow);
-    }
-    .hero-media-wrap img {
-      max-width: 100%;
-      height: auto;
-      max-height: 380px;
-      object-fit: contain;
-      filter: drop-shadow(0 15px 25px rgba(0,0,0,0.5));
-    }
-
-    /* SECTION HEADERS */
-    .section-header {
-      margin-bottom: 2.75rem;
-    }
-    h2.section-title {
-      font-size: 3.2rem;
-      font-weight: 900;
-      letter-spacing: -0.03em;
-      color: #FFFFFF;
-      line-height: 1.08;
-    }
-    p.section-subtitle {
-      font-size: 1.45rem;
-      font-weight: 400;
-      color: var(--text-secondary);
-      margin-top: 0.75rem;
-      max-width: 780px;
-      line-height: 1.4;
-    }
-
-    /* CARD STYLES */
-    .cinema-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 32px;
-      padding: 3.5rem 3rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: border-color 0.3s, background-color 0.3s;
-    }
-    .cinema-card:hover {
-      background: var(--card-hover);
-      border-color: var(--border-focus);
-    }
-    .entries-list {
-      display: flex;
-      flex-direction: column;
-      gap: 2.25rem;
-    }
-    .entry-item h3 {
-      font-size: 1.4rem;
-      font-weight: 800;
-      color: #FFFFFF;
-      margin-bottom: 0.4rem;
-      letter-spacing: -0.015em;
-    }
-    .entry-item p {
-      font-size: 1.2rem;
-      color: var(--text-secondary);
-      line-height: 1.5;
-    }
-    .card-footer-quote {
-      margin-top: 2.75rem;
-      padding-top: 1.75rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: var(--accent);
-    }
-
-    /* 2. WOCHEN-GRID */
-    .week-split-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2.5rem;
-    }
-
-    /* 3. EVENT TILES */
-    .events-grid-cinema {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.75rem;
-    }
-    .event-card-cinema {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 28px;
-      padding: 2.75rem 2.25rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 380px;
-      transition: transform 0.25s, border-color 0.25s;
-    }
-    .event-card-cinema:hover {
-      transform: translateY(-4px);
-      border-color: var(--border-focus);
-    }
-    .event-top-tag {
-      font-size: 1.35rem;
-      font-weight: 900;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      margin-bottom: 0.75rem;
-    }
-    .event-card-title {
-      font-size: 1.75rem;
-      font-weight: 800;
-      color: #FFFFFF;
-      line-height: 1.15;
-      margin-bottom: 0.5rem;
       letter-spacing: -0.02em;
     }
-    .event-card-meta {
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: var(--text-secondary);
-      margin-bottom: 1.5rem;
+
+    /* STORY CHAPTERS */
+    section.story-chapter {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
     }
-    .event-card-body {
-      font-size: 1.15rem;
-      color: var(--text-muted);
+    h2.chapter-title {
+      font-size: 2.6rem;
+      font-weight: 900;
+      letter-spacing: -0.025em;
+      color: #FFFFFF;
+      line-height: 1.15;
+    }
+    p.chapter-intro {
+      font-size: 1.45rem;
+      color: var(--text-secondary);
       line-height: 1.5;
     }
 
-    /* 4. WAS WIR DAVON HABEN (STAGE) */
-    .stage-benefits {
-      background: radial-gradient(ellipse at top left, #1A212B 0%, #0D1015 100%);
-      border: 1px solid var(--border);
-      border-radius: 40px;
-      padding: 4.5rem 4rem;
-      display: grid;
-      grid-template-columns: 1.2fr 0.95fr;
-      gap: 4rem;
-      align-items: center;
-    }
-    .stage-benefits-content h2 {
-      font-size: 3.4rem;
-      font-weight: 900;
-      letter-spacing: -0.03em;
-      color: #FFFFFF;
-      line-height: 1.05;
-      margin-bottom: 2.5rem;
-    }
-    .benefits-rows {
+    /* ENTRIES (NO CARDS, CLEAN TEXT FLOW) */
+    .story-entry {
       display: flex;
       flex-direction: column;
-      gap: 2.5rem;
+      gap: 0.5rem;
+      margin-top: 1rem;
     }
-    .benefit-row h3 {
+    .story-entry h3 {
       font-size: 1.5rem;
       font-weight: 800;
-      color: var(--accent);
-      margin-bottom: 0.5rem;
+      color: #FFFFFF;
       letter-spacing: -0.015em;
     }
-    .benefit-row p {
-      font-size: 1.25rem;
+    .story-entry p {
+      font-size: 1.35rem;
       color: var(--text-secondary);
-      line-height: 1.5;
+      line-height: 1.55;
     }
-    .stage-benefits-media {
+
+    /* SPECIAL STATEMENTS / TAKEAWAYS */
+    .story-highlight {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.45;
+      margin-top: 1.25rem;
+    }
+
+    /* CINEMATIC MEDIA (LARGE, UNFRAMED, CLEAN) */
+    .media-stage {
+      width: 100%;
+      margin: 2rem 0;
       display: flex;
       justify-content: center;
       align-items: center;
-      background: #000;
-      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 28px;
       overflow: hidden;
-      box-shadow: 0 25px 60px rgba(0,0,0,0.8);
+      background: #0A0D12;
     }
-    .stage-benefits-media img {
+    .media-stage img {
       width: 100%;
-      height: 100%;
-      max-height: 440px;
+      height: auto;
+      max-height: 520px;
       object-fit: cover;
       display: block;
     }
 
-    /* 5. FINALE OUTRO */
-    .finale-outro {
-      text-align: center;
-      padding: 4rem 1.5rem 1rem;
-      max-width: 880px;
-      margin: 0 auto;
-    }
-    .finale-outro h3 {
-      font-size: 2.4rem;
-      font-weight: 900;
-      color: #FFFFFF;
-      letter-spacing: -0.025em;
-      line-height: 1.25;
-      margin-bottom: 1.25rem;
-    }
-    .finale-outro p {
-      font-size: 1.45rem;
-      color: var(--text-secondary);
-      line-height: 1.45;
+    /* SEPARATOR */
+    hr.story-divider {
+      border: 0;
+      height: 1px;
+      background: var(--divider);
+      margin: 1rem 0;
     }
 
-    @media (max-width: 960px) {
-      header.apple-nav {
-        padding: 1rem 1.5rem;
+    /* FINALE */
+    .story-finale {
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+      padding-top: 1rem;
+    }
+    .story-finale p.finale-main {
+      font-size: 1.75rem;
+      font-weight: 500;
+      line-height: 1.45;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+    .story-finale p.finale-strong {
+      font-size: 1.85rem;
+      font-weight: 800;
+      line-height: 1.4;
+      color: var(--accent);
+      letter-spacing: -0.02em;
+    }
+
+    @media (max-width: 768px) {
+      header.top-nav {
+        padding: 1rem 1.25rem;
       }
-      .cinematic-container {
-        padding: 0 1.25rem;
-        gap: 4.5rem;
+      .story-container {
+        padding: 3rem 1.25rem 0;
+        gap: 4rem;
       }
-      .hero-stage, .stage-benefits {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-      }
-      h1.hero-title {
+      h1.main-title {
         font-size: 3.2rem;
       }
-      h2.section-title, .stage-benefits-content h2 {
-        font-size: 2.4rem;
+      h2.chapter-title {
+        font-size: 2.1rem;
       }
-      p.hero-lead, p.section-subtitle {
-        font-size: 1.25rem;
+      p.intro-lead, .story-finale p.finale-main, .story-finale p.finale-strong {
+        font-size: 1.4rem;
       }
-      .week-split-grid, .events-grid-cinema {
-        grid-template-columns: 1fr;
+      .story-entry h3 {
+        font-size: 1.3rem;
       }
-      .cinema-card, .stage-benefits {
-        padding: 2.5rem 1.75rem;
-      }
-      .finale-outro h3 {
-        font-size: 1.85rem;
-      }
-      .finale-outro p {
+      .story-entry p, p.chapter-intro {
         font-size: 1.2rem;
       }
     }
@@ -356,169 +221,138 @@
 </head>
 <body>
 
-  <!-- TOP BAR -->
-  <header class="apple-nav">
-    <div class="nav-title">Laufen, Berge & Familie</div>
-    <a href="index.html" class="nav-link">← Trainings-Coach</a>
+  <!-- MINIMAL HEADER -->
+  <header class="top-nav">
+    <span class="title">Laufen, Berge & Familie</span>
+    <a href="index.html">← Trainings-Coach</a>
   </header>
 
-  <main class="cinematic-container">
+  <main class="story-container">
 
-    <!-- 1. HERO -->
-    <section class="hero-stage">
-      <div class="hero-text">
-        <div class="kicker">2027–2030 – Unsere nächsten vier Jahre</div>
-        <h1 class="hero-title">Laufen, Berge<br>& Familie.</h1>
-        <p class="hero-lead">
-          Laufen, Berge und vor allem Zeit miteinander. Wir wollen gesund und beweglich bleiben, Verletzungen möglichst vermeiden und noch viele schöne Bergerlebnisse zusammen haben – am besten bis ins hohe Alter.
-        </p>
+    <!-- INTRO -->
+    <section class="story-chapter">
+      <div>
+        <div class="time-label">2027–2030 – Die nächsten vier Jahre</div>
+        <h1 class="main-title">Laufen, Berge<br>& Familie</h1>
       </div>
-      <div class="hero-media-wrap">
+      <p class="intro-lead">
+        Ich möchte fit und gesund bleiben, gerne laufen gehen und noch viele schöne Tage mit euch in den Bergen verbringen. Und das möglichst lange, ohne ständig irgendwelche Wehwehchen zu haben.
+      </p>
+      <div class="media-stage">
         <img src="assets/homer_running.gif" alt="Homer Simpson Running">
       </div>
     </section>
 
-    <!-- 2. SO SIEHT MEINE WOCHE AUS -->
-    <section>
-      <div class="section-header">
-        <h2 class="section-title">So sieht meine Woche aus</h2>
-        <p class="section-subtitle">
-          Der Sport findet möglichst früh am Morgen statt. So bleibt der Rest des Tages für uns und unsere gemeinsamen Pläne.
-        </p>
+    <!-- KAPITEL 1: WOCHE -->
+    <section class="story-chapter">
+      <h2 class="chapter-title">So sieht meine Woche aus</h2>
+      <p class="chapter-intro">
+        Ich gehe morgens laufen oder ins Fitnessstudio. Dann ist das erledigt und wir haben den Rest des Tages für uns.
+      </p>
+
+      <div class="story-entry">
+        <h3>Dienstag: Hügel in Erkrath · 7–8 km</h3>
+        <p>Ein bisschen bergauf laufen und an meiner Kondition arbeiten. Danach geht’s zur Arbeit.</p>
       </div>
 
-      <div class="cinema-card">
-        <div class="entries-list">
-          <div class="entry-item">
-            <h3>Dienstag: Hügel in Erkrath · 7–8 km</h3>
-            <p>Ein bisschen bergauf, an der Kraft und am Laufstil arbeiten. Und rechtzeitig vor der Arbeit wieder zu Hause sein.</p>
-          </div>
-          <div class="entry-item">
-            <h3>Donnerstag: Rheinrunde · 7–8 km</h3>
-            <p>Locker laufen, frische Luft tanken und den Kopf frei bekommen.</p>
-          </div>
-          <div class="entry-item">
-            <h3>Freitag: Krafttraining · 45 Minuten</h3>
-            <p>Etwas für die Beine, die Achillessehne, die Knie und den Rücken tun. Damit ich möglichst lange fit bleibe und mir nicht ständig irgendwas wehtut.</p>
-          </div>
-        </div>
-        <div class="card-footer-quote">
-          Zwischen den Einheiten ist genug Zeit zum Erholen.
-        </div>
+      <div class="story-entry">
+        <h3>Donnerstag: Runde am Rhein · 7–8 km</h3>
+        <p>Ganz entspannt laufen, frische Luft schnappen und den Kopf freibekommen.</p>
+      </div>
+
+      <div class="story-entry">
+        <h3>Freitag: Fitnessstudio · 45 Minuten</h3>
+        <p>Ein bisschen Krafttraining, damit Beine, Knie und Rücken fit bleiben und ich möglichst lange ohne Schmerzen laufen kann.</p>
+      </div>
+
+      <p class="story-highlight">
+        Zwischen den Trainingstagen ist genug Zeit zum Ausruhen.
+      </p>
+    </section>
+
+    <!-- KAPITEL 2: WOCHENENDE -->
+    <section class="story-chapter">
+      <h2 class="chapter-title">Am Wochenende im Wechsel</h2>
+
+      <div class="story-entry">
+        <h3>Eine Woche: Wald und Berge in Erkrath</h3>
+        <p>12–14 km durch den Wald, mit ein paar Höhenmetern. Ich starte früh und bin wieder zurück, bevor der Tag richtig losgeht.</p>
+      </div>
+
+      <div class="story-entry">
+        <h3>Die nächste Woche: Rheinrunde ab Haustür</h3>
+        <p>12–14 km ganz gemütlich am Rhein entlang. Ohne Autofahrt und rechtzeitig zurück zum gemeinsamen Frühstück.</p>
+      </div>
+
+      <p class="story-highlight">
+        So habe ich meinen Sport, aber wir verlieren nicht ständig das ganze Wochenende dafür.
+      </p>
+    </section>
+
+    <!-- KAPITEL 3: VIER LÄUFE -->
+    <section class="story-chapter">
+      <h2 class="chapter-title">Vier Läufe, auf die ich mich freue</h2>
+      <p class="chapter-intro">
+        Ein paar schöne Ziele im Jahr, auf die ich mich vorbereiten kann. Und die sich gut mit unserer Freizeit und dem Urlaub verbinden lassen.
+      </p>
+
+      <div class="story-entry">
+        <h3>März – Belgenbachtrail</h3>
+        <p>30 km durch die Eifel, mit 940 Höhenmetern. Ein schöner Ausflug und ein erster Test, wie fit ich nach dem Winter bin.</p>
+      </div>
+
+      <div class="story-entry">
+        <h3>Juli – Laufen in den Alpen</h3>
+        <p>15–20 km in Tirol. Ich laufe durch die Berge und ihr fahrt mit der Gondel zur Alm. Mittags treffen wir uns auf einer Hütte und essen zusammen etwas. So haben alle etwas davon.</p>
+      </div>
+
+      <div class="story-entry">
+        <h3>Oktober – Drachenlauf</h3>
+        <p>26 km und 1.050 Höhenmeter im Siebengebirge. Eine schöne Strecke rund um Löwenburg und Petersberg.</p>
+      </div>
+
+      <div class="story-entry">
+        <h3>November – Martinslauf</h3>
+        <p>10 km vor der Haustür. Einfach mitmachen, wenn ich Lust habe. Ohne großen Aufwand und ohne Druck.</p>
       </div>
     </section>
 
-    <!-- 3. AM WOCHENENDE: MAL BERGE, MAL RHEIN -->
-    <section>
-      <div class="section-header">
-        <h2 class="section-title">Am Wochenende: mal Berge, mal Rhein</h2>
-        <p class="section-subtitle">
-          Wir wechseln einfach von Woche zu Woche. So bleibt es abwechslungsreich, ohne dass gleich jedes Wochenende komplett verplant ist.
-        </p>
+    <!-- KAPITEL 4: WAS MIR WICHTIG IST -->
+    <section class="story-chapter">
+      <h2 class="chapter-title">Was mir dabei wichtig ist</h2>
+
+      <div class="story-entry">
+        <h3>Dass wir genug Zeit füreinander haben.</h3>
+        <p>Ich möchte meinen Sport morgens machen, damit wir den Tag gemeinsam verbringen können. Für Ausflüge, Urlaub und alles, worauf wir Lust haben.</p>
       </div>
 
-      <div class="week-split-grid">
-        <div class="cinema-card">
-          <div class="entries-list">
-            <div class="entry-item">
-              <h3>Woche A: Trails in Erkrath</h3>
-              <p>12–14 km durch den Wald, mit ungefähr 300 Höhenmetern. Früh los, die Natur genießen und den Rest des Tages gemeinsam verbringen.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="cinema-card">
-          <div class="entries-list">
-            <div class="entry-item">
-              <h3>Woche B: Rheinrunde ab Haustür</h3>
-              <p>12–14 km ganz entspannt am Rhein entlang. Ohne Autofahrt und rechtzeitig zurück, damit wir zusammen frühstücken können.</p>
-            </div>
-          </div>
-        </div>
+      <div class="story-entry">
+        <h3>Dass ich gesund und beweglich bleibe.</h3>
+        <p>Ich möchte auch in vielen Jahren noch gut zu Fuß sein, laufen können und mit euch wandern gehen. Dafür mache ich auch mein Krafttraining.</p>
       </div>
 
-      <div style="margin-top: 2rem; font-size: 1.35rem; font-weight: 700; color: var(--accent); text-align: center;">
-        Das Wichtigste: Der Sport soll zu unserem Leben passen – nicht umgekehrt.
-      </div>
-    </section>
-
-    <!-- 4. VIER SCHÖNE LAUFZIELE IM JAHR -->
-    <section>
-      <div class="section-header">
-        <h2 class="section-title">Vier schöne Laufziele im Jahr</h2>
-        <p class="section-subtitle">
-          Ein paar feste Termine, auf die ich mich freuen kann. Und die sich gut mit unserer Freizeit und dem Urlaub verbinden lassen.
-        </p>
+      <div class="story-entry">
+        <h3>Dass wir zusammen schöne Dinge erleben.</h3>
+        <p>Berge, Seen, schöne Wanderwege und gemütliche Hütten. Im Urlaub möchte ich nicht nur laufen, sondern vor allem mit euch unterwegs sein und die Zeit genießen.</p>
       </div>
 
-      <div class="events-grid-cinema">
-        <div class="event-card-cinema">
-          <div>
-            <div class="event-top-tag">März</div>
-            <div class="event-card-title">Belgenbachtrail</div>
-            <div class="event-card-meta">30 km · 940 Höhenmeter</div>
-          </div>
-          <p class="event-card-body">Ein schöner Ausflug in die Eifel und ein erster Formtest nach dem Winter.</p>
-        </div>
-
-        <div class="event-card-cinema">
-          <div>
-            <div class="event-top-tag">Juli</div>
-            <div class="event-card-title">Ein Alpentrail im Urlaub</div>
-            <div class="event-card-meta">15–20 km · Tirol</div>
-          </div>
-          <p class="event-card-body">Ich laufe durch die Berge, während die Familie mit der Gondel zur Alm fährt. Mittags treffen wir uns auf einer Hütte und genießen gemeinsam die Aussicht und eine Jause.</p>
-        </div>
-
-        <div class="event-card-cinema">
-          <div>
-            <div class="event-top-tag">Oktober</div>
-            <div class="event-card-title">Drachenlauf</div>
-            <div class="event-card-meta">26 km · 1.050 Höhenmeter</div>
-          </div>
-          <p class="event-card-body">Mein Herbst-Highlight im Siebengebirge. Schöne Trails, tolle Aussichten.</p>
-        </div>
-
-        <div class="event-card-cinema">
-          <div>
-            <div class="event-top-tag">November</div>
-            <div class="event-card-title">z. B. Martinslauf</div>
-            <div class="event-card-meta">10 km</div>
-          </div>
-          <p class="event-card-body">Ein lockerer Lauf vor der Haustür. Ohne großen Trainingsplan und ohne Stress – einfach mitmachen, wenn es passt.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- 5. WAS WIR DAVON HABEN -->
-    <section class="stage-benefits">
-      <div class="stage-benefits-content">
-        <h2>Was wir davon haben</h2>
-        <div class="benefits-rows">
-          <div class="benefit-row">
-            <h3>Mehr Zeit füreinander</h3>
-            <p>Ich erledige meinen Sport früh am Morgen. Der Tag bleibt frei für uns, für Ausflüge, Urlaub und alles, worauf wir Lust haben.</p>
-          </div>
-          <div class="benefit-row">
-            <h3>Länger gesund und beweglich bleiben</h3>
-            <p>Mit regelmäßigem Laufen und Krafttraining tue ich etwas für meine Gesundheit. Ich möchte fit bleiben, mich gut bewegen können und möglichst lange ohne Schmerzen durchs Leben gehen.</p>
-          </div>
-          <div class="benefit-row">
-            <h3>Gemeinsam schöne Orte entdecken</h3>
-            <p>Berge, Seen, Wanderwege und gemütliche Hütten. Wir verbinden den Sport mit Reisen und Erlebnissen, die uns allen Spaß machen.</p>
-          </div>
-        </div>
-      </div>
-      <div class="stage-benefits-media">
+      <div class="media-stage">
         <img src="assets/simpsons_end.gif" alt="The Simpsons Ending">
       </div>
     </section>
 
-    <!-- 6. FINALE -->
-    <div class="finale-outro">
-      <h3>„Fit bleiben, die Berge genießen und möglichst viel schöne Zeit miteinander verbringen – heute und noch viele Jahre lang.“</h3>
-      <p>Der Sport ist ein Teil davon. Die gemeinsame Zeit ist das, worum es eigentlich geht.</p>
-    </div>
+    <hr class="story-divider">
+
+    <!-- KAPITEL 5: DARUM GEHT'S EIGENTLICH -->
+    <section class="story-finale">
+      <h2 class="chapter-title">Darum geht’s eigentlich</h2>
+      <p class="finale-main">
+        Ich möchte gerne laufen, die Berge genießen und dabei fit bleiben. Aber genauso wichtig ist mir, dass wir viel zusammen unternehmen und noch viele schöne Jahre miteinander haben.
+      </p>
+      <p class="finale-strong">
+        Sport soll unser Leben schöner machen – und nicht dafür sorgen, dass wir weniger Zeit füreinander haben.
+      </p>
+    </section>
 
   </main>
 
