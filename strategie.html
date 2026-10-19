@@ -142,6 +142,14 @@
     }
 
     /* TYPOGRAPHY UNDER HERO */
+    h2.section-heading {
+      font-size: 2.75rem;
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: #FFFFFF;
+      margin-bottom: 0.75rem;
+    }
     .time-label {
       font-size: 1.05rem;
       font-weight: 600;
@@ -207,21 +215,6 @@
     }
 
     /* WEEKEND SECTION */
-    .weekend-block {
-      margin-top: 3rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--line);
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-    .weekend-block h3.weekend-title {
-      font-size: 1.85rem;
-      font-weight: 900;
-      color: #FFFFFF;
-      letter-spacing: -0.025em;
-      margin-bottom: 0.25rem;
-    }
     .weekend-structure {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -364,6 +357,9 @@
       .hero-banner-3x2 h2.hero-chapter-title {
         font-size: 2rem;
       }
+      h2.section-heading {
+        font-size: 2rem;
+      }
       p.intro-lead, .story-finale p.finale-main, .story-finale p.finale-strong {
         font-size: 1.25rem;
       }
@@ -404,16 +400,9 @@
       </p>
     </section>
 
-    <!-- 2. DIE WOCHE (HERO BANNER 3:2 IM SATZSPIEGEL) -->
+    <!-- 2. DIE WOCHE (TEXT SECTION) -->
     <section class="story-chapter">
-      <div class="hero-banner-3x2">
-        <img src="assets/homer_wochenplan.gif" alt="Homer Simpson Training" class="hero-bg">
-        <div class="hero-gradient-overlay"></div>
-        <div class="hero-text-wrap">
-          <h2 class="hero-chapter-title">So sieht meine Woche aus</h2>
-        </div>
-      </div>
-
+      <h2 class="section-heading">So sieht meine Woche aus</h2>
       <p class="chapter-intro">
         Ich gehe morgens laufen oder ins Fitnessstudio. Dann ist das erledigt und wir haben den Rest des Tages für uns.
       </p>
@@ -452,32 +441,38 @@
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- WOCHENENDE -->
-      <div class="weekend-block">
-        <h3 class="weekend-title">Am Wochenende im Wechsel</h3>
+    <!-- 3. AM WOCHENENDE (HERO BANNER 3:2 IM SATZSPIEGEL) -->
+    <section class="story-chapter">
+      <div class="hero-banner-3x2">
+        <img src="assets/homer_wochenplan.gif" alt="Homer Simpson Training" class="hero-bg">
+        <div class="hero-gradient-overlay"></div>
+        <div class="hero-text-wrap">
+          <h2 class="hero-chapter-title">Am Wochenende im Wechsel</h2>
+        </div>
+      </div>
 
-        <div class="weekend-structure">
-          <div class="weekend-col">
-            <span class="subline">Eine Woche · Höhenmeter</span>
-            <h4>Wald und Berge in Erkrath</h4>
-            <p>12–14 km durch den Wald, mit ein paar Höhenmetern. Ich starte früh und bin wieder zurück, bevor der Tag richtig losgeht.</p>
-          </div>
-
-          <div class="weekend-col">
-            <span class="subline">Die nächste Woche · Haustür</span>
-            <h4>Rheinrunde ab Haustür</h4>
-            <p>12–14 km ganz gemütlich am Rhein entlang. Ohne Autofahrt und rechtzeitig zurück zum gemeinsamen Frühstück.</p>
-          </div>
+      <div class="weekend-structure">
+        <div class="weekend-col">
+          <span class="subline">Eine Woche · Höhenmeter</span>
+          <h4>Wald und Berge in Erkrath</h4>
+          <p>12–14 km durch den Wald, mit ein paar Höhenmetern. Ich starte früh und bin wieder zurück, bevor der Tag richtig losgeht.</p>
         </div>
 
-        <div class="key-statement">
-          So habe ich meinen Sport, aber wir verlieren nicht ständig das ganze Wochenende dafür.
+        <div class="weekend-col">
+          <span class="subline">Die nächste Woche · Haustür</span>
+          <h4>Rheinrunde ab Haustür</h4>
+          <p>12–14 km ganz gemütlich am Rhein entlang. Ohne Autofahrt und rechtzeitig zurück zum gemeinsamen Frühstück.</p>
         </div>
+      </div>
+
+      <div class="key-statement">
+        So habe ich meinen Sport, aber wir verlieren nicht ständig das ganze Wochenende dafür.
       </div>
     </section>
 
-    <!-- 3. DIE LÄUFE (HERO BANNER 3:2 IM SATZSPIEGEL) -->
+    <!-- 4. DIE LÄUFE (HERO BANNER 3:2 IM SATZSPIEGEL) -->
     <section class="story-chapter">
       <div class="hero-banner-3x2">
         <img src="assets/homer_apu_climb.gif" alt="Homer und Apu in den Bergen" class="hero-bg">
@@ -522,7 +517,7 @@
       </div>
     </section>
 
-    <!-- 4. WAS MIR WICHTIG IST (HERO BANNER 3:2 IM SATZSPIEGEL) -->
+    <!-- 5. WAS MIR WICHTIG IST (HERO BANNER 3:2 IM SATZSPIEGEL) -->
     <section class="story-chapter">
       <div class="hero-banner-3x2">
         <img src="assets/simpsons_end.gif" alt="The Simpsons Ending" class="hero-bg">
