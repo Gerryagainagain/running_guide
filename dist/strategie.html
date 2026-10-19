@@ -4,19 +4,23 @@
   <meta charset="UTF-8">
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
   <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
-  <title>Laufen, Berge & Familie // 4-Jahres-Plan (2027–2030)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laufen, Berge & Familie // 2027–2030</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      --navy: #1C232B;
-      --gold: #EAA838;
-      --bg: #F4F5F7;
-      --card-bg: #FFFFFF;
-      --border: #E2E8F0;
-      --text: #1A202C;
-      --muted: #4A5568;
+      --bg: #000000;
+      --card-bg: #111418;
+      --card-hover: #161B22;
+      --border: rgba(255, 255, 255, 0.1);
+      --border-focus: rgba(255, 255, 255, 0.22);
+      --text: #FFFFFF;
+      --text-secondary: rgba(255, 255, 255, 0.65);
+      --text-muted: rgba(255, 255, 255, 0.45);
+      --accent: #E5A024;
+      --accent-glow: rgba(229, 160, 36, 0.15);
     }
     * {
       box-sizing: border-box;
@@ -24,495 +28,493 @@
       padding: 0;
     }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
       background-color: var(--bg);
       color: var(--text);
-      line-height: 1.5;
-      padding-bottom: 5rem;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", sans-serif;
+      line-height: 1.45;
+      letter-spacing: -0.01em;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 8rem;
     }
 
-    /* HEADER */
-    header.nav-header {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+    /* TOP BAR */
+    header.apple-nav {
       position: sticky;
       top: 0;
       z-index: 100;
-      border-bottom: 1px solid var(--border);
-      padding: 1rem 2rem;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 1.1rem 3rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-    .brand-title {
-      font-weight: 800;
-      font-size: 1.25rem;
-      color: var(--navy);
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-    .brand-badge {
-      background: var(--gold);
-      color: var(--navy);
-      font-size: 0.9rem;
-      font-weight: 800;
-      padding: 0.25rem 0.75rem;
-      border-radius: 999px;
-      letter-spacing: 0.02em;
-    }
-    .btn-back {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.6rem 1.2rem;
-      font-size: 0.95rem;
+    .nav-title {
+      font-size: 1.1rem;
       font-weight: 700;
-      border-radius: 10px;
-      text-decoration: none;
-      background: var(--navy);
-      color: #fff;
-      transition: opacity 0.2s;
-    }
-    .btn-back:hover {
-      opacity: 0.9;
-    }
-
-    /* CONTAINER */
-    .container {
-      max-width: 1080px;
-      margin: 2.5rem auto;
-      padding: 0 1.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 3rem;
-    }
-
-    /* SLIDE CARD */
-    .slide-card {
-      background: var(--card-bg);
-      border-radius: 24px;
-      border: 1px solid var(--border);
-      box-shadow: 0 12px 35px rgba(0,0,0,0.05);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* CHART 1: HERO */
-    .chart-1-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      min-height: 500px;
-    }
-    .chart-1-content {
-      padding: 3.5rem 3rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .plan-tag {
-      font-size: 1.05rem;
-      font-weight: 800;
-      color: var(--gold);
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      margin-bottom: 0.75rem;
-    }
-    h1.hero-headline {
-      font-size: 3.4rem;
-      line-height: 1.08;
-      font-weight: 900;
-      color: var(--navy);
-      margin-bottom: 1.5rem;
       letter-spacing: -0.02em;
+      color: #fff;
     }
-    .core-statement {
-      font-size: 1.35rem;
-      line-height: 1.45;
-      font-weight: 600;
-      color: var(--text);
-      background: #F8F9FA;
-      border-left: 5px solid var(--gold);
-      padding: 1.4rem 1.6rem;
-      border-radius: 0 14px 14px 0;
+    .nav-link {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-link:hover {
+      color: #fff;
+    }
+
+    /* LAYOUT CONTAINER */
+    .cinematic-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 6rem;
+    }
+
+    /* HERO STAGE */
+    .hero-stage {
+      padding-top: 4rem;
+      display: grid;
+      grid-template-columns: 1.25fr 0.95fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .kicker {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1.25rem;
+    }
+    h1.hero-title {
+      font-size: 4.6rem;
+      font-weight: 900;
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      color: #FFFFFF;
       margin-bottom: 2rem;
     }
-    .pills-row {
+    p.hero-lead {
+      font-size: 1.65rem;
+      font-weight: 400;
+      line-height: 1.4;
+      color: var(--text-secondary);
+      max-width: 580px;
+    }
+    .hero-media-wrap {
+      background: radial-gradient(circle at center, #1C232B 0%, #0D1117 75%);
+      border: 1px solid var(--border);
+      border-radius: 36px;
+      padding: 3rem 2rem;
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
-    .pill {
-      display: inline-flex;
+      justify-content: center;
       align-items: center;
-      padding: 0.6rem 1.1rem;
-      font-size: 0.95rem;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 50px var(--accent-glow);
+    }
+    .hero-media-wrap img {
+      max-width: 100%;
+      height: auto;
+      max-height: 380px;
+      object-fit: contain;
+      filter: drop-shadow(0 15px 25px rgba(0,0,0,0.5));
+    }
+
+    /* SECTION TITLES */
+    .section-header {
+      margin-bottom: 2.5rem;
+    }
+    .section-kicker {
+      font-size: 1.05rem;
       font-weight: 700;
-      border-radius: 999px;
-      background: #EDF2F7;
-      color: var(--navy);
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.5rem;
     }
-    .pill.pill-gold {
-      background: var(--gold);
-      color: var(--navy);
-    }
-    .chart-1-image {
-      background-image: url('assets/homer_running.gif');
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-color: #FAF5E8;
-      min-height: 380px;
-    }
-
-    /* CARD HEADER */
-    .card-header-block {
-      padding: 2.75rem 3rem 1.25rem;
-    }
-    .card-title {
-      font-size: 2.3rem;
+    h2.section-title {
+      font-size: 3.2rem;
       font-weight: 900;
-      color: var(--navy);
-      letter-spacing: -0.01em;
+      letter-spacing: -0.03em;
+      color: #FFFFFF;
+      line-height: 1.08;
     }
-    .card-subtitle {
-      font-size: 1.2rem;
-      font-weight: 500;
-      color: var(--muted);
-      margin-top: 0.4rem;
+    p.section-subtitle {
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--text-secondary);
+      margin-top: 0.75rem;
     }
 
-    /* CHART 2: WOCHE */
-    .chart-2-grid {
+    /* CARD GRID: WOCHENPLAN */
+    .split-cards {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      padding: 1.5rem 3rem 3rem;
+      gap: 2.5rem;
     }
-    .week-box {
-      background: #F8F9FA;
-      border-radius: 18px;
+    .cinema-card {
+      background: var(--card-bg);
       border: 1px solid var(--border);
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1.75rem;
-    }
-    .box-title {
-      font-size: 1.15rem;
-      font-weight: 900;
-      color: var(--navy);
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-      border-bottom: 3px solid var(--gold);
-      padding-bottom: 0.75rem;
-    }
-    .plan-item h4 {
-      font-size: 1.2rem;
-      font-weight: 800;
-      color: var(--navy);
-      margin-bottom: 0.35rem;
-    }
-    .plan-item p {
-      font-size: 1.05rem;
-      color: var(--muted);
-      line-height: 1.45;
-    }
-    .bottom-promise {
-      background: var(--navy);
-      color: #fff;
-      padding: 1.25rem 3rem;
-      font-size: 1.1rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-    .bottom-promise span.icon {
-      color: var(--gold);
-      font-size: 1.3rem;
-    }
-
-    /* CHART 3: EVENTS */
-    .events-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-      padding: 1.5rem 3rem 3rem;
-    }
-    .event-tile {
-      background: #F8F9FA;
-      border-radius: 18px;
-      border: 1px solid var(--border);
-      padding: 1.75rem 1.5rem;
-      display: flex;
-      flex-direction: column;
-    }
-    .event-badge {
-      display: inline-block;
-      font-size: 1.1rem;
-      font-weight: 900;
-      color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
-      margin-bottom: 0.5rem;
-    }
-    .event-name {
-      font-size: 1.35rem;
-      font-weight: 800;
-      color: var(--navy);
-      line-height: 1.2;
-      margin-bottom: 0.5rem;
-    }
-    .event-km {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 0.75rem;
-    }
-    .event-text {
-      font-size: 1.0rem;
-      color: var(--muted);
-      line-height: 1.45;
-    }
-
-    /* CHART 4: FAZIT */
-    .chart-4-grid {
-      background: var(--navy);
-      color: #fff;
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-    }
-    .chart-4-content {
+      border-radius: 32px;
       padding: 3.5rem 3rem;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: space-between;
+      transition: border-color 0.3s, background-color 0.3s;
     }
-    .chart-4-content h2 {
-      font-size: 2.8rem;
-      font-weight: 900;
-      color: var(--gold);
-      margin-bottom: 0.75rem;
-      letter-spacing: -0.01em;
+    .cinema-card:hover {
+      background: var(--card-hover);
+      border-color: var(--border-focus);
     }
-    .chart-4-content p.lead {
-      font-size: 1.25rem;
-      color: rgba(255,255,255,0.85);
-      margin-bottom: 2rem;
+    .cinema-card-header {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 2.25rem;
+      letter-spacing: -0.02em;
     }
-    .benefits-stack {
+    .week-entries {
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 2rem;
     }
-    .benefit-card {
-      background: rgba(255,255,255,0.07);
-      border-left: 4px solid var(--gold);
-      padding: 1.25rem 1.5rem;
-      border-radius: 0 14px 14px 0;
-    }
-    .benefit-card h4 {
-      font-size: 1.2rem;
-      font-weight: 800;
-      color: var(--gold);
+    .week-row h3 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #fff;
       margin-bottom: 0.35rem;
     }
-    .benefit-card p {
-      font-size: 1.05rem;
-      color: rgba(255,255,255,0.9);
+    .week-row p {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
       line-height: 1.45;
     }
-    .chart-4-image {
-      background-image: url('assets/simpsons_end.gif');
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-color: #141920;
-      min-height: 400px;
-    }
-    .chart-4-banner {
-      background: #11161D;
-      padding: 1.35rem 3rem;
+    .card-footer-note {
+      margin-top: 2.5rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
       font-size: 1.15rem;
-      font-weight: 800;
-      color: var(--gold);
-      text-align: center;
-      grid-column: span 2;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      letter-spacing: 0.02em;
+      font-weight: 600;
+      color: var(--accent);
     }
 
-    @media (max-width: 860px) {
-      .chart-1-grid, .chart-4-grid {
+    /* EVENT TILES: 4 JAHRESHÖHEPUNKTE */
+    .events-cinema-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.75rem;
+    }
+    .event-cinema-tile {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 340px;
+      transition: transform 0.25s, border-color 0.25s;
+    }
+    .event-cinema-tile:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-focus);
+    }
+    .event-month-tag {
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.75rem;
+    }
+    .event-headline {
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      line-height: 1.15;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .event-distance {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 1.25rem;
+    }
+    .event-description {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    /* PROMISE BANNER */
+    .promise-block {
+      background: radial-gradient(ellipse at top left, #1A212B 0%, #0D1015 100%);
+      border: 1px solid var(--border);
+      border-radius: 36px;
+      padding: 4.5rem 4rem;
+      display: grid;
+      grid-template-columns: 1.2fr 0.95fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .promise-content h2 {
+      font-size: 3.4rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      color: #FFFFFF;
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+    }
+    .promise-content p.promise-lead {
+      font-size: 1.45rem;
+      color: var(--text-secondary);
+      margin-bottom: 3rem;
+      line-height: 1.4;
+    }
+    .benefits-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2.25rem;
+    }
+    .benefit-item-clean h3 {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.01em;
+    }
+    .benefit-item-clean p {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      line-height: 1.45;
+    }
+    .promise-media {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #000;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.8);
+    }
+    .promise-media img {
+      width: 100%;
+      height: 100%;
+      max-height: 420px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* BOTTOM FINALE */
+    .outro-statement {
+      text-align: center;
+      padding: 3rem 1rem 1rem;
+    }
+    .outro-statement h3 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      letter-spacing: -0.02em;
+    }
+    .outro-statement p {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+    }
+
+    @media (max-width: 960px) {
+      header.apple-nav {
+        padding: 1rem 1.5rem;
+      }
+      .cinematic-container {
+        padding: 0 1.25rem;
+        gap: 4rem;
+      }
+      .hero-stage, .promise-block {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      h1.hero-title {
+        font-size: 3.2rem;
+      }
+      h2.section-title, .promise-content h2 {
+        font-size: 2.4rem;
+      }
+      p.hero-lead, p.section-subtitle {
+        font-size: 1.25rem;
+      }
+      .split-cards, .events-cinema-grid {
         grid-template-columns: 1fr;
       }
-      .chart-2-grid, .events-grid {
-        grid-template-columns: 1fr;
-      }
-      .chart-1-content, .card-header-block, .chart-2-grid, .events-grid, .chart-4-content {
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
-      }
-      h1.hero-headline {
-        font-size: 2.5rem;
-      }
-      .card-title, .chart-4-content h2 {
-        font-size: 2rem;
-      }
-      .chart-4-banner {
-        grid-column: span 1;
+      .cinema-card, .promise-block {
+        padding: 2.5rem 1.75rem;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header class="nav-header">
-    <div class="brand-title">
-      <span>🏃‍♂️ LAUFEN, BERGE & FAMILIE</span>
-      <span class="brand-badge">2027–2030 // DIE NÄCHSTEN 4 JAHRE</span>
-    </div>
-    <div class="header-actions">
-      <a href="index.html" class="btn-back" title="Zurück zum Drachenlauf Training Coach">
-        ← Trainings-Coach
-      </a>
-    </div>
+  <!-- MINIMAL APPLE NAV -->
+  <header class="apple-nav">
+    <div class="nav-title">Laufen, Berge & Familie</div>
+    <a href="index.html" class="nav-link">← Trainings-Coach</a>
   </header>
 
-  <main class="container">
+  <main class="cinematic-container">
 
-    <!-- CHART 1: LEITMOTIV -->
-    <article class="slide-card">
-      <div class="chart-1-grid">
-        <div class="chart-1-content">
-          <div class="plan-tag">DIE NÄCHSTEN 4 JAHRE (2027–2030)</div>
-          <h1 class="hero-headline">LAUFEN, BERGE<br>& FAMILIE.</h1>
-          <div class="core-statement">
-            „Das Ziel ist nicht, mehr Kilometer zu bolzen – sondern schmerzfrei zu bleiben, Verletzungen zu vermeiden und wunderschöne Bergerlebnisse gemeinsam bis ins hohe Alter zu genießen.“
-          </div>
-          <div class="pills-row">
-            <span class="pill pill-gold">⏱ 0 Min. verlorene Familienzeit</span>
-            <span class="pill">🛡 100% Sehnen- & Gelenkschutz</span>
-            <span class="pill">⛰ Alpen & Mittelgebirge</span>
-          </div>
-        </div>
-        <div class="chart-1-image"></div>
+    <!-- 1. HERO STAGE -->
+    <section class="hero-stage">
+      <div class="hero-text">
+        <div class="kicker">2027 – 2030 // Die nächsten 4 Jahre</div>
+        <h1 class="hero-title">Laufen, Berge<br>& Familie.</h1>
+        <p class="hero-lead">
+          Schmerzfrei bleiben. Verletzungen vermeiden. Und wunderschöne Bergerlebnisse gemeinsam bis ins hohe Alter genießen.
+        </p>
       </div>
-    </article>
+      <div class="hero-media-wrap">
+        <img src="assets/homer_running.gif" alt="Homer Simpson Running">
+      </div>
+    </section>
 
-    <!-- CHART 2: WOCHE -->
-    <article class="slide-card">
-      <div class="card-header-block">
-        <h2 class="card-title">DIE WOCHE: DER „3+1“-PLAN.</h2>
-        <p class="card-subtitle">Frühsport vor dem Aufstehen – der Alltag mit der Familie bleibt zu 100% unberührt.</p>
+    <!-- 2. DIE WOCHE: DAS 3+1 SYSTEM -->
+    <section>
+      <div class="section-header">
+        <div class="section-kicker">Der Rhythmus</div>
+        <h2 class="section-title">Die Woche: Das „3+1“-System.</h2>
+        <p class="section-subtitle">Frühsport vor dem Aufstehen. Der Alltag mit der Familie bleibt vollkommen unberührt.</p>
       </div>
-      <div class="chart-2-grid">
-        <div class="week-box">
-          <div class="box-title">Unter der Woche (Di, Do, Fr)</div>
-          <div class="plan-item">
-            <h4>Dienstag: 7–8 km Hügel</h4>
-            <p>Schrittkadenz & Uphill-Kraft. Fertig vor 07:15 Uhr vor der Arbeit.</p>
-          </div>
-          <div class="plan-item">
-            <h4>Donnerstag: 7–8 km Rhein</h4>
-            <p>Reines GA1 im ruhigen Sprechtempo. Aktive Durchblutung und frische Luft.</p>
-          </div>
-          <div class="plan-item">
-            <h4>Freitag: 45 Min. Studio-Kraft</h4>
-            <p>Achillessehne, Knie- & Rumpfpanzerung – die wichtigste Einheit gegen Verletzungen!</p>
-          </div>
-        </div>
-        <div class="week-box">
-          <div class="box-title">Das Wochenende (50/50 Modell)</div>
-          <div class="plan-item">
-            <h4>Woche A: Erkrath (12–14 km / 300 Hm)</h4>
-            <p>20 Min. Fahrt. Trittsicherheit & Bergmuskulatur. Start frühmorgens um 06:30 Uhr.</p>
-          </div>
-          <div class="plan-item">
-            <h4>Woche B: Rhein ab Haustür (12–14 km flach)</h4>
-            <p>0 Min. Fahrtzeit. Fertig, wenn alle gemütlich aufstehen.</p>
-          </div>
-          <div class="plan-item">
-            <h4>Die eiserne 48h-Regel</h4>
-            <p>Mindestens 48 Stunden Pause zwischen Läufen. Keine chronische Restermüdung.</p>
-          </div>
-        </div>
-      </div>
-      <div class="bottom-promise">
-        <span class="icon">★</span>
-        <span>Zusicherung an die Familie: Kein Wochenende wird durch stundenlanges Laufen blockiert.</span>
-      </div>
-    </article>
 
-    <!-- CHART 3: ROADMAP -->
-    <article class="slide-card">
-      <div class="card-header-block">
-        <h2 class="card-title">DAS JAHR: DAS „2+1“-MODELL.</h2>
-        <p class="card-subtitle">Planbare Höhepunkte – fest eingebunden in Freizeit und gemeinsamen Sommerurlaub.</p>
-      </div>
-      <div class="events-grid">
-        <div class="event-tile">
-          <span class="event-badge">März</span>
-          <div class="event-name">Belgenbachtrail</div>
-          <div class="event-km">30 km · 940 Hm</div>
-          <p class="event-text">Frühjahrs-Formtest nach dem Winter. Ein schöner Tagestrip in die Eifelnatur.</p>
-        </div>
-        <div class="event-tile">
-          <span class="event-badge">Juli</span>
-          <div class="event-name">Alpentrail im Urlaub</div>
-          <div class="event-km">15–20 km (z. B. TS16)</div>
-          <p class="event-text">Start im Talort, Familie fährt mit Gondel zur Alm. Treffen zur Mittagsjause auf der Hütte!</p>
-        </div>
-        <div class="event-tile">
-          <span class="event-badge">Oktober</span>
-          <div class="event-name">Drachenlauf</div>
-          <div class="event-km">26 km · 1.050 Hm</div>
-          <p class="event-text">Das Herbst-Highlight im Siebengebirge. Tolle Stimmung an Löwenburg und Petersberg.</p>
-        </div>
-        <div class="event-tile">
-          <span class="event-badge">November</span>
-          <div class="event-name">Martinslauf 10k</div>
-          <div class="event-km">10 km Asphalt</div>
-          <p class="event-text">Lockerer Spontan-Lauf direkt vor der Haustür ohne jeden Vorbereitungsdruck.</p>
-        </div>
-      </div>
-      <div class="bottom-promise">
-        <span class="icon">🏔</span>
-        <span>Urlaubssynergie: Der Sommer-Trail ist Teil des Familienurlaubs – kein getrenntes Wochenende!</span>
-      </div>
-    </article>
-
-    <!-- CHART 4: FAZIT -->
-    <article class="slide-card">
-      <div class="chart-4-grid">
-        <div class="chart-4-content">
-          <h2>WAS WIR GEWINNEN.</h2>
-          <p class="lead">Unser Familien-Versprechen für die nächsten 4 Jahre:</p>
-          <div class="benefits-stack">
-            <div class="benefit-card">
-              <h4>✔ ZEIT FÜR UNS</h4>
-              <p>Läufe finden frühmorgens statt. Der gesamte Tag gehört der Familie und gemeinsamen Unternehmungen.</p>
-            </div>
-            <div class="benefit-card">
-              <h4>✔ DAUERHAFTE GESUNDHEIT</h4>
-              <p>Das Studio-Krafttraining schützt Achillessehne, Knie und Rücken. Papa bleibt verletzungsfrei und mobil.</p>
-            </div>
-            <div class="benefit-card">
-              <h4>✔ GEMEINSAME NATURERLEBNISSE</h4>
-              <p>Schöne Reiseziele mit Bergen, Seen und Hütten, an denen alle gemeinsame Freude haben.</p>
+      <div class="split-cards">
+        <div class="cinema-card">
+          <div>
+            <div class="cinema-card-header">Unter der Woche</div>
+            <div class="week-entries">
+              <div class="week-row">
+                <h3>Dienstag: 7–8 km Hügel</h3>
+                <p>Schrittfrequenz und Uphill-Kraft. Fertig vor 07:15 Uhr vor der Arbeit.</p>
+              </div>
+              <div class="week-row">
+                <h3>Donnerstag: 7–8 km Rhein</h3>
+                <p>Ruhiges Sprechtempo. Aktive Durchblutung und frische Luft am Morgen.</p>
+              </div>
+              <div class="week-row">
+                <h3>Freitag: 45 Min. Studio-Kraft</h3>
+                <p>Achillessehne, Knie- und Rumpfschutz. Die wichtigste Einheit gegen Verletzungen.</p>
+              </div>
             </div>
           </div>
+          <div class="card-footer-note">
+            Immer 48 Stunden Pause zwischen den Einheiten.
+          </div>
         </div>
-        <div class="chart-4-image"></div>
-        <div class="chart-4-banner">
-          ♥ GEMEINSAM FIT, GESUND & GLÜCKLICH BIS INS HOHE ALTER.
+
+        <div class="cinema-card">
+          <div>
+            <div class="cinema-card-header">Das Wochenende (50/50 Modell)</div>
+            <div class="week-entries">
+              <div class="week-row">
+                <h3>Woche A: Erkrath Trails</h3>
+                <p>12–14 km und 300 Höhenmeter. Start um 06:30 Uhr im Wald.</p>
+              </div>
+              <div class="week-row">
+                <h3>Woche B: Rhein ab Haustür</h3>
+                <p>12–14 km flach. Null Minuten Fahrtzeit, fertig zum gemeinsamen Frühstück.</p>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer-note">
+            Kein Wochenende wird durch stundenlanges Laufen blockiert.
+          </div>
         </div>
       </div>
-    </article>
+    </section>
+
+    <!-- 3. DAS JAHR: DIE 4 HÖHEPUNKTE -->
+    <section>
+      <div class="section-header">
+        <div class="section-kicker">Jahresplanung</div>
+        <h2 class="section-title">Vier Höhepunkte im Jahr.</h2>
+        <p class="section-subtitle">Planbare Erlebnisse – fest in Freizeit und Sommerurlaub verankert.</p>
+      </div>
+
+      <div class="events-cinema-grid">
+        <div class="event-cinema-tile">
+          <div>
+            <div class="event-month-tag">März</div>
+            <div class="event-headline">Belgenbachtrail</div>
+            <div class="event-distance">30 km · 940 Hm</div>
+          </div>
+          <p class="event-description">Frühjahrs-Formtest nach dem Winter. Ein Tagestrip in die Eifelnatur.</p>
+        </div>
+
+        <div class="event-cinema-tile">
+          <div>
+            <div class="event-month-tag">Juli</div>
+            <div class="event-headline">Alpentrail im Urlaub</div>
+            <div class="event-distance">15–20 km · Tirol</div>
+          </div>
+          <p class="event-description">Start im Talort, Familie fährt mit Gondel zur Alm. Treffen zur Mittagsjause auf der Hütte.</p>
+        </div>
+
+        <div class="event-cinema-tile">
+          <div>
+            <div class="event-month-tag">Oktober</div>
+            <div class="event-headline">Drachenlauf</div>
+            <div class="event-distance">26 km · 1.050 Hm</div>
+          </div>
+          <p class="event-description">Das Herbst-Highlight im Siebengebirge. Tolle Stimmung an Löwenburg und Petersberg.</p>
+        </div>
+
+        <div class="event-cinema-tile">
+          <div>
+            <div class="event-month-tag">November</div>
+            <div class="event-headline">Martinslauf</div>
+            <div class="event-distance">10 km Asphalt</div>
+          </div>
+          <p class="event-description">Lockerer Spontan-Lauf direkt vor der Haustür ohne jeden Vorbereitungsdruck.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. WAS WIR GEWINNEN -->
+    <section class="promise-block">
+      <div class="promise-content">
+        <h2>Was wir gewinnen.</h2>
+        <p class="promise-lead">Unser Versprechen für die nächsten vier Jahre.</p>
+        <div class="benefits-grid">
+          <div class="benefit-item-clean">
+            <h3>Zeit für uns</h3>
+            <p>Sport findet frühmorgens statt. Der gesamte Tag gehört der Familie und gemeinsamen Plänen.</p>
+          </div>
+          <div class="benefit-item-clean">
+            <h3>Dauerhafte Gesundheit</h3>
+            <p>Das gezielte Krafttraining schützt Sehnen, Knie und Rücken. Papa bleibt fit, beweglich und schmerzfrei.</p>
+          </div>
+          <div class="benefit-item-clean">
+            <h3>Gemeinsame Natur</h3>
+            <p>Schöne Reiseziele mit Bergen, Seen und Hütten, an denen alle Freude haben.</p>
+          </div>
+        </div>
+      </div>
+      <div class="promise-media">
+        <img src="assets/simpsons_end.gif" alt="The Simpsons Ending">
+      </div>
+    </section>
+
+    <!-- 5. OUTRO -->
+    <div class="outro-statement">
+      <h3>Gemeinsam fit, gesund und glücklich bis ins hohe Alter.</h3>
+      <p>Der verbindliche Rahmen für 2027 bis 2030.</p>
+    </div>
 
   </main>
 
