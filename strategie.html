@@ -72,7 +72,7 @@
     .story-container {
       max-width: 1040px;
       margin: 0 auto;
-      padding: 0 2rem;
+      padding: 3rem 2rem 0;
       display: flex;
       flex-direction: column;
       gap: 4.5rem;
@@ -84,23 +84,22 @@
       flex-direction: column;
     }
 
-    /* 3:1.5 FULL-BLEED HERO CHAPTER DIVIDER */
-    .hero-banner-fullbleed {
+    /* 3:2 HERO CHAPTER DIVIDER (IM SATZSPIEGEL) */
+    .hero-banner-3x2 {
       position: relative;
-      width: 100vw;
-      margin-left: calc(50% - 50vw);
-      margin-right: calc(50% - 50vw);
-      aspect-ratio: 3 / 1.5; /* Genau 3:1,5 (2:1) */
-      max-height: 60vh;
+      width: 100%;
+      aspect-ratio: 3 / 2; /* Format 3:2 B:H */
+      border-radius: 24px;
       overflow: hidden;
       background-color: #06080B;
       display: flex;
       align-items: flex-end;
+      padding: 2.75rem 3rem;
       margin-bottom: 2rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85);
     }
-    .hero-banner-fullbleed img.hero-bg {
+    .hero-banner-3x2 img.hero-bg {
       position: absolute;
       inset: 0;
       width: 100%;
@@ -109,25 +108,22 @@
       object-position: center;
       display: block;
     }
-    .hero-banner-fullbleed .hero-gradient-overlay {
+    .hero-banner-3x2 .hero-gradient-overlay {
       position: absolute;
       inset: 0;
       background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.45) 45%, rgba(0, 0, 0, 0.92) 100%);
       pointer-events: none;
     }
-    .hero-banner-fullbleed .hero-text-wrap {
+    .hero-banner-3x2 .hero-text-wrap {
       position: relative;
       z-index: 2;
       width: 100%;
-      max-width: 1040px;
-      margin: 0 auto;
-      padding: 2.25rem 2rem;
       display: flex;
       flex-direction: column;
       gap: 0.35rem;
     }
-    .hero-banner-fullbleed h1.hero-main-title {
-      font-size: 4rem;
+    .hero-banner-3x2 h1.hero-main-title {
+      font-size: 3.8rem;
       font-weight: 900;
       line-height: 1.05;
       letter-spacing: -0.04em;
@@ -135,8 +131,8 @@
       text-shadow: 0 4px 30px rgba(0, 0, 0, 0.95);
       margin: 0;
     }
-    .hero-banner-fullbleed h2.hero-chapter-title {
-      font-size: 3.2rem;
+    .hero-banner-3x2 h2.hero-chapter-title {
+      font-size: 3rem;
       font-weight: 900;
       line-height: 1.08;
       letter-spacing: -0.03em;
@@ -352,21 +348,20 @@
         padding: 0.85rem 1.25rem;
       }
       .story-container {
-        padding: 0 1.25rem;
+        padding: 2rem 1.25rem 0;
         gap: 3.5rem;
       }
-      .hero-banner-fullbleed {
-        aspect-ratio: 16 / 9;
-        min-height: 220px;
+      .hero-banner-3x2 {
+        aspect-ratio: 3 / 2;
+        min-height: 200px;
+        padding: 1.75rem 1.5rem;
+        border-radius: 18px;
         margin-bottom: 1.5rem;
       }
-      .hero-banner-fullbleed .hero-text-wrap {
-        padding: 1.5rem 1.25rem;
-      }
-      .hero-banner-fullbleed h1.hero-main-title {
+      .hero-banner-3x2 h1.hero-main-title {
         font-size: 2.4rem;
       }
-      .hero-banner-fullbleed h2.hero-chapter-title {
+      .hero-banner-3x2 h2.hero-chapter-title {
         font-size: 2rem;
       }
       p.intro-lead, .story-finale p.finale-main, .story-finale p.finale-strong {
@@ -394,9 +389,9 @@
 
   <main class="story-container">
 
-    <!-- 1. INTRO / START (HERO BANNER 3:1.5 FULL-BLEED) -->
+    <!-- 1. INTRO / START (HERO BANNER 3:2 IM SATZSPIEGEL) -->
     <section class="story-chapter">
-      <div class="hero-banner-fullbleed">
+      <div class="hero-banner-3x2">
         <img src="assets/homer_running.gif" alt="Homer Simpson Running" class="hero-bg">
         <div class="hero-gradient-overlay"></div>
         <div class="hero-text-wrap">
@@ -409,9 +404,9 @@
       </p>
     </section>
 
-    <!-- 2. DIE WOCHE (HERO BANNER 3:1.5 FULL-BLEED) -->
+    <!-- 2. DIE WOCHE (HERO BANNER 3:2 IM SATZSPIEGEL) -->
     <section class="story-chapter">
-      <div class="hero-banner-fullbleed">
+      <div class="hero-banner-3x2">
         <img src="assets/homer_wochenplan.gif" alt="Homer Simpson Training" class="hero-bg">
         <div class="hero-gradient-overlay"></div>
         <div class="hero-text-wrap">
@@ -482,9 +477,9 @@
       </div>
     </section>
 
-    <!-- 3. DIE LÄUFE (HERO BANNER 3:1.5 FULL-BLEED) -->
+    <!-- 3. DIE LÄUFE (HERO BANNER 3:2 IM SATZSPIEGEL) -->
     <section class="story-chapter">
-      <div class="hero-banner-fullbleed">
+      <div class="hero-banner-3x2">
         <img src="assets/homer_apu_climb.gif" alt="Homer und Apu in den Bergen" class="hero-bg">
         <div class="hero-gradient-overlay"></div>
         <div class="hero-text-wrap">
@@ -527,9 +522,9 @@
       </div>
     </section>
 
-    <!-- 4. WAS MIR WICHTIG IST (HERO BANNER 3:1.5 FULL-BLEED) -->
+    <!-- 4. WAS MIR WICHTIG IST (HERO BANNER 3:2 IM SATZSPIEGEL) -->
     <section class="story-chapter">
-      <div class="hero-banner-fullbleed">
+      <div class="hero-banner-3x2">
         <img src="assets/simpsons_end.gif" alt="The Simpsons Ending" class="hero-bg">
         <div class="hero-gradient-overlay"></div>
         <div class="hero-text-wrap">
