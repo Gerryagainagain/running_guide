@@ -2131,9 +2131,9 @@ function openWorkoutDetailsModal(kw, dayIndex) {
       'Drachenfels-Downhill (KM 18–19): Nicht steil, gut laufbar – Puls aktiv auf <120 bpm fallen lassen, Beine rollen lassen und Laktat aerob abbauen.',
       'Petersberg-Schlussanstieg (KM 19–23): Maximales Power-Hiking bei 130–135 bpm (Pulsdeckel <140 bpm halten, um anaerobe Muskelkrämpfe zu vermeiden).',
       'Finales Easy Rolling (KM 23,3–26): Moderates Gefälle (4–5 %) mit 5:30–5:45 min/km ohne Bremskräfte aktiv ins Ziel durchziehen.',
-      'Bekleidungs-Tipp (8–12 °C · bewölkt / Niesel): Vor dem Start nicht zu warm einpacken – „leicht frösteln am Start ist die richtige Betriebstemperatur“. Kappe gegen Niesel tragen.',
+      'Bekleidungs-Tipp (10–11 °C · Regen & Böen 7–8 Bft): Windchill ~7 °C – winddichte Weste/Jacke + Kappe, leichte Handschuhe. Schuhe mit tiefem Stollenprofil für Schlamm/Wurzeln.',
       'Fueling-Setup (Lösung A): 2× 500 ml Malto-Softflasks (je 40–45 g) am Körper. Wasser an den 6 VPs trinken. Bananen ab km 11, Salzstangen & Cola ab VP 3/4 (Drachenfels)!',
-      'Zielzeit-Prognose: 3:45:00 – 4:00:00 Std. (bei 8–12 °C & bewölkt/feucht; max. 4:15:00 mit Puffer)'
+      'Zielzeit-Prognose: 3:50:00 – 4:05:00 Std. (bei Wind & tiefen Trails; max. 4:15:00 mit Puffer)'
     ];
   } else if (tagLower.includes('opal')) {
     tipsList = [
@@ -2442,9 +2442,9 @@ function openWorkoutDetailsModal(kw, dayIndex) {
             • <strong>Tape-Cheatsheet (Split-Zeiten):</strong> KM 5 (0:45) · KM 11 (1:38) · KM 18,5 (2:45) · KM 23,3 (3:30) · Ziel (&lt;4:00).<br>
             • <strong>Drachenfels-Downhill:</strong> Nicht steil, gut laufbar – als Laktat-Flush nutzen (Puls aktiv auf &lt;120 bpm drücken).<br>
             • <strong>Petersberg-Finale:</strong> Alles raushauen im Power-Hiking (130–135 bpm), danach 2,7 km flüssig mit 5:30–5:45 min/km ins Ziel rollen.<br>
-            • <strong>Bekleidung (8–12 °C · bewölkt / Niesel):</strong> Leicht frösteln am Start – Kappe gegen Niesel, atmungsaktives Longsleeve / Weste.<br>
+            • <strong>Bekleidung & Wetter (10–11 °C · Regen · Böen 7–8 Bft):</strong> Windchill ~7 °C – winddichte Weste/Jacke, Kappe, leichte Handschuhe. Schuhe mit tiefem Stollenprofil.<br>
             • <strong>Fueling (Lösung A):</strong> 2× 500 ml Malto-Flasks (je 40–45 g) + Wasser an den 6 VPs. Bananen ab km 11, Salzstangen &amp; Cola ab km 16,5.<br>
-            • <strong>Zielzeit (8–12 °C &amp; bewölkt):</strong> 3:45:00 – 4:00:00 Std. (Puffer bis 4:15:00 Std.).
+            • <strong>Zielzeit (Wind &amp; aufgeweichte Trails):</strong> 3:50:00 – 4:05:00 Std. (Puffer bis 4:15:00 Std.).
           </div>
         </div>
         <a href="https://www.drachenlauf.de" target="_blank" rel="noopener noreferrer" style="color: var(--color-brand-cyan); font-weight: 800; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem;">
@@ -2464,7 +2464,7 @@ function openWorkoutDetailsModal(kw, dayIndex) {
         </h4>
 
         <div style="background: rgba(255, 159, 10, 0.12); border: 1px solid rgba(255, 159, 10, 0.35); border-radius: var(--border-radius-md); padding: 0.65rem 0.85rem; margin-bottom: 0.85rem; font-size: 0.78rem; color: var(--color-text-white); line-height: 1.4;">
-          <strong style="color: var(--color-brand-orange);">🌧️ WITTERUNG & TEMPERATUR-TAKTIK (8–12 °C · BEWÖLKT / GGF. NIESEL):</strong> Start bei kühlen ~8–9 °C (leichtes Frösteln am Start nutzen, nicht überhitzen). Keine thermische Drift, optimale Hautkühlung. Trails feucht (auf nassen Wurzeln/Steinen sauberen Schritt setzen). <strong>Puls-Fahrplan:</strong> KM 0–16 kontrolliert bei 120–125 bpm zur Glykogensicherung. Ab Drachenfels (KM 16) und am Petersberg-Schlussanstieg (KM 19–23) kompromisslose Freigabe auf 130–135 bpm (Pulsdeckel &lt;140 bpm, kein anaerober Muskelstau!).
+          <strong style="color: var(--color-brand-orange);">🌧️ WETTER- & WINDTAKTIK (10–11 °C · REGEN 2–7 MM · BÖEN BIS 7–8 BFT):</strong> Tiefdruckdurchzug (995 hPa) bei 10–11 °C (Windchill ~7 °C). Südwestwind 4 Bft mit <strong>Böen bis 74 km/h</strong> auf Kuppen (Ölberg/Löwenburg). Zunehmender Regen ab 10h (mittags bis 7 mm). Trails tief & schlammig, Wurzeln rutschig – Schuhe mit Stollenprofil wählen, bergab kontrolliert anbremsen. <strong>Puls-Fahrplan:</strong> KM 0–16 kontrolliert bei 120–125 bpm (Schlupf am Berg dosieren). Ab Drachenfels & Petersberg Freigabe auf 130–135 bpm (Pulsdeckel &lt;140 bpm).
         </div>
 
         <!-- DURCHGANGSZEITEN CHEATSHEET STRIP -->
