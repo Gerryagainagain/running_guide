@@ -181,4 +181,6 @@ If the user logs a run or workout via Chrome browser that needs to be permanentl
 - `2026-07-10_3098880682_Drachenlauf OG.gpx` ➔ `/Users/Gerhard/Desktop/running_guide/2026-07-10_3098880682_Drachenlauf OG.gpx`
 - `belgenbachtrail.gpx` ➔ `/Users/Gerhard/Desktop/running_guide/scratch/belgenbachtrail.gpx`
 - `Strategische_Laufzukunft_2027_2029.key` ➔ `/Users/Gerhard/Desktop/running_guide/Strategische_Laufzukunft_2027_2029.key`
+- `Strategische_Laufzukunft_2027_2029.pdf` ➔ `/Users/Gerhard/Desktop/running_guide/Strategische_Laufzukunft_2027_2029.pdf`
+
 
