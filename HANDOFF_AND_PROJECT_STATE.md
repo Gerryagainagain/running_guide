@@ -182,5 +182,7 @@ If the user logs a run or workout via Chrome browser that needs to be permanentl
 - `belgenbachtrail.gpx` ➔ `/Users/Gerhard/Desktop/running_guide/scratch/belgenbachtrail.gpx`
 - `Strategische_Laufzukunft_2027_2029.key` ➔ `/Users/Gerhard/Desktop/running_guide/Strategische_Laufzukunft_2027_2029.key`
 - `Strategische_Laufzukunft_2027_2029.pdf` ➔ `/Users/Gerhard/Desktop/running_guide/Strategische_Laufzukunft_2027_2029.pdf`
+- `strategie.html` (Web-Präsentation) ➔ `https://gerryagainagain.github.io/running_guide/strategie.html`
+
 
 
