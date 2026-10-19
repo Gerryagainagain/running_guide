@@ -145,7 +145,7 @@ If the user logs a run or workout via Chrome browser that needs to be permanentl
   - Zielschluss (km 30,4 @ 14:15 Uhr): Target 13:55 Uhr (**+20 Min. Puffer**).
 - **Recommendation:** Bedenkenlos buchen (Grünes Licht).
 
-### D. Strategischer Rahmen 2027–2029 (Sustainable Longevity & Familien-Sync)
+### D. Strategischer 4-Jahres-Rahmen 2027–2030 (Sustainable Longevity & Familien-Sync)
 - **Kern-Fundament (3+1-Formel):** 3 Laufeinheiten (25–30 km/Woche) + 1 festes Studio-Krafttraining (45–60 Min.).
   - *Dienstag (früh):* 7–8 km hügelig/Rampen (Schrittfrequenz, Uphill-Kraft; vor der Familie/Arbeit beendet um 07:15 Uhr).
   - *Mittwoch:* Ruhetag / passive Erholung.
