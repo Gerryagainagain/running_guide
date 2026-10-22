@@ -1,7 +1,7 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.32  
-**Last Updated:** October 19, 2026  
+**Document Version:** 9.33  
+**Last Updated:** October 22, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
 **Local Workspace Path:** `/Users/Gerhard/Desktop/running_guide`
@@ -10,7 +10,7 @@
 
 ## 📌 1. Project Overview & Current Trajectory
 
-- **Current Script Version:** `app.js?v=9.32` (in `index.html` and `dist/index.html`).
+- **Current Script Version:** `app.js?v=9.33` (in `index.html` and `dist/index.html`).
 - **Auth Gate Status:** Active (Apple HIG Modal: *"Was riss Hermännsche am Strand von Charita?"* / Passwort: `achilles`).
 - **UI & Modal Design:** Apple HIG flat card architecture (`1.25rem` padding, `16px` border-radius, single merged metric header cards).
 - **Data Persistence:** 2-way automatic synchronization between `defaultInitialRuns` (code defaults) and `localStorage` (`drachenlauf_runs`), preventing data loss or missing weekly elevation totals.
@@ -37,6 +37,7 @@
 - **Drachenlauf Modal Tape-Cheatsheet mit Durchgangszeiten (v9.30):** Neues, hochkontrastiges Unterarm- / Flask-Tape-Widget mit den 4 Schlüssel-Split-Korridoren (KM 5 @ 0:45 h, KM 11 @ 1:38 h, KM 18,5 @ 2:45 h, KM 23,3 @ 3:30 h, Ziel < 4:00 h) direkt ins Detail-Modal für den Renntag eingebunden. Ergänzt um die goldene Regel: *„Der Puls hat immer Vorrang vor der Uhr!“*
 - **Drachenlauf Wetterprognose auf 8–12 °C, bewölkt & ggf. Nieselregen aktualisiert (v9.31):** Witterungs- und Bekleidungsparameter im Drachenlauf-Modal, Tips-Array und Rennstrategieblock präzisiert (8–12 °C, bewölkt, ggf. etwas Nieselregen statt 7–10 °C sonnig). Taktischer Fokus: Optimale Hautkühlung, Kappe gegen Niesel, erhöhte Aufmerksamkeit auf nassen Wurzeln/Steinen.
 - **Drachenlauf Wetterprognose auf Herbsttief & Böen 7–8 Bft aktualisiert (v9.32):** Superforecast Königswinter für So 25.10. eingepflegt: 10–11 °C (Windchill gefühlt ~7 °C), Wind 4 Bft mit Böen bis 74 km/h auf exponierten Kuppen (Ölberg/Löwenburg), einsetzender Regen ab 10h (mittags bis 7 mm). Tips-Array, Rennspielplan und Witterungsbanner im Modal aktualisiert: Profilschuhe mit Stollen (Schlamm/Traktionsverlust), winddichte Weste/Jacke, Kappe, leichte Handschuhe. Zielzeitkorridor mit Wind- und Bodenpuffer auf 3:50–4:05 h (max. 4:15 h) angepasst.
+- **Drachenlauf Wetterprognose auf 12–13 °C, 50 % Sonne & TROCKEN aktualisiert (v9.33):** Deutliche Wetterbesserung eingepflegt: 12–13 °C, 50 % Sonne, KEIN Regen (0 mm), Mittelwind 20–27 km/h, Böen 50–70 km/h. Griffige Trails ohne Schlammbremse, kein extremes Stollenprofil nötig. Bekleidung auf leichtes Shirt/Longsleeve + Windweste optimiert. Zielzeitkorridor auf 3:45:00 – 4:00:00 Std. (Puffer bis 4:10:00 Std. wegen Windböen) zurückgesetzt.
 
 ---
 
