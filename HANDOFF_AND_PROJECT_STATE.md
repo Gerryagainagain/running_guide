@@ -15,7 +15,7 @@
 - **Nächste Saisonziele (Spätherbst 2026 & Saison 2027):**
   1. **Herbst-Abschluss 1 (10k Martinslauf Düsseldorf · 08.11.2026):** Ziel **Sub 58 min** (Pace: 5:47 min/km, Ø 145–147 bpm, Max 166 bpm) auf Basis der Realdaten von 2025 (59:27 / 5:55 min/km).
   2. **Herbst-Abschluss 2 (Siebengebirgs-Halbmarathon Aegidienberg · 06.12.2026):** 21,1 km / 330 Hm. Ziel **Sub 2:20 h** (Pace: 6:35 min/km, Ø 130–132 bpm) auf Basis der RheinCity Run Realdaten (2025: 21,1 km / 7:19 min/km bei 132 bpm flach ➔ 2026: 7:12 min/km bei 115 bpm hügelig).
-  3. **Frühjahrs-Anker (März 2027):** Belgenbachtrail 30k (30,4 km / 941 Hm).
+  3. **Frühjahrs-Anker (07.03.2027 · TV Konzen):** Belgenbachtrail **18,7 km Strong-Trail Plus** (~600 Hm · Limit 300 Starter) als entspannter Genusstrail aus der 3+1-Winterroutine heraus (Anmeldung: Mitte Dezember 2026 nach 7G HM). Option auf 30,7k bleibt beobachtet.
   4. **Sommerurlaubs-Trail (Juli/August 2027):** Alpiner Genusstrail (15–22 km / 800–1.300 Hm).
   5. **Herbst-Anker (Oktober 2027):** Drachenlauf 2027 (26 km / 1.250 Hm · Revanche auf bekannter Strecke).
 - **Plan KW 44 (26.10. – 01.11.2026):** Sanfte Wiedereinstiegswoche nach Infekt. Strikt tiefes GA1 (105–115 bpm), 3 kurze Läufe (5–7 km, max. 18–20 km gesamt), Beine lockern, volle Schleimhautregeneration.
