@@ -54,15 +54,15 @@ const phaseData = {
   },
   5: {
     code: 'PHASE 5',
-    name: 'Wettkampfwoche Drachenlauf',
+    name: 'Saisonabschluss Drachenlauf (DNS)',
     dates: 'KW 43 (19.10 – 25.10)',
-    desc: 'Wettkampfwoche Drachenlauf. Grundregel: Erholung maximieren – Bewegung erhalten, Beine lockern, Laufgefühl prüfen, keine Ermüdung erzeugen.',
-    targetWkm: 39,
-    targetWhm: 1250,
-    targetLongDist: 26,
-    targetLongHm: 1250,
-    cpName: 'Drachenlauf 2026 (Königswinter)',
-    cpMeta: '25. Oktober · Start 10:00 Uhr · 1.250 Hm'
+    desc: 'Saisonabschluss Drachenlauf 2026. DNS-Entscheidung zum Schutz der Gesundheit nach Infekt. Das gesamte aerobe Fundament aus KW 30–42 (422 km · 50 Einheiten) bleibt vollständig erhalten als Basis für die Saison 2027 (Belgenbachtrail 30k & Drachenlauf Oktober 2027).',
+    targetWkm: 0,
+    targetWhm: 0,
+    targetLongDist: 0,
+    targetLongHm: 0,
+    cpName: 'Drachenlauf 2026 (DNS · Basis gesichert)',
+    cpMeta: '25. Oktober · Vernunftentscheidung Infekt'
   }
 };
 
@@ -84,6 +84,22 @@ const kwMap = {
 };
 
 const defaultInitialRuns = [
+  // KW 43 (Saisonabschluss / DNS)
+  {
+    id: 1792876800000,
+    kw: 43,
+    date: '25.10.2026',
+    dayDate: '25.10',
+    dist: 0,
+    hm: 0,
+    duration: '00:00:00',
+    hr: 0,
+    pace: '-:--',
+    type: 'ersatz',
+    isErsatz: true,
+    tag: 'Drachenlauf 2026 (DNS)',
+    notes: 'Saisonabschluss: DNS (Did Not Start). Rationale Entscheidung nach respiratorischem Infekt zum Schutz der Bronchialschleimhäute & des Herz-Kreislauf-Systems. Das gesamte aerobe Trainingsfundament (50 Einheiten · 422,4 km · 8.179 Hm) ist intakt und bildet die konservierte Basis für die Saison 2027 (Belgenbachtrail 30k & Drachenlauf Oktober 2027).'
+  },
   // KW 42
   {
     id: 1792185600000,
@@ -1465,13 +1481,13 @@ const appleScheduleData = {
     { day: 'SON', date: '18.10', tag: 'Lockertrab', dist: 4.0, hm: 0, done: false }
   ],
   43: [
-    { day: 'MON', date: '19.10', tag: 'Regeneration', dist: 0, hm: 0, done: false },
-    { day: 'DIE', date: '20.10', tag: 'Locker + Steigerungen', dist: 6.0, hm: 0, done: false },
-    { day: 'MIT', date: '21.10', tag: 'Regeneration', dist: 0, hm: 0, done: false },
-    { day: 'DON', date: '22.10', tag: 'Beine lockern', dist: 4.0, hm: 0, done: false },
-    { day: 'FRE', date: '23.10', tag: 'Carboloading', dist: 0, hm: 0, done: false },
-    { day: 'SAM', date: '24.10', tag: 'Aktivierung', dist: 3.0, hm: 0, done: false },
-    { day: 'SON', date: '25.10', tag: 'DRACHENLAUF', dist: 26.0, hm: 1250, done: false }
+    { day: 'MON', date: '19.10', tag: 'Regeneration', dist: 0, hm: 0, done: true },
+    { day: 'DIE', date: '20.10', tag: 'Infekt-Pause', dist: 0, hm: 0, done: true },
+    { day: 'MIT', date: '21.10', tag: 'Infekt-Pause', dist: 0, hm: 0, done: true },
+    { day: 'DON', date: '22.10', tag: 'Ruhetag', dist: 0, hm: 0, done: true },
+    { day: 'FRE', date: '23.10', tag: 'Ruhetag & Carboloading', dist: 0, hm: 0, done: true },
+    { day: 'SAM', date: '24.10', tag: 'Entscheidung & Ruhe', dist: 0, hm: 0, done: true },
+    { day: 'SON', date: '25.10', tag: 'DRACHENLAUF (DNS)', dist: 0, hm: 0, done: true }
   ]
 };
 
@@ -1720,7 +1736,7 @@ function renderCoachWidget(kw) {
     40: "Tapering Zoutelande: Bewegung erhalten, Beine lockern, keine Ermüdung erzeugen.",
     41: "Tapering Erkrath: Bewegung erhalten, Beine lockern, Laufgefühl prüfen.",
     42: "Tapering Sharpening: Bewegung erhalten, Beine lockern, maximale Frische aufbauen.",
-    43: "Race Week Drachenlauf: Erholung maximieren – Bewegung erhalten, Beine lockern!"
+    43: "Saisonabschluss 2026 (DNS): Gesundheit geschützt, aerobe Basis konserviert für 2027."
   };
 
   if (headlineEl) {
@@ -2459,6 +2475,24 @@ function openWorkoutDetailsModal(kw, dayIndex) {
   if (tagLower.includes('drachenlauf')) {
     drachenlaufStrategyBlockHtml = `
       <div style="background: var(--color-tint-cyan-bg); border: 1px solid var(--color-tint-cyan-border); border-radius: var(--border-radius-card); padding: 1.25rem; margin-bottom: 1.0rem;">
+        
+        <!-- SAISONABSCHLUSS 2026 STATUS BANNER -->
+        <div style="background: rgba(255, 69, 58, 0.12); border: 1px solid rgba(255, 69, 58, 0.4); border-radius: var(--border-radius-md); padding: 0.85rem 1.0rem; margin-bottom: 1.0rem; font-size: 0.82rem; color: var(--color-text-white); line-height: 1.45;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.35rem;">
+            <strong style="color: var(--color-brand-red); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.6px; display: flex; align-items: center; gap: 0.4rem;">
+              <span>🏁 KAMPAGNEN-STATUS 2026: DNS (DID NOT START)</span>
+            </strong>
+            <span style="font-size: 0.70rem; background: rgba(255, 69, 58, 0.25); color: #ff6961; padding: 2px 8px; border-radius: 12px; font-weight: 800;">25.10.2026</span>
+          </div>
+          <div style="font-size: 0.80rem; color: #f2f2f7; margin-bottom: 0.45rem;">
+            Startverzicht nach überstandenem respiratorischen Infekt. Schutz der Bronchien, Schleimhäute und kardiovaskulären Gesundheit hat Vorrang vor jedem Rennstart.
+          </div>
+          <div style="padding-top: 0.45rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.76rem; color: var(--color-text-secondary); line-height: 1.4;">
+            ✅ <strong>Fundament gesichert:</strong> 50 Einheiten · 422,4 km · 8.179 Hm im tiefen GA1 bilden das intakte Fundament für 2027.<br>
+            🎯 <strong>Nächste Ziele:</strong> Belgenbachtrail 30k (Ende März 2027) & Drachenlauf 2027 (Oktober 2027). Alle Streckendaten & Rennstrategien bleiben hier dauerhaft archiviert.
+          </div>
+        </div>
+
         <h4 style="font-size: 0.72rem; font-weight: 900; color: var(--color-brand-cyan); margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.8px;">
           ⏱️ 4-PHASEN RENNTRAKT & MARKEN (26 KM · 1.250 HM)
         </h4>
@@ -3213,6 +3247,44 @@ window.checkSiteAuth = checkSiteAuth;
 
 document.addEventListener('DOMContentLoaded', checkSiteAuth);
 checkSiteAuth();
+
+/* ==========================================================================
+   CAMPAIGN BACKUP & EXPORT (REUSE ARCHITECTURE)
+   ========================================================================== */
+function exportCampaignData() {
+  const exportPayload = {
+    campaign: "Drachenlauf 2026",
+    athlete: {
+      name: "Gerhard",
+      age: 63,
+      calibrated_zones: {
+        vt1_ga1: "105–118 bpm",
+        vt2_threshold: "125–132 bpm",
+        resting_hr: "48–52 bpm",
+        tendon_status: "Vollständig intakt, null Vorschäden"
+      }
+    },
+    exportDate: new Date().toISOString(),
+    status: "DNS (Did Not Start 25.10.2026)",
+    totals: {
+      units: runsData.length,
+      km: parseFloat(runsData.reduce((acc, r) => acc + (r.dist || 0), 0).toFixed(1)),
+      hm: runsData.reduce((acc, r) => acc + (r.hm || 0), 0)
+    },
+    runs: runsData,
+    schedule: appleScheduleData,
+    phases: phaseData
+  };
+  const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportPayload, null, 2));
+  const dlAnchorElem = document.createElement('a');
+  dlAnchorElem.setAttribute("href", dataStr);
+  dlAnchorElem.setAttribute("download", "drachenlauf_2026_kampagne_backup.json");
+  document.body.appendChild(dlAnchorElem);
+  dlAnchorElem.click();
+  dlAnchorElem.remove();
+}
+window.exportCampaignData = exportCampaignData;
+
 
 
 

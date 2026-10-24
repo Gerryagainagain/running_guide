@@ -1,7 +1,7 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.34  
-**Last Updated:** October 22, 2026  
+**Document Version:** 9.35  
+**Last Updated:** October 24, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
 **Local Workspace Path:** `/Users/Gerhard/Desktop/running_guide`
@@ -10,8 +10,15 @@
 
 ## 📌 1. Project Overview & Current Trajectory
 
+- **Kampagnenabschluss Drachenlauf 2026 (v9.35):** Am 24.10.2026 offiziell mit **DNS (Did Not Start)** abgeschlossen. Rationale Entscheidung nach überstandenem respiratorischen Infekt: Der Schutz von Herz-Kreislauf-System und Bronchien steht über dem Rennstart.
+- **Gesamtertrag der Kampagne 2026:** **50 Einheiten · 422,4 km · 8.179 Hm** geloggt (Soll-Hm über 12.000). Die aerobe Grundausdauer (VT1 105–118 bpm), das Power-Hiking-Fundament und die intakte Sehnenstruktur wurden zu 100 % erhalten und unbeschadet für die Saison 2027 konserviert.
+- **Nächste Saisonziele (2027):**
+  1. **Frühjahrs-Anker:** Belgenbachtrail 30k (Ende März 2027 · 30,4 km / 941 Hm · GPX bereits integriert & analysiert).
+  2. **Sommerurlaubs-Trail:** Alpiner Genusstrail (Juli/August 2027 · 15–22 km / 800–1.300 Hm im Familienurlaub).
+  3. **Herbst-Anker:** Drachenlauf 2027 (Oktober 2027 · 26 km / 1.250 Hm · Revanche auf bekannter Strecke).
+- **Archivierung & Reuse-Status (v9.35):** Vollständiger JSON-Export unter `archive/drachenlauf_2026_campaign_data.json` hinterlegt; In-App-Backup-Button (`exportCampaignData()`) im Header aktiv.
 - **Athletenprofil & Verletzungshistorie:** Der Athlet hatte **nie** einen Achillessehnen-Vorfall oder Sehnenschäden (die Sicherheitsfrage *„Was riss Hermännsche am Strand von Charita?“* bezog sich historisch auf Hermännsche, nicht auf den Athleten Gerhard!). Sehnen- und Wadenkomplex sind vollständig intakt, beschwerdefrei und voll belastbar. Krafttraining dient der reinen allgemeinen Prävention/Sarkopenie-Prophylaxe, keinerlei Reha.
-- **Current Script Version:** `app.js?v=9.34` (in `index.html` and `dist/index.html`).
+- **Current Script Version:** `app.js?v=9.35` (in `index.html` and `dist/index.html`).
 - **Auth Gate Status:** Active (Apple HIG Modal: *"Was riss Hermännsche am Strand von Charita?"* / Passwort: `achilles`).
 - **UI & Modal Design:** Apple HIG flat card architecture (`1.25rem` padding, `16px` border-radius, single merged metric header cards).
 - **Data Persistence:** 2-way automatic synchronization between `defaultInitialRuns` (code defaults) and `localStorage` (`drachenlauf_runs`), preventing data loss or missing weekly elevation totals.
@@ -181,6 +188,7 @@ If the user logs a run or workout via Chrome browser that needs to be permanentl
 ## 📂 5. Key File Locations
 
 - `HANDOFF_AND_PROJECT_STATE.md` ➔ `/Users/Gerhard/Desktop/running_guide/HANDOFF_AND_PROJECT_STATE.md`
+- `archive/drachenlauf_2026_campaign_data.json` ➔ `/Users/Gerhard/Desktop/running_guide/archive/drachenlauf_2026_campaign_data.json` (Vollständiges Kampagnen-Backup)
 - `Trail_Cote_dOpale_Race_Day_Cheatsheet.docx` ➔ `/Users/Gerhard/Desktop/running_guide/Trail_Cote_dOpale_Race_Day_Cheatsheet.docx`
 - `Belgenbachtrail_30k_Decision_Reminder.docx` ➔ `/Users/Gerhard/Desktop/running_guide/Belgenbachtrail_30k_Decision_Reminder.docx`
 - `Die_Reise_der_zwei_Neandertaler.pages` ➔ `/Users/Gerhard/Desktop/running_guide/Die_Reise_der_zwei_Neandertaler.pages`
@@ -188,6 +196,26 @@ If the user logs a run or workout via Chrome browser that needs to be permanentl
 - `2026-07-10_3098880682_Drachenlauf OG.gpx` ➔ `/Users/Gerhard/Desktop/running_guide/2026-07-10_3098880682_Drachenlauf OG.gpx`
 - `belgenbachtrail.gpx` ➔ `/Users/Gerhard/Desktop/running_guide/scratch/belgenbachtrail.gpx`
 - `strategie.html` (Web-Präsentation) ➔ `https://gerryagainagain.github.io/running_guide/strategie.html`
+
+---
+
+## 🔄 6. Multi-Race Reuse & Archiving Blueprint (Saison 2027+)
+
+Die Codebase ist vollständig modularisiert und dafür vorbereitet, für neue Zielwettkämpfe (z. B. Belgenbachtrail 30k Ende März 2027 oder Drachenlauf Oktober 2027) adaptiert oder geklont zu werden:
+
+### A. Gesicherte Datenbasis 2026
+1. **JSON-Archivdatei:** Unter `archive/drachenlauf_2026_campaign_data.json` liegt der unveränderliche Export aller 50 Einheiten, Zonen, Metriken und Phasen.
+2. **In-App Backup:** Der Header-Button `Backup 💾` triggert die Funktion `exportCampaignData()` und generiert jederzeit einen frischen JSON-Download.
+3. **Persistenz in `app.js`:** Alle 50 Läufe verbleiben fest in `defaultInitialRuns`, sodass auch bei geleertem Browser-Cache kein Datenverlust auftritt.
+
+### B. Leitfaden zur Umschaltung auf einen neuen Wettkampf (z. B. Belgenbach 2027)
+Wenn ein neuer Trainingszyklus gestartet wird, sind in `app.js` nur 4 zentrale Konfigurationsobjekte anzupassen:
+1. **`phaseData` (Zeilen 6–67):** Definition der Trainingsphasen (z. B. Phase 1: Winter-Grundlage, Phase 2: Hügel & Kraft, Phase 3: Spezifischer Belgenbach-Aufbau, Phase 4: Tapering).
+2. **`kwMap` (Zeilen 69–84):** Zuordnung der Kalenderwochen zum Zieltermin (z. B. KW 02 bis KW 12 für Ende März).
+3. **`appleScheduleData` (Zeilen 1350ff.):** Soll-Wochenpläne mit Distanz-, Höhenmeter- und Ruhetagsvorgaben.
+4. **`defaultInitialRuns` (Zeilen 86ff.):** Entweder die 2026er Läufe als historische Baseline behalten oder neue Einheiten für 2027 chronologisch oben anfügen.
+5. **Rennstrategie-Block (`workoutDetailsModal`):** Tausch der Durchgangszeiten und Streckenabschnitte gegen das Belgenbachtrail-Profil (bereits voranalysiert: 30,4 km / 941 Hm / Cut-Offs bei km 18 und km 26,7).
+
 
 
 
