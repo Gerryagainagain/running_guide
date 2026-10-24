@@ -12,10 +12,13 @@
 
 - **Kampagnenabschluss Drachenlauf 2026 (v9.35):** Am 24.10.2026 offiziell mit **DNS (Did Not Start)** abgeschlossen. Rationale Entscheidung nach überstandenem respiratorischen Infekt: Der Schutz von Herz-Kreislauf-System und Bronchien steht über dem Rennstart.
 - **Gesamtertrag der Kampagne 2026:** **50 Einheiten · 422,4 km · 8.179 Hm** geloggt (Soll-Hm über 12.000). Die aerobe Grundausdauer (VT1 105–118 bpm), das Power-Hiking-Fundament und die intakte Sehnenstruktur wurden zu 100 % erhalten und unbeschadet für die Saison 2027 konserviert.
-- **Nächste Saisonziele (2027):**
-  1. **Frühjahrs-Anker:** Belgenbachtrail 30k (Ende März 2027 · 30,4 km / 941 Hm · GPX bereits integriert & analysiert).
-  2. **Sommerurlaubs-Trail:** Alpiner Genusstrail (Juli/August 2027 · 15–22 km / 800–1.300 Hm im Familienurlaub).
-  3. **Herbst-Anker:** Drachenlauf 2027 (Oktober 2027 · 26 km / 1.250 Hm · Revanche auf bekannter Strecke).
+- **Nächste Saisonziele (Spätherbst 2026 & Saison 2027):**
+  1. **Herbst-Abschluss 1 (10k Martinslauf Düsseldorf · 08.11.2026):** Ziel **Sub 58 min** (Pace: 5:47 min/km, Ø 145–147 bpm, Max 166 bpm) auf Basis der Realdaten von 2025 (59:27 / 5:55 min/km).
+  2. **Herbst-Abschluss 2 (Siebengebirgs-Halbmarathon Aegidienberg · 06.12.2026):** 21,1 km / 330 Hm. Ziel **Sub 2:20 h** (Pace: 6:35 min/km, Ø 130–132 bpm) auf Basis der RheinCity Run Realdaten (2025: 21,1 km / 7:19 min/km bei 132 bpm flach ➔ 2026: 7:12 min/km bei 115 bpm hügelig).
+  3. **Frühjahrs-Anker (März 2027):** Belgenbachtrail 30k (30,4 km / 941 Hm).
+  4. **Sommerurlaubs-Trail (Juli/August 2027):** Alpiner Genusstrail (15–22 km / 800–1.300 Hm).
+  5. **Herbst-Anker (Oktober 2027):** Drachenlauf 2027 (26 km / 1.250 Hm · Revanche auf bekannter Strecke).
+- **Plan KW 44 (26.10. – 01.11.2026):** Sanfte Wiedereinstiegswoche nach Infekt. Strikt tiefes GA1 (105–115 bpm), 3 kurze Läufe (5–7 km, max. 18–20 km gesamt), Beine lockern, volle Schleimhautregeneration.
 - **Archivierung & Reuse-Status (v9.35):** Vollständiger JSON-Export unter `archive/drachenlauf_2026_campaign_data.json` hinterlegt; In-App-Backup-Button (`exportCampaignData()`) im Header aktiv.
 - **Athletenprofil & Verletzungshistorie:** Der Athlet hatte **nie** einen Achillessehnen-Vorfall oder Sehnenschäden (die Sicherheitsfrage *„Was riss Hermännsche am Strand von Charita?“* bezog sich historisch auf Hermännsche, nicht auf den Athleten Gerhard!). Sehnen- und Wadenkomplex sind vollständig intakt, beschwerdefrei und voll belastbar. Krafttraining dient der reinen allgemeinen Prävention/Sarkopenie-Prophylaxe, keinerlei Reha.
 - **Current Script Version:** `app.js?v=9.35` (in `index.html` and `dist/index.html`).
