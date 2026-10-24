@@ -189,6 +189,7 @@ If the user logs a run or workout via Chrome browser that needs to be permanentl
 
 - `HANDOFF_AND_PROJECT_STATE.md` ➔ `/Users/Gerhard/Desktop/running_guide/HANDOFF_AND_PROJECT_STATE.md`
 - `archive/drachenlauf_2026_campaign_data.json` ➔ `/Users/Gerhard/Desktop/running_guide/archive/drachenlauf_2026_campaign_data.json` (Vollständiges Kampagnen-Backup)
+- `preview_2wochen.html` ➔ `/Users/Gerhard/Desktop/running_guide/preview_2wochen.html` (Akzeptierter 14-Tage Apple-Minimal Blueprint für Nov/Dez)
 - `Trail_Cote_dOpale_Race_Day_Cheatsheet.docx` ➔ `/Users/Gerhard/Desktop/running_guide/Trail_Cote_dOpale_Race_Day_Cheatsheet.docx`
 - `Belgenbachtrail_30k_Decision_Reminder.docx` ➔ `/Users/Gerhard/Desktop/running_guide/Belgenbachtrail_30k_Decision_Reminder.docx`
 - `Die_Reise_der_zwei_Neandertaler.pages` ➔ `/Users/Gerhard/Desktop/running_guide/Die_Reise_der_zwei_Neandertaler.pages`
@@ -215,6 +216,25 @@ Wenn ein neuer Trainingszyklus gestartet wird, sind in `app.js` nur 4 zentrale K
 3. **`appleScheduleData` (Zeilen 1350ff.):** Soll-Wochenpläne mit Distanz-, Höhenmeter- und Ruhetagsvorgaben.
 4. **`defaultInitialRuns` (Zeilen 86ff.):** Entweder die 2026er Läufe als historische Baseline behalten oder neue Einheiten für 2027 chronologisch oben anfügen.
 5. **Rennstrategie-Block (`workoutDetailsModal`):** Tausch der Durchgangszeiten und Streckenabschnitte gegen das Belgenbachtrail-Profil (bereits voranalysiert: 30,4 km / 941 Hm / Cut-Offs bei km 18 und km 26,7).
+
+### C. Akzeptierter v10.0 Layout-Blueprint (Einsatz ab November/Dezember)
+Vom Athleten am 24.10.2026 abgenommener und gesicherter UI-Standard für den Start des neuen Trainingsblocks:
+1. **Referenz-Datei:** [`preview_2wochen.html`](file:///Users/Gerhard/Desktop/running_guide/preview_2wochen.html).
+2. **14-Tage-Fokus (2 Reihen übereinander):**
+   - **Oben (Aktuelle Woche):** Feiner Apple-Border (`border-white/15`), weicher Tiefenschatten, voller Kontrast für sofortige Orientierung.
+   - **Unten (Folgewoche):** Sanft gedämpft (`opacity: 0.75`, `#161618`), dient als ruhige Vorschau auf den nächsten Longrun/Key-Run.
+   - **Keine störenden Text-Badges:** Begriffe wie *„Aktuell“* oder *„Vorschau“* entfallen komplett; Führung rein über Licht und Kontrast.
+3. **Radikal vereinfachte Tageskarten (3 Ebenen):**
+   - *Ebene 1 (Kopf):* Tag & Datum (`Mo 5`, `Di 6`) + dezenter grüner Statuspunkt bei absolvierten Läufen.
+   - *Ebene 2 (Hero-Mitte):* Tabellarische Hero-Ziffern (`8,2 km` bzw. `12,0 km · 400 Hm` / Ruhetag: eleganter Strich `—`).
+   - *Ebene 3 (Fuß):* Nur der Name der Einheit (`Rampen`, `Rhein`, `Longrun`).
+   - *Bereinigt:* Keine Puls-/Pace-Ziffern mehr auf der Karte (gehören ins Klick-Modal).
+4. **Vollständig entfallene Altlasten:**
+   - Expeditions-SVG-Pfad (`.season-timeline-card`) entfernt.
+   - Schnelleingabe- und Garmin-Screenshot-Import (`tesseract.js`) entfernt.
+5. **Platzierung der Meta-Container:**
+   - Coach-Widget und *„Dein Ding diese Woche“* wandern als 2 ruhige Apple-Karten unter die beiden Wochen.
+
 
 
 

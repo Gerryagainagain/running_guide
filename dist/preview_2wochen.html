@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preview: 2-Wochen-Fokus (Apple Minimal · Reines Design ohne Labels)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tokens.css">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: #000000;
+      color: #FFFFFF;
+      font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+      padding: 2.5rem 1.5rem;
+      -webkit-font-smoothing: antialiased;
+    }
+    .preview-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Minimal Apple Header */
+    .app-header-apple {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    .brand-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #FFFFFF;
+    }
+    .nav-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #1C1C1E;
+      padding: 4px;
+      border-radius: 999px;
+    }
+    .nav-btn {
+      background: transparent;
+      border: none;
+      color: #8E8E93;
+      padding: 6px 12px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 999px;
+      transition: all 0.15s ease;
+    }
+    .nav-btn:hover { color: #FFFFFF; }
+    .nav-active-pill {
+      background: #2C2C2E;
+      color: #FFFFFF;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 999px;
+    }
+
+    /* Two-Week Stack */
+    .two-week-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    /* Week Panel Wrapper */
+    .week-panel {
+      border-radius: 26px;
+      padding: 1.25rem 1.25rem 1.4rem 1.25rem;
+      transition: all 0.2s ease;
+    }
+
+    /* 1. AKTUELLER WOCHEN-CONTAINER (DEZENT HERVORGEHOBEN REIN DURCH LICHT & KONTRAST) */
+    .week-panel.is-current {
+      background: #121316;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+    }
+
+    /* 2. FOLGEWOCHE (RUHIG IM HINTERGRUND) */
+    .week-panel.is-preview {
+      background: #0B0B0D;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      opacity: 0.75;
+    }
+    .week-panel.is-preview:hover {
+      opacity: 0.95;
+      border-color: rgba(255, 255, 255, 0.09);
+    }
+
+    /* Week Header Row */
+    .week-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding: 0 0.35rem;
+    }
+    .week-header-left {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+    .week-label {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      letter-spacing: -0.3px;
+    }
+    .week-panel.is-preview .week-label {
+      color: #A1A1A6;
+      font-weight: 700;
+    }
+    .week-subdates {
+      font-size: 0.85rem;
+      color: #8E8E93;
+      font-weight: 500;
+    }
+    .week-sum {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #8E8E93;
+      font-feature-settings: 'tnum';
+    }
+    .week-sum strong {
+      color: #FFFFFF;
+      font-weight: 800;
+    }
+    .week-panel.is-preview .week-sum strong {
+      color: #A1A1A6;
+    }
+
+    /* 7-Card Grid */
+    .days-row {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 0.65rem;
+    }
+
+    /* Clean Apple Day Card */
+    .day-card {
+      background: #1C1C1E;
+      border-radius: 16px;
+      padding: 0.95rem 0.85rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 120px;
+      position: relative;
+      transition: transform 0.15s ease, background 0.15s ease;
+      cursor: pointer;
+    }
+    .week-panel.is-preview .day-card {
+      background: #161618;
+    }
+    .day-card:hover {
+      background: #242426;
+      transform: translateY(-2px);
+    }
+
+    /* Completed state: subtle indicator */
+    .day-card.is-done::after {
+      content: '';
+      position: absolute;
+      top: 11px;
+      right: 11px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #30D158;
+    }
+
+    /* Key-Run (Saturday) Highlight */
+    .day-card.is-key {
+      background: #25201A;
+      box-shadow: inset 0 0 0 1px rgba(255, 159, 10, 0.4);
+    }
+    .day-card.is-key:hover {
+      background: #2D261E;
+    }
+
+    /* Card Top: Day & Date */
+    .card-meta {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #8E8E93;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+    .day-card.is-key .card-meta {
+      color: #FF9F0A;
+      font-weight: 700;
+    }
+
+    /* Card Center: Hero Numbers */
+    .card-metric {
+      margin: 0.35rem 0 0.2rem 0;
+      display: flex;
+      align-items: baseline;
+      gap: 0.2rem;
+      font-feature-settings: 'tnum';
+    }
+    .num-val {
+      font-size: 1.75rem;
+      font-weight: 900;
+      letter-spacing: -0.8px;
+      line-height: 1;
+      color: #FFFFFF;
+    }
+    .num-unit {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #8E8E93;
+    }
+    .day-card.is-key .num-val {
+      color: #FF9F0A;
+    }
+
+    /* Rest day */
+    .day-card.is-rest .num-val {
+      color: #38383A;
+      font-size: 1.4rem;
+      font-weight: 500;
+    }
+
+    /* Card Bottom: Simple Label & Elevation */
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+    }
+    .card-title {
+      font-weight: 600;
+      color: #8E8E93;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 75%;
+    }
+    .day-card.is-done .card-title {
+      color: #D1D1D6;
+    }
+    .day-card.is-key .card-title {
+      color: #FFFFFF;
+      font-weight: 700;
+    }
+    .card-hm {
+      font-weight: 700;
+      color: #8E8E93;
+      font-feature-settings: 'tnum';
+      font-size: 0.70rem;
+    }
+    .card-hm.has-hm {
+      color: #FF9F0A;
+    }
+
+    /* Bottom 2 Split Containers (Apple Health / Fitness Style) */
+    .bottom-split-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+    .apple-card {
+      background: #1C1C1E;
+      border-radius: 24px;
+      padding: 1.5rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 155px;
+    }
+    .apple-card-eyebrow {
+      font-size: 0.70rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #8E8E93;
+      margin-bottom: 0.35rem;
+    }
+    .apple-card-headline {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      letter-spacing: -0.3px;
+      line-height: 1.35;
+      margin-bottom: 1rem;
+    }
+    .apple-chips {
+      display: flex;
+      gap: 0.5rem;
+    }
+    .apple-chip {
+      background: #2C2C2E;
+      color: #D1D1D6;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 999px;
+    }
+
+    .progress-bar-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .p-label-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #8E8E93;
+      margin-bottom: 0.25rem;
+      font-feature-settings: 'tnum';
+    }
+    .p-label-row strong {
+      color: #FFFFFF;
+      font-weight: 800;
+    }
+    .p-track {
+      height: 6px;
+      background: #2C2C2E;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .p-fill-green {
+      height: 100%;
+      background: #30D158;
+      border-radius: 999px;
+    }
+    .p-fill-orange {
+      height: 100%;
+      background: #FF9F0A;
+      border-radius: 999px;
+    }
+
+    @media (max-width: 900px) {
+      .days-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .bottom-split-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="preview-container">
+
+    <!-- HEADER MINIMAL -->
+    <header class="app-header-apple">
+      <div class="brand-title">
+        Trail Coach
+      </div>
+      <div class="nav-controls">
+        <button class="nav-btn">◀ Vorherige</button>
+        <div class="nav-active-pill">KW 41 & 42</div>
+        <button class="nav-btn">Nächste ▶</button>
+      </div>
+    </header>
+
+    <!-- ==================================================================== -->
+    <!-- 1. HAUPT-BEREICH: 14 TAGE IN 2 REIHEN (OHNE BADGES / TEXT-LABELS)     -->
+    <!-- ==================================================================== -->
+    <div class="two-week-grid">
+
+      <!-- 1. AKTUELLER WOCHEN-CONTAINER (SUBTIL DURCH LICHT & KONTRAST GEFÜHRT) -->
+      <div class="week-panel is-current">
+        <div class="week-header">
+          <div class="week-header-left">
+            <span class="week-label">KW 41</span>
+            <span class="week-subdates">· 5. – 11. Okt</span>
+          </div>
+          <div class="week-sum">
+            <strong>32,7 km</strong> · 619 Hm
+          </div>
+        </div>
+
+        <div class="days-row">
+          <!-- MO -->
+          <div class="day-card is-rest">
+            <div class="card-meta">Mo 5</div>
+            <div class="card-metric">
+              <span class="num-val">—</span>
+            </div>
+            <div class="card-footer">
+              <span class="card-title">Ruhe</span>
+            </div>
+          </div>
+
+          <!-- DI -->
+          <div class="day-card is-done">
+            <div class="card-meta">Di 6</div>
+            <div class="card-metric">
+              <span class="num-val">8,2</span>
+              <span class="num-unit">km</span>
+            </div>
+            <div class="card-footer">
+              <span class="card-title">Rampen</span>
+              <span class="card-hm has-hm">106 Hm</span>
+            </div>
+          </div>
+
+          <!-- MI -->
+          <div class="day-card is-rest">
+            <div class="card-meta">Mi 7</div>
+            <div class="card-metric">
+              <span class="num-val">—</span>
+            </div>
+            <div class="card-footer">
+              <span class="card-title">Ruhe</span>
+            </div>
+          </div>
+
+          <!-- DO -->
+          <div class="day-card is-done">
+            <div class="card-meta">Do 8</div>
+            <div class="card-metric">
+              <span class="num-val">8,0</span>
+              <span class="num-unit">km</span>
+            </div>
+            <div class="card-footer">
+              <span class="card-title">Rhein</span>
+              <span class="card-hm">13 Hm</span>
+            </div>
+          </div>
+
+          <!-- FR -->
+          <div class="day-card is-rest">
+            <div class="card-meta">Fr 9</div>
+            <div class="card-metric">
+              <span class="num-val">—</span>
+            </div>
+            <div class="card-footer">
+              <span class="card-title">Ruhe</span>
+            </div>
+          </div>
+
+          <!-- SA (KEY RUN) -->
+          <div class="day-card is-key is-done">
+            <div class="card-meta">Sa 10 · Key</div>
+            <div class="card-metric">
+              <span class="num-val">12,0</span>
+              <span class="num-unit">km</span>
+            </div>
+            <div class="card-footer">
+              <span class="card-title">Longrun</span>
+              <span class="card-hm has-hm">400 Hm</span>
+            </div>
+          </div>
+
+          <!-- SO -->
+          <div class="day-card is-done">
+            <div class="card-meta">So 11</div>
+            <div class="card-metric">
+              <span class="num-val">4,5</span>
+              <span class="num-unit">km</span>
+            </div>
+            <div class="card-footer">
+              <span class="card-title">Wandern</span>
+              <span class="card-hm has-hm">100 Hm</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. FOLGEWOCHE (RUHIG IM HINTERGRUND) -->
+      <div class="week-panel is-preview">
+        <div class="week-header">
+          <div class="week-header-left">
+            <span class="week-label">KW 42</span>
+            <span class="week-subdates">· 12. – 18. Okt</span>
+          </div>
+          <div class="week-sum">
+            <strong>27,3 km</strong> · 421 Hm
+          </div>
+        </div>
+
+        <div class="days-row">
+          <!-- MO -->
+          <div class="day-card is-rest">
+            <div class="card-meta">Mo 12</div>
+            <div class="card-metric">
+              <span class="num-val">—</span>
+            </div>
+            <div class="card-footer">
+              <span class="card-title">Ruhe</span>
+            </div>
+          </div>
+
+          <!-- DI -->
+          <div class="day-card is-done">
+            <div class="card-meta">Di 13</div>
+            <div class="card-metric">
+              <span class="num-val">8,0</span>
+              <span class="num-unit">km</span>
+            </div>
+            <div class="card-footer">
+              <span class="card-title">Rampen</span>
+              <span class="card-hm has-hm">88 Hm</span>
+            </div>
+          </div>
+
+          <!-- MI -->
+          <div class="day-card is-rest">
+            <div class="card-meta">Mi 14</div>
+            <div class="card-metric">
+              <span class="num-val">—</span>
+            </div>
+            <div class="card-footer">
+              <span class="card-title">Ruhe</span>
+            </div>
+          </div>
+
+          <!-- DO -->
+          <div class="day-card is-done">
+            <div class="card-meta">Do 15</div>
+            <div class="card-metric">
+              <span class="num-val">6,0</span>
+              <span class="num-unit">km</span>
+            </div>
+            <div class="card-footer">
+              <span class="card-title">Rhein</span>
+              <span class="card-hm">0 Hm</span>
+            </div>
+          </div>
+
+          <!-- FR -->
+          <div class="day-card">
+            <div class="card-meta">Fr 16</div>
+            <div class="card-metric">
+              <span class="num-val" style="color: #64D2FF;">45</span>
+              <span class="num-unit">min</span>
+            </div>
+            <div class="card-footer">
+              <span class="card-title" style="color: #64D2FF;">Stabi</span>
+              <span class="card-hm">Kraft</span>
+            </div>
+          </div>
+
+          <!-- SA (KEY RUN) -->
+          <div class="day-card is-key is-done">
+            <div class="card-meta">Sa 17 · Key</div>
+            <div class="card-metric">
+              <span class="num-val">13,3</span>
+              <span class="num-unit">km</span>
+            </div>
+            <div class="card-footer">
+              <span class="card-title">Longrun</span>
+              <span class="card-hm has-hm">333 Hm</span>
+            </div>
+          </div>
+
+          <!-- SO -->
+          <div class="day-card">
+            <div class="card-meta">So 18</div>
+            <div class="card-metric">
+              <span class="num-val">4,0</span>
+              <span class="num-unit">km</span>
+            </div>
+            <div class="card-footer">
+              <span class="card-title">Locker</span>
+              <span class="card-hm">0 Hm</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ==================================================================== -->
+    <!-- 2. SEKUNDÄR-BEREICH UNTEN: DIE ZWEI APPLE-CONTAINER                  -->
+    <!-- ==================================================================== -->
+    <div class="bottom-split-grid">
+
+      <!-- LEFT: COACH WIDGET -->
+      <div class="apple-card">
+        <div>
+          <div class="apple-card-eyebrow">COACH IMPULS</div>
+          <div class="apple-card-headline">
+            Bewegung erhalten, Beine lockern, keine Ermüdung erzeugen.
+          </div>
+        </div>
+        <div class="apple-chips">
+          <div class="apple-chip">🏃 4 Läufe</div>
+          <div class="apple-chip">⛰ 619 Hm</div>
+          <div class="apple-chip">💪 1 Kraft</div>
+        </div>
+      </div>
+
+      <!-- RIGHT: DEIN DING DIESE WOCHE -->
+      <div class="apple-card">
+        <div>
+          <div class="apple-card-eyebrow" style="color: #FF9F0A;">FOKUS DIESE WOCHE</div>
+          <div class="apple-card-headline">
+            Longrun Erkrath (12,0 km · 400 Hm)
+          </div>
+        </div>
+        
+        <div class="progress-bar-group">
+          <div>
+            <div class="p-label-row">
+              <span>Distanz</span>
+              <strong>32,7 / 35 km</strong>
+            </div>
+            <div class="p-track">
+              <div class="p-fill-green" style="width: 93%;"></div>
+            </div>
+          </div>
+          <div>
+            <div class="p-label-row">
+              <span>Höhenmeter</span>
+              <strong>619 / 480 Hm</strong>
+            </div>
+            <div class="p-track">
+              <div class="p-fill-orange" style="width: 100%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</body>
+</html>
