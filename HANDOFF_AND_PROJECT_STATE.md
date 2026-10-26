@@ -1,7 +1,7 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.35  
-**Last Updated:** October 24, 2026  
+**Document Version:** 9.36  
+**Last Updated:** October 26, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
 **Local Workspace Path:** `/Users/Gerhard/Desktop/running_guide`
@@ -16,12 +16,12 @@
   1. **Herbst-Abschluss 1 (10k Martinslauf Düsseldorf · 08.11.2026):** Ziel **Sub 58 min** (Pace: 5:47 min/km, Ø 145–147 bpm, Max 166 bpm) auf Basis der Realdaten von 2025 (59:27 / 5:55 min/km).
   2. **Herbst-Abschluss 2 (Siebengebirgs-Halbmarathon Aegidienberg · 06.12.2026):** 21,1 km / 330 Hm. Ziel **Sub 2:20 h** (Pace: 6:35 min/km, Ø 130–132 bpm) auf Basis der RheinCity Run Realdaten (2025: 21,1 km / 7:19 min/km bei 132 bpm flach ➔ 2026: 7:12 min/km bei 115 bpm hügelig).
   3. **Frühjahrs-Anker (07.03.2027 · TV Konzen):** Belgenbachtrail **18,7 km Strong-Trail Plus** (~600 Hm · Limit 300 Starter) als entspannter Genusstrail aus der 3+1-Winterroutine heraus (Anmeldung: Mitte Dezember 2026 nach 7G HM). Option auf 30,7k bleibt beobachtet.
-  4. **Sommerurlaubs-Trail (Juli/August 2027):** Alpiner Genusstrail (15–22 km / 800–1.300 Hm).
+  4. **Sommerurlaubs-Trail (Mitte Juni 2027 · Imst/Tirol):** Tschirgant Sky Run **TS16 Adventure** (16,9 km · ~850 Hm) eingebettet in das 2-wöchige Standlager Campingpark FiNK (Start/Ziel Sportzentrum Imst fußläufig; Vormittagseinheit bis 11:30 Uhr; Familien-Wandern im T2-Bereich).
   5. **Herbst-Anker (Oktober 2027):** Drachenlauf 2027 (26 km / 1.250 Hm · Revanche auf bekannter Strecke).
 - **Plan KW 44 (26.10. – 01.11.2026):** Sanfte Wiedereinstiegswoche nach Infekt. Strikt tiefes GA1 (105–115 bpm), 3 kurze Läufe (5–7 km, max. 18–20 km gesamt), Beine lockern, volle Schleimhautregeneration.
 - **Archivierung & Reuse-Status (v9.35):** Vollständiger JSON-Export unter `archive/drachenlauf_2026_campaign_data.json` hinterlegt; In-App-Backup-Button (`exportCampaignData()`) im Header aktiv.
 - **Athletenprofil & Verletzungshistorie:** Der Athlet hatte **nie** einen Achillessehnen-Vorfall oder Sehnenschäden (die Sicherheitsfrage *„Was riss Hermännsche am Strand von Charita?“* bezog sich historisch auf Hermännsche, nicht auf den Athleten Gerhard!). Sehnen- und Wadenkomplex sind vollständig intakt, beschwerdefrei und voll belastbar. Krafttraining dient der reinen allgemeinen Prävention/Sarkopenie-Prophylaxe, keinerlei Reha.
-- **Current Script Version:** `app.js?v=9.35` (in `index.html` and `dist/index.html`).
+- **Current Script Version:** `app.js?v=9.36` (in `index.html` and `dist/index.html`).
 - **Auth Gate Status:** Active (Apple HIG Modal: *"Was riss Hermännsche am Strand von Charita?"* / Passwort: `achilles`).
 - **UI & Modal Design:** Apple HIG flat card architecture (`1.25rem` padding, `16px` border-radius, single merged metric header cards).
 - **Data Persistence:** 2-way automatic synchronization between `defaultInitialRuns` (code defaults) and `localStorage` (`drachenlauf_runs`), preventing data loss or missing weekly elevation totals.
@@ -162,6 +162,18 @@ If the user logs a run or workout via Chrome browser that needs to be permanentl
   - Zielschluss (km 30,4 @ 14:15 Uhr): Target 13:55 Uhr (**+20 Min. Puffer**).
 - **Recommendation:** Bedenkenlos buchen (Grünes Licht).
 
+### C2. Sommerurlaubs-Trail Imst 2027 (Tschirgant Sky Run TS16 „Adventure“)
+- **Standlager & Reisezeit:** Campingpark FiNK zu Imst (Tiroler Oberland). Termin: Mitte Juni 2027 (vor Beginn der Schulferien, moderate Temperaturen 18–22 °C im Tal, kühle Nächte um 10 °C).
+- **Event-Steckbrief TS16:** 16,9 km · ca. 850 Hm (Start/Ziel: Sportzentrum Imst fußläufig vom Campingpark).
+- **Streckenverlauf:** Gurgltal-Flachpassage (km 0–3) ➔ sanfter Anstieg Richtung Karrösten ➔ Waldsteig hinauf zur Karrösteralm (Apex ~1.450 m) ➔ Geolehrpfad & Forstwegpassage ➔ Singletrail-Abstieg zurück ins Sportzentrum Imst. Moderate alpine Trails (T2-Niveau), keine ausgesetzten Grate (im Gegensatz zu TS26/TS42 über den Tschirgant-Kamm).
+- **Pacing & Pulskorridore (Realdaten-Kalibrierung):**
+  - *Anlauf flach (km 0–3):* Strikt GA1 **105–118 bpm** (kein Überzocken im Starterfeld).
+  - *Uphill Karrösteralm (km 3–8):* Kontrolliertes Power-Hiking im aeroben Übergangsbereich **120–125 bpm** (maximal 130 bpm).
+  - *Downhill (km 8–16,9):* Kontrolliertes Rollen mit hoher Schrittfrequenz, **Pulsdeckel <125 bpm**. Bewusste Tempobremse auf steilen Schotterstücken zum Schutz des Quadrizeps.
+  - *Zielzeitkorridor:* **01:45:00 bis 02:05:00 h**. Vormittags beendet; Mittagsjause mit der Familie.
+- **Familien- & Wandersynchronisation:** 2-wöchiges Standlager mit täglichen Wanderungen (4–5 Std., 500–700 Hm, T2: Rosengartenschlucht / Muttekopfhütte, Piburger See, Hochzeiger Zirbenweg) und Kultur (Piller Sattel, Ötzi-Dorf, Innsbruck). Null Transfer- oder Trennungsaufwand.
+- **Physiologischer Trade-Off:** Im Düsseldorfer Flachland können im Vorfeld keine 800-Hm-Abstiege am Stück trainiert werden. Das Studio-Krafttraining (exzentrische Beinpresse/Split Squats) federt den Stoß ab, ersetzt jedoch nicht die periphere Sehnenschlaghärte auf Schotter. Daher ist nach dem TS16 mit moderater exzentrischer Quadrizeps-Ermüdung (DOMS für 48–72 h) zu rechnen; die Downhill-Pace im Wettkampf muss strikt defensiv gewählt werden.
+
 ### D. Strategischer 4-Jahres-Rahmen 2027–2030 (Sustainable Longevity & Familien-Sync)
 - **Kern-Fundament (3+1-Formel):** 3 Laufeinheiten (25–30 km/Woche) + 1 festes Studio-Krafttraining (45–60 Min.).
   - *Dienstag (früh):* 7–8 km hügelig/Rampen (Schrittfrequenz, Uphill-Kraft; vor der Familie/Arbeit beendet um 07:15 Uhr).
@@ -177,8 +189,8 @@ If the user logs a run or workout via Chrome browser that needs to be permanentl
   - *Woche A (Erkrath / Neandertal):* 12–14 km mit 250–350 Hm (Fahrzeit 2×20 Min.). Erhalt der Trittsicherheit und Steigmuskulatur.
   - *Woche B (Rhein ab Haustür):* 12–14 km flach (0 Min. Fahrzeit). Reiner aerober Zeit-auf-den-Beinen-Reiz. Bei Bedarf 2–3 Brückenquerungen (60–100 Hm).
 - **Event-Gerüst („2+1“-Modell):**
-  1. *Frühjahrs-Anker (Ende März):* Belgenbachtrail (30 km / 940 Hm).
-  2. *Sommerurlaubs-Trail (Juli/August):* Alpiner Genusstrail (15–22 km / 800–1.300 Hm) fest eingebettet in den 2-wöchigen Familienurlaub (Start/Ziel im Talort, Familie an Seilbahn/Alm, null Extra-Reiseaufwand).
+  1. *Frühjahrs-Anker (Anfang März):* Belgenbachtrail (18,7 km / 600 Hm oder 30 km / 940 Hm).
+  2. *Sommerurlaubs-Trail (Mitte Juni):* Tschirgant Sky Run TS16 „Adventure“ (16,9 km / 850 Hm) fest eingebettet in das 2-wöchige Standlager Campingpark FiNK zu Imst (Start/Ziel Sportzentrum fußläufig, Familie ausschlafen, Mittagsjause zusammen).
   3. *Herbst-Anker (Ende Oktober):* Drachenlauf (26 km / 1.250 Hm) oder adäquater Mittelgebirgstrail.
   4. *Spontane lokale Temporeize:* 1–2 lokale 10-km-Läufe im Raum Düsseldorf (z. B. Martinslauf Unterbacher See, Neanderthal-Lauf) unvorbereitet aus dem Training mitgenommen (2,5 h Gesamtabwesenheit).
 - **Periodisierungs- & Trade-Off-Regeln:**
