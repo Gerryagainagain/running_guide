@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.38  
+**Document Version:** 9.39  
 **Last Updated:** October 26, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -21,7 +21,7 @@
 - **Plan KW 44 (26.10. – 01.11.2026):** Sanfte Wiedereinstiegswoche nach Infekt. Strikt tiefes GA1 (105–115 bpm), 3 kurze Läufe (5–7 km, max. 18–20 km gesamt), Beine lockern, volle Schleimhautregeneration.
 - **Archivierung & Reuse-Status (v9.35):** Vollständiger JSON-Export unter `archive/drachenlauf_2026_campaign_data.json` hinterlegt; In-App-Backup-Button (`exportCampaignData()`) im Header aktiv.
 - **Athletenprofil & Verletzungshistorie:** Der Athlet hatte **nie** einen Achillessehnen-Vorfall oder Sehnenschäden (die Sicherheitsfrage *„Was riss Hermännsche am Strand von Charita?“* bezog sich historisch auf Hermännsche, nicht auf den Athleten Gerhard!). Sehnen- und Wadenkomplex sind vollständig intakt, beschwerdefrei und voll belastbar. Krafttraining dient der reinen allgemeinen Prävention/Sarkopenie-Prophylaxe, keinerlei Reha.
-- **Current Script Version:** `app.js?v=9.38` (in `index.html` and `dist/index.html`).
+- **Current Script Version:** `app.js?v=9.39` (in `index.html` and `dist/index.html`).
 - **Auth Gate Status:** Active (Apple HIG Modal: *"Was riss Hermännsche am Strand von Charita?"* / Passwort: `achilles`).
 - **UI & Modal Design:** Apple HIG flat card architecture (`1.25rem` padding, `16px` border-radius, single merged metric header cards).
 - **Data Persistence:** 2-way automatic synchronization between `defaultInitialRuns` (code defaults) and `localStorage` (`drachenlauf_runs`), preventing data loss or missing weekly elevation totals.
@@ -181,6 +181,9 @@ If the user logs a run or workout via Chrome browser that needs to be permanentl
   - *Downhill (km 8–16,9):* Kontrolliertes Rollen mit hoher Schrittfrequenz, **Pulsdeckel <125 bpm**. Bewusste Tempobremse auf steilen Schotterstücken zum Schutz des Quadrizeps.
   - *Zielzeitkorridor:* **01:45:00 bis 02:05:00 h**. Vormittags beendet; Mittagsjause mit der Familie.
 - **Familien- & Wandersynchronisation:** 2-wöchiges Standlager mit täglichen Wanderungen (4–5 Std., 500–700 Hm, T2: Rosengartenschlucht / Muttekopfhütte, Piburger See, Hochzeiger Zirbenweg) und Kultur (Piller Sattel, Ötzi-Dorf, Innsbruck). Null Transfer- oder Trennungsaufwand.
+- **Kulturhistorische Anker & Naturpark-Routen:**
+  - *Naturpark Kaunergrat (`https://www.kaunergrat.at/`):* Naturparkhaus am Piller Sattel (1.600 m), architektonische Aussichtsplattform „Gacher Blick“ (Tiefblick ins Inntal), 3.500 Jahre alter prähistorischer Brandopferplatz an der Via Claudia Augusta & barrierefreies Piller Moor (Moor-Rundweg mit Holzturm, null Steigung).
+  - *Naturpark Ötztal – Archäologische Wege Nord-/Südtirol (`https://www.naturpark-oetztal.at/besuchen/wandern/themenwandern/archaeologische-wege/archaeologische-wege-zwischen-nord-und-suedtirol/`):* Historische Pfade der Gletschermumie Ötzi (Fundstelle Tisenjoch 1991, 5.300 Jahre alte Übergänge nach Südtirol). Gekennzeichnet durch Kupferstelen; u. a. der Archäologische Rundwanderweg Obergurgl (Zirbenwald / Beilsteinalm) und die Steinzeitjäger-Station „Hohler Stein“ bei Vent (Mesolithikum ~8.000 v. Chr.).
 - **Physiologischer Trade-Off:** Im Düsseldorfer Flachland können im Vorfeld keine 800-Hm-Abstiege am Stück trainiert werden. Das Studio-Krafttraining (exzentrische Beinpresse/Split Squats) federt den Stoß ab, ersetzt jedoch nicht die periphere Sehnenschlaghärte auf Schotter. Daher ist nach dem TS16 mit moderater exzentrischer Quadrizeps-Ermüdung (DOMS für 48–72 h) zu rechnen; die Downhill-Pace im Wettkampf muss strikt defensiv gewählt werden. Durch die 21-Tage-Architektur steht für die muskuläre Erholung in den Bergen volle Zeit zur Verfügung.
 
 ### D. Strategischer 4-Jahres-Rahmen 2027–2030 (Sustainable Longevity & Familien-Sync)
