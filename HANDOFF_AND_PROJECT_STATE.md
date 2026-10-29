@@ -1,7 +1,7 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.40  
-**Last Updated:** October 27, 2026  
+**Document Version:** 9.41  
+**Last Updated:** October 29, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
 **Local Workspace Path:** `/Users/Gerhard/Desktop/running_guide`
@@ -15,7 +15,7 @@
 - **Nächste Saisonziele (Spätherbst 2026 & Saison 2027):**
   1. **Herbst-Abschluss 1 (10k Martinslauf Düsseldorf · 08.11.2026):** **Status: Fest angemeldet am 27.10.2026.** Ziel: **Sub 58:00 min** (Pace: 5:47 min/km, Ø 145–147 bpm, Max 166 bpm) auf Basis der Realdaten von 2025 (59:27 / 5:55 min/km).
   2. **Herbst-Abschluss 2 (Siebengebirgs-Halbmarathon Aegidienberg · 06.12.2026):** **Status: Fest angemeldet am 27.10.2026.** 21,4 km / 360 Hm (Komoot-Streckenprofil). Ziel: **Sub 2:20:00 h** (Erwartungswert: 02:18:30 h, Pace ~6:28–6:32 min/km, Ø 128–132 bpm) auf Basis der Realdaten (RheinCity HM 2025: 7:19 min/km @ 132 bpm flach; Erkrath 2026: 13,3 km / 333 Hm mit 7:12 min/km @ 115 bpm).
-  3. **Frühjahrs-Anker (07.03.2027 · TV Konzen):** Belgenbachtrail **18,7 km Strong-Trail Plus** (~600 Hm · Limit 300 Starter) als entspannter Genusstrail aus der 3+1-Winterroutine heraus (Anmeldung: Mitte Dezember 2026 nach 7G HM). Option auf 30,7k bleibt beobachtet.
+  3. **Frühjahrs-Anker (07.03.2027 · TV Konzen):** **Belgenbachtrail 30,7 km Strong-Trail de Luxe** (941 Hm · Limit 300 Starter) als primäres sportliches Ziel zur Abrufung der erarbeiteten Langstrecken-Form. Buchungsfenster: Mitte Dezember 2026 nach 7G HM. Nach 7G HM folgt eine 4-wöchige Reset-Phase (Dezember bis 04.01.2027), gezielter 9-Wochen-Aufbauplan startet am 05./06.01.2027.
   4. **Sommerurlaubs-Trail (05.06. – 25.06.2027 · Imst & Kaub):** 21-Tage-Rundreise mit Camping-Kraftwagen. Hinfahrt Sa 05.06. via Bodensee ➔ 14 Tage Standlager Campingpark FiNK (06.–20.06.) mit Tschirgant Sky Run **TS16 Adventure** (16,9 km · ~850 Hm) am Sa 12.06.2027 ➔ Rückreise-Etappe via Holzmaden bis **Kaub am Rhein** am Fr 25.06.2027 (Mittelrhein-Ausklang). Buchungsfenster: Dez 2026 / Jan 2027.
   5. **Herbst-Anker (Oktober 2027):** Drachenlauf 2027 (26 km / 1.250 Hm · Revanche auf bekannter Strecke).
 - **Plan KW 44 (26.10. – 01.11.2026):** Sanfte Wiedereinstiegswoche nach Infekt. Strikt tiefes GA1 (105–115 bpm), 3 kurze Läufe (5–7 km, max. 18–20 km gesamt), Beine lockern, volle Schleimhautregeneration.
