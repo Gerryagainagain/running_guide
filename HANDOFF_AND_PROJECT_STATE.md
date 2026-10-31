@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.45  
+**Document Version:** 9.46  
 **Last Updated:** October 31, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -245,13 +245,13 @@ Wenn ein neuer Trainingszyklus gestartet wird, sind in `app.js` nur 4 zentrale K
 4. **`defaultInitialRuns` (Zeilen 86ff.):** Entweder die 2026er Läufe als historische Baseline behalten oder neue Einheiten für 2027 chronologisch oben anfügen.
 5. **Rennstrategie-Block (`workoutDetailsModal`):** Tausch der Durchgangszeiten und Streckenabschnitte gegen das Belgenbachtrail-Profil (bereits voranalysiert: 30,4 km / 941 Hm / Cut-Offs bei km 18 und km 26,7).
 
-### C. Akzeptierter v10.2 Layout-Blueprint (Jahresmatrix & Periodisierungs-Standard)
+### C. Akzeptierter v10.3 Layout-Blueprint (Quartals-Matrix 2027 & Luftige Front)
 Vom Athleten am 31.10.2026 final abgenommener und freigegebener UI-Standard:
 1. **Master-Referenzdateien:** 
-   - [`preview_jahresmatrix_2027.html`](file:///Users/Gerhard/Desktop/running_guide/preview_jahresmatrix_2027.html) (Die vollständige Jahres-Makroplanung / Monatsraster & Sport-Periodisierung)
+   - [`preview_quartalsmatrix_2027.html`](file:///Users/Gerhard/Desktop/running_guide/preview_quartalsmatrix_2027.html) (Die visuell beruhigte 3-Monats-Quartalsmatrix mit Apple HIG Umschalter Q1–Q4)
    - [`preview_jahres_dashboard.html`](file:///Users/Gerhard/Desktop/running_guide/preview_jahres_dashboard.html) (Master-Dashboard mit Segmented Control & luftigem Wochenkalender)
 2. **Apple HIG Segmented Control Header:**
-   - Schlanker, satinierter Umschalter im Kopf: `[ 📅 Diese Woche ]` vs. `[ 🧭 Jahresmatrix 2027 ]`.
+   - Schlanker, satinierter Umschalter im Kopf: `[ 📅 Diese Woche ]` vs. `[ 🧭 Saison 2027 ]`.
    - *State Persistence:* Standardmäßig landet der Athlet immer auf der aktuellen Woche.
 3. **Reiter 1 (`Diese Woche` · Luftiger Wochenkalender / Reiner Alltag):**
    - **Großzügige Kalenderspalten:** 160 px Mindesthöhe pro Tag (`Mo 26` bis `So 01`) mit spürbarem Weißraum.
@@ -261,16 +261,17 @@ Vom Athleten am 31.10.2026 final abgenommener und freigegebener UI-Standard:
      - Aktueller Tag subtil mit Cyan-Glow akzentuiert.
      - Unten: Art der Einheit (`Locker GA1`, `Rumpf & Stabi`).
    - **Vorschau-Woche:** Liegt als ruhiges, kompaktes Grid darunter (`opacity: 0.65`), dient als Orientierung für den anstehenden Wettkampf (Martinslauf).
-4. **Reiter 2 (`Jahresmatrix 2027` · Der Sport-Wandplaner / Makro-Raster):**
-   - **Echte 12-Monats-Matrix (JAN–DEZ × 31 Tage):** Echtes kalendarisches Raster mit Wochentagen und Sa/So-Schraffur für Longrun- und Reisewochenenden.
-   - **Durchgängige Periodisierungs-Bänder über den Tagen:**
-     - *Cyan-Bänder (Aufbau):* 9 Wochen Winter-Aufbau ab 06. Jan für Belgenbach 30k; 4 Wochen Berg-Adaption im Mai/Juni für TS16 Imst; 7G-Peak im Oktober.
-     - *Rote Glanz-Kästchen (🏁 Gesetzte Wettkämpfe):* 07. März (Belgenbach 30,7k), 12. Juni (TS16 Imst), 24. Oktober (Drachenlauf).
-     - *Gelbe Bänder (Urlaub):* 05. bis 25. Juni (21 Tage Campingreise Imst & Kaub am Rhein).
-     - *Grüne Bänder (Rekom):* 2-wöchige Regenerationsfenster direkt nach den Hauptläufen.
-     - *Lila gestrichelt (Optionen):* 05.09. (Opal), 11.09. (UTML Müllerthal) und 05.12. (7G HM) als reine Merkzettel.
-   - **Interaktives Detail-Dock unten:** Klick auf einen beliebigen Tag/Block zeigt sofort Trainingsfokus, Streckenmetriken und konkrete Buchungsfristen.
+4. **Reiter 2 (`Saison 2027` · Die Quartals-Matrix mit 3-Monats-Fokus):**
+   - **Optisch ruhige 3-Zeilen-Ansicht:** Zeigt immer exakt **1 Quartal** (3 Monate), keine 12-Monats-Reizüberflutung.
+   - **Großzügige Zellen:** 64 px Mindesthöhe pro Monatszeile, volle Lauffähigkeit, Wochentags- und Wochenend-Schraffur.
+   - **Quartals-Wähler oben:**
+     - `Q1 · Belgenbach` (Januar – März): 9 Wochen Winter-Aufbau ab 06. Jan, 🏁 Belgenbach am 07.03., 2 W. Rekom.
+     - `Q2 · Imst TS16` (April – Juni): 3+1 Basis, 4 W. Berg-Adaption, 21-Tage Campingurlaub (05.–25.06.) mit 🏁 TS16 am 12.06.
+     - `Q3 · Spätsommer` (Juli – September): Hochsommermodus & dezent gestrichelte Optionen (05.09. Opal, 11.09. UTML Müllerthal).
+     - `Q4 · Drachenlauf` (Oktober – Dezember): Spezifischer 7G-Peak mit 🏁 Drachenlauf am 24.10., Rekom & Option 7G-HM (05.12.).
+   - **Interaktives Detail-Dock unten:** Klick auf einen beliebigen Tag zeigt sofort Trainingsfokus, Streckenmetriken und konkrete Buchungsfristen.
 5. **Vollständig entfallene Altlasten:** Keine Landkarte, kein iCal-Export, kein SVG-Expeditionspfad, kein OCR-Screenshot-Import.
+
 
 
 
