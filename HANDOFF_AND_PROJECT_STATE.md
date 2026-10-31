@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.43  
+**Document Version:** 9.44  
 **Last Updated:** October 31, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -245,34 +245,31 @@ Wenn ein neuer Trainingszyklus gestartet wird, sind in `app.js` nur 4 zentrale K
 4. **`defaultInitialRuns` (Zeilen 86ff.):** Entweder die 2026er Läufe als historische Baseline behalten oder neue Einheiten für 2027 chronologisch oben anfügen.
 5. **Rennstrategie-Block (`workoutDetailsModal`):** Tausch der Durchgangszeiten und Streckenabschnitte gegen das Belgenbachtrail-Profil (bereits voranalysiert: 30,4 km / 941 Hm / Cut-Offs bei km 18 und km 26,7).
 
-### C. Akzeptierter v10.0 Layout-Blueprint (Einsatz ab November/Dezember)
-Vom Athleten am 24.10. und 31.10.2026 abgenommener und gesicherter UI-Standard:
-1. **Referenz-Dateien:** 
-   - [`preview_2wochen.html`](file:///Users/Gerhard/Desktop/running_guide/preview_2wochen.html) (14-Tage Tages-Execution)
-   - [`preview_jahres_dashboard.html`](file:///Users/Gerhard/Desktop/running_guide/preview_jahres_dashboard.html) (Apple HIG Master-Dashboard mit Segmented Control)
-2. **Apple HIG Segmented Control Header:**
-   - Schlanker, satinierter Umschalter im Kopf: `[ ⏱️ Training ]` vs. `[ 🧭 Saison 2027 ]`.
-   - *State Persistence:* Standardmäßig landet der Athlet immer auf `Training`.
-3. **Reiter 1 (`Training` · Reiner operativer Alltag):**
-   - **Tunnelblick:** Zeigt ausschließlich den aktuellen Zielwettkampf (z. B. Countdown & Sollwerte für 7G HM; ab 06. Januar Belgenbach 30k). Keine Erwähnung künftiger Events.
-   - **14-Tage-Fokus (2 Reihen übereinander):**
-     - *Oben (Aktuelle Woche):* Feiner Apple-Border (`border-white/15`), voller Kontrast.
-     - *Unten (Folgewoche):* Sanft gedämpft (`opacity: 0.65`), dient als ruhige Vorschau auf den nächsten Key-Run.
-     - *Tageskarten:* 3 Ebenen (Kopf: Tag/Datum/Dot; Mitte: Tabellarische Hero-KM; Fuß: Name).
-4. **Reiter 2 (`Saison 2027` · Strategischer Jahresraum / Notizboard):**
-   - **Kein Trainingsplan:** Keine Wochentage, keine Kilometer-Vorgaben.
-   - **Sektion 1 (Oben · Die 3 gesetzten Säulen):** 
-     - Belgenbachtrail (07.03. · 30,7k · 941 Hm)
-     - Tschirgant Sky Run TS16 (12.06. · 16,9k · 850 Hm · Campingpark FiNK)
-     - Drachenlauf (Okt 2027 · 26k · 1.150 Hm)
-     - Volle Apple Cards mit hervorgehobenem orangen Aktions-Banner (Fristen & Buchungs-Deadlines).
-   - **Sektion 2 (Unten · Die 3 Beobachtungs-Optionen):**
-     - Ultra-Trail du Mullerthal UTML Shorty (Sep · 21k · 700 Hm)
-     - Trail Côte d’Opale (Sep · 16–24k)
-     - Siebengebirgs-Halbmarathon (Dez · 21,4k · 360 Hm)
-     - Gedimmt (`opacity: 0.75`), dezente graue Status-Pills (`Option`), rein als Notizzettel ohne Verpflichtung.
-5. **Vollständig entfallene Altlasten:**
-   - Keine Landkarte, kein iCal-Export, kein SVG-Expeditionspfad, kein OCR-Screenshot-Import.
+### C. Akzeptierter v10.1 Layout-Blueprint (Der finale Ganzjahres-Standard)
+Vom Athleten am 31.10.2026 final abgenommener und verifizierter UI-Standard:
+1. **Master-Referenzdatei:** 
+   - [`preview_jahres_dashboard.html`](file:///Users/Gerhard/Desktop/running_guide/preview_jahres_dashboard.html) (Vollständige Implementierung beider Modi)
+2. **Apple HIG Segmented Control:**
+   - Schlanker, satinierter Umschalter im Kopf: `[ 📅 Diese Woche ]` vs. `[ 🧭 Quartalskalender 2027 ]`.
+   - *State Persistence:* Standardmäßig landet der Athlet immer auf der aktuellen Woche.
+3. **Reiter 1 (`Diese Woche` · Luftiger Wochenkalender / Reiner Alltag):**
+   - **Großzügige Kalenderspalten:** 160 px Mindesthöhe pro Tag (`Mo 26` bis `So 01`) mit spürbarem Weißraum.
+   - **Klare visuelle Hierarchie:**
+     - Tag & Datum oben links, Status-Check (`✓ Absolviert`) bei geloggten Läufen.
+     - Große Hero-Ziffern (`4,0 km`, `Studio`, `6,0 km · +3 Steigerungen` / Ruhetag: feiner Strich `—`).
+     - Aktueller Tag subtil mit Cyan-Glow akzentuiert.
+     - Unten: Art der Einheit (`Locker GA1`, `Rumpf & Stabi`).
+   - **Vorschau-Woche:** Liegt als ruhiges, kompaktes Grid darunter (`opacity: 0.65`), dient als Orientierung für den anstehenden Wettkampf (Martinslauf).
+4. **Reiter 2 (`Quartalskalender 2027` · Visuelle Jahresschau Q1–Q4):**
+   - **Keine Textliste mehr:** Das Jahr ist in 4 übersichtliche Quartalskarten (Q1 Frühjahr, Q2 Frühsommer, Q3 Spätsommer, Q4 Herbst) aufgeteilt.
+   - **Horizontale Zeitbalken mit echten Trainingsblöcken:**
+     - *Cyan-Blöcke:* Spezifische Aufbautrainings (z. B. 9 Wochen Winter-Aufbau ab 06. Jan für Belgenbach 30k; 4 Wochen Berg-Adaption für TS16).
+     - *Grüne Blöcke:* 2-wöchige Regenerationsphasen (Rekom) direkt nach den Hauptläufen.
+     - *Graue Blöcke:* 3+1 Basis-Routine und Hochsommer-Modus.
+   - **Die 3 gesetzten Säulen:** Prominente Ziel-Zeilen mit Rennflagge 🏁, Datum, Distanz, Höhenmeter und orangenem Aktions-Badge für Buchungsfristen.
+   - **Die 3 Beobachtungs-Optionen:** Dezent gestrichelte Merkzettel am Rand des jeweiligen Quartals (UTML Shorty & Opal in Q3, 7G HM in Q4), rein als unverbindliche Notiz ohne Trainingsblock.
+5. **Vollständig entfallene Altlasten:** Keine Landkarte, kein iCal-Export, kein SVG-Expeditionspfad, kein OCR-Screenshot-Import.
+
 
 
 
