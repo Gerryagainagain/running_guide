@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.47  
+**Document Version:** 9.48  
 **Last Updated:** October 31, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -245,10 +245,10 @@ Wenn ein neuer Trainingszyklus gestartet wird, sind in `app.js` nur 4 zentrale K
 4. **`defaultInitialRuns` (Zeilen 86ff.):** Entweder die 2026er Läufe als historische Baseline behalten oder neue Einheiten für 2027 chronologisch oben anfügen.
 5. **Rennstrategie-Block (`workoutDetailsModal`):** Tausch der Durchgangszeiten und Streckenabschnitte gegen das Belgenbachtrail-Profil (bereits voranalysiert: 30,4 km / 941 Hm / Cut-Offs bei km 18 und km 26,7).
 
-### C. Akzeptierter v10.4 Layout-Blueprint (Klassischer 3-Monats-Kalender & Luftige Front)
+### C. Akzeptierter v10.5 Layout-Blueprint (Der finale Master-Standard)
 Vom Athleten am 31.10.2026 final abgenommener und freigegebener UI-Standard:
 1. **Master-Referenzdateien:** 
-   - [`preview_klassischer_3monats_kalender.html`](file:///Users/Gerhard/Desktop/running_guide/preview_klassischer_3monats_kalender.html) (Der radikal bereinigte 3-Monats-Kalender ohne Subcopies, mit durchgehenden Farb-Balken)
+   - [`preview_klassischer_3monats_kalender.html`](file:///Users/Gerhard/Desktop/running_guide/preview_klassischer_3monats_kalender.html) (Der finale 3-Monats-Kalender im 1.440px-Maximalformat mit 2.2rem Monats-Headlines, roten Sonntagsziffern, durchgehenden Farb-Balken und zentrierter Ziel-Bubble)
    - [`preview_jahres_dashboard.html`](file:///Users/Gerhard/Desktop/running_guide/preview_jahres_dashboard.html) (Master-Dashboard mit Segmented Control & luftigem Wochenkalender)
 2. **Apple HIG Segmented Control Header:**
    - Schlanker, satinierter Umschalter im Kopf: `[ 📅 Diese Woche ]` vs. `[ 🧭 Saison 2027 ]`.
@@ -262,16 +262,20 @@ Vom Athleten am 31.10.2026 final abgenommener und freigegebener UI-Standard:
      - Unten: Art der Einheit (`Locker GA1`, `Rumpf & Stabi`).
    - **Vorschau-Woche:** Liegt als ruhiges, kompaktes Grid darunter (`opacity: 0.65`), dient als Orientierung für den anstehenden Wettkampf (Martinslauf).
 4. **Reiter 2 (`Saison 2027` · Der klassische 3-Monats-Kalender):**
-   - **Radikale Reduktion (Null Subcopies):** Keine Fußnoten, keine Detail-Docks, keine Wochentags-Labels – reine, edle Typografie und Monatsblätter.
-   - **3 Monatsblöcke nebeneinander:** Klassisches Kalenderblatt pro Monat mit zusammenhängenden Farbstreifen.
+   - **Maximales Desktop-Format (1.440 px):** Monumentale Monats-Headlines (`April`, `Mai`, `Juni`) in 2.2rem zentriert.
+   - **Radikale Reduktion (Null Subcopies):** Keine Fußnoten, keine Wochentags-Header (`MO...SO` entfernt), keine Tagesanzahl (`30 Tage` entfernt).
+   - **Rote Sonntagsziffern:** Nur die Ziffern der Sonntagsspalte sind in markantem Rot (`#FF453A`) gefärbt für sofortige intuitive Wochenorientierung.
    - **Echte durchgehende Periodisierungs-Balken:**
      - *Blau durchgehend:* Spezifischer Aufbau (ab 06. Jan in Q1 bis Anfang März).
      - *Rot leuchtend (🏁):* Gesetzte Renntage (07.03. Belgenbach 30k, 12.06. TS16 Imst, 24.10. Drachenlauf).
      - *Grün durchgehend:* 2-wöchige Regenerationsbalken nach den Hauptläufen.
      - *Gelb durchgehend (in Q2):* Der 21-Tage Campingurlaub (05.–25.06.) in Tirol & Kaub.
      - *Lila gestrichelt:* Unverbindliche Optionen (05.09. Opal, 11.09. UTML Müllerthal, 05.12. 7G HM).
-   - **Minimaler Umschalter oben:** Nur die 4 Tasten `Q1` · `Q2` · `Q3` · `Q4`.
-5. **Vollständig entfallene Altlasten:** Keine Landkarte, kein iCal-Export, kein SVG-Expeditionspfad, kein OCR-Screenshot-Import.
+   - **Minimaler Header & Ziel-Bubble:**
+     - Oben links nur das einzelne Wort der Jahreszeit: `Winter`, `Frühling`, `Sommer`, `Herbst`.
+     - In der Bubble unter den Kalendern zentriert nur das Ziel: z. B. `🏁 Ziel: 07. März · Belgenbachtrail (30,7 km · 941 Hm)`.
+5. **Vollständig entfallene Altlasten:** Keine Landkarte, kein iCal-Export, kein SVG-Expeditionspfad, kein OCR-Screenshot-Import, keine Footer-Legende.
+
 
 
 
