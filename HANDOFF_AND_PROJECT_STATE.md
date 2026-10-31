@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.42  
+**Document Version:** 9.43  
 **Last Updated:** October 31, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -246,22 +246,34 @@ Wenn ein neuer Trainingszyklus gestartet wird, sind in `app.js` nur 4 zentrale K
 5. **Rennstrategie-Block (`workoutDetailsModal`):** Tausch der Durchgangszeiten und Streckenabschnitte gegen das Belgenbachtrail-Profil (bereits voranalysiert: 30,4 km / 941 Hm / Cut-Offs bei km 18 und km 26,7).
 
 ### C. Akzeptierter v10.0 Layout-Blueprint (Einsatz ab November/Dezember)
-Vom Athleten am 24.10.2026 abgenommener und gesicherter UI-Standard für den Start des neuen Trainingsblocks:
-1. **Referenz-Datei:** [`preview_2wochen.html`](file:///Users/Gerhard/Desktop/running_guide/preview_2wochen.html).
-2. **14-Tage-Fokus (2 Reihen übereinander):**
-   - **Oben (Aktuelle Woche):** Feiner Apple-Border (`border-white/15`), weicher Tiefenschatten, voller Kontrast für sofortige Orientierung.
-   - **Unten (Folgewoche):** Sanft gedämpft (`opacity: 0.75`, `#161618`), dient als ruhige Vorschau auf den nächsten Longrun/Key-Run.
-   - **Keine störenden Text-Badges:** Begriffe wie *„Aktuell“* oder *„Vorschau“* entfallen komplett; Führung rein über Licht und Kontrast.
-3. **Radikal vereinfachte Tageskarten (3 Ebenen):**
-   - *Ebene 1 (Kopf):* Tag & Datum (`Mo 5`, `Di 6`) + dezenter grüner Statuspunkt bei absolvierten Läufen.
-   - *Ebene 2 (Hero-Mitte):* Tabellarische Hero-Ziffern (`8,2 km` bzw. `12,0 km · 400 Hm` / Ruhetag: eleganter Strich `—`).
-   - *Ebene 3 (Fuß):* Nur der Name der Einheit (`Rampen`, `Rhein`, `Longrun`).
-   - *Bereinigt:* Keine Puls-/Pace-Ziffern mehr auf der Karte (gehören ins Klick-Modal).
-4. **Vollständig entfallene Altlasten:**
-   - Expeditions-SVG-Pfad (`.season-timeline-card`) entfernt.
-   - Schnelleingabe- und Garmin-Screenshot-Import (`tesseract.js`) entfernt.
-5. **Platzierung der Meta-Container:**
-   - Coach-Widget und *„Dein Ding diese Woche“* wandern als 2 ruhige Apple-Karten unter die beiden Wochen.
+Vom Athleten am 24.10. und 31.10.2026 abgenommener und gesicherter UI-Standard:
+1. **Referenz-Dateien:** 
+   - [`preview_2wochen.html`](file:///Users/Gerhard/Desktop/running_guide/preview_2wochen.html) (14-Tage Tages-Execution)
+   - [`preview_jahres_dashboard.html`](file:///Users/Gerhard/Desktop/running_guide/preview_jahres_dashboard.html) (Apple HIG Master-Dashboard mit Segmented Control)
+2. **Apple HIG Segmented Control Header:**
+   - Schlanker, satinierter Umschalter im Kopf: `[ ⏱️ Training ]` vs. `[ 🧭 Saison 2027 ]`.
+   - *State Persistence:* Standardmäßig landet der Athlet immer auf `Training`.
+3. **Reiter 1 (`Training` · Reiner operativer Alltag):**
+   - **Tunnelblick:** Zeigt ausschließlich den aktuellen Zielwettkampf (z. B. Countdown & Sollwerte für 7G HM; ab 06. Januar Belgenbach 30k). Keine Erwähnung künftiger Events.
+   - **14-Tage-Fokus (2 Reihen übereinander):**
+     - *Oben (Aktuelle Woche):* Feiner Apple-Border (`border-white/15`), voller Kontrast.
+     - *Unten (Folgewoche):* Sanft gedämpft (`opacity: 0.65`), dient als ruhige Vorschau auf den nächsten Key-Run.
+     - *Tageskarten:* 3 Ebenen (Kopf: Tag/Datum/Dot; Mitte: Tabellarische Hero-KM; Fuß: Name).
+4. **Reiter 2 (`Saison 2027` · Strategischer Jahresraum / Notizboard):**
+   - **Kein Trainingsplan:** Keine Wochentage, keine Kilometer-Vorgaben.
+   - **Sektion 1 (Oben · Die 3 gesetzten Säulen):** 
+     - Belgenbachtrail (07.03. · 30,7k · 941 Hm)
+     - Tschirgant Sky Run TS16 (12.06. · 16,9k · 850 Hm · Campingpark FiNK)
+     - Drachenlauf (Okt 2027 · 26k · 1.150 Hm)
+     - Volle Apple Cards mit hervorgehobenem orangen Aktions-Banner (Fristen & Buchungs-Deadlines).
+   - **Sektion 2 (Unten · Die 3 Beobachtungs-Optionen):**
+     - Ultra-Trail du Mullerthal UTML Shorty (Sep · 21k · 700 Hm)
+     - Trail Côte d’Opale (Sep · 16–24k)
+     - Siebengebirgs-Halbmarathon (Dez · 21,4k · 360 Hm)
+     - Gedimmt (`opacity: 0.75`), dezente graue Status-Pills (`Option`), rein als Notizzettel ohne Verpflichtung.
+5. **Vollständig entfallene Altlasten:**
+   - Keine Landkarte, kein iCal-Export, kein SVG-Expeditionspfad, kein OCR-Screenshot-Import.
+
 
 
 
