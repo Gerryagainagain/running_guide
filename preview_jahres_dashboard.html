@@ -222,6 +222,22 @@
       padding: 0.25rem 0.75rem;
       border-radius: 9999px;
       letter-spacing: 0.02em;
+      transition: all 0.2s ease;
+    }
+    .week-benchmark-pill.blue {
+      color: var(--apple-blue);
+      background: rgba(10, 132, 255, 0.12);
+      border-color: rgba(10, 132, 255, 0.30);
+    }
+    .week-benchmark-pill.green {
+      color: var(--apple-green);
+      background: rgba(48, 209, 88, 0.12);
+      border-color: rgba(48, 209, 88, 0.30);
+    }
+    .week-benchmark-pill.race {
+      color: var(--apple-red);
+      background: rgba(255, 69, 58, 0.15);
+      border-color: rgba(255, 69, 58, 0.40);
     }
 
     .days-grid {
@@ -498,320 +514,102 @@
       gap: 4px;
     }
 
-    /* MODE SWITCHER IM TRAINING TAB (14 TAGE VS 6-WOCHEN-PLAN) */
-    .training-sub-bar {
+    /* ==========================================================================
+       SINGLE STAGE: WOCHEN-AUSWAHL & FOKUS-STRIP
+       ========================================================================== */
+    .week-selector-bar {
       display: flex;
       justify-content: flex-end;
-      margin-bottom: -0.5rem;
+      align-items: center;
+      margin-bottom: 1.25rem;
     }
 
-    .training-mode-control {
+    .week-pill-selector {
       display: inline-flex;
       background: rgba(255, 255, 255, 0.08);
-      padding: 3px;
+      padding: 4px;
       border-radius: 9999px;
       border: 1px solid rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      gap: 3px;
     }
 
-    .training-mode-btn {
+    .week-pill-btn {
       background: transparent;
       border: none;
       color: var(--text-secondary);
-      padding: 6px 16px;
+      padding: 7px 15px;
       font-family: var(--font-text);
       font-size: 0.82rem;
       font-weight: 600;
       border-radius: 9999px;
       cursor: pointer;
       transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
     }
 
-    .training-mode-btn:hover {
+    .week-pill-btn:hover {
       color: var(--text-white);
+      background: rgba(255, 255, 255, 0.05);
     }
 
-    .training-mode-btn.active {
+    .week-pill-btn.active {
       background: rgba(255, 255, 255, 0.20);
       color: var(--text-white);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
       font-weight: 700;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
     }
 
-    /* 6-WOCHEN-FAHRPLAN MATRIX (OPTION A: INLINE-ACCORDION) */
-    .six-weeks-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-top: 1px solid var(--card-border-top);
-      border-radius: 24px;
-      padding: 1.75rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.55);
-      backdrop-filter: blur(24px);
+    .week-pill-btn .pill-kw {
+      font-weight: 800;
+      letter-spacing: -0.01em;
     }
 
-    .six-weeks-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
+    .week-pill-btn .pill-label {
+      font-size: 0.76rem;
+      opacity: 0.85;
     }
 
-    .six-weeks-item {
-      border-radius: 14px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.05);
+    .week-pill-btn.is-race-pill .pill-label {
+      color: var(--apple-red);
+    }
+    .week-pill-btn.is-race-pill.active .pill-label {
+      color: #FFF;
+    }
+    .week-pill-btn.is-race-pill.active {
+      background: rgba(255, 69, 58, 0.35);
+      border: 1px solid rgba(255, 69, 58, 0.45);
+    }
+
+    /* WOCHENFOKUS STRIP UNTER DEN 7 KARTEN */
+    .week-summary-strip {
       background: rgba(255, 255, 255, 0.02);
-      transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .six-weeks-item:hover {
-      border-color: rgba(255, 255, 255, 0.12);
-    }
-
-    .six-weeks-item.is-current {
-      border-color: rgba(100, 210, 255, 0.35);
-      background: rgba(100, 210, 255, 0.03);
-    }
-
-    .six-weeks-item.is-race-week {
-      border-color: rgba(255, 69, 58, 0.35);
-    }
-
-    .six-weeks-item.is-expanded {
-      border-color: rgba(255, 255, 255, 0.22);
-      background: rgba(18, 18, 26, 0.85);
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
-    }
-
-    .six-weeks-item.is-expanded.is-current {
-      border-color: rgba(100, 210, 255, 0.5);
-    }
-
-    .six-weeks-item.is-expanded.is-race-week {
-      border-color: rgba(255, 69, 58, 0.5);
-    }
-
-    .six-weeks-row {
-      display: grid;
-      grid-template-columns: 90px 140px 1fr 130px 40px;
-      align-items: center;
-      gap: 1.25rem;
-      padding: 1rem 1.25rem;
-      cursor: pointer;
-      user-select: none;
-      transition: background 0.15s ease;
-    }
-
-    .six-weeks-row:hover {
-      background: rgba(255, 255, 255, 0.04);
-    }
-
-    .six-weeks-item.is-expanded .six-weeks-row {
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(255, 255, 255, 0.03);
-    }
-
-    .accordion-chevron {
-      display: inline-block;
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
-      line-height: 1;
-    }
-
-    .six-weeks-item.is-expanded .accordion-chevron {
-      transform: rotate(90deg);
-      color: var(--apple-cyan);
-    }
-
-    .six-weeks-accordion-panel {
-      display: none;
-      padding: 1.25rem 1.25rem 1.5rem 1.25rem;
-      animation: accFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .six-weeks-item.is-expanded .six-weeks-accordion-panel {
-      display: block;
-    }
-
-    @keyframes accFadeIn {
-      from { opacity: 0; transform: translateY(-4px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .accordion-summary-bar {
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 14px;
+      padding: 0.85rem 1.25rem;
+      margin-top: 1.25rem;
       display: flex;
       align-items: center;
       gap: 0.85rem;
-      padding: 0.65rem 1rem;
-      border-radius: 10px;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      margin-bottom: 1rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.45;
     }
 
-    .accordion-summary-badge {
+    .week-summary-tag {
       font-size: 0.68rem;
       font-weight: 800;
       letter-spacing: 0.05em;
-      padding: 3px 7px;
+      padding: 3px 8px;
       border-radius: 6px;
       background: rgba(100, 210, 255, 0.15);
       color: var(--apple-cyan);
       border: 1px solid rgba(100, 210, 255, 0.3);
       flex-shrink: 0;
-    }
-
-    .accordion-summary-text {
-      font-size: 0.82rem;
-      color: var(--text-secondary);
-      line-height: 1.4;
-    }
-
-    .accordion-days-grid {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 10px;
-    }
-
-    .acc-day-card {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      border-radius: 12px;
-      padding: 0.75rem 0.65rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 110px;
-      transition: all 0.15s ease;
-    }
-
-    .acc-day-card:hover {
-      background: rgba(255, 255, 255, 0.05);
-      border-color: rgba(255, 255, 255, 0.15);
-      transform: translateY(-2px);
-    }
-
-    .acc-day-card.is-race {
-      border-color: rgba(255, 69, 58, 0.4);
-      background: rgba(255, 69, 58, 0.06);
-    }
-
-    .acc-day-card.is-rest {
-      opacity: 0.65;
-    }
-    .acc-day-card.is-rest:hover {
-      opacity: 0.9;
-    }
-
-    .acc-day-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 0.35rem;
-    }
-
-    .acc-day-name {
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: var(--text-secondary);
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
-    }
-
-    .acc-day-date {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      color: var(--text-muted);
-    }
-
-    .acc-hero-chill {
-      font-family: var(--font-display);
-      font-size: 1.15rem;
-      font-weight: 800;
-      color: var(--text-muted);
-      letter-spacing: 0.04em;
-    }
-
-    .acc-hero-studio {
-      font-family: var(--font-display);
-      font-size: 1.05rem;
-      font-weight: 800;
-      color: var(--apple-cyan);
-      letter-spacing: 0.02em;
-    }
-
-    .acc-hero-run {
-      display: flex;
-      align-items: baseline;
-      gap: 3px;
-    }
-
-    .acc-hero-val {
-      font-family: var(--font-display);
-      font-size: 1.45rem;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1;
-    }
-
-    .acc-hero-unit {
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-    }
-
-    .acc-day-footer {
-      margin-top: 0.5rem;
-    }
-
-    .acc-tag {
-      font-size: 0.72rem;
-      font-weight: 600;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .acc-sub {
-      font-size: 0.66rem;
-      color: var(--text-muted);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      margin-top: 2px;
-    }
-
-    /* VORSCHAU-WOCHE GEDIMMT */
-    .preview-week {
-      background: rgba(18, 18, 24, 0.4);
-      border: 1px solid var(--card-border);
-      border-radius: 20px;
-      padding: 1.25rem 1.75rem;
-      opacity: 0.75;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .preview-grid {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 10px;
-    }
-
-    .preview-day {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.04);
-      border-radius: 12px;
-      padding: 12px 10px;
-      text-align: center;
-      min-height: 85px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
     }
 
     /* ==========================================================================
@@ -1146,242 +944,74 @@
     </header>
 
     <!-- ==========================================================================
-         TAB 1: OPERATIVER ALLTAG (LUFTIGER WOCHENKALENDER)
+         TAB 1: OPERATIVER ALLTAG (SINGLE STAGE WOCHENKALENDER)
          ========================================================================== -->
     <div id="tab-training" class="view-panel active">
-      
 
-
-      <!-- UNTER-UMSCHALTER: 14 TAGE FOKUS VS 6-WOCHEN-FAHRPLAN -->
-      <div class="training-sub-bar">
-        <div class="training-mode-control">
-          <button class="training-mode-btn active" id="btnMode14" onclick="switchTrainingMode('14days')">14-Tage Fokus</button>
-          <button class="training-mode-btn" id="btnMode6W" onclick="switchTrainingMode('6weeks')">🧭 6-Wochen-Plan</button>
+      <!-- WOCHEN-AUSWAHL (SINGLE STAGE SEGMENTED CONTROL) -->
+      <div class="week-selector-bar">
+        <div class="week-pill-selector">
+          <button class="week-pill-btn is-race-pill active" onclick="switchWeek(45)" id="pill-kw-45" data-kw="45">
+            <span class="pill-kw">KW 45</span>
+            <span class="pill-label">🏁 Martinslauf</span>
+          </button>
+          <button class="week-pill-btn" onclick="switchWeek(46)" id="pill-kw-46" data-kw="46">
+            <span class="pill-kw">KW 46</span>
+            <span class="pill-label">Post-Race</span>
+          </button>
+          <button class="week-pill-btn" onclick="switchWeek(47)" id="pill-kw-47" data-kw="47">
+            <span class="pill-kw">KW 47</span>
+            <span class="pill-label">Aufbau I</span>
+          </button>
+          <button class="week-pill-btn" onclick="switchWeek(48)" id="pill-kw-48" data-kw="48">
+            <span class="pill-kw">KW 48</span>
+            <span class="pill-label">Peak 38k</span>
+          </button>
+          <button class="week-pill-btn is-race-pill" onclick="switchWeek(49)" id="pill-kw-49" data-kw="49">
+            <span class="pill-kw">KW 49</span>
+            <span class="pill-label">🏁 7G-HM</span>
+          </button>
+          <button class="week-pill-btn" onclick="switchWeek(50)" id="pill-kw-50" data-kw="50">
+            <span class="pill-kw">KW 50</span>
+            <span class="pill-label">Pause</span>
+          </button>
         </div>
       </div>
 
-      <!-- ANSICHT 1: 14-TAGE-FOKUS (ROLLIEREND) -->
-      <div id="view14Days">
-        <div class="calendar-week-card">
-          <div class="calendar-header">
-            <div class="week-headline">Diese Woche KW 45 • Martinslauf</div>
-            <div class="week-benchmark-pill">Zielzeit Sub 58 min</div>
-          </div>
-
-          <div class="days-grid">
-            <div class="apple-day-card card-today">
-              <span class="badge-today-blue">HEUTE</span>
-              <div class="day-header">
-                <span class="day-name" style="color:var(--apple-cyan);">MON</span>
-                <span class="date-num" style="color:var(--apple-cyan);">02.11</span>
-              </div>
-              <div class="day-hero-box">
-                <div class="hero-val-wrap"><span class="hero-rest-txt" style="color:var(--apple-cyan);">CHILL</span></div>
-                <div class="hero-sub-micro">Regeneration</div>
-              </div>
-              <div class="day-footer-row"></div>
-            </div>
-
-            <div class="apple-day-card ">
-              <div class="day-header">
-                <span class="day-name">DIE</span>
-                <span class="date-num">03.11</span>
-              </div>
-              <div class="day-hero-box">
-                <div class="hero-val-wrap"><span class="hero-val">5.5</span><span class="hero-unit">KM</span></div>
-                <div class="hero-tag">Locker GA1</div>
-                <div class="hero-sub-micro">&lt; 118 bpm · 3 Antritte</div>
-              </div>
-              <div class="day-footer-row"></div>
-            </div>
-
-            <div class="apple-day-card ">
-              <div class="day-header">
-                <span class="day-name">MIT</span>
-                <span class="date-num">04.11</span>
-              </div>
-              <div class="day-hero-box">
-                <div class="hero-val-wrap"><span class="hero-rest-txt">CHILL</span></div>
-                <div class="hero-sub-micro">Passiv schonen</div>
-              </div>
-              <div class="day-footer-row"></div>
-            </div>
-
-            <div class="apple-day-card ">
-              <div class="day-header">
-                <span class="day-name">DON</span>
-                <span class="date-num">05.11</span>
-              </div>
-              <div class="day-hero-box">
-                <div class="hero-val-wrap"><span class="hero-val">4.0</span><span class="hero-unit">KM</span></div>
-                <div class="hero-tag">Aktivierung</div>
-                <div class="hero-sub-micro">&lt; 115 bpm · Flach</div>
-              </div>
-              <div class="day-footer-row"></div>
-            </div>
-
-            <div class="apple-day-card ">
-              <div class="day-header">
-                <span class="day-name">FRE</span>
-                <span class="date-num">06.11</span>
-              </div>
-              <div class="day-hero-box">
-                <div class="hero-val-wrap"><span class="hero-rest-txt">CHILL</span></div>
-                <div class="hero-sub-micro">Kein Krafttraining</div>
-              </div>
-              <div class="day-footer-row"></div>
-            </div>
-
-            <div class="apple-day-card ">
-              <div class="day-header">
-                <span class="day-name">SAM</span>
-                <span class="date-num">07.11</span>
-              </div>
-              <div class="day-hero-box">
-                <div class="hero-val-wrap"><span class="hero-rest-txt">CHILL</span></div>
-                <div class="hero-tag" style="color:var(--apple-orange);">Pre-Race</div>
-                <div class="hero-sub-micro">Carboload &amp; Ruhe</div>
-              </div>
-              <div class="day-footer-row"></div>
-            </div>
-
-            <div class="apple-day-card card-race">
-              <div class="day-header">
-                <span class="day-name" style="color:var(--apple-red);">SON</span>
-                <span class="date-num" style="color:var(--apple-red);">08.11</span>
-              </div>
-              <div class="day-hero-box">
-                <div class="hero-val-wrap"><span class="hero-val" style="color:var(--apple-red);">10.0</span><span class="hero-unit" style="color:var(--apple-red);">KM</span></div>
-                <div class="hero-sub-micro" style="color:var(--apple-orange);">8 °C · Sub 58 min</div>
-              </div>
-              <div class="day-footer-row">
-                <span class="day-pill-badge pill-race">🏁 Martinslauf</span>
-                <div class="status-dot done" style="background:var(--apple-red); box-shadow:0 0 6px var(--apple-red);"></div>
-              </div>
-            </div>
-          </div>
+      <!-- DIE FESTE HAUPTBÜHNE: 7-TAGE-KALENDER -->
+      <div class="calendar-week-card" id="calendarWeekCard">
+        <div class="calendar-header">
+          <div class="week-headline" id="currentWeekTitle">Diese Woche KW 45 • Martinslauf</div>
+          <div class="week-benchmark-pill race" id="currentWeekBenchmark">Zielzeit Sub 58 min</div>
         </div>
 
-        <!-- VORSCHAU FOLGEWOCHE (KW 46) -->
-        <div class="preview-week" style="margin-top: 1.25rem;">
-          <div style="display:flex; justify-content:space-between; align-items:baseline;">
-            <span style="font-size:0.95rem; font-weight:700; color:var(--text-secondary);">Vorschau Folgewoche (KW 46 · Post-Race & Einstieg 7G-HM)</span>
-            <span style="font-size:0.8rem; color:var(--text-muted);">09. – 15. November 2026</span>
-          </div>
-          <div class="preview-grid">
-            <div class="preview-day"><span style="font-size:0.75rem; color:var(--text-muted);">Mo 09</span><span style="font-weight:600;">—</span><span style="font-size:0.7rem; color:var(--text-muted);">Post-Race Ruhe</span></div>
-            <div class="preview-day"><span style="font-size:0.75rem; color:var(--text-muted);">Di 10</span><span style="font-weight:600;">6,0 km</span><span style="font-size:0.7rem; color:var(--text-muted);">Rekom GA1</span></div>
-            <div class="preview-day"><span style="font-size:0.75rem; color:var(--text-muted);">Mi 11</span><span style="font-weight:600;">—</span><span style="font-size:0.7rem; color:var(--text-muted);">Ruhe</span></div>
-            <div class="preview-day"><span style="font-size:0.75rem; color:var(--text-muted);">Do 12</span><span style="font-weight:600;">8,0 km</span><span style="font-size:0.7rem; color:var(--text-muted);">GA1 locker</span></div>
-            <div class="preview-day"><span style="font-size:0.75rem; color:var(--text-muted);">Fr 13</span><span style="font-weight:600;">Studio</span><span style="font-size:0.7rem; color:var(--text-muted);">Stabi & Rumpf</span></div>
-            <div class="preview-day"><span style="font-size:0.75rem; color:var(--text-muted);">Sa 14</span><span style="font-weight:600; color:var(--apple-blue);">14,0 km</span><span style="font-size:0.7rem; color:var(--apple-blue);">Longrun Erkrath</span></div>
-            <div class="preview-day"><span style="font-size:0.75rem; color:var(--apple-red);">So 15</span><span style="font-weight:600;">—</span><span style="font-size:0.7rem; color:var(--text-muted);">Ruhe</span></div>
-          </div>
+        <div class="days-grid" id="mainDaysGrid">
+          <!-- WIRD DYNAMISCH DURCH renderWeek() BEFÜLLT -->
         </div>
 
-        <!-- RÜCKBLICK VORWOCHE (KW 44) ALS DEZENTER DROPDOWN-ACCORDION -->
-        <details class="retro-details">
-          <summary class="retro-summary">
-            <span>⏮️ Rückblick Vorwoche (KW 44 · Wiedereinstieg 26.10. – 01.11.)</span>
-            <span style="font-size:0.75rem; color:var(--apple-green); font-weight:700;">10,55 km geloggt ▾</span>
-          </summary>
-          <div class="retro-grid">
-            <div class="retro-day"><span style="font-size:0.75rem; color:var(--text-muted);">Mo 26</span><span style="font-weight:600;">—</span><span style="font-size:0.7rem; color:var(--text-muted);">Ruhe</span></div>
-            <div class="retro-day"><span style="font-size:0.75rem; color:var(--text-muted);">Di 27</span><span style="font-weight:600;">—</span><span style="font-size:0.7rem; color:var(--text-muted);">Ruhe</span></div>
-            <div class="retro-day"><span style="font-size:0.75rem; color:var(--text-muted);">Mi 28</span><span style="font-weight:600;">—</span><span style="font-size:0.7rem; color:var(--text-muted);">Ruhe</span></div>
-            <div class="retro-day"><span style="font-size:0.75rem; color:var(--text-muted);">Do 29</span><span style="font-weight:700; color:var(--apple-green);">4,0 km</span><span style="font-size:0.7rem; color:var(--text-muted);">Testlauf</span></div>
-            <div class="retro-day"><span style="font-size:0.75rem; color:var(--text-muted);">Fr 30</span><span style="font-weight:700;">Studio</span><span style="font-size:0.7rem; color:var(--text-muted);">Stabi</span></div>
-            <div class="retro-day"><span style="font-size:0.75rem; color:var(--text-muted);">Sa 31</span><span style="font-weight:700; color:var(--apple-green);">6,55 km</span><span style="font-size:0.7rem; color:var(--text-muted);">3x500m Int.</span></div>
-            <div class="retro-day"><span style="font-size:0.75rem; color:var(--apple-red);">So 01</span><span style="font-weight:600;">—</span><span style="font-size:0.7rem; color:var(--text-muted);">Ruhetag</span></div>
-          </div>
-        </details>
-      </div>
-
-      <!-- ANSICHT 2: DER 6-WOCHEN-FAHRPLAN (KW 45 BIS KW 50) - OPTION A: INLINE-ACCORDION -->
-      <div id="view6Weeks" style="display: none;">
-        <div class="six-weeks-card">
-          <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:0.5rem;">
-            <div style="font-family:var(--font-display); font-size:1.25rem; font-weight:700; color:var(--text-white);">Fahrplan bis Jahresausklang (KW 45 – KW 50)</div>
-            <div style="font-size:0.82rem; color:var(--text-muted);">Klicke auf eine Woche für das komplette 7-Tage-Detail</div>
-          </div>
-
-          <div class="six-weeks-list">
-
-            <!-- ZEILE KW 45 -->
-            <div class="six-weeks-item is-current is-race-week is-expanded" id="week-item-45">
-              <div class="six-weeks-row is-current is-race" onclick="toggleWeekAccordion(45)">
-                <div><span style="font-weight:800; color:var(--apple-cyan);">KW 45</span><br><span style="font-size:0.7rem; color:var(--apple-cyan);">AKTUELL</span></div>
-                <div style="font-size:0.8rem; color:var(--text-muted);">02. – 08. Nov</div>
-                <div><strong style="color:var(--apple-orange);">Martinslauf Rennwoche</strong><br><span style="font-size:0.75rem; color:var(--text-secondary);">2 kurze Reize (5,5k + 4k), Frische maximieren</span></div>
-                <div style="text-align:right;"><span style="font-weight:700; color:var(--apple-red);">19,5 km</span><br><span style="font-size:0.72rem; color:var(--text-muted);">🏁 10k Wettkampf</span></div>
-                <div style="text-align:right;"><span class="accordion-chevron">›</span></div>
-              </div>
-              <div class="six-weeks-accordion-panel" id="panel-kw-45"></div>
-            </div>
-
-            <!-- ZEILE KW 46 -->
-            <div class="six-weeks-item" id="week-item-46">
-              <div class="six-weeks-row" onclick="toggleWeekAccordion(46)">
-                <div><span style="font-weight:700;">KW 46</span></div>
-                <div style="font-size:0.8rem; color:var(--text-muted);">09. – 15. Nov</div>
-                <div><strong>Post-Race Erholung & HM-Einstieg</strong><br><span style="font-size:0.75rem; color:var(--text-secondary);">Di lockere Rekom, Do 8k GA1, Sa Longrun Erkrath</span></div>
-                <div style="text-align:right;"><span style="font-weight:700;">28,0 km</span><br><span style="font-size:0.72rem; color:var(--apple-blue);">14k Longrun</span></div>
-                <div style="text-align:right;"><span class="accordion-chevron">›</span></div>
-              </div>
-              <div class="six-weeks-accordion-panel" id="panel-kw-46"></div>
-            </div>
-
-            <!-- ZEILE KW 47 -->
-            <div class="six-weeks-item" id="week-item-47">
-              <div class="six-weeks-row" onclick="toggleWeekAccordion(47)">
-                <div><span style="font-weight:700;">KW 47</span></div>
-                <div style="font-size:0.8rem; color:var(--text-muted);">16. – 22. Nov</div>
-                <div><strong>Spezifischer HM-Aufbau I</strong><br><span style="font-size:0.75rem; color:var(--text-secondary);">Umfangserweiterung & hügelige GA1-Kilometer</span></div>
-                <div style="text-align:right;"><span style="font-weight:700;">34,0 km</span><br><span style="font-size:0.72rem; color:var(--apple-blue);">16k Erkrath (+350 Hm)</span></div>
-                <div style="text-align:right;"><span class="accordion-chevron">›</span></div>
-              </div>
-              <div class="six-weeks-accordion-panel" id="panel-kw-47"></div>
-            </div>
-
-            <!-- ZEILE KW 48 -->
-            <div class="six-weeks-item" id="week-item-48">
-              <div class="six-weeks-row" onclick="toggleWeekAccordion(48)">
-                <div><span style="font-weight:700;">KW 48</span></div>
-                <div style="font-size:0.8rem; color:var(--text-muted);">23. – 29. Nov</div>
-                <div><strong>HM-Peak Belastungswoche</strong><br><span style="font-size:0.75rem; color:var(--text-secondary);">Schlüssel-Longrun Siebengebirge (Wettkampf-Simulation)</span></div>
-                <div style="text-align:right;"><span style="font-weight:700; color:var(--apple-orange);">38,0 km</span><br><span style="font-size:0.72rem; color:var(--apple-blue);">18k 7G (+500 Hm)</span></div>
-                <div style="text-align:right;"><span class="accordion-chevron">›</span></div>
-              </div>
-              <div class="six-weeks-accordion-panel" id="panel-kw-48"></div>
-            </div>
-
-            <!-- ZEILE KW 49 -->
-            <div class="six-weeks-item is-race-week" id="week-item-49">
-              <div class="six-weeks-row is-race" onclick="toggleWeekAccordion(49)">
-                <div><span style="font-weight:800; color:var(--apple-red);">KW 49</span></div>
-                <div style="font-size:0.8rem; color:var(--text-muted);">30. Nov – 06. Dez</div>
-                <div><strong style="color:var(--apple-red);">Siebengebirgs-HM Rennwoche</strong><br><span style="font-size:0.75rem; color:var(--text-secondary);">Di/Do leichtes Anschwitzen, So Wettkampf Aegidienberg</span></div>
-                <div style="text-align:right;"><span style="font-weight:700; color:var(--apple-red);">31,4 km</span><br><span style="font-size:0.72rem; color:var(--apple-red);">🏁 21,4k (360 Hm)</span></div>
-                <div style="text-align:right;"><span class="accordion-chevron">›</span></div>
-              </div>
-              <div class="six-weeks-accordion-panel" id="panel-kw-49"></div>
-            </div>
-
-            <!-- ZEILE KW 50 -->
-            <div class="six-weeks-item" id="week-item-50">
-              <div class="six-weeks-row" onclick="toggleWeekAccordion(50)">
-                <div><span style="font-weight:700;">KW 50</span></div>
-                <div style="font-size:0.8rem; color:var(--text-muted);">07. – 13. Dez</div>
-                <div><strong>Saisonpause & Regeneration</strong><br><span style="font-size:0.75rem; color:var(--text-secondary);">Aktive Erholung, keine Trainingsvorgaben, volle Frische</span></div>
-                <div style="text-align:right;"><span style="font-weight:700; color:var(--apple-green);">12,0 km</span><br><span style="font-size:0.72rem; color:var(--apple-green);">Rekom / Pause</span></div>
-                <div style="text-align:right;"><span class="accordion-chevron">›</span></div>
-              </div>
-              <div class="six-weeks-accordion-panel" id="panel-kw-50"></div>
-            </div>
-
-          </div>
+        <!-- WOCHENFOKUS STRIP -->
+        <div class="week-summary-strip" id="weekSummaryStrip">
+          <span class="week-summary-tag">FOKUS</span>
+          <span class="week-summary-text" id="weekSummaryText">Frische maximieren für den Martinslauf am Sonntag (8 °C, Pacing: 5:50 ➔ 5:45 ➔ 5:35 min/km). Am Samstag 07. Nov: Ruhetag & Pre-Race Carboload.</span>
         </div>
       </div>
+
+      <!-- RÜCKBLICK VORWOCHE (KW 44) ALS DEZENTER DROPDOWN-ACCORDION -->
+      <details class="retro-details">
+        <summary class="retro-summary">
+          <span>⏮️ Rückblick Vorwoche (KW 44 · Wiedereinstieg 26.10. – 01.11.)</span>
+          <span style="font-size:0.75rem; color:var(--apple-green); font-weight:700;">10,55 km geloggt ▾</span>
+        </summary>
+        <div class="retro-grid">
+          <div class="retro-day"><span style="font-size:0.75rem; color:var(--text-muted);">Mo 26</span><span style="font-weight:600;">—</span><span style="font-size:0.7rem; color:var(--text-muted);">Ruhe</span></div>
+          <div class="retro-day"><span style="font-size:0.75rem; color:var(--text-muted);">Di 27</span><span style="font-weight:600;">—</span><span style="font-size:0.7rem; color:var(--text-muted);">Ruhe</span></div>
+          <div class="retro-day"><span style="font-size:0.75rem; color:var(--text-muted);">Mi 28</span><span style="font-weight:600;">—</span><span style="font-size:0.7rem; color:var(--text-muted);">Ruhe</span></div>
+          <div class="retro-day"><span style="font-size:0.75rem; color:var(--apple-green); font-weight:700;">4,0 km</span><span style="font-size:0.7rem; color:var(--text-muted);">Testlauf</span></div>
+          <div class="retro-day"><span style="font-size:0.75rem; color:var(--text-muted);">Fr 30</span><span style="font-weight:700;">Studio</span><span style="font-size:0.7rem; color:var(--text-muted);">Stabi</span></div>
+          <div class="retro-day"><span style="font-size:0.75rem; color:var(--apple-green); font-weight:700;">6,55 km</span><span style="font-size:0.7rem; color:var(--text-muted);">3x500m Int.</span></div>
+          <div class="retro-day"><span style="font-size:0.75rem; color:var(--apple-red);">So 01</span><span style="font-weight:600;">—</span><span style="font-size:0.7rem; color:var(--text-muted);">Ruhetag</span></div>
+        </div>
+      </details>
 
     </div>
 
@@ -1767,184 +1397,203 @@
       }
     }
 
-    // Wochenplan-Daten für den 6-Wochen-Fahrplan (KW 45 bis KW 50)
-    const weekModalData = {
+    // Wochenplan-Daten (Single Stage: KW 45 bis KW 50)
+    const weeksData = {
       45: {
-        title: 'KW 45 · Martinslauf-Rennwoche (A-Wettkampf 10k)',
+        title: 'Diese Woche KW 45 • Martinslauf',
         dates: '02. – 08. November 2026',
+        benchmark: 'Zielzeit Sub 58 min',
+        benchmarkType: 'race',
         summary: 'Fokus: Frische maximieren für den Martinslauf am Sonntag (8 °C, Pacing: 5:50 ➔ 5:45 ➔ 5:35 min/km). Am Samstag 07. Nov: Ruhetag & Pre-Race Carboload.',
         days: [
-          { d: 'Mo 02', val: '—', tag: 'Ruhe', sub: 'Regeneration' },
-          { d: 'Di 03', val: '5.5 km', tag: 'Locker GA1', sub: '< 118 bpm + Antritte' },
-          { d: 'Mi 04', val: '—', tag: 'Ruhe', sub: 'Passiv schonen' },
-          { d: 'Do 05', val: '4.0 km', tag: 'Aktivierung', sub: '< 115 bpm locker' },
-          { d: 'Fr 06', val: '—', tag: 'Ruhe', sub: 'Kein KT' },
-          { d: 'Sa 07', val: '—', tag: 'Pre-Race', sub: 'Carboload & Ruhe' },
-          { d: 'So 08', val: '10.0 km', tag: '🏁 Martinslauf', sub: '8 °C · Sub 58 min', hl: true, main: true }
+          { d: 'MON 02.11', val: '—', tag: '', sub: 'Regeneration', isToday: true },
+          { d: 'DIE 03.11', val: '5.5', unit: 'KM', tag: 'Locker GA1', sub: '< 118 bpm · 3 Antritte' },
+          { d: 'MIT 04.11', val: '—', tag: '', sub: 'Passiv schonen' },
+          { d: 'DON 05.11', val: '4.0', unit: 'KM', tag: 'Aktivierung', sub: '< 115 bpm · Flach' },
+          { d: 'FRE 06.11', val: '—', tag: '', sub: 'Kein Krafttraining' },
+          { d: 'SAM 07.11', val: '—', tag: 'Pre-Race', tagColor: 'var(--apple-orange)', sub: 'Carboload & Ruhe' },
+          { d: 'SON 08.11', val: '10.0', unit: 'KM', tag: '🏁 Martinslauf', sub: '8 °C · Sub 58 min', isRace: true, main: true }
         ]
       },
       46: {
-        title: 'KW 46 · Post-Race Erholung & Einstieg 7G-HM',
+        title: 'KW 46 • Post-Race Erholung & Einstieg 7G-HM',
         dates: '09. – 15. November 2026',
+        benchmark: '28,0 km · 14k Longrun',
+        benchmarkType: 'blue',
         summary: 'Fokus: Laktat abbauen nach dem 10er. Ab Donnerstag sanfter Einstieg in die HM-spezifische Ausdauer mit 14k Longrun am Samstag.',
         days: [
-          { d: 'Mo 09', val: '—', tag: 'Ruhe', sub: 'Post-Race Pause' },
-          { d: 'Di 10', val: '6,0 km', tag: 'Rekom GA1', sub: '< 112 bpm flach' },
-          { d: 'Mi 11', val: '—', tag: 'Ruhe', sub: 'Passiv' },
-          { d: 'Do 12', val: '8,0 km', tag: 'Locker GA1', sub: '112–116 bpm' },
-          { d: 'Fr 13', val: 'Studio', tag: 'Rumpf & Stabi', sub: 'Beine schonen' },
-          { d: 'Sa 14', val: '14,0 km', tag: 'Longrun', sub: 'Erkrath (280 Hm)' },
-          { d: 'So 15', val: '—', tag: 'Ruhetag', sub: 'Frische' }
+          { d: 'MON 09.11', val: '—', tag: 'Ruhe', sub: 'Post-Race Pause' },
+          { d: 'DIE 10.11', val: '6.0', unit: 'KM', tag: 'Rekom GA1', sub: '< 112 bpm flach' },
+          { d: 'MIT 11.11', val: '—', tag: 'Ruhe', sub: 'Passiv schonen' },
+          { d: 'DON 12.11', val: '8.0', unit: 'KM', tag: 'Locker GA1', sub: '112–116 bpm' },
+          { d: 'FRE 13.11', val: 'STUDIO', tag: 'Rumpf & Stabi', sub: 'Beine schonen', isStudio: true },
+          { d: 'SAM 14.11', val: '14.0', unit: 'KM', tag: 'Longrun Erkrath', sub: '280 Hm · 112–118 bpm', isLongrun: true },
+          { d: 'SON 15.11', val: '—', tag: 'Ruhetag', sub: 'Frische' }
         ]
       },
       47: {
-        title: 'KW 47 · Spezifischer HM-Aufbau I',
+        title: 'KW 47 • Spezifischer HM-Aufbau I',
         dates: '16. – 22. November 2026',
+        benchmark: '34,0 km · 16k Erkrath (+350 Hm)',
+        benchmarkType: 'blue',
         summary: 'Fokus: Umfangserweiterung auf 34 km. Dienstag 8k mit leichten Hügeln, Samstag Ausbau des Longruns auf 16 km.',
         days: [
-          { d: 'Mo 16', val: '—', tag: 'Ruhe', sub: 'Regeneration' },
-          { d: 'Di 17', val: '8,0 km', tag: 'Hügel-GA1', sub: '115–118 bpm (+80 Hm)' },
-          { d: 'Mi 18', val: '—', tag: 'Ruhe', sub: 'Passiv' },
-          { d: 'Do 19', val: '10,0 km', tag: 'Grundlage', sub: 'Flach am Rhein' },
-          { d: 'Fr 20', val: 'Studio', tag: 'Stabi & Beine', sub: 'Moderate Kraft' },
-          { d: 'Sa 21', val: '16,0 km', tag: 'Longrun', sub: 'Erkrath (350 Hm)' },
-          { d: 'So 22', val: '—', tag: 'Ruhetag', sub: 'Volle Erholung' }
+          { d: 'MON 16.11', val: '—', tag: 'Ruhe', sub: 'Regeneration' },
+          { d: 'DIE 17.11', val: '8.0', unit: 'KM', tag: 'Hügel-GA1', sub: '115–118 bpm (+80 Hm)' },
+          { d: 'MIT 18.11', val: '—', tag: 'Ruhe', sub: 'Passiv' },
+          { d: 'DON 19.11', val: '10.0', unit: 'KM', tag: 'Grundlage', sub: 'Flach am Rhein · GA1' },
+          { d: 'FRE 20.11', val: 'STUDIO', tag: 'Stabi & Beine', sub: 'Moderate Kraft', isStudio: true },
+          { d: 'SAM 21.11', val: '16.0', unit: 'KM', tag: 'Longrun Erkrath', sub: '350 Hm · 112–118 bpm', isLongrun: true },
+          { d: 'SON 22.11', val: '—', tag: 'Ruhetag', sub: 'Volle Erholung' }
         ]
       },
       48: {
-        title: 'KW 48 · HM-Peak Belastungswoche',
+        title: 'KW 48 • HM-Peak Belastungswoche',
         dates: '23. – 29. November 2026',
-        summary: 'Fokus: Schlüsselwoche vor dem Siebengebirgs-HM. Samstag 18 km Longrun direkt im Siebengebirge als Strecken- und Höhenmetertest (500 Hm).',
+        benchmark: '38,0 km · Key 18k Siebengebirge',
+        benchmarkType: 'orange',
+        summary: 'Fokus: Schlüsselwoche vor dem Siebengebirgs-HM. Samstag 18 km Longrun direkt im Siebengebirge als Strecken- und Höhenmetertest (+500 Hm).',
         days: [
-          { d: 'Mo 23', val: '—', tag: 'Ruhe', sub: 'Regeneration' },
-          { d: 'Di 24', val: '8,0 km', tag: 'Tempo-GA2', sub: '3k im HM-Renntempo' },
-          { d: 'Mi 25', val: '—', tag: 'Ruhe', sub: 'Passiv' },
-          { d: 'Do 26', val: '10,0 km', tag: 'Locker GA1', sub: '112–115 bpm' },
-          { d: 'Fr 27', val: '—', tag: 'Ruhe', sub: 'Kein Studio vor Key' },
-          { d: 'Sa 28', val: '18,0 km', tag: 'Key Longrun', sub: 'Siebengebirge (+500 Hm)', hl: true },
-          { d: 'So 29', val: '—', tag: 'Ruhetag', sub: 'Beine hoch' }
+          { d: 'MON 23.11', val: '—', tag: 'Ruhe', sub: 'Regeneration' },
+          { d: 'DIE 24.11', val: '8.0', unit: 'KM', tag: 'Tempo-GA2', sub: '3k im HM-Renntempo' },
+          { d: 'MIT 25.11', val: '—', tag: 'Ruhe', sub: 'Passiv' },
+          { d: 'DON 26.11', val: '10.0', unit: 'KM', tag: 'Locker GA1', sub: '112–115 bpm' },
+          { d: 'FRE 27.11', val: '—', tag: 'Ruhe', sub: 'Kein Studio vor Key' },
+          { d: 'SAM 28.11', val: '18.0', unit: 'KM', tag: 'Key Longrun', sub: 'Siebengebirge (+500 Hm)', isLongrun: true, isHighlight: true },
+          { d: 'SON 29.11', val: '—', tag: 'Ruhetag', sub: 'Beine hoch' }
         ]
       },
       49: {
-        title: 'KW 49 · Siebengebirgs-HM Rennwoche (A-Wettkampf)',
+        title: 'KW 49 • Siebengebirgs-HM Rennwoche',
         dates: '30. November – 06. Dezember 2026',
+        benchmark: '31,4 km · 🏁 21,4k (360 Hm)',
+        benchmarkType: 'race',
         summary: 'Fokus: Tapering & Wettkampf. Dienstag 6k locker, Donnerstag 4,5k Aktivierung. Sonntag: 21,4 km / 360 Hm Siebengebirgs-HM in Aegidienberg (Sub 2:20 h).',
         days: [
-          { d: 'Mo 30', val: '—', tag: 'Ruhe', sub: 'Tapering Beginn' },
-          { d: 'Di 01', val: '6,0 km', tag: 'Locker GA1', sub: '< 115 bpm' },
-          { d: 'Mi 02', val: '—', tag: 'Ruhe', sub: 'Passiv' },
-          { d: 'Do 03', val: '4,5 km', tag: 'Aktivierung', sub: '3 kurze Steigerungen' },
-          { d: 'Fr 04', val: '—', tag: 'Ruhe', sub: 'Speicher füllen' },
-          { d: 'Sa 05', val: '—', tag: 'Pre-Race', sub: 'Frische wahren' },
-          { d: 'So 06', val: '21,4 km', tag: '🏁 7G-HM', sub: '360 Hm · Sub 2:20 h', hl: true, main: true }
+          { d: 'MON 30.11', val: '—', tag: 'Ruhe', sub: 'Tapering Beginn' },
+          { d: 'DIE 01.12', val: '6.0', unit: 'KM', tag: 'Locker GA1', sub: '< 115 bpm flach' },
+          { d: 'MIT 02.12', val: '—', tag: 'Ruhe', sub: 'Passiv' },
+          { d: 'DON 03.12', val: '4.5', unit: 'KM', tag: 'Aktivierung', sub: '3 kurze Steigerungen' },
+          { d: 'FRE 04.12', val: '—', tag: 'Ruhe', sub: 'Speicher füllen' },
+          { d: 'SAM 05.12', val: '—', tag: 'Pre-Race', sub: 'Frische wahren' },
+          { d: 'SON 06.12', val: '21.4', unit: 'KM', tag: '🏁 7G-HM', sub: '360 Hm · Sub 2:20 h', isRace: true, main: true }
         ]
       },
       50: {
-        title: 'KW 50 · Saisonpause & Jahresabschluss',
+        title: 'KW 50 • Saisonpause & Jahresausklang',
         dates: '07. – 13. Dezember 2026',
+        benchmark: '12,0 km · Regeneration',
+        benchmarkType: 'green',
         summary: 'Fokus: Vollständige Erholung nach dem Halbmarathon. Keine Trainingsvorgaben. Nur lockere Bewegung nach Lust und Laune vor dem Belgenbach-Start im Januar.',
         days: [
-          { d: 'Mo 07', val: '—', tag: 'Ruhe', sub: 'Saisonpause' },
-          { d: 'Di 08', val: '—', tag: 'Pause', sub: 'Ausschlafen' },
-          { d: 'Mi 09', val: '5,0 km', tag: 'Spaziertrab', sub: 'Reines Wohlfühlen' },
-          { d: 'Do 10', val: '—', tag: 'Pause', sub: 'Regeneration' },
-          { d: 'Fr 11', val: 'Studio', tag: 'Leichtes Stabi', sub: 'Rumpf mobilisieren' },
-          { d: 'Sa 12', val: '7,0 km', tag: 'Winterwald', sub: 'Ohne Zeit & Puls' },
-          { d: 'So 13', val: '—', tag: 'Ruhetag', sub: 'Familienzeit' }
+          { d: 'MON 07.12', val: '—', tag: 'Ruhe', sub: 'Saisonpause' },
+          { d: 'DIE 08.12', val: '—', tag: 'Pause', sub: 'Ausschlafen' },
+          { d: 'MIT 09.12', val: '5.0', unit: 'KM', tag: 'Spaziertrab', sub: 'Reines Wohlfühlen' },
+          { d: 'DON 10.12', val: '—', tag: 'Pause', sub: 'Regeneration' },
+          { d: 'FRE 11.12', val: 'STUDIO', tag: 'Leichtes Stabi', sub: 'Rumpf mobilisieren', isStudio: true },
+          { d: 'SAM 12.12', val: '7.0', unit: 'KM', tag: 'Winterwald', sub: 'Ohne Zeit & Puls' },
+          { d: 'SON 13.12', val: '—', tag: 'Ruhetag', sub: 'Familienzeit' }
         ]
       }
     };
 
-    function getAccordionPanelHtml(data) {
-      let daysHtml = '';
+    function renderWeek(kwNum) {
+      const data = weeksData[kwNum];
+      if (!data) return;
+
+      // Update Pill-Buttons
+      document.querySelectorAll('.week-pill-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.kw === String(kwNum));
+      });
+
+      // Update Titel & Benchmark
+      document.getElementById('currentWeekTitle').innerText = data.title;
+      const bmEl = document.getElementById('currentWeekBenchmark');
+      bmEl.innerText = data.benchmark;
+      bmEl.className = 'week-benchmark-pill ' + (data.benchmarkType || '');
+
+      // Render 7 Cards
+      const grid = document.getElementById('mainDaysGrid');
+      let html = '';
 
       data.days.forEach(day => {
+        const parts = day.d.split(' ');
+        const dayName = parts[0];
+        const dayDate = parts[1];
         const isRest = (day.val === '—');
-        const isRace = !!day.hl;
-        const isStudio = (day.val === 'Studio');
+        const isRace = !!day.isRace;
+        const isStudio = !!day.isStudio;
+        const isToday = !!day.isToday;
 
-        const dayParts = day.d.split(' ');
-        const dayName = dayParts[0];
-        const dayDate = dayParts[1];
+        let cardClass = 'apple-day-card';
+        if (isToday) cardClass += ' card-today';
+        if (isRace) cardClass += ' card-race';
 
-        let headerColor = 'var(--text-secondary)';
-        if (isRace) headerColor = 'var(--apple-red)';
+        let headerStyle = '';
+        if (isToday) headerStyle = 'color:var(--apple-cyan);';
+        else if (isRace) headerStyle = 'color:var(--apple-red);';
 
         let heroHtml = '';
         if (isRest) {
-          heroHtml = `<div class="acc-hero-chill">CHILL</div>`;
-        } else if (isStudio) {
-          heroHtml = `<div class="acc-hero-studio">STUDIO</div>`;
-        } else {
-          const valNum = day.val.replace(' km', '').replace(',', '.');
-          let valColor = isRace ? 'var(--apple-red)' : 'var(--apple-green)';
+          const restStyle = isToday ? 'style="color:var(--apple-cyan);"' : '';
+          const tagHtml = day.tag ? `<div class="hero-tag" style="${day.tagColor ? `color:${day.tagColor};` : ''}">${day.tag}</div>` : '';
           heroHtml = `
-            <div class="acc-hero-run">
-              <span class="acc-hero-val" style="color:${valColor};">${valNum}</span>
-              <span class="acc-hero-unit" style="color:${valColor};">KM</span>
+            <div class="hero-val-wrap"><span class="hero-rest-txt" ${restStyle}>CHILL</span></div>
+            ${tagHtml}
+            <div class="hero-sub-micro">${day.sub}</div>
+          `;
+        } else if (isStudio) {
+          heroHtml = `
+            <div class="hero-val-wrap"><span class="hero-val" style="color:var(--apple-cyan); font-size:1.85rem;">STUDIO</span></div>
+            <div class="hero-tag" style="color:var(--apple-cyan);">${day.tag}</div>
+            <div class="hero-sub-micro">${day.sub}</div>
+          `;
+        } else {
+          let valColor = isRace ? 'var(--apple-red)' : (day.isLongrun ? 'var(--apple-blue)' : 'var(--apple-green)');
+          const tagStyle = isRace ? 'style="color:var(--apple-red);"' : (day.isLongrun ? 'style="color:var(--apple-blue);"' : '');
+          const subStyle = isRace ? 'style="color:var(--apple-orange);"' : '';
+          heroHtml = `
+            <div class="hero-val-wrap">
+              <span class="hero-val" style="color:${valColor};">${day.val}</span>
+              <span class="hero-unit" style="color:${valColor};">${day.unit || 'KM'}</span>
             </div>
+            <div class="hero-tag" ${tagStyle}>${day.tag}</div>
+            <div class="hero-sub-micro" ${subStyle}>${day.sub}</div>
           `;
         }
 
-        const tagColor = isRace ? 'var(--apple-red)' : (isStudio ? 'var(--apple-cyan)' : 'var(--text-white)');
+        const todayBadge = isToday ? '<span class="badge-today-blue">HEUTE</span>' : '';
+        const footerHtml = day.main
+          ? `<span class="day-pill-badge pill-race">${day.tag}</span><div class="status-dot done" style="background:var(--apple-red); box-shadow:0 0 6px var(--apple-red);"></div>`
+          : '';
 
-        daysHtml += `
-          <div class="acc-day-card ${isRest ? 'is-rest' : ''} ${isRace ? 'is-race' : ''} ${isStudio ? 'is-studio' : ''}">
-            <div class="acc-day-header">
-              <span class="acc-day-name" style="color:${headerColor};">${dayName}</span>
-              <span class="acc-day-date">${dayDate}</span>
+        html += `
+          <div class="${cardClass}">
+            ${todayBadge}
+            <div class="day-header">
+              <span class="day-name" style="${headerStyle}">${dayName}</span>
+              <span class="date-num" style="${headerStyle}">${dayDate}</span>
             </div>
-            <div class="acc-day-body">
+            <div class="day-hero-box">
               ${heroHtml}
             </div>
-            <div class="acc-day-footer">
-              <div class="acc-tag" style="color:${tagColor};">${day.tag}</div>
-              <div class="acc-sub">${day.sub}</div>
-            </div>
+            <div class="day-footer-row">${footerHtml}</div>
           </div>
         `;
       });
 
-      return `
-        <div class="accordion-summary-bar">
-          <span class="accordion-summary-badge">WOCHENFOKUS</span>
-          <span class="accordion-summary-text">${data.summary}</span>
-        </div>
-        <div class="accordion-days-grid">
-          ${daysHtml}
-        </div>
-      `;
+      grid.innerHTML = html;
+
+      // Update Wochenfokus
+      document.getElementById('weekSummaryText').innerText = data.summary;
     }
 
-    function initSixWeeksAccordion() {
-      [45, 46, 47, 48, 49, 50].forEach(kw => {
-        const panel = document.getElementById(`panel-kw-${kw}`);
-        const data = weekModalData[kw];
-        if (panel && data) {
-          panel.innerHTML = getAccordionPanelHtml(data);
-        }
-      });
-    }
-
-    function toggleWeekAccordion(kwNum) {
-      const targetItem = document.getElementById(`week-item-${kwNum}`);
-      if (!targetItem) return;
-
-      const wasExpanded = targetItem.classList.contains('is-expanded');
-
-      // Alle anderen Items schließen für aufgeräumte Ruhe
-      document.querySelectorAll('.six-weeks-item').forEach(item => {
-        item.classList.remove('is-expanded');
-      });
-
-      // Wenn es nicht offen war, aufklappen
-      if (!wasExpanded) {
-        targetItem.classList.add('is-expanded');
-      }
+    function switchWeek(kwNum) {
+      renderWeek(kwNum);
     }
 
     // Initialisierung
-    initSixWeeksAccordion();
+    switchWeek(45);
     switchQuarter(2);
 
     // URL Query & Hash Steuerung für Direktlinks / Screenshots
@@ -1959,10 +1608,15 @@
         const hQ = parseInt(hash.split('q=')[1], 10);
         if (!isNaN(hQ)) switchQuarter(hQ);
       }
-    } else if (urlParams.get('mode') === '6weeks' || hash.includes('6weeks')) {
-      switchTrainingMode('6weeks');
-      const kw = parseInt(urlParams.get('kw'), 10);
-      if (!isNaN(kw)) toggleWeekAccordion(kw);
+    } else {
+      switchMasterTab('training');
+      if (hash.includes('kw=')) {
+        const hKw = parseInt(hash.split('kw=')[1], 10);
+        if (!isNaN(hKw) && weeksData[hKw]) switchWeek(hKw);
+      } else if (urlParams.get('kw')) {
+        const pKw = parseInt(urlParams.get('kw'), 10);
+        if (!isNaN(pKw) && weeksData[pKw]) switchWeek(pKw);
+      }
     }
   </script>
 </body>

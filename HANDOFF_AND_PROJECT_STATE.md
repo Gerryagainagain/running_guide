@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.55  
+**Document Version:** 9.56  
 **Last Updated:** November 02, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -10,6 +10,11 @@
 
 ## 📌 1. Project Overview & Current Trajectory
 
+- **Radikale Bereinigung: „Single Stage“-Architektur im Training-Tab (v9.48):**
+  - **Eliminierung aller Sub-Tabs & Schachtelungen:** Der bisherige Umschalter `[14-Tage Fokus]` vs. `[6-Wochen-Plan]`, alle verschachtelten Accordions und 42 Mini-Tageskarten wurden komplett entfernt.
+  - **Feste Hauptbühne:** Es gibt auf dem gesamten Screen nur noch **EINE** 7-Tage-Ansicht in voller Apple-Größe (210 px hohe Karten, große Ziffern, keine geschachtelten Kacheln).
+  - **Schlanke Wochenauswahl (Pill-Leiste):** Direkt über der 7-Tage-Woche liegt die Wochen-Pill-Leiste (`KW 45 · Martinslauf`, `KW 46 · Post-Race`, `KW 47 · Aufbau I`, `KW 48 · Peak 38k`, `KW 49 · 7G-HM`, `KW 50 · Pause`). 1 Klick wechselt sofort die 7 Tage, den Header und das Wochenziel.
+  - **Visuelle Symmetrie:** Training-Tab und Saison-Tab besitzen nun exakt denselben Aufbau: Oben rechts eine elegante Segmented Control, darunter die ruhige Hauptbühne ohne überladenes UI-Rauschen.
 - **Inline-Accordion (Option A) & Saison-Header Bereinigung (v9.47):**
   - **6-Wochen-Plan als Inline-Accordion:** Das bisherige Overlay-Modal (`#weekModalBackdrop`) wurde vollständig entfernt. Klick auf eine Woche (KW 45–50) klappt die 7 Tage und den Wochenfokus direkt unter der Zeile als schlankes Inline-Accordion auf. KW 45 (Martinslauf-Rennwoche) ist standardmäßig aufgeklappt.
   - **Saison-Headline eliminiert (Lösung 1):** Die redundante linke Überschrift (`Winter`, `Frühling` etc.) im 3-Monats-Kalender wurde ersatzlos gestrichen. Die Segmented Control (`Finale '26`, `Winter`, `Frühling`, `Sommer`, `Herbst`) ist rechtsbündig ausgerichtet und bildet dieselbe saubere vertikale Achse wie der Trainingsmodus-Umschalter im Nachbartab.
