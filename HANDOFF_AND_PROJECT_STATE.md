@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.63  
+**Document Version:** 9.64  
 **Last Updated:** November 02, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -10,6 +10,18 @@
 
 ## 📌 1. Project Overview & Current Trajectory
 
+- **Klickbare linierte Race-Optionen mit Anmeldelinks & KW 46 Wander-Anpassung (v9.56 / State 9.64):**
+  - **Interaktive Race-Optionen:**
+    - Die gestrichelten Tageszellen im Saisonkalender (3. Juli Primiero, 5. Sept Opale, 11. Sept Müllerthal, 7. Nov U-See, 5. Dez 7G-HM) sind voll interaktiv klickbar.
+    - Im Initialzustand des Sommers bleibt die Fokus-Leiste neutral (`Vielleicht gibt es noch Laufoptionen hier`).
+    - Bei Klick auf das jeweilige gestrichelte Datum erscheint in der zentrierten Zeile darunter sofort die konkrete Beschreibung inklusive Direktlink zur Anmeldung (z. B. `Option: 03. Juli 2027 · Primiero Dolomiti Marathon (26 km · 1.200 Hm Downhill) · Zur Anmeldung / Infos ↗`).
+  - **KW 46 Anpassung (14./15. Nov Wochenende):**
+    - Kein 14k Longrun in Erkrath am Samstag 14.11., da der Athlet am Wochenende verreist beim Wandern ist.
+    - Samstag 14.11.: `WANDERN` (Tag: `Wandertour`, Sub: `Verreist · Aerobe Basis`, grün).
+    - Sonntag 15.11.: `WANDERN` (Tag: `Wandertour`, Sub: `Verreist · Aktive Erholung`, grün).
+    - Wochen-Benchmark: Angepasst auf `14,0 km Lauf + Wandern` (Di 6k Rekom, Do 8k Locker).
+    - Wochenfokus: Auf die schonende aerobe Basiskomponente des Wanderns nach dem Martinslauf ausgerichtet.
+  - **Synchronisiert:** Umgesetzt in `preview_jahres_dashboard.html`, `preview_klassischer_3monats_kalender.html`, `index.html` (Script-Version `v=9.56`) und nach `dist/` gespiegelt.
 - **Restlose Icon-Eliminierung & Race-Color Harmonisierung (Orange) (v9.55 / State 9.63):**
   - **Typografische Ruhe (Alle Icons/Emojis entfernt):** Sämtliche Icons (`⏱️`, `🧭`, `🏁`, `💡`, `🔵`, `🟢`) wurden aus dem gesamten Interface entfernt:
     - Master-Header: `Training` | `Saison 2027` (ohne Uhr/Kompass).

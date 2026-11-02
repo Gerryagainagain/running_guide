@@ -321,6 +321,12 @@
       color: #E8B4F8 !important;
       font-weight: var(--typography-font-weight-bold, 700);
       margin: 1.5px;
+      cursor: pointer;
+    }
+
+    .cal-cell.phase-option:hover {
+      background: rgba(191, 90, 242, 0.15) !important;
+      border-color: #E8B4F8 !important;
     }
 
     /* META-BANNER (APPLE HIG CARD MIT GOLDENER TYPOGRAFIE) */
@@ -704,7 +710,27 @@
         return;
       }
 
-      // 2. OPTIONALE LÄUFE (KEINE NAMENSNENNUNG)
+      // 2. OPTIONALE LÄUFE (LILA GESTRICHELT MIT KLICKBAREN ANMELDELINKS)
+      if (mIdx === 6 && day === 3) {
+        keyEl.innerHTML = 'Option: 03. Juli 2027 · Primiero Dolomiti Marathon (26 km · 1.200 Hm Downhill) · <a href="https://primierodolomitimarathon.it/en/entry/" target="_blank" rel="noopener noreferrer" class="option-reg-link">Zur Anmeldung / Infos ↗</a>';
+        return;
+      }
+      if (mIdx === 8 && day === 5) {
+        keyEl.innerHTML = 'Option: 05. September 2027 · Trail Côte d’Opale (24 km · 350 Hm) · <a href="https://www.trailcotedopale.com/" target="_blank" rel="noopener noreferrer" class="option-reg-link">Zur Anmeldung / Infos ↗</a>';
+        return;
+      }
+      if (mIdx === 8 && day === 11) {
+        keyEl.innerHTML = 'Option: 11. September 2027 · Ultra Trail Müllerthal (21 km · ~600 Hm) · <a href="https://www.utml.lu/" target="_blank" rel="noopener noreferrer" class="option-reg-link">Zur Anmeldung / Infos ↗</a>';
+        return;
+      }
+      if (mIdx === 10 && day === 7) {
+        keyEl.innerHTML = 'Option: 07. November 2027 · Martinslauf U-See (5,8 km Seerunde / Unterbacher See) · <a href="https://www.sfd.de/martinslauf/" target="_blank" rel="noopener noreferrer" class="option-reg-link">Zur Anmeldung / Infos ↗</a>';
+        return;
+      }
+      if (mIdx === 11 && day === 5) {
+        keyEl.innerHTML = 'Option: 05. Dezember 2027 · Siebengebirgs-HM (21,4 km · 360 Hm) · <a href="https://siebengebirgsmarathon.net/" target="_blank" rel="noopener noreferrer" class="option-reg-link">Zur Anmeldung / Infos ↗</a>';
+        return;
+      }
       if (phase === 'option') {
         keyEl.innerHTML = 'Vielleicht gibt es noch Laufoptionen hier';
         return;

@@ -824,6 +824,12 @@
       color: #E8B4F8 !important;
       font-weight: 700;
       margin: 1.5px;
+      cursor: pointer;
+    }
+
+    .cal-cell.phase-option:hover {
+      background: rgba(191, 90, 242, 0.15) !important;
+      border-color: #E8B4F8 !important;
     }
 
     /* ZENTRIERTE ZIEL-BUBBLE */
@@ -1262,7 +1268,27 @@
         return;
       }
 
-      // 2. OPTIONALE LÄUFE (KEINE NAMENSNENNUNG)
+      // 2. OPTIONALE LÄUFE (LILA GESTRICHELT MIT KLICKBAREN ANMELDELINKS)
+      if (mIdx === 6 && day === 3) {
+        keyEl.innerHTML = 'Option: 03. Juli 2027 · Primiero Dolomiti Marathon (26 km · 1.200 Hm Downhill) · <a href="https://primierodolomitimarathon.it/en/entry/" target="_blank" rel="noopener noreferrer" class="option-reg-link">Zur Anmeldung / Infos ↗</a>';
+        return;
+      }
+      if (mIdx === 8 && day === 5) {
+        keyEl.innerHTML = 'Option: 05. September 2027 · Trail Côte d’Opale (24 km · 350 Hm) · <a href="https://www.trailcotedopale.com/" target="_blank" rel="noopener noreferrer" class="option-reg-link">Zur Anmeldung / Infos ↗</a>';
+        return;
+      }
+      if (mIdx === 8 && day === 11) {
+        keyEl.innerHTML = 'Option: 11. September 2027 · Ultra Trail Müllerthal (21 km · ~600 Hm) · <a href="https://www.utml.lu/" target="_blank" rel="noopener noreferrer" class="option-reg-link">Zur Anmeldung / Infos ↗</a>';
+        return;
+      }
+      if (mIdx === 10 && day === 7) {
+        keyEl.innerHTML = 'Option: 07. November 2027 · Martinslauf U-See (5,8 km Seerunde / Unterbacher See) · <a href="https://www.sfd.de/martinslauf/" target="_blank" rel="noopener noreferrer" class="option-reg-link">Zur Anmeldung / Infos ↗</a>';
+        return;
+      }
+      if (mIdx === 11 && day === 5) {
+        keyEl.innerHTML = 'Option: 05. Dezember 2027 · Siebengebirgs-HM (21,4 km · 360 Hm) · <a href="https://siebengebirgsmarathon.net/" target="_blank" rel="noopener noreferrer" class="option-reg-link">Zur Anmeldung / Infos ↗</a>';
+        return;
+      }
       if (phase === 'option') {
         keyEl.innerHTML = 'Vielleicht gibt es noch Laufoptionen hier';
         return;
@@ -1360,19 +1386,19 @@
         ]
       },
       46: {
-        title: 'KW 46 • Post-Race Erholung & Einstieg 7G-HM',
+        title: 'KW 46 • Post-Race Erholung & Wander-Wochenende',
         dates: '09. – 15. November 2026',
-        benchmark: '28,0 km · 14k Longrun',
+        benchmark: '14,0 km Lauf + Wandern',
         benchmarkType: 'blue',
-        summary: 'Fokus: Laktat abbauen nach dem 10er. Ab Donnerstag sanfter Einstieg in die HM-spezifische Ausdauer mit 14k Longrun am Samstag.',
+        summary: 'Fokus: Laktat abbauen nach dem 10er. Dienstag 6k Rekom, Donnerstag 8k locker. Am Wochenende verreist beim Wandern: Schonende aerobe Basiseinheit (kein Longrun Erkrath).',
         days: [
           { d: 'MON 09.11', val: '—', tag: 'Ruhe', sub: 'Post-Race Pause' },
           { d: 'DIE 10.11', val: '6.0', unit: 'KM', tag: 'Rekom GA1', sub: '< 112 bpm flach' },
           { d: 'MIT 11.11', val: '—', tag: 'Ruhe', sub: 'Passiv schonen' },
           { d: 'DON 12.11', val: '8.0', unit: 'KM', tag: 'Locker GA1', sub: '112–116 bpm' },
           { d: 'FRE 13.11', val: 'STUDIO', tag: 'Rumpf & Stabi', sub: 'Beine schonen', isStudio: true },
-          { d: 'SAM 14.11', val: '14.0', unit: 'KM', tag: 'Longrun Erkrath', sub: '280 Hm · 112–118 bpm', isLongrun: true },
-          { d: 'SON 15.11', val: '—', tag: 'Ruhetag', sub: 'Frische' }
+          { d: 'SAM 14.11', val: 'WANDERN', tag: 'Wandertour', sub: 'Verreist · Aerobe Basis', isHike: true },
+          { d: 'SON 15.11', val: 'WANDERN', tag: 'Wandertour', sub: 'Verreist · Aktive Erholung', isHike: true }
         ]
       },
       47: {
@@ -1467,6 +1493,7 @@
         const isRest = (day.val === '—');
         const isRace = !!day.isRace;
         const isStudio = !!day.isStudio;
+        const isHike = !!day.isHike;
         const isToday = !!day.isToday;
 
         let cardClass = 'apple-day-card';
@@ -1490,6 +1517,12 @@
           heroHtml = `
             <div class="hero-val-wrap"><span class="hero-val" style="color:var(--apple-cyan); font-size:1.85rem;">STUDIO</span></div>
             <div class="hero-tag" style="color:var(--apple-cyan);">${day.tag}</div>
+            <div class="hero-sub-micro">${day.sub}</div>
+          `;
+        } else if (isHike) {
+          heroHtml = `
+            <div class="hero-val-wrap"><span class="hero-val" style="color:var(--apple-green); font-size:1.65rem;">WANDERN</span></div>
+            <div class="hero-tag" style="color:var(--apple-green);">${day.tag}</div>
             <div class="hero-sub-micro">${day.sub}</div>
           `;
         } else {
@@ -1551,6 +1584,13 @@
       } else if (hash.includes('q=')) {
         const hQ = parseInt(hash.split('q=')[1], 10);
         if (!isNaN(hQ)) switchQuarter(hQ);
+      }
+      if (urlParams.get('clickDay')) {
+        const d = parseInt(urlParams.get('clickDay'), 10);
+        const m = parseInt(urlParams.get('clickMonth'), 10);
+        setTimeout(() => {
+          onPhaseClick(m, d, 'option', null);
+        }, 50);
       }
     } else {
       switchMasterTab('training');
