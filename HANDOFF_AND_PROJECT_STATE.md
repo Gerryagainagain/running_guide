@@ -13,6 +13,7 @@
 - **Vorwochen-Rückblick entfernt & Periodisierungs-Logik 2027 geklärt (v9.49):**
   - **Bereinigung:** Das untere Dropdown für die Vorwoche (`.retro-details` KW 44) wurde ersatzlos gestrichen. Die Trainingsansicht endet nun bündig mit der Wochenfokus-Leiste der Hauptbühne.
   - **Periodisierungs-Architektur für Januar 2027:** Die Pill-Leiste der Hauptbühne ist kampagnenbezogen. Aktuell umfasst sie den Block *Finale '26* (KW 45 bis KW 50). Ab dem 04. Januar 2027 schaltet sie nahtlos auf die 9 spezifischen Aufbauwochen des *Belgenbachtrails* (KW 1 bis KW 9 · 30,7 km / 941 Hm am 07.03.2027) um.
+  - **Architektur-Entscheid (Weg A bestätigt):** Strikt getrennte Abstraktionsebenen. Der Saisonkalender bleibt reine Makro-Planung (Klicks auf Tage/Phasen aktualisieren die zentrierte Meta-Leiste mit Event-Details und Anmeldelink, kein automatisches Teleportieren zwischen Tabs). Der Ebenenwechsel erfolgt ausschließlich bewusst über den Master-Header (`Training` vs. `Saison 2027`).
 - **Radikale Bereinigung: „Single Stage“-Architektur im Training-Tab (v9.48):**
   - **Eliminierung aller Sub-Tabs & Schachtelungen:** Der bisherige Umschalter `[14-Tage Fokus]` vs. `[6-Wochen-Plan]`, alle verschachtelten Accordions und 42 Mini-Tageskarten wurden komplett entfernt.
   - **Feste Hauptbühne:** Es gibt auf dem gesamten Screen nur noch **EINE** 7-Tage-Ansicht in voller Apple-Größe (210 px hohe Karten, große Ziffern, keine geschachtelten Kacheln).
