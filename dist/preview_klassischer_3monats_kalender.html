@@ -317,6 +317,18 @@
       transition: all 0.25s ease;
     }
 
+    .option-reg-link {
+      color: var(--apple-cyan);
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      margin-left: 0.5rem;
+      transition: color 0.15s ease;
+    }
+    .option-reg-link:hover {
+      color: #FFFFFF;
+    }
+
     .quarter-key-event {
       font-family: var(--font-text);
       font-size: 1.20rem;
@@ -416,7 +428,7 @@
     const quartersData = {
       0: {
         heading: 'Herbst / Winter 2026',
-        keyEvent: '💡 07. Nov: Option U-See (5,8k) · 🏁 08. Nov: Martinslauf 10k (Sub 58 min) · 🏁 06. Dez: 7G-HM (21,4k)',
+        keyEvent: '🏁 08. Nov: Martinslauf 10k (Sub 58 min) · 🏁 06. Dez: 7G-HM (21,4k) · 🏁 06. Jan: Belgenbach-Start',
         months: [
           { name: 'November 2026', mIdx: 1026, days: 30, startOffset: 6 },
           { name: 'Dezember 2026', mIdx: 1126, days: 31, startOffset: 1 },
@@ -452,7 +464,7 @@
       },
       4: {
         heading: 'Herbst',
-        keyEvent: '🏁 Ziel: 24. Oktober · Drachenlauf (26,0 km · 1.150–1.250 Hm)',
+        keyEvent: '🏁 24. Okt: Drachenlauf (26k) · 💡 07. Nov: Option Martinslauf U-See (5,8k) · 💡 05. Dez: 7G-HM',
         months: [
           { name: 'Oktober', mIdx: 9, days: 31, startOffset: 4 },
           { name: 'November', mIdx: 10, days: 30, startOffset: 0 },
@@ -512,6 +524,10 @@
         if (d === 24) return 'race'; // Drachenlauf
         if (d < 24) return 'build';
         return 'rekom';
+      }
+      if (mIdx === 10) { // Nov 2027
+        if (d === 7) return 'option'; // Martinslauf U-See 5,8k Option
+        return '';
       }
       if (mIdx === 11) { // Dez
         if (d === 5) return 'option';
@@ -646,25 +662,25 @@
         return;
       }
 
-      // 2. OPTIONALE LÄUFE (LILA GESTRICHELT)
-      if (mIdx === 1026 && day === 7) {
-        keyEl.innerHTML = '💡 Option: 07. November 2026 · Martinslauf U-See (5,8 km Seerunde / Unterbacher See)';
-        return;
-      }
+      // 2. OPTIONALE LÄUFE (LILA GESTRICHELT MIT KLICKBAREN ANMELDELINKS)
       if (mIdx === 6 && day === 3) {
-        keyEl.innerHTML = '💡 Option: 03. Juli 2027 · Primiero Dolomiti Marathon (26 km · 1.200 Hm Downhill)';
+        keyEl.innerHTML = '💡 Option: 03. Juli 2027 · Primiero Dolomiti Marathon (26 km · 1.200 Hm Downhill) · <a href="https://www.primierodolomitimarathon.com/" target="_blank" rel="noopener noreferrer" class="option-reg-link">Zur Anmeldung / Infos ↗</a>';
         return;
       }
       if (mIdx === 8 && day === 5) {
-        keyEl.innerHTML = '💡 Option: 05. September 2027 · Trail Côte d’Opale (24 km · 350 Hm)';
+        keyEl.innerHTML = '💡 Option: 05. September 2027 · Trail Côte d’Opale (24 km · 350 Hm) · <a href="https://www.trailcotedopale.com/" target="_blank" rel="noopener noreferrer" class="option-reg-link">Zur Anmeldung / Infos ↗</a>';
         return;
       }
       if (mIdx === 8 && day === 11) {
-        keyEl.innerHTML = '💡 Option: 11. September 2027 · Ultra Trail Müllerthal (21 km · ~600 Hm)';
+        keyEl.innerHTML = '💡 Option: 11. September 2027 · Ultra Trail Müllerthal (21 km · ~600 Hm) · <a href="https://www.utml.lu/" target="_blank" rel="noopener noreferrer" class="option-reg-link">Zur Anmeldung / Infos ↗</a>';
+        return;
+      }
+      if (mIdx === 10 && day === 7) {
+        keyEl.innerHTML = '💡 Option: 07. November 2027 · Martinslauf U-See (5,8 km Seerunde / Unterbacher See) · <a href="https://www.sfd.de/martinslauf/" target="_blank" rel="noopener noreferrer" class="option-reg-link">Zur Anmeldung / Infos ↗</a>';
         return;
       }
       if (mIdx === 11 && day === 5) {
-        keyEl.innerHTML = '💡 Option: 05. Dezember 2027 · Siebengebirgs-HM (21,4 km · 360 Hm)';
+        keyEl.innerHTML = '💡 Option: 05. Dezember 2027 · Siebengebirgs-HM (21,4 km · 360 Hm) · <a href="https://7g-hm.de/" target="_blank" rel="noopener noreferrer" class="option-reg-link">Zur Anmeldung / Infos ↗</a>';
         return;
       }
 
