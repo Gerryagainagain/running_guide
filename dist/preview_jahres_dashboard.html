@@ -213,6 +213,17 @@
       color: var(--text-secondary);
     }
 
+    .week-benchmark-pill {
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: var(--apple-orange);
+      background: rgba(255, 159, 10, 0.12);
+      border: 1px solid rgba(255, 159, 10, 0.30);
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      letter-spacing: 0.02em;
+    }
+
     .days-grid {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
@@ -1026,16 +1037,7 @@
          ========================================================================== -->
     <div id="tab-training" class="view-panel active">
       
-      <div class="hero-strip">
-        <div>
-          <div class="hero-main-title">So. 8.11.</div>
-          <div class="hero-event-sub">10k Martinslauf</div>
-        </div>
-        <div style="text-align: right;">
-          <div class="hero-meta-title">Zielzeit-Benchmark</div>
-          <div class="hero-countdown">Sub 58 min</div>
-        </div>
-      </div>
+
 
       <!-- UNTER-UMSCHALTER: 14 TAGE FOKUS VS 6-WOCHEN-FAHRPLAN -->
       <div class="training-sub-bar">
@@ -1050,6 +1052,7 @@
         <div class="calendar-week-card">
           <div class="calendar-header">
             <div class="week-headline">Diese Woche KW 45 • Martinslauf</div>
+            <div class="week-benchmark-pill">Zielzeit Sub 58 min</div>
           </div>
 
           <div class="days-grid">
@@ -1278,11 +1281,11 @@
         <div class="season-heading" id="viewHeading">Frühling</div>
 
         <div class="quarter-sub-selector">
-          <button class="quarter-sub-btn" onclick="switchQuarter(0)">❄️ Finale '26</button>
-          <button class="quarter-sub-btn" onclick="switchQuarter(1)">Q1 · Belgenbach</button>
-          <button class="quarter-sub-btn active" onclick="switchQuarter(2)">Q2 · Imst TS16</button>
-          <button class="quarter-sub-btn" onclick="switchQuarter(3)">Q3 · Spätsommer</button>
-          <button class="quarter-sub-btn" onclick="switchQuarter(4)">Q4 · Drachenlauf</button>
+          <button class="quarter-sub-btn" onclick="switchQuarter(0)">Finale '26</button>
+          <button class="quarter-sub-btn" onclick="switchQuarter(1)">Winter</button>
+          <button class="quarter-sub-btn active" onclick="switchQuarter(2)">Frühling</button>
+          <button class="quarter-sub-btn" onclick="switchQuarter(3)">Sommer</button>
+          <button class="quarter-sub-btn" onclick="switchQuarter(4)">Herbst</button>
         </div>
       </div>
 
@@ -1317,7 +1320,7 @@
     // Quartals-Daten für den 3-Monats-Kalender
     const quartersData = {
       0: {
-        heading: 'Herbst / Winter 2026',
+        heading: 'Finale \'26',
         keyEvent: '🏁 08. Nov: Martinslauf 10k (Sub 58 min) · 🏁 06. Dez: 7G-HM (21,4k) · 🏁 06. Jan: Belgenbach-Start',
         months: [
           { name: 'November 2026', mIdx: 1026, days: 30, startOffset: 6 },
