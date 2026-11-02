@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.65  
+**Document Version:** 9.66  
 **Last Updated:** November 02, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -10,6 +10,14 @@
 
 ## 📌 1. Project Overview & Current Trajectory
 
+- **Harmonisierung der Wort-Labels (CHILL, STUDIO, WANDERN) & Vertikale Fluchtung (v9.58 / State 9.66):**
+  - **Typografische Vereinheitlichung auf 1.15rem:**
+    - Zuvor wiesen die verbalen Kartenlabels unterschiedliche Schriftgrößen auf: `STUDIO` (1.85rem), `WANDERN` (1.65rem) und `CHILL` (1.45rem), was zu einer optischen Überbetonung von Ruhetagen und Alternativtrainings gegenüber den eigentlichen Lauftagen führte.
+    - Alle drei Wörter wurden über die neue Klasse `.hero-word-val` (sowie harmonisiertes `.hero-rest-txt`) strikt auf **`1.15rem` (~18.4px, `font-weight: 800`, `letter-spacing: 0.05em`, Apple HIG Token `lg` aus `DESIGN.md`)** vereinheitlicht.
+  - **Baseline-Fixierung (.hero-val-wrap):**
+    - Durch `min-height: 38px; display: flex; align-items: baseline; gap: 0.25rem;` sitzen alle Text- und Distanzlabels (`CHILL`, `STUDIO`, `WANDERN`, `6.0 KM`, `10.0 KM`) auf der identischen horizontalen Grundlinie.
+    - Die darunterliegenden Badges/Tags (`Ruhe`, `Locker GA1`, `Rumpf & Stabi`, `Wandertour`) fluchten tagübergreifend perfekt ohne vertikales Springen.
+  - **Synchronisiert:** Umgesetzt in `preview_jahres_dashboard.html`, `styles.css`, `index.html` (Script-Version `v=9.58`), gespiegelt nach `dist/`.
 - **Option A (Apple HIG Slide-Over Drawer) & Sanftere Sonntags-Ziffern (v9.57 / State 9.65):**
   - **Option A (Slide-Over Drawer) implementiert:**
     - Klick auf eine Race-Card in der 7-Tage-Bühne (`SON 08.11 Martinslauf`, `SON 06.12 7G-HM`) oder auf einen gesetzten Renntag im Saisonkalender (z. B. 07. März Belgenbach, 12. Juni TS16, 24. Okt Drachenlauf) öffnet ein dezent von rechts einschwebendes Apple Inspector-Panel (`race-drawer`, 420 px breit, Glassmorphism `rgba(20, 20, 28, 0.95)`, `backdrop-filter: blur(32px)`).

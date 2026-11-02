@@ -341,6 +341,7 @@
       align-items: baseline;
       gap: 0.25rem;
       margin: 0.2rem 0 0.1rem 0;
+      min-height: 38px;
     }
 
     .hero-val {
@@ -360,11 +361,21 @@
       text-transform: uppercase;
     }
 
+    .hero-word-val {
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      line-height: 1.0;
+      text-transform: uppercase;
+    }
+
     .hero-rest-txt {
-      font-size: 1.45rem;
+      font-size: 1.15rem;
       font-weight: 800;
       color: var(--text-muted);
-      letter-spacing: 0.5px;
+      letter-spacing: 0.05em;
+      line-height: 1.0;
+      text-transform: uppercase;
     }
 
     .hero-sub-micro {
@@ -1959,19 +1970,19 @@
           const restStyle = isToday ? 'style="color:var(--apple-cyan);"' : '';
           const tagHtml = day.tag ? `<div class="hero-tag" style="${day.tagColor ? `color:${day.tagColor};` : ''}">${day.tag}</div>` : '';
           heroHtml = `
-            <div class="hero-val-wrap"><span class="hero-rest-txt" ${restStyle}>CHILL</span></div>
+            <div class="hero-val-wrap"><span class="hero-word-val" ${restStyle}>CHILL</span></div>
             ${tagHtml}
             <div class="hero-sub-micro">${day.sub}</div>
           `;
         } else if (isStudio) {
           heroHtml = `
-            <div class="hero-val-wrap"><span class="hero-val" style="color:var(--apple-cyan); font-size:1.85rem;">STUDIO</span></div>
+            <div class="hero-val-wrap"><span class="hero-word-val" style="color:var(--apple-cyan);">STUDIO</span></div>
             <div class="hero-tag" style="color:var(--apple-cyan);">${day.tag}</div>
             <div class="hero-sub-micro">${day.sub}</div>
           `;
         } else if (isHike) {
           heroHtml = `
-            <div class="hero-val-wrap"><span class="hero-val" style="color:var(--apple-green); font-size:1.65rem;">WANDERN</span></div>
+            <div class="hero-val-wrap"><span class="hero-word-val" style="color:var(--apple-green);">WANDERN</span></div>
             <div class="hero-tag" style="color:var(--apple-green);">${day.tag}</div>
             <div class="hero-sub-micro">${day.sub}</div>
           `;
