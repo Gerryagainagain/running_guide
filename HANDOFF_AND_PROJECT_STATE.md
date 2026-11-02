@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.57  
+**Document Version:** 9.58  
 **Last Updated:** November 02, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -10,6 +10,9 @@
 
 ## 📌 1. Project Overview & Current Trajectory
 
+- **Apple Kalender Pager (Lösung B) & 5-Wochen-Fokus (v9.50):**
+  - **Saison-Tab Pager (Lösung B):** Die 5 gestapelten Quartals-Pills in der rechten Ecke wurden durch einen zentrierten Apple-Kalender Pager (`‹` `Frühling · Apr – Juni 2027` `›`) ersetzt. Behebt das „Stacked Controls“-Anti-Pattern nach Apple HIG und stellt die optische Symmetrie über den 3 Monatsblöcken her. Pfeiltastennavigation (Links/Rechts) aktiv.
+  - **5-Wochen-Trainingsbogen:** KW 50 (Saisonpause) aus der Trainingsleiste entfernt. Der Plan fokussiert sich exakt auf den 5-Wochen-Bogen von KW 45 (Martinslauf) bis KW 49 (Siebengebirgs-HM).
 - **Vorwochen-Rückblick entfernt & Periodisierungs-Logik 2027 geklärt (v9.49):**
   - **Bereinigung:** Das untere Dropdown für die Vorwoche (`.retro-details` KW 44) wurde ersatzlos gestrichen. Die Trainingsansicht endet nun bündig mit der Wochenfokus-Leiste der Hauptbühne.
   - **Periodisierungs-Architektur für Januar 2027:** Die Pill-Leiste der Hauptbühne ist kampagnenbezogen. Aktuell umfasst sie den Block *Finale '26* (KW 45 bis KW 50). Ab dem 04. Januar 2027 schaltet sie nahtlos auf die 9 spezifischen Aufbauwochen des *Belgenbachtrails* (KW 1 bis KW 9 · 30,7 km / 941 Hm am 07.03.2027) um.

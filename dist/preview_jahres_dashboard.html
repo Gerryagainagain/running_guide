@@ -571,41 +571,70 @@
        ========================================================================== */
     .season-header {
       display: flex;
-      justify-content: flex-end;
+      justify-content: center;
       align-items: center;
       margin-bottom: 1.25rem;
     }
 
-    .quarter-sub-selector {
+    .season-pager-bar {
       display: inline-flex;
-      background: rgba(255, 255, 255, 0.08);
-      padding: 4px;
-      border-radius: 9999px;
-      border: 1px solid rgba(255, 255, 255, 0.06);
+      align-items: center;
+      gap: 0.75rem;
+      user-select: none;
     }
 
-    .quarter-sub-btn {
-      background: transparent;
-      border: none;
-      color: var(--text-secondary);
-      padding: 9px 20px;
-      font-family: var(--font-text);
-      font-size: var(--typography-font-size-md, 0.88rem);
-      font-weight: var(--typography-font-weight-semibold, 600);
-      border-radius: 9999px;
+    .season-pager-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-white);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      line-height: 1;
       cursor: pointer;
       transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .quarter-sub-btn:hover {
+    .season-pager-btn:hover {
+      background: rgba(255, 255, 255, 0.18);
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: scale(1.06);
+    }
+
+    .season-pager-btn:active {
+      transform: scale(0.94);
+    }
+
+    .season-pager-label {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 7px 22px;
+      border-radius: 9999px;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .season-pager-title {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: -0.015em;
       color: var(--text-white);
     }
 
-    .quarter-sub-btn.active {
-      background: rgba(255, 255, 255, 0.20);
-      color: var(--text-white);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
-      font-weight: var(--typography-font-weight-bold, 700);
+    .season-pager-range {
+      font-family: var(--font-text);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--apple-cyan);
+      letter-spacing: 0.02em;
     }
 
     .three-months-grid {
@@ -925,10 +954,6 @@
             <span class="pill-kw">KW 49</span>
             <span class="pill-label">🏁 7G-HM</span>
           </button>
-          <button class="week-pill-btn" onclick="switchWeek(50)" id="pill-kw-50" data-kw="50">
-            <span class="pill-kw">KW 50</span>
-            <span class="pill-label">Pause</span>
-          </button>
         </div>
       </div>
 
@@ -958,12 +983,13 @@
     <div id="tab-season" class="view-panel">
       
       <div class="season-header">
-        <div class="quarter-sub-selector">
-          <button class="quarter-sub-btn" onclick="switchQuarter(0)">Finale '26</button>
-          <button class="quarter-sub-btn" onclick="switchQuarter(1)">Winter</button>
-          <button class="quarter-sub-btn active" onclick="switchQuarter(2)">Frühling</button>
-          <button class="quarter-sub-btn" onclick="switchQuarter(3)">Sommer</button>
-          <button class="quarter-sub-btn" onclick="switchQuarter(4)">Herbst</button>
+        <div class="season-pager-bar">
+          <button class="season-pager-btn" onclick="prevQuarter()" aria-label="Vorheriges Quartal" title="Vorheriges Quartal">‹</button>
+          <div class="season-pager-label">
+            <span class="season-pager-title" id="seasonPagerTitle">Frühling</span>
+            <span class="season-pager-range" id="seasonPagerRange">Apr – Juni 2027</span>
+          </div>
+          <button class="season-pager-btn" onclick="nextQuarter()" aria-label="Nächstes Quartal" title="Nächstes Quartal">›</button>
         </div>
       </div>
 
@@ -999,6 +1025,7 @@
     const quartersData = {
       0: {
         heading: 'Finale \'26',
+        range: 'Nov – Dez 2026',
         keyEvent: '🏁 08. Nov: Martinslauf 10k (Sub 58 min) · 🏁 06. Dez: 7G-HM (21,4k) · 🏁 06. Jan: Belgenbach-Start',
         months: [
           { name: 'November 2026', mIdx: 1026, days: 30, startOffset: 6 },
@@ -1008,6 +1035,7 @@
       },
       1: {
         heading: 'Winter',
+        range: 'Jan – März 2027',
         keyEvent: '🏁 Ziel: 07. März · Belgenbachtrail (30,7 km · 941 Hm)',
         months: [
           { name: 'Januar', mIdx: 0, days: 31, startOffset: 4 },
@@ -1017,6 +1045,7 @@
       },
       2: {
         heading: 'Frühling',
+        range: 'Apr – Juni 2027',
         keyEvent: '🏁 Ziel: 12. Juni · Tschirgant Sky Run TS16 (16,9 km · ~850 Hm)',
         months: [
           { name: 'April', mIdx: 3, days: 30, startOffset: 3 },
@@ -1026,6 +1055,7 @@
       },
       3: {
         heading: 'Sommer',
+        range: 'Juli – Sept 2027',
         keyEvent: '💡 Optionen: 03.07. Primiero Dolomiti (26k) · 05.09. Opal (24k) · 11.09. UTML (21k)',
         months: [
           { name: 'Juli', mIdx: 6, days: 31, startOffset: 3 },
@@ -1035,6 +1065,7 @@
       },
       4: {
         heading: 'Herbst',
+        range: 'Okt – Dez 2027',
         keyEvent: '🏁 24. Okt: Drachenlauf (26k) · 💡 07. Nov: Option Martinslauf U-See (5,8k) · 💡 05. Dez: 7G-HM',
         months: [
           { name: 'Oktober', mIdx: 9, days: 31, startOffset: 4 },
@@ -1106,20 +1137,42 @@
       return '';
     }
 
+    let currentQuarterNum = 2; // Standard Frühling
+
     function switchQuarter(qNum) {
-      document.querySelectorAll('.quarter-sub-btn').forEach((btn, idx) => {
-        btn.classList.toggle('active', idx === qNum);
-      });
+      if (qNum < 0) qNum = 4;
+      if (qNum > 4) qNum = 0;
+      currentQuarterNum = qNum;
 
       const q = quartersData[qNum];
-      const headingEl = document.getElementById('viewHeading');
-      if (headingEl) {
-        headingEl.innerText = q.heading;
-      }
-      document.getElementById('quarterKeyEvent').innerText = q.keyEvent;
+      if (!q) return;
+
+      const titleEl = document.getElementById('seasonPagerTitle');
+      const rangeEl = document.getElementById('seasonPagerRange');
+      if (titleEl) titleEl.innerText = q.heading;
+      if (rangeEl) rangeEl.innerText = q.range || '';
+
+      const keyEl = document.getElementById('quarterKeyEvent');
+      if (keyEl) keyEl.innerText = q.keyEvent;
 
       renderMonths(q.months);
     }
+
+    function prevQuarter() {
+      switchQuarter(currentQuarterNum - 1);
+    }
+
+    function nextQuarter() {
+      switchQuarter(currentQuarterNum + 1);
+    }
+
+    // Tastatur-Navigation (Links / Rechts im Saison-Kalender)
+    document.addEventListener('keydown', (e) => {
+      if (document.body.classList.contains('season-active')) {
+        if (e.key === 'ArrowLeft') prevQuarter();
+        else if (e.key === 'ArrowRight') nextQuarter();
+      }
+    });
 
     function renderMonths(months) {
       const container = document.getElementById('threeMonthsContainer');
