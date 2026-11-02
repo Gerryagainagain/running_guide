@@ -468,52 +468,6 @@
       box-shadow: 0 0 6px var(--apple-green);
     }
 
-    .retro-details {
-      margin-top: 1rem;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      border-radius: 16px;
-      background: rgba(18, 18, 24, 0.3);
-      overflow: hidden;
-      transition: all 0.2s ease;
-    }
-
-    .retro-summary {
-      padding: 0.85rem 1.25rem;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--text-secondary);
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      user-select: none;
-    }
-
-    .retro-summary:hover {
-      color: var(--text-white);
-      background: rgba(255, 255, 255, 0.03);
-    }
-
-    .retro-grid {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 10px;
-      padding: 1rem 1.25rem 1.25rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.04);
-      background: rgba(0, 0, 0, 0.2);
-    }
-
-    .retro-day {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.04);
-      border-radius: 10px;
-      padding: 10px 8px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
     /* ==========================================================================
        SINGLE STAGE: WOCHEN-AUSWAHL & FOKUS-STRIP
        ========================================================================== */
@@ -995,23 +949,6 @@
           <span class="week-summary-text" id="weekSummaryText">Frische maximieren für den Martinslauf am Sonntag (8 °C, Pacing: 5:50 ➔ 5:45 ➔ 5:35 min/km). Am Samstag 07. Nov: Ruhetag & Pre-Race Carboload.</span>
         </div>
       </div>
-
-      <!-- RÜCKBLICK VORWOCHE (KW 44) ALS DEZENTER DROPDOWN-ACCORDION -->
-      <details class="retro-details">
-        <summary class="retro-summary">
-          <span>⏮️ Rückblick Vorwoche (KW 44 · Wiedereinstieg 26.10. – 01.11.)</span>
-          <span style="font-size:0.75rem; color:var(--apple-green); font-weight:700;">10,55 km geloggt ▾</span>
-        </summary>
-        <div class="retro-grid">
-          <div class="retro-day"><span style="font-size:0.75rem; color:var(--text-muted);">Mo 26</span><span style="font-weight:600;">—</span><span style="font-size:0.7rem; color:var(--text-muted);">Ruhe</span></div>
-          <div class="retro-day"><span style="font-size:0.75rem; color:var(--text-muted);">Di 27</span><span style="font-weight:600;">—</span><span style="font-size:0.7rem; color:var(--text-muted);">Ruhe</span></div>
-          <div class="retro-day"><span style="font-size:0.75rem; color:var(--text-muted);">Mi 28</span><span style="font-weight:600;">—</span><span style="font-size:0.7rem; color:var(--text-muted);">Ruhe</span></div>
-          <div class="retro-day"><span style="font-size:0.75rem; color:var(--apple-green); font-weight:700;">4,0 km</span><span style="font-size:0.7rem; color:var(--text-muted);">Testlauf</span></div>
-          <div class="retro-day"><span style="font-size:0.75rem; color:var(--text-muted);">Fr 30</span><span style="font-weight:700;">Studio</span><span style="font-size:0.7rem; color:var(--text-muted);">Stabi</span></div>
-          <div class="retro-day"><span style="font-size:0.75rem; color:var(--apple-green); font-weight:700;">6,55 km</span><span style="font-size:0.7rem; color:var(--text-muted);">3x500m Int.</span></div>
-          <div class="retro-day"><span style="font-size:0.75rem; color:var(--apple-red);">So 01</span><span style="font-weight:600;">—</span><span style="font-size:0.7rem; color:var(--text-muted);">Ruhetag</span></div>
-        </div>
-      </details>
 
     </div>
 

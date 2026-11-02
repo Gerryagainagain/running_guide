@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.56  
+**Document Version:** 9.57  
 **Last Updated:** November 02, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -10,6 +10,9 @@
 
 ## 📌 1. Project Overview & Current Trajectory
 
+- **Vorwochen-Rückblick entfernt & Periodisierungs-Logik 2027 geklärt (v9.49):**
+  - **Bereinigung:** Das untere Dropdown für die Vorwoche (`.retro-details` KW 44) wurde ersatzlos gestrichen. Die Trainingsansicht endet nun bündig mit der Wochenfokus-Leiste der Hauptbühne.
+  - **Periodisierungs-Architektur für Januar 2027:** Die Pill-Leiste der Hauptbühne ist kampagnenbezogen. Aktuell umfasst sie den Block *Finale '26* (KW 45 bis KW 50). Ab dem 04. Januar 2027 schaltet sie nahtlos auf die 9 spezifischen Aufbauwochen des *Belgenbachtrails* (KW 1 bis KW 9 · 30,7 km / 941 Hm am 07.03.2027) um.
 - **Radikale Bereinigung: „Single Stage“-Architektur im Training-Tab (v9.48):**
   - **Eliminierung aller Sub-Tabs & Schachtelungen:** Der bisherige Umschalter `[14-Tage Fokus]` vs. `[6-Wochen-Plan]`, alle verschachtelten Accordions und 42 Mini-Tageskarten wurden komplett entfernt.
   - **Feste Hauptbühne:** Es gibt auf dem gesamten Screen nur noch **EINE** 7-Tage-Ansicht in voller Apple-Größe (210 px hohe Karten, große Ziffern, keine geschachtelten Kacheln).
