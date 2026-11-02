@@ -915,6 +915,63 @@
       outline-offset: 1px;
       z-index: 10 !important;
     }
+    /* ==========================================================================
+       VIEWPORT-ADAPTIVE SAISON-ANSICHT
+       Zeilenhöhe skaliert mit der Fensterhöhe, damit auch Monate mit 6 Wochenzeilen
+       (z. B. Mai 2027) inklusive Ereigniszeile ohne Scrollen sichtbar bleiben.
+       ========================================================================== */
+    #tab-season {
+      --cal-row-gap: 4px;
+      --cal-row-h: clamp(32px, calc((100vh - 435px) / 6), 56px);
+      gap: 1.25rem;
+    }
+
+    #tab-season .month-block {
+      padding: 1.25rem 1.5rem 1.5rem;
+      gap: 1rem;
+    }
+
+    #tab-season .month-header {
+      padding-bottom: 0.6rem;
+    }
+
+    #tab-season .month-title {
+      font-size: 1.6rem;
+    }
+
+    #tab-season .calendar-matrix {
+      gap: var(--cal-row-gap);
+      min-height: calc(6 * var(--cal-row-h) + 5 * var(--cal-row-gap));
+    }
+
+    #tab-season .week-row {
+      height: var(--cal-row-h);
+    }
+
+    #tab-season .cal-cell {
+      font-size: clamp(0.95rem, calc(var(--cal-row-h) * 0.4), 1.25rem);
+    }
+
+    #tab-season .cal-cell.phase-race {
+      font-size: clamp(1rem, calc(var(--cal-row-h) * 0.42), 1.3rem);
+    }
+
+    #tab-season .quarter-meta-strip {
+      padding: 0.9rem 2rem;
+    }
+
+    body.season-active {
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+    }
+
+    body.season-active .app-container {
+      gap: 1.25rem;
+    }
+
+    body.season-active header {
+      padding-bottom: 1rem;
+    }
   </style>
 </head>
 <body>
@@ -1255,6 +1312,7 @@
       document.querySelectorAll('.master-segment-btn').forEach(btn => btn.classList.remove('active'));
       document.querySelectorAll('.view-panel').forEach(panel => panel.classList.remove('active'));
 
+      document.body.classList.toggle('season-active', tabId !== 'training');
       if (tabId === 'training') {
         document.querySelectorAll('.master-segment-btn')[0].classList.add('active');
         document.getElementById('tab-training').classList.add('active');

@@ -332,6 +332,55 @@
       outline-offset: 1px;
       z-index: 10 !important;
     }
+    /* ==========================================================================
+       VIEWPORT-ADAPTIVE ANSICHT
+       Zeilenhöhe skaliert mit der Fensterhöhe, damit auch Monate mit 6 Wochenzeilen
+       inklusive Ereigniszeile ohne Scrollen sichtbar bleiben.
+       ========================================================================== */
+    .planner-container {
+      --cal-row-gap: 4px;
+      --cal-row-h: clamp(32px, calc((100vh - 445px) / 6), 56px);
+      gap: 1.25rem;
+    }
+
+    body {
+      padding-top: 1.75rem;
+      padding-bottom: 1.75rem;
+    }
+
+    .month-block {
+      padding: 1.25rem 1.5rem 1.5rem;
+      gap: 1rem;
+    }
+
+    .month-header {
+      padding-bottom: 0.6rem;
+    }
+
+    .month-title {
+      font-size: 1.6rem;
+    }
+
+    .calendar-matrix {
+      gap: var(--cal-row-gap);
+      min-height: calc(6 * var(--cal-row-h) + 5 * var(--cal-row-gap));
+    }
+
+    .week-row {
+      height: var(--cal-row-h);
+    }
+
+    .cal-cell {
+      font-size: clamp(0.95rem, calc(var(--cal-row-h) * 0.4), 1.25rem);
+    }
+
+    .cal-cell.phase-race {
+      font-size: clamp(1rem, calc(var(--cal-row-h) * 0.42), 1.3rem);
+    }
+
+    .quarter-meta-strip {
+      padding: 0.9rem 2rem;
+    }
   </style>
 </head>
 <body>
