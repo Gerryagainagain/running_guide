@@ -1041,17 +1041,59 @@
         return;
       }
 
-      // 3. PHASE-BLÖCKE (NUR DIE PHASE, KEINE EINZELTAGS-ERWÄHNUNG)
+      // 3. PHASE-BLÖCKE (KONKRET ZUGESCHNITTEN AUF DEN JEWEILIGEN ZIELWETTKAMPF)
       if (phase === 'build') {
+        if (mIdx === 1026) {
+          keyEl.innerHTML = (day < 8) 
+            ? '🔵 Zuspitzung & Tapering · Martinslauf 10k' 
+            : '🔵 Spezifischer Aufbau · Siebengebirgs-HM (21,4 km · 360 Hm)';
+          return;
+        }
+        if (mIdx === 1126) {
+          keyEl.innerHTML = '🔵 Tapering & Feinschliff · Siebengebirgs-HM (06. Dez)';
+          return;
+        }
+        if (mIdx === 0 || mIdx === 1 || mIdx === 2) {
+          keyEl.innerHTML = '🔵 Spezifischer 9-Wochen-Aufbau · Belgenbachtrail (30,7 km · 941 Hm)';
+          return;
+        }
+        if (mIdx === 4 || (mIdx === 5 && day < 5)) {
+          keyEl.innerHTML = '🔵 Spezifischer Bergaufbau · Tschirgant Sky Run TS16 (~850 Hm)';
+          return;
+        }
+        if (mIdx === 9) {
+          keyEl.innerHTML = '🔵 Finaler Peak-Aufbau · Drachenlauf (26,0 km · 1.250 Hm)';
+          return;
+        }
         keyEl.innerHTML = '🔵 Spezifischer Trainings- & Aufbau-Block';
         return;
       }
       if (phase === 'rekom') {
+        if (mIdx === 1026) {
+          keyEl.innerHTML = '🟢 Post-Race Erholung · Nach Martinslauf 10k';
+          return;
+        }
+        if (mIdx === 1126) {
+          keyEl.innerHTML = '🟢 Saisonpause & Jahresausklang · Nach Siebengebirgs-HM';
+          return;
+        }
+        if (mIdx === 2) {
+          keyEl.innerHTML = '🟢 2 Wochen Regeneration & Übergangsphase · Nach Belgenbachtrail';
+          return;
+        }
+        if (mIdx === 5) {
+          keyEl.innerHTML = '🟢 Erholung & Urlaubsausklang · Nach TS16 Sky Run';
+          return;
+        }
+        if (mIdx === 9) {
+          keyEl.innerHTML = '🟢 Große Saison-Regeneration · Nach Drachenlauf';
+          return;
+        }
         keyEl.innerHTML = '🟢 Regenerationsphase (Tapering / Erholung)';
         return;
       }
       if (phase === 'vacation') {
-        keyEl.innerHTML = '🟡 Urlaub & Camping (05. – 25. Juni 2027 · Tirol & Kaub)';
+        keyEl.innerHTML = '🟡 21 Tage Campingurlaub Tirol & Kaub (inkl. TS16 Sky Run)';
         return;
       }
     }
