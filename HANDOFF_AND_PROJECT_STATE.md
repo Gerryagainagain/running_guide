@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.61  
+**Document Version:** 9.62  
 **Last Updated:** November 02, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -10,13 +10,18 @@
 
 ## 📌 1. Project Overview & Current Trajectory
 
+- **Campingurlaub entfernt & Optionen neutralisiert (v9.54):**
+  - **Juni rein sportlich (Weg 1):** Der gelbe Urlaubsstreifen (`phase-vacation`) wurde ersatzlos gestrichen. Der Juni bildet rein die Sportphysiologie ab: 01.–11. Juni (🔵 Tapering / Feinschliff), 12. Juni (🔴 🏁 TS16 Sky Run 16,9 km / 850 Hm) und 13.–26. Juni (🟢 2 Wochen Rekom & Regeneration).
+  - **Optionen ohne Namensnennung:** In der unteren Fokus-Leiste werden keine potenziellen Wettkämpfe mehr namentlich vorweggenommen. Im Sommer steht neutral: `💡 Vielleicht gibt es noch Laufoptionen hier`. Auch bei Klick auf optionale Tage wird rein dieser Hinweis eingeblendet.
+  - **Herbst:** Zeigt in der Leiste ausschließlich das gesetzte Hauptziel `🏁 Ziel: 24. Oktober · Drachenlauf (26,0 km · 1.250 Hm)`.
+  - **Synchronisiert:** Umgesetzt in `preview_jahres_dashboard.html`, `preview_klassischer_3monats_kalender.html` und `dist/`.
 - **Saison 2027: Reine 4-Jahreszeiten-Architektur (Lösung A) umgesetzt (v9.53):**
   - **Beseitigung der Januar-Dopplung:** Der logische Fehler (Januar 2027 als Verlegenheits-Platzhalter im „Finale '26“ und parallel im „Winter“) wurde vollständig behoben.
   - **4 reine Jahreszeiten für 2027:** `Finale '26` wurde aus dem Saison-2027-Tab gestrichen. Das operative Restjahr 2026 ist bereits zu 100% im *Training-Tab* (KW 45–49) verankert.
   - **Der Saison-Pager umfasst nun exakt 4 Quartale:**
     1. **Winter:** Januar – März 2027 *(🏁 Ziel: 07. März · Belgenbachtrail 30,7 km / 941 Hm)*
     2. **Frühling:** April – Juni 2027 *(🏁 Ziel: 12. Juni · Tschirgant Sky Run TS16 16,9 km / 850 Hm)*
-    3. **Sommer:** Juli – September 2027 *(💡 Optionen: Primiero Dolomiti 26k, Opal 24k, UTML 21k)*
+    3. **Sommer:** Juli – September 2027 *(💡 Vielleicht gibt es noch Laufoptionen hier)*
     4. **Herbst:** Oktober – Dezember 2027 *(🏁 Ziel: 24. Okt · Drachenlauf 26,0 km / 1.250 Hm)*
   - **Synchronisiert:** Umgesetzt in `preview_jahres_dashboard.html`, `preview_klassischer_3monats_kalender.html` und `dist/`.
 - **Pixel-perfekte Harmonisierung & Zero-Layout-Shift (v9.52):**

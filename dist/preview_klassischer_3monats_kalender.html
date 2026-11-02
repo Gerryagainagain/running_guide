@@ -468,7 +468,7 @@
       2: {
         heading: 'Sommer',
         range: 'Juli – Sept 2027',
-        keyEvent: '💡 Optionen: 03.07. Primiero Dolomiti (26k) · 05.09. Opal (24k) · 11.09. UTML (21k)',
+        keyEvent: '💡 Vielleicht gibt es noch Laufoptionen hier',
         months: [
           { name: 'Juli', mIdx: 6, days: 31, startOffset: 3 },
           { name: 'August', mIdx: 7, days: 31, startOffset: 6 },
@@ -478,7 +478,7 @@
       3: {
         heading: 'Herbst',
         range: 'Okt – Dez 2027',
-        keyEvent: '🏁 24. Okt: Drachenlauf (26k) · 💡 07. Nov: Option Martinslauf U-See (5,8k) · 💡 05. Dez: 7G-HM',
+        keyEvent: '🏁 Ziel: 24. Oktober · Drachenlauf (26,0 km · 1.250 Hm)',
         months: [
           { name: 'Oktober', mIdx: 9, days: 31, startOffset: 4 },
           { name: 'November', mIdx: 10, days: 30, startOffset: 0 },
@@ -519,12 +519,10 @@
         return '';
       }
       if (mIdx === 5) { // Jun
-        if (d >= 5 && d <= 25) {
-          if (d === 12) return 'race'; // TS16 Imst
-          return 'vacation';
-        }
-        if (d < 5) return 'build';
-        return 'rekom';
+        if (d < 12) return 'build'; // Zuspitzung auf TS16
+        if (d === 12) return 'race'; // Tschirgant Sky Run TS16
+        if (d > 12 && d <= 26) return 'rekom'; // 2 Wochen Erholung nach TS16
+        return '';
       }
       if (mIdx === 6) { // Jul
         if (d === 3) return 'option'; // Primiero Dolomiti Marathon 26k (Sa 03.07.2027)
@@ -543,6 +541,12 @@
         if (d === 7) return 'option'; // Martinslauf U-See 5,8k Option
         return '';
       }
+      if (mIdx === 11) { // Dez
+        if (d === 5) return 'option';
+        return '';
+      }
+      return '';
+    }
       if (mIdx === 11) { // Dez
         if (d === 5) return 'option';
         return '';
@@ -700,25 +704,9 @@
         return;
       }
 
-      // 2. OPTIONALE LÄUFE (LILA GESTRICHELT MIT KLICKBAREN ANMELDELINKS)
-      if (mIdx === 6 && day === 3) {
-        keyEl.innerHTML = '💡 Option: 03. Juli 2027 · Primiero Dolomiti Marathon (26 km · 1.200 Hm Downhill) · <a href="https://primierodolomitimarathon.it/en/entry/" target="_blank" rel="noopener noreferrer" class="option-reg-link">Zur Anmeldung / Infos ↗</a>';
-        return;
-      }
-      if (mIdx === 8 && day === 5) {
-        keyEl.innerHTML = '💡 Option: 05. September 2027 · Trail Côte d’Opale (24 km · 350 Hm) · <a href="https://www.trailcotedopale.com/" target="_blank" rel="noopener noreferrer" class="option-reg-link">Zur Anmeldung / Infos ↗</a>';
-        return;
-      }
-      if (mIdx === 8 && day === 11) {
-        keyEl.innerHTML = '💡 Option: 11. September 2027 · Ultra Trail Müllerthal (21 km · ~600 Hm) · <a href="https://www.utml.lu/" target="_blank" rel="noopener noreferrer" class="option-reg-link">Zur Anmeldung / Infos ↗</a>';
-        return;
-      }
-      if (mIdx === 10 && day === 7) {
-        keyEl.innerHTML = '💡 Option: 07. November 2027 · Martinslauf U-See (5,8 km Seerunde / Unterbacher See) · <a href="https://www.sfd.de/martinslauf/" target="_blank" rel="noopener noreferrer" class="option-reg-link">Zur Anmeldung / Infos ↗</a>';
-        return;
-      }
-      if (mIdx === 11 && day === 5) {
-        keyEl.innerHTML = '💡 Option: 05. Dezember 2027 · Siebengebirgs-HM (21,4 km · 360 Hm) · <a href="https://siebengebirgsmarathon.net/" target="_blank" rel="noopener noreferrer" class="option-reg-link">Zur Anmeldung / Infos ↗</a>';
+      // 2. OPTIONALE LÄUFE (KEINE NAMENSNENNUNG)
+      if (phase === 'option') {
+        keyEl.innerHTML = '💡 Vielleicht gibt es noch Laufoptionen hier';
         return;
       }
 
@@ -738,7 +726,7 @@
           keyEl.innerHTML = '🔵 Spezifischer 9-Wochen-Aufbau · Belgenbachtrail (30,7 km · 941 Hm)';
           return;
         }
-        if (mIdx === 4 || (mIdx === 5 && day < 5)) {
+        if (mIdx === 4 || (mIdx === 5 && day < 12)) {
           keyEl.innerHTML = '🔵 Spezifischer Bergaufbau · Tschirgant Sky Run TS16 (~850 Hm)';
           return;
         }
@@ -763,7 +751,7 @@
           return;
         }
         if (mIdx === 5) {
-          keyEl.innerHTML = '🟢 Erholung & Urlaubsausklang · Nach TS16 Sky Run';
+          keyEl.innerHTML = '🟢 Erholung & Regeneration · Nach Tschirgant Sky Run TS16';
           return;
         }
         if (mIdx === 9) {
@@ -771,10 +759,6 @@
           return;
         }
         keyEl.innerHTML = '🟢 Regenerationsphase (Tapering / Erholung)';
-        return;
-      }
-      if (phase === 'vacation') {
-        keyEl.innerHTML = '🟡 21 Tage Campingurlaub Tirol & Kaub (inkl. TS16 Sky Run)';
         return;
       }
     }
