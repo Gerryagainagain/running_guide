@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.58  
+**Document Version:** 9.59  
 **Last Updated:** November 02, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -10,6 +10,10 @@
 
 ## 📌 1. Project Overview & Current Trajectory
 
+- **Training-Tab Header-Symmetrie (Lösung 1) & Zentrierung (v9.51):**
+  - **Symmetrie über der 7-Tage-Bühne:** Die 5 Wochen-Pills (`[KW 45 🏁 Martinslauf]` bis `[KW 49 🏁 7G-HM]`) wurden auf `justify-content: center` umgestellt.
+  - **Beseitigung des „Schwarzen Lochs“:** Das 800 px breite Leerraum-Phänomen links sowie das visuelle „Stacked Segmented Controls“-Anti-Pattern (zwei Pillenleisten rechts übereinander) wurden vollständig aufgelöst.
+  - **Einheitliche UX-Architektur über beide Tabs:** Sowohl der *Training-Tab* (Wochen-Pills) als auch der *Saison-Tab* (Apple Kalender Pager) besitzen nun exakt dieselbe visuelle Balance: Oben rechts der Master-Switcher, auf der Sub-Ebene die Navigation mittig im Schwerpunkt über dem Content-Grid.
 - **Apple Kalender Pager (Lösung B) & 5-Wochen-Fokus (v9.50):**
   - **Saison-Tab Pager (Lösung B):** Die 5 gestapelten Quartals-Pills in der rechten Ecke wurden durch einen zentrierten Apple-Kalender Pager (`‹` `Frühling · Apr – Juni 2027` `›`) ersetzt. Behebt das „Stacked Controls“-Anti-Pattern nach Apple HIG und stellt die optische Symmetrie über den 3 Monatsblöcken her. Pfeiltastennavigation (Links/Rechts) aktiv.
   - **5-Wochen-Trainingsbogen:** KW 50 (Saisonpause) aus der Trainingsleiste entfernt. Der Plan fokussiert sich exakt auf den 5-Wochen-Bogen von KW 45 (Martinslauf) bis KW 49 (Siebengebirgs-HM).
