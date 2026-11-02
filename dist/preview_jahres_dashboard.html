@@ -436,22 +436,23 @@
       background: rgba(255, 69, 58, 0.06);
     }
 
-    /* MODAL FÜR DETAIL-WOCHENPLAN */
+    /* MODAL FÜR DETAIL-WOCHENPLAN (APPLE HIG SHEET SPECIFICATION) */
     .week-modal-backdrop {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
-      background: rgba(0, 0, 0, 0.75);
-      backdrop-filter: blur(16px);
+      background: var(--color-bg-modal-backdrop, rgba(0, 0, 0, 0.88));
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
       z-index: 1000;
       display: flex;
       align-items: center;
       justify-content: center;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.2s ease;
+      transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .week-modal-backdrop.open {
@@ -460,23 +461,55 @@
     }
 
     .week-modal-content {
-      background: #14141A;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-top: 1px solid rgba(255, 255, 255, 0.28);
+      background: var(--card-bg, rgba(22, 22, 30, 0.95));
+      border: 1px solid var(--color-border-card, rgba(255, 255, 255, 0.10));
+      border-top: 1px solid var(--color-border-card-top, rgba(255, 255, 255, 0.25));
       border-radius: 28px;
       width: 95%;
-      max-width: 1280px;
-      padding: 2.5rem;
-      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.85);
+      max-width: 1440px;
+      padding: 2.25rem 2.5rem;
+      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.90);
       display: flex;
       flex-direction: column;
       gap: 1.75rem;
       transform: scale(0.97);
-      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
     }
 
     .week-modal-backdrop.open .week-modal-content {
       transform: scale(1);
+    }
+
+    .modal-day-card {
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 1.25rem 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 210px;
+      max-height: 210px;
+      transition: all 0.2s ease;
+    }
+
+    .modal-day-card:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.15);
+      transform: translateY(-2px);
+    }
+
+    .modal-day-card.is-rest {
+      background: var(--color-bg-rest-card, rgba(14, 14, 20, 0.70));
+      opacity: 0.85;
+    }
+
+    .modal-day-card.is-race {
+      border-color: rgba(255, 69, 58, 0.45);
+      background: rgba(255, 69, 58, 0.08);
+      box-shadow: 0 0 20px rgba(255, 69, 58, 0.15);
     }
 
     /* VORSCHAU-WOCHE GEDIMMT */
@@ -643,11 +676,13 @@
       filter: brightness(1.2);
     }
 
+    /* SONNTAGS-ZIFFER (APPLE RED HIGHLIGHT) */
     .cal-cell.is-sunday:not(.phase-race) {
       color: var(--apple-red) !important;
       font-weight: 700;
     }
 
+    /* PERIODISIERUNGS-BALKEN */
     .cal-cell.phase-build {
       background: var(--phase-build-bg) !important;
       border-top: 1px solid var(--phase-build-border);
@@ -749,9 +784,10 @@
       font-family: var(--font-text);
       font-size: 1.20rem;
       font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: var(--typography-line-height-snug, 1.25);
       color: var(--apple-orange);
       text-align: center;
-      letter-spacing: -0.01em;
     }
 
     .cal-cell.is-selected {
@@ -967,8 +1003,6 @@
           Wochenfokus: Ausdauer-Konservierung und Vorbereitung auf die HM-Distanz.
         </div>
       </div>
-    </div>
-
     </div>
 
     <!-- ==========================================================================
@@ -1443,19 +1477,33 @@
       let html = '';
 
       data.days.forEach(day => {
-        const borderStyle = day.hl ? 'border-color:rgba(255,69,58,0.5); background:rgba(255,69,58,0.08);' : '';
-        const valColor = day.hl ? 'color:var(--apple-red); font-weight:900;' : 'color:var(--text-white); font-weight:800;';
-        const tagColor = day.hl ? 'color:var(--apple-red); font-weight:700;' : 'color:var(--text-white); font-weight:600;';
+        const isRest = (day.val === '—');
+        const isRace = !!day.hl;
+        let cardClass = 'modal-day-card';
+        if (isRest) cardClass += ' is-rest';
+        if (isRace) cardClass += ' is-race';
+
+        const dayNameColor = isRace ? 'var(--apple-red)' : 'var(--text-secondary)';
+        const valColor = isRace ? 'color:var(--apple-red);' : (isRest ? 'color:var(--text-muted);' : 'color:var(--text-white);');
+        const tagColor = isRace ? 'color:var(--apple-red);' : (isRest ? 'color:var(--text-muted);' : 'color:var(--text-white);');
 
         html += `
-          <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); ${borderStyle} border-radius:20px; padding:1.4rem 0.85rem; min-height:185px; text-align:center; display:flex; flex-direction:column; justify-content:space-between; gap:10px;">
-            <div style="font-size:0.90rem; color:var(--text-secondary); font-weight:700; text-transform:uppercase; letter-spacing:0.8px;">${day.d}</div>
-            <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; flex:1;">
-              <div style="font-family:var(--font-display); font-size:1.95rem; line-height:1.1; letter-spacing:-0.02em; ${valColor}">${day.val}</div>
+          <div class="${cardClass}">
+            <div class="day-top">
+              <span class="day-name" style="color:${dayNameColor};">${day.d.split(' ')[0]}</span>
+              <span class="day-number" style="color:${dayNameColor};">${day.d.split(' ')[1]}</span>
             </div>
-            <div style="display:flex; flex-direction:column; gap:4px;">
-              <div style="font-size:0.90rem; ${tagColor}">${day.tag}</div>
-              <div style="font-size:0.78rem; color:var(--text-muted); line-height:1.25;">${day.sub}</div>
+            
+            <div class="day-center" style="display:flex; flex-direction:column; align-items:center; justify-content:center; flex:1;">
+              ${isRest 
+                ? '<div class="day-rest" style="font-size:2.2rem; font-weight:200; color:var(--text-muted);">—</div>' 
+                : `<div class="day-value" style="font-size:var(--typography-font-size-3xl, 2.20rem); font-weight:800; ${valColor}">${day.val}</div>`
+              }
+            </div>
+
+            <div class="day-bottom">
+              <div class="day-tag" style="${tagColor}">${day.tag}</div>
+              <div class="day-subtext">${day.sub}</div>
             </div>
           </div>
         `;
