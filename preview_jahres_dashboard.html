@@ -302,13 +302,65 @@
       font-weight: 700;
     }
 
+    .day-column.race-highlight {
+      background: rgba(255, 69, 58, 0.08);
+      border-color: rgba(255, 69, 58, 0.35);
+      box-shadow: 0 0 20px rgba(255, 69, 58, 0.15);
+    }
+
+    .retro-details {
+      margin-top: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 16px;
+      background: rgba(18, 18, 24, 0.3);
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    .retro-summary {
+      padding: 0.85rem 1.25rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+
+    .retro-summary:hover {
+      color: var(--text-white);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .retro-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 10px;
+      padding: 1rem 1.25rem 1.25rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .retro-day {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      border-radius: 10px;
+      padding: 10px 8px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
     /* VORSCHAU-WOCHE GEDIMMT */
     .preview-week {
       background: rgba(18, 18, 24, 0.4);
       border: 1px solid var(--card-border);
       border-radius: 20px;
       padding: 1.25rem 1.75rem;
-      opacity: 0.65;
+      opacity: 0.75;
       display: flex;
       flex-direction: column;
       gap: 1rem;
@@ -608,36 +660,82 @@
 
       <div class="calendar-week-card">
         <div class="calendar-header">
-          <div class="week-headline">Aktuelle Woche (KW 44 · Wiedereinstieg)</div>
-          <div class="week-dates">26. Oktober – 01. November 2026</div>
+          <div class="week-headline">Aktuelle Woche (KW 45 · Martinslauf-Rennwoche)</div>
+          <div class="week-dates">02. – 08. November 2026</div>
         </div>
 
         <div class="days-grid">
-          <div class="day-column"><div class="day-top"><span class="day-name">Mo</span><span class="day-number">26</span></div><div class="day-center"><div class="day-rest">—</div></div><div class="day-bottom"><div class="day-tag" style="color:var(--text-muted);">Ruhe</div><div class="day-subtext">Infekterholung</div></div></div>
-          <div class="day-column"><div class="day-top"><span class="day-name">Di</span><span class="day-number">27</span></div><div class="day-center"><div class="day-rest">—</div></div><div class="day-bottom"><div class="day-tag" style="color:var(--text-muted);">Ruhe</div><div class="day-subtext">Schonung</div></div></div>
-          <div class="day-column"><div class="day-top"><span class="day-name">Mi</span><span class="day-number">28</span></div><div class="day-center"><div class="day-rest">—</div></div><div class="day-bottom"><div class="day-tag" style="color:var(--text-muted);">Ruhe</div><div class="day-subtext">Schonung</div></div></div>
-          <div class="day-column"><div class="day-top"><span class="day-name">Do</span><span class="day-number">29</span></div><div class="day-center"><div class="day-value">4,0 km</div><div class="completed-check">✓ Absolviert</div></div><div class="day-bottom"><div class="day-tag">Testlauf</div><div class="day-subtext">Flach, beschwerdefrei</div></div></div>
-          <div class="day-column"><div class="day-top"><span class="day-name">Fr</span><span class="day-number">30</span></div><div class="day-center"><div class="day-value" style="font-size:1.4rem;">Studio</div></div><div class="day-bottom"><div class="day-tag">Rumpf & Stabi</div><div class="day-subtext">Beine geschont</div></div></div>
-          <div class="day-column"><div class="day-top"><span class="day-name">Sa</span><span class="day-number">31</span></div><div class="day-center"><div class="day-value">6,55 km</div><div class="completed-check">✓ Absolviert</div></div><div class="day-bottom"><div class="day-tag">Wiedereinstieg</div><div class="day-subtext">46:25 · 127 bpm</div></div></div>
-          <div class="day-column"><div class="day-top"><span class="day-name" style="color:var(--apple-red);">So</span><span class="day-number" style="color:var(--apple-red);">01</span></div><div class="day-center"><div class="day-rest">—</div><div class="completed-check">✓ Ruhetag</div></div><div class="day-bottom"><div class="day-tag" style="color:var(--text-muted);">Ruhe</div><div class="day-subtext">Volle Frische</div></div></div>
+          <div class="day-column today">
+            <div class="day-top"><span class="day-name" style="color:var(--apple-cyan);">Mo</span><span class="day-number" style="color:var(--apple-cyan);">02</span></div>
+            <div class="day-center"><div class="day-rest">—</div></div>
+            <div class="day-bottom"><div class="day-tag" style="color:var(--apple-cyan);">Heute · Ruhe</div><div class="day-subtext">Regeneration</div></div>
+          </div>
+          <div class="day-column">
+            <div class="day-top"><span class="day-name">Di</span><span class="day-number">03</span></div>
+            <div class="day-center"><div class="day-value">5,5 km</div><div class="day-elevation">+ 3 Antritte</div></div>
+            <div class="day-bottom"><div class="day-tag">Locker GA1</div><div class="day-subtext">&lt; 118 bpm · 50m Pace</div></div>
+          </div>
+          <div class="day-column">
+            <div class="day-top"><span class="day-name">Mi</span><span class="day-number">04</span></div>
+            <div class="day-center"><div class="day-rest">—</div></div>
+            <div class="day-bottom"><div class="day-tag" style="color:var(--text-muted);">Ruhe</div><div class="day-subtext">Passiv schonen</div></div>
+          </div>
+          <div class="day-column">
+            <div class="day-top"><span class="day-name">Do</span><span class="day-number">05</span></div>
+            <div class="day-center"><div class="day-value">4,0 km</div><div class="day-elevation">Flach</div></div>
+            <div class="day-bottom"><div class="day-tag">Aktivierung</div><div class="day-subtext">&lt; 115 bpm · Beine lockern</div></div>
+          </div>
+          <div class="day-column">
+            <div class="day-top"><span class="day-name">Fr</span><span class="day-number">06</span></div>
+            <div class="day-center"><div class="day-rest">—</div></div>
+            <div class="day-bottom"><div class="day-tag" style="color:var(--text-muted);">Ruhe</div><div class="day-subtext">Kein Krafttraining</div></div>
+          </div>
+          <div class="day-column">
+            <div class="day-top"><span class="day-name">Sa</span><span class="day-number">07</span></div>
+            <div class="day-center"><div class="day-rest">—</div></div>
+            <div class="day-bottom"><div class="day-tag" style="color:var(--apple-orange);">Pre-Race</div><div class="day-subtext">Carboload & Ruhe</div></div>
+          </div>
+          <div class="day-column race-highlight">
+            <div class="day-top"><span class="day-name" style="color:var(--apple-red); font-weight:800;">So</span><span class="day-number" style="color:var(--apple-red); font-weight:800;">08</span></div>
+            <div class="day-center"><div class="day-value" style="color:var(--apple-red);">10,0 km</div><div class="day-elevation" style="color:var(--apple-orange);">8 °C · Sub 58 min</div></div>
+            <div class="day-bottom"><div class="day-tag" style="color:var(--apple-red);">🏁 Martinslauf</div><div class="day-subtext">5:50 ➔ 5:45 ➔ 5:35</div></div>
+          </div>
         </div>
       </div>
 
+      <!-- VORSCHAU FOLGEWOCHE (KW 46) -->
       <div class="preview-week">
         <div style="display:flex; justify-content:space-between; align-items:baseline;">
-          <span style="font-size:0.95rem; font-weight:700; color:var(--text-secondary);">Vorschau nächste Woche (KW 45 · Martinslauf-Rennwoche)</span>
-          <span style="font-size:0.8rem; color:var(--text-muted);">02. – 08. November 2026</span>
+          <span style="font-size:0.95rem; font-weight:700; color:var(--text-secondary);">Vorschau Folgewoche (KW 46 · Post-Race & Einstieg 7G-HM)</span>
+          <span style="font-size:0.8rem; color:var(--text-muted);">09. – 15. November 2026</span>
         </div>
         <div class="preview-grid">
-          <div class="preview-day"><span style="font-size:0.75rem; color:var(--text-muted);">Mo 02</span><span style="font-weight:600;">—</span><span style="font-size:0.7rem; color:var(--text-muted);">Ruhe</span></div>
-          <div class="preview-day"><span style="font-size:0.75rem; color:var(--text-muted);">Di 03</span><span style="font-weight:600;">6,0 km</span><span style="font-size:0.7rem; color:var(--text-muted);">Antritte</span></div>
-          <div class="preview-day"><span style="font-size:0.75rem; color:var(--text-muted);">Mi 04</span><span style="font-weight:600;">—</span><span style="font-size:0.7rem; color:var(--text-muted);">Ruhe</span></div>
-          <div class="preview-day"><span style="font-size:0.75rem; color:var(--text-muted);">Do 05</span><span style="font-weight:600;">4,5 km</span><span style="font-size:0.7rem; color:var(--text-muted);">Auslaufen</span></div>
-          <div class="preview-day"><span style="font-size:0.75rem; color:var(--text-muted);">Fr 06</span><span style="font-weight:600;">—</span><span style="font-size:0.7rem; color:var(--text-muted);">Kein KT</span></div>
-          <div class="preview-day"><span style="font-size:0.75rem; color:var(--text-muted);">Sa 07</span><span style="font-weight:600;">—</span><span style="font-size:0.7rem; color:var(--text-muted);">Carboload</span></div>
-          <div class="preview-day" style="border-color:rgba(255,159,10,0.4);"><span style="font-size:0.75rem; color:var(--apple-orange); font-weight:800;">So 08</span><span style="font-weight:800; color:var(--apple-orange);">10,0 km</span><span style="font-size:0.7rem; color:var(--apple-orange); font-weight:700;">Martinslauf</span></div>
+          <div class="preview-day"><span style="font-size:0.75rem; color:var(--text-muted);">Mo 09</span><span style="font-weight:600;">—</span><span style="font-size:0.7rem; color:var(--text-muted);">Post-Race Ruhe</span></div>
+          <div class="preview-day"><span style="font-size:0.75rem; color:var(--text-muted);">Di 10</span><span style="font-weight:600;">6,0 km</span><span style="font-size:0.7rem; color:var(--text-muted);">Rekom GA1</span></div>
+          <div class="preview-day"><span style="font-size:0.75rem; color:var(--text-muted);">Mi 11</span><span style="font-weight:600;">—</span><span style="font-size:0.7rem; color:var(--text-muted);">Ruhe</span></div>
+          <div class="preview-day"><span style="font-size:0.75rem; color:var(--text-muted);">Do 12</span><span style="font-weight:600;">8,0 km</span><span style="font-size:0.7rem; color:var(--text-muted);">GA1 locker</span></div>
+          <div class="preview-day"><span style="font-size:0.75rem; color:var(--text-muted);">Fr 13</span><span style="font-weight:600;">Studio</span><span style="font-size:0.7rem; color:var(--text-muted);">Stabi & Rumpf</span></div>
+          <div class="preview-day"><span style="font-size:0.75rem; color:var(--text-muted);">Sa 14</span><span style="font-weight:600; color:var(--apple-blue);">14,0 km</span><span style="font-size:0.7rem; color:var(--apple-blue);">Longrun Erkrath</span></div>
+          <div class="preview-day"><span style="font-size:0.75rem; color:var(--apple-red);">So 15</span><span style="font-weight:600;">—</span><span style="font-size:0.7rem; color:var(--text-muted);">Ruhe</span></div>
         </div>
       </div>
+
+      <!-- RÜCKBLICK VORWOCHE (KW 44) ALS DEZENTER DROPDOWN-ACCORDION -->
+      <details class="retro-details">
+        <summary class="retro-summary">
+          <span>⏮️ Rückblick Vorwoche (KW 44 · Wiedereinstieg 26.10. – 01.11.)</span>
+          <span style="font-size:0.75rem; color:var(--apple-green); font-weight:700;">10,55 km geloggt ▾</span>
+        </summary>
+        <div class="retro-grid">
+          <div class="retro-day"><span style="font-size:0.75rem; color:var(--text-muted);">Mo 26</span><span style="font-weight:600;">—</span><span style="font-size:0.7rem; color:var(--text-muted);">Ruhe</span></div>
+          <div class="retro-day"><span style="font-size:0.75rem; color:var(--text-muted);">Di 27</span><span style="font-weight:600;">—</span><span style="font-size:0.7rem; color:var(--text-muted);">Ruhe</span></div>
+          <div class="retro-day"><span style="font-size:0.75rem; color:var(--text-muted);">Mi 28</span><span style="font-weight:600;">—</span><span style="font-size:0.7rem; color:var(--text-muted);">Ruhe</span></div>
+          <div class="retro-day"><span style="font-size:0.75rem; color:var(--text-muted);">Do 29</span><span style="font-weight:700; color:var(--apple-green);">4,0 km</span><span style="font-size:0.7rem; color:var(--text-muted);">Testlauf</span></div>
+          <div class="retro-day"><span style="font-size:0.75rem; color:var(--text-muted);">Fr 30</span><span style="font-weight:700;">Studio</span><span style="font-size:0.7rem; color:var(--text-muted);">Stabi</span></div>
+          <div class="retro-day"><span style="font-size:0.75rem; color:var(--text-muted);">Sa 31</span><span style="font-weight:700; color:var(--apple-green);">6,55 km</span><span style="font-size:0.7rem; color:var(--text-muted);">3x500m Int.</span></div>
+          <div class="retro-day"><span style="font-size:0.75rem; color:var(--apple-red);">So 01</span><span style="font-weight:600;">—</span><span style="font-size:0.7rem; color:var(--text-muted);">Ruhetag</span></div>
+        </div>
+      </details>
 
     </div>
 
