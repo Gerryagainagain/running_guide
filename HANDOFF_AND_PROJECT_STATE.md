@@ -270,7 +270,7 @@ Vom Athleten am 31.10.2026 final abgenommener und freigegebener UI-Standard:
      - *Rot leuchtend (🏁):* Gesetzte Renntage (07.03. Belgenbach 30k, 12.06. TS16 Imst, 24.10. Drachenlauf).
      - *Grün durchgehend:* 2-wöchige Regenerationsbalken nach den Hauptläufen.
      - *Gelb durchgehend (in Q2):* Der 21-Tage Campingurlaub (05.–25.06.) in Tirol & Kaub.
-     - *Lila gestrichelt:* Unverbindliche Optionen (05.09. Opal, 11.09. UTML Müllerthal, 05.12. 7G HM).
+     - *Lila gestrichelt:* Unverbindliche Optionen (03.07. Primiero Dolomiti Marathon 26k, 05.09. Opal, 11.09. UTML Müllerthal, 05.12. 7G HM).
    - **Minimaler Header & Ziel-Bubble:**
      - Oben links nur das einzelne Wort der Jahreszeit: `Winter`, `Frühling`, `Sommer`, `Herbst`.
      - In der Bubble unter den Kalendern zentriert nur das Ziel: z. B. `🏁 Ziel: 07. März · Belgenbachtrail (30,7 km · 941 Hm)`.

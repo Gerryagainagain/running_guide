@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Running Guide 2027 — 3-Monats-Kalender (Apple HIG Master)</title>
+  <link rel="stylesheet" href="tokens.css">
+  <style>
+    /* ==========================================================================
+       APPLE HIG & DESIGN.md HARMONIZED MASTER SPECIFICATION
+       ========================================================================== */
+    :root {
+      /* Surface & Canvas (DESIGN.md Section 1.1) */
+      --bg-canvas: var(--color-bg-app, #0B0B10);
+      --card-bg: var(--color-bg-card, rgba(22, 22, 30, 0.85));
+      --card-border: var(--color-border-card, rgba(255, 255, 255, 0.08));
+      --card-border-top: var(--color-border-card-top, rgba(255, 255, 255, 0.22));
+      
+      /* Typography Colors (DESIGN.md Section 1.1) */
+      --text-white: var(--color-text-white, #FFFFFF);
+      --text-secondary: var(--color-text-secondary, #A1A1A6);
+      --text-muted: var(--color-text-muted, #6E6E73);
+      --text-subtle: var(--color-text-subtle-light, #D1D1D6);
+      
+      /* Accent Colors (DESIGN.md Section 1.1) */
+      --apple-green: var(--color-brand-green, #30D158);
+      --apple-cyan: var(--color-brand-cyan, #64D2FF);
+      --apple-orange: var(--color-brand-orange, #FF9F0A);
+      --apple-red: var(--color-brand-red, #FF453A);
+      
+      /* Periodisierungs-Balken (Harmonisierte Apple Tints) */
+      --phase-build-bg: rgba(100, 210, 255, 0.16);
+      --phase-build-border: rgba(100, 210, 255, 0.40);
+      --phase-build-text: #D6F2FF;
+      
+      --phase-rekom-bg: rgba(48, 209, 88, 0.16);
+      --phase-rekom-border: rgba(48, 209, 88, 0.40);
+      --phase-rekom-text: #C6F7D0;
+      
+      --phase-vacation-bg: rgba(255, 214, 10, 0.16);
+      --phase-vacation-border: rgba(255, 214, 10, 0.40);
+      --phase-vacation-text: #FFF3C4;
+      
+      --phase-race-bg: #FF453A;
+      --phase-race-glow: rgba(255, 69, 58, 0.45);
+      
+      /* Apple San Francisco Typography Stack */
+      --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", sans-serif;
+      --font-text: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      background-color: var(--bg-canvas);
+      color: var(--text-white);
+      font-family: var(--font-text);
+      padding: 3rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .planner-container {
+      width: 100%;
+      max-width: 1440px;
+      display: flex;
+      flex-direction: column;
+      gap: 2.25rem;
+    }
+
+    /* HEADER: APPLE HIG SEGMENTED CONTROL & TITLE */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 0.5rem;
+    }
+
+    .planner-heading {
+      font-family: var(--font-display);
+      font-size: var(--typography-font-size-3xl, 2.20rem);
+      font-weight: var(--typography-font-weight-extrabold, 800);
+      line-height: var(--typography-line-height-tight, 1.05);
+      letter-spacing: var(--typography-letter-spacing-tight, -0.8px);
+      color: var(--text-white);
+    }
+
+    .quarter-selector {
+      display: inline-flex;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 3px;
+      border-radius: 9999px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(20px);
+    }
+
+    .quarter-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      padding: 8px 22px;
+      font-family: var(--font-text);
+      font-size: var(--typography-font-size-md, 0.85rem);
+      font-weight: var(--typography-font-weight-semibold, 600);
+      letter-spacing: var(--typography-letter-spacing-normal, 0.2px);
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .quarter-btn:hover {
+      color: var(--text-white);
+    }
+
+    .quarter-btn.active {
+      background: rgba(255, 255, 255, 0.20);
+      color: var(--text-white);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+      font-weight: var(--typography-font-weight-bold, 700);
+    }
+
+    /* DIE 3 MONATSBLÖCKE NEBENEINANDER */
+    .three-months-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+    }
+
+    .month-block {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-top: 1px solid var(--card-border-top);
+      border-radius: 24px;
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(24px);
+    }
+
+    .month-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .month-title {
+      font-family: var(--font-display);
+      font-size: var(--typography-font-size-3xl, 2.20rem);
+      font-weight: var(--typography-font-weight-extrabold, 800);
+      letter-spacing: var(--typography-letter-spacing-tight, -0.8px);
+      line-height: var(--typography-line-height-none, 1.0);
+      text-align: center;
+    }
+
+    /* KALENDER-MATRIX */
+    .calendar-matrix {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .week-row {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 0;
+      height: 56px;
+      position: relative;
+    }
+
+    .cal-cell {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-text);
+      font-size: var(--typography-font-size-xl, 1.25rem);
+      font-weight: var(--typography-font-weight-medium, 500);
+      font-feature-settings: "tnum" on, "cv02" on;
+      user-select: none;
+      position: relative;
+      height: 100%;
+      border: 1px solid transparent;
+      color: var(--text-secondary);
+      transition: background 0.12s ease;
+    }
+
+    .cal-cell.empty {
+      cursor: default;
+    }
+
+    .cal-cell:not(.empty) {
+      cursor: pointer;
+    }
+
+    .cal-cell.neutral-day {
+      background: rgba(255, 255, 255, 0.025);
+      border-radius: 8px;
+      margin: 1.5px;
+    }
+
+    .cal-cell.neutral-day:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-white);
+    }
+
+    /* SONNTAGS-ZIFFER (APPLE RED HIGHLIGHT) */
+    .cal-cell.is-sunday:not(.phase-race) {
+      color: var(--apple-red) !important;
+      font-weight: var(--typography-font-weight-bold, 700);
+    }
+
+    /* PERIODISIERUNGS-BALKEN */
+    .cal-cell.phase-build {
+      background: var(--phase-build-bg) !important;
+      border-top: 1px solid var(--phase-build-border);
+      border-bottom: 1px solid var(--phase-build-border);
+      color: var(--phase-build-text) !important;
+      font-weight: var(--typography-font-weight-semibold, 600);
+      margin: 1.5px 0;
+    }
+
+    .cal-cell.phase-build.bar-start {
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+      border-left: 1px solid var(--phase-build-border);
+    }
+
+    .cal-cell.phase-build.bar-end {
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+      border-right: 1px solid var(--phase-build-border);
+    }
+
+    .cal-cell.phase-rekom {
+      background: var(--phase-rekom-bg) !important;
+      border-top: 1px solid var(--phase-rekom-border);
+      border-bottom: 1px solid var(--phase-rekom-border);
+      color: var(--phase-rekom-text) !important;
+      font-weight: var(--typography-font-weight-semibold, 600);
+      margin: 1.5px 0;
+    }
+
+    .cal-cell.phase-rekom.bar-start {
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+      border-left: 1px solid var(--phase-rekom-border);
+    }
+
+    .cal-cell.phase-rekom.bar-end {
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+      border-right: 1px solid var(--phase-rekom-border);
+    }
+
+    .cal-cell.phase-vacation {
+      background: var(--phase-vacation-bg) !important;
+      border-top: 1px solid var(--phase-vacation-border);
+      border-bottom: 1px solid var(--phase-vacation-border);
+      color: var(--phase-vacation-text) !important;
+      font-weight: var(--typography-font-weight-semibold, 600);
+      margin: 1.5px 0;
+    }
+
+    .cal-cell.phase-vacation.bar-start {
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+      border-left: 1px solid var(--phase-vacation-border);
+    }
+
+    .cal-cell.phase-vacation.bar-end {
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+      border-right: 1px solid var(--phase-vacation-border);
+    }
+
+    /* RENNTAG (HERVORSTEHENDER BLACK-NODE) */
+    .cal-cell.phase-race {
+      background: var(--phase-race-bg) !important;
+      border: 1px solid rgba(255, 255, 255, 0.9) !important;
+      color: #FFFFFF !important;
+      font-weight: var(--typography-font-weight-black, 900) !important;
+      font-size: var(--typography-font-size-xl, 1.25rem);
+      border-radius: 8px !important;
+      box-shadow: 0 0 16px var(--phase-race-glow);
+      z-index: 3;
+      margin: 1.5px;
+    }
+
+    .cal-cell.phase-option {
+      border: 1px dashed rgba(191, 90, 242, 0.75) !important;
+      border-radius: 8px;
+      color: #E8B4F8 !important;
+      font-weight: var(--typography-font-weight-bold, 700);
+      margin: 1.5px;
+    }
+
+    /* META-BANNER (APPLE HIG CARD MIT GOLDENER TYPOGRAFIE) */
+    .quarter-meta-strip {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-top: 1px solid var(--card-border-top);
+      border-radius: 18px;
+      padding: 1.25rem 2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .quarter-key-event {
+      font-family: var(--font-text);
+      font-size: var(--typography-font-size-lg, 1.15rem);
+      font-weight: var(--typography-font-weight-bold, 700);
+      letter-spacing: var(--typography-letter-spacing-snug, -0.5px);
+      line-height: var(--typography-line-height-snug, 1.25);
+      color: var(--apple-orange);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="planner-container">
+
+    <!-- HEADER -->
+    <header>
+      <div class="planner-heading" id="viewHeading">Frühling</div>
+
+      <div class="quarter-selector">
+        <button class="quarter-btn" onclick="switchQuarter(1)">Q1 · Belgenbach</button>
+        <button class="quarter-btn active" onclick="switchQuarter(2)">Q2 · Imst TS16</button>
+        <button class="quarter-btn" onclick="switchQuarter(3)">Q3 · Spätsommer</button>
+        <button class="quarter-btn" onclick="switchQuarter(4)">Q4 · Drachenlauf</button>
+      </div>
+    </header>
+
+    <!-- DIE 3 MONATSBLÖCKE -->
+    <div class="three-months-grid" id="threeMonthsContainer">
+      <!-- WIRD DYNAMISCH GENERIERT -->
+    </div>
+
+    <!-- META-BANNER UNTER DEN KALENDERN -->
+    <div class="quarter-meta-strip">
+      <div class="quarter-key-event" id="quarterKeyEvent">🏁 Ziel: 12. Juni · Tschirgant Sky Run TS16 (16,9 km · ~850 Hm)</div>
+    </div>
+
+  </div>
+
+  <script>
+    const quartersData = {
+      1: {
+        heading: 'Winter',
+        keyEvent: '🏁 Ziel: 07. März · Belgenbachtrail (30,7 km · 941 Hm)',
+        months: [
+          { name: 'Januar', mIdx: 0, days: 31, startOffset: 4 },
+          { name: 'Februar', mIdx: 1, days: 28, startOffset: 0 },
+          { name: 'März', mIdx: 2, days: 31, startOffset: 0 }
+        ]
+      },
+      2: {
+        heading: 'Frühling',
+        keyEvent: '🏁 Ziel: 12. Juni · Tschirgant Sky Run TS16 (16,9 km · ~850 Hm)',
+        months: [
+          { name: 'April', mIdx: 3, days: 30, startOffset: 3 },
+          { name: 'Mai', mIdx: 4, days: 31, startOffset: 5 },
+          { name: 'Juni', mIdx: 5, days: 30, startOffset: 1 }
+        ]
+      },
+      3: {
+        heading: 'Sommer',
+        keyEvent: '💡 Optionen: 03.07. Primiero Dolomiti (26k) · 05.09. Opal (24k) · 11.09. UTML (21k)',
+        months: [
+          { name: 'Juli', mIdx: 6, days: 31, startOffset: 3 },
+          { name: 'August', mIdx: 7, days: 31, startOffset: 6 },
+          { name: 'September', mIdx: 8, days: 30, startOffset: 2 }
+        ]
+      },
+      4: {
+        heading: 'Herbst',
+        keyEvent: '🏁 Ziel: 24. Oktober · Drachenlauf (26,0 km · 1.150–1.250 Hm)',
+        months: [
+          { name: 'Oktober', mIdx: 9, days: 31, startOffset: 4 },
+          { name: 'November', mIdx: 10, days: 30, startOffset: 0 },
+          { name: 'Dezember', mIdx: 11, days: 31, startOffset: 2 }
+        ]
+      }
+    };
+
+    function getPhase(mIdx, d) {
+      if (mIdx === 0) { // Jan
+        if (d >= 6) return 'build';
+        return '';
+      }
+      if (mIdx === 1) { // Feb
+        return 'build';
+      }
+      if (mIdx === 2) { // Mär
+        if (d < 7) return 'build';
+        if (d === 7) return 'race'; // Belgenbach 30k
+        if (d > 7 && d <= 21) return 'rekom';
+        return '';
+      }
+      if (mIdx === 4) { // Mai
+        if (d >= 15) return 'build';
+        return '';
+      }
+      if (mIdx === 5) { // Jun
+        if (d >= 5 && d <= 25) {
+          if (d === 12) return 'race'; // TS16 Imst
+          return 'vacation';
+        }
+        if (d < 5) return 'build';
+        return 'rekom';
+      }
+      if (mIdx === 6) { // Jul
+        if (d === 3) return 'option'; // Primiero Dolomiti Marathon 26k (Sa 03.07.2027)
+        return '';
+      }
+      if (mIdx === 8) { // Sep
+        if (d === 5 || d === 11) return 'option';
+        return '';
+      }
+      if (mIdx === 9) { // Okt
+        if (d === 24) return 'race'; // Drachenlauf
+        if (d < 24) return 'build';
+        return 'rekom';
+      }
+      if (mIdx === 11) { // Dez
+        if (d === 5) return 'option';
+        return '';
+      }
+      return '';
+    }
+
+    function switchQuarter(qNum) {
+      document.querySelectorAll('.quarter-btn').forEach((btn, idx) => {
+        btn.classList.toggle('active', idx === (qNum - 1));
+      });
+
+      const q = quartersData[qNum];
+      document.getElementById('viewHeading').innerText = q.heading;
+      document.getElementById('quarterKeyEvent').innerText = q.keyEvent;
+
+      renderMonths(q.months);
+    }
+
+    function renderMonths(months) {
+      const container = document.getElementById('threeMonthsContainer');
+      let html = '';
+
+      months.forEach(m => {
+        html += `
+          <div class="month-block">
+            <div class="month-header">
+              <span class="month-title">${m.name}</span>
+            </div>
+
+            <div class="calendar-matrix">
+        `;
+
+        let currentDay = 1;
+        let weekRow = 0;
+
+        while (currentDay <= m.days) {
+          html += `<div class="week-row">`;
+
+          for (let col = 0; col < 7; col++) {
+            if (weekRow === 0 && col < m.startOffset) {
+              html += `<div class="cal-cell empty"></div>`;
+            } else if (currentDay <= m.days) {
+              const d = currentDay;
+              const isSun = (col === 6);
+              const phase = getPhase(m.mIdx, d);
+              const prevPhase = (d > 1) ? getPhase(m.mIdx, d - 1) : '';
+              const nextPhase = (d < m.days) ? getPhase(m.mIdx, d + 1) : '';
+
+              let barClass = isSun ? 'is-sunday ' : '';
+              if (phase === 'build') {
+                barClass += 'phase-build';
+                if (col === 0 || prevPhase !== 'build') barClass += ' bar-start';
+                if (col === 6 || nextPhase !== 'build' || d === m.days) barClass += ' bar-end';
+              } else if (phase === 'rekom') {
+                barClass += 'phase-rekom';
+                if (col === 0 || prevPhase !== 'rekom') barClass += ' bar-start';
+                if (col === 6 || nextPhase !== 'rekom' || d === m.days) barClass += ' bar-end';
+              } else if (phase === 'vacation') {
+                barClass += 'phase-vacation';
+                if (col === 0 || prevPhase !== 'vacation') barClass += ' bar-start';
+                if (col === 6 || nextPhase !== 'vacation' || d === m.days) barClass += ' bar-end';
+              } else if (phase === 'race') {
+                barClass += 'phase-race';
+              } else if (phase === 'option') {
+                barClass += 'phase-option';
+              } else {
+                barClass += 'neutral-day';
+              }
+
+              html += `<div class="cal-cell ${barClass}">${d}</div>`;
+              currentDay++;
+            } else {
+              html += `<div class="cal-cell empty"></div>`;
+            }
+          }
+
+          html += `</div>`;
+          weekRow++;
+        }
+
+        html += `
+            </div>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+    }
+
+    switchQuarter(2);
+  </script>
+</body>
+</html>
