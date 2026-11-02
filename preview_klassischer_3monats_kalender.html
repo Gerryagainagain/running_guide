@@ -41,8 +41,8 @@
       --phase-vacation-border: rgba(255, 214, 10, 0.40);
       --phase-vacation-text: #FFF3C4;
       
-      --phase-race-bg: #FF453A;
-      --phase-race-glow: rgba(255, 69, 58, 0.45);
+      --phase-race-bg: var(--apple-orange, #FF9F0A);
+      --phase-race-glow: rgba(255, 159, 10, 0.40);
       
       /* Apple San Francisco Typography Stack */
       --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", sans-serif;
@@ -438,7 +438,7 @@
 
     <!-- META-BANNER UNTER DEN KALENDERN -->
     <div class="quarter-meta-strip" id="quarterMetaStrip">
-      <div class="quarter-key-event" id="quarterKeyEvent">🏁 Ziel: 07. März · Belgenbachtrail (30,7 km · 941 Hm)</div>
+      <div class="quarter-key-event" id="quarterKeyEvent">Ziel: 07. März · Belgenbachtrail (30,7 km · 941 Hm)</div>
     </div>
 
   </div>
@@ -448,7 +448,7 @@
       0: {
         heading: 'Winter',
         range: 'Jan – März 2027',
-        keyEvent: '🏁 Ziel: 07. März · Belgenbachtrail (30,7 km · 941 Hm)',
+        keyEvent: 'Ziel: 07. März · Belgenbachtrail (30,7 km · 941 Hm)',
         months: [
           { name: 'Januar', mIdx: 0, days: 31, startOffset: 4 },
           { name: 'Februar', mIdx: 1, days: 28, startOffset: 0 },
@@ -458,7 +458,7 @@
       1: {
         heading: 'Frühling',
         range: 'Apr – Juni 2027',
-        keyEvent: '🏁 Ziel: 12. Juni · Tschirgant Sky Run TS16 (16,9 km · ~850 Hm)',
+        keyEvent: 'Ziel: 12. Juni · Tschirgant Sky Run TS16 (16,9 km · ~850 Hm)',
         months: [
           { name: 'April', mIdx: 3, days: 30, startOffset: 3 },
           { name: 'Mai', mIdx: 4, days: 31, startOffset: 5 },
@@ -468,7 +468,7 @@
       2: {
         heading: 'Sommer',
         range: 'Juli – Sept 2027',
-        keyEvent: '💡 Vielleicht gibt es noch Laufoptionen hier',
+        keyEvent: 'Vielleicht gibt es noch Laufoptionen hier',
         months: [
           { name: 'Juli', mIdx: 6, days: 31, startOffset: 3 },
           { name: 'August', mIdx: 7, days: 31, startOffset: 6 },
@@ -478,7 +478,7 @@
       3: {
         heading: 'Herbst',
         range: 'Okt – Dez 2027',
-        keyEvent: '🏁 Ziel: 24. Oktober · Drachenlauf (26,0 km · 1.250 Hm)',
+        keyEvent: 'Ziel: 24. Oktober · Drachenlauf (26,0 km · 1.250 Hm)',
         months: [
           { name: 'Oktober', mIdx: 9, days: 31, startOffset: 4 },
           { name: 'November', mIdx: 10, days: 30, startOffset: 0 },
@@ -682,31 +682,31 @@
 
       const keyEl = document.getElementById('quarterKeyEvent');
 
-      // 1. GESETZTE WETTKÄMPFE (ROT)
+      // 1. GESETZTE WETTKÄMPFE (ORANGE)
       if (mIdx === 1026 && day === 8) {
-        keyEl.innerHTML = '🏁 08. November 2026 · Martinslauf 10k (Sub 58 min · 8 °C)';
+        keyEl.innerHTML = '08. November 2026 · Martinslauf 10k (Sub 58 min · 8 °C)';
         return;
       }
       if (mIdx === 1126 && day === 6) {
-        keyEl.innerHTML = '🏁 06. Dezember 2026 · Siebengebirgs-HM (21,4 km · 360 Hm)';
+        keyEl.innerHTML = '06. Dezember 2026 · Siebengebirgs-HM (21,4 km · 360 Hm)';
         return;
       }
       if (mIdx === 2 && day === 7) {
-        keyEl.innerHTML = '🏁 07. März 2027 · Belgenbachtrail (30,7 km · 941 Hm)';
+        keyEl.innerHTML = '07. März 2027 · Belgenbachtrail (30,7 km · 941 Hm)';
         return;
       }
       if (mIdx === 5 && day === 12) {
-        keyEl.innerHTML = '🏁 12. Juni 2027 · Tschirgant Sky Run TS16 (16,9 km · ~850 Hm)';
+        keyEl.innerHTML = '12. Juni 2027 · Tschirgant Sky Run TS16 (16,9 km · ~850 Hm)';
         return;
       }
       if (mIdx === 9 && day === 24) {
-        keyEl.innerHTML = '🏁 24. Oktober 2027 · Drachenlauf (26,0 km · 1.250 Hm)';
+        keyEl.innerHTML = '24. Oktober 2027 · Drachenlauf (26,0 km · 1.250 Hm)';
         return;
       }
 
       // 2. OPTIONALE LÄUFE (KEINE NAMENSNENNUNG)
       if (phase === 'option') {
-        keyEl.innerHTML = '💡 Vielleicht gibt es noch Laufoptionen hier';
+        keyEl.innerHTML = 'Vielleicht gibt es noch Laufoptionen hier';
         return;
       }
 
@@ -714,51 +714,51 @@
       if (phase === 'build') {
         if (mIdx === 1026) {
           keyEl.innerHTML = (day < 8) 
-            ? '🔵 Zuspitzung & Tapering · Martinslauf 10k' 
-            : '🔵 Spezifischer Aufbau · Siebengebirgs-HM (21,4 km · 360 Hm)';
+            ? 'Zuspitzung & Tapering · Martinslauf 10k' 
+            : 'Spezifischer Aufbau · Siebengebirgs-HM (21,4 km · 360 Hm)';
           return;
         }
         if (mIdx === 1126) {
-          keyEl.innerHTML = '🔵 Tapering & Feinschliff · Siebengebirgs-HM (06. Dez)';
+          keyEl.innerHTML = 'Tapering & Feinschliff · Siebengebirgs-HM (06. Dez)';
           return;
         }
         if (mIdx === 0 || mIdx === 1 || mIdx === 2) {
-          keyEl.innerHTML = '🔵 Spezifischer 9-Wochen-Aufbau · Belgenbachtrail (30,7 km · 941 Hm)';
+          keyEl.innerHTML = 'Spezifischer 9-Wochen-Aufbau · Belgenbachtrail (30,7 km · 941 Hm)';
           return;
         }
         if (mIdx === 4 || (mIdx === 5 && day < 12)) {
-          keyEl.innerHTML = '🔵 Spezifischer Bergaufbau · Tschirgant Sky Run TS16 (~850 Hm)';
+          keyEl.innerHTML = 'Spezifischer Bergaufbau · Tschirgant Sky Run TS16 (~850 Hm)';
           return;
         }
         if (mIdx === 9) {
-          keyEl.innerHTML = '🔵 Finaler Peak-Aufbau · Drachenlauf (26,0 km · 1.250 Hm)';
+          keyEl.innerHTML = 'Finaler Peak-Aufbau · Drachenlauf (26,0 km · 1.250 Hm)';
           return;
         }
-        keyEl.innerHTML = '🔵 Spezifischer Trainings- & Aufbau-Block';
+        keyEl.innerHTML = 'Spezifischer Trainings- & Aufbau-Block';
         return;
       }
       if (phase === 'rekom') {
         if (mIdx === 1026) {
-          keyEl.innerHTML = '🟢 Post-Race Erholung · Nach Martinslauf 10k';
+          keyEl.innerHTML = 'Post-Race Erholung · Nach Martinslauf 10k';
           return;
         }
         if (mIdx === 1126) {
-          keyEl.innerHTML = '🟢 Saisonpause & Jahresausklang · Nach Siebengebirgs-HM';
+          keyEl.innerHTML = 'Saisonpause & Jahresausklang · Nach Siebengebirgs-HM';
           return;
         }
         if (mIdx === 2) {
-          keyEl.innerHTML = '🟢 2 Wochen Regeneration & Übergangsphase · Nach Belgenbachtrail';
+          keyEl.innerHTML = '2 Wochen Regeneration & Übergangsphase · Nach Belgenbachtrail';
           return;
         }
         if (mIdx === 5) {
-          keyEl.innerHTML = '🟢 Erholung & Regeneration · Nach Tschirgant Sky Run TS16';
+          keyEl.innerHTML = 'Erholung & Regeneration · Nach Tschirgant Sky Run TS16';
           return;
         }
         if (mIdx === 9) {
-          keyEl.innerHTML = '🟢 Große Saison-Regeneration · Nach Drachenlauf';
+          keyEl.innerHTML = 'Große Saison-Regeneration · Nach Drachenlauf';
           return;
         }
-        keyEl.innerHTML = '🟢 Regenerationsphase (Tapering / Erholung)';
+        keyEl.innerHTML = 'Regenerationsphase (Tapering / Erholung)';
         return;
       }
     }

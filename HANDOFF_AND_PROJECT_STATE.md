@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.62  
+**Document Version:** 9.63  
 **Last Updated:** November 02, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -10,6 +10,18 @@
 
 ## 📌 1. Project Overview & Current Trajectory
 
+- **Restlose Icon-Eliminierung & Race-Color Harmonisierung (Orange) (v9.55 / State 9.63):**
+  - **Typografische Ruhe (Alle Icons/Emojis entfernt):** Sämtliche Icons (`⏱️`, `🧭`, `🏁`, `💡`, `🔵`, `🟢`) wurden aus dem gesamten Interface entfernt:
+    - Master-Header: `Training` | `Saison 2027` (ohne Uhr/Kompass).
+    - Week-Pills: `KW 45 Martinslauf` und `KW 49 7G-HM` (ohne Zielflaggen).
+    - Meta-Fokusleiste & Tooltips: `Ziel: 07. März · Belgenbachtrail`, `Vielleicht gibt es noch Laufoptionen hier`, `Zuspitzung & Tapering...`, `Post-Race Erholung...` rein als präziser Apple SF Text.
+    - Day-Cards: `SON 08.11` Tag `Martinslauf`, Badge `Martinslauf`.
+  - **Farbsemantik Renntag (Rot ➔ Orange):**
+    - Rot (`#FF453A`) signalisiert in Sport-Dashboards Gefahr, Überlastung oder Warnung. Renntage wurden daher einheitlich auf **Apple Orange** (`var(--apple-orange, #FF9F0A)`) umgestellt.
+    - Vollständige Harmonisierung zwischen Wochen- und Saisonansicht:
+      - Wochenkarte: Orange Rahmen, dezenter Orange-Gradient, orangefarbene `10.0 KM` Typografie, orangefarbene Benchmark-Pille `Zielzeit Sub 58 min` und oranger Status-Dot.
+      - Saisonkalender: Die Ziffern der gesetzten Renntage (z. B. 7. März Belgenbach, 12. Juni TS16, 24. Okt Drachenlauf) leuchten in Orange (`var(--phase-race-bg: #FF9F0A)` mit Orange Glow `rgba(255, 159, 10, 0.40)`), 100% kongruent zur orangefarbenen Zielzeile darunter.
+  - **Synchronisiert:** Umgesetzt in `preview_jahres_dashboard.html`, `preview_klassischer_3monats_kalender.html`, `index.html` (Script-Version `v=9.55`) und nach `dist/` gespiegelt.
 - **Campingurlaub entfernt & Optionen neutralisiert (v9.54):**
   - **Juni rein sportlich (Weg 1):** Der gelbe Urlaubsstreifen (`phase-vacation`) wurde ersatzlos gestrichen. Der Juni bildet rein die Sportphysiologie ab: 01.–11. Juni (🔵 Tapering / Feinschliff), 12. Juni (🔴 🏁 TS16 Sky Run 16,9 km / 850 Hm) und 13.–26. Juni (🟢 2 Wochen Rekom & Regeneration).
   - **Optionen ohne Namensnennung:** In der unteren Fokus-Leiste werden keine potenziellen Wettkämpfe mehr namentlich vorweggenommen. Im Sommer steht neutral: `💡 Vielleicht gibt es noch Laufoptionen hier`. Auch bei Klick auf optionale Tage wird rein dieser Hinweis eingeblendet.

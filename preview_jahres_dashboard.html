@@ -39,8 +39,8 @@
       --phase-vacation-border: rgba(255, 214, 10, 0.40);
       --phase-vacation-text: #FFF3C4;
       
-      --phase-race-bg: #FF453A;
-      --phase-race-glow: rgba(255, 69, 58, 0.45);
+      --phase-race-bg: var(--apple-orange, #FF9F0A);
+      --phase-race-glow: rgba(255, 159, 10, 0.40);
       
       --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", sans-serif;
       --font-text: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", sans-serif;
@@ -241,9 +241,9 @@
       border-color: rgba(48, 209, 88, 0.30);
     }
     .week-benchmark-pill.race {
-      color: var(--apple-red);
-      background: rgba(255, 69, 58, 0.15);
-      border-color: rgba(255, 69, 58, 0.40);
+      color: var(--apple-orange);
+      background: rgba(255, 159, 10, 0.15);
+      border-color: rgba(255, 159, 10, 0.40);
     }
 
     .days-grid {
@@ -284,9 +284,9 @@
     }
 
     .apple-day-card.card-race {
-      border: 1.5px solid rgba(255, 69, 58, 0.55) !important;
-      background: linear-gradient(135deg, rgba(255, 69, 58, 0.10), rgba(22, 22, 30, 0.85)) !important;
-      box-shadow: 0 0 20px rgba(255, 69, 58, 0.20) !important;
+      border: 1.5px solid rgba(255, 159, 10, 0.55) !important;
+      background: linear-gradient(135deg, rgba(255, 159, 10, 0.12), rgba(22, 22, 30, 0.85)) !important;
+      box-shadow: 0 0 20px rgba(255, 159, 10, 0.20) !important;
     }
 
     .apple-day-card.card-option {
@@ -434,9 +434,9 @@
     }
 
     .day-pill-badge.pill-race {
-      color: var(--apple-red);
-      background: rgba(255, 69, 58, 0.18);
-      border: 1px solid rgba(255, 69, 58, 0.35);
+      color: var(--apple-orange);
+      background: rgba(255, 159, 10, 0.18);
+      border: 1px solid rgba(255, 159, 10, 0.35);
       font-weight: 900;
     }
 
@@ -539,14 +539,14 @@
     }
 
     .week-pill-btn.is-race-pill .pill-label {
-      color: var(--apple-red);
+      color: var(--apple-orange);
     }
     .week-pill-btn.is-race-pill.active .pill-label {
       color: #FFF;
     }
     .week-pill-btn.is-race-pill.active {
-      background: rgba(255, 69, 58, 0.35);
-      border: 1px solid rgba(255, 69, 58, 0.45);
+      background: rgba(255, 159, 10, 0.30);
+      border: 1px solid rgba(255, 159, 10, 0.45);
     }
 
     /* WOCHENFOKUS STRIP UNTER DEN 7 KARTEN */
@@ -906,8 +906,8 @@
       <div class="brand-title">Trailrunning 2027</div>
       
       <div class="master-segmented-control">
-        <button class="master-segment-btn active" onclick="switchMasterTab('training')">⏱️ Training</button>
-        <button class="master-segment-btn" onclick="switchMasterTab('season')">🧭 Saison 2027</button>
+        <button class="master-segment-btn active" onclick="switchMasterTab('training')">Training</button>
+        <button class="master-segment-btn" onclick="switchMasterTab('season')">Saison 2027</button>
       </div>
     </header>
 
@@ -921,7 +921,7 @@
         <div class="week-pill-selector">
           <button class="week-pill-btn is-race-pill active" onclick="switchWeek(45)" id="pill-kw-45" data-kw="45">
             <span class="pill-kw">KW 45</span>
-            <span class="pill-label">🏁 Martinslauf</span>
+            <span class="pill-label">Martinslauf</span>
           </button>
           <button class="week-pill-btn" onclick="switchWeek(46)" id="pill-kw-46" data-kw="46">
             <span class="pill-kw">KW 46</span>
@@ -937,7 +937,7 @@
           </button>
           <button class="week-pill-btn is-race-pill" onclick="switchWeek(49)" id="pill-kw-49" data-kw="49">
             <span class="pill-kw">KW 49</span>
-            <span class="pill-label">🏁 7G-HM</span>
+            <span class="pill-label">7G-HM</span>
           </button>
         </div>
       </div>
@@ -983,7 +983,7 @@
       </div>
 
       <div class="quarter-meta-strip" id="quarterMetaStrip">
-        <div class="quarter-key-event" id="quarterKeyEvent">🏁 Ziel: 07. März · Belgenbachtrail (30,7 km · 941 Hm)</div>
+        <div class="quarter-key-event" id="quarterKeyEvent">Ziel: 07. März · Belgenbachtrail (30,7 km · 941 Hm)</div>
       </div>
 
     </div>
@@ -1011,7 +1011,7 @@
       0: {
         heading: 'Winter',
         range: 'Jan – März 2027',
-        keyEvent: '🏁 Ziel: 07. März · Belgenbachtrail (30,7 km · 941 Hm)',
+        keyEvent: 'Ziel: 07. März · Belgenbachtrail (30,7 km · 941 Hm)',
         months: [
           { name: 'Januar', mIdx: 0, days: 31, startOffset: 4 },
           { name: 'Februar', mIdx: 1, days: 28, startOffset: 0 },
@@ -1021,7 +1021,7 @@
       1: {
         heading: 'Frühling',
         range: 'Apr – Juni 2027',
-        keyEvent: '🏁 Ziel: 12. Juni · Tschirgant Sky Run TS16 (16,9 km · ~850 Hm)',
+        keyEvent: 'Ziel: 12. Juni · Tschirgant Sky Run TS16 (16,9 km · ~850 Hm)',
         months: [
           { name: 'April', mIdx: 3, days: 30, startOffset: 3 },
           { name: 'Mai', mIdx: 4, days: 31, startOffset: 5 },
@@ -1031,7 +1031,7 @@
       2: {
         heading: 'Sommer',
         range: 'Juli – Sept 2027',
-        keyEvent: '💡 Vielleicht gibt es noch Laufoptionen hier',
+        keyEvent: 'Vielleicht gibt es noch Laufoptionen hier',
         months: [
           { name: 'Juli', mIdx: 6, days: 31, startOffset: 3 },
           { name: 'August', mIdx: 7, days: 31, startOffset: 6 },
@@ -1041,7 +1041,7 @@
       3: {
         heading: 'Herbst',
         range: 'Okt – Dez 2027',
-        keyEvent: '🏁 Ziel: 24. Oktober · Drachenlauf (26,0 km · 1.250 Hm)',
+        keyEvent: 'Ziel: 24. Oktober · Drachenlauf (26,0 km · 1.250 Hm)',
         months: [
           { name: 'Oktober', mIdx: 9, days: 31, startOffset: 4 },
           { name: 'November', mIdx: 10, days: 30, startOffset: 0 },
@@ -1240,31 +1240,31 @@
 
       const keyEl = document.getElementById('quarterKeyEvent');
 
-      // 1. GESETZTE WETTKÄMPFE (ROT)
+      // 1. GESETZTE WETTKÄMPFE (ORANGE)
       if (mIdx === 1026 && day === 8) {
-        keyEl.innerHTML = '🏁 08. November 2026 · Martinslauf 10k (Sub 58 min · 8 °C)';
+        keyEl.innerHTML = '08. November 2026 · Martinslauf 10k (Sub 58 min · 8 °C)';
         return;
       }
       if (mIdx === 1126 && day === 6) {
-        keyEl.innerHTML = '🏁 06. Dezember 2026 · Siebengebirgs-HM (21,4 km · 360 Hm)';
+        keyEl.innerHTML = '06. Dezember 2026 · Siebengebirgs-HM (21,4 km · 360 Hm)';
         return;
       }
       if (mIdx === 2 && day === 7) {
-        keyEl.innerHTML = '🏁 07. März 2027 · Belgenbachtrail (30,7 km · 941 Hm)';
+        keyEl.innerHTML = '07. März 2027 · Belgenbachtrail (30,7 km · 941 Hm)';
         return;
       }
       if (mIdx === 5 && day === 12) {
-        keyEl.innerHTML = '🏁 12. Juni 2027 · Tschirgant Sky Run TS16 (16,9 km · ~850 Hm)';
+        keyEl.innerHTML = '12. Juni 2027 · Tschirgant Sky Run TS16 (16,9 km · ~850 Hm)';
         return;
       }
       if (mIdx === 9 && day === 24) {
-        keyEl.innerHTML = '🏁 24. Oktober 2027 · Drachenlauf (26,0 km · 1.250 Hm)';
+        keyEl.innerHTML = '24. Oktober 2027 · Drachenlauf (26,0 km · 1.250 Hm)';
         return;
       }
 
       // 2. OPTIONALE LÄUFE (KEINE NAMENSNENNUNG)
       if (phase === 'option') {
-        keyEl.innerHTML = '💡 Vielleicht gibt es noch Laufoptionen hier';
+        keyEl.innerHTML = 'Vielleicht gibt es noch Laufoptionen hier';
         return;
       }
 
@@ -1272,51 +1272,51 @@
       if (phase === 'build') {
         if (mIdx === 1026) {
           keyEl.innerHTML = (day < 8) 
-            ? '🔵 Zuspitzung & Tapering · Martinslauf 10k' 
-            : '🔵 Spezifischer Aufbau · Siebengebirgs-HM (21,4 km · 360 Hm)';
+            ? 'Zuspitzung & Tapering · Martinslauf 10k' 
+            : 'Spezifischer Aufbau · Siebengebirgs-HM (21,4 km · 360 Hm)';
           return;
         }
         if (mIdx === 1126) {
-          keyEl.innerHTML = '🔵 Tapering & Feinschliff · Siebengebirgs-HM (06. Dez)';
+          keyEl.innerHTML = 'Tapering & Feinschliff · Siebengebirgs-HM (06. Dez)';
           return;
         }
         if (mIdx === 0 || mIdx === 1 || mIdx === 2) {
-          keyEl.innerHTML = '🔵 Spezifischer 9-Wochen-Aufbau · Belgenbachtrail (30,7 km · 941 Hm)';
+          keyEl.innerHTML = 'Spezifischer 9-Wochen-Aufbau · Belgenbachtrail (30,7 km · 941 Hm)';
           return;
         }
         if (mIdx === 4 || (mIdx === 5 && day < 12)) {
-          keyEl.innerHTML = '🔵 Spezifischer Bergaufbau · Tschirgant Sky Run TS16 (~850 Hm)';
+          keyEl.innerHTML = 'Spezifischer Bergaufbau · Tschirgant Sky Run TS16 (~850 Hm)';
           return;
         }
         if (mIdx === 9) {
-          keyEl.innerHTML = '🔵 Finaler Peak-Aufbau · Drachenlauf (26,0 km · 1.250 Hm)';
+          keyEl.innerHTML = 'Finaler Peak-Aufbau · Drachenlauf (26,0 km · 1.250 Hm)';
           return;
         }
-        keyEl.innerHTML = '🔵 Spezifischer Trainings- & Aufbau-Block';
+        keyEl.innerHTML = 'Spezifischer Trainings- & Aufbau-Block';
         return;
       }
       if (phase === 'rekom') {
         if (mIdx === 1026) {
-          keyEl.innerHTML = '🟢 Post-Race Erholung · Nach Martinslauf 10k';
+          keyEl.innerHTML = 'Post-Race Erholung · Nach Martinslauf 10k';
           return;
         }
         if (mIdx === 1126) {
-          keyEl.innerHTML = '🟢 Saisonpause & Jahresausklang · Nach Siebengebirgs-HM';
+          keyEl.innerHTML = 'Saisonpause & Jahresausklang · Nach Siebengebirgs-HM';
           return;
         }
         if (mIdx === 2) {
-          keyEl.innerHTML = '🟢 2 Wochen Regeneration & Übergangsphase · Nach Belgenbachtrail';
+          keyEl.innerHTML = '2 Wochen Regeneration & Übergangsphase · Nach Belgenbachtrail';
           return;
         }
         if (mIdx === 5) {
-          keyEl.innerHTML = '🟢 Erholung & Regeneration · Nach Tschirgant Sky Run TS16';
+          keyEl.innerHTML = 'Erholung & Regeneration · Nach Tschirgant Sky Run TS16';
           return;
         }
         if (mIdx === 9) {
-          keyEl.innerHTML = '🟢 Große Saison-Regeneration · Nach Drachenlauf';
+          keyEl.innerHTML = 'Große Saison-Regeneration · Nach Drachenlauf';
           return;
         }
-        keyEl.innerHTML = '🟢 Regenerationsphase (Tapering / Erholung)';
+        keyEl.innerHTML = 'Regenerationsphase (Tapering / Erholung)';
         return;
       }
     }
@@ -1356,7 +1356,7 @@
           { d: 'DON 05.11', val: '4.0', unit: 'KM', tag: 'Aktivierung', sub: '< 115 bpm · Flach' },
           { d: 'FRE 06.11', val: '—', tag: '', sub: 'Kein Krafttraining' },
           { d: 'SAM 07.11', val: '—', tag: 'Pre-Race', tagColor: 'var(--apple-orange)', sub: 'Carboload & Ruhe' },
-          { d: 'SON 08.11', val: '10.0', unit: 'KM', tag: '🏁 Martinslauf', sub: '8 °C · Sub 58 min', isRace: true, main: true }
+          { d: 'SON 08.11', val: '10.0', unit: 'KM', tag: 'Martinslauf', sub: '8 °C · Sub 58 min', isRace: true, main: true }
         ]
       },
       46: {
@@ -1410,7 +1410,7 @@
       49: {
         title: 'KW 49 • Siebengebirgs-HM Rennwoche',
         dates: '30. November – 06. Dezember 2026',
-        benchmark: '31,4 km · 🏁 21,4k (360 Hm)',
+        benchmark: '31,4 km · 21,4k (360 Hm)',
         benchmarkType: 'race',
         summary: 'Fokus: Tapering & Wettkampf. Dienstag 6k locker, Donnerstag 4,5k Aktivierung. Sonntag: 21,4 km / 360 Hm Siebengebirgs-HM in Aegidienberg (Sub 2:20 h).',
         days: [
@@ -1420,7 +1420,7 @@
           { d: 'DON 03.12', val: '4.5', unit: 'KM', tag: 'Aktivierung', sub: '3 kurze Steigerungen' },
           { d: 'FRE 04.12', val: '—', tag: 'Ruhe', sub: 'Speicher füllen' },
           { d: 'SAM 05.12', val: '—', tag: 'Pre-Race', sub: 'Frische wahren' },
-          { d: 'SON 06.12', val: '21.4', unit: 'KM', tag: '🏁 7G-HM', sub: '360 Hm · Sub 2:20 h', isRace: true, main: true }
+          { d: 'SON 06.12', val: '21.4', unit: 'KM', tag: '7G-HM', sub: '360 Hm · Sub 2:20 h', isRace: true, main: true }
         ]
       },
       50: {
@@ -1475,7 +1475,7 @@
 
         let headerStyle = '';
         if (isToday) headerStyle = 'color:var(--apple-cyan);';
-        else if (isRace) headerStyle = 'color:var(--apple-red);';
+        else if (isRace) headerStyle = 'color:var(--apple-orange);';
 
         let heroHtml = '';
         if (isRest) {
@@ -1493,8 +1493,8 @@
             <div class="hero-sub-micro">${day.sub}</div>
           `;
         } else {
-          let valColor = isRace ? 'var(--apple-red)' : (day.isLongrun ? 'var(--apple-blue)' : 'var(--apple-green)');
-          const tagStyle = isRace ? 'style="color:var(--apple-red);"' : (day.isLongrun ? 'style="color:var(--apple-blue);"' : '');
+          let valColor = isRace ? 'var(--apple-orange)' : (day.isLongrun ? 'var(--apple-blue)' : 'var(--apple-green)');
+          const tagStyle = isRace ? 'style="color:var(--apple-orange);"' : (day.isLongrun ? 'style="color:var(--apple-blue);"' : '');
           const subStyle = isRace ? 'style="color:var(--apple-orange);"' : '';
           heroHtml = `
             <div class="hero-val-wrap">
@@ -1508,7 +1508,7 @@
 
         const todayBadge = isToday ? '<span class="badge-today-blue">HEUTE</span>' : '';
         const footerHtml = day.main
-          ? `<span class="day-pill-badge pill-race">${day.tag}</span><div class="status-dot done" style="background:var(--apple-red); box-shadow:0 0 6px var(--apple-red);"></div>`
+          ? `<span class="day-pill-badge pill-race">${day.tag}</span><div class="status-dot done" style="background:var(--apple-orange); box-shadow:0 0 6px var(--apple-orange);"></div>`
           : '';
 
         html += `
