@@ -130,7 +130,7 @@
     .three-months-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.75rem;
+      gap: 2rem;
     }
 
     .month-block {
@@ -367,7 +367,7 @@
     const quartersData = {
       0: {
         heading: 'Herbst / Winter 2026',
-        keyEvent: '🏁 Martinslauf 10k (08. Nov) ➔ Siebengebirgs-HM 21k (06. Dez) ➔ Belgenbach-Start (06. Jan)',
+        keyEvent: '💡 07. Nov: Option U-See (5,8k) · 🏁 08. Nov: Martinslauf 10k (Sub 58 min) · 🏁 06. Dez: 7G-HM (21,4k)',
         months: [
           { name: 'November 2026', mIdx: 1026, days: 30, startOffset: 6 },
           { name: 'Dezember 2026', mIdx: 1126, days: 31, startOffset: 1 },
@@ -415,6 +415,7 @@
     function getPhase(mIdx, d) {
       if (mIdx === 1026) { // Nov 2026
         if (d === 8) return 'race'; // Martinslauf 10k
+        if (d === 7) return 'option'; // Martinslauf Unterbacher See (Option 5,8k Seerunde)
         if (d < 8) return 'build'; // Rennwoche
         if (d > 8 && d <= 15) return 'rekom'; // Post-Race Woche
         return 'build'; // HM-Vorbereitung ab 16. Nov
@@ -597,6 +598,10 @@
       }
 
       // 2. OPTIONALE LÄUFE (LILA GESTRICHELT)
+      if (mIdx === 1026 && day === 7) {
+        keyEl.innerHTML = '💡 Option: 07. November 2026 · Martinslauf U-See (5,8 km Seerunde / Unterbacher See)';
+        return;
+      }
       if (mIdx === 6 && day === 3) {
         keyEl.innerHTML = '💡 Option: 03. Juli 2027 · Primiero Dolomiti Marathon (26 km · 1.200 Hm Downhill)';
         return;

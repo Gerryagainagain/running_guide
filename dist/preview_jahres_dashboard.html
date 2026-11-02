@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Running Guide 2027 — Master Dashboard</title>
   <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="styles.css">
   <style>
     /* ==========================================================================
        APPLE HIG & DESIGN.md HARMONIZED MASTER SPECIFICATION
@@ -175,10 +176,10 @@
       border: 1px solid var(--card-border);
       border-top: 1px solid var(--card-border-top);
       border-radius: 24px;
-      padding: 2rem;
+      padding: 1.75rem;
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 1.25rem;
       box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
     }
 
@@ -191,7 +192,7 @@
     }
 
     .week-headline {
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       font-weight: 700;
       letter-spacing: -0.01em;
     }
@@ -204,108 +205,219 @@
     .days-grid {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
-      gap: 14px;
+      gap: 12px;
     }
 
-    .day-column {
-      background: rgba(255, 255, 255, 0.025);
-      border: 1px solid var(--card-border);
-      border-radius: 18px;
-      padding: 1.25rem 1rem;
+    /* COACH APPLE DAY CARD SPECIFICATION */
+    .apple-day-card {
+      background: var(--bg-card, rgba(22, 22, 30, 0.85));
+      border: 1px solid var(--border-card, rgba(255, 255, 255, 0.08));
+      border-radius: var(--radius-card, 16px);
+      padding: 1.25rem 1.05rem;
+      height: 210px !important;
+      min-height: 210px !important;
+      max-height: 210px !important;
+      box-sizing: border-box;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      min-height: 165px;
-      transition: all 0.2s ease;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      position: relative;
+      overflow: visible !important;
     }
 
-    .day-column:hover {
-      background: rgba(255, 255, 255, 0.06);
-      border-color: rgba(255, 255, 255, 0.15);
+    .apple-day-card:hover {
       transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.22);
+      background: rgba(32, 32, 44, 0.95);
     }
 
-    .day-column.today {
-      border-color: var(--apple-cyan);
-      box-shadow: 0 0 0 1px var(--apple-cyan);
-      background: rgba(255, 255, 255, 0.05);
+    .apple-day-card.card-today {
+      border: 1.5px solid var(--apple-cyan, #64D2FF) !important;
+      box-shadow: 0 0 16px rgba(100, 210, 255, 0.25) !important;
+      background: linear-gradient(135deg, rgba(100, 210, 255, 0.08), rgba(22, 22, 30, 0.85)) !important;
     }
 
-    .day-top {
+    .apple-day-card.card-race {
+      border: 1.5px solid rgba(255, 69, 58, 0.55) !important;
+      background: linear-gradient(135deg, rgba(255, 69, 58, 0.10), rgba(22, 22, 30, 0.85)) !important;
+      box-shadow: 0 0 20px rgba(255, 69, 58, 0.20) !important;
+    }
+
+    .apple-day-card.card-option {
+      border: 1.5px dashed rgba(191, 90, 242, 0.65) !important;
+      background: linear-gradient(135deg, rgba(191, 90, 242, 0.08), rgba(22, 22, 30, 0.85)) !important;
+    }
+
+    .badge-today-blue {
+      position: absolute !important;
+      top: -10px !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      background: var(--apple-cyan, #64D2FF) !important;
+      color: #000000 !important;
+      font-size: 0.65rem !important;
+      font-weight: 900 !important;
+      padding: 0.15rem 0.55rem !important;
+      border-radius: 999px !important;
+      letter-spacing: 0.8px !important;
+      text-transform: uppercase !important;
+      box-shadow: 0 2px 8px rgba(100, 210, 255, 0.4) !important;
+      z-index: 10 !important;
+      white-space: nowrap !important;
+    }
+
+    .day-header {
       display: flex;
       justify-content: space-between;
-      align-items: baseline;
-    }
-
-    .day-name {
-      font-size: 0.8rem;
-      font-weight: 700;
+      align-items: center;
+      font-size: 0.85rem;
+      font-weight: 900;
       color: var(--text-secondary);
-      text-transform: uppercase;
       letter-spacing: 0.05em;
     }
 
-    .day-number {
-      font-size: 1.25rem;
+    .day-header .date-num {
+      font-size: 0.85rem;
       font-weight: 800;
-    }
-
-    .day-center {
-      margin: 1.25rem 0;
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-    }
-
-    .day-value {
-      font-size: 1.65rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
+      color: var(--text-white);
       font-feature-settings: "tnum";
     }
 
-    .day-elevation {
-      font-size: 0.8rem;
-      color: var(--apple-orange);
-      font-weight: 700;
-    }
-
-    .day-rest {
-      font-size: 1.8rem;
-      font-weight: 300;
-      color: var(--text-muted);
-    }
-
-    .day-bottom {
+    .day-hero-box {
       display: flex;
       flex-direction: column;
       gap: 0.2rem;
+      margin: 0.25rem 0;
     }
 
-    .day-tag {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--text-white);
+    .hero-val-wrap {
+      display: flex;
+      align-items: baseline;
+      gap: 0.25rem;
+      margin: 0.2rem 0 0.1rem 0;
     }
 
-    .day-subtext {
-      font-size: 0.72rem;
+    .hero-val {
+      font-size: 2.35rem;
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -0.8px;
+      font-feature-settings: "tnum";
+      color: var(--apple-green, #30D158);
+    }
+
+    .hero-unit {
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--apple-green, #30D158);
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+
+    .hero-rest-txt {
+      font-size: 1.45rem;
+      font-weight: 800;
       color: var(--text-muted);
+      letter-spacing: 0.5px;
     }
 
-    .completed-check {
+    .hero-sub-micro {
+      font-size: 0.80rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      font-feature-settings: "tnum";
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+    }
+
+    .day-footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+      gap: 0.4rem;
+    }
+
+    .day-pill-badge {
+      font-size: 0.74rem;
+      font-weight: 800;
+      color: var(--apple-cyan);
+      background: rgba(100, 210, 255, 0.12);
+      padding: 0.2rem 0.55rem;
+      border-radius: 6px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
       display: inline-flex;
       align-items: center;
       gap: 4px;
-      font-size: 0.75rem;
-      color: var(--apple-green);
-      font-weight: 700;
     }
 
-    .day-column.race-highlight {
-      background: rgba(255, 69, 58, 0.08);
-      border-color: rgba(255, 69, 58, 0.35);
-      box-shadow: 0 0 20px rgba(255, 69, 58, 0.15);
+    .day-pill-badge.pill-completed {
+      color: var(--apple-green, #30D158) !important;
+      background: rgba(48, 209, 88, 0.15) !important;
+      border: 1px solid rgba(48, 209, 88, 0.35) !important;
+      font-weight: 900 !important;
+    }
+
+    .day-pill-badge.pill-ersatz {
+      color: var(--apple-cyan, #64D2FF) !important;
+      background: rgba(100, 210, 255, 0.15) !important;
+      border: 1px solid rgba(100, 210, 255, 0.35) !important;
+      font-weight: 900 !important;
+    }
+
+    .day-pill-badge.pill-rest {
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      font-weight: 600;
+    }
+
+    .day-pill-badge.pill-race {
+      color: var(--apple-red);
+      background: rgba(255, 69, 58, 0.18);
+      border: 1px solid rgba(255, 69, 58, 0.35);
+      font-weight: 900;
+    }
+
+    .day-pill-badge.pill-option {
+      color: #E8B4F8;
+      background: rgba(191, 90, 242, 0.18);
+      border: 1px solid rgba(191, 90, 242, 0.35);
+      font-weight: 800;
+    }
+
+    .day-action-btn {
+      font-size: 0.64rem;
+      font-weight: 900;
+      color: var(--apple-cyan);
+      background: rgba(100, 210, 255, 0.15);
+      border: 1px solid rgba(100, 210, 255, 0.35);
+      padding: 0.2rem 0.55rem;
+      border-radius: 6px;
+      text-align: center;
+      display: inline-block;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      flex-shrink: 0;
+    }
+
+    .status-dot.done {
+      background: var(--apple-green);
+      box-shadow: 0 0 6px var(--apple-green);
     }
 
     .retro-details {
@@ -483,33 +595,40 @@
     }
 
     .modal-day-card {
-      background: rgba(255, 255, 255, 0.025);
-      border: 1px solid var(--card-border);
-      border-radius: 18px;
-      padding: 1.25rem 1rem;
+      background: var(--bg-card, rgba(22, 22, 30, 0.85));
+      border: 1px solid var(--border-card, rgba(255, 255, 255, 0.08));
+      border-radius: var(--radius-card, 16px);
+      padding: 1.25rem 1.05rem;
+      min-height: 210px;
+      max-height: 210px;
+      box-sizing: border-box;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      min-height: 210px;
-      max-height: 210px;
-      transition: all 0.2s ease;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
     }
 
     .modal-day-card:hover {
-      background: rgba(255, 255, 255, 0.05);
-      border-color: rgba(255, 255, 255, 0.15);
+      background: rgba(32, 32, 44, 0.95);
+      border-color: rgba(255, 255, 255, 0.22);
       transform: translateY(-2px);
     }
 
     .modal-day-card.is-rest {
-      background: var(--color-bg-rest-card, rgba(14, 14, 20, 0.70));
-      opacity: 0.85;
+      background: rgba(14, 14, 20, 0.70);
+      opacity: 0.90;
     }
 
     .modal-day-card.is-race {
-      border-color: rgba(255, 69, 58, 0.45);
-      background: rgba(255, 69, 58, 0.08);
-      box-shadow: 0 0 20px rgba(255, 69, 58, 0.15);
+      border: 1.5px solid rgba(255, 69, 58, 0.55);
+      background: linear-gradient(135deg, rgba(255, 69, 58, 0.10), rgba(22, 22, 30, 0.85));
+      box-shadow: 0 0 20px rgba(255, 69, 58, 0.20);
+    }
+
+    .modal-day-card.is-option {
+      border: 1.5px dashed rgba(191, 90, 242, 0.65);
+      background: linear-gradient(135deg, rgba(191, 90, 242, 0.08), rgba(22, 22, 30, 0.85));
     }
 
     /* VORSCHAU-WOCHE GEDIMMT */
@@ -595,7 +714,7 @@
     .three-months-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.75rem;
+      gap: 2rem;
     }
 
     .month-block {
@@ -603,10 +722,10 @@
       border: 1px solid var(--card-border);
       border-top: 1px solid var(--card-border-top);
       border-radius: 26px;
-      padding: 2rem 1.6rem;
+      padding: 2.25rem 1.75rem;
       display: flex;
       flex-direction: column;
-      gap: 1.35rem;
+      gap: 1.5rem;
       box-shadow: 0 20px 48px rgba(0, 0, 0, 0.55);
       backdrop-filter: blur(24px);
     }
@@ -615,16 +734,17 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding-bottom: 0.75rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      padding-bottom: 0.85rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .month-title {
       font-family: var(--font-display);
-      font-size: 1.65rem;
+      font-size: 1.75rem;
       font-weight: 800;
       letter-spacing: -0.015em;
       text-align: center;
+      color: var(--text-white);
     }
 
     .calendar-matrix {
@@ -636,7 +756,7 @@
     .week-row {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
-      gap: 0;
+      gap: 2px;
       height: 56px;
       position: relative;
     }
@@ -646,15 +766,15 @@
       align-items: center;
       justify-content: center;
       font-family: var(--font-text);
-      font-size: 1.20rem;
-      font-weight: 500;
+      font-size: 1.25rem;
+      font-weight: 600;
       font-feature-settings: "tnum" on;
       user-select: none;
       position: relative;
       height: 100%;
       border: 1px solid transparent;
       color: var(--text-secondary);
-      transition: background 0.12s ease;
+      transition: all 0.15s ease;
     }
 
     .cal-cell.empty {
@@ -844,40 +964,135 @@
           </div>
 
           <div class="days-grid">
-            <div class="day-column today">
-              <div class="day-top"><span class="day-name" style="color:var(--apple-cyan);">Mo</span><span class="day-number" style="color:var(--apple-cyan);">02</span></div>
-              <div class="day-center"><div class="day-rest">—</div></div>
-              <div class="day-bottom"><div class="day-tag" style="color:var(--apple-cyan);">Heute · Ruhe</div><div class="day-subtext">Regeneration</div></div>
+            <!-- MON 02 (HEUTE) -->
+            <div class="apple-day-card card-today">
+              <span class="badge-today-blue">HEUTE</span>
+              <div class="day-header">
+                <span class="day-name" style="color:var(--apple-cyan);">MON</span>
+                <span class="date-num" style="color:var(--apple-cyan);">02.11</span>
+              </div>
+              <div class="day-hero-box">
+                <div class="hero-val-wrap">
+                  <span class="hero-rest-txt" style="color:var(--apple-cyan);">CHILL</span>
+                </div>
+                <div class="hero-sub-micro">Regeneration</div>
+              </div>
+              <div class="day-footer-row">
+                <span class="day-pill-badge pill-rest">Ruhe</span>
+                <div class="status-dot"></div>
+              </div>
             </div>
-            <div class="day-column">
-              <div class="day-top"><span class="day-name">Di</span><span class="day-number">03</span></div>
-              <div class="day-center"><div class="day-value">5,5 km</div><div class="day-elevation">+ 3 Antritte</div></div>
-              <div class="day-bottom"><div class="day-tag">Locker GA1</div><div class="day-subtext">&lt; 118 bpm · 50m Pace</div></div>
+
+            <!-- DIE 03 -->
+            <div class="apple-day-card">
+              <div class="day-header">
+                <span class="day-name">DIE</span>
+                <span class="date-num">03.11</span>
+              </div>
+              <div class="day-hero-box">
+                <div class="hero-val-wrap">
+                  <span class="hero-val">5.5</span>
+                  <span class="hero-unit">KM</span>
+                </div>
+                <div class="hero-sub-micro">&lt; 118 bpm · 3 Antritte</div>
+              </div>
+              <div class="day-footer-row">
+                <span class="day-pill-badge pill-completed">Locker GA1</span>
+                <div class="status-dot done"></div>
+              </div>
             </div>
-            <div class="day-column">
-              <div class="day-top"><span class="day-name">Mi</span><span class="day-number">04</span></div>
-              <div class="day-center"><div class="day-rest">—</div></div>
-              <div class="day-bottom"><div class="day-tag" style="color:var(--text-muted);">Ruhe</div><div class="day-subtext">Passiv schonen</div></div>
+
+            <!-- MIT 04 -->
+            <div class="apple-day-card">
+              <div class="day-header">
+                <span class="day-name">MIT</span>
+                <span class="date-num">04.11</span>
+              </div>
+              <div class="day-hero-box">
+                <div class="hero-val-wrap">
+                  <span class="hero-rest-txt">CHILL</span>
+                </div>
+                <div class="hero-sub-micro">Passiv schonen</div>
+              </div>
+              <div class="day-footer-row">
+                <span class="day-pill-badge pill-rest">Ruhe</span>
+                <div class="status-dot"></div>
+              </div>
             </div>
-            <div class="day-column">
-              <div class="day-top"><span class="day-name">Do</span><span class="day-number">05</span></div>
-              <div class="day-center"><div class="day-value">4,0 km</div><div class="day-elevation">Flach</div></div>
-              <div class="day-bottom"><div class="day-tag">Aktivierung</div><div class="day-subtext">&lt; 115 bpm · Beine lockern</div></div>
+
+            <!-- DON 05 -->
+            <div class="apple-day-card">
+              <div class="day-header">
+                <span class="day-name">DON</span>
+                <span class="date-num">05.11</span>
+              </div>
+              <div class="day-hero-box">
+                <div class="hero-val-wrap">
+                  <span class="hero-val">4.0</span>
+                  <span class="hero-unit">KM</span>
+                </div>
+                <div class="hero-sub-micro">&lt; 115 bpm · Flach</div>
+              </div>
+              <div class="day-footer-row">
+                <span class="day-pill-badge pill-completed">Aktivierung</span>
+                <div class="status-dot done"></div>
+              </div>
             </div>
-            <div class="day-column">
-              <div class="day-top"><span class="day-name">Fr</span><span class="day-number">06</span></div>
-              <div class="day-center"><div class="day-rest">—</div></div>
-              <div class="day-bottom"><div class="day-tag" style="color:var(--text-muted);">Ruhe</div><div class="day-subtext">Kein Krafttraining</div></div>
+
+            <!-- FRE 06 -->
+            <div class="apple-day-card">
+              <div class="day-header">
+                <span class="day-name">FRE</span>
+                <span class="date-num">06.11</span>
+              </div>
+              <div class="day-hero-box">
+                <div class="hero-val-wrap">
+                  <span class="hero-rest-txt">CHILL</span>
+                </div>
+                <div class="hero-sub-micro">Kein Krafttraining</div>
+              </div>
+              <div class="day-footer-row">
+                <span class="day-pill-badge pill-rest">Ruhe</span>
+                <div class="status-dot"></div>
+              </div>
             </div>
-            <div class="day-column">
-              <div class="day-top"><span class="day-name">Sa</span><span class="day-number">07</span></div>
-              <div class="day-center"><div class="day-rest">—</div></div>
-              <div class="day-bottom"><div class="day-tag" style="color:var(--apple-orange);">Pre-Race</div><div class="day-subtext">Carboload & Ruhe</div></div>
+
+            <!-- SAM 07 (OPTION MARTINSLAUF U-SEE) -->
+            <div class="apple-day-card card-option">
+              <div class="day-header">
+                <span class="day-name" style="color:#E8B4F8;">SAM</span>
+                <span class="date-num" style="color:#E8B4F8;">07.11</span>
+              </div>
+              <div class="day-hero-box">
+                <div class="hero-val-wrap">
+                  <span class="hero-val" style="color:#E8B4F8;">5.8</span>
+                  <span class="hero-unit" style="color:#E8B4F8;">KM</span>
+                </div>
+                <div class="hero-sub-micro" style="color:#E8B4F8;">Seerunde / Vorbereitung</div>
+              </div>
+              <div class="day-footer-row">
+                <span class="day-pill-badge pill-option">💡 Option U-See</span>
+                <div class="status-dot"></div>
+              </div>
             </div>
-            <div class="day-column race-highlight">
-              <div class="day-top"><span class="day-name" style="color:var(--apple-red); font-weight:800;">So</span><span class="day-number" style="color:var(--apple-red); font-weight:800;">08</span></div>
-              <div class="day-center"><div class="day-value" style="color:var(--apple-red);">10,0 km</div><div class="day-elevation" style="color:var(--apple-orange);">8 °C · Sub 58 min</div></div>
-              <div class="day-bottom"><div class="day-tag" style="color:var(--apple-red);">🏁 Martinslauf</div><div class="day-subtext">5:50 ➔ 5:45 ➔ 5:35</div></div>
+
+            <!-- SON 08 (HAUPTLAUF 10K) -->
+            <div class="apple-day-card card-race">
+              <div class="day-header">
+                <span class="day-name" style="color:var(--apple-red);">SON</span>
+                <span class="date-num" style="color:var(--apple-red);">08.11</span>
+              </div>
+              <div class="day-hero-box">
+                <div class="hero-val-wrap">
+                  <span class="hero-val" style="color:var(--apple-red);">10.0</span>
+                  <span class="hero-unit" style="color:var(--apple-red);">KM</span>
+                </div>
+                <div class="hero-sub-micro" style="color:var(--apple-orange);">8 °C · Sub 58 min</div>
+              </div>
+              <div class="day-footer-row">
+                <span class="day-pill-badge pill-race">🏁 Martinslauf</span>
+                <div class="status-dot done" style="background:var(--apple-red); box-shadow:0 0 6px var(--apple-red);"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -929,7 +1144,7 @@
           <div class="six-weeks-row is-current is-race" onclick="openWeekModal(45)">
             <div><span style="font-weight:800; color:var(--apple-cyan);">KW 45</span><br><span style="font-size:0.7rem; color:var(--apple-cyan);">AKTUELL</span></div>
             <div style="font-size:0.8rem; color:var(--text-muted);">02. – 08. Nov</div>
-            <div><strong style="color:var(--apple-orange);">Martinslauf Rennwoche</strong><br><span style="font-size:0.75rem; color:var(--text-secondary);">2 kurze Reize (5,5k + 4k), Frische maximieren</span></div>
+            <div><strong style="color:var(--apple-orange);">Martinslauf Rennwoche</strong><br><span style="font-size:0.75rem; color:var(--text-secondary);">Sa 07. Option 5,8k U-See · So 08. 10k Hauptlauf (Sub 58 min)</span></div>
             <div style="text-align:right;"><span style="font-weight:700; color:var(--apple-red);">19,5 km</span><br><span style="font-size:0.72rem; color:var(--text-muted);">🏁 10k Wettkampf</span></div>
             <div style="text-align:right; color:var(--text-muted);">›</div>
           </div>
@@ -1053,7 +1268,7 @@
     const quartersData = {
       0: {
         heading: 'Herbst / Winter 2026',
-        keyEvent: '🏁 Martinslauf 10k (08. Nov) ➔ Siebengebirgs-HM 21k (06. Dez) ➔ Belgenbach-Start (06. Jan)',
+        keyEvent: '💡 07. Nov: Option U-See (5,8k) · 🏁 08. Nov: Martinslauf 10k (Sub 58 min) · 🏁 06. Dez: 7G-HM (21,4k)',
         months: [
           { name: 'November 2026', mIdx: 1026, days: 30, startOffset: 6 },
           { name: 'Dezember 2026', mIdx: 1126, days: 31, startOffset: 1 },
@@ -1100,8 +1315,9 @@
 
     function getPhase(mIdx, d) {
       if (mIdx === 1026) { // Nov 2026
-        if (d === 8) return 'race'; // Martinslauf 10k
-        if (d < 8) return 'build'; // Rennwoche
+        if (d === 8) return 'race'; // Martinslauf 10k Hauptlauf
+        if (d === 7) return 'option'; // Martinslauf Unterbacher See (Option 5,8k Seerunde)
+        if (d < 8) return 'build'; // Rennwoche Tapering
         if (d > 8 && d <= 15) return 'rekom'; // Post-Race Woche
         return 'build'; // HM-Vorbereitung ab 16. Nov
       }
@@ -1283,6 +1499,10 @@
       }
 
       // 2. OPTIONALE LÄUFE (LILA GESTRICHELT)
+      if (mIdx === 1026 && day === 7) {
+        keyEl.innerHTML = '💡 Option: 07. November 2026 · Martinslauf U-See (5,8 km Seerunde / Unterbacher See)';
+        return;
+      }
       if (mIdx === 6 && day === 3) {
         keyEl.innerHTML = '💡 Option: 03. Juli 2027 · Primiero Dolomiti Marathon (26 km · 1.200 Hm Downhill)';
         return;
@@ -1382,15 +1602,15 @@
       45: {
         title: 'KW 45 · Martinslauf-Rennwoche (A-Wettkampf 10k)',
         dates: '02. – 08. November 2026',
-        summary: 'Fokus: Maximale Frische für den Martinslauf am Sonntag (8 °C). Nur 2 kurze Reize (5,5k mit 3 Antritten & 4k Aktivierung). Pacing: 5:50 ➔ 5:45 ➔ 5:35 min/km.',
+        summary: 'Fokus: Frische maximieren für den Martinslauf am Sonntag (8 °C, Pacing: 5:50 ➔ 5:45 ➔ 5:35 min/km). Am Samstag 07. Nov Option Unterbacher See (5,8 km Seerunde / Startunterlagen / Pre-Race Carboload).',
         days: [
           { d: 'Mo 02', val: '—', tag: 'Ruhe', sub: 'Regeneration' },
-          { d: 'Di 03', val: '5,5 km', tag: 'Locker GA1', sub: '< 118 bpm + Antritte' },
+          { d: 'Di 03', val: '5.5 km', tag: 'Locker GA1', sub: '< 118 bpm + Antritte' },
           { d: 'Mi 04', val: '—', tag: 'Ruhe', sub: 'Passiv schonen' },
-          { d: 'Do 05', val: '4,0 km', tag: 'Aktivierung', sub: '< 115 bpm locker' },
+          { d: 'Do 05', val: '4.0 km', tag: 'Aktivierung', sub: '< 115 bpm locker' },
           { d: 'Fr 06', val: '—', tag: 'Ruhe', sub: 'Kein KT' },
-          { d: 'Sa 07', val: '—', tag: 'Pre-Race', sub: 'Carboload' },
-          { d: 'So 08', val: '10,0 km', tag: '🏁 Martinslauf', sub: '8 °C · Sub 58 min', hl: true }
+          { d: 'Sa 07', val: '5.8 km', tag: '💡 Option U-See', sub: '5,8k Seerunde / Carboload', opt: true },
+          { d: 'So 08', val: '10.0 km', tag: '🏁 Martinslauf', sub: '8 °C · Sub 58 min', hl: true }
         ]
       },
       46: {
@@ -1479,31 +1699,80 @@
       data.days.forEach(day => {
         const isRest = (day.val === '—');
         const isRace = !!day.hl;
+        const isOption = !!day.opt;
+        const isStudio = (day.val === 'Studio');
+
         let cardClass = 'modal-day-card';
         if (isRest) cardClass += ' is-rest';
         if (isRace) cardClass += ' is-race';
+        if (isOption) cardClass += ' is-option';
 
-        const dayNameColor = isRace ? 'var(--apple-red)' : 'var(--text-secondary)';
-        const valColor = isRace ? 'color:var(--apple-red);' : (isRest ? 'color:var(--text-muted);' : 'color:var(--text-white);');
-        const tagColor = isRace ? 'color:var(--apple-red);' : (isRest ? 'color:var(--text-muted);' : 'color:var(--text-white);');
+        const dayParts = day.d.split(' ');
+        const dayName = dayParts[0];
+        const dayDate = dayParts[1];
+
+        let headerColor = 'var(--text-secondary)';
+        if (isRace) headerColor = 'var(--apple-red)';
+        if (isOption) headerColor = '#E8B4F8';
+
+        // Hero Box layout matching coach typography
+        let heroHtml = '';
+        if (isRest) {
+          heroHtml = `
+            <div class="hero-val-wrap">
+              <span class="hero-rest-txt">CHILL</span>
+            </div>
+            <div class="hero-sub-micro">${day.sub}</div>
+          `;
+        } else if (isStudio) {
+          heroHtml = `
+            <div class="hero-val-wrap">
+              <span class="hero-val" style="color:var(--apple-cyan); font-size:1.65rem;">STUDIO</span>
+            </div>
+            <div class="hero-sub-micro" style="color:var(--apple-cyan);">${day.sub}</div>
+          `;
+        } else {
+          const valNum = day.val.replace(' km', '').replace(',', '.');
+          let valColor = 'var(--apple-green)';
+          if (isRace) valColor = 'var(--apple-red)';
+          if (isOption) valColor = '#E8B4F8';
+
+          heroHtml = `
+            <div class="hero-val-wrap">
+              <span class="hero-val" style="color:${valColor};">${valNum}</span>
+              <span class="hero-unit" style="color:${valColor};">KM</span>
+            </div>
+            <div class="hero-sub-micro">${day.sub}</div>
+          `;
+        }
+
+        // Pill footer badge matching coach UI
+        let pillClass = 'day-pill-badge pill-completed';
+        if (isRest) pillClass = 'day-pill-badge pill-rest';
+        if (isRace) pillClass = 'day-pill-badge pill-race';
+        if (isOption) pillClass = 'day-pill-badge pill-option';
+        if (isStudio) pillClass = 'day-pill-badge pill-ersatz';
+
+        let dotClass = 'status-dot';
+        if (!isRest) dotClass += ' done';
+        let dotStyle = '';
+        if (isRace) dotStyle = 'background:var(--apple-red); box-shadow:0 0 6px var(--apple-red);';
+        if (isOption) dotStyle = 'background:#E8B4F8; box-shadow:0 0 6px rgba(191,90,242,0.5);';
 
         html += `
           <div class="${cardClass}">
-            <div class="day-top">
-              <span class="day-name" style="color:${dayNameColor};">${day.d.split(' ')[0]}</span>
-              <span class="day-number" style="color:${dayNameColor};">${day.d.split(' ')[1]}</span>
+            <div class="day-header">
+              <span class="day-name" style="color:${headerColor};">${dayName}</span>
+              <span class="date-num" style="color:${headerColor};">${dayDate}</span>
             </div>
             
-            <div class="day-center" style="display:flex; flex-direction:column; align-items:center; justify-content:center; flex:1;">
-              ${isRest 
-                ? '<div class="day-rest" style="font-size:2.2rem; font-weight:200; color:var(--text-muted);">—</div>' 
-                : `<div class="day-value" style="font-size:var(--typography-font-size-3xl, 2.20rem); font-weight:800; ${valColor}">${day.val}</div>`
-              }
+            <div class="day-hero-box">
+              ${heroHtml}
             </div>
 
-            <div class="day-bottom">
-              <div class="day-tag" style="${tagColor}">${day.tag}</div>
-              <div class="day-subtext">${day.sub}</div>
+            <div class="day-footer-row">
+              <span class="${pillClass}">${day.tag}</span>
+              <div class="${dotClass}" style="${dotStyle}"></div>
             </div>
           </div>
         `;

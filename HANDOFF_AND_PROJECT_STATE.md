@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.48  
+**Document Version:** 9.49  
 **Last Updated:** October 31, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -9,6 +9,12 @@
 ---
 
 ## 📌 1. Project Overview & Current Trajectory
+
+- **Design System & Martinslauf U-See Synchronisation (v9.41):**
+  - **Option 07. Nov (Martinslauf Unterbacher See):** Als Option (5.8 KM · Seerunde / Vorbereitung) in KW 45 und im Finale '26 3-Monats-Kalender (lila gestrichelt, interaktive Bubble) harmonisiert.
+  - **Typografie & Farbpalette (Coach-Konsistenz):** Alle Day-Cards im Jahres-Dashboard und Detail-Modal wurden exakt auf die Coach-Designsprache (.apple-day-card, .hero-val-wrap mit .hero-val 2.35rem und .hero-unit 0.65rem KM, CHILL für Ruhetage, #30D158 Apple Green für absolvierte Läufe, #64D2FF Apple Cyan für Heute-Badges und #FF453A für Renntage) umgestellt.
+  - **3-Monats-Kalender Layout:** Großzügiges Desktop-Layout (2rem Gap, 26px Border-Radius, 56px Zeilenhöhe, 1.25rem Schriftgröße) konsistent und ohne Clipping layoutet.
+
 
 - **Kampagnenabschluss Drachenlauf 2026 (v9.35):** Am 24.10.2026 offiziell mit **DNS (Did Not Start)** abgeschlossen. Rationale Entscheidung nach überstandenem respiratorischen Infekt: Der Schutz von Herz-Kreislauf-System und Bronchien steht über dem Rennstart.
 - **Gesamtertrag der Kampagne 2026:** **50 Einheiten · 422,4 km · 8.179 Hm** geloggt (Soll-Hm über 12.000). Die aerobe Grundausdauer (VT1 105–118 bpm), das Power-Hiking-Fundament und die intakte Sehnenstruktur wurden zu 100 % erhalten und unbeschadet für die Saison 2027 konserviert.
@@ -22,7 +28,7 @@
 - **Plan KW 44 (26.10. – 01.11.2026):** Sanfte Wiedereinstiegswoche nach Infekt. Strikt tiefes GA1 (105–115 bpm), 3 kurze Läufe (5–7 km, max. 18–20 km gesamt), Beine lockern, volle Schleimhautregeneration.
 - **Archivierung & Reuse-Status (v9.35):** Vollständiger JSON-Export unter `archive/drachenlauf_2026_campaign_data.json` hinterlegt; In-App-Backup-Button (`exportCampaignData()`) im Header aktiv.
 - **Athletenprofil & Verletzungshistorie:** Der Athlet hatte **nie** einen Achillessehnen-Vorfall oder Sehnenschäden (die Sicherheitsfrage *„Was riss Hermännsche am Strand von Charita?“* bezog sich historisch auf Hermännsche, nicht auf den Athleten Gerhard!). Sehnen- und Wadenkomplex sind vollständig intakt, beschwerdefrei und voll belastbar. Krafttraining dient der reinen allgemeinen Prävention/Sarkopenie-Prophylaxe, keinerlei Reha.
-- **Current Script Version:** `app.js?v=9.39` (in `index.html` and `dist/index.html`).
+- **Current Script Version:** `app.js?v=9.41` (in `index.html` and `dist/index.html`).
 - **Auth Gate Status:** Active (Apple HIG Modal: *"Was riss Hermännsche am Strand von Charita?"* / Passwort: `achilles`).
 - **UI & Modal Design:** Apple HIG flat card architecture (`1.25rem` padding, `16px` border-radius, single merged metric header cards).
 - **Data Persistence:** 2-way automatic synchronization between `defaultInitialRuns` (code defaults) and `localStorage` (`drachenlauf_runs`), preventing data loss or missing weekly elevation totals.
