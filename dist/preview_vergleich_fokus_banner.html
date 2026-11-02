@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vergleich: Fokus-Banner Typografie</title>
+  <link rel="stylesheet" href="tokens.css">
+  <style>
+    :root {
+      --bg-canvas: #0B0B10;
+      --card-bg: rgba(22, 22, 30, 0.85);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-border-top: rgba(255, 255, 255, 0.22);
+      --text-white: #FFFFFF;
+      --text-secondary: #A1A1A6;
+      --text-muted: #6E6E73;
+      --apple-cyan: #64D2FF;
+      --apple-orange: #FF9F0A;
+      --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", sans-serif;
+      --font-text: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-canvas);
+      color: var(--text-white);
+      font-family: var(--font-text);
+      padding: 3rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    .header-intro {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .header-intro h1 {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .header-intro p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    .comparison-section {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .label-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.3rem 0.85rem;
+      border-radius: 9999px;
+      width: fit-content;
+    }
+
+    .badge-v1 {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-secondary);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .badge-v2 {
+      background: rgba(100, 210, 255, 0.15);
+      color: var(--apple-cyan);
+      border: 1px solid rgba(100, 210, 255, 0.35);
+    }
+
+    /* GEMEINSAME HERO-STRIP BASIS */
+    .hero-strip {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-top: 1px solid var(--card-border-top);
+      border-radius: 20px;
+      padding: 1.5rem 2rem;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-meta-title {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.25rem;
+    }
+
+    .hero-countdown {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--apple-orange);
+      font-feature-settings: "tnum";
+    }
+
+    /* VARIANTE 1 (VORHER): EVENT-NAME GROSS */
+    .v1-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text-white);
+    }
+
+    /* VARIANTE 2 (NEU): DATUM GROSS & EVENT ALS CYAN-SUBLINE */
+    .v2-date {
+      font-family: var(--font-display);
+      font-size: 1.85rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text-white);
+      line-height: 1.15;
+    }
+
+    .v2-sub {
+      font-family: var(--font-text);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--apple-cyan);
+      margin-top: 0.25rem;
+      letter-spacing: -0.01em;
+    }
+
+    .notes-box {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 0.9rem 1.25rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="header-intro">
+      <h1>Direktvergleich: Fokus-Banner</h1>
+      <p>Gegenüberstellung beider typografischer Hierarchien auf neutralem Canvas.</p>
+    </div>
+
+    <!-- VARIANTE 1 -->
+    <div class="comparison-section">
+      <div class="label-badge badge-v1">Option 1 · Vorherige Hierarchie (Event-Titel prominent)</div>
+      
+      <div class="hero-strip">
+        <div>
+          <div class="hero-meta-title">Aktueller Fokus</div>
+          <div class="v1-title">Martinslauf 10k (So 08.11.)</div>
+        </div>
+        <div style="text-align: right;">
+          <div class="hero-meta-title">Zielzeit-Benchmark</div>
+          <div class="hero-countdown">Sub 58 min</div>
+        </div>
+      </div>
+
+      <div class="notes-box">
+        <strong>Charakteristik:</strong> Klassischer News-Header. Der Name steht im Vordergrund, das Datum ist eingeklammert.
+      </div>
+    </div>
+
+    <!-- VARIANTE 2 -->
+    <div class="comparison-section">
+      <div class="label-badge badge-v2">Option 2 · Neue Hierarchie (Datum groß & Event-Subline)</div>
+      
+      <div class="hero-strip">
+        <div>
+          <div class="v2-date">So. 8.11.</div>
+          <div class="v2-sub">10k Martinslauf</div>
+        </div>
+        <div style="text-align: right;">
+          <div class="hero-meta-title">Zielzeit-Benchmark</div>
+          <div class="hero-countdown">Sub 58 min</div>
+        </div>
+      </div>
+
+      <div class="notes-box">
+        <strong>Charakteristik:</strong> Kalendarischer Countdown-Fokus. Sofortige Erfassung des Stichtags als monumentale Zahl, darunter die konkrete Challenge in Cyan.
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
