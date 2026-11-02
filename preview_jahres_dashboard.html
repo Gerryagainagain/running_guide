@@ -1444,18 +1444,18 @@
 
       data.days.forEach(day => {
         const borderStyle = day.hl ? 'border-color:rgba(255,69,58,0.5); background:rgba(255,69,58,0.08);' : '';
-        const valColor = day.hl ? 'color:var(--apple-red); font-weight:800;' : 'color:var(--text-white); font-weight:700;';
-        const tagColor = day.hl ? 'color:var(--apple-red); font-weight:700;' : 'color:var(--text-secondary);';
+        const valColor = day.hl ? 'color:var(--apple-red); font-weight:900;' : 'color:var(--text-white); font-weight:800;';
+        const tagColor = day.hl ? 'color:var(--apple-red); font-weight:700;' : 'color:var(--text-white); font-weight:600;';
 
         html += `
-          <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.06); ${borderStyle} border-radius:18px; padding:1.25rem 0.85rem; min-height:160px; text-align:center; display:flex; flex-direction:column; justify-content:space-between; gap:8px;">
-            <div style="font-size:0.85rem; color:var(--text-muted); font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">${day.d}</div>
+          <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); ${borderStyle} border-radius:20px; padding:1.4rem 0.85rem; min-height:185px; text-align:center; display:flex; flex-direction:column; justify-content:space-between; gap:10px;">
+            <div style="font-size:0.90rem; color:var(--text-secondary); font-weight:700; text-transform:uppercase; letter-spacing:0.8px;">${day.d}</div>
             <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; flex:1;">
-              <div style="font-size:1.45rem; ${valColor}">${day.val}</div>
+              <div style="font-family:var(--font-display); font-size:1.95rem; line-height:1.1; letter-spacing:-0.02em; ${valColor}">${day.val}</div>
             </div>
-            <div style="display:flex; flex-direction:column; gap:3px;">
-              <div style="font-size:0.82rem; ${tagColor}">${day.tag}</div>
-              <div style="font-size:0.75rem; color:var(--text-muted); line-height:1.2;">${day.sub}</div>
+            <div style="display:flex; flex-direction:column; gap:4px;">
+              <div style="font-size:0.90rem; ${tagColor}">${day.tag}</div>
+              <div style="font-size:0.78rem; color:var(--text-muted); line-height:1.25;">${day.sub}</div>
             </div>
           </div>
         `;
