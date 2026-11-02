@@ -344,10 +344,10 @@
 
     .season-heading {
       font-family: var(--font-display);
-      font-size: var(--typography-font-size-3xl, 2.20rem);
-      font-weight: var(--typography-font-weight-extrabold, 800);
-      letter-spacing: var(--typography-letter-spacing-tight, -0.8px);
-      line-height: var(--typography-line-height-none, 1.0);
+      font-size: 1.55rem;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      line-height: 1.1;
     }
 
     .quarter-sub-selector {
@@ -385,19 +385,19 @@
     .three-months-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.75rem;
+      gap: 1.35rem;
     }
 
     .month-block {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-top: 1px solid var(--card-border-top);
-      border-radius: 28px;
-      padding: 2.25rem 1.75rem;
+      border-radius: 22px;
+      padding: 1.5rem 1.25rem;
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
-      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.55);
+      gap: 1.1rem;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
       backdrop-filter: blur(24px);
     }
 
@@ -405,29 +405,29 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding-bottom: 0.75rem;
+      padding-bottom: 0.6rem;
       border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     }
 
     .month-title {
       font-family: var(--font-display);
-      font-size: 2.2rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
       text-align: center;
     }
 
     .calendar-matrix {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 6px;
     }
 
     .week-row {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
       gap: 0;
-      height: 58px;
+      height: 48px;
       position: relative;
     }
 
@@ -436,7 +436,7 @@
       align-items: center;
       justify-content: center;
       font-family: var(--font-text);
-      font-size: 1.25rem;
+      font-size: 1.05rem;
       font-weight: 500;
       font-feature-settings: "tnum" on;
       user-select: none;
@@ -582,7 +582,7 @@
 
     <!-- MASTER HEADER MIT SEGMENTED CONTROL -->
     <header>
-      <div class="brand-title">Running Guide · Master Control</div>
+      <div class="brand-title">Trailrunning 2027</div>
       
       <div class="master-segmented-control">
         <button class="master-segment-btn active" onclick="switchMasterTab('training')">⏱️ Training</button>
