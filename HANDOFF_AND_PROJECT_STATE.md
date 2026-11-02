@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.64  
+**Document Version:** 9.65  
 **Last Updated:** November 02, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -10,6 +10,15 @@
 
 ## 📌 1. Project Overview & Current Trajectory
 
+- **Option A (Apple HIG Slide-Over Drawer) & Sanftere Sonntags-Ziffern (v9.57 / State 9.65):**
+  - **Option A (Slide-Over Drawer) implementiert:**
+    - Klick auf eine Race-Card in der 7-Tage-Bühne (`SON 08.11 Martinslauf`, `SON 06.12 7G-HM`) oder auf einen gesetzten Renntag im Saisonkalender (z. B. 07. März Belgenbach, 12. Juni TS16, 24. Okt Drachenlauf) öffnet ein dezent von rechts einschwebendes Apple Inspector-Panel (`race-drawer`, 420 px breit, Glassmorphism `rgba(20, 20, 28, 0.95)`, `backdrop-filter: blur(32px)`).
+    - Enthält das vollständige operative Briefing ohne Layout-Bruch: Eckdaten & Logistik (Startzeit, Startort, Distanz, Wetter), Pacing- & HF-Zonenvorgabe (negativer Split, Anstiege strikter Gehschritt), Verpflegungs- & Carboload-Plan sowie Ausrüstung.
+    - Schließt flüssig per Klick auf `✕`, Klick auf den Backdrop oder `Escape`-Taste.
+  - **Sanftere Sonntags-Auszeichnungsfarbe im Kalender:**
+    - Der aggressive rote System-Alarmton (`#FF453A`) für Sonntagsziffern wurde durch eine weiche, gedämpfte Terracotta-Rose-Nuance (`rgba(255, 140, 130, 0.70)`) ersetzt.
+    - Bewahrt die kalendarische Wochenend-Unterscheidung gegenüber den Werktagen (`#A1A1A6`), eliminiert jeglichen optischen Alarm-Charakter und lässt die echten Renntage in Orange (`#FF9F0A`) ungestört hervortreten.
+  - **Synchronisiert:** Umgesetzt in `preview_jahres_dashboard.html`, `preview_klassischer_3monats_kalender.html`, `index.html` (Script-Version `v=9.57`) und nach `dist/` gespiegelt.
 - **Klickbare linierte Race-Optionen mit Anmeldelinks & KW 46 Wander-Anpassung (v9.56 / State 9.64):**
   - **Interaktive Race-Optionen:**
     - Die gestrichelten Tageszellen im Saisonkalender (3. Juli Primiero, 5. Sept Opale, 11. Sept Müllerthal, 7. Nov U-See, 5. Dez 7G-HM) sind voll interaktiv klickbar.
