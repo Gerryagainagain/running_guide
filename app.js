@@ -80,10 +80,28 @@ const kwMap = {
   40: { phase: 4, travel: 'KW 40 · Zoutelande (Fr Morgen – So Abend)' },
   41: { phase: 4, travel: 'KW 41 · Erkrath Tapering (400 Hm)' },
   42: { phase: 4, travel: 'KW 42 · Erkrath Tapering (300 Hm)' },
-  43: { phase: 5, travel: 'KW 43 · Königswinter Drachenlauf' }
+  43: { phase: 5, travel: 'KW 43 · Königswinter Drachenlauf' },
+  44: { phase: 5, travel: 'KW 44 · Post-Infekt Wiedereinstieg' },
+  45: { phase: 5, travel: 'KW 45 · Rennwoche Martinslauf 10k' }
 };
 
 const defaultInitialRuns = [
+  // KW 44 (Wiedereinstieg nach Infekt)
+  {
+    id: 1793440800000,
+    kw: 44,
+    date: '31.10.2026',
+    dayDate: '31.10',
+    dist: 6.55,
+    hm: 24,
+    duration: '00:46:25',
+    hr: 127,
+    pace: '7:05',
+    type: 'laufen',
+    isErsatz: false,
+    tag: 'Wiedereinstieg + Steigerungen',
+    notes: 'Wiedereinstieg nach respiratorischem Infekt: 6,55 km / 24 Hm / 00:46:25 h / 127 bpm Ø / Max 155 bpm / Pace 7:05 min/km (beste Pace 4:36 min/km) / 285 W Ø / TE 3,5 Aerob / 1,2 Anaerob / Leistungszustand -1. Motorik & Schritt intakt, kardiovaskulär noch 8–12 bpm über gesunder GA1-Baseline.'
+  },
   // KW 43 (Saisonabschluss / DNS)
   {
     id: 1792876800000,
