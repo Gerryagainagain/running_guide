@@ -1,7 +1,7 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.54  
-**Last Updated:** October 31, 2026  
+**Document Version:** 9.55  
+**Last Updated:** November 02, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
 **Local Workspace Path:** `/Users/Gerhard/Desktop/running_guide`
@@ -10,6 +10,10 @@
 
 ## 📌 1. Project Overview & Current Trajectory
 
+- **Inline-Accordion (Option A) & Saison-Header Bereinigung (v9.47):**
+  - **6-Wochen-Plan als Inline-Accordion:** Das bisherige Overlay-Modal (`#weekModalBackdrop`) wurde vollständig entfernt. Klick auf eine Woche (KW 45–50) klappt die 7 Tage und den Wochenfokus direkt unter der Zeile als schlankes Inline-Accordion auf. KW 45 (Martinslauf-Rennwoche) ist standardmäßig aufgeklappt.
+  - **Saison-Headline eliminiert (Lösung 1):** Die redundante linke Überschrift (`Winter`, `Frühling` etc.) im 3-Monats-Kalender wurde ersatzlos gestrichen. Die Segmented Control (`Finale '26`, `Winter`, `Frühling`, `Sommer`, `Herbst`) ist rechtsbündig ausgerichtet und bildet dieselbe saubere vertikale Achse wie der Trainingsmodus-Umschalter im Nachbartab.
+  - **Synchronisiert:** Umgesetzt in `preview_jahres_dashboard.html` und `preview_klassischer_3monats_kalender.html`.
 - **Bereinigung UI & Saison-Namen harmonisiert (v9.46):**
   - **Hero-Strip entfernt:** Die redundante Banner-Box im Training-Tab wurde komplett entfernt. Die Benchmark (`Zielzeit Sub 58 min`) sitzt jetzt dezent und bündig direkt rechts in der Wochen-Header-Zeile (`Diese Woche KW 45 • Martinslauf`).
   - **Quartals-Button-Namen:** Buttons im 3-Monats-Kalender auf die 5 klaren Bezeichnungen harmonisiert: `Finale '26`, `Winter`, `Frühling`, `Sommer`, `Herbst` (technische Q-Codes und Eventnamen entfernt).

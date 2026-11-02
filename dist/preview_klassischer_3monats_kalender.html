@@ -75,21 +75,12 @@
       gap: 2.25rem;
     }
 
-    /* HEADER: APPLE HIG SEGMENTED CONTROL & TITLE */
+    /* HEADER: APPLE HIG SEGMENTED CONTROL */
     header {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: center;
       padding-bottom: 0.5rem;
-    }
-
-    .planner-heading {
-      font-family: var(--font-display);
-      font-size: 1.85rem;
-      font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      color: var(--text-white);
     }
 
     .quarter-selector {
@@ -401,8 +392,6 @@
 
     <!-- HEADER -->
     <header>
-      <div class="planner-heading" id="viewHeading">Frühling</div>
-
       <div class="quarter-selector">
         <button class="quarter-btn" onclick="switchQuarter(0)">Finale '26</button>
         <button class="quarter-btn" onclick="switchQuarter(1)">Winter</button>
@@ -542,7 +531,10 @@
       });
 
       const q = quartersData[qNum];
-      document.getElementById('viewHeading').innerText = q.heading;
+      const headingEl = document.getElementById('viewHeading');
+      if (headingEl) {
+        headingEl.innerText = q.heading;
+      }
       document.getElementById('quarterKeyEvent').innerText = q.keyEvent;
 
       renderMonths(q.months);
