@@ -424,8 +424,8 @@
       <div class="season-pager-bar">
         <button class="season-pager-btn" onclick="prevQuarter()" aria-label="Vorheriges Quartal" title="Vorheriges Quartal">‹</button>
         <div class="season-pager-label">
-          <span class="season-pager-title" id="seasonPagerTitle">Frühling</span>
-          <span class="season-pager-range" id="seasonPagerRange">Apr – Juni 2027</span>
+          <span class="season-pager-title" id="seasonPagerTitle">Winter</span>
+          <span class="season-pager-range" id="seasonPagerRange">Jan – März 2027</span>
         </div>
         <button class="season-pager-btn" onclick="nextQuarter()" aria-label="Nächstes Quartal" title="Nächstes Quartal">›</button>
       </div>
@@ -438,7 +438,7 @@
 
     <!-- META-BANNER UNTER DEN KALENDERN -->
     <div class="quarter-meta-strip" id="quarterMetaStrip">
-      <div class="quarter-key-event" id="quarterKeyEvent">🏁 Ziel: 12. Juni · Tschirgant Sky Run TS16 (16,9 km · ~850 Hm)</div>
+      <div class="quarter-key-event" id="quarterKeyEvent">🏁 Ziel: 07. März · Belgenbachtrail (30,7 km · 941 Hm)</div>
     </div>
 
   </div>
@@ -446,16 +446,6 @@
   <script>
     const quartersData = {
       0: {
-        heading: 'Finale \'26',
-        range: 'Nov – Dez 2026',
-        keyEvent: '🏁 08. Nov: Martinslauf 10k (Sub 58 min) · 🏁 06. Dez: 7G-HM (21,4k) · 🏁 06. Jan: Belgenbach-Start',
-        months: [
-          { name: 'November 2026', mIdx: 1026, days: 30, startOffset: 6 },
-          { name: 'Dezember 2026', mIdx: 1126, days: 31, startOffset: 1 },
-          { name: 'Januar 2027', mIdx: 0, days: 31, startOffset: 4 }
-        ]
-      },
-      1: {
         heading: 'Winter',
         range: 'Jan – März 2027',
         keyEvent: '🏁 Ziel: 07. März · Belgenbachtrail (30,7 km · 941 Hm)',
@@ -465,7 +455,7 @@
           { name: 'März', mIdx: 2, days: 31, startOffset: 0 }
         ]
       },
-      2: {
+      1: {
         heading: 'Frühling',
         range: 'Apr – Juni 2027',
         keyEvent: '🏁 Ziel: 12. Juni · Tschirgant Sky Run TS16 (16,9 km · ~850 Hm)',
@@ -475,7 +465,7 @@
           { name: 'Juni', mIdx: 5, days: 30, startOffset: 1 }
         ]
       },
-      3: {
+      2: {
         heading: 'Sommer',
         range: 'Juli – Sept 2027',
         keyEvent: '💡 Optionen: 03.07. Primiero Dolomiti (26k) · 05.09. Opal (24k) · 11.09. UTML (21k)',
@@ -485,7 +475,7 @@
           { name: 'September', mIdx: 8, days: 30, startOffset: 2 }
         ]
       },
-      4: {
+      3: {
         heading: 'Herbst',
         range: 'Okt – Dez 2027',
         keyEvent: '🏁 24. Okt: Drachenlauf (26k) · 💡 07. Nov: Option Martinslauf U-See (5,8k) · 💡 05. Dez: 7G-HM',
@@ -560,11 +550,12 @@
       return '';
     }
 
-    let currentQuarterNum = 2; // Standard Frühling
+    let currentQuarterNum = 0; // Standard: Winter 2027
+    const TOTAL_QUARTERS = 4;
 
     function switchQuarter(qNum) {
-      if (qNum < 0) qNum = 4;
-      if (qNum > 4) qNum = 0;
+      if (qNum < 0) qNum = TOTAL_QUARTERS - 1;
+      if (qNum >= TOTAL_QUARTERS) qNum = 0;
       currentQuarterNum = qNum;
 
       const q = quartersData[qNum];
@@ -788,7 +779,7 @@
       }
     }
 
-    switchQuarter(2);
+    switchQuarter(0);
   </script>
 </body>
 </html>
