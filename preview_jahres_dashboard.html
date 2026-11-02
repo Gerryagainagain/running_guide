@@ -57,10 +57,12 @@
       background-color: var(--bg-canvas);
       color: var(--text-white);
       font-family: var(--font-text);
-      padding: 2.5rem 2rem;
+      padding: 1.75rem 2rem;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
+      overflow-y: scroll;
     }
 
     .app-container {
@@ -68,7 +70,7 @@
       max-width: 1440px;
       display: flex;
       flex-direction: column;
-      gap: 2.5rem;
+      gap: 1.25rem;
     }
 
     /* HEADER: APPLE HIG MASTER CONTROLS */
@@ -76,7 +78,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-bottom: 1.5rem;
+      padding-bottom: 1.25rem;
       border-bottom: 1px solid var(--card-border);
     }
 
@@ -122,8 +124,8 @@
     .view-panel {
       display: none;
       flex-direction: column;
-      gap: 2rem;
-      animation: fadeIn 0.2s ease;
+      gap: 1.25rem;
+      animation: fadeIn 0.15s ease;
     }
 
     .view-panel.active {
@@ -131,8 +133,8 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(3px); }
-      to { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     /* ==========================================================================
@@ -187,11 +189,13 @@
       border: 1px solid var(--card-border);
       border-top: 1px solid var(--card-border-top);
       border-radius: 24px;
-      padding: 1.75rem;
+      padding: 1.5rem 1.75rem;
       display: flex;
       flex-direction: column;
       gap: 1.25rem;
       box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
     }
 
     .calendar-header {
@@ -199,13 +203,15 @@
       justify-content: space-between;
       align-items: center;
       padding-bottom: 0.75rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .week-headline {
-      font-size: 1.15rem;
-      font-weight: 700;
-      letter-spacing: -0.01em;
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.015em;
+      color: var(--text-white);
     }
 
     .week-dates {
@@ -472,28 +478,32 @@
        SINGLE STAGE: WOCHEN-AUSWAHL & FOKUS-STRIP
        ========================================================================== */
     .week-selector-bar {
+      min-height: 44px;
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-bottom: 1.25rem;
+      margin-bottom: 0;
     }
 
     .week-pill-selector {
+      height: 44px;
       display: inline-flex;
+      align-items: center;
       background: rgba(255, 255, 255, 0.08);
       padding: 4px;
       border-radius: 9999px;
-      border: 1px solid rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      gap: 3px;
+      gap: 4px;
     }
 
     .week-pill-btn {
       background: transparent;
       border: none;
       color: var(--text-secondary);
-      padding: 7px 15px;
+      height: 36px;
+      padding: 0 16px;
       font-family: var(--font-text);
       font-size: 0.82rem;
       font-weight: 600;
@@ -570,16 +580,18 @@
        REITER 2: DER MASTER 3-MONATS-KALENDER (STRATEGIE & SAISON 2027)
        ========================================================================== */
     .season-header {
+      min-height: 44px;
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-bottom: 1.25rem;
+      margin-bottom: 0;
     }
 
     .season-pager-bar {
+      height: 44px;
       display: inline-flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 8px;
       user-select: none;
     }
 
@@ -587,13 +599,13 @@
       background: rgba(255, 255, 255, 0.08);
       border: 1px solid rgba(255, 255, 255, 0.08);
       color: var(--text-white);
-      width: 38px;
-      height: 38px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.4rem;
+      font-size: 1.35rem;
       line-height: 1;
       cursor: pointer;
       transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
@@ -610,12 +622,13 @@
     }
 
     .season-pager-label {
+      height: 44px;
       display: inline-flex;
-      align-items: baseline;
-      gap: 10px;
-      background: rgba(255, 255, 255, 0.06);
+      align-items: center;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.08);
       border: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 7px 22px;
+      padding: 0 22px;
       border-radius: 9999px;
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
@@ -623,7 +636,7 @@
 
     .season-pager-title {
       font-family: var(--font-display);
-      font-size: 1.15rem;
+      font-size: 1.05rem;
       font-weight: 800;
       letter-spacing: -0.015em;
       color: var(--text-white);
@@ -640,33 +653,34 @@
     .three-months-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
+      gap: 1.25rem;
     }
 
     .month-block {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-top: 1px solid var(--card-border-top);
-      border-radius: 26px;
-      padding: 2.25rem 1.75rem;
+      border-radius: 24px;
+      padding: 1.5rem 1.5rem 1.25rem;
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
-      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.55);
+      gap: 1rem;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
       backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
     }
 
     .month-header {
       display: flex;
       justify-content: center;
       align-items: center;
-      padding-bottom: 0.85rem;
+      padding-bottom: 0.75rem;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .month-title {
       font-family: var(--font-display);
-      font-size: 1.75rem;
+      font-size: 1.35rem;
       font-weight: 800;
       letter-spacing: -0.015em;
       text-align: center;
@@ -820,9 +834,9 @@
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-top: 1px solid var(--card-border-top);
-      border-radius: 20px;
-      padding: 1.35rem 2.5rem;
-      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+      border-radius: 14px;
+      padding: 0.85rem 1.25rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
       transition: all 0.25s ease;
     }
 
@@ -840,7 +854,7 @@
 
     .quarter-key-event {
       font-family: var(--font-text);
-      font-size: 1.20rem;
+      font-size: 0.95rem;
       font-weight: 700;
       letter-spacing: -0.01em;
       line-height: var(--typography-line-height-snug, 1.25);
@@ -853,6 +867,7 @@
       outline-offset: 1px;
       z-index: 10 !important;
     }
+
     /* ==========================================================================
        VIEWPORT-ADAPTIVE SAISON-ANSICHT
        Zeilenhöhe skaliert mit der Fensterhöhe, damit auch Monate mit 6 Wochenzeilen
@@ -862,19 +877,6 @@
       --cal-row-gap: 4px;
       --cal-row-h: clamp(32px, calc((100vh - 435px) / 6), 56px);
       gap: 1.25rem;
-    }
-
-    #tab-season .month-block {
-      padding: 1.25rem 1.5rem 1.5rem;
-      gap: 1rem;
-    }
-
-    #tab-season .month-header {
-      padding-bottom: 0.6rem;
-    }
-
-    #tab-season .month-title {
-      font-size: 1.6rem;
     }
 
     #tab-season .calendar-matrix {
@@ -892,23 +894,6 @@
 
     #tab-season .cal-cell.phase-race {
       font-size: clamp(1rem, calc(var(--cal-row-h) * 0.42), 1.3rem);
-    }
-
-    #tab-season .quarter-meta-strip {
-      padding: 0.9rem 2rem;
-    }
-
-    body.season-active {
-      padding-top: 1.5rem;
-      padding-bottom: 1.5rem;
-    }
-
-    body.season-active .app-container {
-      gap: 1.25rem;
-    }
-
-    body.season-active header {
-      padding-bottom: 1rem;
     }
   </style>
 </head>

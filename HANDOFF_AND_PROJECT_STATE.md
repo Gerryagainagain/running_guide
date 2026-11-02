@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.59  
+**Document Version:** 9.60  
 **Last Updated:** November 02, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -10,6 +10,12 @@
 
 ## 📌 1. Project Overview & Current Trajectory
 
+- **Pixel-perfekte Harmonisierung & Zero-Layout-Shift (v9.52):**
+  - **Typografie angeglichen:** Sowohl `.week-headline` (Training) als auch `.month-title` (Saison) besitzen exakt dieselben typografischen Parameter: `1.35rem` (SF Pro Display, 800er Schnitt, `-0.015em` Letter-Spacing, `#FFFFFF`).
+  - **Container-Geometrie 1:1 deckungsgleich:** `body` Padding (`1.75rem 2rem`), `.app-container` Gap (`1.25rem`), `header` Padding-Bottom (`1.25rem`) und `.view-panel` Gap (`1.25rem`) sind tab-übergreifend absolut identisch.
+  - **Sub-Navigations-Höhe harmonisiert:** Beide Steuerleisten (`.week-selector-bar` und `.season-header`) haben exakt `44px` Containerhöhe und `margin-bottom: 0`. Die Kapseln und Pager-Buttons (`44px` Höhe / Durchmesser) sitzen auf derselben vertikalen Y-Koordinate.
+  - **Karten-Container angeglichen:** `.calendar-week-card` und die 3 `.month-block` Kacheln teilen denselben `border-radius: 24px`, dieselbe Rahmenfarbe, Schattenwurf und Hintergrund-Blur.
+  - **Beseitigung aller Tab-Jumps (Zero-Shift):** Sämtliche sprunghaften `body.season-active` Overrides wurden restlos entfernt. Die `translateY(3px)` Animation wurde durch einen reinen Opacity-Crossfade ersetzt und `overflow-y: scroll` fixiert, sodass beim Umschalten zwischen *Training* und *Saison 2027* kein Element mehr vertikal oder horizontal verspringt.
 - **Training-Tab Header-Symmetrie (Lösung 1) & Zentrierung (v9.51):**
   - **Symmetrie über der 7-Tage-Bühne:** Die 5 Wochen-Pills (`[KW 45 🏁 Martinslauf]` bis `[KW 49 🏁 7G-HM]`) wurden auf `justify-content: center` umgestellt.
   - **Beseitigung des „Schwarzen Lochs“:** Das 800 px breite Leerraum-Phänomen links sowie das visuelle „Stacked Segmented Controls“-Anti-Pattern (zwei Pillenleisten rechts übereinander) wurden vollständig aufgelöst.
