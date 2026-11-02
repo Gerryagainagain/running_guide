@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.51  
+**Document Version:** 9.52  
 **Last Updated:** October 31, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -10,6 +10,10 @@
 
 ## 📌 1. Project Overview & Current Trajectory
 
+- **Anmelde-URLs für optionale Wettkämpfe aktualisiert (v9.44):**
+  - Primiero Dolomiti Marathon: `https://primierodolomitimarathon.it/en/entry/`
+  - Ultra Trail Müllerthal (UTML): `https://www.utml.lu/`
+  - Siebengebirgs-Halbmarathon: `https://siebengebirgsmarathon.net/`
 - **Korrektur Martinslauf U-See 2027 & Klickbare Anmeldelinks (v9.43):**
   - **Datumskorrektur:** Die Option „Martinslauf Unterbacher See (5,8 km Seerunde)“ ist exakt auf das Jahr 2027 (Sonntag, 07. November 2027) in Q4 verortet. Samstag 07.11.2026 bleibt reiner Pre-Race Ruhetag für den 10k Hauptlauf am 08.11.2026.
   - **Klickbare Anmeldelinks bei optionalen Läufen:** Bei Klick auf einen optionalen Lauf im 3-Monats-Kalender (Dolomiti, Opal, UTML, Martinslauf U-See 2027, 7G-HM 2027) wird der offizielle Anmeldelink/Info-Link direkt klickbar in der zentrierten Zielzeile gerendert.
@@ -33,7 +37,7 @@
 - **Plan KW 44 (26.10. – 01.11.2026):** Sanfte Wiedereinstiegswoche nach Infekt. Strikt tiefes GA1 (105–115 bpm), 3 kurze Läufe (5–7 km, max. 18–20 km gesamt), Beine lockern, volle Schleimhautregeneration.
 - **Archivierung & Reuse-Status (v9.35):** Vollständiger JSON-Export unter `archive/drachenlauf_2026_campaign_data.json` hinterlegt; In-App-Backup-Button (`exportCampaignData()`) im Header aktiv.
 - **Athletenprofil & Verletzungshistorie:** Der Athlet hatte **nie** einen Achillessehnen-Vorfall oder Sehnenschäden (die Sicherheitsfrage *„Was riss Hermännsche am Strand von Charita?“* bezog sich historisch auf Hermännsche, nicht auf den Athleten Gerhard!). Sehnen- und Wadenkomplex sind vollständig intakt, beschwerdefrei und voll belastbar. Krafttraining dient der reinen allgemeinen Prävention/Sarkopenie-Prophylaxe, keinerlei Reha.
-- **Current Script Version:** `app.js?v=9.43` (in `index.html` and `dist/index.html`).
+- **Current Script Version:** `app.js?v=9.44` (in `index.html` and `dist/index.html`).
 - **Auth Gate Status:** Active (Apple HIG Modal: *"Was riss Hermännsche am Strand von Charita?"* / Passwort: `achilles`).
 - **UI & Modal Design:** Apple HIG flat card architecture (`1.25rem` padding, `16px` border-radius, single merged metric header cards).
 - **Data Persistence:** 2-way automatic synchronization between `defaultInitialRuns` (code defaults) and `localStorage` (`drachenlauf_runs`), preventing data loss or missing weekly elevation totals.
