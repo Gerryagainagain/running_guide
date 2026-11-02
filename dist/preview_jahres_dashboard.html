@@ -609,14 +609,15 @@
     /* ZENTRIERTE ZIEL-BUBBLE */
     .quarter-meta-strip {
       display: flex;
-      justify-content: center;
-      align-items: center;
+      flex-direction: column;
+      gap: 0.6rem;
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-top: 1px solid var(--card-border-top);
       border-radius: 18px;
       padding: 1.25rem 2rem;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      transition: all 0.25s ease;
     }
 
     .quarter-key-event {
@@ -625,6 +626,22 @@
       font-weight: var(--typography-font-weight-bold, 700);
       color: var(--apple-orange);
       text-align: center;
+    }
+
+    .quarter-detail-text {
+      font-family: var(--font-text);
+      font-size: 0.90rem;
+      line-height: 1.45;
+      color: var(--text-secondary);
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .cal-cell.is-selected {
+      outline: 2px solid var(--apple-cyan) !important;
+      outline-offset: 1px;
+      z-index: 10 !important;
     }
   </style>
 </head>
@@ -760,8 +777,9 @@
         <!-- WIRD DYNAMISCH GENERIERT -->
       </div>
 
-      <div class="quarter-meta-strip">
+      <div class="quarter-meta-strip" id="quarterMetaStrip">
         <div class="quarter-key-event" id="quarterKeyEvent">🏁 Ziel: 12. Juni · Tschirgant Sky Run TS16 (16,9 km · ~850 Hm)</div>
+        <div class="quarter-detail-text" id="quarterDetailText">Klicke auf ein Renndatum (Rot), eine Phase (Blau/Grün/Gelb) oder eine Option (Lila) für Details.</div>
       </div>
 
     </div>
@@ -953,7 +971,7 @@
                 barClass += 'neutral-day';
               }
 
-              html += `<div class="cal-cell ${barClass}">${d}</div>`;
+              html += `<div class="cal-cell ${barClass}" onclick="onDayClick(${m.mIdx}, ${d}, '${phase}', '${m.name}', event)">${d}</div>`;
               currentDay++;
             } else {
               html += `<div class="cal-cell empty"></div>`;
@@ -969,6 +987,90 @@
           </div>
         `;
       });
+
+      container.innerHTML = html;
+    }
+
+    // Interaktive Erklärungen bei Klick auf Tage / Phasen
+    function onDayClick(mIdx, day, phase, monthName, event) {
+      document.querySelectorAll('.cal-cell').forEach(c => c.classList.remove('is-selected'));
+      if (event && event.currentTarget) {
+        event.currentTarget.classList.add('is-selected');
+      }
+
+      const keyEl = document.getElementById('quarterKeyEvent');
+      const detailEl = document.getElementById('quarterDetailText');
+
+      // 1. GESETZTE WETTKÄMPFE (ROT)
+      if (mIdx === 1026 && day === 8) {
+        keyEl.innerHTML = '🏁 08. November 2026 · Martinslauf 10k (Sub 58 min)';
+        detailEl.innerHTML = '<strong>Profil:</strong> 10,0 km flach am Rhein · <strong>Strategie:</strong> 8 °C Wetterfenster nutzen. KM 1–3 mit 5:50 min/km anlaufen (Puls &lt; 144 bpm), ab KM 7 Freigabe auf 5:35 min/km (150–155 bpm).';
+        return;
+      }
+      if (mIdx === 1126 && day === 6) {
+        keyEl.innerHTML = '🏁 06. Dezember 2026 · Siebengebirgs-HM (Sub 2:20 h)';
+        detailEl.innerHTML = '<strong>Profil:</strong> 21,4 km · 360 Hm (Aegidienberg). Wald- und Forstwege. <strong>Fokus:</strong> Vorbereitungs-Halbmarathon im GA1/GA2-Mischbereich als Winter-Ausdauertest.';
+        return;
+      }
+      if (mIdx === 2 && day === 7) {
+        keyEl.innerHTML = '🏁 07. März 2027 · Belgenbachtrail (30,7 km · 941 Hm)';
+        detailEl.innerHTML = '<strong>A-Wettkampf Q1:</strong> Monschau-Konzen (Eifel). 2 Runden, Cut-Off km 18 (2:30 h) und km 26,7 (3:45 h). <strong>Strategie:</strong> Uphills diszipliniert im Power-Hiking (&lt; 125 bpm), Bergabpassagen kontrolliert rollen lassen.';
+        return;
+      }
+      if (mIdx === 5 && day === 12) {
+        keyEl.innerHTML = '🏁 12. Juni 2027 · Tschirgant Sky Run TS16 (16,9 km · ~850 Hm)';
+        detailEl.innerHTML = '<strong>A-Wettkampf Q2:</strong> Imst (Tirol). Eingebettet in den 21-Tage Campingurlaub. Steiler alpiner Anstieg mit Panoramagrat und knackigem technischen Singletrail-Downhill ins Ziel.';
+        return;
+      }
+      if (mIdx === 9 && day === 24) {
+        keyEl.innerHTML = '🏁 24. Oktober 2027 · Drachenlauf (26,0 km · 1.150–1.250 Hm)';
+        detailEl.innerHTML = '<strong>Haupt-Saisonhöhepunkt Q4:</strong> Königswinter / Siebengebirge. Die 4 legendären Anstiege (Ölberg, Löwenburg, Drachenfels & Petersberg-Scharfrichter). Vollständiger Form-Peak.';
+        return;
+      }
+
+      // 2. OPTIONALE LÄUFE (LILA GESTRICHELT)
+      if (mIdx === 6 && day === 3) {
+        keyEl.innerHTML = '💡 Option: 03. Juli 2027 · Primiero Dolomiti Marathon 26k';
+        detailEl.innerHTML = '<strong>Profil:</strong> 26,0 km · +448 Hm / -1.198 Hm (San Martino nach Fiera di Primiero). <strong>Physiologie:</strong> Mäßige kardiovaskuläre Belastung, aber massive exzentrische Bremskraft über 1.200 Hm Downhill.';
+        return;
+      }
+      if (mIdx === 8 && day === 5) {
+        keyEl.innerHTML = '💡 Option: 05. September 2027 · Trail Côte d’Opale 24k';
+        detailEl.innerHTML = '<strong>Profil:</strong> 24 km · 350 Hm an der französischen Kanalküste (Cap Blanc-Nez). Dünen, Sandpassagen und wellige Klippenpfade.';
+        return;
+      }
+      if (mIdx === 8 && day === 11) {
+        keyEl.innerHTML = '💡 Option: 11. September 2027 · Ultra Trail Müllerthal 21k';
+        detailEl.innerHTML = '<strong>Profil:</strong> 21 km · ~600 Hm in der Kleinen Luxemburger Schweiz. Felsformationen, Treppen und enge Schluchten.';
+        return;
+      }
+      if (mIdx === 11 && day === 5) {
+        keyEl.innerHTML = '💡 Option: 05. Dezember 2027 · Siebengebirgs-HM';
+        detailEl.innerHTML = '<strong>Traditioneller Jahresabschluss:</strong> 21,4 km / 360 Hm im Siebengebirge als lockerer Saisonausklang.';
+        return;
+      }
+
+      // 3. TRAININGS- UND LEBENSPHASEN
+      if (phase === 'build') {
+        keyEl.innerHTML = '🔵 Spezifischer Aufbau & Trainingsblock';
+        detailEl.innerHTML = `Ausgewählter Tag: <strong>${day}. ${monthName}</strong>. Strukturierte Trainingsphase mit progressiven Longruns (Erkrath / Siebengebirge) und gezielten Schwellen-/Kraftausdauer-Reizen.`;
+        return;
+      }
+      if (phase === 'rekom') {
+        keyEl.innerHTML = '🟢 Regenerationsphase (Tapering / Post-Race)';
+        detailEl.innerHTML = `Ausgewählter Tag: <strong>${day}. ${monthName}</strong>. Reduzierter Umfang, lockere GA1-Einheiten (&lt; 118 bpm) und aktive Erholung zum Auffüllen der Glykogenspeicher und zur Reparatur des Muskelgewebes.`;
+        return;
+      }
+      if (phase === 'vacation') {
+        keyEl.innerHTML = '🟡 Urlaub & Camping (05. – 25. Juni 2027)';
+        detailEl.innerHTML = `Ausgewählter Tag: <strong>${day}. ${monthName}</strong>. 21 Tage Familien-Campingreise (Tirol / Kaub). Training erfolgt flexibel vor Ort mit Traileinheiten in den Bergen rund um den Tschirgant Sky Run (12.06.).`;
+        return;
+      }
+
+      // 4. REGULÄRER TAG
+      keyEl.innerHTML = `📅 ${day}. ${monthName}`;
+      detailEl.innerHTML = 'Regulärer Kalendertag im Saisonverlauf. Klicke auf ein markiertes Datum für spezifische Renn- oder Phasen-Details.';
+    }
 
       container.innerHTML = html;
     }
