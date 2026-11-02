@@ -352,6 +352,7 @@
       <div class="planner-heading" id="viewHeading">Frühling</div>
 
       <div class="quarter-selector">
+        <button class="quarter-btn" onclick="switchQuarter(0)">❄️ Finale '26</button>
         <button class="quarter-btn" onclick="switchQuarter(1)">Q1 · Belgenbach</button>
         <button class="quarter-btn active" onclick="switchQuarter(2)">Q2 · Imst TS16</button>
         <button class="quarter-btn" onclick="switchQuarter(3)">Q3 · Spätsommer</button>
@@ -373,6 +374,15 @@
 
   <script>
     const quartersData = {
+      0: {
+        heading: 'Herbst / Winter 2026',
+        keyEvent: '🏁 Martinslauf 10k (08. Nov) ➔ Siebengebirgs-HM 21k (06. Dez) ➔ Belgenbach-Start (06. Jan)',
+        months: [
+          { name: 'November 2026', mIdx: 1026, days: 30, startOffset: 6 },
+          { name: 'Dezember 2026', mIdx: 1126, days: 31, startOffset: 1 },
+          { name: 'Januar 2027', mIdx: 0, days: 31, startOffset: 4 }
+        ]
+      },
       1: {
         heading: 'Winter',
         keyEvent: '🏁 Ziel: 07. März · Belgenbachtrail (30,7 km · 941 Hm)',
@@ -412,6 +422,18 @@
     };
 
     function getPhase(mIdx, d) {
+      if (mIdx === 1026) { // Nov 2026
+        if (d === 8) return 'race'; // Martinslauf 10k
+        if (d < 8) return 'build'; // Rennwoche
+        if (d > 8 && d <= 15) return 'rekom'; // Post-Race Woche
+        return 'build'; // HM-Vorbereitung ab 16. Nov
+      }
+      if (mIdx === 1126) { // Dez 2026
+        if (d < 6) return 'build';
+        if (d === 6) return 'race'; // Siebengebirgs-HM 21,4k
+        if (d > 6 && d <= 20) return 'rekom'; // 2 Wochen Erholung
+        return '';
+      }
       if (mIdx === 0) { // Jan
         if (d >= 6) return 'build';
         return '';
@@ -459,7 +481,7 @@
 
     function switchQuarter(qNum) {
       document.querySelectorAll('.quarter-btn').forEach((btn, idx) => {
-        btn.classList.toggle('active', idx === (qNum - 1));
+        btn.classList.toggle('active', idx === qNum);
       });
 
       const q = quartersData[qNum];
