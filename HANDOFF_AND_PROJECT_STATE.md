@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.79  
+**Document Version:** 9.80  
 **Last Updated:** November 03, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -9,6 +9,14 @@
 ---
 
 ## 📌 1. Project Overview & Current Trajectory
+
+- **Race Drawer Dimensionierung & Horizontale Entspannung (v9.72 / State 9.80):**
+  - **Breite auf Desktop & Tablet optimiert (`.race-drawer`):**
+    - Die bisherige panel-Breite `clamp(380px, 32vw, 480px)` mit `2.25rem` (36px) Randabstand wirkte bei dreispaltigen Tabellen und längeren Badge-Texten komprimiert.
+    - Neue Dimensionierung: `width: clamp(460px, 35vw, 540px);` mit `padding: 2rem 1.75rem;`.
+    - **Ergebnis:** Rund 90–110px mehr Netto-Inhaltsbreite. Die Pacing-Matrix (`ABSCHNITT` | `PACE` | `HERZFREQUENZ`), lange Ziel-Pills (`SUB 58:00 · 5:48 min/km · Start 11:45 Uhr`) und Ausschreibungs-Links haben spürbar Raum; mehrzeilige Umbrüche bei Tempovorgaben entfallen.
+    - Auf MacBook-Screens bleiben weiterhin > 60 % der Hauptansicht orientierbar hinter dem dezenten Backdrop-Blur sichtbar.
+  - **Synchronisiert:** In `index.html`, `preview_jahres_dashboard.html`, gespiegelt nach `dist/`.
 
 - **Monatsspalten-Reiseliste & Multi-Trip Integration (v9.71 / State 9.79):**
   - **Ergonomisches 3-Spalten-Raster unter der Zielzeile (`.season-month-cols-grid`):**
