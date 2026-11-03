@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.71  
+**Document Version:** 9.72  
 **Last Updated:** November 03, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -9,6 +9,24 @@
 ---
 
 ## 📌 1. Project Overview & Current Trajectory
+
+- **Single Master Coach Deployment, Desktop Modal & Mobile Feinschliff (v9.64 / State 9.72):**
+  - **Single Master Coach als `index.html` auf GitHub Pages:**
+    - Das bisherige Jahres-Dashboard (`preview_jahres_dashboard.html`) wurde zum alleinigen Hauptsystem (`index.html`) befördert.
+    - Der alte Drachenlauf-Coach wurde sicher als `archive_drachenlauf_index.html` archiviert.
+    - **Apple HIG Auth Gate integriert:** Passwortschutz (`#authGateModal`, Frage: *„Was riss Hermännsche am Strand von Charita?“*, Passwörter: `achilles` / `achillessehne`) fest im neuen Coach verankert. Sowohl `coach_authenticated` als auch die bestehende `drachenlauf_authenticated` Session werden akzeptiert, sodass aktive Browser-Sessions ohne erneute Passworteingabe entsperrt bleiben.
+  - **Desktop vs. Mobile Modal-Differenzierung:**
+    - *Desktop MacBook Pro (> 600 px):* Klick auf einen Wochentag oder Loggen öffnet ein zentriertes macOS Apple HIG Modaldialog-Fenster (`.m-sheet`) mit runden Ecken (`border-radius: 20px`), Schließen-Button `✕` (`.s-modal-close`) oben rechts und abgedunkeltem Glas-Backdrop (`backdrop-filter: blur(14px)`). Die mobile Swipe-Pille (`.m-grab`) wird auf dem Desktop vollständig ausgeblendet.
+    - *Mobile iPhone 13 mini (≤ 600 px):* Bleibt als nativer iOS Bottom Sheet erhalten, der vom unteren Bildschirmrand einfährt (`bottom: 0`, `border-radius: 20px 20px 0 0`), mit Swipe-Pille (`.m-grab`), Schließen per Tap auf das Backdrop oder Swipe.
+  - **Dynamische Tages- & Datumskalibrierung (Dienstag 03.11):**
+    - `isToday` ist nicht mehr statisch an Montag gebunden.
+    - Neue Hilfsfunktion `isDayToday(day)` gleicht das reale Systemdatum (`new Date()`, z. B. `03.11`) dynamisch ab.
+    - Dienstag, 03.11.2026 ist nun auf Desktop (`card-today`, `HEUTE`-Badge) und Mobile (`m-row today`, cyanfarbene Umrandung) aktiv als aktueller Tag hervorgehoben. Montag 02.11 ist als normaler Ruhetag/Regeneration dargestellt.
+  - **Mobile Typografie & Navigations-Pfeile deutlich verstärkt:**
+    - *Navigations-Pfeile (`.m-step`):* Auf 42 × 42 px vergrößert, Hintergrund `#222534`, Kontur `1.5px solid rgba(255, 255, 255, 0.28)`, weiße Chevrons `‹` / `›` mit Drop-Shadow (`0 4px 12px rgba(0,0,0,0.45)`). Im Außenbereich sofort erkennbar und haptisch sicher bedienbar.
+    - *Subcopy Typografie (`.m-tag`):* Auf **`0.96rem` (~15.4px)** vergrößert, Schriftgewicht auf `700` angehoben und Farbe auf `#E5E5EA` (Hochkontrast-Hellgrau) gesetzt. Einheitenbezeichnungen wie `✓ Locker GA1 · 40 min`, `Regeneration`, `Aktivierung` sind gestochen scharf lesbar.
+    - *Vertikaler Platz & Zeilenhöhe:* Zeilen-Min-Height auf **56 px** erweitert (`padding: 0.45rem 0.85rem`, Abstand 6 px). Alle 7 Tage passen weiterhin perfekt auf das iPhone 13 mini Display (812 px Gesamthöhe), nutzen aber die vertikale Achse großzügig aus.
+  - **Synchronisiert:** Umgesetzt in `preview_jahres_dashboard.html`, `index.html`, `archive_drachenlauf_index.html`, gespiegelt nach `dist/`.
 
 - **Briefing Drawer Verdichtung & Neuer Fokus-Text (v9.63 / State 9.71):**
   - **Verdichtung der Martinslauf Briefing Card:**

@@ -3,457 +3,1594 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
-  <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
-  <title>Drachenlauf 2026 // Training Coach</title>
-  <meta name="description" content="26 km · 1.250 Hm · Königswinter · Geschützter Trainingsbereich">
-
-  <!-- OPEN GRAPH / LINK PREVIEW META TAGS -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://gerryagainagain.github.io/running_guide/">
-  <meta property="og:title" content="Drachenlauf 2026 // Training Coach">
-  <meta property="og:description" content="26 km · 1.250 Hm · Königswinter · Geschützter Trainingsbereich">
-  <meta property="og:image" content="https://gerryagainagain.github.io/running_guide/assets/og_social_card.jpg">
-
-  <!-- TWITTER CARD META TAGS -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Drachenlauf 2026 // Training Coach">
-  <meta name="twitter:description" content="26 km · 1.250 Hm · Königswinter · Geschützter Trainingsbereich">
-  <meta name="twitter:image" content="https://gerryagainagain.github.io/running_guide/assets/og_social_card.jpg">
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  
+  <title>Running Guide 2027 — Master Dashboard</title>
   <link rel="stylesheet" href="tokens.css">
-  <link rel="stylesheet" href="styles.css?v=2.3">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ==========================================================================
+       APPLE HIG & DESIGN.md HARMONIZED MASTER SPECIFICATION
+       ========================================================================== */
+    :root {
+      --bg-canvas: var(--color-bg-app, #0B0B10);
+      --card-bg: var(--color-bg-card, rgba(22, 22, 30, 0.85));
+      --card-border: var(--color-border-card, rgba(255, 255, 255, 0.08));
+      --card-border-top: var(--color-border-card-top, rgba(255, 255, 255, 0.22));
+      
+      --text-white: var(--color-text-white, #FFFFFF);
+      --text-secondary: var(--color-text-secondary, #A1A1A6);
+      --text-muted: var(--color-text-muted, #6E6E73);
+      --text-subtle: var(--color-text-subtle-light, #D1D1D6);
+      
+      --apple-green: var(--color-brand-green, #30D158);
+      --apple-cyan: var(--color-brand-cyan, #64D2FF);
+      --apple-blue: #0A84FF;
+      --apple-orange: var(--color-brand-orange, #FF9F0A);
+      --apple-red: var(--color-brand-red, #FF453A);
+      
+      /* Periodisierungs-Balken */
+      --phase-build-bg: rgba(100, 210, 255, 0.16);
+      --phase-build-border: rgba(100, 210, 255, 0.40);
+      --phase-build-text: #D6F2FF;
+      
+      --phase-rekom-bg: rgba(48, 209, 88, 0.16);
+      --phase-rekom-border: rgba(48, 209, 88, 0.40);
+      --phase-rekom-text: #C6F7D0;
+      
+      --phase-vacation-bg: rgba(255, 214, 10, 0.16);
+      --phase-vacation-border: rgba(255, 214, 10, 0.40);
+      --phase-vacation-text: #FFF3C4;
+      
+      --phase-race-bg: var(--apple-orange, #FF9F0A);
+      --phase-race-glow: rgba(255, 159, 10, 0.40);
+      
+      --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", sans-serif;
+      --font-text: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: var(--bg-canvas);
+      color: var(--text-white);
+      font-family: var(--font-text);
+      padding: 1.75rem 2rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-y: scroll;
+    }
+
+    .app-container {
+      width: 100%;
+      max-width: 1440px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    /* HEADER: APPLE HIG MASTER CONTROLS */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .brand-title {
+      font-family: var(--font-text);
+      font-size: var(--typography-font-size-md, 0.85rem);
+      font-weight: var(--typography-font-weight-bold, 700);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+
+    .master-segmented-control {
+      display: inline-flex;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 3px;
+      border-radius: 9999px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(20px);
+    }
+
+    .master-segment-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      padding: 9px 24px;
+      font-family: var(--font-text);
+      font-size: var(--typography-font-size-md, 0.85rem);
+      font-weight: var(--typography-font-weight-semibold, 600);
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .master-segment-btn.active {
+      background: rgba(255, 255, 255, 0.20);
+      color: var(--text-white);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+      font-weight: var(--typography-font-weight-bold, 700);
+    }
+
+    /* VIEW PANELS */
+    .view-panel {
+      display: none;
+      flex-direction: column;
+      gap: 1.25rem;
+      animation: fadeIn 0.15s ease;
+    }
+
+    .view-panel.active {
+      display: flex;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* ==========================================================================
+       REITER 1: LUFTIGER OPERATIVER WOCHENKALENDER (EXECUTION)
+       ========================================================================== */
+    .hero-strip {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-top: 1px solid var(--card-border-top);
+      border-radius: 20px;
+      padding: 1.5rem 2rem;
+    }
+
+    .hero-meta-title {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.25rem;
+    }
+
+    .hero-main-title {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text-white);
+      line-height: 1.15;
+    }
+
+    .hero-event-sub {
+      font-family: var(--font-text);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--apple-cyan);
+      margin-top: 0.25rem;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-countdown {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--apple-orange);
+      font-feature-settings: "tnum";
+    }
+
+    .calendar-week-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-top: 1px solid var(--card-border-top);
+      border-radius: 24px;
+      padding: 1.5rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+    }
+
+    .calendar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .week-headline {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.015em;
+      color: var(--text-white);
+    }
+
+    .week-dates {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .week-benchmark-pill {
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: var(--apple-orange);
+      background: rgba(255, 159, 10, 0.12);
+      border: 1px solid rgba(255, 159, 10, 0.30);
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      letter-spacing: 0.02em;
+      transition: all 0.2s ease;
+    }
+    .week-benchmark-pill.blue {
+      color: var(--apple-blue);
+      background: rgba(10, 132, 255, 0.12);
+      border-color: rgba(10, 132, 255, 0.30);
+    }
+    .week-benchmark-pill.green {
+      color: var(--apple-green);
+      background: rgba(48, 209, 88, 0.12);
+      border-color: rgba(48, 209, 88, 0.30);
+    }
+    .week-benchmark-pill.race {
+      color: var(--apple-orange);
+      background: rgba(255, 159, 10, 0.15);
+      border-color: rgba(255, 159, 10, 0.40);
+    }
+
+    .days-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 12px;
+    }
+
+    /* COACH APPLE DAY CARD SPECIFICATION */
+    .apple-day-card {
+      background: var(--bg-card, rgba(22, 22, 30, 0.85));
+      border: 1px solid var(--border-card, rgba(255, 255, 255, 0.08));
+      border-radius: var(--radius-card, 16px);
+      padding: 1.25rem 1.05rem;
+      height: 210px !important;
+      min-height: 210px !important;
+      max-height: 210px !important;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      position: relative;
+      overflow: visible !important;
+    }
+
+    .apple-day-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.22);
+      background: rgba(32, 32, 44, 0.95);
+    }
+
+    .apple-day-card.card-today {
+      border: 1.5px solid var(--apple-cyan, #64D2FF) !important;
+      box-shadow: 0 0 16px rgba(100, 210, 255, 0.25) !important;
+      background: linear-gradient(135deg, rgba(100, 210, 255, 0.08), rgba(22, 22, 30, 0.85)) !important;
+    }
+
+    .apple-day-card.card-race {
+      border: 1.5px solid rgba(255, 159, 10, 0.55) !important;
+      background: linear-gradient(135deg, rgba(255, 159, 10, 0.12), rgba(22, 22, 30, 0.85)) !important;
+      box-shadow: 0 0 20px rgba(255, 159, 10, 0.20) !important;
+    }
+
+    .apple-day-card.card-longrun {
+      border: 1.5px solid rgba(10, 132, 255, 0.35) !important;
+      background: linear-gradient(135deg, rgba(10, 132, 255, 0.08), rgba(22, 22, 30, 0.85)) !important;
+    }
+
+    .apple-day-card.card-longrun:hover {
+      border-color: rgba(10, 132, 255, 0.60) !important;
+      box-shadow: 0 0 16px rgba(10, 132, 255, 0.20) !important;
+    }
+
+    .apple-day-card.card-option {
+      border: 1.5px dashed rgba(191, 90, 242, 0.65) !important;
+      background: linear-gradient(135deg, rgba(191, 90, 242, 0.08), rgba(22, 22, 30, 0.85)) !important;
+    }
+
+    .badge-today-blue {
+      position: absolute !important;
+      top: -10px !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      background: var(--apple-cyan, #64D2FF) !important;
+      color: #000000 !important;
+      font-size: 0.65rem !important;
+      font-weight: 900 !important;
+      padding: 0.15rem 0.55rem !important;
+      border-radius: 999px !important;
+      letter-spacing: 0.8px !important;
+      text-transform: uppercase !important;
+      box-shadow: 0 2px 8px rgba(100, 210, 255, 0.4) !important;
+      z-index: 10 !important;
+      white-space: nowrap !important;
+    }
+
+    .day-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      font-weight: 900;
+      color: var(--text-secondary);
+      letter-spacing: 0.05em;
+    }
+
+    .day-header .date-num {
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--text-white);
+      font-feature-settings: "tnum";
+    }
+
+    .day-hero-box {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      margin: 0.25rem 0;
+    }
+
+    .hero-val-wrap {
+      display: flex;
+      align-items: baseline;
+      gap: 0.25rem;
+      margin: 0.2rem 0 0.1rem 0;
+      min-height: 38px;
+    }
+
+    .hero-val {
+      font-size: 2.35rem;
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -0.8px;
+      font-feature-settings: "tnum";
+      color: var(--apple-green, #30D158);
+    }
+
+    .hero-unit {
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--apple-green, #30D158);
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+
+    .hero-word-val {
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      line-height: 1.0;
+      text-transform: uppercase;
+    }
+
+    .hero-rest-txt {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      line-height: 1.0;
+      text-transform: uppercase;
+    }
+
+    .hero-sub-micro {
+      font-size: 0.80rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      font-feature-settings: "tnum";
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+    }
+
+    .day-footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+      gap: 0.4rem;  min-height: 24px;
+    }
+
+    .hero-tag {
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--text-white);
+      letter-spacing: 0.1px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .day-pill-badge {
+      font-size: 0.74rem;
+      font-weight: 800;
+      color: var(--apple-cyan);
+      background: rgba(100, 210, 255, 0.12);
+      padding: 0.2rem 0.55rem;
+      border-radius: 6px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .day-pill-badge.pill-completed {
+      color: var(--apple-green, #30D158) !important;
+      background: rgba(48, 209, 88, 0.15) !important;
+      border: 1px solid rgba(48, 209, 88, 0.35) !important;
+      font-weight: 900 !important;
+    }
+
+    .day-pill-badge.pill-ersatz {
+      color: var(--apple-cyan, #64D2FF) !important;
+      background: rgba(100, 210, 255, 0.15) !important;
+      border: 1px solid rgba(100, 210, 255, 0.35) !important;
+      font-weight: 900 !important;
+    }
+
+    .day-pill-badge.pill-rest {
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      font-weight: 600;
+    }
+
+    .day-pill-badge.pill-race {
+      color: var(--apple-orange);
+      background: rgba(255, 159, 10, 0.18);
+      border: 1px solid rgba(255, 159, 10, 0.35);
+      font-weight: 900;
+    }
+
+    .day-pill-badge.pill-option {
+      color: #E8B4F8;
+      background: rgba(191, 90, 242, 0.18);
+      border: 1px solid rgba(191, 90, 242, 0.35);
+      font-weight: 800;
+    }
+
+    .day-action-btn {
+      font-size: 0.64rem;
+      font-weight: 900;
+      color: var(--apple-cyan);
+      background: rgba(100, 210, 255, 0.15);
+      border: 1px solid rgba(100, 210, 255, 0.35);
+      padding: 0.2rem 0.55rem;
+      border-radius: 6px;
+      text-align: center;
+      display: inline-block;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      flex-shrink: 0;
+    }
+
+    .status-dot.done {
+      background: var(--apple-green);
+      box-shadow: 0 0 6px var(--apple-green);
+    }
+
+    /* ==========================================================================
+       SINGLE STAGE: WOCHEN-AUSWAHL & FOKUS-STRIP
+       ========================================================================== */
+    .week-selector-bar {
+      min-height: 44px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 0;
+    }
+
+    .week-pill-selector {
+      height: 44px;
+      display: inline-flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 4px;
+      border-radius: 9999px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      gap: 4px;
+    }
+
+    .week-pill-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      height: 36px;
+      padding: 0 16px;
+      font-family: var(--font-text);
+      font-size: 0.82rem;
+      font-weight: 600;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .week-pill-btn:hover {
+      color: var(--text-white);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .week-pill-btn.active {
+      background: rgba(255, 255, 255, 0.20);
+      color: var(--text-white);
+      font-weight: 700;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    .week-pill-btn .pill-kw {
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+
+    .week-pill-btn .pill-label {
+      font-size: 0.76rem;
+      opacity: 0.85;
+    }
+
+    .week-pill-btn.is-race-pill .pill-label {
+      color: var(--apple-orange);
+    }
+    .week-pill-btn.is-race-pill.active .pill-label {
+      color: #FFF;
+    }
+    .week-pill-btn.is-race-pill.active {
+      background: rgba(255, 159, 10, 0.30);
+      border: 1px solid rgba(255, 159, 10, 0.45);
+    }
+
+    /* WOCHENFOKUS STRIP UNTER DEN 7 KARTEN */
+    .week-summary-strip {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 14px;
+      padding: 0.85rem 1.25rem;
+      margin-top: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.45;
+    }
+
+    .week-summary-tag {
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: rgba(100, 210, 255, 0.15);
+      color: var(--apple-cyan);
+      border: 1px solid rgba(100, 210, 255, 0.3);
+      flex-shrink: 0;
+    }
+
+    /* ==========================================================================
+       REITER 2: DER MASTER 3-MONATS-KALENDER (STRATEGIE & SAISON 2027)
+       ========================================================================== */
+    .season-header {
+      min-height: 44px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 0;
+    }
+
+    .season-pager-bar {
+      height: 44px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      user-select: none;
+    }
+
+    .season-pager-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-white);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      line-height: 1;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .season-pager-btn:hover {
+      background: rgba(255, 255, 255, 0.18);
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: scale(1.06);
+    }
+
+    .season-pager-btn:active {
+      transform: scale(0.94);
+    }
+
+    .season-pager-label {
+      height: 44px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 0 22px;
+      border-radius: 9999px;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .season-pager-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: -0.015em;
+      color: var(--text-white);
+    }
+
+    .season-pager-range {
+      font-family: var(--font-text);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--apple-cyan);
+      letter-spacing: 0.02em;
+    }
+
+    .three-months-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .month-block {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-top: 1px solid var(--card-border-top);
+      border-radius: 24px;
+      padding: 1.5rem 1.5rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+    }
+
+    .month-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .month-title {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.015em;
+      text-align: center;
+      color: var(--text-white);
+    }
+
+    .calendar-matrix {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .week-row {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 2px;
+      height: 56px;
+      position: relative;
+    }
+
+    .cal-cell {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-text);
+      font-size: 1.25rem;
+      font-weight: 600;
+      font-feature-settings: "tnum" on;
+      user-select: none;
+      position: relative;
+      height: 100%;
+      border: 1px solid transparent;
+      color: var(--text-secondary);
+      transition: all 0.15s ease;
+    }
+
+    .cal-cell.empty {
+      cursor: default;
+    }
+
+    .cal-cell.neutral-day {
+      background: rgba(255, 255, 255, 0.025);
+      border-radius: 8px;
+      margin: 1.5px;
+      cursor: default;
+    }
+
+    .cal-cell.is-interactive {
+      cursor: pointer;
+    }
+
+    .cal-cell.is-interactive:hover {
+      filter: brightness(1.2);
+    }
+
+    /* SONNTAGS-ZIFFER: SANFTE AUSZEICHNUNGSFARBE OHNE ROTEN ALARM-CHARAKTER */
+    .cal-cell.is-sunday:not(.phase-race) {
+      color: rgba(255, 140, 130, 0.70) !important;
+      font-weight: 700;
+    }
+
+    /* PERIODISIERUNGS-BALKEN */
+    .cal-cell.phase-build {
+      background: var(--phase-build-bg) !important;
+      border-top: 1px solid var(--phase-build-border);
+      border-bottom: 1px solid var(--phase-build-border);
+      color: var(--phase-build-text) !important;
+      font-weight: 600;
+      margin: 1.5px 0;
+    }
+
+    .cal-cell.phase-build.bar-start {
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+      border-left: 1px solid var(--phase-build-border);
+    }
+
+    .cal-cell.phase-build.bar-end {
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+      border-right: 1px solid var(--phase-build-border);
+    }
+
+    .cal-cell.phase-rekom {
+      background: var(--phase-rekom-bg) !important;
+      border-top: 1px solid var(--phase-rekom-border);
+      border-bottom: 1px solid var(--phase-rekom-border);
+      color: var(--phase-rekom-text) !important;
+      font-weight: 600;
+      margin: 1.5px 0;
+    }
+
+    .cal-cell.phase-rekom.bar-start {
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+      border-left: 1px solid var(--phase-rekom-border);
+    }
+
+    .cal-cell.phase-rekom.bar-end {
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+      border-right: 1px solid var(--phase-rekom-border);
+    }
+
+    .cal-cell.phase-vacation {
+      background: var(--phase-vacation-bg) !important;
+      border-top: 1px solid var(--phase-vacation-border);
+      border-bottom: 1px solid var(--phase-vacation-border);
+      color: var(--phase-vacation-text) !important;
+      font-weight: 600;
+      margin: 1.5px 0;
+    }
+
+    .cal-cell.phase-vacation.bar-start {
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+      border-left: 1px solid var(--phase-vacation-border);
+    }
+
+    .cal-cell.phase-vacation.bar-end {
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+      border-right: 1px solid var(--phase-vacation-border);
+    }
+
+    .cal-cell.phase-race {
+      background: var(--phase-race-bg) !important;
+      border: 1px solid rgba(255, 255, 255, 0.9) !important;
+      color: #FFFFFF !important;
+      font-weight: 900 !important;
+      font-size: 1.25rem;
+      border-radius: 8px !important;
+      box-shadow: 0 0 16px var(--phase-race-glow);
+      z-index: 3;
+      margin: 1.5px;
+    }
+
+    .cal-cell.phase-option {
+      border: 1px dashed rgba(191, 90, 242, 0.75) !important;
+      border-radius: 8px;
+      color: #E8B4F8 !important;
+      font-weight: 700;
+      margin: 1.5px;
+      cursor: pointer;
+    }
+
+    .cal-cell.phase-option:hover {
+      background: rgba(191, 90, 242, 0.15) !important;
+      border-color: #E8B4F8 !important;
+    }
+
+    /* ZENTRIERTE ZIEL-BUBBLE */
+    .quarter-meta-strip {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-top: 1px solid var(--card-border-top);
+      border-radius: 14px;
+      padding: 0.85rem 1.25rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      transition: all 0.25s ease;
+    }
+
+    .option-reg-link {
+      color: var(--apple-cyan);
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      margin-left: 0.5rem;
+      transition: color 0.15s ease;
+    }
+    .option-reg-link:hover {
+      color: #FFFFFF;
+    }
+
+    .quarter-key-event {
+      font-family: var(--font-text);
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: var(--typography-line-height-snug, 1.25);
+      color: var(--apple-orange);
+      text-align: center;
+    }
+
+    .cal-cell.is-selected {
+      outline: 2px solid var(--apple-cyan) !important;
+      outline-offset: 1px;
+      z-index: 10 !important;
+    }
+
+    /* ==========================================================================
+       VIEWPORT-ADAPTIVE SAISON-ANSICHT
+       Zeilenhöhe skaliert mit der Fensterhöhe, damit auch Monate mit 6 Wochenzeilen
+       (z. B. Mai 2027) inklusive Ereigniszeile ohne Scrollen sichtbar bleiben.
+       ========================================================================== */
+    #tab-season {
+      --cal-row-gap: 4px;
+      --cal-row-h: clamp(32px, calc((100vh - 435px) / 6), 56px);
+      gap: 1.25rem;
+    }
+
+    #tab-season .calendar-matrix {
+      gap: var(--cal-row-gap);
+      min-height: calc(6 * var(--cal-row-h) + 5 * var(--cal-row-gap));
+    }
+
+    #tab-season .week-row {
+      height: var(--cal-row-h);
+    }
+
+    #tab-season .cal-cell {
+      font-size: clamp(0.95rem, calc(var(--cal-row-h) * 0.4), 1.25rem);
+    }
+
+    #tab-season .cal-cell.phase-race {
+      font-size: clamp(1rem, calc(var(--cal-row-h) * 0.42), 1.3rem);
+    }
+
+    /* ==========================================================================
+       OPTION A: APPLE HIG SLIDE-OVER DRAWER (RACE BRIEFING)
+       ========================================================================== */
+    .race-drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.60);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 998;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .race-drawer-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .race-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: clamp(380px, 32vw, 480px);
+      background: #1E202C;
+      border-left: 1.5px solid rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(32px);
+      -webkit-backdrop-filter: blur(32px);
+      box-shadow: -16px 0 48px rgba(0, 0, 0, 0.85);
+      z-index: 999;
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      padding: 2rem 2.25rem;
+      gap: 1.4rem;
+      box-sizing: border-box;
+    }
+
+    .race-drawer.open {
+      transform: translateX(0);
+    }
+
+    .race-drawer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .race-drawer-tag {
+      font-size: 0.70rem;
+      font-weight: 800;
+      color: var(--apple-orange);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: rgba(255, 159, 10, 0.12);
+      border: 1px solid rgba(255, 159, 10, 0.30);
+      padding: 3px 10px;
+      border-radius: 9999px;
+    }
+
+    .race-drawer-close {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      color: var(--text-secondary);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      line-height: 1;
+      transition: all 0.15s ease;
+    }
+
+    .race-drawer-close:hover {
+      background: rgba(255, 255, 255, 0.20);
+      color: var(--text-white);
+      transform: scale(1.08);
+    }
+
+    .race-drawer-hero {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .race-drawer-title {
+      font-family: var(--font-display);
+      font-size: 1.65rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text-white);
+      line-height: 1.15;
+    }
+
+    .race-drawer-subtitle {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      font-weight: 600;
+    }
+
+    .race-drawer-target-pill {
+      margin-top: 0.4rem;
+      align-self: flex-start;
+      font-size: 0.80rem;
+      font-weight: 800;
+      color: var(--apple-orange);
+      background: rgba(255, 159, 10, 0.14);
+      border: 1px solid rgba(255, 159, 10, 0.35);
+      padding: 0.35rem 0.85rem;
+      border-radius: 8px;
+      max-width: 100%;
+      box-sizing: border-box;
+      line-height: 1.35;
+    }
+
+    .race-drawer-org-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 0.35rem;
+      align-self: flex-start;
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: #000;
+      background: var(--apple-orange);
+      padding: 0.45rem 0.95rem;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    .race-drawer-org-btn:hover {
+      background: #FFB340;
+      transform: translateY(-1px);
+    }
+
+    .race-section {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      background: #14151E;
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      border-radius: 14px;
+      padding: 1rem 1.15rem;
+    }
+
+    .race-section-title {
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--apple-cyan);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .race-info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.6rem;
+    }
+
+    .race-info-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .race-info-label {
+      font-size: 0.70rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .race-info-val {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-white);
+    }
+
+    .race-logistics-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .race-logistics-row {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .race-logistics-lbl {
+      font-size: 0.65rem;
+      font-weight: 800;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .race-logistics-val {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-white);
+    }
+
+    .pacing-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.80rem;
+    }
+
+    .pacing-table th {
+      text-align: left;
+      font-size: 0.62rem;
+      font-weight: 800;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding-bottom: 0.40rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .pacing-table th:nth-child(1),
+    .pacing-table td:nth-child(1) {
+      width: 24%;
+      white-space: nowrap;
+    }
+
+    .pacing-table th:nth-child(2),
+    .pacing-table td:nth-child(2) {
+      width: 38%;
+      padding-right: 4px;
+    }
+
+    .pacing-table th:nth-child(3),
+    .pacing-table td:nth-child(3) {
+      width: 38%;
+      text-align: right;
+    }
+
+    .pacing-table td {
+      padding: 0.45rem 0.15rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      vertical-align: middle;
+      line-height: 1.25;
+    }
+
+    .pacing-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .pacing-km {
+      font-weight: 800;
+      color: var(--text-secondary);
+    }
+
+    .pacing-speed {
+      font-weight: 800;
+      color: var(--apple-orange);
+    }
+
+    .pacing-hr {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    .pacing-note {
+      font-size: 0.80rem;
+      color: var(--text-secondary);
+      margin-top: 0.5rem;
+      line-height: 1.45;
+      padding-top: 0.5rem;
+      border-top: 1px dashed rgba(255, 255, 255, 0.12);
+    }
+
+    .pacing-note b {
+      color: var(--text-white);
+    }
+
+    .race-note-text {
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .race-note-text b {
+      color: var(--text-white);
+    }
+
+    /* ==========================================================================
+       MOBILE WOCHENLISTE (≤ 600 px) & LOG-SHEET (shared: drachenlauf_runs)
+       ========================================================================== */
+    .mobile-week { display: none; width: 100%; }
+    .m-head { display: flex; align-items: center; justify-content: space-between; margin: 0.25rem 0 0.5rem; }
+    .m-step {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255, 255, 255, 0.28);
+      background: #222534;
+      color: #FFFFFF;
+      font-size: 1.5rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+      transition: transform 0.12s ease, background 0.15s ease, border-color 0.15s ease;
+      flex-shrink: 0;
+    }
+    .m-step:active {
+      transform: scale(0.92);
+      background: #2D3246;
+      border-color: rgba(255, 255, 255, 0.45);
+    }
+    .m-step:disabled { opacity: 0.25; cursor: default; }
+    .m-title { text-align: center; flex: 1; padding: 0 0.5rem; min-width: 0; }
+    .m-kw { font-size: 0.74rem; font-weight: 800; letter-spacing: 0.08em; color: var(--text-secondary); text-transform: uppercase; }
+    .m-name { font-size: 1.10rem; font-weight: 900; margin-top: 1px; color: var(--text-white); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; letter-spacing: -0.3px; }
+    .m-dates { font-size: 0.78rem; color: var(--text-muted); margin-top: 2px; font-weight: 600; }
+    .m-progress { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 14px; padding: 0.55rem 0.85rem; margin-bottom: 0.55rem; }
+    .m-prog-row { display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem; }
+    .m-prog-val { font-size: 1.25rem; font-weight: 900; font-feature-settings: "tnum"; white-space: nowrap; }
+    .m-prog-val small { font-size: 0.76rem; color: var(--text-secondary); font-weight: 700; }
+    .m-prog-bench { font-size: 0.78rem; font-weight: 700; color: var(--text-secondary); text-align: right; }
+    .m-bar { height: 4px; background: rgba(255, 255, 255, 0.08); border-radius: 999px; margin-top: 0.45rem; overflow: hidden; }
+    .m-bar > div { height: 100%; background: var(--apple-green); border-radius: 999px; transition: width 0.3s ease; }
+    .m-focus { display: none; }
+    .m-list { display: flex; flex-direction: column; gap: 6px; }
+    .m-row {
+      display: grid;
+      grid-template-columns: 56px 1fr auto;
+      align-items: center;
+      gap: 0.75rem;
+      min-height: 56px;
+      padding: 0.45rem 0.85rem;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      cursor: pointer;
+      transition: transform 0.12s ease, background 0.15s ease;
+    }
+    .m-row:active { transform: scale(0.985); }
+    .m-row.rest { background: rgba(18, 18, 26, 0.70); }
+    .m-row.today {
+      border: 1.5px solid var(--apple-cyan);
+      background: linear-gradient(135deg, rgba(100, 210, 255, 0.12), rgba(22, 22, 30, 0.95));
+      box-shadow: 0 0 16px rgba(100, 210, 255, 0.15);
+    }
+    .m-row.longrun { border: 1.5px solid rgba(10, 132, 255, 0.45); background: linear-gradient(135deg, rgba(10, 132, 255, 0.10), var(--card-bg)); }
+    .m-row.race { border: 1.5px solid rgba(255, 159, 10, 0.65); background: linear-gradient(135deg, rgba(255, 159, 10, 0.14), var(--card-bg)); }
+    .m-day { display: flex; flex-direction: column; }
+    .m-day b { font-size: 0.80rem; font-weight: 800; letter-spacing: 0.05em; color: var(--text-secondary); }
+    .m-day span { font-size: 0.96rem; font-weight: 800; font-feature-settings: "tnum"; margin-top: 1px; color: var(--text-white); }
+    .m-row.today .m-day b, .m-row.today .m-day span { color: var(--apple-cyan); }
+    .m-row.race .m-day b, .m-row.race .m-day span { color: var(--apple-orange); }
+    .m-main { min-width: 0; }
+    .m-val { display: flex; align-items: baseline; gap: 4px; }
+    .m-num { font-size: 1.45rem; font-weight: 900; line-height: 1; letter-spacing: -0.4px; font-feature-settings: "tnum"; }
+    .m-unit { font-size: 0.68rem; font-weight: 800; letter-spacing: 0.06em; }
+    .m-word { font-size: 1.05rem; font-weight: 800; letter-spacing: 0.05em; line-height: 1.2; }
+    .m-tag {
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: #E5E5EA;
+      margin-top: 3px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 1.25;
+    }
+    .m-chevron { font-size: 1.25rem; font-weight: 700; color: var(--text-muted); padding: 0 4px; }
+    .m-cta { font-size: 0.76rem; font-weight: 900; color: #000; background: var(--apple-cyan); padding: 0.28rem 0.65rem; border-radius: 999px; white-space: nowrap; }
+    .m-check { font-size: 0.78rem; font-weight: 900; color: var(--apple-green); background: rgba(48, 209, 88, 0.16); padding: 0.25rem 0.60rem; border-radius: 999px; white-space: nowrap; }
+
+    .m-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.72);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.22s ease;
+      z-index: 1000;
+    }
+    .m-backdrop.open { opacity: 1; pointer-events: auto; }
+
+    /* DESKTOP MODAL (> 600px): Clean centered macOS Apple HIG dialog */
+    .m-sheet {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      right: auto;
+      bottom: auto;
+      transform: translate(-50%, -50%) scale(0.96);
+      opacity: 0;
+      pointer-events: none;
+      width: 90%;
+      max-width: 480px;
+      max-height: 85vh;
+      overflow-y: auto;
+      background: #1C1E2A;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-top: 1px solid rgba(255, 255, 255, 0.28);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 1.75rem 1.75rem 2rem;
+      transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.24s ease;
+      z-index: 1001;
+      box-sizing: border-box;
+    }
+    .m-sheet.open {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .m-grab {
+      display: none; /* Hide mobile swipe pill on desktop */
+    }
+    .s-modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.15s;
+    }
+    .s-modal-close:hover {
+      background: rgba(255, 255, 255, 0.20);
+      transform: scale(1.06);
+    }
+    .s-date { font-size: 0.70rem; font-weight: 800; letter-spacing: 0.08em; color: var(--apple-cyan); text-transform: uppercase; }
+    .s-title { font-size: 1.25rem; font-weight: 900; margin: 0.25rem 0 0.75rem; color: #FFFFFF; }
+    .s-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 0.85rem; }
+    .s-cell { background: #26293A; border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 12px; padding: 0.6rem 0.8rem; }
+    .s-cell.wide { grid-column: span 2; }
+    .s-lbl { font-size: 0.62rem; font-weight: 800; letter-spacing: 0.08em; color: var(--text-muted); text-transform: uppercase; }
+    .s-txt { font-size: 0.88rem; font-weight: 700; margin-top: 3px; color: var(--text-white); line-height: 1.35; }
+    .s-section { font-size: 0.70rem; font-weight: 800; letter-spacing: 0.08em; color: var(--text-secondary); text-transform: uppercase; margin: 0.6rem 0 0.5rem; }
+    .s-form { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .s-field { background: #26293A; border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 12px; padding: 0.55rem 0.8rem; transition: border-color 0.2s, box-shadow 0.2s; }
+    .s-field label { display: block; font-size: 0.62rem; font-weight: 800; letter-spacing: 0.08em; color: var(--text-muted); text-transform: uppercase; }
+    .s-field div { display: flex; align-items: baseline; gap: 4px; margin-top: 2px; }
+    .s-field input { width: 100%; background: transparent; border: 0; outline: 0; color: #FFFFFF; font-size: 1.30rem; font-weight: 900; font-family: inherit; font-feature-settings: "tnum"; padding: 2px 0; }
+    .s-field span { font-size: 0.72rem; font-weight: 700; color: var(--text-secondary); }
+    .s-field:focus-within { border-color: var(--apple-cyan); box-shadow: 0 0 0 1.5px var(--apple-cyan); background: #2B2F44; }
+    .s-save { grid-column: span 2; width: 100%; margin-top: 0.4rem; min-height: 48px; border: 0; border-radius: 14px; background: var(--apple-green); color: #000; font-size: 0.95rem; font-weight: 900; font-family: inherit; cursor: pointer; }
+    .s-brief-link { display: flex; align-items: center; justify-content: center; gap: 0.4rem; width: 100%; min-height: 44px; margin-bottom: 0.6rem; border: 1.5px solid rgba(255, 159, 10, 0.75); border-radius: 14px; background: rgba(255, 159, 10, 0.20); color: var(--apple-orange); font-size: 0.88rem; font-weight: 800; text-decoration: none; font-family: inherit; cursor: pointer; }
+    .s-brief-drawer-btn { display: flex; align-items: center; justify-content: center; gap: 0.4rem; width: 100%; min-height: 38px; margin-bottom: 0.6rem; border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 14px; background: rgba(255, 255, 255, 0.08); color: var(--text-white); font-size: 0.82rem; font-weight: 700; font-family: inherit; cursor: pointer; }
+    .s-reset { display: block; margin: 0.7rem auto 0; background: none; border: 0; color: var(--text-muted); font-size: 0.75rem; font-weight: 700; cursor: pointer; font-family: inherit; }
+
+    @media (max-width: 600px) {
+      body { padding: max(8px, env(safe-area-inset-top)) 12px 14px; display: block; overflow-x: hidden; }
+      .app-container { display: none !important; }
+      .mobile-week { display: block; }
+      .race-drawer { width: 100% !important; max-width: 100vw !important; left: 0 !important; right: 0 !important; padding: 1.25rem 16px !important; border-left: 0 !important; overflow-x: hidden !important; }
+
+      /* MOBILE BOTTOM SHEET (<= 600px) */
+      .m-sheet {
+        position: fixed !important;
+        top: auto !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        border-radius: 20px 20px 0 0 !important;
+        border: 0 !important;
+        border-top: 1.5px solid rgba(255, 255, 255, 0.22) !important;
+        box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.95), 0 -2px 12px rgba(255, 255, 255, 0.05) !important;
+        padding: 0.6rem 16px calc(24px + env(safe-area-inset-bottom)) !important;
+        transform: translateY(100%) !important;
+        opacity: 1 !important;
+        pointer-events: none;
+        transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      }
+      .m-sheet.open {
+        transform: translateY(0) !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+      }
+      .m-grab {
+        display: block !important;
+        width: 40px;
+        height: 5px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.40);
+        margin: 0.2rem auto 0.9rem;
+      }
+      .s-modal-close {
+        display: none !important;
+      }
+    }
+  </style>
 </head>
-<body class="clean-theme">
+<body>
+
+  <!-- MOBILE WOCHENLISTE (nur ≤ 500 px sichtbar) -->
+  <div class="mobile-week" id="mobileWeek">
+    <header class="m-head">
+      <button class="m-step" id="mPrevBtn" onclick="stepWeek(-1)" aria-label="Vorherige Woche">‹</button>
+      <div class="m-title">
+        <div class="m-kw" id="mKw"></div>
+        <div class="m-name" id="mName"></div>
+        <div class="m-dates" id="mDates"></div>
+      </div>
+      <button class="m-step" id="mNextBtn" onclick="stepWeek(1)" aria-label="Nächste Woche">›</button>
+    </header>
+    <section class="m-progress">
+      <div class="m-prog-row">
+        <div class="m-prog-val" id="mProg"></div>
+        <div class="m-prog-bench" id="mBench"></div>
+      </div>
+      <div class="m-bar"><div id="mBar"></div></div>
+      <div class="m-focus" id="mFocus"></div>
+    </section>
+    <main class="m-list" id="mList"></main>
+  </div>
+
   <div class="app-container">
 
-    <!-- HEADER -->
-    <header class="app-header">
-      <div class="header-brand">
-        <h1 class="header-title">
-          <a href="https://www.drachenlauf.net/" target="_blank" rel="noopener noreferrer" class="headline-link">Auf zum Drachen!</a>
-        </h1>
-        <p class="header-subtitle">
-          <a href="https://www.komoot.com/de-de/tour/1882550924?share_token=aKlmkGGP9QBKIGBYNofjmXhqYJ5YwPvvoWl2QgWkmoCSU36YTz&ref=wtd&t_s=referral&t_cid=route_share&t_ref_username=5238953605179" target="_blank" rel="noopener noreferrer" class="headline-meta-link">26 km · 1.250 Hm · 25. Oktober · Königswinter ↗</a>
-        </p>
-      </div>
-
-      <div class="header-controls">
-        <button class="btn btn-pill-gray" onclick="openLongrunOverviewModal()" title="14-Wochen Longrun & HM Progressionsplan öffnen">
-          14-Wochen Plan ↗
-        </button>
-        <button class="btn btn-pill-gray" onclick="exportCampaignData()" title="2026 Kampagnendaten als JSON sichern">
-          Backup 💾
-        </button>
-
-        <div class="countdown-pill">
-          <span class="cd-txt" id="cdTxtContainer">Noch <strong>12 Wochen</strong></span>
-        </div>
-
-
-
-        <button class="btn-icon-fullscreen" id="fullscreenToggleBtn" onclick="toggleFullscreen()" title="Vollbild umschalten">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
-        </button>
+    <!-- MASTER HEADER MIT SEGMENTED CONTROL -->
+    <header>
+      <div class="brand-title">Trailrunning 2027</div>
+      
+      <div class="master-segmented-control">
+        <button class="master-segment-btn active" onclick="switchMasterTab('training')">Training</button>
+        <button class="master-segment-btn" onclick="switchMasterTab('season')">Saison 2027</button>
       </div>
     </header>
 
-    <!-- TOP ROW: 50% COACH TEXT (LEFT) + 50% DEIN WICHTIGSTER LAUF (RIGHT) -->
-    <section class="top-split-grid">
-      <!-- LEFT (50%): DYNAMISCHES TRAIL-COACH-WIDGET (APPLE HIG DESIGN) -->
-      <div class="clean-card coach-split-card" id="coachWidget">
-        <div class="coach-main-headline" id="coachHeadline">Diese Woche legst du die Grundlage für den Drachenlauf.</div>
-        <div class="coach-summary-row" id="coachSummaryRow">
-          <strong class="highlight-val">32 km</strong> · <strong class="highlight-val">480 Hm</strong>
-        </div>
-        <div class="coach-chips-row" id="coachChipsRow">
-          <div class="coach-chip" id="chipUnits">🏃 4 Einheiten</div>
-          <div class="coach-chip" id="chipHm">⛰ 480 Hm</div>
-          <div class="coach-chip" id="chipKraft">💪 1 Krafttraining</div>
-        </div>
-      </div>
+    <!-- ==========================================================================
+         TAB 1: OPERATIVER ALLTAG (SINGLE STAGE WOCHENKALENDER)
+         ========================================================================== -->
+    <div id="tab-training" class="view-panel active">
 
-      <!-- RIGHT (50%): MISSION DIESER WOCHE -->
-      <div class="clean-card hero-split-card" id="cleanHeroBar">
-        <div class="hero-card-header">
-          <span class="hero-bar-tag" id="heroBarTag">MISSION DIESER WOCHE</span>
-          <svg width="24" height="14" viewBox="0 0 24 14" fill="none" stroke="var(--color-brand-orange, #FF9F0A)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mini-elevation-icon" title="Höhenprofil">
-            <path d="M1 13L6 4L11 9L17 1L23 13Z"/>
-          </svg>
-        </div>
-        <div class="hero-bar-title" id="heroTitle">
-          Longrun Erkrath (12,0 km // 380 Hm)
-        </div>
-        
-        <!-- INTEGRATED PROGRESS SECTION -->
-        <div class="hero-integrated-progress">
-          <div class="hero-progress-item">
-            <div class="hp-label-row">
-              <span>WOCHENKILOMETER</span>
-              <strong id="wmDistVal">13.0 / 30.0 km</strong>
-            </div>
-            <div class="hp-track-container">
-              <div class="hp-track"><div class="hp-fill fill-green" id="wmDistFill" class="hp-fill fill-green progress-val-43"></div></div>
-            </div>
-          </div>
-          
-          <div class="hero-progress-item">
-            <div class="hp-label-row">
-              <span>HÖHENMETER</span>
-              <strong id="wmHmVal">100 / 450 Hm</strong>
-            </div>
-            <div class="hp-track-container">
-              <div class="hp-track"><div class="hp-fill fill-orange" id="wmHmFill" class="hp-fill fill-orange progress-val-22"></div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- MAIN WEEKLY SCHEDULE ROW -->
-    <section class="schedule-section">
-      <div class="section-title-row margin-bottom-md">
-        <div class="title-with-arrows">
-          <button class="btn-nav-circle" id="prevKwBtn" onclick="navigateKw(-1)" title="Vorherige Woche">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+      <!-- WOCHEN-AUSWAHL (SINGLE STAGE SEGMENTED CONTROL) -->
+      <div class="week-selector-bar">
+        <div class="week-pill-selector">
+          <button class="week-pill-btn is-race-pill active" onclick="switchWeek(45)" id="pill-kw-45" data-kw="45">
+            <span class="pill-kw">KW 45</span>
+            <span class="pill-label">Martinslauf</span>
           </button>
-          <h2 class="schedule-title-clickable" onclick="resetToCurrentWeek()" title="Klick: Zur aktuellen Woche springen">
-            Wochenplan <span class="kw-title-inline" id="kwTitleSub">KW 31</span>
-          </h2>
-          <button class="btn-nav-circle" id="nextKwBtn" onclick="navigateKw(1)" title="Nächste Woche">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          <button class="week-pill-btn" onclick="switchWeek(46)" id="pill-kw-46" data-kw="46">
+            <span class="pill-kw">KW 46</span>
+            <span class="pill-label">Post-Race</span>
+          </button>
+          <button class="week-pill-btn" onclick="switchWeek(47)" id="pill-kw-47" data-kw="47">
+            <span class="pill-kw">KW 47</span>
+            <span class="pill-label">Aufbau I</span>
+          </button>
+          <button class="week-pill-btn" onclick="switchWeek(48)" id="pill-kw-48" data-kw="48">
+            <span class="pill-kw">KW 48</span>
+            <span class="pill-label">Peak 38k</span>
+          </button>
+          <button class="week-pill-btn is-race-pill" onclick="switchWeek(49)" id="pill-kw-49" data-kw="49">
+            <span class="pill-kw">KW 49</span>
+            <span class="pill-label">7G-HM</span>
           </button>
         </div>
       </div>
+
+      <!-- DIE FESTE HAUPTBÜHNE: 7-TAGE-KALENDER -->
+      <div class="calendar-week-card" id="calendarWeekCard">
+        <div class="calendar-header">
+          <div class="week-headline" id="currentWeekTitle">Diese Woche KW 45 • Martinslauf</div>
+          <div class="week-benchmark-pill race" id="currentWeekBenchmark">Zielzeit Sub 58 min</div>
+        </div>
+
+        <div class="days-grid" id="mainDaysGrid">
+          <!-- WIRD DYNAMISCH DURCH renderWeek() BEFÜLLT -->
+        </div>
+
+        <!-- WOCHENFOKUS STRIP -->
+        <div class="week-summary-strip" id="weekSummaryStrip">
+          <span class="week-summary-tag">FOKUS</span>
+          <span class="week-summary-text" id="weekSummaryText">Frische für den 48. Martinslauf am Sonntag sichern. 10 km am Unterbacher See, Start 11:45 Uhr. Pacing: 5:50 ➔ 5:45 ➔ 5:35 min/km.<br><br>Samstag, 07. November: Ruhetag & Pre-Race-Carboload.</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ==========================================================================
+         TAB 2: STRATEGISCHER 3-MONATS-KALENDER (SAISON 2027)
+         ========================================================================== -->
+    <div id="tab-season" class="view-panel">
       
-      <!-- 7-DAY SWISS GRID ROW -->
-      <div class="schedule-row" id="scheduleRow">
-        <!-- RENDERED DYNAMICALLY BY APP.JS -->
-      </div>
-
-      <!-- COMPACT ACTIVITY LOGGING CARD (APPLE HIG ACTION BAR) -->
-      <div class="clean-card activity-card-compact" id="activityCard">
-        <div class="act-card-header">
-          <span class="act-card-label">SCHNELLEINGABE & GARMIN IMPORT</span>
-        </div>
-        <div class="act-card-actions">
-          <button class="btn btn-cta-primary" onclick="openTextModal()">
-            + Aktivität erfassen
-          </button>
-          <button class="btn btn-cta-secondary" onclick="openScreenshotModal()">
-            Garmin Screenshot Import ↗
-          </button>
-        </div>
-      </div>
-
-      <!-- SAISONPFAD (DEIN WEG ZUM DRACHEN - FREISCHWEBEND) -->
-      <div class="clean-card season-timeline-card">
-        <div class="season-timeline-header">
-          <div class="expedition-header-left">
-            <span class="season-timeline-title">DEIN WEG ZUM DRACHEN</span>
+      <div class="season-header">
+        <div class="season-pager-bar">
+          <button class="season-pager-btn" onclick="prevQuarter()" aria-label="Vorheriges Quartal" title="Vorheriges Quartal">‹</button>
+          <div class="season-pager-label">
+            <span class="season-pager-title" id="seasonPagerTitle">Winter</span>
+            <span class="season-pager-range" id="seasonPagerRange">Jan – März 2027</span>
           </div>
-          <div class="expedition-progress-box">
-            <div class="expedition-pct-label" id="expeditionPctLabel">14% DER EXPEDITION ABSOLVIERT</div>
-            <div class="expedition-track"><div class="expedition-fill" id="expeditionFillLine" style="width: 14%;"></div></div>
-          </div>
-        </div>
-        
-        <div class="spacex-timeline-wrap" id="spacexTimelineWrap">
-          <svg class="trail-expedition-svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
-            <path class="trail-path-base" d="M 0,80 Q 85,85 170,82 C 255,80 295,58 340,55 C 425,50 465,42 510,40 C 595,35 635,22 680,20 C 765,18 805,35 840,32 C 920,28 960,14 1000,10" />
-            <path class="trail-path-fill" id="trailPathFill" d="M 0,80 Q 85,85 170,82 C 255,80 295,58 340,55 C 425,50 465,42 510,40 C 595,35 635,22 680,20 C 765,18 805,35 840,32 C 920,28 960,14 1000,10" />
-          </svg>
-
-          <div class="spacex-nodes-container" id="spacexNodesContainer">
-            <div class="spacex-node done-node node-pos-0 node-y-80" onclick="openPhaseDetailModal(0)" title="Details für Basis Erkrath anzeigen">
-              <div class="node-dot">✓</div>
-              <div class="node-label-top">BASIS ERKRATH</div>
-              <div class="node-sub-bottom">
-                <span class="node-primary-val">480 Hm</span> · <span class="node-keyword">Grundlage</span>
-                <span class="node-extra-info">KW 30–31 (20.07–16.08)</span>
-              </div>
-            </div>
-
-            <div class="spacex-node node-pos-17 node-y-82" onclick="openPhaseDetailModal(1)" title="Details für London Reise anzeigen">
-              <div class="node-dot"></div>
-              <div class="node-label-top">LONDON</div>
-              <div class="node-sub-bottom">
-                <span class="node-primary-val">0 Hm</span> · <span class="node-keyword">Erholung</span>
-                <span class="node-extra-info">KW 32 (17.08–23.08)</span>
-              </div>
-            </div>
-
-            <div class="spacex-node node-pos-34 node-y-55" onclick="openPhaseDetailModal(2)" title="Details für Siebengebirge Peak anzeigen">
-              <div class="node-dot"></div>
-              <div class="node-label-top">7GEBIRGE</div>
-              <div class="node-sub-bottom">
-                <span class="node-primary-val">1.100 Hm</span> · <span class="node-keyword">Bergkraft</span>
-                <span class="node-extra-info">KW 33–36 (24.08–20.09)</span>
-              </div>
-            </div>
-
-            <div class="spacex-node node-pos-51 node-y-40" onclick="openPhaseDetailModal(3)" title="Details für Côte d'Opale anzeigen">
-              <div class="node-dot"></div>
-              <div class="node-label-top">CÔTE D’OPALE</div>
-              <div class="node-sub-bottom">
-                <span class="node-primary-val">25 km</span> · <span class="node-keyword">Testlauf</span>
-                <span class="node-extra-info">KW 37–38 (21.09–04.10)</span>
-              </div>
-            </div>
-
-            <div class="spacex-node node-pos-68 node-y-20" onclick="openPhaseDetailModal(4)" title="Details für Probedrachen anzeigen">
-              <div class="node-dot"></div>
-              <div class="node-label-top">PROBEDRACHEN</div>
-              <div class="node-sub-bottom">
-                <span class="node-primary-val">1.250 Hm</span> · <span class="node-keyword">Generalprobe</span>
-                <span class="node-extra-info">KW 39 (05.10–11.10)</span>
-              </div>
-            </div>
-
-            <div class="spacex-node node-pos-84 node-y-32" onclick="openPhaseDetailModal(5)" title="Details für Tapering anzeigen">
-              <div class="node-dot"></div>
-              <div class="node-label-top">TAPERING</div>
-              <div class="node-sub-bottom">
-                <span class="node-primary-val">-40%</span> · <span class="node-keyword">Frische</span>
-                <span class="node-extra-info">KW 40–42 (12.10–01.11)</span>
-              </div>
-            </div>
-
-            <div class="spacex-node target-node summit-node node-pos-100 node-y-10" onclick="openPhaseDetailModal(6)" title="Details für Drachenlauf Gipfelpunkt anzeigen">
-              <div class="node-dot target-dot summit-dot">
-                <svg width="8" height="8" viewBox="0 0 24 24" fill="var(--color-brand-orange)"><path d="M12 2L2 22h20L12 2zm0 4.5l6.5 13.5h-13L12 6.5z"/></svg>
-              </div>
-              <div class="node-label-top highlight-orange summit-label">DRACHENLAUF ⛰</div>
-              <div class="node-sub-bottom highlight-orange summit-sub">
-                <span class="node-primary-val">26 km · 1.250 Hm</span> · <span class="node-keyword">Renntag</span>
-                <span class="node-extra-info">KW 43 (25. Okt)</span>
-              </div>
-            </div>
-          </div>
+          <button class="season-pager-btn" onclick="nextQuarter()" aria-label="Nächstes Quartal" title="Nächstes Quartal">›</button>
         </div>
       </div>
-    </section>
-  </div>
 
-  <!-- MODAL: WORKOUT DETAILS -->
-  <div class="modal-backdrop hidden" id="workoutDetailsModal" onclick="closeModalOnBackdrop(event)">
-    <div class="modal-card modal-card-wide">
-      <div class="modal-header">
-        <div>
-          <span class="modal-subtitle" id="workoutMetaHeader">DIENSTAG, 28.07.2026 // KW 31</span>
-          <h3 id="workoutModalTitle" class="modal-title-primary">Rampen Ddorf</h3>
-        </div>
-        <button class="btn-close" onclick="closeWorkoutDetailsModal()">✕</button>
+      <div class="three-months-grid" id="threeMonthsContainer">
+        <!-- WIRD DYNAMISCH GENERIERT -->
       </div>
-      <div class="modal-body" id="workoutModalBody"></div>
+
+      <div class="quarter-meta-strip" id="quarterMetaStrip">
+        <div class="quarter-key-event" id="quarterKeyEvent">Ziel: 07. März · Belgenbachtrail (30,7 km · 941 Hm)</div>
+      </div>
+
     </div>
+
   </div>
 
-  <!-- MODAL: LONGRUN PROGRESSION TABLE -->
-  <div class="modal-backdrop hidden" id="longrunOverviewModal" onclick="closeModalOnBackdrop(event)">
-    <div class="modal-card modal-card-wide">
-      <div class="modal-header">
-        <div>
-          <h3 class="modal-title-secondary">Longrun Progressionsplan (14 Wochen)</h3>
-          <p class="modal-subtitle">Gezielter Aufbau auf 26 km / 1.250 Hm Drachenlauf</p>
-        </div>
-        <button class="btn-close" onclick="closeLongrunOverviewModal()">✕</button>
-      </div>
-      <div class="modal-body">
-        <div class="table-container">
-          <table class="longrun-table">
-            <thead>
-              <tr>
-                <th>KW</th>
-                <th>Datum & Ort</th>
-                <th>Wochen-Ziele</th>
-                <th>Longrun-Ziel</th>
-                <th>Longrun-Hm</th>
-                <th>Fokus</th>
-              </tr>
-            </thead>
-            <tbody id="longrunTableBody"></tbody>
-          </table>
-        </div>
-      </div>
+  <!-- ==========================================================================
+       OPTION A: APPLE HIG SLIDE-OVER DRAWER (RACE BRIEFING)
+       ========================================================================== -->
+  <!-- LOG SHEET / MODAL (Desktop: macOS Centered Dialog | Mobile: iOS Bottom Sheet) -->
+  <div class="m-backdrop" id="mBackdrop" onclick="closeSheet()"></div>
+  <aside class="m-sheet" id="mSheet" role="dialog" aria-modal="true" aria-label="Einheit loggen">
+    <button class="s-modal-close" onclick="closeSheet()" aria-label="Schließen">✕</button>
+    <div class="m-grab"></div>
+    <div id="sheetBody"></div>
+  </aside>
+
+  <div class="race-drawer-backdrop" id="raceDrawerBackdrop" onclick="closeRaceDrawer()"></div>
+  
+  <aside class="race-drawer" id="raceDrawer" aria-label="Wettkampf-Briefing">
+    <div class="race-drawer-header">
+      <div class="race-drawer-tag" id="drawerTag">WETTKAMPF-BRIEFING</div>
+      <button class="race-drawer-close" onclick="closeRaceDrawer()" aria-label="Schließen">✕</button>
     </div>
-  </div>
 
-  <!-- MODAL: FREITEXT ACTIVITY LOG -->
-  <div class="modal-backdrop hidden" id="textModal" onclick="closeModalOnBackdrop(event)">
-    <div class="modal-card">
-      <div class="modal-header">
-        <div>
-          <h3 class="modal-title-secondary">Aktivität erfassen</h3>
-        </div>
-        <button class="btn-close" onclick="closeTextModal()">✕</button>
-      </div>
-      <div class="modal-body">
-        <div class="form-group form-group-spaced">
-          <label class="form-label-micro">TRAININGSART</label>
-          <select id="confType" class="input-dark input-full">
-            <option value="laufen" selected>Laufen (Standard)</option>
-            <option value="schwimmen">Schwimmen</option>
-            <option value="radfahren">Radfahren</option>
-            <option value="kraft">Kraft / Stabi</option>
-            <option value="ersatz">Anderes Training / Ersatz</option>
-          </select>
-        </div>
-        <div class="form-group form-group-spaced">
-          <label class="form-label-micro">DATUM</label>
-          <input type="date" id="confDate" class="input-dark input-full">
-        </div>
-        <div class="form-grid-2col">
-          <div class="form-group">
-            <label class="form-label-micro">DISTANZ (KM)</label>
-            <input type="number" step="0.1" id="confDist" class="input-dark input-full">
-          </div>
-          <div class="form-group">
-            <label class="form-label-micro">HÖHENMETER (HM)</label>
-            <input type="number" id="confHm" class="input-dark input-full">
-          </div>
-        </div>
-        <div class="form-grid-2col">
-          <div class="form-group">
-            <label class="form-label-micro">DAUER</label>
-            <input type="text" id="confDuration" placeholder="HH:MM:SS oder Mins" class="input-dark input-full">
-          </div>
-          <div class="form-group">
-            <label class="form-label-micro">PULS (BPM)</label>
-            <input type="number" id="confHr" class="input-dark input-full">
-          </div>
-        </div>
-        <div class="form-group form-group-spaced-lg">
-          <label class="form-label-micro">NOTIZEN</label>
-          <textarea id="rawTextInput" placeholder="Details zum Lauf..." class="input-dark textarea-full"></textarea>
-        </div>
-        <div class="modal-actions-right">
-          <button class="btn btn-pill-gray" onclick="closeTextModal()">Abbrechen</button>
-          <button class="btn btn-pill-green" onclick="saveParsedRun()">Speichern</button>
-        </div>
-      </div>
+    <div class="race-drawer-hero">
+      <h2 class="race-drawer-title" id="drawerTitle">—</h2>
+      <div class="race-drawer-subtitle" id="drawerSubtitle">—</div>
+      <div class="race-drawer-target-pill" id="drawerTargetPill">—</div>
+      <a id="drawerOrganizerLink" class="race-drawer-org-btn" target="_blank" rel="noopener noreferrer" style="display:none;">Offizielle Ausschreibung ↗</a>
     </div>
-  </div>
 
-  <!-- MODAL: GARMIN SCREENSHOT OCR LOG (APPLE HIG DESIGN) -->
-    <!-- MODAL: GARMIN SCREENSHOT OCR LOG (APPLE HIG & CLEAN TOKENS) -->
-  <div class="modal-backdrop hidden" id="ocrModal" onclick="closeModalOnBackdrop(event)">
-    <div class="modal-card modal-garmin-hig">
-      <div class="modal-header">
-        <h3 class="modal-title-secondary">Garmin Screenshot Import</h3>
-        <button class="btn-close" onclick="closeScreenshotModal()">✕</button>
-      </div>
-      <div class="modal-body">
-        <div class="ocr-dropzone-hig" id="ocrDropzone" 
-             onclick="document.getElementById('fileOcrInput').click()"
-             ondragover="event.preventDefault(); this.classList.add('drag-over');"
-             ondragleave="this.classList.remove('drag-over');"
-             ondrop="event.preventDefault(); this.classList.remove('drag-over'); if(event.dataTransfer.files.length) handleOcrUpload(event.dataTransfer.files[0]);">
-          <div class="ocr-upload-icon-badge">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--apple-cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="3" width="18" height="18" rx="5" ry="5"/>
-              <circle cx="8.5" cy="8.5" r="1.5"/>
-              <polyline points="21 15 16 10 5 21"/>
-            </svg>
-          </div>
-          <p class="ocr-dropzone-prompt">Klicke hier oder drop Bild hier rein.</p>
-          <button type="button" class="btn btn-ocr-upload-cta">Bild auswählen</button>
-          <input type="file" id="fileOcrInput" class="hidden" accept="image/*" onchange="handleOcrUpload(this.files[0])">
-        </div>
-
-        <div id="ocrPreviewBox" class="ocr-preview hidden">
-          <div class="ocr-status-banner">
-            <span class="ocr-check-icon">✓</span>
-            <span class="ocr-status-title">Garmin Screenshot erkannt</span>
-          </div>
-
-          <div class="form-grid-2col margin-top-md">
-            <div class="form-group">
-              <label class="form-label-micro">TRAININGSART</label>
-              <select id="ocrType" class="input-dark input-full">
-                <option value="laufen">Laufen (Standard)</option>
-                <option value="schwimmen" selected>Schwimmen</option>
-                <option value="radfahren">Radfahren</option>
-                <option value="kraft">Kraft / Stabi</option>
-                <option value="ersatz">Anderes Training / Ersatz</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="form-label-micro">DATUM</label>
-              <input type="date" id="ocrDate" class="input-dark input-full">
-            </div>
-          </div>
-
-          <div class="form-grid-2col margin-top-sm">
-            <div class="form-group">
-              <label class="form-label-micro">DISTANZ (KM / M)</label>
-              <input type="number" step="0.01" id="ocrDist" value="1.15" class="input-dark input-full">
-            </div>
-            <div class="form-group">
-              <label class="form-label-micro">HÖHENMETER (HM)</label>
-              <input type="number" id="ocrHm" value="0" class="input-dark input-full">
-            </div>
-          </div>
-
-          <div class="form-grid-2col margin-top-sm">
-            <div class="form-group">
-              <label class="form-label-micro">ZEIT (HH:MM:SS)</label>
-              <input type="text" id="ocrTime" value="00:25:21" class="input-dark input-full">
-            </div>
-            <div class="form-group">
-              <label class="form-label-micro">PULS (BPM)</label>
-              <input type="number" id="ocrHr" value="108" class="input-dark input-full">
-            </div>
-          </div>
-
-          <button class="btn btn-pill-green btn-full-width margin-top-lg" onclick="saveOcrRun()">
-            Import Bestätigen
-          </button>
-        </div>
-      </div>
+    <div class="race-drawer-content" id="drawerContent">
+      <!-- WIRD DYNAMISCH BEFÜLLT -->
     </div>
-  </div>
+  </aside>
 
-  <!-- MODAL: PHASE DETAIL OVERLAY (EXPEDITION ROUTE) -->
-  <div class="modal-backdrop hidden" id="phaseDetailModal" onclick="closeModalOnBackdrop(event)">
-    <div class="modal-card modal-card-wide">
-      <div class="modal-header">
-        <div>
-          <span class="phase-badge-pill" id="pdmBadge">PHASE 1</span>
-          <h3 class="modal-title-secondary" id="pdmTitle">Basis Erkrath</h3>
-        </div>
-        <button class="btn-close" onclick="closePhaseDetailModal()">✕</button>
-      </div>
-      <div class="modal-body">
-        <div class="pdm-status-row margin-bottom-sm">
-          <span class="pdm-status-tag" id="pdmStatusTag">⚡ Aktuell (Du bist hier)</span>
-          <span class="pdm-dates-str" id="pdmDatesStr">KW 30–31 (20.07 – 16.08)</span>
-        </div>
-        <div class="pdm-goal-card margin-bottom-md">
-          <div class="pdm-label-micro">HAUPTZIEL DER ETAPPE</div>
-          <div class="pdm-goal-text" id="pdmGoalText">Grundlage aufbauen & Ausdauer festigen (Longruns bis 450 Hm in Erkrath).</div>
-        </div>
-        <div class="pdm-details-grid">
-          <div class="pdm-info-card">
-            <div class="pdm-label-micro">SCHLÜSSELEINHEITEN & HM</div>
-            <div class="pdm-val-text" id="pdmWorkoutsText">Longruns 12–14 km, Rampenläufe in Erkrath, 480 Hm Gesamtanstieg per Woche.</div>
-          </div>
-          <div class="pdm-info-card">
-            <div class="pdm-label-micro">VERPFLEGUNG & SCHUTZ</div>
-            <div class="pdm-val-text" id="pdmNotesText">500ml Softflasks, Marzipan & Feigen bei Longruns (>15 km). Sonnenspray verwenden.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-  <!-- FULLSCREEN AUTH GATE MODAL (APPLE HIG DESIGN STANDARD) -->
+  <!-- ==========================================================================
+       FULLSCREEN AUTH GATE MODAL (APPLE HIG DESIGN STANDARD)
+       ========================================================================== -->
   <div class="auth-gate-backdrop" id="authGateModal">
     <div class="auth-gate-card">
       <div class="auth-gate-badge">
@@ -462,7 +1599,7 @@
           <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
         </svg>
       </div>
-      <span class="auth-gate-micro">DRACHENLAUF 2026</span>
+      <span class="auth-gate-micro">TRAILRUNNING COACH</span>
       <h2 class="auth-gate-title">Geschützter Bereich</h2>
       <p class="auth-gate-sub">Was riss Hermännsche am Strand von Charita?</p>
 
@@ -471,7 +1608,7 @@
           <input type="password" id="authPasswordInput" class="auth-input-hig" autofocus required autocapitalize="none" autocorrect="off" autocomplete="off" placeholder="">
         </div>
         <div id="authGateError" class="auth-error-msg hidden">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-brand-red)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--apple-red)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
             <line x1="12" y1="9" x2="12" y2="13"/>
             <line x1="12" y1="17" x2="12.01" y2="17"/>
@@ -486,7 +1623,1269 @@
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
-  <script src="app.js?v=9.63"></script>
+  <script>
+    // Tab-Umschalter Training vs. Saison 2027
+    function switchMasterTab(tabId) {
+      document.querySelectorAll('.master-segment-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.view-panel').forEach(panel => panel.classList.remove('active'));
+
+      document.body.classList.toggle('season-active', tabId !== 'training');
+      if (tabId === 'training') {
+        document.querySelectorAll('.master-segment-btn')[0].classList.add('active');
+        document.getElementById('tab-training').classList.add('active');
+      } else {
+        document.querySelectorAll('.master-segment-btn')[1].classList.add('active');
+        document.getElementById('tab-season').classList.add('active');
+      }
+    }
+
+    // Quartals-Daten für den 3-Monats-Kalender (Reine 4 Jahreszeiten der Saison 2027)
+    const quartersData = {
+      0: {
+        heading: 'Winter',
+        range: 'Jan – März 2027',
+        keyEvent: 'Ziel: 07. März · Belgenbachtrail (30,7 km · 941 Hm)',
+        months: [
+          { name: 'Januar', mIdx: 0, days: 31, startOffset: 4 },
+          { name: 'Februar', mIdx: 1, days: 28, startOffset: 0 },
+          { name: 'März', mIdx: 2, days: 31, startOffset: 0 }
+        ]
+      },
+      1: {
+        heading: 'Frühling',
+        range: 'Apr – Juni 2027',
+        keyEvent: 'Ziel: 12. Juni · Tschirgant Sky Run TS16 (16,9 km · ~850 Hm)',
+        months: [
+          { name: 'April', mIdx: 3, days: 30, startOffset: 3 },
+          { name: 'Mai', mIdx: 4, days: 31, startOffset: 5 },
+          { name: 'Juni', mIdx: 5, days: 30, startOffset: 1 }
+        ]
+      },
+      2: {
+        heading: 'Sommer',
+        range: 'Juli – Sept 2027',
+        keyEvent: 'Vielleicht gibt es noch Laufoptionen hier',
+        months: [
+          { name: 'Juli', mIdx: 6, days: 31, startOffset: 3 },
+          { name: 'August', mIdx: 7, days: 31, startOffset: 6 },
+          { name: 'September', mIdx: 8, days: 30, startOffset: 2 }
+        ]
+      },
+      3: {
+        heading: 'Herbst',
+        range: 'Okt – Dez 2027',
+        keyEvent: 'Ziel: 24. Oktober · Drachenlauf (26,0 km · 1.250 Hm)',
+        months: [
+          { name: 'Oktober', mIdx: 9, days: 31, startOffset: 4 },
+          { name: 'November', mIdx: 10, days: 30, startOffset: 0 },
+          { name: 'Dezember', mIdx: 11, days: 31, startOffset: 2 }
+        ]
+      }
+    };
+
+    function getPhase(mIdx, d) {
+      if (mIdx === 1026) { // Nov 2026
+        if (d === 8) return 'race'; // Martinslauf 10k Hauptlauf
+        if (d < 8) return 'build'; // Rennwoche Tapering
+        if (d > 8 && d <= 15) return 'rekom'; // Post-Race Woche
+        return 'build'; // HM-Vorbereitung ab 16. Nov
+      }
+      if (mIdx === 1126) { // Dez 2026
+        if (d < 6) return 'build';
+        if (d === 6) return 'race'; // Siebengebirgs-HM 21,4k
+        if (d > 6 && d <= 20) return 'rekom'; // 2 Wochen Erholung
+        return '';
+      }
+      if (mIdx === 0) { // Jan
+        if (d >= 6) return 'build';
+        return '';
+      }
+      if (mIdx === 1) { // Feb
+        return 'build';
+      }
+      if (mIdx === 2) { // Mär
+        if (d < 7) return 'build';
+        if (d === 7) return 'race'; // Belgenbach 30k
+        if (d > 7 && d <= 21) return 'rekom';
+        return '';
+      }
+      if (mIdx === 4) { // Mai
+        if (d >= 15) return 'build';
+        return '';
+      }
+      if (mIdx === 5) { // Jun
+        if (d < 12) return 'build'; // Zuspitzung auf TS16
+        if (d === 12) return 'race'; // Tschirgant Sky Run TS16
+        if (d > 12 && d <= 26) return 'rekom'; // 2 Wochen Erholung nach TS16
+        return '';
+      }
+      if (mIdx === 6) { // Jul
+        if (d === 3) return 'option'; // Option 03.07.2027
+        return '';
+      }
+      if (mIdx === 8) { // Sep
+        if (d === 5 || d === 11) return 'option'; // Option 05. & 11.09.2027
+        return '';
+      }
+      if (mIdx === 9) { // Okt
+        if (d === 24) return 'race'; // Drachenlauf
+        if (d < 24) return 'build';
+        return 'rekom';
+      }
+      if (mIdx === 10) { // Nov 2027
+        if (d === 7) return 'option'; // Option 07.11.2027
+        return '';
+      }
+      if (mIdx === 11) { // Dez
+        if (d === 5) return 'option'; // Option 05.12.2027
+        return '';
+      }
+      return '';
+    }
+
+    let currentQuarterNum = 0; // Standard: Winter 2027
+    const TOTAL_QUARTERS = 4;
+
+    function switchQuarter(qNum) {
+      if (qNum < 0) qNum = TOTAL_QUARTERS - 1;
+      if (qNum >= TOTAL_QUARTERS) qNum = 0;
+      currentQuarterNum = qNum;
+
+      const q = quartersData[qNum];
+      if (!q) return;
+
+      const titleEl = document.getElementById('seasonPagerTitle');
+      const rangeEl = document.getElementById('seasonPagerRange');
+      if (titleEl) titleEl.innerText = q.heading;
+      if (rangeEl) rangeEl.innerText = q.range || '';
+
+      const keyEl = document.getElementById('quarterKeyEvent');
+      if (keyEl) keyEl.innerText = q.keyEvent;
+
+      renderMonths(q.months);
+    }
+
+    function prevQuarter() {
+      switchQuarter(currentQuarterNum - 1);
+    }
+
+    function nextQuarter() {
+      switchQuarter(currentQuarterNum + 1);
+    }
+
+    // Tastatur-Navigation (Links / Rechts im Saison-Kalender)
+    document.addEventListener('keydown', (e) => {
+      if (document.body.classList.contains('season-active')) {
+        if (e.key === 'ArrowLeft') prevQuarter();
+        else if (e.key === 'ArrowRight') nextQuarter();
+      }
+    });
+
+    function renderMonths(months) {
+      const container = document.getElementById('threeMonthsContainer');
+      let html = '';
+
+      months.forEach(m => {
+        html += `
+          <div class="month-block">
+            <div class="month-header">
+              <span class="month-title">${m.name}</span>
+            </div>
+
+            <div class="calendar-matrix">
+        `;
+
+        let currentDay = 1;
+        let weekRow = 0;
+
+        while (currentDay <= m.days) {
+          html += `<div class="week-row">`;
+
+          for (let col = 0; col < 7; col++) {
+            if (weekRow === 0 && col < m.startOffset) {
+              html += `<div class="cal-cell empty"></div>`;
+            } else if (currentDay <= m.days) {
+              const d = currentDay;
+              const isSun = (col === 6);
+              const phase = getPhase(m.mIdx, d);
+              const prevPhase = (d > 1) ? getPhase(m.mIdx, d - 1) : '';
+              const nextPhase = (d < m.days) ? getPhase(m.mIdx, d + 1) : '';
+
+              let barClass = isSun ? 'is-sunday ' : '';
+              let isInteractive = false;
+
+              if (phase === 'build') {
+                barClass += 'phase-build';
+                isInteractive = true;
+                if (col === 0 || prevPhase !== 'build') barClass += ' bar-start';
+                if (col === 6 || nextPhase !== 'build' || d === m.days) barClass += ' bar-end';
+              } else if (phase === 'rekom') {
+                barClass += 'phase-rekom';
+                isInteractive = true;
+                if (col === 0 || prevPhase !== 'rekom') barClass += ' bar-start';
+                if (col === 6 || nextPhase !== 'rekom' || d === m.days) barClass += ' bar-end';
+              } else if (phase === 'vacation') {
+                barClass += 'phase-vacation';
+                isInteractive = true;
+                if (col === 0 || prevPhase !== 'vacation') barClass += ' bar-start';
+                if (col === 6 || nextPhase !== 'vacation' || d === m.days) barClass += ' bar-end';
+              } else if (phase === 'race') {
+                barClass += 'phase-race';
+                isInteractive = true;
+              } else if (phase === 'option') {
+                barClass += 'phase-option';
+                isInteractive = true;
+              } else {
+                barClass += 'neutral-day';
+              }
+
+              if (isInteractive) {
+                barClass += ' is-interactive';
+                html += `<div class="cal-cell ${barClass}" onclick="onPhaseClick(${m.mIdx}, ${d}, '${phase}', event)">${d}</div>`;
+              } else {
+                html += `<div class="cal-cell ${barClass}">${d}</div>`;
+              }
+              currentDay++;
+            } else {
+              html += `<div class="cal-cell empty"></div>`;
+            }
+          }
+
+          html += `</div>`;
+          weekRow++;
+        }
+
+        html += `
+            </div>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+    }
+
+    // Interaktive Erklärungen bei Klick auf Phasen-Balken & Renntage (Keine Sublines, keine Tagesdetails)
+    function onPhaseClick(mIdx, day, phase, event) {
+      document.querySelectorAll('.cal-cell').forEach(c => c.classList.remove('is-selected'));
+      if (event && event.currentTarget) {
+        event.currentTarget.classList.add('is-selected');
+      }
+
+      const keyEl = document.getElementById('quarterKeyEvent');
+
+      // 1. GESETZTE WETTKÄMPFE (ORANGE)
+      if (mIdx === 1026 && day === 8) {
+        keyEl.innerHTML = '08. November 2026 · 48. SFD Martinslauf 10k (Unterbacher See Düsseldorf · Sub 58 min) · <a href="https://www.sfd.de/martinslauf/" target="_blank" rel="noopener noreferrer" class="option-reg-link">Infos ↗</a>';
+        openRaceDrawer('martinslauf');
+        return;
+      }
+      if (mIdx === 1126 && day === 6) {
+        keyEl.innerHTML = '06. Dezember 2026 · Siebengebirgs-HM (21,4 km · 360 Hm)';
+        openRaceDrawer('7ghm');
+        return;
+      }
+      if (mIdx === 2 && day === 7) {
+        keyEl.innerHTML = '07. März 2027 · Belgenbachtrail (30,7 km · 941 Hm)';
+        openRaceDrawer('belgenbach');
+        return;
+      }
+      if (mIdx === 5 && day === 12) {
+        keyEl.innerHTML = '12. Juni 2027 · Tschirgant Sky Run TS16 (16,9 km · ~850 Hm)';
+        openRaceDrawer('ts16');
+        return;
+      }
+      if (mIdx === 9 && day === 24) {
+        keyEl.innerHTML = '24. Oktober 2027 · Drachenlauf (26,0 km · 1.250 Hm)';
+        openRaceDrawer('drachenlauf');
+        return;
+      }
+
+      // 2. OPTIONALE LÄUFE (LILA GESTRICHELT MIT KLICKBAREN ANMELDELINKS)
+      if (mIdx === 6 && day === 3) {
+        keyEl.innerHTML = 'Option: 03. Juli 2027 · Primiero Dolomiti Marathon (26 km · 1.200 Hm Downhill) · <a href="https://primierodolomitimarathon.it/en/entry/" target="_blank" rel="noopener noreferrer" class="option-reg-link">Zur Anmeldung / Infos ↗</a>';
+        return;
+      }
+      if (mIdx === 8 && day === 5) {
+        keyEl.innerHTML = 'Option: 05. September 2027 · Trail Côte d’Opale (24 km · 350 Hm) · <a href="https://www.trailcotedopale.com/" target="_blank" rel="noopener noreferrer" class="option-reg-link">Zur Anmeldung / Infos ↗</a>';
+        return;
+      }
+      if (mIdx === 8 && day === 11) {
+        keyEl.innerHTML = 'Option: 11. September 2027 · Ultra Trail Müllerthal (21 km · ~600 Hm) · <a href="https://www.utml.lu/" target="_blank" rel="noopener noreferrer" class="option-reg-link">Zur Anmeldung / Infos ↗</a>';
+        return;
+      }
+      if (mIdx === 10 && day === 7) {
+        keyEl.innerHTML = 'Option: 07. November 2027 · Martinslauf U-See (5,8 km Seerunde / Unterbacher See) · <a href="https://www.sfd.de/martinslauf/" target="_blank" rel="noopener noreferrer" class="option-reg-link">Zur Anmeldung / Infos ↗</a>';
+        return;
+      }
+      if (mIdx === 11 && day === 5) {
+        keyEl.innerHTML = 'Option: 05. Dezember 2027 · Siebengebirgs-HM (21,4 km · 360 Hm) · <a href="https://siebengebirgsmarathon.net/" target="_blank" rel="noopener noreferrer" class="option-reg-link">Zur Anmeldung / Infos ↗</a>';
+        return;
+      }
+      if (phase === 'option') {
+        keyEl.innerHTML = 'Vielleicht gibt es noch Laufoptionen hier';
+        return;
+      }
+
+      // 3. PHASE-BLÖCKE (KONKRET ZUGESCHNITTEN AUF DEN JEWEILIGEN ZIELWETTKAMPF)
+      if (phase === 'build') {
+        if (mIdx === 1026) {
+          keyEl.innerHTML = (day < 8) 
+            ? 'Zuspitzung & Tapering · Martinslauf 10k' 
+            : 'Spezifischer Aufbau · Siebengebirgs-HM (21,4 km · 360 Hm)';
+          return;
+        }
+        if (mIdx === 1126) {
+          keyEl.innerHTML = 'Tapering & Feinschliff · Siebengebirgs-HM (06. Dez)';
+          return;
+        }
+        if (mIdx === 0 || mIdx === 1 || mIdx === 2) {
+          keyEl.innerHTML = 'Spezifischer 9-Wochen-Aufbau · Belgenbachtrail (30,7 km · 941 Hm)';
+          return;
+        }
+        if (mIdx === 4 || (mIdx === 5 && day < 12)) {
+          keyEl.innerHTML = 'Spezifischer Bergaufbau · Tschirgant Sky Run TS16 (~850 Hm)';
+          return;
+        }
+        if (mIdx === 9) {
+          keyEl.innerHTML = 'Finaler Peak-Aufbau · Drachenlauf (26,0 km · 1.250 Hm)';
+          return;
+        }
+        keyEl.innerHTML = 'Spezifischer Trainings- & Aufbau-Block';
+        return;
+      }
+      if (phase === 'rekom') {
+        if (mIdx === 1026) {
+          keyEl.innerHTML = 'Post-Race Erholung · Nach Martinslauf 10k';
+          return;
+        }
+        if (mIdx === 1126) {
+          keyEl.innerHTML = 'Saisonpause & Jahresausklang · Nach Siebengebirgs-HM';
+          return;
+        }
+        if (mIdx === 2) {
+          keyEl.innerHTML = '2 Wochen Regeneration & Übergangsphase · Nach Belgenbachtrail';
+          return;
+        }
+        if (mIdx === 5) {
+          keyEl.innerHTML = 'Erholung & Regeneration · Nach Tschirgant Sky Run TS16';
+          return;
+        }
+        if (mIdx === 9) {
+          keyEl.innerHTML = 'Große Saison-Regeneration · Nach Drachenlauf';
+          return;
+        }
+        keyEl.innerHTML = 'Regenerationsphase (Tapering / Erholung)';
+        return;
+      }
+    }
+
+    // Umschalter zwischen 14-Tage Fokus und 6-Wochen-Fahrplan im Training Tab
+    function switchTrainingMode(mode) {
+      const btn14 = document.getElementById('btnMode14');
+      const btn6W = document.getElementById('btnMode6W');
+      const view14 = document.getElementById('view14Days');
+      const view6W = document.getElementById('view6Weeks');
+
+      if (mode === '14days') {
+        btn14.classList.add('active');
+        btn6W.classList.remove('active');
+        view14.style.display = 'block';
+        view6W.style.display = 'none';
+      } else {
+        btn14.classList.remove('active');
+        btn6W.classList.add('active');
+        view14.style.display = 'none';
+        view6W.style.display = 'block';
+      }
+    }
+
+    // ==========================================================================
+    // OPTION A: RACE BRIEFING SPECIFICATIONS (APPLE HIG SLIDE-OVER DRAWER)
+    // ==========================================================================
+    const raceBriefings = {
+      martinslauf: {
+        tag: 'WETTKAMPF-BRIEFING · 10 KM',
+        title: "48. SFD '75 Martinslauf",
+        subtitle: 'Sonntag, 08. November 2026 · Düsseldorf, Unterbacher See',
+        targetPill: 'SUB 58:00 · 5:48 min/km · Start 11:45 Uhr',
+        organizerUrl: 'https://www.sfd.de/martinslauf/',
+        organizerLabel: 'Offizielle Ausschreibung & Infos ↗',
+        sections: [
+          {
+            title: 'Strecke & Logistik',
+            type: 'logistics',
+            items: [
+              { label: 'Strecke & Höhenmeter', val: '10,0 km · flach · ca. 10 Hm' },
+              { label: 'Start', val: 'Strandbad Süd, Unterbacher See' },
+              { label: 'Adresse', val: 'Am Kleinforst 275, Düsseldorf' }
+            ]
+          },
+          {
+            title: 'Pacing & Herzfrequenz',
+            type: 'pacing',
+            columns: ['Abschnitt', 'Pace', 'Herzfrequenz'],
+            steps: [
+              { km: 'KM 0–3', speed: '5:50–5:55', hr: '< 118 bpm' },
+              { km: 'KM 3–7', speed: 'ca. 5:45', hr: '120–125 bpm' },
+              { km: 'KM 7–10', speed: 'nach Gefühl steigern', hr: 'Endbeschleunigung' }
+            ],
+            strategy: 'Rennstrategie: Kontrolliert anlaufen, Rhythmus finden, ab KM 7 beschleunigen.'
+          },
+          {
+            title: 'Strecke & Verpflegung',
+            type: 'text',
+            text: 'Flache Natur- und Parkwege rund um den Unterbacher See. Auf offenen Wasserpassagen kann Wind zum Faktor werden. Keine Eigenverpflegung nötig.<br><br><b>Zielverpflegung:</b> Weckmann.'
+          },
+          {
+            title: 'Offizielle Ausschreibung & Infos',
+            type: 'text',
+            text: '<a href="https://www.sfd.de/martinslauf/" target="_blank" rel="noopener noreferrer" style="color:var(--apple-orange); font-weight:800; text-decoration:none; display:inline-flex; align-items:center; gap:0.35rem;">Offizielle Ausschreibung & Infos ↗</a>'
+          }
+        ]
+      },
+      '7ghm': {
+        tag: 'WETTKAMPF-BRIEFING · 21,4 KM',
+        title: 'Siebengebirgs-Halbmarathon',
+        subtitle: 'Sonntag, 06. Dezember 2026 · Aegidienberg',
+        targetPill: 'Zielzeit Sub 2:20 h · 360 Hm',
+        organizerUrl: 'https://siebengebirgsmarathon.net/',
+        organizerLabel: 'Offizielle Ausschreibung · siebengebirgsmarathon.net ↗',
+        sections: [
+          {
+            title: 'Eckdaten & Logistik',
+            type: 'grid',
+            items: [
+              { label: 'Startzeit', val: '10:00 Uhr' },
+              { label: 'Startort', val: 'Bürgerhaus Aegidienberg' },
+              { label: 'Höhenmeter', val: '+360 Hm Trail/Wald' },
+              { label: 'Boden', val: 'Waldwege & Schotter' }
+            ]
+          },
+          {
+            title: 'Pacing- & HF-Strategie',
+            type: 'pacing',
+            steps: [
+              { km: 'Anstiege (> 8%)', speed: 'Powertrip / Gehschritt', hr: 'Pulsdeckel < 128 bpm' },
+              { km: 'Flachpassagen', speed: '5:55–6:05 min/km', hr: '112–118 bpm GA1' },
+              { km: 'Downhills', speed: 'Schrittfrequenz hoch', hr: 'Exzentrisch abfangen' }
+            ]
+          },
+          {
+            title: 'Verpflegung',
+            type: 'text',
+            text: '1x 500ml Flask mit Malto am Gürtel/Weste. 1 Gel bei KM 12 vor dem zweiten längeren Anstieg. Verpflegungsstellen im Wald anlaufen.'
+          },
+          {
+            title: 'Ausrüstung',
+            type: 'text',
+            text: 'Trailrunningschuhe mit aggressivem Profil für feuchten Winter-Waldboden. Windbreaker & Mütze.'
+          }
+        ]
+      },
+      belgenbach: {
+        tag: 'WETTKAMPF-BRIEFING · 30,7 KM',
+        title: 'Belgenbachtrail',
+        subtitle: 'Sonntag, 07. März 2027 · Monschau / Eifel',
+        targetPill: 'Zielzeit ~3:45 h · 941 Hm',
+        organizerUrl: 'https://belgenbachtrail.de/',
+        organizerLabel: 'Offizielle Ausschreibung · belgenbachtrail.de ↗',
+        sections: [
+          {
+            title: 'Eckdaten & Logistik',
+            type: 'grid',
+            items: [
+              { label: 'Startzeit', val: '09:30 Uhr' },
+              { label: 'Startort', val: 'Monschau-Konzen' },
+              { label: 'Distanz / Hm', val: '30,7 km · 941 Hm' },
+              { label: 'Profil', val: 'Anspruchsvoller Eifeltrail' }
+            ]
+          },
+          {
+            title: 'Pacing- & Rennstrategie',
+            type: 'text',
+            text: 'Reiner Kraftausdauer-Lauf. Anstiege strikt im schnellen Gehschritt (Puls unter 122 bpm halten). Keine frühen Tempoverführungen im Belgenbachtal.'
+          },
+          {
+            title: 'Verpflegung & Pflichtausrüstung',
+            type: 'text',
+            text: 'Trailweste mit 2x 500ml Flasks, 3–4 Gels / Riegel, Rettungsdecke und Notfall-Windjacke.'
+          }
+        ]
+      },
+      ts16: {
+        tag: 'WETTKAMPF-BRIEFING · 16,9 KM',
+        title: 'Tschirgant Sky Run TS16',
+        subtitle: 'Samstag, 12. Juni 2027 · Imst / Tirol',
+        targetPill: 'Alpiner Skyrun · ~850 Hm',
+        organizerUrl: 'https://www.tschirgant-skyrun.at/',
+        organizerLabel: 'Offizielle Ausschreibung · tschirgant-skyrun.at ↗',
+        sections: [
+          {
+            title: 'Eckdaten',
+            type: 'grid',
+            items: [
+              { label: 'Startort', val: 'Imst / Tirol' },
+              { label: 'Profil', val: 'Alpine Steige & Bergpfade' },
+              { label: 'Höhenmeter', val: '~850 Hm Aufstieg' },
+              { label: 'Charakter', val: 'Skyrunning' }
+            ]
+          },
+          {
+            title: 'Rennstrategie',
+            type: 'text',
+            text: 'Hohe alpine Konzentration. Stockeinsatz an steilen Rampen, Trittsicherheit auf Geröll und Wurzelpassagen.'
+          }
+        ]
+      },
+      drachenlauf: {
+        tag: 'WETTKAMPF-BRIEFING · 26,0 KM',
+        title: 'Drachenlauf Siebengebirge',
+        subtitle: 'Sonntag, 24. Oktober 2027 · Königswinter',
+        targetPill: 'Saison-Hauptziel · 1.250 Hm · 7 Berge',
+        organizerUrl: 'https://www.drachenlauf.net/',
+        organizerLabel: 'Offizielle Ausschreibung · drachenlauf.net ↗',
+        sections: [
+          {
+            title: 'Eckdaten',
+            type: 'grid',
+            items: [
+              { label: 'Startort', val: 'Thomasberg' },
+              { label: 'Distanz', val: '26,0 km' },
+              { label: 'Höhenmeter', val: '1.250 Hm' },
+              { label: 'Gipfel', val: '7 Siebengebirgs-Gipfel' }
+            ]
+          },
+          {
+            title: 'Pacing-Strategie',
+            type: 'text',
+            text: 'Der Jahreshöhepunkt. Exakte Einteilung nach der 7-Berge-Matrix. Erst ab dem Petersberg (Berg 5) Reserven mobilisieren.'
+          }
+        ]
+      }
+    };
+
+    function openRaceDrawer(raceKey) {
+      const b = raceBriefings[raceKey];
+      if (!b) return;
+
+      document.getElementById('drawerTag').innerText = b.tag || 'WETTKAMPF-BRIEFING';
+      document.getElementById('drawerTitle').innerText = b.title || '';
+      document.getElementById('drawerSubtitle').innerText = b.subtitle || '';
+      document.getElementById('drawerTargetPill').innerText = b.targetPill || '';
+
+      const orgLinkEl = document.getElementById('drawerOrganizerLink');
+      if (orgLinkEl) {
+        if (b.organizerUrl) {
+          orgLinkEl.href = b.organizerUrl;
+          orgLinkEl.innerText = b.organizerLabel || 'Offizielle Ausschreibung & Infos ↗';
+          orgLinkEl.style.display = 'inline-flex';
+        } else {
+          orgLinkEl.style.display = 'none';
+        }
+      }
+
+      let contentHtml = '';
+      if (b.sections) {
+        b.sections.forEach(sec => {
+          contentHtml += `<div class="race-section">`;
+          contentHtml += `<div class="race-section-title">${sec.title}</div>`;
+
+          if (sec.type === 'grid' && sec.items) {
+            contentHtml += `<div class="race-info-grid">`;
+            sec.items.forEach(it => {
+              contentHtml += `
+                <div class="race-info-item">
+                  <span class="race-info-label">${it.label}</span>
+                  <span class="race-info-val">${it.val}</span>
+                </div>
+              `;
+            });
+            contentHtml += `</div>`;
+          } else if (sec.type === 'logistics' && sec.items) {
+            contentHtml += `<div class="race-logistics-list">`;
+            sec.items.forEach(it => {
+              contentHtml += `
+                <div class="race-logistics-row">
+                  <span class="race-logistics-lbl">${it.label}</span>
+                  <span class="race-logistics-val">${it.val}</span>
+                </div>
+              `;
+            });
+            contentHtml += `</div>`;
+          } else if (sec.type === 'pacing' && sec.steps) {
+            contentHtml += `
+              <table class="pacing-table">
+                <thead>
+                  <tr>
+                    <th>${sec.columns ? sec.columns[0] : 'Abschnitt'}</th>
+                    <th>${sec.columns ? sec.columns[1] : 'Pace'}</th>
+                    <th>${sec.columns ? sec.columns[2] : 'Herzfrequenz'}</th>
+                  </tr>
+                </thead>
+                <tbody>
+            `;
+            sec.steps.forEach(st => {
+              contentHtml += `
+                <tr>
+                  <td class="pacing-km">${st.km}</td>
+                  <td class="pacing-speed">${st.speed}</td>
+                  <td class="pacing-hr">${st.hr}</td>
+                </tr>
+              `;
+            });
+            contentHtml += `</tbody></table>`;
+            if (sec.strategy) {
+              contentHtml += `<div class="pacing-note"><b>Rennstrategie:</b> ${sec.strategy.replace(/^Rennstrategie:\s*/, '')}</div>`;
+            }
+          } else if (sec.type === 'text') {
+            contentHtml += `<div class="race-note-text">${sec.text}</div>`;
+          }
+
+          contentHtml += `</div>`;
+        });
+      }
+
+      document.getElementById('drawerContent').innerHTML = contentHtml;
+
+      document.getElementById('raceDrawer').classList.add('open');
+      document.getElementById('raceDrawerBackdrop').classList.add('open');
+    }
+
+    function closeRaceDrawer() {
+      const drawer = document.getElementById('raceDrawer');
+      const backdrop = document.getElementById('raceDrawerBackdrop');
+      if (drawer) drawer.classList.remove('open');
+      if (backdrop) backdrop.classList.remove('open');
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeRaceDrawer();
+        closeSheet();
+      }
+    });
+
+    // Wochenplan-Daten (Single Stage: KW 45 bis KW 50)
+    const weeksData = {
+      45: {
+        title: 'Diese Woche KW 45 • Martinslauf U-See',
+        dates: '02. – 08. November 2026',
+        benchmark: 'SUB 58:00 · 5:48 min/km · Start 11:45 Uhr',
+        benchmarkType: 'race',
+        summary: 'Frische für den 48. Martinslauf am Sonntag sichern. 10 km am Unterbacher See, Start 11:45 Uhr. Pacing: 5:50 ➔ 5:45 ➔ 5:35 min/km.\n\nSamstag, 07. November: Ruhetag & Pre-Race-Carboload.',
+        days: [
+          { d: 'MON 02.11', val: '—', tag: '', sub: 'Regeneration' },
+          { d: 'DIE 03.11', val: '5.5', unit: 'KM', tag: 'Locker GA1', sub: '< 118 bpm · 3 Antritte', isToday: true },
+          { d: 'MIT 04.11', val: '—', tag: '', sub: 'Passiv schonen' },
+          { d: 'DON 05.11', val: '4.0', unit: 'KM', tag: 'Aktivierung', sub: '< 115 bpm · Flach' },
+          { d: 'FRE 06.11', val: '—', tag: '', sub: 'Kein Krafttraining' },
+          { d: 'SAM 07.11', val: '—', tag: 'Pre-Race', tagColor: 'var(--apple-orange)', sub: 'Carboload & Ruhe' },
+          { d: 'SON 08.11', val: '10.0', unit: 'KM', tag: 'Martinslauf', sub: 'SUB 58:00 · Start 11:45 Uhr', isRace: true, main: true, raceKey: 'martinslauf' }
+        ]
+      },
+      46: {
+        title: 'KW 46 • Post-Race Erholung & Wander-Wochenende',
+        dates: '09. – 15. November 2026',
+        benchmark: '14,0 km Lauf + Wandern',
+        benchmarkType: 'blue',
+        summary: 'Fokus: Laktat abbauen nach dem 10er. Dienstag 6k Rekom, Donnerstag 8k locker. Am Wochenende verreist beim Wandern: Schonende aerobe Basiseinheit (kein Longrun Erkrath).',
+        days: [
+          { d: 'MON 09.11', val: '—', tag: 'Ruhe', sub: 'Post-Race Pause' },
+          { d: 'DIE 10.11', val: '6.0', unit: 'KM', tag: 'Rekom GA1', sub: '< 112 bpm flach' },
+          { d: 'MIT 11.11', val: '—', tag: 'Ruhe', sub: 'Passiv schonen' },
+          { d: 'DON 12.11', val: '8.0', unit: 'KM', tag: 'Locker GA1', sub: '112–116 bpm' },
+          { d: 'FRE 13.11', val: 'STUDIO', tag: 'Rumpf & Stabi', sub: 'Beine schonen', isStudio: true },
+          { d: 'SAM 14.11', val: 'WANDERN', tag: 'Wandertour', sub: 'Verreist · Aerobe Basis', isHike: true },
+          { d: 'SON 15.11', val: 'WANDERN', tag: 'Wandertour', sub: 'Verreist · Aktive Erholung', isHike: true }
+        ]
+      },
+      47: {
+        title: 'KW 47 • Spezifischer HM-Aufbau I',
+        dates: '16. – 22. November 2026',
+        benchmark: '34,0 km · 16k Erkrath (+350 Hm)',
+        benchmarkType: 'blue',
+        summary: 'Fokus: Umfangserweiterung auf 34 km. Dienstag 8k mit leichten Hügeln, Samstag Ausbau des Longruns auf 16 km.',
+        days: [
+          { d: 'MON 16.11', val: '—', tag: 'Ruhe', sub: 'Regeneration' },
+          { d: 'DIE 17.11', val: '8.0', unit: 'KM', tag: 'Hügel-GA1', sub: '115–118 bpm (+80 Hm)' },
+          { d: 'MIT 18.11', val: '—', tag: 'Ruhe', sub: 'Passiv' },
+          { d: 'DON 19.11', val: '10.0', unit: 'KM', tag: 'Grundlage', sub: 'Flach am Rhein · GA1' },
+          { d: 'FRE 20.11', val: 'STUDIO', tag: 'Stabi & Beine', sub: 'Moderate Kraft', isStudio: true },
+          { d: 'SAM 21.11', val: '16.0', unit: 'KM', tag: 'Longrun Erkrath', sub: '350 Hm · 112–118 bpm', isLongrun: true },
+          { d: 'SON 22.11', val: '—', tag: 'Ruhetag', sub: 'Volle Erholung' }
+        ]
+      },
+      48: {
+        title: 'KW 48 • HM-Peak Belastungswoche',
+        dates: '23. – 29. November 2026',
+        benchmark: '38,0 km · Key 18k Siebengebirge',
+        benchmarkType: 'orange',
+        summary: 'Fokus: Schlüsselwoche vor dem Siebengebirgs-HM. Samstag 18 km Longrun direkt im Siebengebirge als Strecken- und Höhenmetertest (+500 Hm).',
+        days: [
+          { d: 'MON 23.11', val: '—', tag: 'Ruhe', sub: 'Regeneration' },
+          { d: 'DIE 24.11', val: '8.0', unit: 'KM', tag: 'Tempo-GA2', sub: '3k im HM-Renntempo' },
+          { d: 'MIT 25.11', val: '—', tag: 'Ruhe', sub: 'Passiv' },
+          { d: 'DON 26.11', val: '10.0', unit: 'KM', tag: 'Locker GA1', sub: '112–115 bpm' },
+          { d: 'FRE 27.11', val: '—', tag: 'Ruhe', sub: 'Kein Studio vor Key' },
+          { d: 'SAM 28.11', val: '18.0', unit: 'KM', tag: 'Key Longrun', sub: 'Siebengebirge (+500 Hm)', isLongrun: true, isHighlight: true },
+          { d: 'SON 29.11', val: '—', tag: 'Ruhetag', sub: 'Beine hoch' }
+        ]
+      },
+      49: {
+        title: 'KW 49 • Siebengebirgs-HM Rennwoche',
+        dates: '30. November – 06. Dezember 2026',
+        benchmark: '31,4 km · 21,4k (360 Hm)',
+        benchmarkType: 'race',
+        summary: 'Fokus: Tapering & Wettkampf. Dienstag 6k locker, Donnerstag 4,5k Aktivierung. Sonntag: 21,4 km / 360 Hm Siebengebirgs-HM in Aegidienberg (Sub 2:20 h).',
+        days: [
+          { d: 'MON 30.11', val: '—', tag: 'Ruhe', sub: 'Tapering Beginn' },
+          { d: 'DIE 01.12', val: '6.0', unit: 'KM', tag: 'Locker GA1', sub: '< 115 bpm flach' },
+          { d: 'MIT 02.12', val: '—', tag: 'Ruhe', sub: 'Passiv' },
+          { d: 'DON 03.12', val: '4.5', unit: 'KM', tag: 'Aktivierung', sub: '3 kurze Steigerungen' },
+          { d: 'FRE 04.12', val: '—', tag: 'Ruhe', sub: 'Speicher füllen' },
+          { d: 'SAM 05.12', val: '—', tag: 'Pre-Race', sub: 'Frische wahren' },
+          { d: 'SON 06.12', val: '21.4', unit: 'KM', tag: '7G-HM', sub: '360 Hm · Sub 2:20 h', isRace: true, main: true, raceKey: '7ghm' }
+        ]
+      },
+      50: {
+        title: 'KW 50 • Saisonpause & Jahresausklang',
+        dates: '07. – 13. Dezember 2026',
+        benchmark: '12,0 km · Regeneration',
+        benchmarkType: 'green',
+        summary: 'Fokus: Vollständige Erholung nach dem Halbmarathon. Keine Trainingsvorgaben. Nur lockere Bewegung nach Lust und Laune vor dem Belgenbach-Start im Januar.',
+        days: [
+          { d: 'MON 07.12', val: '—', tag: 'Ruhe', sub: 'Saisonpause' },
+          { d: 'DIE 08.12', val: '—', tag: 'Pause', sub: 'Ausschlafen' },
+          { d: 'MIT 09.12', val: '5.0', unit: 'KM', tag: 'Spaziertrab', sub: 'Reines Wohlfühlen' },
+          { d: 'DON 10.12', val: '—', tag: 'Pause', sub: 'Regeneration' },
+          { d: 'FRE 11.12', val: 'STUDIO', tag: 'Leichtes Stabi', sub: 'Rumpf mobilisieren', isStudio: true },
+          { d: 'SAM 12.12', val: '7.0', unit: 'KM', tag: 'Winterwald', sub: 'Ohne Zeit & Puls' },
+          { d: 'SON 13.12', val: '—', tag: 'Ruhetag', sub: 'Familienzeit' }
+        ]
+      }
+    };
+
+    function isDayToday(day) {
+      if (!day || !day.d) return false;
+      const now = new Date();
+      const d = String(now.getDate()).padStart(2, '0');
+      const m = String(now.getMonth() + 1).padStart(2, '0');
+      const todayPattern = `${d}.${m}`;
+      if (day.d.includes(todayPattern)) return true;
+      return !!day.isToday;
+    }
+
+    function renderWeek(kwNum) {
+      const data = weeksData[kwNum];
+      if (!data) return;
+
+      // Update Pill-Buttons
+      document.querySelectorAll('.week-pill-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.kw === String(kwNum));
+      });
+
+      // Update Titel & Benchmark
+      document.getElementById('currentWeekTitle').innerText = data.title;
+      const bmEl = document.getElementById('currentWeekBenchmark');
+      bmEl.innerText = data.benchmark;
+      bmEl.className = 'week-benchmark-pill ' + (data.benchmarkType || '');
+
+      // Render 7 Cards
+      const grid = document.getElementById('mainDaysGrid');
+      let html = '';
+
+      data.days.forEach((day, idx) => {
+        const parts = day.d.split(' ');
+        const dayName = parts[0];
+        const dayDate = parts[1];
+        const isRest = (day.val === '—');
+        const isRace = !!day.isRace;
+        const isStudio = !!day.isStudio;
+        const isHike = !!day.isHike;
+        const isToday = isDayToday(day);
+
+        let cardClass = 'apple-day-card';
+        if (isToday) cardClass += ' card-today';
+        if (isRace) cardClass += ' card-race';
+        if (day.isLongrun) cardClass += ' card-longrun';
+
+        let cardClick = `onclick="openSheet(${kwNum}, ${idx})" title="Details & Ist-Werte" style="cursor:pointer;"`;
+        if (isRace) {
+          const rKey = day.raceKey || (kwNum === 45 ? 'martinslauf' : (kwNum === 49 ? '7ghm' : ''));
+          cardClick = `onclick="openRaceDrawer('${rKey}')" title="Wettkampf-Briefing öffnen" style="cursor:pointer;"`;
+        }
+
+        let headerStyle = '';
+        if (isToday) headerStyle = 'color:var(--apple-cyan);';
+        else if (isRace) headerStyle = 'color:var(--apple-orange);';
+
+        const log = findRunLog(dayDate);
+        let heroHtml = '';
+        if (log) {
+          const meta = [log.hr ? `Ø ${log.hr} bpm` : '', minutesFromDuration(log.duration) ? `${minutesFromDuration(log.duration)} min` : '', log.hm ? `${log.hm} Hm` : ''].filter(Boolean).join(' · ');
+          heroHtml = `
+            <div class="hero-val-wrap">
+              <span class="hero-val" style="color:var(--apple-green);">${Number(log.dist).toFixed(1)}</span>
+              <span class="hero-unit" style="color:var(--apple-green);">KM</span>
+            </div>
+            <div class="hero-tag" style="color:var(--apple-green);">✓ ${day.tag || 'Erledigt'}</div>
+            <div class="hero-sub-micro">${meta || 'Erledigt'}</div>
+          `;
+        } else if (isRest) {
+          const restStyle = isToday ? 'style="color:var(--apple-cyan);"' : '';
+          const tagHtml = day.tag ? `<div class="hero-tag" style="${day.tagColor ? `color:${day.tagColor};` : ''}">${day.tag}</div>` : '';
+          heroHtml = `
+            <div class="hero-val-wrap"><span class="hero-word-val" ${restStyle}>CHILL</span></div>
+            ${tagHtml}
+            <div class="hero-sub-micro">${day.sub}</div>
+          `;
+        } else if (isStudio) {
+          heroHtml = `
+            <div class="hero-val-wrap"><span class="hero-word-val" style="color:var(--apple-cyan);">STUDIO</span></div>
+            <div class="hero-tag" style="color:var(--apple-cyan);">${day.tag}</div>
+            <div class="hero-sub-micro">${day.sub}</div>
+          `;
+        } else if (isHike) {
+          heroHtml = `
+            <div class="hero-val-wrap"><span class="hero-word-val" style="color:var(--apple-green);">WANDERN</span></div>
+            <div class="hero-tag" style="color:var(--apple-green);">${day.tag}</div>
+            <div class="hero-sub-micro">${day.sub}</div>
+          `;
+        } else {
+          let valColor = isRace ? 'var(--apple-orange)' : (day.isLongrun ? 'var(--apple-blue)' : 'var(--apple-green)');
+          const tagStyle = isRace ? 'style="color:var(--apple-orange);"' : (day.isLongrun ? 'style="color:var(--apple-blue);"' : '');
+          const subStyle = isRace ? 'style="color:var(--apple-orange);"' : '';
+          heroHtml = `
+            <div class="hero-val-wrap">
+              <span class="hero-val" style="color:${valColor};">${day.val}</span>
+              <span class="hero-unit" style="color:${valColor};">${day.unit || 'KM'}</span>
+            </div>
+            <div class="hero-tag" ${tagStyle}>${day.tag}</div>
+            <div class="hero-sub-micro" ${subStyle}>${day.sub}</div>
+          `;
+        }
+
+        const todayBadge = isToday ? '<span class="badge-today-blue">HEUTE</span>' : '';
+        const footerHtml = day.main
+          ? `<span class="day-pill-badge pill-race" style="cursor:pointer;" onclick="event.stopPropagation(); openRaceDrawer('${day.raceKey || 'martinslauf'}')">Briefing ↗</span><span class="day-pill-badge" style="cursor:pointer; color:var(--apple-green);" onclick="event.stopPropagation(); openSheet(${kwNum}, ${idx})">${log ? '✓ Geloggt' : 'Loggen'}</span>`
+          : '';
+
+        html += `
+          <div class="${cardClass}" ${cardClick}>
+            ${todayBadge}
+            <div class="day-header">
+              <span class="day-name" style="${headerStyle}">${dayName}</span>
+              <span class="date-num" style="${headerStyle}">${dayDate}</span>
+            </div>
+            <div class="day-hero-box">
+              ${heroHtml}
+            </div>
+            <div class="day-footer-row">${footerHtml}</div>
+          </div>
+        `;
+      });
+
+      grid.innerHTML = html;
+
+      // Update Wochenfokus
+      document.getElementById('weekSummaryText').innerHTML = data.summary.replace(/\n/g, '<br>');
+    }
+
+    let currentKw = 45;
+
+    function switchWeek(kwNum) {
+      currentKw = kwNum;
+      renderWeek(kwNum);
+      renderMobileWeek(kwNum);
+    }
+
+    // ==========================================================================
+    // GEMEINSAMER LAUF-SPEICHER (identisch zu app.js: localStorage 'drachenlauf_runs')
+    // ==========================================================================
+    const RUNS_KEY = 'drachenlauf_runs';
+    const SEASON_YEAR = 2026;
+
+    const seedDefaultRuns = [
+      {
+        id: 1762156800000,
+        kw: 45,
+        date: "03.11.2026",
+        dayDate: "03.11",
+        dist: 5.5,
+        distMeters: 5500,
+        duration: "00:40:00",
+        hm: 10,
+        hr: 117,
+        pace: "7:16",
+        type: "laufen",
+        isErsatz: false,
+        tag: "Locker GA1",
+        notes: "Geloggt: 5.5 km in 40 min · Ø 117 bpm · 10 Hm"
+      }
+    ];
+
+    function loadRuns() {
+      try {
+        const stored = JSON.parse(localStorage.getItem(RUNS_KEY) || '[]');
+        if (!stored.some(r => r.dayDate === '03.11' || r.date === '03.11.2026')) {
+          stored.push(...seedDefaultRuns);
+          try { localStorage.setItem(RUNS_KEY, JSON.stringify(stored)); } catch (e) {}
+        }
+        return stored;
+      } catch (e) {
+        return [...seedDefaultRuns];
+      }
+    }
+    function storeRuns(runs) {
+      try { localStorage.setItem(RUNS_KEY, JSON.stringify(runs)); } catch (e) {}
+    }
+    function findRunLog(dayDate) {
+      const full = `${dayDate}.${SEASON_YEAR}`;
+      return loadRuns().find(r => r.dayDate === dayDate || r.date === full) || null;
+    }
+    function durationFromMinutes(min) {
+      const m = Math.max(0, Math.round(Number(min) || 0));
+      const h = Math.floor(m / 60), r = m % 60;
+      return `${h < 10 ? '0' : ''}${h}:${r < 10 ? '0' : ''}${r}:00`;
+    }
+    function minutesFromDuration(dur) {
+      if (!dur) return 0;
+      const p = String(dur).split(':').map(Number);
+      if (p.length === 3) return Math.round(p[0] * 60 + p[1] + p[2] / 60);
+      if (p.length === 2) return Math.round(p[0] + p[1] / 60);
+      return Number(p[0]) || 0;
+    }
+    function paceFrom(distKm, min) {
+      if (!distKm || !min) return '-:--';
+      const secs = (min * 60) / distKm;
+      const pm = Math.floor(secs / 60), ps = Math.round(secs % 60);
+      return ps === 60 ? `${pm + 1}:00` : `${pm}:${ps < 10 ? '0' : ''}${ps}`;
+    }
+    const isRunDay = (day) => !day.isStudio && !day.isHike && day.val !== '—' && !isNaN(parseFloat(day.val));
+
+    // ==========================================================================
+    // MOBILE WOCHENLISTE
+    // ==========================================================================
+    const kwList = Object.keys(weeksData).map(Number);
+
+    function stepWeek(dir) {
+      const i = kwList.indexOf(currentKw) + dir;
+      if (i >= 0 && i < kwList.length) switchWeek(kwList[i]);
+    }
+
+    function renderMobileWeek(kwNum) {
+      const w = weeksData[kwNum];
+      if (!w) return;
+      const titleParts = w.title.split('•');
+      document.getElementById('mKw').textContent = `KW ${kwNum}`;
+      document.getElementById('mName').textContent = (titleParts[1] || titleParts[0]).trim();
+      document.getElementById('mDates').textContent = w.dates;
+      document.getElementById('mBench').textContent = w.benchmark;
+      document.getElementById('mFocus').innerHTML = w.summary.replace(/^Fokus:\s*/, '').replace(/\n/g, '<br>');
+      document.getElementById('mPrevBtn').disabled = kwNum === kwList[0];
+      document.getElementById('mNextBtn').disabled = kwNum === kwList[kwList.length - 1];
+
+      let planned = 0, done = 0;
+      const rows = w.days.map((day, i) => {
+        const [dn, dd] = day.d.split(' ');
+        const run = isRunDay(day);
+        const log = findRunLog(dd);
+        if (run) planned += parseFloat(day.val);
+        if (log && log.type !== 'kraft') done += Number(log.dist) || 0;
+
+        const isToday = isDayToday(day);
+        let cls = 'm-row';
+        if (isToday) cls += ' today';
+        else if (day.isRace) cls += ' race';
+        else if (day.isLongrun) cls += ' longrun';
+        if (!run && !day.isStudio && !day.isHike && !log) cls += ' rest';
+
+        const color = log ? 'var(--apple-green)' : isToday ? 'var(--apple-cyan)' : day.isRace ? 'var(--apple-orange)' : day.isLongrun ? 'var(--apple-blue)' : 'var(--apple-green)';
+        let main;
+        if (log || run) {
+          const v = log ? Number(log.dist).toFixed(1) : parseFloat(day.val).toFixed(1);
+          main = `<div class="m-val"><span class="m-num" style="color:${color}">${v}</span><span class="m-unit" style="color:${color}">KM</span></div>`;
+        } else if (day.isStudio) {
+          main = `<div class="m-word" style="color:var(--apple-cyan)">STUDIO</div>`;
+        } else if (day.isHike) {
+          main = `<div class="m-word" style="color:var(--apple-green)">WANDERN</div>`;
+        } else {
+          main = `<div class="m-word" style="color:${isToday ? 'var(--apple-cyan)' : 'var(--text-muted)'}">CHILL</div>`;
+        }
+
+        // Subcopy: Keine BPM mehr in der Zeile! Zeigt sauberen Tag / kurze Ansage
+        let tagLine = '';
+        if (log) {
+          tagLine = `✓ ${day.tag || 'Erledigt'} · ${log.duration ? minutesFromDuration(log.duration) + ' min' : Number(log.dist).toFixed(1) + ' km'}`;
+        } else if (day.isRace) {
+          tagLine = day.tag || 'Wettkampf';
+        } else {
+          tagLine = day.tag || day.sub;
+        }
+
+        let side = '';
+        if (log) {
+          side = `<span class="m-check">✓</span>`;
+        } else if (isToday && run) {
+          side = `<span class="m-cta">Loggen</span>`;
+        } else if (day.isRace) {
+          side = `<span class="m-chevron" style="color:var(--apple-orange); font-size:1.3rem;">›</span>`;
+        } else {
+          side = `<span class="m-chevron">›</span>`;
+        }
+
+        return `
+          <div class="${cls}" onclick="openSheet(${kwNum}, ${i})">
+            <div class="m-day"><b>${dn}</b><span>${dd}</span></div>
+            <div class="m-main">${main}<div class="m-tag">${tagLine}</div></div>
+            ${side}
+          </div>`;
+      }).join('');
+
+      document.getElementById('mList').innerHTML = rows;
+      document.getElementById('mProg').innerHTML = `${done.toFixed(1)} <small>/ ${planned.toFixed(1)} km</small>`;
+      document.getElementById('mBar').style.width = planned ? Math.min(100, done / planned * 100) + '%' : '0%';
+    }
+
+    // ==========================================================================
+    // LOG BOTTOM SHEET (Inklusive BPM, Vorgaben, VT1 und Ausschreibungs-Link)
+    // ==========================================================================
+    function openSheet(kwNum, i) {
+      const day = weeksData[kwNum].days[i];
+      const dd = day.d.split(' ')[1];
+      const log = findRunLog(dd) || {};
+      const run = isRunDay(day);
+      const isRace = !!day.isRace;
+      const rKey = day.raceKey || (kwNum === 45 ? 'martinslauf' : (kwNum === 49 ? '7ghm' : ''));
+
+      const word = day.isStudio ? 'Studio' : day.isHike ? 'Wandern' : 'Ruhetag';
+      const title = run ? `${parseFloat(day.val).toFixed(1)} km · ${day.tag || 'Lauf'}` : `${word}${day.tag ? ' · ' + day.tag : ''}`;
+
+      // Plan / Vorgaben & BPM Spezifikationen (Apple HIG Grid)
+      let planHtml = '';
+      if (isRace) {
+        planHtml = `
+          <div class="s-grid">
+            <div class="s-cell"><div class="s-lbl">Distanz / Start</div><div class="s-txt">10,0 km · Start 11:45 Uhr</div></div>
+            <div class="s-cell"><div class="s-lbl">Zielzeit / Pace</div><div class="s-txt">SUB 58:00 · 5:48 min/km</div></div>
+            <div class="s-cell"><div class="s-lbl">Pacing & Herzfrequenz</div><div class="s-txt">5:50 (&lt; 118 bpm) ➔ 5:45 ➔ 5:35</div></div>
+            <div class="s-cell"><div class="s-lbl">Ort / Strecke</div><div class="s-txt">U-See Düsseldorf · Flach</div></div>
+          </div>
+          <a href="https://www.sfd.de/martinslauf/" target="_blank" rel="noopener noreferrer" class="s-brief-link">Offizielle Ausschreibung & Infos ↗</a>
+          <button type="button" class="s-brief-drawer-btn" onclick="closeSheet(); openRaceDrawer('${rKey}')">Vollständiges Wettkampf-Briefing öffnen ↗</button>
+        `;
+      } else if (run) {
+        const hrSpec = day.sub.includes('bpm') ? day.sub : '< 118 bpm (GA1 Sprechgrenze)';
+        planHtml = `
+          <div class="s-grid">
+            <div class="s-cell"><div class="s-lbl">Distanz (Plan)</div><div class="s-txt">${parseFloat(day.val).toFixed(1)} km</div></div>
+            <div class="s-cell"><div class="s-lbl">Puls-Vorgabe (BPM)</div><div class="s-txt" style="color:var(--apple-green);">${hrSpec}</div></div>
+            <div class="s-cell"><div class="s-lbl">Einheit / Fokus</div><div class="s-txt">${day.tag || 'Grundlage GA1'}</div></div>
+            <div class="s-cell"><div class="s-lbl">Physiologie / VT1</div><div class="s-txt">105–118 bpm Sprechgrenze</div></div>
+          </div>
+        `;
+      } else {
+        planHtml = `
+          <div class="s-grid">
+            <div class="s-cell wide"><div class="s-lbl">Empfehlung</div><div class="s-txt">${day.sub}</div></div>
+          </div>
+        `;
+      }
+
+      const val = (k) => (log[k] !== undefined && log[k] !== 0 ? log[k] : '');
+      const durMin = minutesFromDuration(log.duration);
+
+      document.getElementById('sheetBody').innerHTML = `
+        <div class="s-date">${day.d.replace(' ', ' · ')} · KW ${kwNum}</div>
+        <div class="s-title">${title}</div>
+        ${planHtml}
+        <div class="s-section">Ist-Werte eintragen</div>
+        <form class="s-form" onsubmit="saveSheetLog(event, ${kwNum}, ${i})">
+          <div class="s-field"><label>Distanz</label><div><input name="dist" type="number" step="0.01" min="0" inputmode="decimal" value="${log.dist !== undefined ? log.dist : ''}" placeholder="${run ? parseFloat(day.val).toFixed(1) : '0.0'}"><span>km</span></div></div>
+          <div class="s-field"><label>Dauer</label><div><input name="dur" type="number" min="0" inputmode="numeric" value="${durMin || ''}" placeholder="0"><span>min</span></div></div>
+          <div class="s-field"><label>Ø HF (BPM)</label><div><input name="hr" type="number" min="0" inputmode="numeric" value="${val('hr')}" placeholder="0"><span>bpm</span></div></div>
+          <div class="s-field"><label>Höhenmeter</label><div><input name="hm" type="number" min="0" inputmode="numeric" value="${val('hm')}" placeholder="0"><span>Hm</span></div></div>
+          <button type="submit" class="s-save">✓ Speichern</button>
+        </form>
+        ${log.dayDate || log.date ? `<button type="button" class="s-reset" onclick="resetSheetLog('${dd}')">Eintrag zurücksetzen</button>` : ''}
+      `;
+      document.getElementById('mSheet').classList.add('open');
+      document.getElementById('mBackdrop').classList.add('open');
+    }
+
+    function closeSheet() {
+      document.getElementById('mSheet').classList.remove('open');
+      document.getElementById('mBackdrop').classList.remove('open');
+    }
+
+    function saveSheetLog(e, kwNum, i) {
+      e.preventDefault();
+      const day = weeksData[kwNum].days[i];
+      const dd = day.d.split(' ')[1];
+      const f = new FormData(e.target);
+      const run = isRunDay(day);
+      const dist = parseFloat(String(f.get('dist')).replace(',', '.')) || (f.get('dist') === '' && run ? parseFloat(day.val) : 0);
+      const min = parseInt(f.get('dur'), 10) || 0;
+      const type = run ? 'laufen' : (day.isStudio ? 'kraft' : (day.isHike ? 'wandern' : 'laufen'));
+      const isErsatz = type !== 'laufen';
+
+      const entry = {
+        id: Date.now(),
+        kw: kwNum,
+        date: `${dd}.${SEASON_YEAR}`,
+        dayDate: dd,
+        dist: dist,
+        distMeters: 0,
+        hm: parseInt(f.get('hm'), 10) || 0,
+        duration: durationFromMinutes(min),
+        hr: parseInt(f.get('hr'), 10) || 0,
+        pace: dist > 0 ? paceFrom(dist, min) : '-:--',
+        type: type,
+        isErsatz: isErsatz,
+        tag: day.tag || (day.isStudio ? 'Kraft & Stabi' : 'Lauf'),
+        notes: `Einheit ${day.tag || ''} absolviert (Mobile-Log)`.replace('  ', ' ')
+      };
+
+      const runs = loadRuns().filter(r => r.dayDate !== dd && r.date !== entry.date);
+      runs.unshift(entry);
+      storeRuns(runs);
+      closeSheet();
+      switchWeek(kwNum);
+    }
+
+    function resetSheetLog(dd) {
+      storeRuns(loadRuns().filter(r => r.dayDate !== dd && r.date !== `${dd}.${SEASON_YEAR}`));
+      closeSheet();
+      switchWeek(currentKw);
+    }
+
+    // Swipe-Down schließt das Sheet
+    (function () {
+      const sheet = document.getElementById('mSheet');
+      let startY = null;
+      sheet.addEventListener('touchstart', e => { if (sheet.scrollTop === 0) startY = e.touches[0].clientY; }, { passive: true });
+      sheet.addEventListener('touchend', e => {
+        if (startY !== null && e.changedTouches[0].clientY - startY > 80) closeSheet();
+        startY = null;
+      });
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSheet(); });
+    })();
+
+    // Initialisierung
+    switchWeek(45);
+    switchQuarter(0);
+
+    // URL Query & Hash Steuerung für Direktlinks / Screenshots
+    const urlParams = new URLSearchParams(window.location.search);
+    const hash = window.location.hash;
+    if (urlParams.get('tab') === 'season' || hash.includes('season')) {
+      switchMasterTab('season');
+      const q = parseInt(urlParams.get('q'), 10);
+      if (!isNaN(q)) {
+        switchQuarter(q);
+      } else if (hash.includes('q=')) {
+        const hQ = parseInt(hash.split('q=')[1], 10);
+        if (!isNaN(hQ)) switchQuarter(hQ);
+      }
+      if (urlParams.get('clickDay')) {
+        const d = parseInt(urlParams.get('clickDay'), 10);
+        const m = parseInt(urlParams.get('clickMonth'), 10);
+        setTimeout(() => {
+          onPhaseClick(m, d, 'option', null);
+        }, 50);
+      }
+    } else {
+      switchMasterTab('training');
+      if (hash.includes('kw=')) {
+        const hKw = parseInt(hash.split('kw=')[1], 10);
+        if (!isNaN(hKw) && weeksData[hKw]) switchWeek(hKw);
+      } else if (urlParams.get('kw')) {
+        const pKw = parseInt(urlParams.get('kw'), 10);
+        if (!isNaN(pKw) && weeksData[pKw]) switchWeek(pKw);
+      }
+    }
+
+    if (urlParams.get('openDrawer')) {
+      const dk = urlParams.get('openDrawer');
+      const drawer = document.getElementById('raceDrawer');
+      if (drawer) drawer.style.transition = 'none';
+      openRaceDrawer(dk);
+      setTimeout(() => { if (drawer) drawer.style.transition = ''; }, 100);
+    }
+    if (urlParams.get('sheet')) {
+      const s = document.getElementById('mSheet');
+      if (s) s.style.transition = 'none';
+      openSheet(currentKw, parseInt(urlParams.get('sheet'), 10));
+      setTimeout(() => { if (s) s.style.transition = ''; }, 100);
+    }
+
+    // ==========================================================================
+    // AUTH GATE VALIDATION (APPLE HIG & BACKWARD-COMPATIBLE SESSION)
+    // ==========================================================================
+    const VALID_SITE_PASSWORDS = ['achilles', 'achillessehne'];
+
+    function checkSiteAuth() {
+      const isAuth = urlParams.get('auth') === '1' ||
+                     sessionStorage.getItem('drachenlauf_authenticated') === 'true' ||
+                     localStorage.getItem('drachenlauf_authenticated') === 'true' ||
+                     sessionStorage.getItem('coach_authenticated') === 'true' ||
+                     localStorage.getItem('coach_authenticated') === 'true';
+      const modal = document.getElementById('authGateModal');
+      if (!modal) return;
+      if (isAuth) {
+        modal.classList.add('unlocked');
+        modal.style.display = 'none';
+        modal.style.visibility = 'hidden';
+        modal.style.opacity = '0';
+        modal.style.pointerEvents = 'none';
+      } else {
+        modal.classList.remove('unlocked');
+        modal.style.display = 'flex';
+        modal.style.visibility = 'visible';
+        modal.style.opacity = '1';
+        modal.style.pointerEvents = 'auto';
+        setTimeout(() => {
+          const inp = document.getElementById('authPasswordInput');
+          if (inp) inp.focus();
+        }, 100);
+      }
+    }
+
+    function verifyAuthPassword(e) {
+      if (e && e.preventDefault) e.preventDefault();
+      const input = document.getElementById('authPasswordInput');
+      const err = document.getElementById('authGateError');
+      if (!input) return false;
+
+      const rawVal = String(input.value || '').trim().toLowerCase();
+      const isMatched = VALID_SITE_PASSWORDS.includes(rawVal);
+
+      if (isMatched) {
+        try { sessionStorage.setItem('coach_authenticated', 'true'); } catch(ex){}
+        try { localStorage.setItem('coach_authenticated', 'true'); } catch(ex){}
+        try { sessionStorage.setItem('drachenlauf_authenticated', 'true'); } catch(ex){}
+        try { localStorage.setItem('drachenlauf_authenticated', 'true'); } catch(ex){}
+        const modal = document.getElementById('authGateModal');
+        if (modal) {
+          modal.classList.add('unlocked');
+          modal.style.display = 'none';
+          modal.style.visibility = 'hidden';
+          modal.style.opacity = '0';
+          modal.style.pointerEvents = 'none';
+        }
+        if (err) err.classList.add('hidden');
+      } else {
+        if (err) err.classList.remove('hidden');
+        input.value = '';
+        input.focus();
+      }
+      return false;
+    }
+
+    window.checkSiteAuth = checkSiteAuth;
+    window.verifyAuthPassword = verifyAuthPassword;
+    document.addEventListener('DOMContentLoaded', checkSiteAuth);
+    checkSiteAuth();
+  </script>
 </body>
 </html>

@@ -1225,53 +1225,161 @@
     }
 
     /* ==========================================================================
-       MOBILE WOCHENLISTE (≤ 500 px) & LOG-SHEET (shared: drachenlauf_runs)
+       MOBILE WOCHENLISTE (≤ 600 px) & LOG-SHEET (shared: drachenlauf_runs)
        ========================================================================== */
     .mobile-week { display: none; width: 100%; }
-    .m-head { display: flex; align-items: center; justify-content: space-between; margin: 0.15rem 0 0.35rem; }
-    .m-step { width: 34px; height: 34px; border-radius: 999px; border: 1px solid var(--card-border); background: var(--card-bg); color: var(--text-secondary); font-size: 1.0rem; font-weight: 700; cursor: pointer; font-family: inherit; }
-    .m-step:disabled { opacity: 0.3; cursor: default; }
+    .m-head { display: flex; align-items: center; justify-content: space-between; margin: 0.25rem 0 0.5rem; }
+    .m-step {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255, 255, 255, 0.28);
+      background: #222534;
+      color: #FFFFFF;
+      font-size: 1.5rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+      transition: transform 0.12s ease, background 0.15s ease, border-color 0.15s ease;
+      flex-shrink: 0;
+    }
+    .m-step:active {
+      transform: scale(0.92);
+      background: #2D3246;
+      border-color: rgba(255, 255, 255, 0.45);
+    }
+    .m-step:disabled { opacity: 0.25; cursor: default; }
     .m-title { text-align: center; flex: 1; padding: 0 0.5rem; min-width: 0; }
-    .m-kw { font-size: 0.68rem; font-weight: 800; letter-spacing: 0.08em; color: var(--text-secondary); text-transform: uppercase; }
-    .m-name { font-size: 0.95rem; font-weight: 800; margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .m-dates { font-size: 0.72rem; color: var(--text-muted); margin-top: 1px; font-weight: 600; }
-    .m-progress { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 0.45rem 0.75rem; margin-bottom: 0.35rem; }
+    .m-kw { font-size: 0.74rem; font-weight: 800; letter-spacing: 0.08em; color: var(--text-secondary); text-transform: uppercase; }
+    .m-name { font-size: 1.10rem; font-weight: 900; margin-top: 1px; color: var(--text-white); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; letter-spacing: -0.3px; }
+    .m-dates { font-size: 0.78rem; color: var(--text-muted); margin-top: 2px; font-weight: 600; }
+    .m-progress { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 14px; padding: 0.55rem 0.85rem; margin-bottom: 0.55rem; }
     .m-prog-row { display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem; }
-    .m-prog-val { font-size: 1.15rem; font-weight: 900; font-feature-settings: "tnum"; white-space: nowrap; }
-    .m-prog-val small { font-size: 0.72rem; color: var(--text-secondary); font-weight: 700; }
-    .m-prog-bench { font-size: 0.75rem; font-weight: 700; color: var(--text-secondary); text-align: right; }
-    .m-bar { height: 3px; background: rgba(255, 255, 255, 0.08); border-radius: 999px; margin-top: 0.35rem; overflow: hidden; }
+    .m-prog-val { font-size: 1.25rem; font-weight: 900; font-feature-settings: "tnum"; white-space: nowrap; }
+    .m-prog-val small { font-size: 0.76rem; color: var(--text-secondary); font-weight: 700; }
+    .m-prog-bench { font-size: 0.78rem; font-weight: 700; color: var(--text-secondary); text-align: right; }
+    .m-bar { height: 4px; background: rgba(255, 255, 255, 0.08); border-radius: 999px; margin-top: 0.45rem; overflow: hidden; }
     .m-bar > div { height: 100%; background: var(--apple-green); border-radius: 999px; transition: width 0.3s ease; }
     .m-focus { display: none; }
-    .m-list { display: flex; flex-direction: column; gap: 4px; }
-    .m-row { display: grid; grid-template-columns: 50px 1fr auto; align-items: center; gap: 0.6rem; min-height: 48px; padding: 0.30rem 0.75rem; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; cursor: pointer; }
+    .m-list { display: flex; flex-direction: column; gap: 6px; }
+    .m-row {
+      display: grid;
+      grid-template-columns: 56px 1fr auto;
+      align-items: center;
+      gap: 0.75rem;
+      min-height: 56px;
+      padding: 0.45rem 0.85rem;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      cursor: pointer;
+      transition: transform 0.12s ease, background 0.15s ease;
+    }
     .m-row:active { transform: scale(0.985); }
-    .m-row.rest { background: rgba(14, 14, 20, 0.70); }
-    .m-row.today { border: 1.5px solid var(--apple-cyan); background: linear-gradient(135deg, rgba(100, 210, 255, 0.08), var(--card-bg)); }
-    .m-row.longrun { border: 1.5px solid rgba(10, 132, 255, 0.35); background: linear-gradient(135deg, rgba(10, 132, 255, 0.08), var(--card-bg)); }
-    .m-row.race { border: 1.5px solid rgba(255, 159, 10, 0.55); background: linear-gradient(135deg, rgba(255, 159, 10, 0.12), var(--card-bg)); }
+    .m-row.rest { background: rgba(18, 18, 26, 0.70); }
+    .m-row.today {
+      border: 1.5px solid var(--apple-cyan);
+      background: linear-gradient(135deg, rgba(100, 210, 255, 0.12), rgba(22, 22, 30, 0.95));
+      box-shadow: 0 0 16px rgba(100, 210, 255, 0.15);
+    }
+    .m-row.longrun { border: 1.5px solid rgba(10, 132, 255, 0.45); background: linear-gradient(135deg, rgba(10, 132, 255, 0.10), var(--card-bg)); }
+    .m-row.race { border: 1.5px solid rgba(255, 159, 10, 0.65); background: linear-gradient(135deg, rgba(255, 159, 10, 0.14), var(--card-bg)); }
     .m-day { display: flex; flex-direction: column; }
-    .m-day b { font-size: 0.75rem; font-weight: 800; letter-spacing: 0.05em; color: var(--text-secondary); }
-    .m-day span { font-size: 0.88rem; font-weight: 800; font-feature-settings: "tnum"; margin-top: 1px; }
+    .m-day b { font-size: 0.80rem; font-weight: 800; letter-spacing: 0.05em; color: var(--text-secondary); }
+    .m-day span { font-size: 0.96rem; font-weight: 800; font-feature-settings: "tnum"; margin-top: 1px; color: var(--text-white); }
     .m-row.today .m-day b, .m-row.today .m-day span { color: var(--apple-cyan); }
     .m-row.race .m-day b, .m-row.race .m-day span { color: var(--apple-orange); }
     .m-main { min-width: 0; }
     .m-val { display: flex; align-items: baseline; gap: 4px; }
-    .m-num { font-size: 1.30rem; font-weight: 900; line-height: 1; letter-spacing: -0.4px; font-feature-settings: "tnum"; }
-    .m-unit { font-size: 0.62rem; font-weight: 800; letter-spacing: 0.06em; }
-    .m-word { font-size: 0.95rem; font-weight: 800; letter-spacing: 0.05em; line-height: 1.25; }
-    .m-tag { font-size: 0.85rem; font-weight: 700; color: var(--text-subtle); margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .m-chevron { font-size: 1.15rem; font-weight: 700; color: var(--text-muted); padding: 0 4px; }
-    .m-cta { font-size: 0.70rem; font-weight: 900; color: #000; background: var(--apple-cyan); padding: 0.25rem 0.6rem; border-radius: 999px; white-space: nowrap; }
-    .m-check { font-size: 0.72rem; font-weight: 900; color: var(--apple-green); background: rgba(48, 209, 88, 0.16); padding: 0.2rem 0.55rem; border-radius: 999px; white-space: nowrap; }
+    .m-num { font-size: 1.45rem; font-weight: 900; line-height: 1; letter-spacing: -0.4px; font-feature-settings: "tnum"; }
+    .m-unit { font-size: 0.68rem; font-weight: 800; letter-spacing: 0.06em; }
+    .m-word { font-size: 1.05rem; font-weight: 800; letter-spacing: 0.05em; line-height: 1.2; }
+    .m-tag {
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: #E5E5EA;
+      margin-top: 3px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 1.25;
+    }
+    .m-chevron { font-size: 1.25rem; font-weight: 700; color: var(--text-muted); padding: 0 4px; }
+    .m-cta { font-size: 0.76rem; font-weight: 900; color: #000; background: var(--apple-cyan); padding: 0.28rem 0.65rem; border-radius: 999px; white-space: nowrap; }
+    .m-check { font-size: 0.78rem; font-weight: 900; color: var(--apple-green); background: rgba(48, 209, 88, 0.16); padding: 0.25rem 0.60rem; border-radius: 999px; white-space: nowrap; }
 
-    .m-backdrop { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.75); opacity: 0; pointer-events: none; transition: opacity 0.25s ease; z-index: 1000; }
+    .m-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.72);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.22s ease;
+      z-index: 1000;
+    }
     .m-backdrop.open { opacity: 1; pointer-events: auto; }
-    .m-sheet { position: fixed; left: 0; right: 0; bottom: 0; max-width: 430px; margin: 0 auto; max-height: 88vh; overflow-y: auto; background: #1E202C; border-top: 1.5px solid rgba(255, 255, 255, 0.22); box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.95), 0 -2px 12px rgba(255, 255, 255, 0.05); border-radius: 20px 20px 0 0; padding: 0.6rem 16px calc(24px + env(safe-area-inset-bottom)); transform: translateY(100%); transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1); z-index: 1001; }
-    .m-sheet.open { transform: translateY(0); }
-    .m-grab { width: 40px; height: 5px; border-radius: 999px; background: rgba(255, 255, 255, 0.40); margin: 0.2rem auto 0.9rem; }
+
+    /* DESKTOP MODAL (> 600px): Clean centered macOS Apple HIG dialog */
+    .m-sheet {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      right: auto;
+      bottom: auto;
+      transform: translate(-50%, -50%) scale(0.96);
+      opacity: 0;
+      pointer-events: none;
+      width: 90%;
+      max-width: 480px;
+      max-height: 85vh;
+      overflow-y: auto;
+      background: #1C1E2A;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-top: 1px solid rgba(255, 255, 255, 0.28);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 1.75rem 1.75rem 2rem;
+      transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.24s ease;
+      z-index: 1001;
+      box-sizing: border-box;
+    }
+    .m-sheet.open {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .m-grab {
+      display: none; /* Hide mobile swipe pill on desktop */
+    }
+    .s-modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.15s;
+    }
+    .s-modal-close:hover {
+      background: rgba(255, 255, 255, 0.20);
+      transform: scale(1.06);
+    }
     .s-date { font-size: 0.70rem; font-weight: 800; letter-spacing: 0.08em; color: var(--apple-cyan); text-transform: uppercase; }
-    .s-title { font-size: 1.25rem; font-weight: 900; margin: 0.25rem 0 0.75rem; }
+    .s-title { font-size: 1.25rem; font-weight: 900; margin: 0.25rem 0 0.75rem; color: #FFFFFF; }
     .s-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 0.85rem; }
     .s-cell { background: #26293A; border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 12px; padding: 0.6rem 0.8rem; }
     .s-cell.wide { grid-column: span 2; }
@@ -1295,6 +1403,42 @@
       .app-container { display: none !important; }
       .mobile-week { display: block; }
       .race-drawer { width: 100% !important; max-width: 100vw !important; left: 0 !important; right: 0 !important; padding: 1.25rem 16px !important; border-left: 0 !important; overflow-x: hidden !important; }
+
+      /* MOBILE BOTTOM SHEET (<= 600px) */
+      .m-sheet {
+        position: fixed !important;
+        top: auto !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        border-radius: 20px 20px 0 0 !important;
+        border: 0 !important;
+        border-top: 1.5px solid rgba(255, 255, 255, 0.22) !important;
+        box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.95), 0 -2px 12px rgba(255, 255, 255, 0.05) !important;
+        padding: 0.6rem 16px calc(24px + env(safe-area-inset-bottom)) !important;
+        transform: translateY(100%) !important;
+        opacity: 1 !important;
+        pointer-events: none;
+        transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      }
+      .m-sheet.open {
+        transform: translateY(0) !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+      }
+      .m-grab {
+        display: block !important;
+        width: 40px;
+        height: 5px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.40);
+        margin: 0.2rem auto 0.9rem;
+      }
+      .s-modal-close {
+        display: none !important;
+      }
     }
   </style>
 </head>
@@ -1416,9 +1560,10 @@
   <!-- ==========================================================================
        OPTION A: APPLE HIG SLIDE-OVER DRAWER (RACE BRIEFING)
        ========================================================================== -->
-  <!-- LOG BOTTOM SHEET (Mobile & Desktop) -->
+  <!-- LOG SHEET / MODAL (Desktop: macOS Centered Dialog | Mobile: iOS Bottom Sheet) -->
   <div class="m-backdrop" id="mBackdrop" onclick="closeSheet()"></div>
   <aside class="m-sheet" id="mSheet" role="dialog" aria-modal="true" aria-label="Einheit loggen">
+    <button class="s-modal-close" onclick="closeSheet()" aria-label="Schließen">✕</button>
     <div class="m-grab"></div>
     <div id="sheetBody"></div>
   </aside>
@@ -1442,6 +1587,41 @@
       <!-- WIRD DYNAMISCH BEFÜLLT -->
     </div>
   </aside>
+
+  <!-- ==========================================================================
+       FULLSCREEN AUTH GATE MODAL (APPLE HIG DESIGN STANDARD)
+       ========================================================================== -->
+  <div class="auth-gate-backdrop" id="authGateModal">
+    <div class="auth-gate-card">
+      <div class="auth-gate-badge">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="4" ry="4"/>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+        </svg>
+      </div>
+      <span class="auth-gate-micro">TRAILRUNNING COACH</span>
+      <h2 class="auth-gate-title">Geschützter Bereich</h2>
+      <p class="auth-gate-sub">Was riss Hermännsche am Strand von Charita?</p>
+
+      <form onsubmit="verifyAuthPassword(event); return false;" class="auth-gate-form">
+        <div class="auth-input-wrapper">
+          <input type="password" id="authPasswordInput" class="auth-input-hig" autofocus required autocapitalize="none" autocorrect="off" autocomplete="off" placeholder="">
+        </div>
+        <div id="authGateError" class="auth-error-msg hidden">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--apple-red)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+            <line x1="12" y1="9" x2="12" y2="13"/>
+            <line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+          <span>Nope. Go again.</span>
+        </div>
+        <button type="submit" onclick="verifyAuthPassword(event); return false;" class="btn-auth-submit-hig">
+          <span>Freischalten</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
 
   <script>
     // Tab-Umschalter Training vs. Saison 2027
@@ -2081,6 +2261,7 @@
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         closeRaceDrawer();
+        closeSheet();
       }
     });
 
@@ -2093,8 +2274,8 @@
         benchmarkType: 'race',
         summary: 'Frische für den 48. Martinslauf am Sonntag sichern. 10 km am Unterbacher See, Start 11:45 Uhr. Pacing: 5:50 ➔ 5:45 ➔ 5:35 min/km.\n\nSamstag, 07. November: Ruhetag & Pre-Race-Carboload.',
         days: [
-          { d: 'MON 02.11', val: '—', tag: '', sub: 'Regeneration', isToday: true },
-          { d: 'DIE 03.11', val: '5.5', unit: 'KM', tag: 'Locker GA1', sub: '< 118 bpm · 3 Antritte' },
+          { d: 'MON 02.11', val: '—', tag: '', sub: 'Regeneration' },
+          { d: 'DIE 03.11', val: '5.5', unit: 'KM', tag: 'Locker GA1', sub: '< 118 bpm · 3 Antritte', isToday: true },
           { d: 'MIT 04.11', val: '—', tag: '', sub: 'Passiv schonen' },
           { d: 'DON 05.11', val: '4.0', unit: 'KM', tag: 'Aktivierung', sub: '< 115 bpm · Flach' },
           { d: 'FRE 06.11', val: '—', tag: '', sub: 'Kein Krafttraining' },
@@ -2184,6 +2365,16 @@
       }
     };
 
+    function isDayToday(day) {
+      if (!day || !day.d) return false;
+      const now = new Date();
+      const d = String(now.getDate()).padStart(2, '0');
+      const m = String(now.getMonth() + 1).padStart(2, '0');
+      const todayPattern = `${d}.${m}`;
+      if (day.d.includes(todayPattern)) return true;
+      return !!day.isToday;
+    }
+
     function renderWeek(kwNum) {
       const data = weeksData[kwNum];
       if (!data) return;
@@ -2211,7 +2402,7 @@
         const isRace = !!day.isRace;
         const isStudio = !!day.isStudio;
         const isHike = !!day.isHike;
-        const isToday = !!day.isToday;
+        const isToday = isDayToday(day);
 
         let cardClass = 'apple-day-card';
         if (isToday) cardClass += ' card-today';
@@ -2402,13 +2593,14 @@
         if (run) planned += parseFloat(day.val);
         if (log && log.type !== 'kraft') done += Number(log.dist) || 0;
 
+        const isToday = isDayToday(day);
         let cls = 'm-row';
-        if (day.isToday) cls += ' today';
+        if (isToday) cls += ' today';
         else if (day.isRace) cls += ' race';
         else if (day.isLongrun) cls += ' longrun';
         if (!run && !day.isStudio && !day.isHike && !log) cls += ' rest';
 
-        const color = log ? 'var(--apple-green)' : day.isToday ? 'var(--apple-cyan)' : day.isRace ? 'var(--apple-orange)' : day.isLongrun ? 'var(--apple-blue)' : 'var(--apple-green)';
+        const color = log ? 'var(--apple-green)' : isToday ? 'var(--apple-cyan)' : day.isRace ? 'var(--apple-orange)' : day.isLongrun ? 'var(--apple-blue)' : 'var(--apple-green)';
         let main;
         if (log || run) {
           const v = log ? Number(log.dist).toFixed(1) : parseFloat(day.val).toFixed(1);
@@ -2418,7 +2610,7 @@
         } else if (day.isHike) {
           main = `<div class="m-word" style="color:var(--apple-green)">WANDERN</div>`;
         } else {
-          main = `<div class="m-word" style="color:${day.isToday ? 'var(--apple-cyan)' : 'var(--text-muted)'}">CHILL</div>`;
+          main = `<div class="m-word" style="color:${isToday ? 'var(--apple-cyan)' : 'var(--text-muted)'}">CHILL</div>`;
         }
 
         // Subcopy: Keine BPM mehr in der Zeile! Zeigt sauberen Tag / kurze Ansage
@@ -2434,7 +2626,7 @@
         let side = '';
         if (log) {
           side = `<span class="m-check">✓</span>`;
-        } else if (day.isToday && run) {
+        } else if (isToday && run) {
           side = `<span class="m-cta">Loggen</span>`;
         } else if (day.isRace) {
           side = `<span class="m-chevron" style="color:var(--apple-orange); font-size:1.3rem;">›</span>`;
@@ -2621,8 +2813,79 @@
       setTimeout(() => { if (drawer) drawer.style.transition = ''; }, 100);
     }
     if (urlParams.get('sheet')) {
+      const s = document.getElementById('mSheet');
+      if (s) s.style.transition = 'none';
       openSheet(currentKw, parseInt(urlParams.get('sheet'), 10));
+      setTimeout(() => { if (s) s.style.transition = ''; }, 100);
     }
+
+    // ==========================================================================
+    // AUTH GATE VALIDATION (APPLE HIG & BACKWARD-COMPATIBLE SESSION)
+    // ==========================================================================
+    const VALID_SITE_PASSWORDS = ['achilles', 'achillessehne'];
+
+    function checkSiteAuth() {
+      const isAuth = urlParams.get('auth') === '1' ||
+                     sessionStorage.getItem('drachenlauf_authenticated') === 'true' ||
+                     localStorage.getItem('drachenlauf_authenticated') === 'true' ||
+                     sessionStorage.getItem('coach_authenticated') === 'true' ||
+                     localStorage.getItem('coach_authenticated') === 'true';
+      const modal = document.getElementById('authGateModal');
+      if (!modal) return;
+      if (isAuth) {
+        modal.classList.add('unlocked');
+        modal.style.display = 'none';
+        modal.style.visibility = 'hidden';
+        modal.style.opacity = '0';
+        modal.style.pointerEvents = 'none';
+      } else {
+        modal.classList.remove('unlocked');
+        modal.style.display = 'flex';
+        modal.style.visibility = 'visible';
+        modal.style.opacity = '1';
+        modal.style.pointerEvents = 'auto';
+        setTimeout(() => {
+          const inp = document.getElementById('authPasswordInput');
+          if (inp) inp.focus();
+        }, 100);
+      }
+    }
+
+    function verifyAuthPassword(e) {
+      if (e && e.preventDefault) e.preventDefault();
+      const input = document.getElementById('authPasswordInput');
+      const err = document.getElementById('authGateError');
+      if (!input) return false;
+
+      const rawVal = String(input.value || '').trim().toLowerCase();
+      const isMatched = VALID_SITE_PASSWORDS.includes(rawVal);
+
+      if (isMatched) {
+        try { sessionStorage.setItem('coach_authenticated', 'true'); } catch(ex){}
+        try { localStorage.setItem('coach_authenticated', 'true'); } catch(ex){}
+        try { sessionStorage.setItem('drachenlauf_authenticated', 'true'); } catch(ex){}
+        try { localStorage.setItem('drachenlauf_authenticated', 'true'); } catch(ex){}
+        const modal = document.getElementById('authGateModal');
+        if (modal) {
+          modal.classList.add('unlocked');
+          modal.style.display = 'none';
+          modal.style.visibility = 'hidden';
+          modal.style.opacity = '0';
+          modal.style.pointerEvents = 'none';
+        }
+        if (err) err.classList.add('hidden');
+      } else {
+        if (err) err.classList.remove('hidden');
+        input.value = '';
+        input.focus();
+      }
+      return false;
+    }
+
+    window.checkSiteAuth = checkSiteAuth;
+    window.verifyAuthPassword = verifyAuthPassword;
+    document.addEventListener('DOMContentLoaded', checkSiteAuth);
+    checkSiteAuth();
   </script>
 </body>
 </html>
