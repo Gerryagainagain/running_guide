@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.75  
+**Document Version:** 9.76  
 **Last Updated:** November 03, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -9,6 +9,13 @@
 ---
 
 ## 📌 1. Project Overview & Current Trajectory
+
+- **Veranstalter-Link Tschirgant Sky Run TS16 aktualisiert (v9.68 / State 9.76):**
+  - Korrektur der Ziel-URL im Wettkampf-Briefing (`raceBriefings.ts16`):
+    - Alt: `https://www.tschirgant-skyrun.at/`
+    - Neu: `https://tschirgant-sky.run/trailrun-tirol-ts16-adventure/`
+    - Label angepasst: `Offizielle Ausschreibung · tschirgant-sky.run ↗`
+  - Synchronisiert: In `index.html`, `preview_jahres_dashboard.html`, gespiegelt nach `dist/`.
 
 - **Bugfix: Desktop Modal Zentrierung & Wochenfokus-Leiste repariert (v9.67 / State 9.75):**
   - **Desktop Modaldialog (`.m-sheet`) wieder präzise zentriert:**
