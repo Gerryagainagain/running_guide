@@ -23,6 +23,7 @@
       
       --apple-green: var(--color-brand-green, #30D158);
       --apple-cyan: var(--color-brand-cyan, #64D2FF);
+      --apple-blue: #0A84FF;
       --apple-orange: var(--color-brand-orange, #FF9F0A);
       --apple-red: var(--color-brand-red, #FF453A);
       
@@ -287,6 +288,16 @@
       border: 1.5px solid rgba(255, 159, 10, 0.55) !important;
       background: linear-gradient(135deg, rgba(255, 159, 10, 0.12), rgba(22, 22, 30, 0.85)) !important;
       box-shadow: 0 0 20px rgba(255, 159, 10, 0.20) !important;
+    }
+
+    .apple-day-card.card-longrun {
+      border: 1.5px solid rgba(10, 132, 255, 0.35) !important;
+      background: linear-gradient(135deg, rgba(10, 132, 255, 0.08), rgba(22, 22, 30, 0.85)) !important;
+    }
+
+    .apple-day-card.card-longrun:hover {
+      border-color: rgba(10, 132, 255, 0.60) !important;
+      box-shadow: 0 0 16px rgba(10, 132, 255, 0.20) !important;
     }
 
     .apple-day-card.card-option {
@@ -1954,6 +1965,7 @@
         let cardClass = 'apple-day-card';
         if (isToday) cardClass += ' card-today';
         if (isRace) cardClass += ' card-race';
+        if (day.isLongrun) cardClass += ' card-longrun';
 
         let cardClick = '';
         if (isRace) {

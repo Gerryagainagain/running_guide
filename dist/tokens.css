@@ -13,11 +13,12 @@
   --color-brand-red: #FF453A;
   --color-brand-red-hover: #FF5D53;
   --color-brand-yellow: #FFD60A;
-  --color-brand-blue: #007AFF;
+  --color-brand-blue: #0A84FF;
 
   /* --- 2. LEGACY APPLE ALIASES (BACKWARD COMPATIBILITY) --- */
   --apple-green: var(--color-brand-green);
   --apple-cyan: var(--color-brand-cyan);
+  --apple-blue: var(--color-brand-blue);
   --apple-orange: var(--color-brand-orange);
   --apple-red: var(--color-brand-red);
 

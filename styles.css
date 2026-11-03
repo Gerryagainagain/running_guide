@@ -30,6 +30,7 @@
 
   --apple-green: var(--color-brand-green, #30D158);
   --apple-cyan: var(--color-brand-cyan, #64D2FF);
+  --apple-blue: var(--color-brand-blue, #0A84FF);
   --apple-orange: var(--color-brand-orange, #FF9F0A);
   --apple-red: var(--color-brand-red, #FF453A);
   --apple-yellow: var(--color-brand-yellow, #FFD60A);
@@ -1020,6 +1021,16 @@ body, body.clean-theme {
 .apple-day-card.card-completed .hero-val,
 .apple-day-card.card-completed .hero-unit {
   color: var(--apple-green, #30D158) !important;
+}
+
+.apple-day-card.card-longrun {
+  border: 1.5px solid rgba(10, 132, 255, 0.35) !important;
+  background: linear-gradient(135deg, rgba(10, 132, 255, 0.08), var(--color-background-card, rgba(22, 22, 30, 0.85))) !important;
+}
+
+.apple-day-card.card-longrun .hero-val,
+.apple-day-card.card-longrun .hero-unit {
+  color: var(--apple-blue, #0A84FF) !important;
 }
 
 .badge-today-blue {

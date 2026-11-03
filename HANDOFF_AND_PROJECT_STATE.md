@@ -1,7 +1,7 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.66  
-**Last Updated:** November 02, 2026  
+**Document Version:** 9.67  
+**Last Updated:** November 03, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
 **Local Workspace Path:** `/Users/Gerhard/Desktop/running_guide`
@@ -10,6 +10,15 @@
 
 ## 📌 1. Project Overview & Current Trajectory
 
+- **Longrun-Auszeichnung in Apple Blue (#0A84FF) & Card-Akzentuierung (v9.59 / State 9.67):**
+  - **Behebung des CSS-Fallbacks:**
+    - Zuvor war `--apple-blue` in `:root` nicht deklariert, weshalb `var(--apple-blue)` bei Einheiten mit `isLongrun: true` auf den Standardwert `inherit` zurückfiel und die Distanzziffern (`16.0`, `18.0`) in Weiß erschienen.
+    - `--apple-blue: #0A84FF;` (Apple HIG Dark Mode System Blue) wurde in `:root` von `tokens.css`, `styles.css` und `preview_jahres_dashboard.html` integriert.
+  - **Farbliche Hierarchie der Longrun-Karten:**
+    - Longrun-Distanzziffern (`hero-val`) und Einheit (`hero-unit`) leuchten nun in Apple Blue (`#0A84FF`), kongruent zur Benchmark-Pille oben rechts (`34,0 km · 16k Erkrath (+350 Hm)`).
+    - Longrun-Tags (`Longrun Erkrath`, `Key Longrun`) tragen die gleiche blaue Typografie.
+    - Neue Klasse `.apple-day-card.card-longrun`: Subtiler blauer Rahmen (`border: 1.5px solid rgba(10, 132, 255, 0.35)`) und dezenter Blauschimmer im Gradienten heben die Schlüsseleinheiten optisch klar über die grünen GA1-Werktagsläufe (8k/10k) heraus, ohne mit dem orangen Alarm/Fokus eines Renntags zu konkurrieren.
+  - **Synchronisiert:** Umgesetzt in `tokens.css`, `styles.css`, `preview_jahres_dashboard.html`, `index.html` (Script-Version `v=9.59`), gespiegelt nach `dist/`.
 - **Harmonisierung der Wort-Labels (CHILL, STUDIO, WANDERN) & Vertikale Fluchtung (v9.58 / State 9.66):**
   - **Typografische Vereinheitlichung auf 1.15rem:**
     - Zuvor wiesen die verbalen Kartenlabels unterschiedliche Schriftgrößen auf: `STUDIO` (1.85rem), `WANDERN` (1.65rem) und `CHILL` (1.45rem), was zu einer optischen Überbetonung von Ruhetagen und Alternativtrainings gegenüber den eigentlichen Lauftagen führte.
