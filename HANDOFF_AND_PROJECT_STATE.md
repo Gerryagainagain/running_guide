@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.82  
+**Document Version:** 9.83  
 **Last Updated:** November 03, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -9,6 +9,11 @@
 ---
 
 ## 📌 1. Project Overview & Current Trajectory
+
+- **Dolomiten-Standortoptionen für Sommerurlaub 2027 hinterlegt (v9.83):**
+  - Für den zweiten Teil des 21-Tage-Bogens (nach dem TS16 in Imst) wurden zwei passende Dolomiten-Kandidaten für Naturcamping, moderate Höhe und Seilbahn-Höhenwandern (T2, schwindelfrei) evaluiert und in Sektion 4.C2 hinterlegt:
+    1. *Hochpustertal (Camping Toblacher See, 1.200 m):* Natursee, ebener Talradweg auf alter Bahntrasse für GA1-Lockerungsläufe (105–115 bpm), Gondelbahnen auf Helm (2.050 m) und Haunold (1.500 m).
+    2. *Seiser Alm / Schlern (Camping Seiser Alm, Völs, 880 m):* Ruhig nahe Völser Weiher, Europas größte Hochalm (1.680–2.000 m, Seilbahn ab Seis) mit sanften Almwegen ohne Steilabbrüche.
 
 - **Laufoption Trail Côte d’Opale (05.09.2027) entfernt (v9.74 / State 9.82):**
   - **Saisonkalender Q3 (Juli – Sept 2027):**
@@ -485,6 +490,9 @@ If the user logs a run or workout via Chrome browser that needs to be permanentl
 - **Kulturhistorische Anker & Naturpark-Routen:**
   - *Naturpark Kaunergrat (`https://www.kaunergrat.at/`):* Naturparkhaus am Piller Sattel (1.600 m), architektonische Aussichtsplattform „Gacher Blick“ (Tiefblick ins Inntal), 3.500 Jahre alter prähistorischer Brandopferplatz an der Via Claudia Augusta & barrierefreies Piller Moor (Moor-Rundweg mit Holzturm, null Steigung).
   - *Naturpark Ötztal – Archäologische Wege Nord-/Südtirol (`https://www.naturpark-oetztal.at/besuchen/wandern/themenwandern/archaeologische-wege/archaeologische-wege-zwischen-nord-und-suedtirol/`):* Historische Pfade der Gletschermumie Ötzi (Fundstelle Tisenjoch 1991, 5.300 Jahre alte Übergänge nach Südtirol). Gekennzeichnet durch Kupferstelen; u. a. der Archäologische Rundwanderweg Obergurgl (Zirbenwald / Beilsteinalm) und die Steinzeitjäger-Station „Hohler Stein“ bei Vent (Mesolithikum ~8.000 v. Chr.).
+- **Dolomiten-Optionen für 2. Standlager / Naturcamping (Woche 2):**
+  - *Favorit 1: Hochpustertal / Sextner Dolomiten (Camping Toblacher See):* 205 km / ~2:40 h Fahrt ab Imst via Brenner/Brixen. Camping direkt am Ufer des geschützten Natursees (1.200 m). Direkter Zugang zu Gondelbahnen (Helm auf 2.050 m, Haunold auf 1.500 m) mit sanften, aussichtsreichen Höhenwegen (T2, schwindelfrei). Optimales, flaches GA1-Terrain für Gerhard (ehemalige Bahntrasse im Talboden entlang von Rienz/Drau).
+  - *Favorit 2: Seiser Alm / Schlerngebiet (Camping Seiser Alm, Völs):* 175 km / ~2:20 h Fahrt ab Imst. Terrassiert am Fuß des Schlern nahe Völser Weiher (880 m). Seiser Alm als größte Hochalm Europas (1.680–2.000 m, Seilbahn ab Seis) mit weitläufigen, trittsicheren Wirtschaftswegen ohne Absturzrisiko.
 - **Physiologischer Trade-Off:** Im Düsseldorfer Flachland können im Vorfeld keine 800-Hm-Abstiege am Stück trainiert werden. Das Studio-Krafttraining (exzentrische Beinpresse/Split Squats) federt den Stoß ab, ersetzt jedoch nicht die periphere Sehnenschlaghärte auf Schotter. Daher ist nach dem TS16 mit moderater exzentrischer Quadrizeps-Ermüdung (DOMS für 48–72 h) zu rechnen; die Downhill-Pace im Wettkampf muss strikt defensiv gewählt werden. Durch die 21-Tage-Architektur steht für die muskuläre Erholung in den Bergen volle Zeit zur Verfügung.
 
 ### D. Strategischer 4-Jahres-Rahmen 2027–2030 (Sustainable Longevity & Familien-Sync)
