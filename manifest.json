@@ -1,0 +1,15 @@
+{
+  "name": "Running Guide 2027",
+  "short_name": "Coach",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0B0B10",
+  "theme_color": "#0B0B10",
+  "icons": [
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
