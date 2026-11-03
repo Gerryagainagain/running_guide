@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.76  
+**Document Version:** 9.77  
 **Last Updated:** November 03, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -9,6 +9,17 @@
 ---
 
 ## 📌 1. Project Overview & Current Trajectory
+
+- **Interaktiver Bergurlaub-Layer (05.–25. Juni 2027) zuschaltbar (v9.69 / State 9.77):**
+  - **An-/Ausschaltbarer Reise- & Urlaubs-Layer:**
+    - Im Saisonkalender 2027 (`tab-season`) wurde oben rechts im Header ein taktiler Apple HIG Toggle-Button **`[ • ⛺ Bergurlaub ]`** integriert.
+    - **Modus AUS (Standard):** Der Kalender zeigt die reine Sportphysiologie (Aufbau 01.–11.06., 🏁 TS16 Rennen 12.06., Rekom 13.–26.06.).
+    - **Modus AN (Layer aktiviert):**
+      - Der 21-Tage Bergurlaub (05.–25. Juni 2027: Imst Standlager Camping FiNK & Kaub am Mittelrhein) legt sich als warmer, goldener Overlay-Layer (`.vacation-layer` mit goldenem Top-Rail und dezentem Diagonalschliff `repeating-linear-gradient`) über die Kalendertage.
+      - **Trainingsphysiologie bleibt sichtbar:** Die darunterliegenden Phasenbalken (Blau für Aufbau, Grün für Rekom) scheinen durch; das Rennen am 12. Juni (TS16) leuchtet im Zentrum des Urlaubs strahlend orange hervor.
+      - **Interaktive Reise-Stationen:** Klick auf einen Urlaubstag zeigt die genaue Etappe im Meta-Dock (05.06. Anreise Bodensee, 06.–11.06. Tapering Camping FiNK, 12.06. 🏁 TS16, 13.–20.06. Erholung & Hüttenwandern, 21.–25.06. Kaub am Rhein / Mittelrhein-Ausklang).
+    - URL-Steuerung für Direktaufruf: `?tab=season&q=1&layer=urlaub`.
+  - Synchronisiert: In `index.html`, `preview_jahres_dashboard.html`, gespiegelt nach `dist/`.
 
 - **Veranstalter-Link Tschirgant Sky Run TS16 aktualisiert (v9.68 / State 9.76):**
   - Korrektur der Ziel-URL im Wettkampf-Briefing (`raceBriefings.ts16`):

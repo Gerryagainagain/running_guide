@@ -647,7 +647,61 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      position: relative;
       margin-bottom: 0;
+    }
+
+    .season-layer-toggle-wrap {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      align-items: center;
+    }
+
+    .season-layer-toggle-btn {
+      height: 38px;
+      padding: 0 16px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--text-secondary);
+      font-size: 0.82rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      user-select: none;
+    }
+
+    .season-layer-toggle-btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+      color: var(--text-white);
+      border-color: rgba(255, 255, 255, 0.22);
+    }
+
+    .season-layer-toggle-btn .layer-toggle-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.30);
+      transition: all 0.2s ease;
+    }
+
+    .season-layer-toggle-btn.active {
+      background: rgba(255, 214, 10, 0.16);
+      border-color: var(--apple-yellow);
+      color: #FFF3C4;
+      box-shadow: 0 0 16px rgba(255, 214, 10, 0.25);
+    }
+
+    .season-layer-toggle-btn.active .layer-toggle-dot {
+      background: var(--apple-yellow);
+      box-shadow: 0 0 8px var(--apple-yellow);
     }
 
     .season-pager-bar {
@@ -893,6 +947,48 @@
     .cal-cell.phase-option:hover {
       background: rgba(191, 90, 242, 0.15) !important;
       border-color: #E8B4F8 !important;
+    }
+
+    /* ==========================================================================
+       BERGURLAUB OVERLAY LAYER (05. – 25. JUNI 2027)
+       Legt sich als architektonische Ebene über den Trainingsphasen-Balken
+       ========================================================================== */
+    .cal-cell.vacation-layer {
+      position: relative;
+    }
+
+    .cal-cell.vacation-layer::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      border-top: 3px solid var(--apple-yellow);
+      background-image: repeating-linear-gradient(
+        135deg,
+        transparent,
+        transparent 5px,
+        rgba(255, 214, 10, 0.16) 5px,
+        rgba(255, 214, 10, 0.16) 7px
+      );
+      z-index: 2;
+    }
+
+    .cal-cell.vacation-layer.vac-start::after {
+      border-top-left-radius: 7px;
+      border-bottom-left-radius: 7px;
+      border-left: 2px solid var(--apple-yellow);
+    }
+
+    .cal-cell.vacation-layer.vac-end::after {
+      border-top-right-radius: 7px;
+      border-bottom-right-radius: 7px;
+      border-right: 2px solid var(--apple-yellow);
+    }
+
+    /* Renntag TS16 am 12.06 bleibt strahlend orange im Zentrum des Urlaubs */
+    .cal-cell.vacation-layer.phase-race::after {
+      border-top-color: #FFFFFF;
+      background-image: none;
     }
 
     /* ZENTRIERTE ZIEL-BUBBLE */
@@ -1729,6 +1825,13 @@
           </div>
           <button class="season-pager-btn" onclick="nextQuarter()" aria-label="Nächstes Quartal" title="Nächstes Quartal">›</button>
         </div>
+        <div class="season-layer-toggle-wrap">
+          <button type="button" class="season-layer-toggle-btn" id="vacationLayerBtn" onclick="toggleVacationLayer()" aria-pressed="false" title="Bergurlaub-Layer ein-/ausblenden">
+            <span class="layer-toggle-dot"></span>
+            <span class="layer-toggle-icon">⛺</span>
+            <span class="layer-toggle-label">Bergurlaub</span>
+          </button>
+        </div>
       </div>
 
       <div class="three-months-grid" id="threeMonthsContainer">
@@ -1958,6 +2061,22 @@
 
     let currentQuarterNum = 0; // Standard: Winter 2027
     const TOTAL_QUARTERS = 4;
+    let vacationLayerActive = false;
+
+    function toggleVacationLayer() {
+      vacationLayerActive = !vacationLayerActive;
+      const btn = document.getElementById('vacationLayerBtn');
+      if (btn) {
+        btn.classList.toggle('active', vacationLayerActive);
+        btn.setAttribute('aria-pressed', vacationLayerActive ? 'true' : 'false');
+      }
+      // Wenn der Bergurlaub aktiviert wird und wir nicht in Q2 (Frühling) sind, dorthin wechseln
+      if (vacationLayerActive && currentQuarterNum !== 1) {
+        switchQuarter(1);
+      } else {
+        switchQuarter(currentQuarterNum);
+      }
+    }
 
     function switchQuarter(qNum) {
       if (qNum < 0) qNum = TOTAL_QUARTERS - 1;
@@ -1973,7 +2092,13 @@
       if (rangeEl) rangeEl.innerText = q.range || '';
 
       const keyEl = document.getElementById('quarterKeyEvent');
-      if (keyEl) keyEl.innerText = q.keyEvent;
+      if (keyEl) {
+        if (qNum === 1 && vacationLayerActive) {
+          keyEl.innerHTML = '⛺ <b>05.–25. Juni 2027: Bergurlaub Tirol & Mittelrhein</b> (Standlager Camping FiNK Imst · Sa 12.06: 🏁 TS16 Imst)';
+        } else {
+          keyEl.innerText = q.keyEvent;
+        }
+      }
 
       renderMonths(q.months);
     }
@@ -2054,6 +2179,17 @@
 
               if (isInteractive) {
                 barClass += ' is-interactive';
+              }
+
+              const isVacationDay = (m.mIdx === 5 && d >= 5 && d <= 25 && vacationLayerActive);
+              if (isVacationDay) {
+                barClass += ' vacation-layer';
+                if (d === 5 || col === 0) barClass += ' vac-start';
+                if (d === 25 || col === 6) barClass += ' vac-end';
+                isInteractive = true;
+              }
+
+              if (isInteractive) {
                 html += `<div class="cal-cell ${barClass}" onclick="onPhaseClick(${m.mIdx}, ${d}, '${phase}', event)">${d}</div>`;
               } else {
                 html += `<div class="cal-cell ${barClass}">${d}</div>`;
@@ -2085,6 +2221,31 @@
       }
 
       const keyEl = document.getElementById('quarterKeyEvent');
+
+      // 0. BERGURLAUB LAYER DETAILS (05.–25. JUNI 2027)
+      if (vacationLayerActive && mIdx === 5 && day >= 5 && day <= 25) {
+        if (day === 12) {
+          keyEl.innerHTML = '🏁 Sa 12.06.2027: Tschirgant Sky Run TS16 (16,9 km · ~850 Hm) · Im Standlager Camping FiNK';
+          openRaceDrawer('ts16');
+          return;
+        }
+        if (day === 5) {
+          keyEl.innerHTML = '⛺ Sa 05.06.2027: Anreise mit Camping-Fahrzeug via Bodensee nach Tirol';
+          return;
+        }
+        if (day >= 6 && day <= 11) {
+          keyEl.innerHTML = `⛺ ${day}. Juni 2027: Standlager Camping FiNK Imst · Tapering & Streckencheck TS16`;
+          return;
+        }
+        if (day >= 13 && day <= 20) {
+          keyEl.innerHTML = `⛺ ${day}. Juni 2027: Standlager Camping FiNK Imst · Rekom, Hütten & Familienwandern`;
+          return;
+        }
+        if (day >= 21 && day <= 25) {
+          keyEl.innerHTML = `⛺ ${day}. Juni 2027: Kaub am Rhein (Mittelrhein-Ausklang) · Fr 25.06. Heimreise Düsseldorf`;
+          return;
+        }
+      }
 
       // 1. GESETZTE WETTKÄMPFE (ORANGE)
       if (mIdx === 1026 && day === 8) {
@@ -2999,6 +3160,9 @@
       } else if (hash.includes('q=')) {
         const hQ = parseInt(hash.split('q=')[1], 10);
         if (!isNaN(hQ)) switchQuarter(hQ);
+      }
+      if (urlParams.get('layer') === 'urlaub' || urlParams.get('layer') === 'bergurlaub' || urlParams.get('vacation') === '1') {
+        toggleVacationLayer();
       }
       if (urlParams.get('clickDay')) {
         const d = parseInt(urlParams.get('clickDay'), 10);
