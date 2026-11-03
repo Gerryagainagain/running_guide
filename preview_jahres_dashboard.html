@@ -647,61 +647,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      position: relative;
       margin-bottom: 0;
-    }
-
-    .season-layer-toggle-wrap {
-      position: absolute;
-      right: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      display: flex;
-      align-items: center;
-    }
-
-    .season-layer-toggle-btn {
-      height: 38px;
-      padding: 0 16px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      color: var(--text-secondary);
-      font-size: 0.82rem;
-      font-weight: 700;
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      cursor: pointer;
-      font-family: inherit;
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-      user-select: none;
-    }
-
-    .season-layer-toggle-btn:hover {
-      background: rgba(255, 255, 255, 0.12);
-      color: var(--text-white);
-      border-color: rgba(255, 255, 255, 0.22);
-    }
-
-    .season-layer-toggle-btn .layer-toggle-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.30);
-      transition: all 0.2s ease;
-    }
-
-    .season-layer-toggle-btn.active {
-      background: rgba(255, 214, 10, 0.16);
-      border-color: var(--apple-yellow);
-      color: #FFF3C4;
-      box-shadow: 0 0 16px rgba(255, 214, 10, 0.25);
-    }
-
-    .season-layer-toggle-btn.active .layer-toggle-dot {
-      background: var(--apple-yellow);
-      box-shadow: 0 0 8px var(--apple-yellow);
     }
 
     .season-pager-bar {
@@ -742,10 +688,10 @@
       height: 44px;
       display: inline-flex;
       align-items: center;
-      gap: 12px;
+      gap: 8px;
       background: rgba(255, 255, 255, 0.08);
       border: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 0 22px;
+      padding: 0 24px;
       border-radius: 9999px;
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
@@ -759,12 +705,69 @@
       color: var(--text-white);
     }
 
-    .season-pager-range {
-      font-family: var(--font-text);
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--apple-cyan);
-      letter-spacing: 0.02em;
+    /* DEZENTE LAYER-LEISTE UNTER DEM KALENDER (KEINE ICONS) */
+    .season-layer-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.75rem;
+      min-height: 34px;
+      margin-top: 0.35rem;
+    }
+
+    .season-layer-bar:empty {
+      display: none;
+    }
+
+    .layer-bar-label {
+      font-size: 0.70rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .layer-chip-btn {
+      height: 32px;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      color: var(--text-secondary);
+      font-size: 0.78rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      user-select: none;
+    }
+
+    .layer-chip-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-white);
+      border-color: rgba(255, 255, 255, 0.20);
+    }
+
+    .layer-chip-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.25);
+      transition: all 0.2s ease;
+    }
+
+    .layer-chip-btn.active {
+      background: rgba(255, 214, 10, 0.12);
+      border-color: rgba(255, 214, 10, 0.40);
+      color: #FFF3C4;
+    }
+
+    .layer-chip-btn.active .layer-chip-dot {
+      background: var(--apple-yellow);
+      box-shadow: 0 0 8px var(--apple-yellow);
     }
 
     .three-months-grid {
@@ -1820,23 +1823,18 @@
         <div class="season-pager-bar">
           <button class="season-pager-btn" onclick="prevQuarter()" aria-label="Vorheriges Quartal" title="Vorheriges Quartal">‹</button>
           <div class="season-pager-label">
-            <span class="season-pager-title" id="seasonPagerTitle">Winter</span>
-            <span class="season-pager-range" id="seasonPagerRange">Jan – März 2027</span>
+            <span class="season-pager-title" id="seasonPagerTitle">Jan – März 2027</span>
           </div>
           <button class="season-pager-btn" onclick="nextQuarter()" aria-label="Nächstes Quartal" title="Nächstes Quartal">›</button>
-        </div>
-        <div class="season-layer-toggle-wrap">
-          <button type="button" class="season-layer-toggle-btn" id="vacationLayerBtn" onclick="toggleVacationLayer()" aria-pressed="false" title="Bergurlaub-Layer ein-/ausblenden">
-            <span class="layer-toggle-dot"></span>
-            <span class="layer-toggle-icon">⛺</span>
-            <span class="layer-toggle-label">Bergurlaub</span>
-          </button>
         </div>
       </div>
 
       <div class="three-months-grid" id="threeMonthsContainer">
         <!-- WIRD DYNAMISCH GENERIERT -->
       </div>
+
+      <!-- DEZENTE LAYER-LEISTE UNTER DEM KALENDER (KEINE ICONS) -->
+      <div class="season-layer-bar" id="seasonLayerBar"></div>
 
       <div class="quarter-meta-strip" id="quarterMetaStrip">
         <div class="quarter-key-event" id="quarterKeyEvent">Ziel: 07. März · Belgenbachtrail (30,7 km · 941 Hm)</div>
@@ -1898,7 +1896,7 @@
         <div class="s-txt" style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.45; margin-bottom: 0.6rem;">
           Alternativ: Sync-Link auf dem iPhone kopieren und hier direkt einfügen.
         </div>
-        <button type="button" class="s-save" style="min-height: 40px; font-size: 0.88rem;" onclick="pasteFromClipboardSync()">📋 Aus Zwischenablage einfügen</button>
+        <button type="button" class="s-save" style="min-height: 40px; font-size: 0.88rem;" onclick="pasteFromClipboardSync()">Aus Zwischenablage einfügen</button>
       </div>
     </div>
     <div id="syncStatusMsg" style="font-size: 0.80rem; color: var(--apple-cyan); text-align: center; margin-top: 0.8rem; font-weight: 700;"></div>
@@ -1955,11 +1953,10 @@
       }
     }
 
-    // Quartals-Daten für den 3-Monats-Kalender (Reine 4 Jahreszeiten der Saison 2027)
+    // Quartals-Daten für den 3-Monats-Kalender (Saison 2027)
     const quartersData = {
       0: {
-        heading: 'Winter',
-        range: 'Jan – März 2027',
+        heading: 'Jan – März 2027',
         keyEvent: 'Ziel: 07. März · Belgenbachtrail (30,7 km · 941 Hm)',
         months: [
           { name: 'Januar', mIdx: 0, days: 31, startOffset: 4 },
@@ -1968,18 +1965,19 @@
         ]
       },
       1: {
-        heading: 'Frühling',
-        range: 'Apr – Juni 2027',
+        heading: 'Apr – Juni 2027',
         keyEvent: 'Ziel: 12. Juni · Tschirgant Sky Run TS16 (16,9 km · ~850 Hm)',
         months: [
           { name: 'April', mIdx: 3, days: 30, startOffset: 3 },
           { name: 'Mai', mIdx: 4, days: 31, startOffset: 5 },
           { name: 'Juni', mIdx: 5, days: 30, startOffset: 1 }
+        ],
+        layers: [
+          { id: 'vacation', label: 'Bergurlaub (05.–25.06.)' }
         ]
       },
       2: {
-        heading: 'Sommer',
-        range: 'Juli – Sept 2027',
+        heading: 'Juli – Sept 2027',
         keyEvent: 'Vielleicht gibt es noch Laufoptionen hier',
         months: [
           { name: 'Juli', mIdx: 6, days: 31, startOffset: 3 },
@@ -1988,8 +1986,7 @@
         ]
       },
       3: {
-        heading: 'Herbst',
-        range: 'Okt – Dez 2027',
+        heading: 'Okt – Dez 2027',
         keyEvent: 'Ziel: 24. Oktober · Drachenlauf (26,0 km · 1.250 Hm)',
         months: [
           { name: 'Oktober', mIdx: 9, days: 31, startOffset: 4 },
@@ -2070,7 +2067,7 @@
         btn.classList.toggle('active', vacationLayerActive);
         btn.setAttribute('aria-pressed', vacationLayerActive ? 'true' : 'false');
       }
-      // Wenn der Bergurlaub aktiviert wird und wir nicht in Q2 (Frühling) sind, dorthin wechseln
+      // Wenn der Bergurlaub aktiviert wird und wir nicht in Q2 (Apr – Juni) sind, dorthin wechseln
       if (vacationLayerActive && currentQuarterNum !== 1) {
         switchQuarter(1);
       } else {
@@ -2087,14 +2084,36 @@
       if (!q) return;
 
       const titleEl = document.getElementById('seasonPagerTitle');
-      const rangeEl = document.getElementById('seasonPagerRange');
       if (titleEl) titleEl.innerText = q.heading;
-      if (rangeEl) rangeEl.innerText = q.range || '';
+
+      // Unaufdringliche Layer-Leiste unter dem Kalender (nur sichtbar wenn Layers definiert)
+      const layerBarEl = document.getElementById('seasonLayerBar');
+      if (layerBarEl) {
+        if (q.layers && q.layers.length > 0) {
+          layerBarEl.style.display = 'flex';
+          layerBarEl.innerHTML = `
+            <span class="layer-bar-label">Ebene</span>
+            ${q.layers.map(l => `
+              <button type="button" class="layer-chip-btn ${vacationLayerActive && l.id === 'vacation' ? 'active' : ''}" 
+                      id="${l.id}LayerBtn" 
+                      onclick="toggleVacationLayer()" 
+                      aria-pressed="${vacationLayerActive && l.id === 'vacation' ? 'true' : 'false'}" 
+                      title="${l.label} ein-/ausblenden">
+                <span class="layer-chip-dot"></span>
+                <span>${l.label}</span>
+              </button>
+            `).join('')}
+          `;
+        } else {
+          layerBarEl.style.display = 'none';
+          layerBarEl.innerHTML = '';
+        }
+      }
 
       const keyEl = document.getElementById('quarterKeyEvent');
       if (keyEl) {
         if (qNum === 1 && vacationLayerActive) {
-          keyEl.innerHTML = '⛺ <b>05.–25. Juni 2027: Bergurlaub Tirol & Mittelrhein</b> (Standlager Camping FiNK Imst · Sa 12.06: 🏁 TS16 Imst)';
+          keyEl.innerHTML = '<b>05.–25. Juni 2027: Bergurlaub Tirol & Mittelrhein</b> (Standlager Camping FiNK Imst · Sa 12.06: TS16 Imst)';
         } else {
           keyEl.innerText = q.keyEvent;
         }
@@ -2225,24 +2244,24 @@
       // 0. BERGURLAUB LAYER DETAILS (05.–25. JUNI 2027)
       if (vacationLayerActive && mIdx === 5 && day >= 5 && day <= 25) {
         if (day === 12) {
-          keyEl.innerHTML = '🏁 Sa 12.06.2027: Tschirgant Sky Run TS16 (16,9 km · ~850 Hm) · Im Standlager Camping FiNK';
+          keyEl.innerHTML = 'Sa 12.06.2027: Tschirgant Sky Run TS16 (16,9 km · ~850 Hm) · Im Standlager Camping FiNK';
           openRaceDrawer('ts16');
           return;
         }
         if (day === 5) {
-          keyEl.innerHTML = '⛺ Sa 05.06.2027: Anreise mit Camping-Fahrzeug via Bodensee nach Tirol';
+          keyEl.innerHTML = 'Sa 05.06.2027: Anreise mit Camping-Fahrzeug via Bodensee nach Tirol';
           return;
         }
         if (day >= 6 && day <= 11) {
-          keyEl.innerHTML = `⛺ ${day}. Juni 2027: Standlager Camping FiNK Imst · Tapering & Streckencheck TS16`;
+          keyEl.innerHTML = `${day}. Juni 2027: Standlager Camping FiNK Imst · Tapering & Streckencheck TS16`;
           return;
         }
         if (day >= 13 && day <= 20) {
-          keyEl.innerHTML = `⛺ ${day}. Juni 2027: Standlager Camping FiNK Imst · Rekom, Hütten & Familienwandern`;
+          keyEl.innerHTML = `${day}. Juni 2027: Standlager Camping FiNK Imst · Rekom, Hütten & Familienwandern`;
           return;
         }
         if (day >= 21 && day <= 25) {
-          keyEl.innerHTML = `⛺ ${day}. Juni 2027: Kaub am Rhein (Mittelrhein-Ausklang) · Fr 25.06. Heimreise Düsseldorf`;
+          keyEl.innerHTML = `${day}. Juni 2027: Kaub am Rhein (Mittelrhein-Ausklang) · Fr 25.06. Heimreise Düsseldorf`;
           return;
         }
       }

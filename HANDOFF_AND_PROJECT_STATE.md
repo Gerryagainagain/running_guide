@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.77  
+**Document Version:** 9.78  
 **Last Updated:** November 03, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -9,6 +9,20 @@
 ---
 
 ## 📌 1. Project Overview & Current Trajectory
+
+- **Design-Bereinigung Saison-Kalender: Pager-Spannen, Layer-Dock unter Kalender & Icon-Freiheit (v9.70 / State 9.78):**
+  - **Quartals-Pager direkt auf Kalenderspannen umgestellt:**
+    - Die früheren saisonalen Überschriften („Winter“, „Frühling“, „Sommer“, „Herbst“) und die redundante Unterzeile wurden abgelöst.
+    - Der zentrierte Pager zeigt nun direkt die exakten Zeitspannen: `Jan – März 2027`, `Apr – Juni 2027`, `Juli – Sept 2027`, `Okt – Dez 2027`.
+  - **Unaufdringliche Layer-Leiste unter dem 3-Monats-Kalender (`.season-layer-bar`):**
+    - Der Layer-Toggle wurde aus der Kopfzeile entfernt, um die Pager-Navigation vollkommen ruhig und zentriert zu halten.
+    - Die Leiste sitzt dezent unterhalb des Kalenderblocks vor dem Statusdock und wird dynamisch gesteuert (`q.layers`).
+    - *Q1, Q3, Q4:* Völlig unsichtbar (`display: none`), da keine Reisen hinterlegt sind.
+    - *Q2 (Apr – Juni 2027):* Zeigt dezent `EBENE` mit taktilem Chip-Button `• Bergurlaub (05.–25.06.)`. Bei Aktivierung leuchtet der Punkt warm bernsteinfarben und der 21-Tage-Balken überlagert die Tage 05.–25. Juni.
+  - **Strikte Icon-Freiheit (Swiss Design Standard):**
+    - Sämtliche Emojis und Schmuck-Icons (`⛺`, `🏁`, `📋`) wurden aus Buttons, Statuszeilen, Zwischenablage-Schaltflächen und Etappentexten entfernt.
+    - Typografische Klarheit mit Akzentfarben (Orange für Rennen, Cyan für Navigation, Gelb/Bernstein für Ebenen).
+  - **Synchronisiert:** In `index.html`, `preview_jahres_dashboard.html`, `dist/index.html` und `dist/preview_jahres_dashboard.html`.
 
 - **Interaktiver Bergurlaub-Layer (05.–25. Juni 2027) zuschaltbar (v9.69 / State 9.77):**
   - **An-/Ausschaltbarer Reise- & Urlaubs-Layer:**
