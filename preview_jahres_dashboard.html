@@ -1591,7 +1591,7 @@
 
       // 1. GESETZTE WETTKÄMPFE (ORANGE)
       if (mIdx === 1026 && day === 8) {
-        keyEl.innerHTML = '08. November 2026 · Martinslauf 10k (Sub 58 min · 8 °C)';
+        keyEl.innerHTML = '08. November 2026 · 48. SFD Martinslauf 10k (Unterbacher See Düsseldorf · Sub 58 min) · <a href="https://www.sfd.de/martinslauf/" target="_blank" rel="noopener noreferrer" class="option-reg-link">Infos ↗</a>';
         openRaceDrawer('martinslauf');
         return;
       }
@@ -1721,38 +1721,38 @@
     const raceBriefings = {
       martinslauf: {
         tag: 'WETTKAMPF-BRIEFING · 10 KM',
-        title: '35. Bonner Martinslauf',
-        subtitle: 'Sonntag, 08. November 2026 · Bonn Rheinaue',
-        targetPill: 'Zielzeit Sub 58 min · Pace 5:48 min/km',
+        title: "48. SFD '75 Martinslauf",
+        subtitle: 'Sonntag, 08. November 2026 · Düsseldorf (Unterbacher See)',
+        targetPill: 'Zielzeit Sub 58 min · Pace 5:48 min/km · Start 11:45 Uhr',
         sections: [
           {
             title: 'Eckdaten & Logistik',
             type: 'grid',
             items: [
-              { label: 'Startzeit', val: '10:00 Uhr' },
-              { label: 'Startort', val: 'Rheinaue Bonn' },
-              { label: 'Distanz', val: '10,0 km flach' },
-              { label: 'Wetter', val: '8 °C · Trocken' }
+              { label: 'Startzeit', val: '11:45 Uhr (10 km)' },
+              { label: 'Startort', val: 'Strandbad Süd (U-See)' },
+              { label: 'Distanz / Hm', val: '10,0 km · flach (~10 Hm)' },
+              { label: 'Adresse', val: 'Am Kleinforst 275, Düsseldorf' }
             ]
           },
           {
             title: 'Pacing- & HF-Strategie',
             type: 'pacing',
             steps: [
-              { km: 'KM 0 – 3', speed: '5:50 min/km', hr: '< 118 bpm (Strikt kontrolliert)' },
-              { km: 'KM 3 – 7', speed: '5:45 min/km', hr: '120–125 bpm (Rollen lassen)' },
+              { km: 'KM 0 – 3', speed: '5:50 min/km', hr: '< 118 bpm (Strikt kontrolliert am See)' },
+              { km: 'KM 3 – 7', speed: '5:45 min/km', hr: '120–125 bpm (Rhythmus halten)' },
               { km: 'KM 7 – 10', speed: '5:35 min/km', hr: 'Freigabe Endbeschleunigung' }
             ]
           },
           {
-            title: 'Verpflegungs- & Carboload-Plan',
+            title: 'Streckencharakteristik & Verpflegung',
             type: 'text',
-            text: 'Samstag (Vortag): Carboloading mit Reis, Nudeln & Datteln. Ausreichend Wasser. Im Rennen: Bei 10 km keine Eigenverpflegung nötig, optionale Wasserstelle bei KM 5 nutzen.'
+            text: 'Flache, schnelle Natur- und befestigte Parkwege rund um den Unterbacher See. Leicht windanfällig an offenen Wasserpassagen. Im Rennen keine Eigenverpflegung nötig. Traditioneller Weckmann im Ziel!'
           },
           {
-            title: 'Ausrüstung',
+            title: 'Offizielle Ausschreibung & Infos',
             type: 'text',
-            text: 'Straßen-Wettkampfschuh (leichte Dämpfung). Bei 8 °C: Funktions-Longsleeve, leichte Handschuhe für die ersten 2 km.'
+            text: '<a href="https://www.sfd.de/martinslauf/" target="_blank" rel="noopener noreferrer" style="color:var(--apple-orange); font-weight:800; text-decoration:none; display:inline-flex; align-items:center; gap:0.35rem;">www.sfd.de/martinslauf ↗</a>'
           }
         ]
       },
@@ -1937,11 +1937,11 @@
     // Wochenplan-Daten (Single Stage: KW 45 bis KW 50)
     const weeksData = {
       45: {
-        title: 'Diese Woche KW 45 • Martinslauf',
+        title: 'Diese Woche KW 45 • Martinslauf U-See',
         dates: '02. – 08. November 2026',
         benchmark: 'Zielzeit Sub 58 min',
         benchmarkType: 'race',
-        summary: 'Fokus: Frische maximieren für den Martinslauf am Sonntag (8 °C, Pacing: 5:50 ➔ 5:45 ➔ 5:35 min/km). Am Samstag 07. Nov: Ruhetag & Pre-Race Carboload.',
+        summary: 'Fokus: Frische maximieren für den 48. Martinslauf am Sonntag am Unterbacher See (Düsseldorf, 10k Start 11:45 Uhr, Pacing: 5:50 ➔ 5:45 ➔ 5:35 min/km). Am Samstag 07. Nov: Ruhetag & Pre-Race Carboload.',
         days: [
           { d: 'MON 02.11', val: '—', tag: '', sub: 'Regeneration', isToday: true },
           { d: 'DIE 03.11', val: '5.5', unit: 'KM', tag: 'Locker GA1', sub: '< 118 bpm · 3 Antritte' },
@@ -1949,7 +1949,7 @@
           { d: 'DON 05.11', val: '4.0', unit: 'KM', tag: 'Aktivierung', sub: '< 115 bpm · Flach' },
           { d: 'FRE 06.11', val: '—', tag: '', sub: 'Kein Krafttraining' },
           { d: 'SAM 07.11', val: '—', tag: 'Pre-Race', tagColor: 'var(--apple-orange)', sub: 'Carboload & Ruhe' },
-          { d: 'SON 08.11', val: '10.0', unit: 'KM', tag: 'Martinslauf', sub: '8 °C · Sub 58 min', isRace: true, main: true, raceKey: 'martinslauf' }
+          { d: 'SON 08.11', val: '10.0', unit: 'KM', tag: 'Martinslauf', sub: 'U-See D\'dorf · Sub 58 min', isRace: true, main: true, raceKey: 'martinslauf' }
         ]
       },
       46: {

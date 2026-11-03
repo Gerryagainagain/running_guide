@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.68  
+**Document Version:** 9.69  
 **Last Updated:** November 03, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -10,6 +10,17 @@
 
 ## 📌 1. Project Overview & Current Trajectory
 
+- **Korrektur Martinslauf: 48. SFD '75 Martinslauf am Unterbacher See in Düsseldorf (v9.61 / State 9.69):**
+  - **Präzisierung Veranstaltungsort & Logistik:**
+    - Zuvor war fälschlicherweise der Bonner Martinslauf hinterlegt. Korrigiert auf den realen Lauf: **48. SFD '75 Martinslauf am Unterbacher See in Düsseldorf** ([sfd.de/martinslauf](https://www.sfd.de/martinslauf/)).
+    - **Eckdaten & Logistik im Race Briefing:**
+      - Startzeit: Sonntag, 08. November 2026 um **11:45 Uhr** (10 km Hauptlauf / Volkslauf).
+      - Startort: Strandbad Süd, Unterbacher See (Am Kleinforst 275, 40627 Düsseldorf).
+      - Strecke: 10,0 km flach (~10 Hm), schnelle Natur- und Parkwege rund um den See, offene Passagen windanfällig.
+      - Verpflegung & Besonderheit: Traditioneller Weckmann im Ziel.
+    - Direkte Link-Verknüpfung zur offiziellen SFD '75 Ausschreibung im Slide-Over Drawer und in der Saison-Meta-Zeile.
+    - Wochenkarte KW 45 und Tageskarte (SON 08.11) auf `Martinslauf (U-See D'dorf)` aktualisiert.
+  - **Synchronisiert:** Umgesetzt in `preview_jahres_dashboard.html`, `preview_klassischer_3monats_kalender.html`, `index.html` (Script-Version `v=9.61`), gespiegelt nach `dist/`.
 - **Responsive Mobile View (≤ 500px, iPhone 13 mini) & Quick-Log Bottom Sheet (v9.60 / State 9.68):**
   - **Ergonomische Mobile-Wochenbühne (≤ 500 px Viewport):**
     - Bei Viewport-Breiten bis 500 px (z. B. iPhone 13 mini, 375 × 812 px) schaltet das Dashboard automatisch vom 7-Spalten-Desktop-Grid auf die vertikale Apple-Fitness-Kompaktliste um.
