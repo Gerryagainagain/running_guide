@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.80  
+**Document Version:** 9.81  
 **Last Updated:** November 03, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -9,6 +9,15 @@
 ---
 
 ## 📌 1. Project Overview & Current Trajectory
+
+- **Wettkampf-Briefing Martinslauf: Text- & Datenstruktur aktualisiert (v9.73 / State 9.81):**
+  - **Inhalte im Race Drawer für den 48. SFD Martinslauf synchronisiert:**
+    - Button-Label gestrafft: `Ausschreibung & Infos ↗`.
+    - Logistik-Eckdaten: Label auf `Distanz / Höhenmeter` angepasst (`10,0 km · flach · ca. 10 Hm`).
+    - Pacing-Tabelle KM 7–10: Tempovorgabe von „nach Gefühl steigern“ auf `progressiv steigern` geschärft.
+    - Rennstrategie: `Strategie: Kontrolliert starten, Rhythmus halten, ab KM 7 steigern.`.
+    - Strecken- & Verpflegungsnotiz: `Flache Natur- und Parkwege. An offenen Wasserpassagen kann Wind bremsen. Keine Eigenverpflegung erforderlich. Im Ziel: Traditioneller Weckmann.`.
+  - **Synchronisiert:** In `index.html`, `preview_jahres_dashboard.html`, gespiegelt nach `dist/`.
 
 - **Race Drawer Dimensionierung & Horizontale Entspannung (v9.72 / State 9.80):**
   - **Breite auf Desktop & Tablet optimiert (`.race-drawer`):**

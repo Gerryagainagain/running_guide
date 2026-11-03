@@ -2435,17 +2435,17 @@
     const raceBriefings = {
       martinslauf: {
         tag: 'WETTKAMPF-BRIEFING · 10 KM',
-        title: "48. SFD '75 Martinslauf",
+        title: "48. SFD ’75 Martinslauf",
         subtitle: 'Sonntag, 08. November 2026 · Düsseldorf, Unterbacher See',
         targetPill: 'SUB 58:00 · 5:48 min/km · Start 11:45 Uhr',
         organizerUrl: 'https://www.sfd.de/martinslauf/',
-        organizerLabel: 'Offizielle Ausschreibung & Infos ↗',
+        organizerLabel: 'Ausschreibung & Infos ↗',
         sections: [
           {
             title: 'Strecke & Logistik',
             type: 'logistics',
             items: [
-              { label: 'Strecke & Höhenmeter', val: '10,0 km · flach · ca. 10 Hm' },
+              { label: 'Distanz / Höhenmeter', val: '10,0 km · flach · ca. 10 Hm' },
               { label: 'Start', val: 'Strandbad Süd, Unterbacher See' },
               { label: 'Adresse', val: 'Am Kleinforst 275, Düsseldorf' }
             ]
@@ -2457,14 +2457,14 @@
             steps: [
               { km: 'KM 0–3', speed: '5:50–5:55', hr: '< 118 bpm' },
               { km: 'KM 3–7', speed: 'ca. 5:45', hr: '120–125 bpm' },
-              { km: 'KM 7–10', speed: 'nach Gefühl steigern', hr: 'Endbeschleunigung' }
+              { km: 'KM 7–10', speed: 'progressiv steigern', hr: 'Endbeschleunigung' }
             ],
-            strategy: 'Rennstrategie: Kontrolliert anlaufen, Rhythmus finden, ab KM 7 beschleunigen.'
+            strategy: 'Strategie: Kontrolliert starten, Rhythmus halten, ab KM 7 steigern.'
           },
           {
             title: 'Strecke & Verpflegung',
             type: 'text',
-            text: 'Flache Natur- und Parkwege rund um den Unterbacher See. Auf offenen Wasserpassagen kann Wind zum Faktor werden. Keine Eigenverpflegung nötig.<br><br><b>Zielverpflegung:</b> Weckmann.'
+            text: 'Flache Natur- und Parkwege. An offenen Wasserpassagen kann Wind bremsen. Keine Eigenverpflegung erforderlich.<br><br><b>Im Ziel:</b> Traditioneller Weckmann.'
           }
         ]
       },
@@ -2660,7 +2660,8 @@
             });
             contentHtml += `</tbody></table>`;
             if (sec.strategy) {
-              contentHtml += `<div class="pacing-note"><b>Rennstrategie:</b> ${sec.strategy.replace(/^Rennstrategie:\s*/, '')}</div>`;
+              const cleaned = sec.strategy.replace(/^(Rennstrategie|Strategie):\s*/i, '');
+              contentHtml += `<div class="pacing-note"><b>Strategie:</b> ${cleaned}</div>`;
             }
           } else if (sec.type === 'text') {
             contentHtml += `<div class="race-note-text">${sec.text}</div>`;
