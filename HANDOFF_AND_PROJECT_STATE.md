@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.74  
+**Document Version:** 9.75  
 **Last Updated:** November 03, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -9,6 +9,16 @@
 ---
 
 ## 📌 1. Project Overview & Current Trajectory
+
+- **Bugfix: Desktop Modal Zentrierung & Wochenfokus-Leiste repariert (v9.67 / State 9.75):**
+  - **Desktop Modaldialog (`.m-sheet`) wieder präzise zentriert:**
+    - Ursache identifiziert: Ein doppeltes Style-Fragment außerhalb des Media-Queries überschrieb die Desktop-Positionierung mit `transform: translateY(0) !important;`, blendete den Schließen-Button `✕` aus und zeigte fälschlich den mobilen Swipe-Griff (`.m-grab`).
+    - Korrektur: Stray-Block entfernt. Das Dialogfenster auf macOS MacBook Pro sitzt wieder perfekt zentriert im Viewport (`translate(-50%, -50%) scale(1)`), Schließen-Button `✕` oben rechts ist voll aktiv und der mobile Swipe-Pill ausgeblendet.
+  - **Wochenfokus-Zeile auf Landing Page stabilisiert:**
+    - Bisheriges Layout litt unter unstrukturiertem Zeilenumbruch und fehlendem Container-Rahmen.
+    - Neu formatiert als zusammenhängende, geschlossene Apple HIG Fokus-Pille (`background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.06); border-radius: 14px;`).
+    - Der cyanfarbene `FOKUS`-Badge sitzt sauber links; der zweigeteilte Inhalt fließt harmonisch durch einen dezenten Trennpunkt (`·`) getrennt ohne störende Leerzeilen.
+  - **Synchronisiert:** Umgesetzt in `index.html`, `preview_jahres_dashboard.html`, gespiegelt nach `dist/`.
 
 - **Design-Reduktion & Beseitigung von „Flächen in Flächen“ (v9.66 / State 9.74):**
   - **Beseitigung von Nested Card-itis (Box-in-Box-Muster):**

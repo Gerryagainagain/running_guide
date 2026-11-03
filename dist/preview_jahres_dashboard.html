@@ -608,35 +608,34 @@
       border: 1px solid rgba(255, 159, 10, 0.45);
     }
 
-    /* WOCHENFOKUS: ELEGANTES EDITORIAL-LAYOUT OHNE VERSCHACHTELTE KÄSTEN */
+    /* WOCHENFOKUS: PRÄZISER APPLE HIG FOKUS-CONTAINER */
     .week-summary-strip {
-      background: transparent;
-      border: none;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 0;
-      padding: 1.25rem 0.25rem 0;
-      margin-top: 1.5rem;
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 14px;
+      padding: 0.75rem 1.15rem;
+      margin-top: 1.25rem;
       display: flex;
-      align-items: baseline;
-      gap: 1.25rem;
+      align-items: center;
+      gap: 0.85rem;
     }
 
     .week-summary-tag {
-      font-size: 0.72rem;
-      font-weight: 900;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: rgba(100, 210, 255, 0.12);
       color: var(--apple-cyan);
-      background: transparent;
-      border: none;
-      padding: 0;
+      border: 1px solid rgba(100, 210, 255, 0.28);
       flex-shrink: 0;
     }
 
     .week-summary-text {
       color: #A1A1A6;
-      font-size: 0.92rem;
-      line-height: 1.55;
+      font-size: 0.88rem;
+      line-height: 1.45;
       font-weight: 500;
     }
 
@@ -1510,23 +1509,6 @@
         display: none !important;
       }
     }
-      .m-sheet.open {
-        transform: translateY(0) !important;
-        opacity: 1 !important;
-        pointer-events: auto !important;
-      }
-      .m-grab {
-        display: block !important;
-        width: 40px;
-        height: 5px;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.40);
-        margin: 0.2rem auto 0.9rem;
-      }
-      .s-modal-close {
-        display: none !important;
-      }
-    }
 
     /* ==========================================================================
        AIRDROP & CLOUDLESS SYNC STYLES & TOAST NOTIFICATION
@@ -1727,7 +1709,7 @@
         <!-- WOCHENFOKUS STRIP -->
         <div class="week-summary-strip" id="weekSummaryStrip">
           <span class="week-summary-tag">FOKUS</span>
-          <span class="week-summary-text" id="weekSummaryText">Frische für den 48. Martinslauf am Sonntag sichern. 10 km am Unterbacher See, Start 11:45 Uhr. Pacing: 5:50 ➔ 5:45 ➔ 5:35 min/km.<br><br>Samstag, 07. November: Ruhetag & Pre-Race-Carboload.</span>
+          <span class="week-summary-text" id="weekSummaryText">Frische für den 48. Martinslauf am Sonntag sichern. 10 km am Unterbacher See, Start 11:45 Uhr. Pacing: 5:50 ➔ 5:45 ➔ 5:35 min/km <span style="opacity:0.4; margin:0 8px;">·</span> Samstag, 07. November: Ruhetag & Pre-Race-Carboload.</span>
         </div>
       </div>
 
@@ -2717,7 +2699,7 @@
       grid.innerHTML = html;
 
       // Update Wochenfokus
-      document.getElementById('weekSummaryText').innerHTML = data.summary.replace(/\n/g, '<br>');
+      document.getElementById('weekSummaryText').innerHTML = data.summary.replace(/\n\n/g, ' <span style="opacity:0.4; margin:0 8px;">·</span> ').replace(/\n/g, ' ');
     }
 
     let currentKw = 45;
