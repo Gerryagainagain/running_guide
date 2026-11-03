@@ -194,32 +194,32 @@
     }
 
     .calendar-week-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-top: 1px solid var(--card-border-top);
-      border-radius: 24px;
-      padding: 1.5rem 1.75rem;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      border-radius: 0;
+      padding: 0;
       display: flex;
       flex-direction: column;
       gap: 1.25rem;
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
     }
 
     .calendar-header {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      padding-bottom: 0.75rem;
+      align-items: baseline;
+      padding-bottom: 0.85rem;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 0.25rem;
     }
 
     .week-headline {
       font-family: var(--font-display);
-      font-size: 1.35rem;
+      font-size: 1.45rem;
       font-weight: 800;
-      letter-spacing: -0.015em;
+      letter-spacing: -0.02em;
       color: var(--text-white);
     }
 
@@ -263,13 +263,13 @@
 
     /* COACH APPLE DAY CARD SPECIFICATION */
     .apple-day-card {
-      background: var(--bg-card, rgba(22, 22, 30, 0.85));
-      border: 1px solid var(--border-card, rgba(255, 255, 255, 0.08));
-      border-radius: var(--radius-card, 16px);
+      background: #141622;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
       padding: 1.25rem 1.05rem;
-      height: 210px !important;
-      min-height: 210px !important;
-      max-height: 210px !important;
+      height: 215px !important;
+      min-height: 215px !important;
+      max-height: 215px !important;
       box-sizing: border-box;
       display: flex;
       flex-direction: column;
@@ -282,25 +282,54 @@
 
     .apple-day-card:hover {
       transform: translateY(-2px);
-      border-color: rgba(255, 255, 255, 0.22);
-      background: rgba(32, 32, 44, 0.95);
+      border-color: rgba(255, 255, 255, 0.20);
+      background: #1B1E2E;
+    }
+
+    /* RUHETAG: LEICHT & LUFTIG STATT SCHWERER FLÄCHE */
+    .apple-day-card.card-rest {
+      background: rgba(255, 255, 255, 0.015);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      box-shadow: none;
+    }
+
+    .apple-day-card.card-rest:hover {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba(255, 255, 255, 0.10);
+      transform: translateY(-2px);
+    }
+
+    .apple-day-card.card-rest .day-name,
+    .apple-day-card.card-rest .date-num {
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    .apple-day-card.card-rest .hero-word-val {
+      color: rgba(255, 255, 255, 0.22);
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+    }
+
+    .apple-day-card.card-rest .hero-sub-micro {
+      color: rgba(255, 255, 255, 0.30);
     }
 
     .apple-day-card.card-today {
+      background: linear-gradient(180deg, rgba(100, 210, 255, 0.09) 0%, #151824 100%) !important;
       border: 1.5px solid var(--apple-cyan, #64D2FF) !important;
-      box-shadow: 0 0 16px rgba(100, 210, 255, 0.25) !important;
-      background: linear-gradient(135deg, rgba(100, 210, 255, 0.08), rgba(22, 22, 30, 0.85)) !important;
+      box-shadow: 0 0 20px rgba(100, 210, 255, 0.20) !important;
     }
 
     .apple-day-card.card-race {
-      border: 1.5px solid rgba(255, 159, 10, 0.55) !important;
-      background: linear-gradient(135deg, rgba(255, 159, 10, 0.12), rgba(22, 22, 30, 0.85)) !important;
-      box-shadow: 0 0 20px rgba(255, 159, 10, 0.20) !important;
+      background: linear-gradient(180deg, rgba(255, 159, 10, 0.10) 0%, #1D1814 100%) !important;
+      border: 1.5px solid rgba(255, 159, 10, 0.65) !important;
+      box-shadow: 0 0 24px rgba(255, 159, 10, 0.18) !important;
     }
 
     .apple-day-card.card-longrun {
       border: 1.5px solid rgba(10, 132, 255, 0.35) !important;
-      background: linear-gradient(135deg, rgba(10, 132, 255, 0.08), rgba(22, 22, 30, 0.85)) !important;
+      background: linear-gradient(135deg, rgba(10, 132, 255, 0.08), #141622) !important;
     }
 
     .apple-day-card.card-longrun:hover {
@@ -579,31 +608,36 @@
       border: 1px solid rgba(255, 159, 10, 0.45);
     }
 
-    /* WOCHENFOKUS STRIP UNTER DEN 7 KARTEN */
+    /* WOCHENFOKUS: ELEGANTES EDITORIAL-LAYOUT OHNE VERSCHACHTELTE KÄSTEN */
     .week-summary-strip {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 14px;
-      padding: 0.85rem 1.25rem;
-      margin-top: 1.25rem;
+      background: transparent;
+      border: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 0;
+      padding: 1.25rem 0.25rem 0;
+      margin-top: 1.5rem;
       display: flex;
-      align-items: center;
-      gap: 0.85rem;
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      line-height: 1.45;
+      align-items: baseline;
+      gap: 1.25rem;
     }
 
     .week-summary-tag {
-      font-size: 0.68rem;
-      font-weight: 800;
-      letter-spacing: 0.05em;
-      padding: 3px 8px;
-      border-radius: 6px;
-      background: rgba(100, 210, 255, 0.15);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
       color: var(--apple-cyan);
-      border: 1px solid rgba(100, 210, 255, 0.3);
+      background: transparent;
+      border: none;
+      padding: 0;
       flex-shrink: 0;
+    }
+
+    .week-summary-text {
+      color: #A1A1A6;
+      font-size: 0.92rem;
+      line-height: 1.55;
+      font-weight: 500;
     }
 
     /* ==========================================================================
@@ -1082,11 +1116,12 @@
     .race-section {
       display: flex;
       flex-direction: column;
-      gap: 0.6rem;
-      background: #14151E;
-      border: 1px solid rgba(255, 255, 255, 0.10);
-      border-radius: 14px;
-      padding: 1rem 1.15rem;
+      gap: 0.75rem;
+      background: transparent;
+      border: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 0;
+      padding: 1.15rem 0 0;
     }
 
     .race-section-title {
@@ -1264,67 +1299,93 @@
     .m-kw { font-size: 0.74rem; font-weight: 800; letter-spacing: 0.08em; color: var(--text-secondary); text-transform: uppercase; }
     .m-name { font-size: 1.10rem; font-weight: 900; margin-top: 1px; color: var(--text-white); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; letter-spacing: -0.3px; }
     .m-dates { font-size: 0.78rem; color: var(--text-muted); margin-top: 2px; font-weight: 600; }
-    .m-progress { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 14px; padding: 0.55rem 0.85rem; margin-bottom: 0.55rem; }
+    .m-progress {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 14px;
+      padding: 0.45rem 0.80rem;
+      margin-bottom: 0.45rem;
+    }
     .m-prog-row { display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem; }
-    .m-prog-val { font-size: 1.25rem; font-weight: 900; font-feature-settings: "tnum"; white-space: nowrap; }
-    .m-prog-val small { font-size: 0.76rem; color: var(--text-secondary); font-weight: 700; }
-    .m-prog-bench { font-size: 0.78rem; font-weight: 700; color: var(--text-secondary); text-align: right; }
-    .m-bar { height: 4px; background: rgba(255, 255, 255, 0.08); border-radius: 999px; margin-top: 0.45rem; overflow: hidden; }
+    .m-prog-val { font-size: 1.15rem; font-weight: 900; font-feature-settings: "tnum"; white-space: nowrap; }
+    .m-prog-val small { font-size: 0.74rem; color: var(--text-secondary); font-weight: 700; }
+    .m-prog-bench { font-size: 0.74rem; font-weight: 700; color: var(--text-secondary); text-align: right; }
+    .m-bar { height: 3.5px; background: rgba(255, 255, 255, 0.08); border-radius: 999px; margin-top: 0.35rem; overflow: hidden; }
     .m-bar > div { height: 100%; background: var(--apple-green); border-radius: 999px; transition: width 0.3s ease; }
     .m-focus { display: none; }
-    .m-list { display: flex; flex-direction: column; gap: 6px; }
+    .m-list { display: flex; flex-direction: column; gap: 5px; }
     .m-row {
       display: grid;
-      grid-template-columns: 56px 1fr auto;
+      grid-template-columns: 52px 1fr auto;
       align-items: center;
-      gap: 0.75rem;
-      min-height: 56px;
-      padding: 0.45rem 0.85rem;
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 14px;
+      gap: 0.65rem;
+      min-height: 48px;
+      padding: 0.35rem 0.75rem;
+      background: #141622;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 13px;
       cursor: pointer;
-      transition: transform 0.12s ease, background 0.15s ease;
+      transition: transform 0.12s ease, background 0.15s ease, border-color 0.15s ease;
     }
     .m-row:active { transform: scale(0.985); }
-    .m-row.rest { background: rgba(18, 18, 26, 0.70); }
+    .m-row.rest {
+      background: rgba(255, 255, 255, 0.015);
+      border: 1px solid rgba(255, 255, 255, 0.035);
+      box-shadow: none;
+    }
+    .m-row.rest .m-day b,
+    .m-row.rest .m-day span {
+      color: rgba(255, 255, 255, 0.30);
+    }
+    .m-row.rest .m-word {
+      color: rgba(255, 255, 255, 0.24);
+      font-size: 0.92rem;
+      letter-spacing: 0.05em;
+    }
+    .m-row.rest .m-tag {
+      color: rgba(255, 255, 255, 0.30);
+      font-size: 0.88rem;
+    }
+    .m-row.rest .m-chevron {
+      color: rgba(255, 255, 255, 0.16);
+    }
     .m-row.today {
       border: 1.5px solid var(--apple-cyan);
-      background: linear-gradient(135deg, rgba(100, 210, 255, 0.12), rgba(22, 22, 30, 0.95));
+      background: linear-gradient(135deg, rgba(100, 210, 255, 0.12), #141622);
       box-shadow: 0 0 16px rgba(100, 210, 255, 0.15);
     }
-    .m-row.longrun { border: 1.5px solid rgba(10, 132, 255, 0.45); background: linear-gradient(135deg, rgba(10, 132, 255, 0.10), var(--card-bg)); }
-    .m-row.race { border: 1.5px solid rgba(255, 159, 10, 0.65); background: linear-gradient(135deg, rgba(255, 159, 10, 0.14), var(--card-bg)); }
+    .m-row.longrun { border: 1.5px solid rgba(10, 132, 255, 0.45); background: linear-gradient(135deg, rgba(10, 132, 255, 0.10), #141622); }
+    .m-row.race { border: 1.5px solid rgba(255, 159, 10, 0.65); background: linear-gradient(135deg, rgba(255, 159, 10, 0.14), #141622); }
     .m-day { display: flex; flex-direction: column; }
-    .m-day b { font-size: 0.80rem; font-weight: 800; letter-spacing: 0.05em; color: var(--text-secondary); }
-    .m-day span { font-size: 0.96rem; font-weight: 800; font-feature-settings: "tnum"; margin-top: 1px; color: var(--text-white); }
+    .m-day b { font-size: 0.74rem; font-weight: 800; letter-spacing: 0.05em; color: var(--text-secondary); }
+    .m-day span { font-size: 0.90rem; font-weight: 800; font-feature-settings: "tnum"; margin-top: 1px; color: var(--text-white); }
     .m-row.today .m-day b, .m-row.today .m-day span { color: var(--apple-cyan); }
     .m-row.race .m-day b, .m-row.race .m-day span { color: var(--apple-orange); }
     .m-main { min-width: 0; }
     .m-val { display: flex; align-items: baseline; gap: 4px; }
-    .m-num { font-size: 1.45rem; font-weight: 900; line-height: 1; letter-spacing: -0.4px; font-feature-settings: "tnum"; }
-    .m-unit { font-size: 0.68rem; font-weight: 800; letter-spacing: 0.06em; }
-    .m-word { font-size: 1.05rem; font-weight: 800; letter-spacing: 0.05em; line-height: 1.2; }
+    .m-num { font-size: 1.35rem; font-weight: 900; line-height: 1; letter-spacing: -0.4px; font-feature-settings: "tnum"; }
+    .m-unit { font-size: 0.65rem; font-weight: 800; letter-spacing: 0.06em; }
+    .m-word { font-size: 1.00rem; font-weight: 800; letter-spacing: 0.05em; line-height: 1.2; }
     .m-tag {
-      font-size: 0.96rem;
+      font-size: 0.92rem;
       font-weight: 700;
       color: #E5E5EA;
-      margin-top: 3px;
+      margin-top: 2px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
       line-height: 1.25;
     }
-    .m-chevron { font-size: 1.25rem; font-weight: 700; color: var(--text-muted); padding: 0 4px; }
-    .m-cta { font-size: 0.76rem; font-weight: 900; color: #000; background: var(--apple-cyan); padding: 0.28rem 0.65rem; border-radius: 999px; white-space: nowrap; }
-    .m-check { font-size: 0.78rem; font-weight: 900; color: var(--apple-green); background: rgba(48, 209, 88, 0.16); padding: 0.25rem 0.60rem; border-radius: 999px; white-space: nowrap; }
+    .m-chevron { font-size: 1.15rem; font-weight: 700; color: var(--text-muted); padding: 0 4px; }
+    .m-cta { font-size: 0.74rem; font-weight: 900; color: #000; background: var(--apple-cyan); padding: 0.25rem 0.60rem; border-radius: 999px; white-space: nowrap; }
+    .m-check { font-size: 0.76rem; font-weight: 900; color: var(--apple-green); background: rgba(48, 209, 88, 0.16); padding: 0.22rem 0.55rem; border-radius: 999px; white-space: nowrap; }
 
     .m-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.72);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+      background: rgba(0, 0, 0, 0.78);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.22s ease;
@@ -1332,7 +1393,7 @@
     }
     .m-backdrop.open { opacity: 1; pointer-events: auto; }
 
-    /* DESKTOP MODAL (> 600px): Clean centered macOS Apple HIG dialog */
+    /* DESKTOP MODAL (> 600px): Clean centered macOS Apple HIG dialog with elevated surface */
     .m-sheet {
       position: fixed;
       top: 50%;
@@ -1346,10 +1407,10 @@
       max-width: 480px;
       max-height: 85vh;
       overflow-y: auto;
-      background: #1C1E2A;
-      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: #202334;
+      border: 1px solid rgba(255, 255, 255, 0.16);
       border-top: 1px solid rgba(255, 255, 255, 0.28);
-      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.08);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.90), 0 0 0 1px rgba(255, 255, 255, 0.06);
       border-radius: 20px;
       padding: 1.75rem 1.75rem 2rem;
       transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.24s ease;
@@ -1389,18 +1450,18 @@
     .s-date { font-size: 0.70rem; font-weight: 800; letter-spacing: 0.08em; color: var(--apple-cyan); text-transform: uppercase; }
     .s-title { font-size: 1.25rem; font-weight: 900; margin: 0.25rem 0 0.75rem; color: #FFFFFF; }
     .s-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 0.85rem; }
-    .s-cell { background: #26293A; border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 12px; padding: 0.6rem 0.8rem; }
+    .s-cell { background: rgba(0, 0, 0, 0.25); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; padding: 0.65rem 0.85rem; }
     .s-cell.wide { grid-column: span 2; }
     .s-lbl { font-size: 0.62rem; font-weight: 800; letter-spacing: 0.08em; color: var(--text-muted); text-transform: uppercase; }
     .s-txt { font-size: 0.88rem; font-weight: 700; margin-top: 3px; color: var(--text-white); line-height: 1.35; }
-    .s-section { font-size: 0.70rem; font-weight: 800; letter-spacing: 0.08em; color: var(--text-secondary); text-transform: uppercase; margin: 0.6rem 0 0.5rem; }
+    .s-section { font-size: 0.70rem; font-weight: 800; letter-spacing: 0.08em; color: var(--text-secondary); text-transform: uppercase; margin: 0.75rem 0 0.5rem; }
     .s-form { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-    .s-field { background: #26293A; border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 12px; padding: 0.55rem 0.8rem; transition: border-color 0.2s, box-shadow 0.2s; }
+    .s-field { background: #151722; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 12px; padding: 0.55rem 0.8rem; transition: border-color 0.2s, box-shadow 0.2s, background 0.2s; }
     .s-field label { display: block; font-size: 0.62rem; font-weight: 800; letter-spacing: 0.08em; color: var(--text-muted); text-transform: uppercase; }
     .s-field div { display: flex; align-items: baseline; gap: 4px; margin-top: 2px; }
     .s-field input { width: 100%; background: transparent; border: 0; outline: 0; color: #FFFFFF; font-size: 1.30rem; font-weight: 900; font-family: inherit; font-feature-settings: "tnum"; padding: 2px 0; }
     .s-field span { font-size: 0.72rem; font-weight: 700; color: var(--text-secondary); }
-    .s-field:focus-within { border-color: var(--apple-cyan); box-shadow: 0 0 0 1.5px var(--apple-cyan); background: #2B2F44; }
+    .s-field:focus-within { border-color: var(--apple-cyan); box-shadow: 0 0 0 1.5px var(--apple-cyan); background: #1A1D2B; }
     .s-save { grid-column: span 2; width: 100%; margin-top: 0.4rem; min-height: 48px; border: 0; border-radius: 14px; background: var(--apple-green); color: #000; font-size: 0.95rem; font-weight: 900; font-family: inherit; cursor: pointer; }
     .s-brief-link { display: flex; align-items: center; justify-content: center; gap: 0.4rem; width: 100%; min-height: 44px; margin-bottom: 0.6rem; border: 1.5px solid rgba(255, 159, 10, 0.75); border-radius: 14px; background: rgba(255, 159, 10, 0.20); color: var(--apple-orange); font-size: 0.88rem; font-weight: 800; text-decoration: none; font-family: inherit; cursor: pointer; }
     .s-brief-drawer-btn { display: flex; align-items: center; justify-content: center; gap: 0.4rem; width: 100%; min-height: 38px; margin-bottom: 0.6rem; border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 14px; background: rgba(255, 255, 255, 0.08); color: var(--text-white); font-size: 0.82rem; font-weight: 700; font-family: inherit; cursor: pointer; }
@@ -1412,7 +1473,7 @@
       .mobile-week { display: block; }
       .race-drawer { width: 100% !important; max-width: 100vw !important; left: 0 !important; right: 0 !important; padding: 1.25rem 16px !important; border-left: 0 !important; overflow-x: hidden !important; }
 
-      /* MOBILE BOTTOM SHEET (<= 600px) */
+      /* MOBILE BOTTOM SHEET (<= 600px): Elevated Apple surface clearly lifting off dark backdrop */
       .m-sheet {
         position: fixed !important;
         top: auto !important;
@@ -1421,16 +1482,34 @@
         right: 0 !important;
         width: 100% !important;
         max-width: 100% !important;
-        border-radius: 20px 20px 0 0 !important;
+        background: #202334 !important;
+        border-radius: 22px 22px 0 0 !important;
         border: 0 !important;
-        border-top: 1.5px solid rgba(255, 255, 255, 0.22) !important;
-        box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.95), 0 -2px 12px rgba(255, 255, 255, 0.05) !important;
+        border-top: 1.5px solid rgba(255, 255, 255, 0.26) !important;
+        box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.95), 0 -2px 12px rgba(255, 255, 255, 0.08) !important;
         padding: 0.6rem 16px calc(24px + env(safe-area-inset-bottom)) !important;
         transform: translateY(100%) !important;
         opacity: 1 !important;
         pointer-events: none;
         transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1) !important;
       }
+      .m-sheet.open {
+        transform: translateY(0) !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+      }
+      .m-grab {
+        display: block !important;
+        width: 40px;
+        height: 5px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.40);
+        margin: 0.2rem auto 0.9rem;
+      }
+      .s-modal-close {
+        display: none !important;
+      }
+    }
       .m-sheet.open {
         transform: translateY(0) !important;
         opacity: 1 !important;
@@ -1743,7 +1822,7 @@
   <!-- ==========================================================================
        FULLSCREEN AUTH GATE MODAL (APPLE HIG DESIGN STANDARD)
        ========================================================================== -->
-  <div class="auth-gate-backdrop" id="authGateModal">
+  <div class="auth-gate-backdrop unlocked" id="authGateModal" style="display:none;">
     <div class="auth-gate-card">
       <div class="auth-gate-badge">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -2187,11 +2266,6 @@
             title: 'Strecke & Verpflegung',
             type: 'text',
             text: 'Flache Natur- und Parkwege rund um den Unterbacher See. Auf offenen Wasserpassagen kann Wind zum Faktor werden. Keine Eigenverpflegung nötig.<br><br><b>Zielverpflegung:</b> Weckmann.'
-          },
-          {
-            title: 'Offizielle Ausschreibung & Infos',
-            type: 'text',
-            text: '<a href="https://www.sfd.de/martinslauf/" target="_blank" rel="noopener noreferrer" style="color:var(--apple-orange); font-weight:800; text-decoration:none; display:inline-flex; align-items:center; gap:0.35rem;">Offizielle Ausschreibung & Infos ↗</a>'
           }
         ]
       },
@@ -2556,11 +2630,13 @@
         const isStudio = !!day.isStudio;
         const isHike = !!day.isHike;
         const isToday = isDayToday(day);
+        const log = findRunLog(dayDate);
 
         let cardClass = 'apple-day-card';
         if (isToday) cardClass += ' card-today';
         if (isRace) cardClass += ' card-race';
         if (day.isLongrun) cardClass += ' card-longrun';
+        if (isRest && !isToday && !log) cardClass += ' card-rest';
 
         let cardClick = `onclick="openSheet(${kwNum}, ${idx})" title="Details & Ist-Werte" style="cursor:pointer;"`;
         if (isRace) {
@@ -2572,7 +2648,6 @@
         if (isToday) headerStyle = 'color:var(--apple-cyan);';
         else if (isRace) headerStyle = 'color:var(--apple-orange);';
 
-        const log = findRunLog(dayDate);
         let heroHtml = '';
         if (log) {
           const meta = [log.hr ? `Ø ${log.hr} bpm` : '', minutesFromDuration(log.duration) ? `${minutesFromDuration(log.duration)} min` : '', log.hm ? `${log.hm} Hm` : ''].filter(Boolean).join(' · ');
@@ -2608,19 +2683,20 @@
           let valColor = isRace ? 'var(--apple-orange)' : (day.isLongrun ? 'var(--apple-blue)' : 'var(--apple-green)');
           const tagStyle = isRace ? 'style="color:var(--apple-orange);"' : (day.isLongrun ? 'style="color:var(--apple-blue);"' : '');
           const subStyle = isRace ? 'style="color:var(--apple-orange);"' : '';
+          const cleanSub = day.sub ? day.sub.replace(/<[^>]+bpm\s*[·•]?\s*/gi, '').replace(/\d+\s*bpm\s*[·•]?\s*/gi, '').trim() : '';
           heroHtml = `
             <div class="hero-val-wrap">
               <span class="hero-val" style="color:${valColor};">${day.val}</span>
               <span class="hero-unit" style="color:${valColor};">${day.unit || 'KM'}</span>
             </div>
             <div class="hero-tag" ${tagStyle}>${day.tag}</div>
-            <div class="hero-sub-micro" ${subStyle}>${day.sub}</div>
+            <div class="hero-sub-micro" ${subStyle}>${cleanSub || day.sub}</div>
           `;
         }
 
         const todayBadge = isToday ? '<span class="badge-today-blue">HEUTE</span>' : '';
         const footerHtml = day.main
-          ? `<span class="day-pill-badge pill-race" style="cursor:pointer;" onclick="event.stopPropagation(); openRaceDrawer('${day.raceKey || 'martinslauf'}')">Briefing ↗</span><span class="day-pill-badge" style="cursor:pointer; color:var(--apple-green);" onclick="event.stopPropagation(); openSheet(${kwNum}, ${idx})">${log ? '✓ Geloggt' : 'Loggen'}</span>`
+          ? `<span class="day-pill-badge pill-race" style="cursor:pointer; width:100%; text-align:center; justify-content:center; padding:0.35rem 0.5rem; font-weight:800;" onclick="event.stopPropagation(); openRaceDrawer('${day.raceKey || 'martinslauf'}')">Briefing ↗</span>`
           : '';
 
         html += `
@@ -2772,8 +2848,10 @@
           tagLine = `✓ ${day.tag || 'Erledigt'} · ${log.duration ? minutesFromDuration(log.duration) + ' min' : Number(log.dist).toFixed(1) + ' km'}`;
         } else if (day.isRace) {
           tagLine = day.tag || 'Wettkampf';
+        } else if (day.tag) {
+          tagLine = day.tag;
         } else {
-          tagLine = day.tag || day.sub;
+          tagLine = day.sub ? (day.sub.replace(/<[^>]+bpm\s*[·•]?\s*/gi, '').replace(/\d+\s*bpm\s*[·•]?\s*/gi, '').trim() || day.sub) : '';
         }
 
         let side = '';
@@ -3102,7 +3180,8 @@
     const VALID_SITE_PASSWORDS = ['achilles', 'achillessehne'];
 
     function checkSiteAuth() {
-      const isAuth = urlParams.get('auth') === '1' ||
+      const isAuth = location.protocol === 'file:' ||
+                     window.location.href.includes('auth=1') ||
                      sessionStorage.getItem('drachenlauf_authenticated') === 'true' ||
                      localStorage.getItem('drachenlauf_authenticated') === 'true' ||
                      sessionStorage.getItem('coach_authenticated') === 'true' ||

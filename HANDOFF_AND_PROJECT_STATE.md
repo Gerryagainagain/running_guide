@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.73  
+**Document Version:** 9.74  
 **Last Updated:** November 03, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -9,6 +9,25 @@
 ---
 
 ## 📌 1. Project Overview & Current Trajectory
+
+- **Design-Reduktion & Beseitigung von „Flächen in Flächen“ (v9.66 / State 9.74):**
+  - **Beseitigung von Nested Card-itis (Box-in-Box-Muster):**
+    - *Desktop-Wochenrahmen:* Die schwere äußere `.calendar-week-card`-Hülle (dunkler Kasten mit Rand) wurde entfernt (`background: transparent; border: none; box-shadow: none; padding: 0;`). Die 7 Tageskarten schweben nun direkt auf dem Canvas.
+    - *Ruhetage (`card-rest` & `.m-row.rest`):* Alle Ruhetage (MON, MIT, FRE, SAM) wurden visuell zurückgenommen (`rgba(255, 255, 255, 0.015)` Hintergrund, hauchdünne `0.04`-Kontur). Dadurch stechen die aktiven Trainingstage (DIE 5.5k GA1, DON 4.0k Aktivierung, SON 10.0k Martinslauf) mit klarem Kontrast hervor.
+    - *Wochenfokus Strip:* Der graue Kasten und das blaue Badge-Kästchen wurden durch ein elegantes, rahmenloses Editorial-Layout mit oberer Haarlinie (`border-top: 1px solid rgba(255, 255, 255, 0.08)`) und cyanfarbener Typografie ersetzt.
+    - *Sonntag Race-Karte:* Die gedrängten Doppel-Buttons wurden durch einen einzigen, aufgeräumten `Briefing ↗`-Button ersetzt.
+  - **Wettkampf-Briefing Drawer (Race Briefing):**
+    - Die separaten Kasten-Container (`.race-section` mit Hintergrund und Rahmen) wurden aufgelöst. Die Sektionen (*Strecke & Logistik*, *Pacing & Herzfrequenz*, *Strecke & Verpflegung*) sind nun durch feine Haarlinien gegliedert. Ein sauberes, redaktionelles Apple-Briefing-Dokument ohne Box-in-Box-Effekt.
+  - **Logging Drawer & Modal Abhebung vom Hintergrund:**
+    - Das Logging-Feld (`.m-sheet`) hebt sich nun mit einer eleganten, angehobenen Oberfläche (`#202334`), oberer Lichtkante (`border-top: 1.5px solid rgba(255, 255, 255, 0.28)`) und tiefem Weichzeichner-Schatten deutlich vom schwarzen Hintergrund ab.
+    - Eingabefelder (`.s-field`) sind als dezente Vertiefungen (`#151722`) mit feiner Kontur gestaltet, die beim Fokussieren cyanfarben aufleuchten.
+  - **Keine BPM-Vollanzeige in der Wochenübersicht:**
+    - Raw BPM-Werte wurden aus den Übersichtskarten entfernt. Die Wochenansicht bleibt ruhig.
+    - Erst beim Antippen eines Tages zeigt der Drawer die vollständigen physiologischen Spezifikationen (Pulsdeckel, Sprechgrenze VT1 105–118 bpm, Kilometer und Fokus).
+  - **7-Tage-Passung auf iPhone 13 mini Screen:**
+    - Zeilenhöhe (`.m-row`) auf 48 px und Abstände auf 5 px optimiert, Fortschrittsbalken gestrafft.
+    - Alle 7 Wochentage plus der AirDrop-Sync-Button passen vollständig ohne vertikales Scrollen auf das iPhone 13 mini Display.
+  - **Synchronisiert:** Umgesetzt in `index.html`, `preview_jahres_dashboard.html`, gespiegelt nach `dist/`.
 
 - **Automatisierte AirDrop & Peer-to-Peer 1-Click Synchronisation (v9.65 / State 9.73):**
   - **Reines Mobile-Logging-Paradigma:** Der Athlet nutzt das iPhone als einziges Eingabemedium für Trainingseinheiten; das MacBook Pro dient ausschließlich der passiven Wochen- und Saisonanalyse.
