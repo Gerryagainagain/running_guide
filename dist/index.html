@@ -705,26 +705,25 @@
       color: var(--text-white);
     }
 
-    /* DEZENTE LAYER-LEISTE UNTER DEM KALENDER (KEINE ICONS) */
-    .season-layer-bar {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 0.75rem;
-      min-height: 34px;
-      margin-top: 0.35rem;
+    /* 3-SPALTIGE REISE-/FERIEN-LEISTE EXAKT UNTER DEN 3 KALENDERMONATEN */
+    .season-month-cols-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-top: 0.85rem;
     }
 
-    .season-layer-bar:empty {
+    .season-month-cols-grid:empty {
       display: none;
     }
 
-    .layer-bar-label {
-      font-size: 0.70rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-muted);
+    .month-col-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 32px;
     }
 
     .layer-chip-btn {
@@ -1833,12 +1832,12 @@
         <!-- WIRD DYNAMISCH GENERIERT -->
       </div>
 
-      <!-- DEZENTE LAYER-LEISTE UNTER DEM KALENDER (KEINE ICONS) -->
-      <div class="season-layer-bar" id="seasonLayerBar"></div>
-
       <div class="quarter-meta-strip" id="quarterMetaStrip">
         <div class="quarter-key-event" id="quarterKeyEvent">Ziel: 07. März · Belgenbachtrail (30,7 km · 941 Hm)</div>
       </div>
+
+      <!-- 3 SPALTEN UNTER DER ZIELZEILE: EXAKT UNTER DEN 3 KALENDERMONATEN, LINKSBÜNDIG, OHNE 'EBENE' -->
+      <div class="season-month-cols-grid" id="seasonMonthColsGrid"></div>
 
     </div>
 
@@ -1959,39 +1958,47 @@
         heading: 'Jan – März 2027',
         keyEvent: 'Ziel: 07. März · Belgenbachtrail (30,7 km · 941 Hm)',
         months: [
-          { name: 'Januar', mIdx: 0, days: 31, startOffset: 4 },
-          { name: 'Februar', mIdx: 1, days: 28, startOffset: 0 },
-          { name: 'März', mIdx: 2, days: 31, startOffset: 0 }
+          { 
+            name: 'Januar', mIdx: 0, days: 31, startOffset: 4,
+            trips: [
+              { id: 'zoutelande', label: 'Zoutelande (02.–05.01.)', startDay: 2, endDay: 5, details: '02.–05. Januar 2027: Zoutelande (Zeeland / Nordsee)' }
+            ]
+          },
+          { name: 'Februar', mIdx: 1, days: 28, startOffset: 0, trips: [] },
+          { name: 'März', mIdx: 2, days: 31, startOffset: 0, trips: [] }
         ]
       },
       1: {
         heading: 'Apr – Juni 2027',
         keyEvent: 'Ziel: 12. Juni · Tschirgant Sky Run TS16 (16,9 km · ~850 Hm)',
         months: [
-          { name: 'April', mIdx: 3, days: 30, startOffset: 3 },
-          { name: 'Mai', mIdx: 4, days: 31, startOffset: 5 },
-          { name: 'Juni', mIdx: 5, days: 30, startOffset: 1 }
-        ],
-        layers: [
-          { id: 'vacation', label: 'Bergurlaub (05.–25.06.)' }
+          { name: 'April', mIdx: 3, days: 30, startOffset: 3, trips: [] },
+          { name: 'Mai', mIdx: 4, days: 31, startOffset: 5, trips: [] },
+          { 
+            name: 'Juni', mIdx: 5, days: 30, startOffset: 1,
+            trips: [
+              { id: 'vacation', label: 'Bergurlaub (05.–25.06.)', startDay: 5, endDay: 25 },
+              { id: 'kaub', label: 'Geschwister Kaub (25.–27.06.)', startDay: 25, endDay: 27, details: '25.–27. Juni 2027: Geschwister-Wochenende Kaub am Rhein' }
+            ]
+          }
         ]
       },
       2: {
         heading: 'Juli – Sept 2027',
         keyEvent: 'Vielleicht gibt es noch Laufoptionen hier',
         months: [
-          { name: 'Juli', mIdx: 6, days: 31, startOffset: 3 },
-          { name: 'August', mIdx: 7, days: 31, startOffset: 6 },
-          { name: 'September', mIdx: 8, days: 30, startOffset: 2 }
+          { name: 'Juli', mIdx: 6, days: 31, startOffset: 3, trips: [] },
+          { name: 'August', mIdx: 7, days: 31, startOffset: 6, trips: [] },
+          { name: 'September', mIdx: 8, days: 30, startOffset: 2, trips: [] }
         ]
       },
       3: {
         heading: 'Okt – Dez 2027',
         keyEvent: 'Ziel: 24. Oktober · Drachenlauf (26,0 km · 1.250 Hm)',
         months: [
-          { name: 'Oktober', mIdx: 9, days: 31, startOffset: 4 },
-          { name: 'November', mIdx: 10, days: 30, startOffset: 0 },
-          { name: 'Dezember', mIdx: 11, days: 31, startOffset: 2 }
+          { name: 'Oktober', mIdx: 9, days: 31, startOffset: 4, trips: [] },
+          { name: 'November', mIdx: 10, days: 30, startOffset: 0, trips: [] },
+          { name: 'Dezember', mIdx: 11, days: 31, startOffset: 2, trips: [] }
         ]
       }
     };
@@ -2056,23 +2063,37 @@
       return '';
     }
 
-    let currentQuarterNum = 0; // Standard: Winter 2027
+    let currentQuarterNum = 0; // Standard: Q1 (Jan – März 2027)
     const TOTAL_QUARTERS = 4;
-    let vacationLayerActive = false;
+    let activeTripIds = new Set();
+
+    function toggleTrip(tripId) {
+      if (activeTripIds.has(tripId)) {
+        activeTripIds.delete(tripId);
+      } else {
+        activeTripIds.add(tripId);
+      }
+      switchQuarter(currentQuarterNum);
+    }
 
     function toggleVacationLayer() {
-      vacationLayerActive = !vacationLayerActive;
-      const btn = document.getElementById('vacationLayerBtn');
-      if (btn) {
-        btn.classList.toggle('active', vacationLayerActive);
-        btn.setAttribute('aria-pressed', vacationLayerActive ? 'true' : 'false');
+      toggleTrip('vacation');
+    }
+
+    function isDayInActiveTrip(mIdx, d) {
+      for (const qKey in quartersData) {
+        const q = quartersData[qKey];
+        for (const m of q.months) {
+          if (m.mIdx === mIdx && m.trips) {
+            for (const t of m.trips) {
+              if (activeTripIds.has(t.id) && d >= t.startDay && d <= t.endDay) {
+                return t;
+              }
+            }
+          }
+        }
       }
-      // Wenn der Bergurlaub aktiviert wird und wir nicht in Q2 (Apr – Juni) sind, dorthin wechseln
-      if (vacationLayerActive && currentQuarterNum !== 1) {
-        switchQuarter(1);
-      } else {
-        switchQuarter(currentQuarterNum);
-      }
+      return null;
     }
 
     function switchQuarter(qNum) {
@@ -2086,36 +2107,46 @@
       const titleEl = document.getElementById('seasonPagerTitle');
       if (titleEl) titleEl.innerText = q.heading;
 
-      // Unaufdringliche Layer-Leiste unter dem Kalender (nur sichtbar wenn Layers definiert)
-      const layerBarEl = document.getElementById('seasonLayerBar');
-      if (layerBarEl) {
-        if (q.layers && q.layers.length > 0) {
-          layerBarEl.style.display = 'flex';
-          layerBarEl.innerHTML = `
-            <span class="layer-bar-label">Ebene</span>
-            ${q.layers.map(l => `
-              <button type="button" class="layer-chip-btn ${vacationLayerActive && l.id === 'vacation' ? 'active' : ''}" 
-                      id="${l.id}LayerBtn" 
-                      onclick="toggleVacationLayer()" 
-                      aria-pressed="${vacationLayerActive && l.id === 'vacation' ? 'true' : 'false'}" 
-                      title="${l.label} ein-/ausblenden">
-                <span class="layer-chip-dot"></span>
-                <span>${l.label}</span>
-              </button>
-            `).join('')}
-          `;
+      // Statusdock / Key Event
+      const keyEl = document.getElementById('quarterKeyEvent');
+      if (keyEl) {
+        if (qNum === 1 && activeTripIds.has('vacation')) {
+          keyEl.innerHTML = '<b>05.–25. Juni 2027: Bergurlaub Tirol & Mittelrhein</b> (Standlager Camping FiNK Imst · Sa 12.06: TS16 Imst)';
+        } else if (qNum === 0 && activeTripIds.has('zoutelande')) {
+          keyEl.innerHTML = '<b>02.–05. Januar 2027: Zoutelande</b> (Zeeland / Nordseeküste · Küstenläufe & Regeneration)';
+        } else if (qNum === 1 && activeTripIds.has('kaub')) {
+          keyEl.innerHTML = '<b>25.–27. Juni 2027: Geschwister Kaub</b> (Mittelrhein)';
         } else {
-          layerBarEl.style.display = 'none';
-          layerBarEl.innerHTML = '';
+          keyEl.innerText = q.keyEvent;
         }
       }
 
-      const keyEl = document.getElementById('quarterKeyEvent');
-      if (keyEl) {
-        if (qNum === 1 && vacationLayerActive) {
-          keyEl.innerHTML = '<b>05.–25. Juni 2027: Bergurlaub Tirol & Mittelrhein</b> (Standlager Camping FiNK Imst · Sa 12.06: TS16 Imst)';
+      // 3-Spalten Reise-Leiste unter der Zielzeile, exakt unter den 3 Kalendermonaten linksbündig
+      const gridEl = document.getElementById('seasonMonthColsGrid');
+      if (gridEl) {
+        const hasTrips = q.months.some(m => m.trips && m.trips.length > 0);
+        if (hasTrips) {
+          gridEl.style.display = 'grid';
+          gridEl.innerHTML = q.months.map(m => {
+            const trips = m.trips || [];
+            return `
+              <div class="month-col-pills">
+                ${trips.map(t => `
+                  <button type="button" class="layer-chip-btn ${activeTripIds.has(t.id) ? 'active' : ''}" 
+                          id="${t.id}LayerBtn" 
+                          onclick="toggleTrip('${t.id}')" 
+                          aria-pressed="${activeTripIds.has(t.id) ? 'true' : 'false'}" 
+                          title="${t.label} ein-/ausblenden">
+                    <span class="layer-chip-dot"></span>
+                    <span>${t.label}</span>
+                  </button>
+                `).join('')}
+              </div>
+            `;
+          }).join('');
         } else {
-          keyEl.innerText = q.keyEvent;
+          gridEl.style.display = 'none';
+          gridEl.innerHTML = '';
         }
       }
 
@@ -2200,11 +2231,11 @@
                 barClass += ' is-interactive';
               }
 
-              const isVacationDay = (m.mIdx === 5 && d >= 5 && d <= 25 && vacationLayerActive);
-              if (isVacationDay) {
+              const activeTrip = isDayInActiveTrip(m.mIdx, d);
+              if (activeTrip) {
                 barClass += ' vacation-layer';
-                if (d === 5 || col === 0) barClass += ' vac-start';
-                if (d === 25 || col === 6) barClass += ' vac-end';
+                if (d === activeTrip.startDay || col === 0) barClass += ' vac-start';
+                if (d === activeTrip.endDay || col === 6) barClass += ' vac-end';
                 isInteractive = true;
               }
 
@@ -2241,27 +2272,33 @@
 
       const keyEl = document.getElementById('quarterKeyEvent');
 
-      // 0. BERGURLAUB LAYER DETAILS (05.–25. JUNI 2027)
-      if (vacationLayerActive && mIdx === 5 && day >= 5 && day <= 25) {
-        if (day === 12) {
-          keyEl.innerHTML = 'Sa 12.06.2027: Tschirgant Sky Run TS16 (16,9 km · ~850 Hm) · Im Standlager Camping FiNK';
-          openRaceDrawer('ts16');
-          return;
-        }
-        if (day === 5) {
-          keyEl.innerHTML = 'Sa 05.06.2027: Anreise mit Camping-Fahrzeug via Bodensee nach Tirol';
-          return;
-        }
-        if (day >= 6 && day <= 11) {
-          keyEl.innerHTML = `${day}. Juni 2027: Standlager Camping FiNK Imst · Tapering & Streckencheck TS16`;
-          return;
-        }
-        if (day >= 13 && day <= 20) {
-          keyEl.innerHTML = `${day}. Juni 2027: Standlager Camping FiNK Imst · Rekom, Hütten & Familienwandern`;
-          return;
-        }
-        if (day >= 21 && day <= 25) {
-          keyEl.innerHTML = `${day}. Juni 2027: Kaub am Rhein (Mittelrhein-Ausklang) · Fr 25.06. Heimreise Düsseldorf`;
+      // 0. REISE- & FERIEN-DETAILS FÜR AKTIVE TRIPS
+      const tripOnDay = isDayInActiveTrip(mIdx, day);
+      if (tripOnDay) {
+        if (tripOnDay.id === 'vacation') {
+          if (day === 12) {
+            keyEl.innerHTML = 'Sa 12.06.2027: Tschirgant Sky Run TS16 (16,9 km · ~850 Hm) · Im Standlager Camping FiNK';
+            openRaceDrawer('ts16');
+            return;
+          }
+          if (day === 5) {
+            keyEl.innerHTML = 'Sa 05.06.2027: Anreise mit Camping-Fahrzeug via Bodensee nach Tirol';
+            return;
+          }
+          if (day >= 6 && day <= 11) {
+            keyEl.innerHTML = `${day}. Juni 2027: Standlager Camping FiNK Imst · Tapering & Streckencheck TS16`;
+            return;
+          }
+          if (day >= 13 && day <= 20) {
+            keyEl.innerHTML = `${day}. Juni 2027: Standlager Camping FiNK Imst · Rekom, Hütten & Familienwandern`;
+            return;
+          }
+          if (day >= 21 && day <= 25) {
+            keyEl.innerHTML = `${day}. Juni 2027: Kaub am Rhein (Mittelrhein-Ausklang) · Fr 25.06. Heimreise Düsseldorf`;
+            return;
+          }
+        } else if (tripOnDay.details) {
+          keyEl.innerText = tripOnDay.details;
           return;
         }
       }

@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.78  
+**Document Version:** 9.79  
 **Last Updated:** November 03, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -9,6 +9,20 @@
 ---
 
 ## 📌 1. Project Overview & Current Trajectory
+
+- **Monatsspalten-Reiseliste & Multi-Trip Integration (v9.71 / State 9.79):**
+  - **Ergonomisches 3-Spalten-Raster unter der Zielzeile (`.season-month-cols-grid`):**
+    - Die Zielzeile (`quarter-meta-strip`: `Ziel: 12. Juni · Tschirgant Sky Run TS16...`) sitzt als ruhiger horizontaler Anker zentriert unter der 3-Monats-Matrix.
+    - Unmittelbar darunter erstreckt sich ein 3-spaltiges Raster (`repeat(3, 1fr)` mit 1.25rem Gaps), das exakt mit den 3 Monatsspalten fluchtet.
+    - Reise- und Ferientermine füllen sich **linksbündig pro Monatsspalte** auf:
+      - *Q1 (Jan – März 2027):* Spalte 1 (Januar) führt `[• Zoutelande (02.–05.01.)]`; Spalten 2 & 3 bleiben leer.
+      - *Q2 (Apr – Juni 2027):* Spalte 1 (April) und 2 (Mai) bleiben ruhig; Spalte 3 (Juni) führt `[• Bergurlaub (05.–25.06.)]` und `[• Geschwister Kaub (25.–27.06.)]`.
+      - *Q3 & Q4:* Ohne Termine schließt die Leiste automatisch (`display: none`).
+    - Das Wort „Ebene“ entfällt vollständig. Strikte Icon- und Emoji-Freiheit gewahrt.
+  - **Dynamische Multi-Trip Steuerung:**
+    - Reisetage können unabhängig voneinander aktiviert werden (`activeTripIds = new Set()`).
+    - Kalendertage (z. B. 02.–05. Januar in Zeeland oder 25.–27. Juni in Kaub) erhalten bei Aktivierung die goldene Schraffur (`.vacation-layer`); Klick auf den Tag blendet die Reisedetails im Meta-Dock ein.
+  - **Synchronisiert:** In `index.html`, `preview_jahres_dashboard.html`, gespiegelt nach `dist/`.
 
 - **Design-Bereinigung Saison-Kalender: Pager-Spannen, Layer-Dock unter Kalender & Icon-Freiheit (v9.70 / State 9.78):**
   - **Quartals-Pager direkt auf Kalenderspannen umgestellt:**
