@@ -86,6 +86,22 @@ const kwMap = {
 };
 
 const defaultInitialRuns = [
+  // KW 45 (Rennwoche Martinslauf)
+  {
+    id: 1793700000000,
+    kw: 45,
+    date: '03.11.2026',
+    dayDate: '03.11',
+    dist: 5.5,
+    hm: 10,
+    duration: '00:40:00',
+    hr: 117,
+    pace: '7:16',
+    type: 'laufen',
+    isErsatz: false,
+    tag: 'Locker GA1',
+    notes: 'Einheit Locker GA1 absolviert: 5,5 km / 10 Hm / 40 Min. / Ø 117 bpm (saubere GA1 Sprechgrenze VT1)'
+  },
   // KW 44 (Wiedereinstieg nach Infekt)
   {
     id: 1793440800000,

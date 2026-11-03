@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.69  
+**Document Version:** 9.70  
 **Last Updated:** November 03, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -9,6 +9,24 @@
 ---
 
 ## 📌 1. Project Overview & Current Trajectory
+
+- **Mobile View Optimierung (iPhone 13 mini), Kontrast & Veranstalter-Link (v9.62 / State 9.70):**
+  - **7 Tage Screen-Fit & BPM-Entschlackung in der Wochenübersicht:**
+    - BPM-Vorgaben wurden aus den mobilen Zeilen (`.m-row`) entfernt, um visuelle Überladung zu verhindern. Zeilen zeigen sauber Tag/Datum, Distanz/CHILL (`5.5 KM`, `CHILL`) und Subcopy (`Locker GA1`, `Regeneration`, `Aktivierung`).
+    - Rechts wird bei geloggten Läufen ein dezenter grüner Haken `✓` angezeigt, bei anstehenden Läufen ein dezenter Chevron `›` bzw. heute `Loggen`.
+    - Durch Ausblenden der mehrzeiligen Textzusammenfassung (`.m-focus`) mobil und Justierung der Zeilenhöhe auf 48 px passen alle 7 Wochentage (MON bis SON) vollständig auf das iPhone 13 mini Display (375 × 812 px) ohne vertikales Scrollen unter die Safari-Adressleiste.
+  - **Typografie Subcopy angehoben:**
+    - `.m-tag` wurde von 0.72rem auf **`0.85rem` (~13.6px, Apple HIG `sm` Token)** angehoben, um die Lesbarkeit im Freien zu garantieren.
+  - **Veranstalter-Link zum Martinslauf (SFD '75 Unterbacher See):**
+    - Prominenter Button `Offizielle Ausschreibung · sfd.de/martinslauf ↗` ([https://www.sfd.de/martinslauf/](https://www.sfd.de/martinslauf/)) direkt im Hero-Bereich des Race Drawers und als Aktion im Tages-Detail-Sheet am Renntag integriert.
+  - **Erhöhter Drawer- & Sheet-Kontrast:**
+    - Bottom Sheet (`.m-sheet`) und Race Drawer (`.race-drawer`) auf `#1E202C` angehoben mit hellem Kontur-Rand (`1.5px solid rgba(255, 255, 255, 0.22)`) und 60px Drop-Shadow.
+    - Eingabefelder (`.s-field`) und Infokarten (`.s-cell`) heben sich mit `#26293A`, weißer Eingabetypografie (`#FFFFFF`, `1.30rem`) und Cyan-Fokus-Glow deutlich vom schwarzen Hintergrund ab.
+  - **Tages-Detail-Sheet mit BPM & VT1-Spezifikation:**
+    - Beim Antippen eines Tages öffnet sich das Sheet und zeigt die vollständigen Vorgaben: Distanz, Puls-Vorgabe (BPM), Fokus sowie physiologische Referenz (`VT1 Sprechgrenze: 105–118 bpm`).
+  - **Lauf vom 03.11 fest hinterlegt:**
+    - Die heute morgen auf dem Smartphone geloggte Einheit (5,5 km, 40 min, 10 Hm, 117 bpm, Locker GA1) wurde in `app.js` (`defaultInitialRuns`) und `preview_jahres_dashboard.html` (`loadRuns()`) dauerhaft eingespeist und erscheint somit auch auf dem Desktop sofort als erledigt.
+  - **Synchronisiert:** Umgesetzt in `preview_jahres_dashboard.html`, `app.js`, `index.html` (Script-Version `v=9.62`), gespiegelt nach `dist/`.
 
 - **Korrektur Martinslauf: 48. SFD '75 Martinslauf am Unterbacher See in Düsseldorf (v9.61 / State 9.69):**
   - **Präzisierung Veranstaltungsort & Logistik:**

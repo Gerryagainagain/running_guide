@@ -950,11 +950,11 @@
       right: 0;
       bottom: 0;
       width: clamp(380px, 32vw, 480px);
-      background: rgba(20, 20, 28, 0.95);
-      border-left: 1px solid rgba(255, 255, 255, 0.12);
+      background: #1E202C;
+      border-left: 1.5px solid rgba(255, 255, 255, 0.18);
       backdrop-filter: blur(32px);
       -webkit-backdrop-filter: blur(32px);
-      box-shadow: -16px 0 48px rgba(0, 0, 0, 0.70);
+      box-shadow: -16px 0 48px rgba(0, 0, 0, 0.85);
       z-index: 999;
       transform: translateX(100%);
       transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -1045,6 +1045,27 @@
       border-radius: 8px;
     }
 
+    .race-drawer-org-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 0.35rem;
+      align-self: flex-start;
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: #000;
+      background: var(--apple-orange);
+      padding: 0.45rem 0.95rem;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .race-drawer-org-btn:hover {
+      background: #FFB340;
+      transform: translateY(-1px);
+    }
+
     .race-section {
       display: flex;
       flex-direction: column;
@@ -1126,69 +1147,70 @@
        MOBILE WOCHENLISTE (≤ 500 px) & LOG-SHEET (shared: drachenlauf_runs)
        ========================================================================== */
     .mobile-week { display: none; width: 100%; }
-    .m-head { display: flex; align-items: center; justify-content: space-between; margin: 0.25rem 0 0.75rem; }
-    .m-step { width: 40px; height: 40px; border-radius: 999px; border: 1px solid var(--card-border); background: var(--card-bg); color: var(--text-secondary); font-size: 1.1rem; font-weight: 700; cursor: pointer; font-family: inherit; }
+    .m-head { display: flex; align-items: center; justify-content: space-between; margin: 0.15rem 0 0.35rem; }
+    .m-step { width: 34px; height: 34px; border-radius: 999px; border: 1px solid var(--card-border); background: var(--card-bg); color: var(--text-secondary); font-size: 1.0rem; font-weight: 700; cursor: pointer; font-family: inherit; }
     .m-step:disabled { opacity: 0.3; cursor: default; }
     .m-title { text-align: center; flex: 1; padding: 0 0.5rem; min-width: 0; }
-    .m-kw { font-size: 0.65rem; font-weight: 800; letter-spacing: 0.08em; color: var(--text-secondary); text-transform: uppercase; }
-    .m-name { font-size: 1rem; font-weight: 800; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .m-dates { font-size: 0.7rem; color: var(--text-muted); margin-top: 2px; font-weight: 600; }
-    .m-progress { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 14px; padding: 0.75rem 0.9rem; margin-bottom: 0.6rem; }
+    .m-kw { font-size: 0.68rem; font-weight: 800; letter-spacing: 0.08em; color: var(--text-secondary); text-transform: uppercase; }
+    .m-name { font-size: 0.95rem; font-weight: 800; margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .m-dates { font-size: 0.72rem; color: var(--text-muted); margin-top: 1px; font-weight: 600; }
+    .m-progress { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 0.45rem 0.75rem; margin-bottom: 0.35rem; }
     .m-prog-row { display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem; }
-    .m-prog-val { font-size: 1.35rem; font-weight: 900; font-feature-settings: "tnum"; white-space: nowrap; }
-    .m-prog-val small { font-size: 0.7rem; color: var(--text-secondary); font-weight: 700; }
-    .m-prog-bench { font-size: 0.68rem; font-weight: 700; color: var(--text-secondary); text-align: right; }
-    .m-bar { height: 4px; background: rgba(255, 255, 255, 0.08); border-radius: 999px; margin-top: 0.55rem; overflow: hidden; }
+    .m-prog-val { font-size: 1.15rem; font-weight: 900; font-feature-settings: "tnum"; white-space: nowrap; }
+    .m-prog-val small { font-size: 0.72rem; color: var(--text-secondary); font-weight: 700; }
+    .m-prog-bench { font-size: 0.75rem; font-weight: 700; color: var(--text-secondary); text-align: right; }
+    .m-bar { height: 3px; background: rgba(255, 255, 255, 0.08); border-radius: 999px; margin-top: 0.35rem; overflow: hidden; }
     .m-bar > div { height: 100%; background: var(--apple-green); border-radius: 999px; transition: width 0.3s ease; }
-    .m-focus { font-size: 0.72rem; line-height: 1.4; color: var(--text-subtle); margin-top: 0.55rem; }
-    .m-list { display: flex; flex-direction: column; gap: 6px; }
-    .m-row { display: grid; grid-template-columns: 52px 1fr auto; align-items: center; gap: 0.6rem; min-height: 64px; padding: 0.55rem 0.8rem; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 14px; cursor: pointer; }
+    .m-focus { display: none; }
+    .m-list { display: flex; flex-direction: column; gap: 4px; }
+    .m-row { display: grid; grid-template-columns: 50px 1fr auto; align-items: center; gap: 0.6rem; min-height: 48px; padding: 0.30rem 0.75rem; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; cursor: pointer; }
     .m-row:active { transform: scale(0.985); }
     .m-row.rest { background: rgba(14, 14, 20, 0.70); }
     .m-row.today { border: 1.5px solid var(--apple-cyan); background: linear-gradient(135deg, rgba(100, 210, 255, 0.08), var(--card-bg)); }
     .m-row.longrun { border: 1.5px solid rgba(10, 132, 255, 0.35); background: linear-gradient(135deg, rgba(10, 132, 255, 0.08), var(--card-bg)); }
     .m-row.race { border: 1.5px solid rgba(255, 159, 10, 0.55); background: linear-gradient(135deg, rgba(255, 159, 10, 0.12), var(--card-bg)); }
     .m-day { display: flex; flex-direction: column; }
-    .m-day b { font-size: 0.68rem; font-weight: 800; letter-spacing: 0.06em; color: var(--text-secondary); }
-    .m-day span { font-size: 0.8rem; font-weight: 800; font-feature-settings: "tnum"; margin-top: 1px; }
+    .m-day b { font-size: 0.75rem; font-weight: 800; letter-spacing: 0.05em; color: var(--text-secondary); }
+    .m-day span { font-size: 0.88rem; font-weight: 800; font-feature-settings: "tnum"; margin-top: 1px; }
     .m-row.today .m-day b, .m-row.today .m-day span { color: var(--apple-cyan); }
     .m-row.race .m-day b, .m-row.race .m-day span { color: var(--apple-orange); }
     .m-main { min-width: 0; }
     .m-val { display: flex; align-items: baseline; gap: 4px; }
-    .m-num { font-size: 1.35rem; font-weight: 900; line-height: 1; letter-spacing: -0.4px; font-feature-settings: "tnum"; }
-    .m-unit { font-size: 0.6rem; font-weight: 800; letter-spacing: 0.06em; }
-    .m-word { font-size: 0.95rem; font-weight: 800; letter-spacing: 0.05em; line-height: 1.35; }
-    .m-tag { font-size: 0.72rem; font-weight: 700; color: var(--text-subtle); margin-top: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .m-side { font-size: 0.66rem; font-weight: 700; color: var(--text-secondary); text-align: right; max-width: 96px; line-height: 1.3; }
-    .m-cta { font-size: 0.68rem; font-weight: 900; color: var(--color-text-dark, #000000); background: var(--apple-cyan); padding: 0.35rem 0.6rem; border-radius: 999px; white-space: nowrap; }
-    .m-check { font-size: 0.66rem; font-weight: 900; color: var(--apple-green); background: rgba(48, 209, 88, 0.15); padding: 0.3rem 0.55rem; border-radius: 999px; white-space: nowrap; }
+    .m-num { font-size: 1.30rem; font-weight: 900; line-height: 1; letter-spacing: -0.4px; font-feature-settings: "tnum"; }
+    .m-unit { font-size: 0.62rem; font-weight: 800; letter-spacing: 0.06em; }
+    .m-word { font-size: 0.95rem; font-weight: 800; letter-spacing: 0.05em; line-height: 1.25; }
+    .m-tag { font-size: 0.85rem; font-weight: 700; color: var(--text-subtle); margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .m-chevron { font-size: 1.15rem; font-weight: 700; color: var(--text-muted); padding: 0 4px; }
+    .m-cta { font-size: 0.70rem; font-weight: 900; color: #000; background: var(--apple-cyan); padding: 0.25rem 0.6rem; border-radius: 999px; white-space: nowrap; }
+    .m-check { font-size: 0.72rem; font-weight: 900; color: var(--apple-green); background: rgba(48, 209, 88, 0.16); padding: 0.2rem 0.55rem; border-radius: 999px; white-space: nowrap; }
 
-    .m-backdrop { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.55); opacity: 0; pointer-events: none; transition: opacity 0.25s ease; z-index: 1000; }
+    .m-backdrop { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.75); opacity: 0; pointer-events: none; transition: opacity 0.25s ease; z-index: 1000; }
     .m-backdrop.open { opacity: 1; pointer-events: auto; }
-    .m-sheet { position: fixed; left: 0; right: 0; bottom: 0; max-width: 430px; margin: 0 auto; max-height: 88vh; overflow-y: auto; background: rgba(20, 20, 28, 0.97); backdrop-filter: blur(32px); -webkit-backdrop-filter: blur(32px); border-top: 1px solid rgba(255, 255, 255, 0.12); border-radius: 18px 18px 0 0; padding: 0.5rem 16px calc(20px + env(safe-area-inset-bottom)); transform: translateY(100%); transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1); z-index: 1001; }
+    .m-sheet { position: fixed; left: 0; right: 0; bottom: 0; max-width: 430px; margin: 0 auto; max-height: 88vh; overflow-y: auto; background: #1E202C; border-top: 1.5px solid rgba(255, 255, 255, 0.22); box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.95), 0 -2px 12px rgba(255, 255, 255, 0.05); border-radius: 20px 20px 0 0; padding: 0.6rem 16px calc(24px + env(safe-area-inset-bottom)); transform: translateY(100%); transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1); z-index: 1001; }
     .m-sheet.open { transform: translateY(0); }
-    .m-grab { width: 36px; height: 5px; border-radius: 999px; background: rgba(255, 255, 255, 0.25); margin: 0.2rem auto 0.9rem; }
-    .s-date { font-size: 0.68rem; font-weight: 800; letter-spacing: 0.08em; color: var(--text-secondary); text-transform: uppercase; }
-    .s-title { font-size: 1.25rem; font-weight: 900; margin: 0.2rem 0 0.75rem; }
-    .s-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 0.9rem; }
-    .s-cell { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 0.55rem 0.7rem; }
+    .m-grab { width: 40px; height: 5px; border-radius: 999px; background: rgba(255, 255, 255, 0.40); margin: 0.2rem auto 0.9rem; }
+    .s-date { font-size: 0.70rem; font-weight: 800; letter-spacing: 0.08em; color: var(--apple-cyan); text-transform: uppercase; }
+    .s-title { font-size: 1.25rem; font-weight: 900; margin: 0.25rem 0 0.75rem; }
+    .s-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 0.85rem; }
+    .s-cell { background: #26293A; border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 12px; padding: 0.6rem 0.8rem; }
     .s-cell.wide { grid-column: span 2; }
-    .s-lbl { font-size: 0.6rem; font-weight: 800; letter-spacing: 0.08em; color: var(--text-muted); text-transform: uppercase; }
-    .s-txt { font-size: 0.85rem; font-weight: 700; margin-top: 3px; color: var(--text-subtle); }
-    .s-section { font-size: 0.68rem; font-weight: 800; letter-spacing: 0.08em; color: var(--text-secondary); text-transform: uppercase; margin: 0.4rem 0 0.5rem; }
+    .s-lbl { font-size: 0.62rem; font-weight: 800; letter-spacing: 0.08em; color: var(--text-muted); text-transform: uppercase; }
+    .s-txt { font-size: 0.88rem; font-weight: 700; margin-top: 3px; color: var(--text-white); line-height: 1.35; }
+    .s-section { font-size: 0.70rem; font-weight: 800; letter-spacing: 0.08em; color: var(--text-secondary); text-transform: uppercase; margin: 0.6rem 0 0.5rem; }
     .s-form { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-    .s-field { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 0.45rem 0.7rem; }
-    .s-field label { display: block; font-size: 0.6rem; font-weight: 800; letter-spacing: 0.08em; color: var(--text-muted); text-transform: uppercase; }
-    .s-field div { display: flex; align-items: baseline; gap: 4px; }
-    .s-field input { width: 100%; background: transparent; border: 0; outline: 0; color: var(--text-white); font-size: 1.2rem; font-weight: 800; font-family: inherit; font-feature-settings: "tnum"; padding: 2px 0; }
-    .s-field span { font-size: 0.65rem; font-weight: 700; color: var(--text-secondary); }
-    .s-field:focus-within { border-color: var(--apple-cyan); }
-    .s-save { grid-column: span 2; width: 100%; margin-top: 0.4rem; min-height: 48px; border: 0; border-radius: 14px; background: var(--apple-green); color: var(--color-text-dark, #000000); font-size: 0.95rem; font-weight: 900; font-family: inherit; cursor: pointer; }
-    .s-brief { width: 100%; min-height: 44px; margin-bottom: 0.9rem; border: 1px solid rgba(255, 159, 10, 0.55); border-radius: 14px; background: rgba(255, 159, 10, 0.12); color: var(--apple-orange); font-size: 0.85rem; font-weight: 800; font-family: inherit; cursor: pointer; }
+    .s-field { background: #26293A; border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 12px; padding: 0.55rem 0.8rem; transition: border-color 0.2s, box-shadow 0.2s; }
+    .s-field label { display: block; font-size: 0.62rem; font-weight: 800; letter-spacing: 0.08em; color: var(--text-muted); text-transform: uppercase; }
+    .s-field div { display: flex; align-items: baseline; gap: 4px; margin-top: 2px; }
+    .s-field input { width: 100%; background: transparent; border: 0; outline: 0; color: #FFFFFF; font-size: 1.30rem; font-weight: 900; font-family: inherit; font-feature-settings: "tnum"; padding: 2px 0; }
+    .s-field span { font-size: 0.72rem; font-weight: 700; color: var(--text-secondary); }
+    .s-field:focus-within { border-color: var(--apple-cyan); box-shadow: 0 0 0 1.5px var(--apple-cyan); background: #2B2F44; }
+    .s-save { grid-column: span 2; width: 100%; margin-top: 0.4rem; min-height: 48px; border: 0; border-radius: 14px; background: var(--apple-green); color: #000; font-size: 0.95rem; font-weight: 900; font-family: inherit; cursor: pointer; }
+    .s-brief-link { display: flex; align-items: center; justify-content: center; gap: 0.4rem; width: 100%; min-height: 44px; margin-bottom: 0.6rem; border: 1.5px solid rgba(255, 159, 10, 0.75); border-radius: 14px; background: rgba(255, 159, 10, 0.20); color: var(--apple-orange); font-size: 0.88rem; font-weight: 800; text-decoration: none; font-family: inherit; cursor: pointer; }
+    .s-brief-drawer-btn { display: flex; align-items: center; justify-content: center; gap: 0.4rem; width: 100%; min-height: 38px; margin-bottom: 0.6rem; border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 14px; background: rgba(255, 255, 255, 0.08); color: var(--text-white); font-size: 0.82rem; font-weight: 700; font-family: inherit; cursor: pointer; }
     .s-reset { display: block; margin: 0.7rem auto 0; background: none; border: 0; color: var(--text-muted); font-size: 0.75rem; font-weight: 700; cursor: pointer; font-family: inherit; }
 
     @media (max-width: 500px) {
-      body { padding: max(12px, env(safe-area-inset-top)) 16px 24px; display: block; }
+      body { padding: max(8px, env(safe-area-inset-top)) 12px 14px; display: block; }
       .app-container { display: none !important; }
       .mobile-week { display: block; }
       .race-drawer { width: 100%; padding: 1.25rem 16px; border-left: 0; }
@@ -1332,6 +1354,7 @@
       <h2 class="race-drawer-title" id="drawerTitle">—</h2>
       <div class="race-drawer-subtitle" id="drawerSubtitle">—</div>
       <div class="race-drawer-target-pill" id="drawerTargetPill">—</div>
+      <a id="drawerOrganizerLink" class="race-drawer-org-btn" target="_blank" rel="noopener noreferrer" style="display:none;">Offizielle Ausschreibung ↗</a>
     </div>
 
     <div class="race-drawer-content" id="drawerContent">
@@ -1724,6 +1747,8 @@
         title: "48. SFD '75 Martinslauf",
         subtitle: 'Sonntag, 08. November 2026 · Düsseldorf (Unterbacher See)',
         targetPill: 'Zielzeit Sub 58 min · Pace 5:48 min/km · Start 11:45 Uhr',
+        organizerUrl: 'https://www.sfd.de/martinslauf/',
+        organizerLabel: 'Offizielle Ausschreibung · sfd.de/martinslauf ↗',
         sections: [
           {
             title: 'Eckdaten & Logistik',
@@ -1761,6 +1786,8 @@
         title: 'Siebengebirgs-Halbmarathon',
         subtitle: 'Sonntag, 06. Dezember 2026 · Aegidienberg',
         targetPill: 'Zielzeit Sub 2:20 h · 360 Hm',
+        organizerUrl: 'https://siebengebirgsmarathon.net/',
+        organizerLabel: 'Offizielle Ausschreibung · siebengebirgsmarathon.net ↗',
         sections: [
           {
             title: 'Eckdaten & Logistik',
@@ -1798,6 +1825,8 @@
         title: 'Belgenbachtrail',
         subtitle: 'Sonntag, 07. März 2027 · Monschau / Eifel',
         targetPill: 'Zielzeit ~3:45 h · 941 Hm',
+        organizerUrl: 'https://belgenbachtrail.de/',
+        organizerLabel: 'Offizielle Ausschreibung · belgenbachtrail.de ↗',
         sections: [
           {
             title: 'Eckdaten & Logistik',
@@ -1826,6 +1855,8 @@
         title: 'Tschirgant Sky Run TS16',
         subtitle: 'Samstag, 12. Juni 2027 · Imst / Tirol',
         targetPill: 'Alpiner Skyrun · ~850 Hm',
+        organizerUrl: 'https://www.tschirgant-skyrun.at/',
+        organizerLabel: 'Offizielle Ausschreibung · tschirgant-skyrun.at ↗',
         sections: [
           {
             title: 'Eckdaten',
@@ -1849,6 +1880,8 @@
         title: 'Drachenlauf Siebengebirge',
         subtitle: 'Sonntag, 24. Oktober 2027 · Königswinter',
         targetPill: 'Saison-Hauptziel · 1.250 Hm · 7 Berge',
+        organizerUrl: 'https://www.drachenlauf.net/',
+        organizerLabel: 'Offizielle Ausschreibung · drachenlauf.net ↗',
         sections: [
           {
             title: 'Eckdaten',
@@ -1877,6 +1910,17 @@
       document.getElementById('drawerTitle').innerText = b.title || '';
       document.getElementById('drawerSubtitle').innerText = b.subtitle || '';
       document.getElementById('drawerTargetPill').innerText = b.targetPill || '';
+
+      const orgLinkEl = document.getElementById('drawerOrganizerLink');
+      if (orgLinkEl) {
+        if (b.organizerUrl) {
+          orgLinkEl.href = b.organizerUrl;
+          orgLinkEl.innerText = b.organizerLabel || 'Offizielle Ausschreibung ↗';
+          orgLinkEl.style.display = 'inline-flex';
+        } else {
+          orgLinkEl.style.display = 'none';
+        }
+      }
 
       let contentHtml = '';
       if (b.sections) {
@@ -2164,8 +2208,36 @@
     const RUNS_KEY = 'drachenlauf_runs';
     const SEASON_YEAR = 2026;
 
+    const seedDefaultRuns = [
+      {
+        id: 1762156800000,
+        kw: 45,
+        date: "03.11.2026",
+        dayDate: "03.11",
+        dist: 5.5,
+        distMeters: 5500,
+        duration: "00:40:00",
+        hm: 10,
+        hr: 117,
+        pace: "7:16",
+        type: "laufen",
+        isErsatz: false,
+        tag: "Locker GA1",
+        notes: "Geloggt: 5.5 km in 40 min · Ø 117 bpm · 10 Hm"
+      }
+    ];
+
     function loadRuns() {
-      try { return JSON.parse(localStorage.getItem(RUNS_KEY) || '[]'); } catch (e) { return []; }
+      try {
+        const stored = JSON.parse(localStorage.getItem(RUNS_KEY) || '[]');
+        if (!stored.some(r => r.dayDate === '03.11' || r.date === '03.11.2026')) {
+          stored.push(...seedDefaultRuns);
+          try { localStorage.setItem(RUNS_KEY, JSON.stringify(stored)); } catch (e) {}
+        }
+        return stored;
+      } catch (e) {
+        return [...seedDefaultRuns];
+      }
     }
     function storeRuns(runs) {
       try { localStorage.setItem(RUNS_KEY, JSON.stringify(runs)); } catch (e) {}
@@ -2243,14 +2315,26 @@
           main = `<div class="m-word" style="color:${day.isToday ? 'var(--apple-cyan)' : 'var(--text-muted)'}">CHILL</div>`;
         }
 
-        const tagLine = log
-          ? [minutesFromDuration(log.duration) ? `${minutesFromDuration(log.duration)} min` : '', log.hm ? `${log.hm} Hm` : ''].filter(Boolean).join(' · ') || (day.tag || 'Erledigt')
-          : (day.tag || day.sub);
+        // Subcopy: Keine BPM mehr in der Zeile! Zeigt sauberen Tag / kurze Ansage
+        let tagLine = '';
+        if (log) {
+          tagLine = `✓ ${day.tag || 'Erledigt'} · ${log.duration ? minutesFromDuration(log.duration) + ' min' : Number(log.dist).toFixed(1) + ' km'}`;
+        } else if (day.isRace) {
+          tagLine = day.tag || 'Wettkampf';
+        } else {
+          tagLine = day.tag || day.sub;
+        }
 
         let side = '';
-        if (log) side = `<span class="m-check">✓ ${log.hr ? log.hr + ' bpm' : 'Erledigt'}</span>`;
-        else if (day.isToday && run) side = `<span class="m-cta">Loggen</span>`;
-        else if (run) side = `<span class="m-side">${day.sub}</span>`;
+        if (log) {
+          side = `<span class="m-check">✓</span>`;
+        } else if (day.isToday && run) {
+          side = `<span class="m-cta">Loggen</span>`;
+        } else if (day.isRace) {
+          side = `<span class="m-chevron" style="color:var(--apple-orange); font-size:1.3rem;">›</span>`;
+        } else {
+          side = `<span class="m-chevron">›</span>`;
+        }
 
         return `
           <div class="${cls}" onclick="openSheet(${kwNum}, ${i})">
@@ -2266,25 +2350,49 @@
     }
 
     // ==========================================================================
-    // LOG BOTTOM SHEET
+    // LOG BOTTOM SHEET (Inklusive BPM, Vorgaben, VT1 und Ausschreibungs-Link)
     // ==========================================================================
     function openSheet(kwNum, i) {
       const day = weeksData[kwNum].days[i];
       const dd = day.d.split(' ')[1];
       const log = findRunLog(dd) || {};
       const run = isRunDay(day);
-      const word = day.isStudio ? 'Studio' : day.isHike ? 'Wandern' : 'Ruhetag';
-      const title = run ? `${parseFloat(day.val).toFixed(1)} km · ${day.tag}` : `${word}${day.tag ? ' · ' + day.tag : ''}`;
-      const rKey = day.raceKey || '';
+      const isRace = !!day.isRace;
+      const rKey = day.raceKey || (kwNum === 45 ? 'martinslauf' : (kwNum === 49 ? '7ghm' : ''));
 
-      const plan = run ? `
-        <div class="s-grid">
-          <div class="s-cell wide"><div class="s-lbl">Vorgabe</div><div class="s-txt">${day.sub}</div></div>
-          <div class="s-cell wide"><div class="s-lbl">Referenz</div><div class="s-txt">GA1 / VT1 Sprechgrenze: 105–118 bpm</div></div>
-        </div>` : `
-        <div class="s-grid">
-          <div class="s-cell wide"><div class="s-lbl">Plan</div><div class="s-txt">${day.sub}</div></div>
-        </div>`;
+      const word = day.isStudio ? 'Studio' : day.isHike ? 'Wandern' : 'Ruhetag';
+      const title = run ? `${parseFloat(day.val).toFixed(1)} km · ${day.tag || 'Lauf'}` : `${word}${day.tag ? ' · ' + day.tag : ''}`;
+
+      // Plan / Vorgaben & BPM Spezifikationen (Apple HIG Grid)
+      let planHtml = '';
+      if (isRace) {
+        planHtml = `
+          <div class="s-grid">
+            <div class="s-cell"><div class="s-lbl">Distanz / Start</div><div class="s-txt">10,0 km · 11:45 Uhr</div></div>
+            <div class="s-cell"><div class="s-lbl">Zielzeit / Pace</div><div class="s-txt">Sub 58 min (5:48 min/km)</div></div>
+            <div class="s-cell"><div class="s-lbl">Puls-Strategie (BPM)</div><div class="s-txt">< 118 bpm (Start) ➔ 120–125 bpm</div></div>
+            <div class="s-cell"><div class="s-lbl">Ort / Strecke</div><div class="s-txt">U-See Düsseldorf · Flach</div></div>
+          </div>
+          <a href="https://www.sfd.de/martinslauf/" target="_blank" rel="noopener noreferrer" class="s-brief-link">Offizielle Ausschreibung (sfd.de/martinslauf) ↗</a>
+          <button type="button" class="s-brief-drawer-btn" onclick="closeSheet(); openRaceDrawer('${rKey}')">Vollständiges Wettkampf-Briefing öffnen ↗</button>
+        `;
+      } else if (run) {
+        const hrSpec = day.sub.includes('bpm') ? day.sub : '< 118 bpm (GA1 Sprechgrenze)';
+        planHtml = `
+          <div class="s-grid">
+            <div class="s-cell"><div class="s-lbl">Distanz (Plan)</div><div class="s-txt">${parseFloat(day.val).toFixed(1)} km</div></div>
+            <div class="s-cell"><div class="s-lbl">Puls-Vorgabe (BPM)</div><div class="s-txt" style="color:var(--apple-green);">${hrSpec}</div></div>
+            <div class="s-cell"><div class="s-lbl">Einheit / Fokus</div><div class="s-txt">${day.tag || 'Grundlage GA1'}</div></div>
+            <div class="s-cell"><div class="s-lbl">Physiologie / VT1</div><div class="s-txt">105–118 bpm Sprechgrenze</div></div>
+          </div>
+        `;
+      } else {
+        planHtml = `
+          <div class="s-grid">
+            <div class="s-cell wide"><div class="s-lbl">Empfehlung</div><div class="s-txt">${day.sub}</div></div>
+          </div>
+        `;
+      }
 
       const val = (k) => (log[k] !== undefined && log[k] !== 0 ? log[k] : '');
       const durMin = minutesFromDuration(log.duration);
@@ -2292,17 +2400,16 @@
       document.getElementById('sheetBody').innerHTML = `
         <div class="s-date">${day.d.replace(' ', ' · ')} · KW ${kwNum}</div>
         <div class="s-title">${title}</div>
-        ${plan}
-        ${day.isRace && rKey ? `<button class="s-brief" onclick="closeSheet(); openRaceDrawer('${rKey}')">Wettkampf-Briefing öffnen ↗</button>` : ''}
+        ${planHtml}
         <div class="s-section">Ist-Werte eintragen</div>
         <form class="s-form" onsubmit="saveSheetLog(event, ${kwNum}, ${i})">
           <div class="s-field"><label>Distanz</label><div><input name="dist" type="number" step="0.01" min="0" inputmode="decimal" value="${log.dist !== undefined ? log.dist : ''}" placeholder="${run ? parseFloat(day.val).toFixed(1) : '0.0'}"><span>km</span></div></div>
           <div class="s-field"><label>Dauer</label><div><input name="dur" type="number" min="0" inputmode="numeric" value="${durMin || ''}" placeholder="0"><span>min</span></div></div>
-          <div class="s-field"><label>Ø HF</label><div><input name="hr" type="number" min="0" inputmode="numeric" value="${val('hr')}" placeholder="0"><span>bpm</span></div></div>
+          <div class="s-field"><label>Ø HF (BPM)</label><div><input name="hr" type="number" min="0" inputmode="numeric" value="${val('hr')}" placeholder="0"><span>bpm</span></div></div>
           <div class="s-field"><label>Höhenmeter</label><div><input name="hm" type="number" min="0" inputmode="numeric" value="${val('hm')}" placeholder="0"><span>Hm</span></div></div>
           <button type="submit" class="s-save">✓ Speichern</button>
         </form>
-        ${log.dayDate || log.date ? `<button class="s-reset" onclick="resetSheetLog('${dd}')">Eintrag zurücksetzen</button>` : ''}
+        ${log.dayDate || log.date ? `<button type="button" class="s-reset" onclick="resetSheetLog('${dd}')">Eintrag zurücksetzen</button>` : ''}
       `;
       document.getElementById('mSheet').classList.add('open');
       document.getElementById('mBackdrop').classList.add('open');
