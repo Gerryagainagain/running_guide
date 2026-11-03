@@ -1121,9 +1121,103 @@
       color: var(--text-secondary);
       line-height: 1.45;
     }
+
+    /* ==========================================================================
+       MOBILE WOCHENLISTE (≤ 500 px) & LOG-SHEET (shared: drachenlauf_runs)
+       ========================================================================== */
+    .mobile-week { display: none; width: 100%; }
+    .m-head { display: flex; align-items: center; justify-content: space-between; margin: 0.25rem 0 0.75rem; }
+    .m-step { width: 40px; height: 40px; border-radius: 999px; border: 1px solid var(--card-border); background: var(--card-bg); color: var(--text-secondary); font-size: 1.1rem; font-weight: 700; cursor: pointer; font-family: inherit; }
+    .m-step:disabled { opacity: 0.3; cursor: default; }
+    .m-title { text-align: center; flex: 1; padding: 0 0.5rem; min-width: 0; }
+    .m-kw { font-size: 0.65rem; font-weight: 800; letter-spacing: 0.08em; color: var(--text-secondary); text-transform: uppercase; }
+    .m-name { font-size: 1rem; font-weight: 800; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .m-dates { font-size: 0.7rem; color: var(--text-muted); margin-top: 2px; font-weight: 600; }
+    .m-progress { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 14px; padding: 0.75rem 0.9rem; margin-bottom: 0.6rem; }
+    .m-prog-row { display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem; }
+    .m-prog-val { font-size: 1.35rem; font-weight: 900; font-feature-settings: "tnum"; white-space: nowrap; }
+    .m-prog-val small { font-size: 0.7rem; color: var(--text-secondary); font-weight: 700; }
+    .m-prog-bench { font-size: 0.68rem; font-weight: 700; color: var(--text-secondary); text-align: right; }
+    .m-bar { height: 4px; background: rgba(255, 255, 255, 0.08); border-radius: 999px; margin-top: 0.55rem; overflow: hidden; }
+    .m-bar > div { height: 100%; background: var(--apple-green); border-radius: 999px; transition: width 0.3s ease; }
+    .m-focus { font-size: 0.72rem; line-height: 1.4; color: var(--text-subtle); margin-top: 0.55rem; }
+    .m-list { display: flex; flex-direction: column; gap: 6px; }
+    .m-row { display: grid; grid-template-columns: 52px 1fr auto; align-items: center; gap: 0.6rem; min-height: 64px; padding: 0.55rem 0.8rem; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 14px; cursor: pointer; }
+    .m-row:active { transform: scale(0.985); }
+    .m-row.rest { background: rgba(14, 14, 20, 0.70); }
+    .m-row.today { border: 1.5px solid var(--apple-cyan); background: linear-gradient(135deg, rgba(100, 210, 255, 0.08), var(--card-bg)); }
+    .m-row.longrun { border: 1.5px solid rgba(10, 132, 255, 0.35); background: linear-gradient(135deg, rgba(10, 132, 255, 0.08), var(--card-bg)); }
+    .m-row.race { border: 1.5px solid rgba(255, 159, 10, 0.55); background: linear-gradient(135deg, rgba(255, 159, 10, 0.12), var(--card-bg)); }
+    .m-day { display: flex; flex-direction: column; }
+    .m-day b { font-size: 0.68rem; font-weight: 800; letter-spacing: 0.06em; color: var(--text-secondary); }
+    .m-day span { font-size: 0.8rem; font-weight: 800; font-feature-settings: "tnum"; margin-top: 1px; }
+    .m-row.today .m-day b, .m-row.today .m-day span { color: var(--apple-cyan); }
+    .m-row.race .m-day b, .m-row.race .m-day span { color: var(--apple-orange); }
+    .m-main { min-width: 0; }
+    .m-val { display: flex; align-items: baseline; gap: 4px; }
+    .m-num { font-size: 1.35rem; font-weight: 900; line-height: 1; letter-spacing: -0.4px; font-feature-settings: "tnum"; }
+    .m-unit { font-size: 0.6rem; font-weight: 800; letter-spacing: 0.06em; }
+    .m-word { font-size: 0.95rem; font-weight: 800; letter-spacing: 0.05em; line-height: 1.35; }
+    .m-tag { font-size: 0.72rem; font-weight: 700; color: var(--text-subtle); margin-top: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .m-side { font-size: 0.66rem; font-weight: 700; color: var(--text-secondary); text-align: right; max-width: 96px; line-height: 1.3; }
+    .m-cta { font-size: 0.68rem; font-weight: 900; color: var(--color-text-dark, #000000); background: var(--apple-cyan); padding: 0.35rem 0.6rem; border-radius: 999px; white-space: nowrap; }
+    .m-check { font-size: 0.66rem; font-weight: 900; color: var(--apple-green); background: rgba(48, 209, 88, 0.15); padding: 0.3rem 0.55rem; border-radius: 999px; white-space: nowrap; }
+
+    .m-backdrop { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.55); opacity: 0; pointer-events: none; transition: opacity 0.25s ease; z-index: 1000; }
+    .m-backdrop.open { opacity: 1; pointer-events: auto; }
+    .m-sheet { position: fixed; left: 0; right: 0; bottom: 0; max-width: 430px; margin: 0 auto; max-height: 88vh; overflow-y: auto; background: rgba(20, 20, 28, 0.97); backdrop-filter: blur(32px); -webkit-backdrop-filter: blur(32px); border-top: 1px solid rgba(255, 255, 255, 0.12); border-radius: 18px 18px 0 0; padding: 0.5rem 16px calc(20px + env(safe-area-inset-bottom)); transform: translateY(100%); transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1); z-index: 1001; }
+    .m-sheet.open { transform: translateY(0); }
+    .m-grab { width: 36px; height: 5px; border-radius: 999px; background: rgba(255, 255, 255, 0.25); margin: 0.2rem auto 0.9rem; }
+    .s-date { font-size: 0.68rem; font-weight: 800; letter-spacing: 0.08em; color: var(--text-secondary); text-transform: uppercase; }
+    .s-title { font-size: 1.25rem; font-weight: 900; margin: 0.2rem 0 0.75rem; }
+    .s-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 0.9rem; }
+    .s-cell { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 0.55rem 0.7rem; }
+    .s-cell.wide { grid-column: span 2; }
+    .s-lbl { font-size: 0.6rem; font-weight: 800; letter-spacing: 0.08em; color: var(--text-muted); text-transform: uppercase; }
+    .s-txt { font-size: 0.85rem; font-weight: 700; margin-top: 3px; color: var(--text-subtle); }
+    .s-section { font-size: 0.68rem; font-weight: 800; letter-spacing: 0.08em; color: var(--text-secondary); text-transform: uppercase; margin: 0.4rem 0 0.5rem; }
+    .s-form { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .s-field { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 0.45rem 0.7rem; }
+    .s-field label { display: block; font-size: 0.6rem; font-weight: 800; letter-spacing: 0.08em; color: var(--text-muted); text-transform: uppercase; }
+    .s-field div { display: flex; align-items: baseline; gap: 4px; }
+    .s-field input { width: 100%; background: transparent; border: 0; outline: 0; color: var(--text-white); font-size: 1.2rem; font-weight: 800; font-family: inherit; font-feature-settings: "tnum"; padding: 2px 0; }
+    .s-field span { font-size: 0.65rem; font-weight: 700; color: var(--text-secondary); }
+    .s-field:focus-within { border-color: var(--apple-cyan); }
+    .s-save { grid-column: span 2; width: 100%; margin-top: 0.4rem; min-height: 48px; border: 0; border-radius: 14px; background: var(--apple-green); color: var(--color-text-dark, #000000); font-size: 0.95rem; font-weight: 900; font-family: inherit; cursor: pointer; }
+    .s-brief { width: 100%; min-height: 44px; margin-bottom: 0.9rem; border: 1px solid rgba(255, 159, 10, 0.55); border-radius: 14px; background: rgba(255, 159, 10, 0.12); color: var(--apple-orange); font-size: 0.85rem; font-weight: 800; font-family: inherit; cursor: pointer; }
+    .s-reset { display: block; margin: 0.7rem auto 0; background: none; border: 0; color: var(--text-muted); font-size: 0.75rem; font-weight: 700; cursor: pointer; font-family: inherit; }
+
+    @media (max-width: 500px) {
+      body { padding: max(12px, env(safe-area-inset-top)) 16px 24px; display: block; }
+      .app-container { display: none !important; }
+      .mobile-week { display: block; }
+      .race-drawer { width: 100%; padding: 1.25rem 16px; border-left: 0; }
+    }
   </style>
 </head>
 <body>
+
+  <!-- MOBILE WOCHENLISTE (nur ≤ 500 px sichtbar) -->
+  <div class="mobile-week" id="mobileWeek">
+    <header class="m-head">
+      <button class="m-step" id="mPrevBtn" onclick="stepWeek(-1)" aria-label="Vorherige Woche">‹</button>
+      <div class="m-title">
+        <div class="m-kw" id="mKw"></div>
+        <div class="m-name" id="mName"></div>
+        <div class="m-dates" id="mDates"></div>
+      </div>
+      <button class="m-step" id="mNextBtn" onclick="stepWeek(1)" aria-label="Nächste Woche">›</button>
+    </header>
+    <section class="m-progress">
+      <div class="m-prog-row">
+        <div class="m-prog-val" id="mProg"></div>
+        <div class="m-prog-bench" id="mBench"></div>
+      </div>
+      <div class="m-bar"><div id="mBar"></div></div>
+      <div class="m-focus" id="mFocus"></div>
+    </section>
+    <main class="m-list" id="mList"></main>
+  </div>
 
   <div class="app-container">
 
@@ -1219,6 +1313,13 @@
   <!-- ==========================================================================
        OPTION A: APPLE HIG SLIDE-OVER DRAWER (RACE BRIEFING)
        ========================================================================== -->
+  <!-- LOG BOTTOM SHEET (Mobile & Desktop) -->
+  <div class="m-backdrop" id="mBackdrop" onclick="closeSheet()"></div>
+  <aside class="m-sheet" id="mSheet" role="dialog" aria-modal="true" aria-label="Einheit loggen">
+    <div class="m-grab"></div>
+    <div id="sheetBody"></div>
+  </aside>
+
   <div class="race-drawer-backdrop" id="raceDrawerBackdrop" onclick="closeRaceDrawer()"></div>
   
   <aside class="race-drawer" id="raceDrawer" aria-label="Wettkampf-Briefing">
@@ -1952,7 +2053,7 @@
       const grid = document.getElementById('mainDaysGrid');
       let html = '';
 
-      data.days.forEach(day => {
+      data.days.forEach((day, idx) => {
         const parts = day.d.split(' ');
         const dayName = parts[0];
         const dayDate = parts[1];
@@ -1967,7 +2068,7 @@
         if (isRace) cardClass += ' card-race';
         if (day.isLongrun) cardClass += ' card-longrun';
 
-        let cardClick = '';
+        let cardClick = `onclick="openSheet(${kwNum}, ${idx})" title="Details & Ist-Werte" style="cursor:pointer;"`;
         if (isRace) {
           const rKey = day.raceKey || (kwNum === 45 ? 'martinslauf' : (kwNum === 49 ? '7ghm' : ''));
           cardClick = `onclick="openRaceDrawer('${rKey}')" title="Wettkampf-Briefing öffnen" style="cursor:pointer;"`;
@@ -1977,8 +2078,19 @@
         if (isToday) headerStyle = 'color:var(--apple-cyan);';
         else if (isRace) headerStyle = 'color:var(--apple-orange);';
 
+        const log = findRunLog(dayDate);
         let heroHtml = '';
-        if (isRest) {
+        if (log) {
+          const meta = [log.hr ? `Ø ${log.hr} bpm` : '', minutesFromDuration(log.duration) ? `${minutesFromDuration(log.duration)} min` : '', log.hm ? `${log.hm} Hm` : ''].filter(Boolean).join(' · ');
+          heroHtml = `
+            <div class="hero-val-wrap">
+              <span class="hero-val" style="color:var(--apple-green);">${Number(log.dist).toFixed(1)}</span>
+              <span class="hero-unit" style="color:var(--apple-green);">KM</span>
+            </div>
+            <div class="hero-tag" style="color:var(--apple-green);">✓ ${day.tag || 'Erledigt'}</div>
+            <div class="hero-sub-micro">${meta || 'Erledigt'}</div>
+          `;
+        } else if (isRest) {
           const restStyle = isToday ? 'style="color:var(--apple-cyan);"' : '';
           const tagHtml = day.tag ? `<div class="hero-tag" style="${day.tagColor ? `color:${day.tagColor};` : ''}">${day.tag}</div>` : '';
           heroHtml = `
@@ -2014,7 +2126,7 @@
 
         const todayBadge = isToday ? '<span class="badge-today-blue">HEUTE</span>' : '';
         const footerHtml = day.main
-          ? `<span class="day-pill-badge pill-race" style="cursor:pointer;" onclick="event.stopPropagation(); openRaceDrawer('${day.raceKey || 'martinslauf'}')">Briefing ↗</span><div class="status-dot done" style="background:var(--apple-orange); box-shadow:0 0 6px var(--apple-orange);"></div>`
+          ? `<span class="day-pill-badge pill-race" style="cursor:pointer;" onclick="event.stopPropagation(); openRaceDrawer('${day.raceKey || 'martinslauf'}')">Briefing ↗</span><span class="day-pill-badge" style="cursor:pointer; color:var(--apple-green);" onclick="event.stopPropagation(); openSheet(${kwNum}, ${idx})">${log ? '✓ Geloggt' : 'Loggen'}</span>`
           : '';
 
         html += `
@@ -2038,9 +2150,221 @@
       document.getElementById('weekSummaryText').innerText = data.summary;
     }
 
+    let currentKw = 45;
+
     function switchWeek(kwNum) {
+      currentKw = kwNum;
       renderWeek(kwNum);
+      renderMobileWeek(kwNum);
     }
+
+    // ==========================================================================
+    // GEMEINSAMER LAUF-SPEICHER (identisch zu app.js: localStorage 'drachenlauf_runs')
+    // ==========================================================================
+    const RUNS_KEY = 'drachenlauf_runs';
+    const SEASON_YEAR = 2026;
+
+    function loadRuns() {
+      try { return JSON.parse(localStorage.getItem(RUNS_KEY) || '[]'); } catch (e) { return []; }
+    }
+    function storeRuns(runs) {
+      try { localStorage.setItem(RUNS_KEY, JSON.stringify(runs)); } catch (e) {}
+    }
+    function findRunLog(dayDate) {
+      const full = `${dayDate}.${SEASON_YEAR}`;
+      return loadRuns().find(r => r.dayDate === dayDate || r.date === full) || null;
+    }
+    function durationFromMinutes(min) {
+      const m = Math.max(0, Math.round(Number(min) || 0));
+      const h = Math.floor(m / 60), r = m % 60;
+      return `${h < 10 ? '0' : ''}${h}:${r < 10 ? '0' : ''}${r}:00`;
+    }
+    function minutesFromDuration(dur) {
+      if (!dur) return 0;
+      const p = String(dur).split(':').map(Number);
+      if (p.length === 3) return Math.round(p[0] * 60 + p[1] + p[2] / 60);
+      if (p.length === 2) return Math.round(p[0] + p[1] / 60);
+      return Number(p[0]) || 0;
+    }
+    function paceFrom(distKm, min) {
+      if (!distKm || !min) return '-:--';
+      const secs = (min * 60) / distKm;
+      const pm = Math.floor(secs / 60), ps = Math.round(secs % 60);
+      return ps === 60 ? `${pm + 1}:00` : `${pm}:${ps < 10 ? '0' : ''}${ps}`;
+    }
+    const isRunDay = (day) => !day.isStudio && !day.isHike && day.val !== '—' && !isNaN(parseFloat(day.val));
+
+    // ==========================================================================
+    // MOBILE WOCHENLISTE
+    // ==========================================================================
+    const kwList = Object.keys(weeksData).map(Number);
+
+    function stepWeek(dir) {
+      const i = kwList.indexOf(currentKw) + dir;
+      if (i >= 0 && i < kwList.length) switchWeek(kwList[i]);
+    }
+
+    function renderMobileWeek(kwNum) {
+      const w = weeksData[kwNum];
+      if (!w) return;
+      const titleParts = w.title.split('•');
+      document.getElementById('mKw').textContent = `KW ${kwNum}`;
+      document.getElementById('mName').textContent = (titleParts[1] || titleParts[0]).trim();
+      document.getElementById('mDates').textContent = w.dates;
+      document.getElementById('mBench').textContent = w.benchmark;
+      document.getElementById('mFocus').textContent = w.summary.replace(/^Fokus:\s*/, '');
+      document.getElementById('mPrevBtn').disabled = kwNum === kwList[0];
+      document.getElementById('mNextBtn').disabled = kwNum === kwList[kwList.length - 1];
+
+      let planned = 0, done = 0;
+      const rows = w.days.map((day, i) => {
+        const [dn, dd] = day.d.split(' ');
+        const run = isRunDay(day);
+        const log = findRunLog(dd);
+        if (run) planned += parseFloat(day.val);
+        if (log && log.type !== 'kraft') done += Number(log.dist) || 0;
+
+        let cls = 'm-row';
+        if (day.isToday) cls += ' today';
+        else if (day.isRace) cls += ' race';
+        else if (day.isLongrun) cls += ' longrun';
+        if (!run && !day.isStudio && !day.isHike && !log) cls += ' rest';
+
+        const color = log ? 'var(--apple-green)' : day.isToday ? 'var(--apple-cyan)' : day.isRace ? 'var(--apple-orange)' : day.isLongrun ? 'var(--apple-blue)' : 'var(--apple-green)';
+        let main;
+        if (log || run) {
+          const v = log ? Number(log.dist).toFixed(1) : parseFloat(day.val).toFixed(1);
+          main = `<div class="m-val"><span class="m-num" style="color:${color}">${v}</span><span class="m-unit" style="color:${color}">KM</span></div>`;
+        } else if (day.isStudio) {
+          main = `<div class="m-word" style="color:var(--apple-cyan)">STUDIO</div>`;
+        } else if (day.isHike) {
+          main = `<div class="m-word" style="color:var(--apple-green)">WANDERN</div>`;
+        } else {
+          main = `<div class="m-word" style="color:${day.isToday ? 'var(--apple-cyan)' : 'var(--text-muted)'}">CHILL</div>`;
+        }
+
+        const tagLine = log
+          ? [minutesFromDuration(log.duration) ? `${minutesFromDuration(log.duration)} min` : '', log.hm ? `${log.hm} Hm` : ''].filter(Boolean).join(' · ') || (day.tag || 'Erledigt')
+          : (day.tag || day.sub);
+
+        let side = '';
+        if (log) side = `<span class="m-check">✓ ${log.hr ? log.hr + ' bpm' : 'Erledigt'}</span>`;
+        else if (day.isToday && run) side = `<span class="m-cta">Loggen</span>`;
+        else if (run) side = `<span class="m-side">${day.sub}</span>`;
+
+        return `
+          <div class="${cls}" onclick="openSheet(${kwNum}, ${i})">
+            <div class="m-day"><b>${dn}</b><span>${dd}</span></div>
+            <div class="m-main">${main}<div class="m-tag">${tagLine}</div></div>
+            ${side}
+          </div>`;
+      }).join('');
+
+      document.getElementById('mList').innerHTML = rows;
+      document.getElementById('mProg').innerHTML = `${done.toFixed(1)} <small>/ ${planned.toFixed(1)} km</small>`;
+      document.getElementById('mBar').style.width = planned ? Math.min(100, done / planned * 100) + '%' : '0%';
+    }
+
+    // ==========================================================================
+    // LOG BOTTOM SHEET
+    // ==========================================================================
+    function openSheet(kwNum, i) {
+      const day = weeksData[kwNum].days[i];
+      const dd = day.d.split(' ')[1];
+      const log = findRunLog(dd) || {};
+      const run = isRunDay(day);
+      const word = day.isStudio ? 'Studio' : day.isHike ? 'Wandern' : 'Ruhetag';
+      const title = run ? `${parseFloat(day.val).toFixed(1)} km · ${day.tag}` : `${word}${day.tag ? ' · ' + day.tag : ''}`;
+      const rKey = day.raceKey || '';
+
+      const plan = run ? `
+        <div class="s-grid">
+          <div class="s-cell wide"><div class="s-lbl">Vorgabe</div><div class="s-txt">${day.sub}</div></div>
+          <div class="s-cell wide"><div class="s-lbl">Referenz</div><div class="s-txt">GA1 / VT1 Sprechgrenze: 105–118 bpm</div></div>
+        </div>` : `
+        <div class="s-grid">
+          <div class="s-cell wide"><div class="s-lbl">Plan</div><div class="s-txt">${day.sub}</div></div>
+        </div>`;
+
+      const val = (k) => (log[k] !== undefined && log[k] !== 0 ? log[k] : '');
+      const durMin = minutesFromDuration(log.duration);
+
+      document.getElementById('sheetBody').innerHTML = `
+        <div class="s-date">${day.d.replace(' ', ' · ')} · KW ${kwNum}</div>
+        <div class="s-title">${title}</div>
+        ${plan}
+        ${day.isRace && rKey ? `<button class="s-brief" onclick="closeSheet(); openRaceDrawer('${rKey}')">Wettkampf-Briefing öffnen ↗</button>` : ''}
+        <div class="s-section">Ist-Werte eintragen</div>
+        <form class="s-form" onsubmit="saveSheetLog(event, ${kwNum}, ${i})">
+          <div class="s-field"><label>Distanz</label><div><input name="dist" type="number" step="0.01" min="0" inputmode="decimal" value="${log.dist !== undefined ? log.dist : ''}" placeholder="${run ? parseFloat(day.val).toFixed(1) : '0.0'}"><span>km</span></div></div>
+          <div class="s-field"><label>Dauer</label><div><input name="dur" type="number" min="0" inputmode="numeric" value="${durMin || ''}" placeholder="0"><span>min</span></div></div>
+          <div class="s-field"><label>Ø HF</label><div><input name="hr" type="number" min="0" inputmode="numeric" value="${val('hr')}" placeholder="0"><span>bpm</span></div></div>
+          <div class="s-field"><label>Höhenmeter</label><div><input name="hm" type="number" min="0" inputmode="numeric" value="${val('hm')}" placeholder="0"><span>Hm</span></div></div>
+          <button type="submit" class="s-save">✓ Speichern</button>
+        </form>
+        ${log.dayDate || log.date ? `<button class="s-reset" onclick="resetSheetLog('${dd}')">Eintrag zurücksetzen</button>` : ''}
+      `;
+      document.getElementById('mSheet').classList.add('open');
+      document.getElementById('mBackdrop').classList.add('open');
+    }
+
+    function closeSheet() {
+      document.getElementById('mSheet').classList.remove('open');
+      document.getElementById('mBackdrop').classList.remove('open');
+    }
+
+    function saveSheetLog(e, kwNum, i) {
+      e.preventDefault();
+      const day = weeksData[kwNum].days[i];
+      const dd = day.d.split(' ')[1];
+      const f = new FormData(e.target);
+      const run = isRunDay(day);
+      const dist = parseFloat(String(f.get('dist')).replace(',', '.')) || (f.get('dist') === '' && run ? parseFloat(day.val) : 0);
+      const min = parseInt(f.get('dur'), 10) || 0;
+      const type = run ? 'laufen' : (day.isStudio ? 'kraft' : (day.isHike ? 'wandern' : 'laufen'));
+      const isErsatz = type !== 'laufen';
+
+      const entry = {
+        id: Date.now(),
+        kw: kwNum,
+        date: `${dd}.${SEASON_YEAR}`,
+        dayDate: dd,
+        dist: dist,
+        distMeters: 0,
+        hm: parseInt(f.get('hm'), 10) || 0,
+        duration: durationFromMinutes(min),
+        hr: parseInt(f.get('hr'), 10) || 0,
+        pace: dist > 0 ? paceFrom(dist, min) : '-:--',
+        type: type,
+        isErsatz: isErsatz,
+        tag: day.tag || (day.isStudio ? 'Kraft & Stabi' : 'Lauf'),
+        notes: `Einheit ${day.tag || ''} absolviert (Mobile-Log)`.replace('  ', ' ')
+      };
+
+      const runs = loadRuns().filter(r => r.dayDate !== dd && r.date !== entry.date);
+      runs.unshift(entry);
+      storeRuns(runs);
+      closeSheet();
+      switchWeek(kwNum);
+    }
+
+    function resetSheetLog(dd) {
+      storeRuns(loadRuns().filter(r => r.dayDate !== dd && r.date !== `${dd}.${SEASON_YEAR}`));
+      closeSheet();
+      switchWeek(currentKw);
+    }
+
+    // Swipe-Down schließt das Sheet
+    (function () {
+      const sheet = document.getElementById('mSheet');
+      let startY = null;
+      sheet.addEventListener('touchstart', e => { if (sheet.scrollTop === 0) startY = e.touches[0].clientY; }, { passive: true });
+      sheet.addEventListener('touchend', e => {
+        if (startY !== null && e.changedTouches[0].clientY - startY > 80) closeSheet();
+        startY = null;
+      });
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSheet(); });
+    })();
 
     // Initialisierung
     switchWeek(45);
@@ -2079,6 +2403,9 @@
     if (urlParams.get('openDrawer')) {
       const dk = urlParams.get('openDrawer');
       openRaceDrawer(dk);
+    }
+    if (urlParams.get('sheet')) {
+      openSheet(currentKw, parseInt(urlParams.get('sheet'), 10));
     }
   </script>
 </body>

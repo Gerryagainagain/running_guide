@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.67  
+**Document Version:** 9.68  
 **Last Updated:** November 03, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -10,6 +10,17 @@
 
 ## 📌 1. Project Overview & Current Trajectory
 
+- **Responsive Mobile View (≤ 500px, iPhone 13 mini) & Quick-Log Bottom Sheet (v9.60 / State 9.68):**
+  - **Ergonomische Mobile-Wochenbühne (≤ 500 px Viewport):**
+    - Bei Viewport-Breiten bis 500 px (z. B. iPhone 13 mini, 375 × 812 px) schaltet das Dashboard automatisch vom 7-Spalten-Desktop-Grid auf die vertikale Apple-Fitness-Kompaktliste um.
+    - Alle 7 Tage der Woche liegen als 64 px schlanke Zeilen komplett ohne vertikales Scrollen im Sichtbereich.
+    - Kompakter Header mit KW-Stepper (`‹ KW 47 ›`), Titel und Datumsbereich. Saison-/Quartalsansicht wird mobil ausgeblendet.
+    - Fortschrittsbalken mit dynamischer Ist/Soll-Berechnung (`8.2 / 34.0 km`) direkt aus den realen Logs.
+  - **Apple HIG Quick-Log Bottom Sheet & Datensynchronisation:**
+    - Ein Tap auf eine beliebige Tageskarte (Desktop oder Mobile) öffnet das von unten einschiebbare Bottom Sheet mit Vorgaben (Puls, Hm, VT1 105–118 bpm) und 4 nummerischen Schnellfeldern (`Distanz`, `Dauer in Min`, `Ø HF`, `Hm`).
+    - Gespeicherte Läufe werden direkt in den gemeinsamen Speicher `drachenlauf_runs` (identisch zu `app.js`) geschrieben und schlagen sofort auf Desktop und Mobile durch (`✓ Erledigt`, `✓ 116 bpm`, Kilometerfortschritt).
+    - Schließen per Swipe-Down, Backdrop-Tap oder Escape.
+  - **Synchronisiert:** Umgesetzt in `preview_jahres_dashboard.html`, `index.html` (Script-Version `v=9.60`), gespiegelt nach `dist/`.
 - **Longrun-Auszeichnung in Apple Blue (#0A84FF) & Card-Akzentuierung (v9.59 / State 9.67):**
   - **Behebung des CSS-Fallbacks:**
     - Zuvor war `--apple-blue` in `:root` nicht deklariert, weshalb `var(--apple-blue)` bei Einheiten mit `isLongrun: true` auf den Standardwert `inherit` zurückfiel und die Distanzziffern (`16.0`, `18.0`) in Weiß erschienen.
