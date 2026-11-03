@@ -1043,6 +1043,9 @@
       border: 1px solid rgba(255, 159, 10, 0.35);
       padding: 0.35rem 0.85rem;
       border-radius: 8px;
+      max-width: 100%;
+      box-sizing: border-box;
+      line-height: 1.35;
     }
 
     .race-drawer-org-btn {
@@ -1059,6 +1062,8 @@
       border-radius: 999px;
       text-decoration: none;
       transition: all 0.2s ease;
+      max-width: 100%;
+      box-sizing: border-box;
     }
 
     .race-drawer-org-btn:hover {
@@ -1070,8 +1075,8 @@
       display: flex;
       flex-direction: column;
       gap: 0.6rem;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.06);
+      background: #14151E;
+      border: 1px solid rgba(255, 255, 255, 0.10);
       border-radius: 14px;
       padding: 1rem 1.15rem;
     }
@@ -1109,16 +1114,75 @@
       color: var(--text-white);
     }
 
-    .pacing-step {
+    .race-logistics-list {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.45rem 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-      font-size: 0.82rem;
+      flex-direction: column;
+      gap: 0.5rem;
     }
 
-    .pacing-step:last-child {
+    .race-logistics-row {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .race-logistics-lbl {
+      font-size: 0.65rem;
+      font-weight: 800;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .race-logistics-val {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-white);
+    }
+
+    .pacing-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.80rem;
+    }
+
+    .pacing-table th {
+      text-align: left;
+      font-size: 0.62rem;
+      font-weight: 800;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding-bottom: 0.40rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .pacing-table th:nth-child(1),
+    .pacing-table td:nth-child(1) {
+      width: 24%;
+      white-space: nowrap;
+    }
+
+    .pacing-table th:nth-child(2),
+    .pacing-table td:nth-child(2) {
+      width: 38%;
+      padding-right: 4px;
+    }
+
+    .pacing-table th:nth-child(3),
+    .pacing-table td:nth-child(3) {
+      width: 38%;
+      text-align: right;
+    }
+
+    .pacing-table td {
+      padding: 0.45rem 0.15rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      vertical-align: middle;
+      line-height: 1.25;
+    }
+
+    .pacing-table tr:last-child td {
       border-bottom: none;
     }
 
@@ -1133,14 +1197,31 @@
     }
 
     .pacing-hr {
-      font-size: 0.75rem;
+      font-size: 0.76rem;
       color: var(--text-muted);
     }
 
-    .race-note-text {
-      font-size: 0.82rem;
+    .pacing-note {
+      font-size: 0.80rem;
       color: var(--text-secondary);
+      margin-top: 0.5rem;
       line-height: 1.45;
+      padding-top: 0.5rem;
+      border-top: 1px dashed rgba(255, 255, 255, 0.12);
+    }
+
+    .pacing-note b {
+      color: var(--text-white);
+    }
+
+    .race-note-text {
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .race-note-text b {
+      color: var(--text-white);
     }
 
     /* ==========================================================================
@@ -1209,11 +1290,11 @@
     .s-brief-drawer-btn { display: flex; align-items: center; justify-content: center; gap: 0.4rem; width: 100%; min-height: 38px; margin-bottom: 0.6rem; border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 14px; background: rgba(255, 255, 255, 0.08); color: var(--text-white); font-size: 0.82rem; font-weight: 700; font-family: inherit; cursor: pointer; }
     .s-reset { display: block; margin: 0.7rem auto 0; background: none; border: 0; color: var(--text-muted); font-size: 0.75rem; font-weight: 700; cursor: pointer; font-family: inherit; }
 
-    @media (max-width: 500px) {
-      body { padding: max(8px, env(safe-area-inset-top)) 12px 14px; display: block; }
+    @media (max-width: 600px) {
+      body { padding: max(8px, env(safe-area-inset-top)) 12px 14px; display: block; overflow-x: hidden; }
       .app-container { display: none !important; }
       .mobile-week { display: block; }
-      .race-drawer { width: 100%; padding: 1.25rem 16px; border-left: 0; }
+      .race-drawer { width: 100% !important; max-width: 100vw !important; left: 0 !important; right: 0 !important; padding: 1.25rem 16px !important; border-left: 0 !important; overflow-x: hidden !important; }
     }
   </style>
 </head>
@@ -1298,7 +1379,7 @@
         <!-- WOCHENFOKUS STRIP -->
         <div class="week-summary-strip" id="weekSummaryStrip">
           <span class="week-summary-tag">FOKUS</span>
-          <span class="week-summary-text" id="weekSummaryText">Frische maximieren für den Martinslauf am Sonntag (8 °C, Pacing: 5:50 ➔ 5:45 ➔ 5:35 min/km). Am Samstag 07. Nov: Ruhetag & Pre-Race Carboload.</span>
+          <span class="week-summary-text" id="weekSummaryText">Frische für den 48. Martinslauf am Sonntag sichern. 10 km am Unterbacher See, Start 11:45 Uhr. Pacing: 5:50 ➔ 5:45 ➔ 5:35 min/km.<br><br>Samstag, 07. November: Ruhetag & Pre-Race-Carboload.</span>
         </div>
       </div>
 
@@ -1745,39 +1826,40 @@
       martinslauf: {
         tag: 'WETTKAMPF-BRIEFING · 10 KM',
         title: "48. SFD '75 Martinslauf",
-        subtitle: 'Sonntag, 08. November 2026 · Düsseldorf (Unterbacher See)',
-        targetPill: 'Zielzeit Sub 58 min · Pace 5:48 min/km · Start 11:45 Uhr',
+        subtitle: 'Sonntag, 08. November 2026 · Düsseldorf, Unterbacher See',
+        targetPill: 'SUB 58:00 · 5:48 min/km · Start 11:45 Uhr',
         organizerUrl: 'https://www.sfd.de/martinslauf/',
-        organizerLabel: 'Offizielle Ausschreibung · sfd.de/martinslauf ↗',
+        organizerLabel: 'Offizielle Ausschreibung & Infos ↗',
         sections: [
           {
-            title: 'Eckdaten & Logistik',
-            type: 'grid',
+            title: 'Strecke & Logistik',
+            type: 'logistics',
             items: [
-              { label: 'Startzeit', val: '11:45 Uhr (10 km)' },
-              { label: 'Startort', val: 'Strandbad Süd (U-See)' },
-              { label: 'Distanz / Hm', val: '10,0 km · flach (~10 Hm)' },
+              { label: 'Strecke & Höhenmeter', val: '10,0 km · flach · ca. 10 Hm' },
+              { label: 'Start', val: 'Strandbad Süd, Unterbacher See' },
               { label: 'Adresse', val: 'Am Kleinforst 275, Düsseldorf' }
             ]
           },
           {
-            title: 'Pacing- & HF-Strategie',
+            title: 'Pacing & Herzfrequenz',
             type: 'pacing',
+            columns: ['Abschnitt', 'Pace', 'Herzfrequenz'],
             steps: [
-              { km: 'KM 0 – 3', speed: '5:50 min/km', hr: '< 118 bpm (Strikt kontrolliert am See)' },
-              { km: 'KM 3 – 7', speed: '5:45 min/km', hr: '120–125 bpm (Rhythmus halten)' },
-              { km: 'KM 7 – 10', speed: '5:35 min/km', hr: 'Freigabe Endbeschleunigung' }
-            ]
+              { km: 'KM 0–3', speed: '5:50–5:55', hr: '< 118 bpm' },
+              { km: 'KM 3–7', speed: 'ca. 5:45', hr: '120–125 bpm' },
+              { km: 'KM 7–10', speed: 'nach Gefühl steigern', hr: 'Endbeschleunigung' }
+            ],
+            strategy: 'Rennstrategie: Kontrolliert anlaufen, Rhythmus finden, ab KM 7 beschleunigen.'
           },
           {
-            title: 'Streckencharakteristik & Verpflegung',
+            title: 'Strecke & Verpflegung',
             type: 'text',
-            text: 'Flache, schnelle Natur- und befestigte Parkwege rund um den Unterbacher See. Leicht windanfällig an offenen Wasserpassagen. Im Rennen keine Eigenverpflegung nötig. Traditioneller Weckmann im Ziel!'
+            text: 'Flache Natur- und Parkwege rund um den Unterbacher See. Auf offenen Wasserpassagen kann Wind zum Faktor werden. Keine Eigenverpflegung nötig.<br><br><b>Zielverpflegung:</b> Weckmann.'
           },
           {
             title: 'Offizielle Ausschreibung & Infos',
             type: 'text',
-            text: '<a href="https://www.sfd.de/martinslauf/" target="_blank" rel="noopener noreferrer" style="color:var(--apple-orange); font-weight:800; text-decoration:none; display:inline-flex; align-items:center; gap:0.35rem;">www.sfd.de/martinslauf ↗</a>'
+            text: '<a href="https://www.sfd.de/martinslauf/" target="_blank" rel="noopener noreferrer" style="color:var(--apple-orange); font-weight:800; text-decoration:none; display:inline-flex; align-items:center; gap:0.35rem;">Offizielle Ausschreibung & Infos ↗</a>'
           }
         ]
       },
@@ -1915,7 +1997,7 @@
       if (orgLinkEl) {
         if (b.organizerUrl) {
           orgLinkEl.href = b.organizerUrl;
-          orgLinkEl.innerText = b.organizerLabel || 'Offizielle Ausschreibung ↗';
+          orgLinkEl.innerText = b.organizerLabel || 'Offizielle Ausschreibung & Infos ↗';
           orgLinkEl.style.display = 'inline-flex';
         } else {
           orgLinkEl.style.display = 'none';
@@ -1939,18 +2021,42 @@
               `;
             });
             contentHtml += `</div>`;
-          } else if (sec.type === 'pacing' && sec.steps) {
-            contentHtml += `<div class="pacing-list">`;
-            sec.steps.forEach(st => {
+          } else if (sec.type === 'logistics' && sec.items) {
+            contentHtml += `<div class="race-logistics-list">`;
+            sec.items.forEach(it => {
               contentHtml += `
-                <div class="pacing-step">
-                  <span class="pacing-km">${st.km}</span>
-                  <span class="pacing-speed">${st.speed}</span>
-                  <span class="pacing-hr">${st.hr}</span>
+                <div class="race-logistics-row">
+                  <span class="race-logistics-lbl">${it.label}</span>
+                  <span class="race-logistics-val">${it.val}</span>
                 </div>
               `;
             });
             contentHtml += `</div>`;
+          } else if (sec.type === 'pacing' && sec.steps) {
+            contentHtml += `
+              <table class="pacing-table">
+                <thead>
+                  <tr>
+                    <th>${sec.columns ? sec.columns[0] : 'Abschnitt'}</th>
+                    <th>${sec.columns ? sec.columns[1] : 'Pace'}</th>
+                    <th>${sec.columns ? sec.columns[2] : 'Herzfrequenz'}</th>
+                  </tr>
+                </thead>
+                <tbody>
+            `;
+            sec.steps.forEach(st => {
+              contentHtml += `
+                <tr>
+                  <td class="pacing-km">${st.km}</td>
+                  <td class="pacing-speed">${st.speed}</td>
+                  <td class="pacing-hr">${st.hr}</td>
+                </tr>
+              `;
+            });
+            contentHtml += `</tbody></table>`;
+            if (sec.strategy) {
+              contentHtml += `<div class="pacing-note"><b>Rennstrategie:</b> ${sec.strategy.replace(/^Rennstrategie:\s*/, '')}</div>`;
+            }
           } else if (sec.type === 'text') {
             contentHtml += `<div class="race-note-text">${sec.text}</div>`;
           }
@@ -1983,9 +2089,9 @@
       45: {
         title: 'Diese Woche KW 45 • Martinslauf U-See',
         dates: '02. – 08. November 2026',
-        benchmark: 'Zielzeit Sub 58 min',
+        benchmark: 'SUB 58:00 · 5:48 min/km · Start 11:45 Uhr',
         benchmarkType: 'race',
-        summary: 'Fokus: Frische maximieren für den 48. Martinslauf am Sonntag am Unterbacher See (Düsseldorf, 10k Start 11:45 Uhr, Pacing: 5:50 ➔ 5:45 ➔ 5:35 min/km). Am Samstag 07. Nov: Ruhetag & Pre-Race Carboload.',
+        summary: 'Frische für den 48. Martinslauf am Sonntag sichern. 10 km am Unterbacher See, Start 11:45 Uhr. Pacing: 5:50 ➔ 5:45 ➔ 5:35 min/km.\n\nSamstag, 07. November: Ruhetag & Pre-Race-Carboload.',
         days: [
           { d: 'MON 02.11', val: '—', tag: '', sub: 'Regeneration', isToday: true },
           { d: 'DIE 03.11', val: '5.5', unit: 'KM', tag: 'Locker GA1', sub: '< 118 bpm · 3 Antritte' },
@@ -1993,7 +2099,7 @@
           { d: 'DON 05.11', val: '4.0', unit: 'KM', tag: 'Aktivierung', sub: '< 115 bpm · Flach' },
           { d: 'FRE 06.11', val: '—', tag: '', sub: 'Kein Krafttraining' },
           { d: 'SAM 07.11', val: '—', tag: 'Pre-Race', tagColor: 'var(--apple-orange)', sub: 'Carboload & Ruhe' },
-          { d: 'SON 08.11', val: '10.0', unit: 'KM', tag: 'Martinslauf', sub: 'U-See D\'dorf · Sub 58 min', isRace: true, main: true, raceKey: 'martinslauf' }
+          { d: 'SON 08.11', val: '10.0', unit: 'KM', tag: 'Martinslauf', sub: 'SUB 58:00 · Start 11:45 Uhr', isRace: true, main: true, raceKey: 'martinslauf' }
         ]
       },
       46: {
@@ -2191,7 +2297,7 @@
       grid.innerHTML = html;
 
       // Update Wochenfokus
-      document.getElementById('weekSummaryText').innerText = data.summary;
+      document.getElementById('weekSummaryText').innerHTML = data.summary.replace(/\n/g, '<br>');
     }
 
     let currentKw = 45;
@@ -2284,7 +2390,7 @@
       document.getElementById('mName').textContent = (titleParts[1] || titleParts[0]).trim();
       document.getElementById('mDates').textContent = w.dates;
       document.getElementById('mBench').textContent = w.benchmark;
-      document.getElementById('mFocus').textContent = w.summary.replace(/^Fokus:\s*/, '');
+      document.getElementById('mFocus').innerHTML = w.summary.replace(/^Fokus:\s*/, '').replace(/\n/g, '<br>');
       document.getElementById('mPrevBtn').disabled = kwNum === kwList[0];
       document.getElementById('mNextBtn').disabled = kwNum === kwList[kwList.length - 1];
 
@@ -2368,12 +2474,12 @@
       if (isRace) {
         planHtml = `
           <div class="s-grid">
-            <div class="s-cell"><div class="s-lbl">Distanz / Start</div><div class="s-txt">10,0 km · 11:45 Uhr</div></div>
-            <div class="s-cell"><div class="s-lbl">Zielzeit / Pace</div><div class="s-txt">Sub 58 min (5:48 min/km)</div></div>
-            <div class="s-cell"><div class="s-lbl">Puls-Strategie (BPM)</div><div class="s-txt">< 118 bpm (Start) ➔ 120–125 bpm</div></div>
+            <div class="s-cell"><div class="s-lbl">Distanz / Start</div><div class="s-txt">10,0 km · Start 11:45 Uhr</div></div>
+            <div class="s-cell"><div class="s-lbl">Zielzeit / Pace</div><div class="s-txt">SUB 58:00 · 5:48 min/km</div></div>
+            <div class="s-cell"><div class="s-lbl">Pacing & Herzfrequenz</div><div class="s-txt">5:50 (&lt; 118 bpm) ➔ 5:45 ➔ 5:35</div></div>
             <div class="s-cell"><div class="s-lbl">Ort / Strecke</div><div class="s-txt">U-See Düsseldorf · Flach</div></div>
           </div>
-          <a href="https://www.sfd.de/martinslauf/" target="_blank" rel="noopener noreferrer" class="s-brief-link">Offizielle Ausschreibung (sfd.de/martinslauf) ↗</a>
+          <a href="https://www.sfd.de/martinslauf/" target="_blank" rel="noopener noreferrer" class="s-brief-link">Offizielle Ausschreibung & Infos ↗</a>
           <button type="button" class="s-brief-drawer-btn" onclick="closeSheet(); openRaceDrawer('${rKey}')">Vollständiges Wettkampf-Briefing öffnen ↗</button>
         `;
       } else if (run) {
@@ -2509,7 +2615,10 @@
 
     if (urlParams.get('openDrawer')) {
       const dk = urlParams.get('openDrawer');
+      const drawer = document.getElementById('raceDrawer');
+      if (drawer) drawer.style.transition = 'none';
       openRaceDrawer(dk);
+      setTimeout(() => { if (drawer) drawer.style.transition = ''; }, 100);
     }
     if (urlParams.get('sheet')) {
       openSheet(currentKw, parseInt(urlParams.get('sheet'), 10));

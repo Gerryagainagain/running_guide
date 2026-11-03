@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.70  
+**Document Version:** 9.71  
 **Last Updated:** November 03, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -9,6 +9,23 @@
 ---
 
 ## 📌 1. Project Overview & Current Trajectory
+
+- **Briefing Drawer Verdichtung & Neuer Fokus-Text (v9.63 / State 9.71):**
+  - **Verdichtung der Martinslauf Briefing Card:**
+    - Hero oben: `SUB 58:00 · 5:48 min/km · Start 11:45 Uhr` mit Direktlink-Button `Offizielle Ausschreibung & Infos ↗`.
+    - Sektion *Strecke & Logistik*: 10,0 km · flach · ca. 10 Hm / Start: Strandbad Süd, Unterbacher See / Adresse: Am Kleinforst 275, Düsseldorf.
+    - Sektion *Pacing & Herzfrequenz*: Saubere 3-spaltige Matrix (`Abschnitt` | `Pace` | `Herzfrequenz`):
+      - KM 0–3: 5:50–5:55 min/km | < 118 bpm (bewusst auf individuelle VT1 kalibriert)
+      - KM 3–7: ca. 5:45 min/km | 120–125 bpm
+      - KM 7–10: nach Gefühl steigern | Endbeschleunigung
+      - Klare Rennanweisung: *Rennstrategie: Kontrolliert anlaufen, Rhythmus finden, ab KM 7 beschleunigen.*
+    - Sektion *Strecke & Verpflegung*: Flache Natur- und Parkwege, Windfaktor an offenen Wasserpassagen, keine Eigenverpflegung nötig, Zielverpflegung: Weckmann.
+  - **Neuer Fokus-Text auf der Startseite (KW 45):**
+    - Zweizeiliger Text:
+      *Frische für den 48. Martinslauf am Sonntag sichern. 10 km am Unterbacher See, Start 11:45 Uhr. Pacing: 5:50 → 5:45 → 5:35 min/km.*
+      *Samstag, 07. November: Ruhetag & Pre-Race-Carboload.*
+    - Integriert in Desktop-Strip (`weekSummaryStrip`), Mobile-Header (`mFocus`) und `weeksData[45]`.
+  - **Synchronisiert:** Umgesetzt in `preview_jahres_dashboard.html`, `index.html` (Script-Version `v=9.63`), gespiegelt nach `dist/`.
 
 - **Mobile View Optimierung (iPhone 13 mini), Kontrast & Veranstalter-Link (v9.62 / State 9.70):**
   - **7 Tage Screen-Fit & BPM-Entschlackung in der Wochenübersicht:**
