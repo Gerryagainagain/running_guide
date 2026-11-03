@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.81  
+**Document Version:** 9.82  
 **Last Updated:** November 03, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -9,6 +9,13 @@
 ---
 
 ## 📌 1. Project Overview & Current Trajectory
+
+- **Laufoption Trail Côte d’Opale (05.09.2027) entfernt (v9.74 / State 9.82):**
+  - **Saisonkalender Q3 (Juli – Sept 2027):**
+    - Die Option für den 05. September 2027 (*Trail Côte d’Opale 24 km*) wurde aus der Phasenlogik (`getPhase`) und den Klick-Details (`onPhaseClick`) entfernt.
+    - Der 5. September wird wieder als regulärer Ruhetag/Sonntag geführt.
+    - Als einzige gesetzte Option im September 2027 verbleibt der **11. September 2027** (*Ultra Trail Müllerthal 21 km*).
+  - **Synchronisiert:** In `index.html`, `preview_jahres_dashboard.html`, gespiegelt nach `dist/`.
 
 - **Wettkampf-Briefing Martinslauf: Text- & Datenstruktur aktualisiert (v9.73 / State 9.81):**
   - **Inhalte im Race Drawer für den 48. SFD Martinslauf synchronisiert:**
