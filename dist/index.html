@@ -1448,6 +1448,99 @@
         display: none !important;
       }
     }
+
+    /* ==========================================================================
+       AIRDROP & CLOUDLESS SYNC STYLES & TOAST NOTIFICATION
+       ========================================================================== */
+    .m-sync-wrap {
+      margin: 0.85rem 0 0.5rem;
+      display: flex;
+      justify-content: center;
+    }
+    .m-sync-btn {
+      width: 100%;
+      min-height: 46px;
+      background: #1C1E2A;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 14px;
+      color: #FFFFFF;
+      font-size: 0.88rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      cursor: pointer;
+      font-family: inherit;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.40);
+      transition: background 0.15s, border-color 0.15s, transform 0.1s;
+    }
+    .m-sync-btn:active {
+      background: #252837;
+      border-color: var(--apple-cyan);
+      transform: scale(0.985);
+    }
+    .m-sync-btn svg {
+      color: var(--apple-cyan);
+    }
+
+    .master-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .header-sync-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--text-secondary);
+      font-size: 0.80rem;
+      font-weight: 800;
+      padding: 0.4rem 0.85rem;
+      border-radius: 999px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.15s ease;
+    }
+    .header-sync-btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+      color: #FFFFFF;
+      border-color: rgba(255, 255, 255, 0.22);
+    }
+    .header-sync-btn svg {
+      color: var(--apple-cyan);
+    }
+
+    .app-toast {
+      position: fixed;
+      top: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-100px);
+      background: rgba(28, 30, 42, 0.96);
+      border: 1.5px solid var(--apple-green);
+      color: #FFFFFF;
+      padding: 0.75rem 1.4rem;
+      border-radius: 999px;
+      font-size: 0.90rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85), 0 0 20px rgba(48, 209, 88, 0.30);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      z-index: 999999;
+      opacity: 0;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    .app-toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
   </style>
 </head>
 <body>
@@ -1472,17 +1565,41 @@
       <div class="m-focus" id="mFocus"></div>
     </section>
     <main class="m-list" id="mList"></main>
+    <div class="m-sync-wrap">
+      <button class="m-sync-btn" onclick="shareRunsToMac()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9"/>
+          <path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5"/>
+          <circle cx="12" cy="12" r="2"/>
+          <path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5"/>
+          <path d="M19.1 4.9C23 8.8 23 15.2 19.1 19.1"/>
+        </svg>
+        <span>An MacBook senden (AirDrop)</span>
+      </button>
+    </div>
   </div>
 
   <div class="app-container">
 
-    <!-- MASTER HEADER MIT SEGMENTED CONTROL -->
+    <!-- MASTER HEADER MIT SEGMENTED CONTROL & SYNC -->
     <header>
       <div class="brand-title">Trailrunning 2027</div>
       
-      <div class="master-segmented-control">
-        <button class="master-segment-btn active" onclick="switchMasterTab('training')">Training</button>
-        <button class="master-segment-btn" onclick="switchMasterTab('season')">Saison 2027</button>
+      <div class="master-header-actions">
+        <button class="header-sync-btn" onclick="openDesktopSyncModal()" title="Läufe mit iPhone synchronisieren">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9"/>
+            <path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5"/>
+            <circle cx="12" cy="12" r="2"/>
+            <path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5"/>
+            <path d="M19.1 4.9C23 8.8 23 15.2 19.1 19.1"/>
+          </svg>
+          <span>Sync</span>
+        </button>
+        <div class="master-segmented-control">
+          <button class="master-segment-btn active" onclick="switchMasterTab('training')">Training</button>
+          <button class="master-segment-btn" onclick="switchMasterTab('season')">Saison 2027</button>
+        </div>
       </div>
     </header>
 
@@ -1594,6 +1711,33 @@
     <div class="race-drawer-content" id="drawerContent">
       <!-- WIRD DYNAMISCH BEFÜLLT -->
     </div>
+  </aside>
+
+  <!-- APPLE HIG TOAST NOTIFICATION -->
+  <div id="appToast" class="app-toast"></div>
+
+  <!-- DESKTOP SYNC MODAL -->
+  <div class="m-backdrop" id="desktopSyncBackdrop" onclick="closeDesktopSyncModal()"></div>
+  <aside class="m-sheet" id="desktopSyncModal" role="dialog" aria-modal="true" aria-label="iPhone Sync">
+    <button class="s-modal-close" onclick="closeDesktopSyncModal()" aria-label="Schließen">✕</button>
+    <div class="s-date">APPLE AIRDROP & PEER-TO-PEER SYNC</div>
+    <div class="s-title" style="margin-bottom: 0.8rem;">iPhone-Synchronisation</div>
+    <div class="s-grid">
+      <div class="s-cell wide">
+        <div class="s-lbl">Automatischer AirDrop Empfang</div>
+        <div class="s-txt" style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.45;">
+          Tippe auf deinem iPhone unter dem Wochenplan auf <b>„An MacBook senden (AirDrop)“</b> und wähle dein MacBook aus. Der Browser empfängt und aktualisiert alle Läufe vollautomatisch.
+        </div>
+      </div>
+      <div class="s-cell wide">
+        <div class="s-lbl">Universelle Zwischenablage</div>
+        <div class="s-txt" style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.45; margin-bottom: 0.6rem;">
+          Alternativ: Sync-Link auf dem iPhone kopieren und hier direkt einfügen.
+        </div>
+        <button type="button" class="s-save" style="min-height: 40px; font-size: 0.88rem;" onclick="pasteFromClipboardSync()">📋 Aus Zwischenablage einfügen</button>
+      </div>
+    </div>
+    <div id="syncStatusMsg" style="font-size: 0.80rem; color: var(--apple-cyan); text-align: center; margin-top: 0.8rem; font-weight: 700;"></div>
   </aside>
 
   <!-- ==========================================================================
@@ -2270,6 +2414,7 @@
       if (e.key === 'Escape') {
         closeRaceDrawer();
         closeSheet();
+        closeDesktopSyncModal();
       }
     });
 
@@ -2826,6 +2971,130 @@
       openSheet(currentKw, parseInt(urlParams.get('sheet'), 10));
       setTimeout(() => { if (s) s.style.transition = ''; }, 100);
     }
+
+    // ==========================================================================
+    // AIRDROP & CLOUDLESS PEER-TO-PEER SYNC
+    // ==========================================================================
+    function showToast(msg, duration = 3400) {
+      const toast = document.getElementById('appToast');
+      if (!toast) return;
+      toast.innerHTML = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, duration);
+    }
+
+    function shareRunsToMac() {
+      const runs = loadRuns();
+      // Compact base64 representation of stored runs
+      const payload = btoa(unescape(encodeURIComponent(JSON.stringify(runs))));
+      const base = window.location.origin + window.location.pathname;
+      const syncUrl = `${base}?import=${encodeURIComponent(payload)}`;
+
+      if (navigator.share) {
+        navigator.share({
+          title: 'Running Guide 2027 Sync',
+          text: 'Läufe vom iPhone an MacBook übertragen',
+          url: syncUrl
+        }).catch(() => {});
+      } else if (navigator.clipboard) {
+        navigator.clipboard.writeText(syncUrl).then(() => {
+          showToast('✓ Sync-Link in Zwischenablage kopiert!');
+        }).catch(() => {
+          prompt('Sync-Link kopieren:', syncUrl);
+        });
+      } else {
+        prompt('Sync-Link kopieren:', syncUrl);
+      }
+    }
+
+    function openDesktopSyncModal() {
+      const stored = loadRuns();
+      const statusEl = document.getElementById('syncStatusMsg');
+      if (statusEl) {
+        statusEl.innerText = `${stored.length} Einheit(en) im lokalen Speicher geladen.`;
+      }
+      const m = document.getElementById('desktopSyncModal');
+      const b = document.getElementById('desktopSyncBackdrop');
+      if (m) m.classList.add('open');
+      if (b) b.classList.add('open');
+    }
+
+    function closeDesktopSyncModal() {
+      const m = document.getElementById('desktopSyncModal');
+      const b = document.getElementById('desktopSyncBackdrop');
+      if (m) m.classList.remove('open');
+      if (b) b.classList.remove('open');
+    }
+
+    async function pasteFromClipboardSync() {
+      try {
+        const text = await navigator.clipboard.readText();
+        if (!text) {
+          showToast('⚠️ Zwischenablage ist leer');
+          return;
+        }
+        let rawJson = text.trim();
+        if (rawJson.includes('?import=')) {
+          const rawParam = rawJson.split('?import=')[1].split('&')[0];
+          rawJson = decodeURIComponent(escape(atob(decodeURIComponent(rawParam))));
+        }
+        const incomingRuns = JSON.parse(rawJson);
+        if (Array.isArray(incomingRuns) && incomingRuns.length > 0) {
+          mergeAndStoreRuns(incomingRuns);
+          closeDesktopSyncModal();
+          showToast(`✓ ${incomingRuns.length} Läufe aus Zwischenablage importiert!`);
+        } else {
+          showToast('⚠️ Kein gültiges Laufprotokoll in Zwischenablage');
+        }
+      } catch (err) {
+        showToast('⚠️ Zugriff auf Zwischenablage nicht gestattet');
+      }
+    }
+
+    function mergeAndStoreRuns(incomingRuns) {
+      if (!Array.isArray(incomingRuns)) return;
+      const current = loadRuns();
+      const map = new Map();
+      current.forEach(r => map.set(r.dayDate || r.date, r));
+      incomingRuns.forEach(r => map.set(r.dayDate || r.date, r));
+      const merged = Array.from(map.values());
+      storeRuns(merged);
+      switchWeek(currentKw);
+    }
+
+    function checkUrlImport() {
+      const p = new URLSearchParams(window.location.search);
+      const importParam = p.get('import');
+      if (!importParam) return;
+
+      try {
+        const rawJson = decodeURIComponent(escape(atob(decodeURIComponent(importParam))));
+        const incomingRuns = JSON.parse(rawJson);
+        if (Array.isArray(incomingRuns) && incomingRuns.length > 0) {
+          mergeAndStoreRuns(incomingRuns);
+
+          // Clean ?import= from URL bar without reload
+          p.delete('import');
+          const cleanSearch = p.toString() ? `?${p.toString()}` : '';
+          const cleanUrl = window.location.origin + window.location.pathname + cleanSearch + (window.location.hash || '');
+          window.history.replaceState({}, document.title, cleanUrl);
+
+          setTimeout(() => {
+            showToast(`✓ ${incomingRuns.length} Läufe vom iPhone erfolgreich synchronisiert!`);
+          }, 400);
+        }
+      } catch (e) {
+        console.error('Import failure:', e);
+      }
+    }
+    checkUrlImport();
+
+    window.shareRunsToMac = shareRunsToMac;
+    window.openDesktopSyncModal = openDesktopSyncModal;
+    window.closeDesktopSyncModal = closeDesktopSyncModal;
+    window.pasteFromClipboardSync = pasteFromClipboardSync;
 
     // ==========================================================================
     // AUTH GATE VALIDATION (APPLE HIG & BACKWARD-COMPATIBLE SESSION)

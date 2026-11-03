@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.72  
+**Document Version:** 9.73  
 **Last Updated:** November 03, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -9,6 +9,21 @@
 ---
 
 ## 📌 1. Project Overview & Current Trajectory
+
+- **Automatisierte AirDrop & Peer-to-Peer 1-Click Synchronisation (v9.65 / State 9.73):**
+  - **Reines Mobile-Logging-Paradigma:** Der Athlet nutzt das iPhone als einziges Eingabemedium für Trainingseinheiten; das MacBook Pro dient ausschließlich der passiven Wochen- und Saisonanalyse.
+  - **AirDrop 1-Click Export auf dem iPhone:**
+    - Unter der Wochenliste (`#mList`) wurde der Button **`📡 An MacBook senden (AirDrop)`** integriert.
+    - Tippt der Athlet darauf, öffnet sich das native iOS-Share-Sheet (`navigator.share`). Ein Fingertipp auf das MacBook Pro in der AirDrop-Reihe überträgt den komprimierten Datensatz direkt.
+  - **Vollautomatischer Empfang auf dem MacBook Pro:**
+    - macOS empfängt den Link per AirDrop und öffnet die Web-App.
+    - Die Funktion `checkUrlImport()` erkennt den `?import=`-Parameter, decodiert die Läufe, merged sie verlustfrei in den Mac-`localStorage` (`drachenlauf_runs`), bereinigt die URL und rendert die Wochenansicht neu.
+    - Ein nativer Apple HIG Toast-Banner (`#appToast`, grün leuchtend mit Weichzeichner) bestätigt den Import: `✓ X Läufe vom iPhone erfolgreich synchronisiert!`.
+  - **Zusätzlicher Desktop Sync-Hub:**
+    - In der Desktop-Kopfzeile wurde ein dezenter Button `[ 📡 Sync ]` ergänzt.
+    - Öffnet bei Bedarf ein macOS-Modalfenster mit Einblick in die Anzahl gespeicherter Läufe und der Option, Datensätze direkt aus der Apple *Universellen Zwischenablage* (`navigator.clipboard`) einzufügen.
+  - **PWA & Web-App-Vollbild:** Apple Touch Icon (`apple-touch-icon.png`) und `manifest.json` für saubere Home-Screen-Integration hinterlegt.
+  - **Synchronisiert:** Umgesetzt in `index.html`, `preview_jahres_dashboard.html`, gespiegelt nach `dist/`.
 
 - **Single Master Coach Deployment, Desktop Modal & Mobile Feinschliff (v9.64 / State 9.72):**
   - **Single Master Coach als `index.html` auf GitHub Pages:**
