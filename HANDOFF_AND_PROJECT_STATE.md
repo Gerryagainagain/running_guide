@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.91 (DOLOMITI TRAIL OPTION ENTFERNT)  
+**Document Version:** 9.92 (DRACHENLAUF BRIEFING-CARD RADIKAL REDUZIERT)  
 **Last Updated:** November 04, 2026  
 **Repository:** `https://github.com/Gerryagainagain/trailrunning.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/trailrunning/`  
@@ -9,6 +9,17 @@
 ---
 
 ## 📌 1. Project Overview & Current Trajectory
+
+- **Drachenlauf Briefing-Card radikal gestrafft (v9.92 / State 9.92):**
+  - **Fokussierung auf echten Briefing-Standard ohne Redundanzen:**
+    - *Header:* Tag `WETTKAMPF-BRIEFING · 26 KM`, Ziel-Pill `SAISON-HAUPTZIEL · 26 KM · 1.250 HM · 7 GIPFEL`.
+    - *Aktions-Buttons:* Ausschreibung (`Ausschreibung ↗`) und Komoot-Route (`Komoot-Route ↗`) exklusiv oben im Hero-Bereich (keine doppelte Verlinkung im Textkörper).
+    - *Eckdaten:* 3-zeilig linksbündig (Start: Thomasberg / Strecke: 26,0 km · 1.250 Hm · 7 Gipfel / Terrain: Trails, Stufen, Schotter).
+    - *Streckenverlauf:* Rein auf die 7 Gipfel begrenzt (`Großer Ölberg · Löwenburg · Schallenberg · Geisberg · Jungfernhardt · Drachenfels · Petersberg`).
+    - *Pacing & HF:* 3 Spalten (Abschnitt, Taktik, HF). Kein starres Pace-Korsett im Zielabstieg (`Zielabstieg · kontrolliert rollen` bei `< 130 bpm`); Verzicht auf Fachjargon (`bergab entlasten` statt `Downhill Flush`).
+    - *Strategie:* 3-Phasen-Kernsatz (Glykogen sichern, Petersberg investieren, kontrolliert ins Ziel).
+    - *Verpflegung & Ausrüstung:* Auf 4 Kernzeilen (Flüssigkeit, Verpflegung, VPs, Schuhe) formatiert.
+  - **Synchronisiert:** In `index.html`, `preview_jahres_dashboard.html`, gespiegelt nach `dist/`.
 
 - **Option Dolomiti Trail (03.07.2027) aus Saisonkalender entfernt (v9.91 / State 9.91):**
   - **Saisonkalender Q3 (Juli – Sept 2027):**
