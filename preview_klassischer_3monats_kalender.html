@@ -832,7 +832,7 @@
       2: {
         heading: 'Sommer',
         range: 'Juli – Sept 2027',
-        keyEvent: 'Ziel: Drachenlauf-Basis & Option: 11. Sept · Ultra Trail Müllerthal (21 km · ~600 Hm)',
+        keyEvent: 'Ziel: Drachenlauf-Aufbau ab KW 34 (23. Aug) & Option: 11. Sept · Ultra Trail Müllerthal',
         months: [
           { name: 'Juli', mIdx: 6, days: 31, startOffset: 3 },
           { name: 'August', mIdx: 7, days: 31, startOffset: 6 },
@@ -906,17 +906,18 @@
         return ''; // Sommerpause & freie Grundlagenerhaltung
       }
       if (mIdx === 7) { // Aug
-        if (d >= 9) return 'build-light'; // KW 32–34: Sommer-Basis & Einstieg Drachenlauf
-        return ''; // 01.–08. Aug: Erhaltung
+        if (d >= 23) return 'build-light'; // Ab KW 34 (23.–31. Aug): Einstieg Höhenmeteraufbau Drachenlauf
+        return ''; // 01.–22. Aug (KW 31–33): Reiner Grundlagenerhalt & Sommer (neutral)
       }
       if (mIdx === 8) { // Sep
+        if (d <= 5) return 'build-light'; // KW 35 (01.–05. Sep): Ausklang Re-Aktivierung
         if (d === 11) return 'option'; // Option: Ultra Trail Müllerthal 21 km (~600 Hm)
-        return 'build'; // KW 35–39: Spezifischer Drachenlauf-Aufbau
+        return 'build'; // KW 36–39 (06.–30. Sep): Spezifischer Drachenlauf-Aufbau
       }
 
       // --- Q4 (Okt – Dez 2027) ---
       if (mIdx === 9) { // Okt
-        if (d <= 3) return 'build'; // Abschluss spezifischer Aufbau
+        if (d <= 3) return 'build'; // KW 39 (01.–03. Okt): Abschluss spezifischer Aufbau
         if (d >= 4 && d <= 10) return 'build-peak'; // KW 40: Drachenlauf Peak-Woche (22–24 km · 900–1.100 Hm)
         if (d >= 11 && d <= 23) return 'taper'; // KW 41–42: 2 Wochen Tapering & Frische sichern
         if (d === 24) return 'race'; // Saison-Hauptziel: Drachenlauf (26,0 km · 1.250 Hm · 7 Gipfel)
@@ -1106,8 +1107,8 @@
           keyEl.innerHTML = 'Frühjahrs-Reaktivierung (19. Apr – 02. Mai) · Sanfte Basis & GA1-Umfang vor dem TS16-Bergblock';
           return;
         }
-        if (mIdx === 7) {
-          keyEl.innerHTML = 'Sommer-Basis (09.–29. Aug) · Sanfter Wiedereinstieg & GA1-Kilometer vor dem Drachenlauf-Zyklus';
+        if (mIdx === 7 || (mIdx === 8 && day <= 5)) {
+          keyEl.innerHTML = 'Phase 2 (23. Aug – 05. Sep · KW 34–35) · Einstieg Höhenmeteraufbau Drachenlauf (GA1 VT1 105–118 bpm)';
           return;
         }
         keyEl.innerHTML = 'Grundlagen- & Re-Aktivierungsphase (GA1 VT1 105–118 bpm)';
@@ -1122,8 +1123,8 @@
           keyEl.innerHTML = 'Spezifischer Bergaufbau TS16 (03.–23. Mai) · Höhenmeter-Gewöhnung (400–600 Hm), Hang-Kraftausdauer & Trittsicherheit';
           return;
         }
-        if (mIdx === 8 || (mIdx === 9 && day <= 3)) {
-          keyEl.innerHTML = 'Spezifischer Drachenlauf-Aufbau (Sep – Anfang Okt) · Treppen, 7-Gipfel-Simulation & Steilhänge (inkl. 11.09. UTML)';
+        if ((mIdx === 8 && day >= 6) || (mIdx === 9 && day <= 3)) {
+          keyEl.innerHTML = 'Phase 2/3 (06. Sep – 03. Okt · KW 36–39) · Spezifischer Drachenlauf-Aufbau · Treppen, 7-Gipfel-Simulation & Steilhänge (inkl. 11.09. UTML)';
           return;
         }
         if (mIdx === 1026) {

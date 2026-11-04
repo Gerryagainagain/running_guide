@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.97 (ENTFERNUNG SIEBENGEBIRGS-HALBMARATHON AUS DEM KALENDER & REALDATEN-ABGLEICH HERBST 2026)  
+**Document Version:** 9.98 (DRACHENLAUF-AUFBAU EXAKT AB KW 34 KALIBRIERT & AUGUST-FREIRAUM)  
 **Last Updated:** November 04, 2026  
 **Repository:** `https://github.com/Gerryagainagain/trailrunning.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/trailrunning/`  
@@ -9,6 +9,16 @@
 ---
 
 ## 📌 1. Project Overview & Current Trajectory
+
+- **Drachenlauf-Aufbau 2027 exakt ab KW 34 kalibriert (v9.98 / State 9.98):**
+  - **Realdaten-Treue:** Der Drachenlauf-Block startet nun exakt wie in den 2026er Realdaten erst ab **Montag, 23. August 2027 (KW 34)**:
+    - *01.–22. August (KW 31–33):* Vollständig neutral (Reiner Grundlagenerhalt & Sommerreisen in Erkrath bis 450 Hm ohne Drachenlauf-Drill).
+    - *23. Aug – 05. Sep (KW 34–35):* `build-light` (8% Cyan) – Phase 2: Einstieg Höhenmeteraufbau Drachenlauf (GA1 VT1 105–118 bpm).
+    - *06. Sep – 03. Okt (KW 36–39):* `build` (18% Cyan) – Phase 2/3: Spezifischer Siebengebirgsaufbau (Treppen, 7 Gipfel, Steilhänge, inkl. 11.09. UTML 21k).
+    - *04.–10. Okt (KW 40):* `build-peak` (32% Cyan) – Drachenlauf Peak-Woche (Schlüssel-Longrun Siebengebirge 22–24 km · 900–1.100 Hm).
+    - *11.–23. Okt (KW 41–42):* `taper` (12% Cyan) – Finales 2-Wochen-Tapering vor dem Drachenlauf (Umfang -40%, Frische sichern).
+    - *24. Oktober:* `race` (Apple Orange) – 26. Drachenlauf Siebengebirge.
+  - **Synchronisiert:** In `index.html`, `preview_jahres_dashboard.html`, `preview_klassischer_3monats_kalender.html`, gespiegelt nach `dist/`.
 
 - **Entfernung des Siebengebirgs-Halbmarathons (05.12.2027) & Realdaten-Klarstellung (v9.97 / State 9.97):**
   - **Saisonkalender Q4 bereinigt:**
