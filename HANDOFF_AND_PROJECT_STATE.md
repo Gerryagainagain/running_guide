@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.93 (RENNPHASEN-LAYOUT & ERGONOMISCHE INFORMATIONS-HIERARCHIE IM 600PX DRAWER)  
+**Document Version:** 9.94 (GESTUFTE AUFBAU- UND REGENERATIONSPHASEN IN Q1 MIT MONOCHROMER VISUELLER WELLE)  
 **Last Updated:** November 04, 2026  
 **Repository:** `https://github.com/Gerryagainagain/trailrunning.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/trailrunning/`  
@@ -9,6 +9,20 @@
 ---
 
 ## 📌 1. Project Overview & Current Trajectory
+
+- **Gestufte Periodisierungs-Welle für den Q1-Aufbau & Post-Race-Regeneration (v9.94 / State 9.94):**
+  - **Monochrome Intensitäts-Gradienten statt statischer Monoblöcke:**
+    - *Phase 1 · Re-Aktivierung (KW 1–2 / 06.–17. Jan):* `.phase-build-light` (8% Cyan-Deckkraft, sanfter Einstieg nach Jahreswechsel, Fokus GA1 VT1 105–118 bpm).
+    - *Phase 2 · Spezifischer Aufbau (KW 3–6 / 18. Jan – 14. Feb):* `.phase-build` (18% Cyan-Deckkraft, Erkrath-Longruns 350–450 Hm, neuromuskuläre Bergauf-Spezifik).
+    - *Phase 3 · Peak-Woche (KW 7 / 15.–21. Feb):* `.phase-build-peak` (32% Cyan-Deckkraft mit markanterem Rand, Schlüsseltraining 20–22 km Trail, maximale Spezifik).
+    - *Phase 4 · Tapering (KW 8–9 / 22. Feb – 06. März):* `.phase-taper` (12% Cyan-Deckkraft, geplante Entlastung: Umfang -40%, kurze Reize zur Erhaltung des Muskeltonus).
+    - *Hauptwettkampf (07. März):* `.phase-race` (Belgenbachtrail 30,7 km · 941 Hm, Apple Orange mit Signal-Glow).
+    - *Post-Race Woche 1 (08.–14. März):* `.phase-rekom-acute` (28% Apple Green, akute muskuläre Reparatur, ZNS-Ruhe, Null Trainingsbelastung).
+    - *Post-Race Woche 2 (15.–21. März):* `.phase-rekom-light` (8% Apple Green, sanftes Ausklingen, erste kurze GA1-Lockertrabs im Flachen).
+    - *Ab 22. März:* Neutraler Zustand vor Beginn des Frühjahrszyklus.
+  - **Perfekte Balkengeometrie (`bar-start` / `bar-end`):**
+    - Nahtlose Verbindung bei identischer Phase; automatische Kantenabrundung bei Phasenübergängen und Wochenenden.
+  - **Synchronisiert:** In `tokens.css`, `index.html`, `preview_jahres_dashboard.html`, `preview_klassischer_3monats_kalender.html`, gespiegelt nach `dist/`.
 
 - **Rennphasen-Layout & ergonomische Drawer-Hierarchie (v9.93 / State 9.93):**
   - **Perfekte Passung für die 600px Drawer-Breite:**

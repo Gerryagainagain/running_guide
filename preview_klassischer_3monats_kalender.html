@@ -31,19 +31,39 @@
       --apple-orange: var(--color-brand-orange, #FF9F0A);
       --apple-red: var(--color-brand-red, #FF453A);
       
-      /* Periodisierungs-Balken (Harmonisierte Apple Tints) */
-      --phase-build-bg: rgba(100, 210, 255, 0.16);
-      --phase-build-border: rgba(100, 210, 255, 0.40);
+      /* Periodisierungs-Balken & Tiered Phases */
+      --phase-build-light-bg: rgba(100, 210, 255, 0.08);
+      --phase-build-light-border: rgba(100, 210, 255, 0.22);
+      --phase-build-light-text: #BEEBFF;
+
+      --phase-build-bg: rgba(100, 210, 255, 0.18);
+      --phase-build-border: rgba(100, 210, 255, 0.42);
       --phase-build-text: #D6F2FF;
-      
+
+      --phase-build-peak-bg: rgba(100, 210, 255, 0.32);
+      --phase-build-peak-border: rgba(100, 210, 255, 0.65);
+      --phase-build-peak-text: #FFFFFF;
+
+      --phase-taper-bg: rgba(100, 210, 255, 0.12);
+      --phase-taper-border: rgba(100, 210, 255, 0.28);
+      --phase-taper-text: #C7EEFF;
+
+      --phase-rekom-acute-bg: rgba(48, 209, 88, 0.28);
+      --phase-rekom-acute-border: rgba(48, 209, 88, 0.55);
+      --phase-rekom-acute-text: #E4FDE8;
+
       --phase-rekom-bg: rgba(48, 209, 88, 0.16);
       --phase-rekom-border: rgba(48, 209, 88, 0.40);
       --phase-rekom-text: #C6F7D0;
-      
+
+      --phase-rekom-light-bg: rgba(48, 209, 88, 0.08);
+      --phase-rekom-light-border: rgba(48, 209, 88, 0.22);
+      --phase-rekom-light-text: #B0F4BD;
+
       --phase-vacation-bg: rgba(255, 214, 10, 0.16);
       --phase-vacation-border: rgba(255, 214, 10, 0.40);
       --phase-vacation-text: #FFF3C4;
-      
+
       --phase-race-bg: var(--apple-orange, #FF9F0A);
       --phase-race-glow: rgba(255, 159, 10, 0.40);
       
@@ -241,7 +261,26 @@
       font-weight: var(--typography-font-weight-bold, 700);
     }
 
-    /* PERIODISIERUNGS-BALKEN */
+    /* PERIODISIERUNGS-BALKEN & GESTUFTE AUFBAU-/REKOM-PHASEN */
+    .cal-cell.phase-build-light {
+      background: var(--phase-build-light-bg) !important;
+      border-top: 1px solid var(--phase-build-light-border);
+      border-bottom: 1px solid var(--phase-build-light-border);
+      color: var(--phase-build-light-text) !important;
+      font-weight: var(--typography-font-weight-semibold, 600);
+      margin: 1.5px 0;
+    }
+    .cal-cell.phase-build-light.bar-start {
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+      border-left: 1px solid var(--phase-build-light-border);
+    }
+    .cal-cell.phase-build-light.bar-end {
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+      border-right: 1px solid var(--phase-build-light-border);
+    }
+
     .cal-cell.phase-build {
       background: var(--phase-build-bg) !important;
       border-top: 1px solid var(--phase-build-border);
@@ -250,17 +289,72 @@
       font-weight: var(--typography-font-weight-semibold, 600);
       margin: 1.5px 0;
     }
-
     .cal-cell.phase-build.bar-start {
       border-top-left-radius: 8px;
       border-bottom-left-radius: 8px;
       border-left: 1px solid var(--phase-build-border);
     }
-
     .cal-cell.phase-build.bar-end {
       border-top-right-radius: 8px;
       border-bottom-right-radius: 8px;
       border-right: 1px solid var(--phase-build-border);
+    }
+
+    .cal-cell.phase-build-peak {
+      background: var(--phase-build-peak-bg) !important;
+      border-top: 1px solid var(--phase-build-peak-border);
+      border-bottom: 1px solid var(--phase-build-peak-border);
+      color: var(--phase-build-peak-text) !important;
+      font-weight: var(--typography-font-weight-bold, 700);
+      margin: 1.5px 0;
+    }
+    .cal-cell.phase-build-peak.bar-start {
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+      border-left: 1px solid var(--phase-build-peak-border);
+    }
+    .cal-cell.phase-build-peak.bar-end {
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+      border-right: 1px solid var(--phase-build-peak-border);
+    }
+
+    .cal-cell.phase-taper {
+      background: var(--phase-taper-bg) !important;
+      border-top: 1px solid var(--phase-taper-border);
+      border-bottom: 1px solid var(--phase-taper-border);
+      color: var(--phase-taper-text) !important;
+      font-weight: var(--typography-font-weight-semibold, 600);
+      margin: 1.5px 0;
+    }
+    .cal-cell.phase-taper.bar-start {
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+      border-left: 1px solid var(--phase-taper-border);
+    }
+    .cal-cell.phase-taper.bar-end {
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+      border-right: 1px solid var(--phase-taper-border);
+    }
+
+    .cal-cell.phase-rekom-acute {
+      background: var(--phase-rekom-acute-bg) !important;
+      border-top: 1px solid var(--phase-rekom-acute-border);
+      border-bottom: 1px solid var(--phase-rekom-acute-border);
+      color: var(--phase-rekom-acute-text) !important;
+      font-weight: var(--typography-font-weight-bold, 700);
+      margin: 1.5px 0;
+    }
+    .cal-cell.phase-rekom-acute.bar-start {
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+      border-left: 1px solid var(--phase-rekom-acute-border);
+    }
+    .cal-cell.phase-rekom-acute.bar-end {
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+      border-right: 1px solid var(--phase-rekom-acute-border);
     }
 
     .cal-cell.phase-rekom {
@@ -271,17 +365,34 @@
       font-weight: var(--typography-font-weight-semibold, 600);
       margin: 1.5px 0;
     }
-
     .cal-cell.phase-rekom.bar-start {
       border-top-left-radius: 8px;
       border-bottom-left-radius: 8px;
       border-left: 1px solid var(--phase-rekom-border);
     }
-
     .cal-cell.phase-rekom.bar-end {
       border-top-right-radius: 8px;
       border-bottom-right-radius: 8px;
       border-right: 1px solid var(--phase-rekom-border);
+    }
+
+    .cal-cell.phase-rekom-light {
+      background: var(--phase-rekom-light-bg) !important;
+      border-top: 1px solid var(--phase-rekom-light-border);
+      border-bottom: 1px solid var(--phase-rekom-light-border);
+      color: var(--phase-rekom-light-text) !important;
+      font-weight: var(--typography-font-weight-semibold, 600);
+      margin: 1.5px 0;
+    }
+    .cal-cell.phase-rekom-light.bar-start {
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+      border-left: 1px solid var(--phase-rekom-light-border);
+    }
+    .cal-cell.phase-rekom-light.bar-end {
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+      border-right: 1px solid var(--phase-rekom-light-border);
     }
 
     .cal-cell.phase-vacation {
@@ -731,16 +842,20 @@
         return '';
       }
       if (mIdx === 0) { // Jan
-        if (d >= 6) return 'build';
+        if (d >= 6 && d <= 17) return 'build-light'; // KW 1–2: Re-Aktivierung & sanfte Basis
+        if (d >= 18) return 'build'; // KW 3–4: Spezifischer Aufbau
         return '';
       }
       if (mIdx === 1) { // Feb
-        return 'build';
+        if (d <= 14) return 'build'; // KW 5–6: Spezifischer Aufbau
+        if (d >= 15 && d <= 21) return 'build-peak'; // KW 7: Peak-Woche Schlüsseltraining
+        return 'taper'; // KW 8: Tapering & Frische (d >= 22)
       }
       if (mIdx === 2) { // Mär
-        if (d < 7) return 'build';
-        if (d === 7) return 'race'; // Belgenbach 30k
-        if (d > 7 && d <= 21) return 'rekom';
+        if (d < 7) return 'taper'; // KW 9: Tapering bis Rennvortag
+        if (d === 7) return 'race'; // Belgenbach 30k Hauptziel Q1
+        if (d >= 8 && d <= 14) return 'rekom-acute'; // Post-Race W1: Akute Regeneration & ZNS-Ruhe
+        if (d >= 15 && d <= 21) return 'rekom-light'; // Post-Race W2: Aktiver Übergang & Lockertrabs
         return '';
       }
       if (mIdx === 4) { // Mai
@@ -851,21 +966,11 @@
               let barClass = isSun ? 'is-sunday ' : '';
               let isInteractive = false;
 
-              if (phase === 'build') {
-                barClass += 'phase-build';
+              if (phase.startsWith('build') || phase === 'taper' || phase.startsWith('rekom') || phase === 'vacation') {
+                barClass += 'phase-' + phase;
                 isInteractive = true;
-                if (col === 0 || prevPhase !== 'build') barClass += ' bar-start';
-                if (col === 6 || nextPhase !== 'build' || d === m.days) barClass += ' bar-end';
-              } else if (phase === 'rekom') {
-                barClass += 'phase-rekom';
-                isInteractive = true;
-                if (col === 0 || prevPhase !== 'rekom') barClass += ' bar-start';
-                if (col === 6 || nextPhase !== 'rekom' || d === m.days) barClass += ' bar-end';
-              } else if (phase === 'vacation') {
-                barClass += 'phase-vacation';
-                isInteractive = true;
-                if (col === 0 || prevPhase !== 'vacation') barClass += ' bar-start';
-                if (col === 6 || nextPhase !== 'vacation' || d === m.days) barClass += ' bar-end';
+                if (col === 0 || prevPhase !== phase) barClass += ' bar-start';
+                if (col === 6 || nextPhase !== phase || d === m.days) barClass += ' bar-end';
               } else if (phase === 'race') {
                 barClass += 'phase-race';
                 isInteractive = true;
@@ -959,7 +1064,11 @@
         return;
       }
 
-      // 3. PHASE-BLÖCKE (KONKRET ZUGESCHNITTEN AUF DEN JEWEILIGEN ZIELWETTKAMPF)
+      // 3. PHASE-BLÖCKE (GESTUFTE CYCLING-STUFEN IN Q1 SOWIE SPEZIFISCHE BLÖCKE)
+      if (phase === 'build-light') {
+        keyEl.innerHTML = 'Phase 1 (06.–17. Jan) · Re-Aktivierung & sanfte Basis (GA1 VT1 105–118 bpm) · Wiedereinstieg nach Jahreswechsel';
+        return;
+      }
       if (phase === 'build') {
         if (mIdx === 1026) {
           keyEl.innerHTML = (day < 8) 
@@ -971,8 +1080,8 @@
           keyEl.innerHTML = 'Tapering & Feinschliff · Siebengebirgs-HM (06. Dez)';
           return;
         }
-        if (mIdx === 0 || mIdx === 1 || mIdx === 2) {
-          keyEl.innerHTML = 'Spezifischer 9-Wochen-Aufbau · Belgenbachtrail (30,7 km · 941 Hm)';
+        if (mIdx === 0 || mIdx === 1) {
+          keyEl.innerHTML = 'Phase 2 (18. Jan – 14. Feb) · Spezifischer Aufbau Belgenbachtrail · Erkrath-Longruns (350–450 Hm) & Tempohärte';
           return;
         }
         if (mIdx === 4 || (mIdx === 5 && day < 12)) {
@@ -986,6 +1095,22 @@
         keyEl.innerHTML = 'Spezifischer Trainings- & Aufbau-Block';
         return;
       }
+      if (phase === 'build-peak') {
+        keyEl.innerHTML = 'Phase 3 (15.–21. Feb) · Peak-Woche Schlüsseltraining (20–22 km Trail) & maximale Spezifik vor Belgenbach';
+        return;
+      }
+      if (phase === 'taper') {
+        keyEl.innerHTML = 'Phase 4 (22. Feb – 06. März) · Tapering & Frische sichern · Umfang -40%, Spezifik punktuell halten';
+        return;
+      }
+      if (phase === 'rekom-acute') {
+        keyEl.innerHTML = 'Post-Race Woche 1 (08.–14. März) · Akute Regeneration · ZNS-Erholung, Muskelreparatur & Null Belastung';
+        return;
+      }
+      if (phase === 'rekom-light') {
+        keyEl.innerHTML = 'Post-Race Woche 2 (15.–21. März) · Aktive Erholung & Übergang · Erste kurze GA1-Lockertrabs (VT1 105–118 bpm)';
+        return;
+      }
       if (phase === 'rekom') {
         if (mIdx === 1026) {
           keyEl.innerHTML = 'Post-Race Erholung · Nach Martinslauf 10k';
@@ -993,10 +1118,6 @@
         }
         if (mIdx === 1126) {
           keyEl.innerHTML = 'Saisonpause & Jahresausklang · Nach Siebengebirgs-HM';
-          return;
-        }
-        if (mIdx === 2) {
-          keyEl.innerHTML = '2 Wochen Regeneration & Übergangsphase · Nach Belgenbachtrail';
           return;
         }
         if (mIdx === 5) {

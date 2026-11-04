@@ -50,6 +50,42 @@
   --color-tint-red-bg: rgba(255, 69, 58, 0.15);
   --color-tint-red-border: rgba(255, 69, 58, 0.30);
 
+  /* --- 4b. PERIODISIERUNG & KALENDER PHASEN-STUFEN (TIERED PHASES) --- */
+  --phase-build-light-bg: rgba(100, 210, 255, 0.08);
+  --phase-build-light-border: rgba(100, 210, 255, 0.22);
+  --phase-build-light-text: #BEEBFF;
+
+  --phase-build-bg: rgba(100, 210, 255, 0.18);
+  --phase-build-border: rgba(100, 210, 255, 0.42);
+  --phase-build-text: #D6F2FF;
+
+  --phase-build-peak-bg: rgba(100, 210, 255, 0.32);
+  --phase-build-peak-border: rgba(100, 210, 255, 0.65);
+  --phase-build-peak-text: #FFFFFF;
+
+  --phase-taper-bg: rgba(100, 210, 255, 0.12);
+  --phase-taper-border: rgba(100, 210, 255, 0.28);
+  --phase-taper-text: #C7EEFF;
+
+  --phase-rekom-acute-bg: rgba(48, 209, 88, 0.28);
+  --phase-rekom-acute-border: rgba(48, 209, 88, 0.55);
+  --phase-rekom-acute-text: #E4FDE8;
+
+  --phase-rekom-bg: rgba(48, 209, 88, 0.16);
+  --phase-rekom-border: rgba(48, 209, 88, 0.40);
+  --phase-rekom-text: #C6F7D0;
+
+  --phase-rekom-light-bg: rgba(48, 209, 88, 0.08);
+  --phase-rekom-light-border: rgba(48, 209, 88, 0.22);
+  --phase-rekom-light-text: #B0F4BD;
+
+  --phase-vacation-bg: rgba(255, 214, 10, 0.16);
+  --phase-vacation-border: rgba(255, 214, 10, 0.40);
+  --phase-vacation-text: #FFF3C4;
+
+  --phase-race-bg: var(--color-brand-orange, #FF9F0A);
+  --phase-race-glow: rgba(255, 159, 10, 0.40);
+
   /* --- 5. TYPOGRAPHY & TEXT COLORS --- */
   --color-text-white: #FFFFFF;
   --color-text-secondary: #A1A1A6;
