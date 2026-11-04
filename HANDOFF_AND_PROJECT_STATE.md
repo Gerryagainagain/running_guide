@@ -1,7 +1,7 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.83  
-**Last Updated:** November 03, 2026  
+**Document Version:** 9.84 (FINAL SYSTEM & DESIGN FREEZE)  
+**Last Updated:** November 04, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
 **Local Workspace Path:** `/Users/Gerhard/Desktop/running_guide`
@@ -9,6 +9,23 @@
 ---
 
 ## 📌 1. Project Overview & Current Trajectory
+
+- **System & Design Freeze (v9.84 / State 9.84):**
+  - **Vollständiger System-Audit & Produktions-Freeze erfolgreich abgeschlossen:**
+    1. *Design- & UI-Integrität:* Strikte Einhaltung des Swiss Design Standards (keinerlei Schmuck-Icons oder Emojis in Schaltern, Statusdocks oder Buttons; ausschließlich funktionale Typografie und dezente Status-Dots).
+    2. *Saison- & Quartalskalender:* 
+       - Pager führt direkt Kalenderspannen (`Jan – März 2027`, `Apr – Juni 2027`, `Juli – Sept 2027`, `Okt – Dez 2027`).
+       - Zielzeile ist zentrierter horizontaler Anker direkt unter der 3-Monats-Matrix.
+       - Reiseliste (`.season-month-cols-grid`) fluchtet im 3-Spalten-Raster linksbündig exakt unter dem jeweiligen Kalendermonat (Q1: Januar Zoutelande; Q2: Juni Bergurlaub & Geschwister Kaub; Q3/Q4 ohne Reisen automatisch geschlossen).
+       - Option Trail Côte d’Opale (05.09.2027) vollständig entfernt; 11.09.2027 (UTML Müllerthal) bleibt als gesetzte September-Option erhalten.
+    3. *Race Drawer (Wettkampf-Briefing):*
+       - Desktop-Dimensionierung auf `clamp(460px, 35vw, 540px)` mit `1.75rem` Innenpadding entzerrt.
+       - 3-spaltige Pacing- und Herzfrequenzmatrix sowie geschärfte Briefing-Texte für den Martinslauf (10k) fehlerfrei gerendert.
+    4. *Deployment & Synchronisation:* 
+       - `index.html` und `dist/index.html` zu 100 % identisch.
+       - `preview_jahres_dashboard.html` und `dist/preview_jahres_dashboard.html` zu 100 % identisch.
+       - `app.js`, `styles.css`, `tokens.css` synchron in Quellverzeichnis und `dist/`.
+       - Arbeitsbaum sauber, lokaler Stand vollständig mit GitHub Remote (`origin/main`) synchronisiert.
 
 - **Dolomiten-Standortoptionen für Sommerurlaub 2027 hinterlegt (v9.83):**
   - Für den zweiten Teil des 21-Tage-Bogens (nach dem TS16 in Imst) wurden zwei passende Dolomiten-Kandidaten für Naturcamping, moderate Höhe und Seilbahn-Höhenwandern (T2, schwindelfrei) evaluiert und in Sektion 4.C2 hinterlegt:

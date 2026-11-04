@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Running Guide 2027 — Klassischer 3-Monats-Speditionskalender</title>
+  <link rel="stylesheet" href="tokens.css">
+  <style>
+    :root {
+      --bg-canvas: #09090D;
+      --card-bg: rgba(22, 22, 30, 0.95);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --text-primary: #FFFFFF;
+      --text-secondary: #8E8E93;
+      --text-muted: #545458;
+      
+      /* Klassische Speditionskalender-Farben im Dark Mode */
+      --cal-header-bg: #1A1A24;
+      --cal-row-odd: rgba(255, 255, 255, 0.015);
+      --cal-row-even: rgba(255, 255, 255, 0.035);
+      --cal-border-line: rgba(255, 255, 255, 0.08);
+      
+      --kw-color: #6E6E73;
+      --workday-color: #FFFFFF;
+      --saturday-color: #A1A1A6;
+      --sunday-color: #FF453A; /* Der klassische rote Sonntag */
+      
+      /* Trainingsphasen als dezente Markierungs-Balken */
+      --phase-build-bg: rgba(100, 210, 255, 0.16);
+      --phase-build-border: rgba(100, 210, 255, 0.5);
+      
+      --phase-rekom-bg: rgba(48, 209, 88, 0.16);
+      --phase-rekom-border: rgba(48, 209, 88, 0.5);
+      
+      --phase-vacation-bg: rgba(255, 214, 10, 0.16);
+      --phase-vacation-border: rgba(255, 214, 10, 0.5);
+      
+      --phase-race-bg: #FF453A;
+      --phase-race-glow: rgba(255, 69, 58, 0.5);
+      
+      --apple-cyan: #64D2FF;
+      --apple-orange: #FF9F0A;
+      
+      --font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: var(--bg-canvas);
+      color: var(--text-primary);
+      font-family: var(--font-family);
+      padding: 2rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .calendar-container {
+      width: 100%;
+      max-width: 920px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+
+    /* HEADER & QUARTALS-UMSCHALTER */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .brand-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: 0.25rem;
+    }
+
+    .planner-heading {
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .quarter-selector {
+      display: inline-flex;
+      background: rgba(255, 255, 255, 0.06);
+      padding: 3px;
+      border-radius: 9999px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .quarter-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      padding: 8px 18px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .quarter-btn:hover {
+      color: var(--text-primary);
+    }
+
+    .quarter-btn.active {
+      background: rgba(255, 255, 255, 0.18);
+      color: var(--text-primary);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    /* DER ECHTE 3-MONATS-WANDKALENDER */
+    .wall-calendar-wrapper {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 1.5rem;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .month-wall-block {
+      border: 1px solid var(--cal-border-line);
+      border-radius: 12px;
+      overflow: hidden;
+      background: rgba(14, 14, 20, 0.7);
+    }
+
+    /* MONATS-KOPF (WIE IM REFERENZBILD) */
+    .month-wall-header {
+      background: var(--cal-header-bg);
+      padding: 8px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 1px solid var(--cal-border-line);
+    }
+
+    .month-wall-name {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+
+    .month-wall-focus {
+      font-size: 0.8rem;
+      color: var(--apple-cyan);
+      font-weight: 600;
+    }
+
+    /* DIE TABELLE (KW + 7 TAGE) */
+    .month-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+      font-feature-settings: "tnum";
+    }
+
+    .month-table th {
+      padding: 6px 4px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--cal-border-line);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .month-table th.col-kw {
+      width: 60px;
+      color: var(--kw-color);
+      font-weight: 700;
+      border-right: 1px solid var(--cal-border-line);
+    }
+
+    .month-table th.col-sun {
+      color: var(--sunday-color);
+    }
+
+    .month-table tr {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .month-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .month-table td {
+      height: 48px;
+      font-size: 1.15rem;
+      font-weight: 700;
+      position: relative;
+      cursor: pointer;
+      border-right: 1px solid rgba(255, 255, 255, 0.03);
+      user-select: none;
+      transition: background 0.15s;
+    }
+
+    .month-table td:last-child {
+      border-right: none;
+    }
+
+    .month-table td.cell-kw {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--kw-color);
+      background: rgba(255, 255, 255, 0.015);
+      border-right: 1px solid var(--cal-border-line);
+      cursor: default;
+    }
+
+    .month-table td.cell-empty {
+      background: rgba(0, 0, 0, 0.2);
+      cursor: default;
+    }
+
+    .month-table td.col-workday {
+      color: var(--workday-color);
+    }
+
+    .month-table td.col-sat {
+      color: var(--saturday-color);
+    }
+
+    .month-table td.col-sun {
+      color: var(--sunday-color);
+    }
+
+    /* PERIODISIERUNGS-FARBEN AUF DEN ZELLEN */
+    .month-table td.phase-build {
+      background: var(--phase-build-bg) !important;
+      color: #BEEBFF !important;
+      box-shadow: inset 0 0 0 1px var(--phase-build-border);
+    }
+
+    .month-table td.phase-rekom {
+      background: var(--phase-rekom-bg) !important;
+      color: #C4F7D0 !important;
+      box-shadow: inset 0 0 0 1px var(--phase-rekom-border);
+    }
+
+    .month-table td.phase-vacation {
+      background: var(--phase-vacation-bg) !important;
+      color: #FFF0B3 !important;
+      box-shadow: inset 0 0 0 1px var(--phase-vacation-border);
+    }
+
+    .month-table td.phase-race {
+      background: var(--phase-race-bg) !important;
+      color: #FFFFFF !important;
+      font-weight: 900 !important;
+      box-shadow: 0 0 16px var(--phase-race-glow), inset 0 0 0 1px #FFFFFF;
+      z-index: 3;
+    }
+
+    .month-table td.phase-option {
+      background: rgba(191, 90, 242, 0.2) !important;
+      color: #E8B4F8 !important;
+      box-shadow: inset 0 0 0 1px dashed rgba(191, 90, 242, 0.8);
+    }
+
+    /* DETAIL-DOCK */
+    .detail-dock {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 1.25rem 1.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .dock-title {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .dock-main {
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+
+    .dock-sub {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-top: 0.2rem;
+    }
+
+    .dock-action-badge {
+      background: rgba(255, 159, 10, 0.12);
+      border: 1px solid rgba(255, 159, 10, 0.3);
+      color: var(--apple-orange);
+      padding: 8px 16px;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    /* LEGENDE */
+    .legend-row {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      justify-content: center;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="calendar-container">
+
+    <header>
+      <div>
+        <div class="brand-title">Running Guide 2027 · Klassischer 3-Monats-Planer</div>
+        <div class="planner-heading" id="viewHeading">Q1 · Frühjahr (Januar – März 2027)</div>
+      </div>
+
+      <!-- QUARTALS-UMSCHALTER -->
+      <div class="quarter-selector">
+        <button class="quarter-btn active" onclick="switchQuarter(1)">Q1 · Belgenbach</button>
+        <button class="quarter-btn" onclick="switchQuarter(2)">Q2 · Imst TS16</button>
+        <button class="quarter-btn" onclick="switchQuarter(3)">Q3 · Spätsommer</button>
+        <button class="quarter-btn" onclick="switchQuarter(4)">Q4 · Drachenlauf</button>
+      </div>
+    </header>
+
+    <!-- DER 3-MONATS-WANDKALENDER CONTAINER -->
+    <div class="wall-calendar-wrapper" id="wallCalendarWrapper">
+      <!-- WIRD DYNAMISCH GENERIERT -->
+    </div>
+
+    <!-- LEGENDE -->
+    <div class="legend-row">
+      <div class="legend-item"><div class="legend-dot" style="background:var(--phase-build-border);"></div><span>Aufbauphase</span></div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--phase-race-bg);"></div><span>🏁 Gesetzter Wettkampf</span></div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--phase-rekom-border);"></div><span>Regeneration / Tapering</span></div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--phase-vacation-border);"></div><span>Urlaub / Camping</span></div>
+      <div class="legend-item"><div class="legend-dot" style="background:#E8B4F8;"></div><span>Option (Merkzettel)</span></div>
+    </div>
+
+    <!-- DETAIL-DOCK UNTEN -->
+    <div class="detail-dock" id="detailDock">
+      <div>
+        <div class="dock-title">Fokus & Trainingsblock</div>
+        <div class="dock-main" id="dockMainTitle">06. Jan – 07. Mär: Belgenbach 30k Spezifischer Aufbau (9 Wochen)</div>
+        <div class="dock-sub" id="dockSubText">Progressive Steigerung der Erkrath-Longruns auf 18–22 km · Freitag Studio HSR</div>
+      </div>
+      <div class="dock-action-badge" id="dockAction">Buchung: Mitte Dez 2026 (Limit: 300)</div>
+    </div>
+
+  </div>
+
+  <script>
+    // Konfiguration der Quartale im echten Speditionskalender-Format 2027
+    const quartersData = {
+      1: {
+        heading: 'Q1 · Frühjahr (Januar – März 2027)',
+        dockMain: '06. Jan – 07. Mär: Belgenbach 30k Spezifischer Aufbau (9 Wochen)',
+        dockSub: 'Progressive Steigerung der Erkrath-Longruns auf 18–22 km · Freitag Studio HSR',
+        dockAction: 'Buchung: Mitte Dez 2026 (Limit: 300)',
+        months: [
+          { name: 'Januar 2027', mIdx: 0, days: 31, startKW: 53, startOffset: 4, focus: '06.01: Kickoff 9-Wochen-Aufbau · Erkrath 14–16k' }, // 01.01. ist Fr (Offset 4), KW 53 (2026/27)
+          { name: 'Februar 2027', mIdx: 1, days: 28, startKW: 5, startOffset: 0, focus: 'Kern-Aufbau: Longruns 18–22k / 450 Hm · Studio HSR' }, // 01.02. ist Mo, KW 5
+          { name: 'März 2027', mIdx: 2, days: 31, startKW: 9, startOffset: 0, focus: '07.03: 🏁 BELGENBACHTRAIL 30,7k · danach 2 W. Rekom' } // 01.03. ist Mo, KW 9
+        ]
+      },
+      2: {
+        heading: 'Q2 · Frühsommer (April – Juni 2027)',
+        dockMain: '05. – 25. Juni: 21-Tage Campingreise Imst & Mittelrhein',
+        dockSub: '14 Tage Standlager Campingpark FiNK · TS16 am Sa 12.06. · Ausklang in Kaub am Rhein',
+        dockAction: 'Frist: Standlager Camping FiNK im Jan 2027 anfragen',
+        months: [
+          { name: 'April 2027', mIdx: 3, days: 30, startKW: 13, startOffset: 3, focus: '3+1 Basis (25–30 km/W) · Gelenk- und Sehnenpflege' },
+          { name: 'Mai 2027', mIdx: 4, days: 31, startKW: 17, startOffset: 5, focus: 'Start 4-Wochen Alpen-Adaption (Hügel & Uphill Hiking)' },
+          { name: 'Juni 2027', mIdx: 5, days: 30, startKW: 22, startOffset: 1, focus: '05.–25.06: ⛺ Campingurlaub · 12.06: 🏁 TS16 IMST' }
+        ]
+      },
+      3: {
+        heading: 'Q3 · Hochsommer & Spätsommer (Juli – September 2027)',
+        dockMain: 'Juli/August: 3+1 Sommerroutine · September: Merklisten-Optionen',
+        dockSub: 'Frühe Rheinläufe bei Hitze · September: UTML Moosschluchten nur bei Lust',
+        dockAction: 'Status: Unverbindlicher Merkzettel',
+        months: [
+          { name: 'Juli 2027', mIdx: 6, days: 31, startKW: 26, startOffset: 3, focus: 'Hochsommer: Frühe Läufe, Rhein flach, Gelenke schonen' },
+          { name: 'August 2027', mIdx: 7, days: 31, startKW: 30, startOffset: 6, focus: '3+1 Basis-Erhaltung · Spätsommer-Formaufbau' },
+          { name: 'September 2027', mIdx: 8, days: 30, startKW: 35, startOffset: 2, focus: 'Optionsmonat: 05.09 Opal / 11.09 UTML Müllerthal' }
+        ]
+      },
+      4: {
+        heading: 'Q4 · Herbst & Jahresabschluss (Oktober – Dezember 2027)',
+        dockMain: 'Oktober: 7G Peak & Revanche Drachenlauf · Dezember: Option 7G-HM',
+        dockSub: 'Spezifisches Erkrath-Bergtraining bis Mitte Okt · Danach 2 Wochen Tapering',
+        dockAction: 'Frist: Drachenlauf-Registrierung Juli 2027',
+        months: [
+          { name: 'Oktober 2027', mIdx: 9, days: 31, startKW: 39, startOffset: 4, focus: 'Spezifisch 7G · 24.10: 🏁 DRACHENLAUF (Revanche)' },
+          { name: 'November 2027', mIdx: 10, days: 30, startKW: 44, startOffset: 0, focus: 'Saisonausklang: Rekom & optional 10k Martinslauf' },
+          { name: 'Dezember 2027', mIdx: 11, days: 31, startKW: 48, startOffset: 2, focus: 'Winter-Reset · Option 7G-HM (05.12 · 21,4k)' }
+        ]
+      }
+    };
+
+    function getPhaseClass(monthIdx, day) {
+      if (monthIdx === 0) { // JAN
+        return (day < 6) ? '' : 'phase-build';
+      }
+      if (monthIdx === 1) { // FEB
+        return 'phase-build';
+      }
+      if (monthIdx === 2) { // MÄR
+        if (day < 7) return 'phase-build';
+        if (day === 7) return 'phase-race';
+        if (day <= 21) return 'phase-rekom';
+        return '';
+      }
+      if (monthIdx === 4) { // MAI
+        return (day >= 15) ? 'phase-build' : '';
+      }
+      if (monthIdx === 5) { // JUN
+        if (day >= 5 && day <= 25) {
+          return (day === 12) ? 'phase-race' : 'phase-vacation';
+        }
+        return (day < 5) ? 'phase-build' : 'phase-rekom';
+      }
+      if (monthIdx === 8) { // SEP
+        return (day === 5 || day === 11) ? 'phase-option' : '';
+      }
+      if (monthIdx === 9) { // OKT
+        if (day === 24) return 'phase-race';
+        return (day < 24) ? 'phase-build' : 'phase-rekom';
+      }
+      if (monthIdx === 11) { // DEZ
+        return (day === 5) ? 'phase-option' : '';
+      }
+      return '';
+    }
+
+    function switchQuarter(qNum) {
+      document.querySelectorAll('.quarter-btn').forEach((btn, idx) => {
+        btn.classList.toggle('active', idx === (qNum - 1));
+      });
+
+      const q = quartersData[qNum];
+      document.getElementById('viewHeading').innerText = q.heading;
+      document.getElementById('dockMainTitle').innerText = q.dockMain;
+      document.getElementById('dockSubText').innerText = q.dockSub;
+      document.getElementById('dockAction').innerText = q.dockAction;
+
+      renderWallCalendar(q.months);
+    }
+
+    function renderWallCalendar(months) {
+      const container = document.getElementById('wallCalendarWrapper');
+      let html = '';
+
+      months.forEach(m => {
+        html += `
+          <div class="month-wall-block">
+            <div class="month-wall-header">
+              <span class="month-wall-name">${m.name}</span>
+              <span class="month-wall-focus">${m.focus}</span>
+            </div>
+
+            <table class="month-table">
+              <thead>
+                <tr>
+                  <th class="col-kw">Woche</th>
+                  <th>Montag</th>
+                  <th>Dienstag</th>
+                  <th>Mittwoch</th>
+                  <th>Donnerstag</th>
+                  <th>Freitag</th>
+                  <th style="color:var(--saturday-color);">Samstag</th>
+                  <th class="col-sun">Sonntag</th>
+                </tr>
+              </thead>
+              <tbody>
+        `;
+
+        let currentDay = 1;
+        let kw = m.startKW;
+        let weekRow = 0;
+
+        while (currentDay <= m.days) {
+          html += `<tr>`;
+          html += `<td class="cell-kw">${kw}</td>`;
+
+          for (let col = 0; col < 7; col++) {
+            if (weekRow === 0 && col < m.startOffset) {
+              // Leerzelle vor dem 1. des Monats
+              html += `<td class="cell-empty"></td>`;
+            } else if (currentDay <= m.days) {
+              const isSat = (col === 5);
+              const isSun = (col === 6);
+              const colClass = isSun ? 'col-sun' : (isSat ? 'col-sat' : 'col-workday');
+              const phaseClass = getPhaseClass(m.mIdx, currentDay);
+
+              html += `
+                <td class="${colClass} ${phaseClass}" 
+                    onclick="selectDayCell('${m.name}', ${currentDay}, '${phaseClass}')"
+                    title="${currentDay}. ${m.name}">
+                  ${currentDay}
+                </td>
+              `;
+              currentDay++;
+            } else {
+              // Leerzelle nach Monatsende
+              html += `<td class="cell-empty"></td>`;
+            }
+          }
+
+          html += `</tr>`;
+          kw++;
+          if (kw > 53) kw = 1;
+          weekRow++;
+        }
+
+        html += `
+              </tbody>
+            </table>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+    }
+
+    function selectDayCell(month, day, phase) {
+      const main = document.getElementById('dockMainTitle');
+      const sub = document.getElementById('dockSubText');
+      const action = document.getElementById('dockAction');
+
+      if (phase.includes('phase-race')) {
+        if (month.includes('März')) {
+          main.innerHTML = `🏁 07. März 2027: Belgenbachtrail (30,7 km · 941 Hm)`;
+          sub.innerHTML = `Haupt-Wettkampftag Eifel · Start 09:30 Uhr · Cut-Off Puffer: +20 Min.`;
+          action.innerHTML = `Frist: Online-Anmeldung Mitte Dez 2026 (Limit: 300)`;
+        } else if (month.includes('Juni')) {
+          main.innerHTML = `🏁 12. Juni 2027: Tschirgant Sky Run TS16 (16,9 km · ~850 Hm)`;
+          sub.innerHTML = `Alpiner Trailrun Tirol · Start 09:00 Uhr Sportzentrum Imst · T2 Steige`;
+          action.innerHTML = `Frist: Camping FiNK im Jan 2027 reservieren`;
+        } else if (month.includes('Oktober')) {
+          main.innerHTML = `🏁 24. Oktober 2027: Drachenlauf (26,0 km · 1.150–1.250 Hm)`;
+          sub.innerHTML = `Herbst-Klassiker & Revanche im Siebengebirge`;
+          action.innerHTML = `Frist: Registrierung Sommer 2027`;
+        }
+      } else if (phase.includes('phase-option')) {
+        if (day === 11) {
+          main.innerHTML = `💡 Option: Ultra-Trail du Mullerthal (UTML Shorty · 21 km · 700 Hm)`;
+          sub.innerHTML = `Kleine Luxemburger Schweiz · Feuchtkühle Moosschluchten bei Spätsommerhitze`;
+          action.innerHTML = `Status: Unverbindlicher Merkzettel (Nur bei Lust)`;
+        } else if (day === 5 && month.includes('September')) {
+          main.innerHTML = `💡 Option: Trail Côte d’Opale (16–24 km · 350–500 Hm)`;
+          sub.innerHTML = `Wimereux Ärmelkanal-Klippen · Sand & Meerwind`;
+          action.innerHTML = `Status: Unverbindlicher Merkzettel`;
+        } else if (day === 5 && month.includes('Dezember')) {
+          main.innerHTML = `💡 Option: Siebengebirgs-Halbmarathon (21,4 km · 360 Hm)`;
+          sub.innerHTML = `Rollende Waldwege als entspannter Jahresabschluss`;
+          action.innerHTML = `Status: Unverbindlicher Merkzettel`;
+        }
+      } else if (phase.includes('phase-vacation')) {
+        main.innerHTML = `⛺ 05. – 25. Juni 2027: 21-Tage Campingreise Imst & Mittelrhein`;
+        sub.innerHTML = `14 Tage Standlager Camping FiNK (Tirol) + TS16 am 12.06. + 3 Tage Kaub am Rhein`;
+        action.innerHTML = `Frist: Camping-Stellplatz Jan 2027 anfragen`;
+      } else if (phase.includes('phase-build')) {
+        main.innerHTML = `${day}. ${month}: Spezifischer Trainings-Aufbaublock`;
+        sub.innerHTML = `Fokus auf Wochenumfänge, Sa-Longrun in Erkrath & Fr-Studio HSR`;
+        action.innerHTML = `Regel: Diszipliniertes GA1 (105–118 bpm)`;
+      } else if (phase.includes('phase-rekom')) {
+        main.innerHTML = `${day}. ${month}: Gezielte Regenerationsphase (Rekom)`;
+        sub.innerHTML = `Schleimhäute, ZNS & Sehnen vollständig erholen · Nur lockeres Wandern oder Trab`;
+        action.innerHTML = `Kein Tempotraining, keine harten Belastungen`;
+      } else {
+        main.innerHTML = `${day}. ${month}: 3+1 Basis-Routine`;
+        sub.innerHTML = `3 Läufe (25–30 km/Woche) + 1 Studioeinheit · 50/50 Modell (Erkrath vs. Rhein)`;
+        action.innerHTML = `Nachhaltige Longevity & Frische`;
+      }
+    }
+
+    switchQuarter(1);
+  </script>
+</body>
+</html>
