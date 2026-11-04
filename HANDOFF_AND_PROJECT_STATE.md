@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.90 (BELGENBACHTRAIL DIREKT-ANMELDELINK VERLINKT)  
+**Document Version:** 9.91 (DOLOMITI TRAIL OPTION ENTFERNT)  
 **Last Updated:** November 04, 2026  
 **Repository:** `https://github.com/Gerryagainagain/trailrunning.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/trailrunning/`  
@@ -9,6 +9,13 @@
 ---
 
 ## 📌 1. Project Overview & Current Trajectory
+
+- **Option Dolomiti Trail (03.07.2027) aus Saisonkalender entfernt (v9.91 / State 9.91):**
+  - **Saisonkalender Q3 (Juli – Sept 2027):**
+    - Die gestrichelte Laufoption für den 03. Juli 2027 (*Primiero Dolomiti Marathon*) wurde aus der Phasen-Logik (`getPhase`) und dem Klick-Handler (`onPhaseClick`) entfernt.
+    - Der 3. Juli wird als regulärer Samstag/Sommertag ohne Wettkampfoption geführt.
+    - Die einzige verbleibende September-Option in Q3 ist der **11. September 2027** (*Ultra Trail Müllerthal 21 km*).
+  - **Synchronisiert:** In `index.html`, `preview_jahres_dashboard.html`, `preview_klassischer_3monats_kalender.html`, gespiegelt nach `dist/`.
 
 - **Belgenbachtrail Direkt-Anmeldelink via race result (v9.90 / State 9.90):**
   - **Offizielle Registrierungs-URL aktualisiert:**

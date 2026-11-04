@@ -754,7 +754,6 @@
         return '';
       }
       if (mIdx === 6) { // Jul
-        if (d === 3) return 'option'; // Primiero Dolomiti Marathon 26k (Sa 03.07.2027)
         return '';
       }
       if (mIdx === 8) { // Sep
@@ -939,10 +938,6 @@
       }
 
       // 2. OPTIONALE LÄUFE (LILA GESTRICHELT MIT KLICKBAREN ANMELDELINKS)
-      if (mIdx === 6 && day === 3) {
-        keyEl.innerHTML = 'Option: 03. Juli 2027 · Primiero Dolomiti Marathon (26 km · 1.200 Hm Downhill) · <a href="https://primierodolomitimarathon.it/en/entry/" target="_blank" rel="noopener noreferrer" class="option-reg-link">Zur Anmeldung / Infos ↗</a>';
-        return;
-      }
       if (mIdx === 8 && day === 5) {
         keyEl.innerHTML = 'Option: 05. September 2027 · Trail Côte d’Opale (24 km · 350 Hm) · <a href="https://www.trailcotedopale.com/" target="_blank" rel="noopener noreferrer" class="option-reg-link">Zur Anmeldung / Infos ↗</a>';
         return;
