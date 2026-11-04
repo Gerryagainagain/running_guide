@@ -2217,7 +2217,7 @@
       },
       2: {
         heading: 'Juli – Sept 2027',
-        keyEvent: 'Vielleicht gibt es noch Laufoptionen hier',
+        keyEvent: 'Ziel: Drachenlauf-Basis & Option: 11. Sept · Ultra Trail Müllerthal (21 km · ~600 Hm)',
         months: [
           { name: 'Juli', mIdx: 6, days: 31, startOffset: 3, trips: [] },
           { name: 'August', mIdx: 7, days: 31, startOffset: 6, trips: [] },
@@ -2265,35 +2265,54 @@
         if (d >= 15 && d <= 21) return 'rekom-light'; // Post-Race W2: Aktiver Übergang & Lockertrabs
         return '';
       }
+      // --- Q2 (Apr – Jun 2027) ---
+      if (mIdx === 3) { // Apr
+        if (d >= 19) return 'build-light'; // KW 16–17: Frühjahrs-Reaktivierung & sanfte Basis
+        return ''; // 01.–18. Apr: Frühjahrs-Basis & Erhaltung
+      }
       if (mIdx === 4) { // Mai
-        if (d >= 15) return 'build';
-        return '';
+        if (d <= 2) return 'build-light'; // KW 17: Abschluss Re-Aktivierung
+        if (d >= 3 && d <= 23) return 'build'; // KW 18–20: Spezifischer Bergaufbau TS16 (400–600 Hm)
+        if (d >= 24 && d <= 30) return 'build-peak'; // KW 21: Peak-Woche TS16
+        return 'taper'; // 31. Mai: Beginn Tapering
       }
       if (mIdx === 5) { // Jun
-        if (d < 12) return 'build'; // Zuspitzung auf TS16
-        if (d === 12) return 'race'; // Tschirgant Sky Run TS16
-        if (d > 12 && d <= 26) return 'rekom'; // 2 Wochen Erholung nach TS16
+        if (d < 12) return 'taper'; // KW 22–23: Tapering vor TS16 (inkl. Standlager Imst)
+        if (d === 12) return 'race'; // Tschirgant Sky Run TS16 (16,9 km · ~850 Hm)
+        if (d >= 13 && d <= 20) return 'rekom-acute'; // Post-Race W1: Akute alpine Erholung Camping FiNK
+        if (d >= 21 && d <= 27) return 'rekom-light'; // Post-Race W2: Aktive Erholung Kaub am Rhein
         return '';
       }
+
+      // --- Q3 (Jul – Sep 2027) ---
       if (mIdx === 6) { // Jul
-        return '';
+        return ''; // Sommerpause & freie Grundlagenerhaltung
+      }
+      if (mIdx === 7) { // Aug
+        if (d >= 9) return 'build-light'; // KW 32–34: Sommer-Basis & Einstieg Drachenlauf
+        return ''; // 01.–08. Aug: Erhaltung
       }
       if (mIdx === 8) { // Sep
-        if (d === 11) return 'option'; // Option 11.09.2027 (Ultra Trail Müllerthal)
-        return '';
+        if (d === 11) return 'option'; // Option: Ultra Trail Müllerthal 21 km (~600 Hm)
+        return 'build'; // KW 35–39: Spezifischer Drachenlauf-Aufbau
       }
+
+      // --- Q4 (Okt – Dez 2027) ---
       if (mIdx === 9) { // Okt
-        if (d === 24) return 'race'; // Drachenlauf
-        if (d < 24) return 'build';
-        return 'rekom';
+        if (d <= 3) return 'build'; // Abschluss spezifischer Aufbau
+        if (d >= 4 && d <= 10) return 'build-peak'; // KW 40: Drachenlauf Peak-Woche (22–24 km · 900–1.100 Hm)
+        if (d >= 11 && d <= 23) return 'taper'; // KW 41–42: 2 Wochen Tapering & Frische sichern
+        if (d === 24) return 'race'; // Saison-Hauptziel: Drachenlauf (26,0 km · 1.250 Hm · 7 Gipfel)
+        return 'rekom-acute'; // 25.–31. Okt: Akute Post-Race Quadrizeps-Reparatur
       }
       if (mIdx === 10) { // Nov 2027
-        if (d === 7) return 'option'; // Option 07.11.2027
-        return '';
+        if (d === 7) return 'option'; // Option: Martinslauf U-See 5,8k
+        if (d <= 6) return 'rekom-light'; // Post-Race W2: Aktiver Übergang & Lockertrabs
+        return ''; // Saisonpause
       }
       if (mIdx === 11) { // Dez
-        if (d === 5) return 'option'; // Option 05.12.2027
-        return '';
+        if (d === 5) return 'option'; // Option: Siebengebirgs-HM 21,4k
+        return ''; // Jahresausklang & Winterruhe
       }
       return '';
     }
@@ -2573,12 +2592,36 @@
         return;
       }
 
-      // 3. PHASE-BLÖCKE (GESTUFTE CYCLING-STUFEN IN Q1 SOWIE SPEZIFISCHE BLÖCKE)
+      // 3. PHASE-BLÖCKE (GESTUFTE CYCLING-STUFEN ÜBER DAS GESAMTE JAHR 2027)
       if (phase === 'build-light') {
-        keyEl.innerHTML = 'Phase 1 (06.–17. Jan) · Re-Aktivierung & sanfte Basis (GA1 VT1 105–118 bpm) · Wiedereinstieg nach Jahreswechsel';
+        if (mIdx === 0) {
+          keyEl.innerHTML = 'Phase 1 (06.–17. Jan) · Re-Aktivierung & sanfte Basis (GA1 VT1 105–118 bpm) · Wiedereinstieg nach Jahreswechsel';
+          return;
+        }
+        if (mIdx === 3 || mIdx === 4) {
+          keyEl.innerHTML = 'Frühjahrs-Reaktivierung (19. Apr – 02. Mai) · Sanfte Basis & GA1-Umfang vor dem TS16-Bergblock';
+          return;
+        }
+        if (mIdx === 7) {
+          keyEl.innerHTML = 'Sommer-Basis (09.–29. Aug) · Sanfter Wiedereinstieg & GA1-Kilometer vor dem Drachenlauf-Zyklus';
+          return;
+        }
+        keyEl.innerHTML = 'Grundlagen- & Re-Aktivierungsphase (GA1 VT1 105–118 bpm)';
         return;
       }
       if (phase === 'build') {
+        if (mIdx === 0 || mIdx === 1) {
+          keyEl.innerHTML = 'Phase 2 (18. Jan – 14. Feb) · Spezifischer Aufbau Belgenbachtrail · Erkrath-Longruns (350–450 Hm) & Tempohärte';
+          return;
+        }
+        if (mIdx === 4) {
+          keyEl.innerHTML = 'Spezifischer Bergaufbau TS16 (03.–23. Mai) · Höhenmeter-Gewöhnung (400–600 Hm), Hang-Kraftausdauer & Trittsicherheit';
+          return;
+        }
+        if (mIdx === 8 || (mIdx === 9 && day <= 3)) {
+          keyEl.innerHTML = 'Spezifischer Drachenlauf-Aufbau (Sep – Anfang Okt) · Treppen, 7-Gipfel-Simulation & Steilhänge (inkl. 11.09. UTML)';
+          return;
+        }
         if (mIdx === 1026) {
           keyEl.innerHTML = (day < 8) 
             ? 'Zuspitzung & Tapering · Martinslauf 10k' 
@@ -2589,35 +2632,71 @@
           keyEl.innerHTML = 'Tapering & Feinschliff · Siebengebirgs-HM (06. Dez)';
           return;
         }
-        if (mIdx === 0 || mIdx === 1) {
-          keyEl.innerHTML = 'Phase 2 (18. Jan – 14. Feb) · Spezifischer Aufbau Belgenbachtrail · Erkrath-Longruns (350–450 Hm) & Tempohärte';
-          return;
-        }
-        if (mIdx === 4 || (mIdx === 5 && day < 12)) {
-          keyEl.innerHTML = 'Spezifischer Bergaufbau · Tschirgant Sky Run TS16 (~850 Hm)';
-          return;
-        }
-        if (mIdx === 9) {
-          keyEl.innerHTML = 'Finaler Peak-Aufbau · Drachenlauf (26,0 km · 1.250 Hm)';
-          return;
-        }
         keyEl.innerHTML = 'Spezifischer Trainings- & Aufbau-Block';
         return;
       }
       if (phase === 'build-peak') {
-        keyEl.innerHTML = 'Phase 3 (15.–21. Feb) · Peak-Woche Schlüsseltraining (20–22 km Trail) & maximale Spezifik vor Belgenbach';
+        if (mIdx === 1) {
+          keyEl.innerHTML = 'Phase 3 (15.–21. Feb) · Peak-Woche Belgenbach · Schlüsseltraining (20–22 km Trail) & maximale Spezifik';
+          return;
+        }
+        if (mIdx === 4) {
+          keyEl.innerHTML = 'Peak-Woche TS16 (24.–30. Mai) · Spezifischer Bergab-Bremskraft-Reiz & alpine Höhenmeter';
+          return;
+        }
+        if (mIdx === 9) {
+          keyEl.innerHTML = 'Drachenlauf Peak-Woche (04.–10. Okt) · Schlüssel-Longrun Siebengebirge (22–24 km · 900–1.100 Hm)';
+          return;
+        }
+        keyEl.innerHTML = 'Peak-Woche · Schlüsseltraining & maximale wettkampfspezifische Belastung';
         return;
       }
       if (phase === 'taper') {
-        keyEl.innerHTML = 'Phase 4 (22. Feb – 06. März) · Tapering & Frische sichern · Umfang -40%, Spezifik punktuell halten';
+        if (mIdx === 1 || (mIdx === 2 && day < 7)) {
+          keyEl.innerHTML = 'Phase 4 (22. Feb – 06. März) · Tapering Belgenbach · Umfang -40%, Spezifik punktuell halten';
+          return;
+        }
+        if (mIdx === 4 || (mIdx === 5 && day < 12)) {
+          keyEl.innerHTML = 'Tapering TS16 (31. Mai – 11. Juni) · Frische sichern & Akklimatisation im Standlager Camping FiNK Imst';
+          return;
+        }
+        if (mIdx === 9 && day >= 11 && day <= 23) {
+          keyEl.innerHTML = 'Finales Tapering Drachenlauf (11.–23. Okt) · Umfang -40%, Beine lockern, ZNS entlasten, Glykogen sichern';
+          return;
+        }
+        keyEl.innerHTML = 'Tapering-Phase · Umfang deutlich reduzieren, Frische & Spannung sichern';
         return;
       }
       if (phase === 'rekom-acute') {
-        keyEl.innerHTML = 'Post-Race Woche 1 (08.–14. März) · Akute Regeneration · ZNS-Erholung, Muskelreparatur & Null Belastung';
+        if (mIdx === 2) {
+          keyEl.innerHTML = 'Post-Race Woche 1 (08.–14. März) · Akute Regeneration Belgenbach · ZNS-Erholung & Muskelreparatur';
+          return;
+        }
+        if (mIdx === 5) {
+          keyEl.innerHTML = 'Post-Race Woche 1 (13.–20. Juni) · Akute alpine Regeneration Camping FiNK · Null Laufbelastung, reines Familienwandern';
+          return;
+        }
+        if (mIdx === 9) {
+          keyEl.innerHTML = 'Post-Race Woche 1 (25.–31. Okt) · Akute Drachenlauf-Regeneration · Exzentrische Quadrizeps-Reparatur & ZNS-Ruhe';
+          return;
+        }
+        keyEl.innerHTML = 'Akute Post-Race Regeneration · Muskuläre Reparatur & ZNS-Ruhe';
         return;
       }
       if (phase === 'rekom-light') {
-        keyEl.innerHTML = 'Post-Race Woche 2 (15.–21. März) · Aktive Erholung & Übergang · Erste kurze GA1-Lockertrabs (VT1 105–118 bpm)';
+        if (mIdx === 2) {
+          keyEl.innerHTML = 'Post-Race Woche 2 (15.–21. März) · Aktive Erholung Belgenbach · Erste kurze GA1-Lockertrabs (VT1 105–118 bpm)';
+          return;
+        }
+        if (mIdx === 5) {
+          keyEl.innerHTML = 'Post-Race Woche 2 (21.–27. Juni) · Aktive Erholung Kaub am Rhein · Kurze GA1-Lockertrabs im Flachen';
+          return;
+        }
+        if (mIdx === 10) {
+          keyEl.innerHTML = 'Post-Race Woche 2 (01.–06. Nov) · Aktiver Übergang nach Drachenlauf · Kurze GA1-Trabs vor Saisonpause';
+          return;
+        }
+        keyEl.innerHTML = 'Aktive Erholung & Übergang · Sanfte GA1-Lockertrabs (VT1)';
         return;
       }
       if (phase === 'rekom') {

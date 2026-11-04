@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.94 (GESTUFTE AUFBAU- UND REGENERATIONSPHASEN IN Q1 MIT MONOCHROMER VISUELLER WELLE)  
+**Document Version:** 9.95 (VOLLSTÄNDIGE JAHRES-PERIODISIERUNG 2027: GESTUFTE AUFBAU- & REGENERATIONSPHASEN FÜR ALLE 4 QUARTALE)  
 **Last Updated:** November 04, 2026  
 **Repository:** `https://github.com/Gerryagainagain/trailrunning.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/trailrunning/`  
@@ -9,6 +9,46 @@
 ---
 
 ## 📌 1. Project Overview & Current Trajectory
+
+- **Vollständige Ganzjahres-Periodisierung 2027 mit abgestufter Intensitäts-Welle (v9.95 / State 9.95):**
+  - **Konsistente monochrome Intensitäts- und Erholungs-Dramaturgie über alle 4 Quartale:**
+    - **Q1 (Januar – März 2027 · Ziel Belgenbachtrail 30,7 km · 941 Hm):**
+      - *06.–17. Jan (KW 1–2):* `build-light` (8% Cyan) – Re-Aktivierung & sanfte Basis (GA1 VT1 105–118 bpm).
+      - *18. Jan – 14. Feb (KW 3–6):* `build` (18% Cyan) – Spezifischer Aufbau (Erkrath 350–450 Hm).
+      - *15.–21. Feb (KW 7):* `build-peak` (32% Cyan) – Peak-Woche Schlüsseltraining (20–22 km Trail).
+      - *22. Feb – 06. März (KW 8–9):* `taper` (12% Cyan) – Tapering vor Belgenbach (Umfang -40%, Frische sichern).
+      - *07. März:* `race` (Apple Orange) – Belgenbachtrail.
+      - *08.–14. März (Post-Race W1):* `rekom-acute` (28% Green) – Akute Reparatur & ZNS-Ruhe.
+      - *15.–21. März (Post-Race W2):* `rekom-light` (8% Green) – Aktive Erholung & Übergangstrabs.
+      - *22.–31. März:* Neutraler Basiszustand.
+    - **Q2 (April – Juni 2027 · Ziel Tschirgant Sky Run TS16 · 16,9 km · ~850 Hm):**
+      - *01.–18. Apr:* Neutral (Frühjahrs-Basis & passive Erholung).
+      - *19. Apr – 02. Mai (KW 16–17):* `build-light` (8% Cyan) – Frühjahrs-Reaktivierung & GA1-Umfangseinstieg.
+      - *03.–23. Mai (KW 18–20):* `build` (18% Cyan) – Spezifischer Bergaufbau TS16 (Höhenmeter-Gewöhnung 400–600 Hm, Kraftausdauer).
+      - *24.–30. Mai (KW 21):* `build-peak` (32% Cyan) – Peak-Woche TS16 (spezifische Hangsimulation & exzentrische Bergab-Bremskraft).
+      - *31. Mai – 11. Juni (KW 22–23):* `taper` (12% Cyan) – Tapering & Frische vor TS16 (inkl. Standlager Camping FiNK Imst ab 05.06.).
+      - *12. Juni:* `race` (Apple Orange) – Tschirgant Sky Run TS16.
+      - *13.–20. Juni (Post-Race W1):* `rekom-acute` (28% Green) – Akute alpine Erholung im Standlager Camping FiNK Imst (Null Laufbelastung, Familienwandern).
+      - *21.–27. Juni (Post-Race W2):* `rekom-light` (8% Green) – Aktive Erholung Kaub am Rhein (lockere GA1-Flachtrabs).
+      - *28.–30. Juni:* Neutraler Quartalsausklang.
+    - **Q3 (Juli – September 2027 · Drachenlauf-Fundament & Vorbereitung):**
+      - *01. Juli – 08. Aug:* Neutral (Sommerpause & freie Grundlagenerhaltung VT1).
+      - *09.–29. Aug (KW 32–34):* `build-light` (8% Cyan) – Sommer-Basis & sanfter Wiedereinstieg vor dem Drachenlauf-Zyklus.
+      - *30. Aug – 30. Sep (KW 35–39):* `build` (18% Cyan) – Spezifischer Siebengebirgs-Aufbau (Treppen, Steilhänge, 7-Gipfel-Simulation).
+      - *11. September:* `option` (gestrichelt) – Vorbereitungslauf Ultra Trail Müllerthal (21 km · ~600 Hm).
+    - **Q4 (Oktober – Dezember 2027 · Saison-Hauptziel Drachenlauf 26,0 km · 1.250 Hm · 7 Gipfel):**
+      - *01.–03. Okt:* `build` (18% Cyan) – Abschluss spezifischer Aufbau.
+      - *04.–10. Okt (KW 40):* `build-peak` (32% Cyan) – Drachenlauf Peak-Woche (Schlüssel-Longrun Siebengebirge 22–24 km · 900–1.100 Hm).
+      - *11.–23. Okt (KW 41–42):* `taper` (12% Cyan) – Finales 2-Wochen-Tapering vor dem Drachenlauf (Umfang -40%, Beine lockern, ZNS entlasten).
+      - *24. Oktober:* `race` (Apple Orange) – 26. Drachenlauf Siebengebirge.
+      - *25.–31. Okt (Post-Race W1):* `rekom-acute` (28% Green) – Akute Quadrizeps-Reparatur nach 1.250 Hm, ZNS-Ruhe.
+      - *01.–06. Nov (Post-Race W2):* `rekom-light` (8% Green) – Aktiver Übergang & sanfte GA1-Lockertrabs.
+      - *07. November:* `option` (gestrichelt) – Option 49. SFD Martinslauf 5,8k Seerunde Unterbacher See.
+      - *08.–30. Nov:* Neutral (Saisonpause & regenerative Basis).
+      - *05. Dezember:* `option` (gestrichelt) – Option 25. Siebengebirgs-HM 21,4k.
+      - *06.–31. Dez:* Neutral (Winterruhe & Jahresausklang).
+  - **Kontextsensitive Statusdock-Führung (`onPhaseClick`):** Klick auf jeden einzelnen Tag des Jahres liefert exakte physiologische Kontextinformationen (Spezifik, Pulskorridor GA1 VT1 105–118 bpm, Belastungssteuerung) ohne Phrasen.
+  - **Synchronisiert:** In `tokens.css`, `index.html`, `preview_jahres_dashboard.html`, `preview_klassischer_3monats_kalender.html`, gespiegelt nach `dist/`.
 
 - **Gestufte Periodisierungs-Welle für den Q1-Aufbau & Post-Race-Regeneration (v9.94 / State 9.94):**
   - **Monochrome Intensitäts-Gradienten statt statischer Monoblöcke:**
