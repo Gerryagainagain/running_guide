@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.84 (FINAL SYSTEM & DESIGN FREEZE)  
+**Document Version:** 9.85 (MARTINSLAUF WETTER & WIND-TAKTIK SYNCHRONISIERT)  
 **Last Updated:** November 04, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -9,6 +9,18 @@
 ---
 
 ## 📌 1. Project Overview & Current Trajectory
+
+- **Martinslauf Wetter-, Windchill- & Renntaktik-Synchronisation (v9.85 / State 9.85):**
+  - **Reale Wetterprognose für Sonntag, 08. November 2026 (Start 11:45 Uhr) eingepflegt:**
+    - *Temperatur:* 10 °C (physiologisches Thermoregulations-Optimum, minimale kardiovaskuläre Drift).
+    - *Wind & Böen:* 10 km/h Grundwind, Böen bis 19 km/h (~5,3 m/s) am Unterbacher See.
+    - *Windchill:* An offenen Seeufer-Passagen gefühlt wie ca. 7–8 °C.
+  - **Physiologische & taktische Konsequenz:**
+    - Bei 19 km/h Gegenwind kein stures Forcieren der 5:48 min/km GPS-Pace (vermeidet anaerobe Laktatanreicherung vor KM 7). Striktes Einordnen im Läuferfeld zur Windschattennutzung (4–8 % Kraftersparnis).
+    - Pulsdeckel (< 118 bpm KM 0–3, 120–125 bpm KM 3–7) hat strikten Vorrang vor der momentanen Geschwindigkeit.
+  - **Bekleidungsempfehlung im Race Briefing:**
+    - Kurz/Kurz oder Shirt/dünnes Longsleeve. Leichtes Frösteln am Start (11:35–11:45 Uhr) ist das physiologische Soll. Optionale dünne Handschuhe für die ersten 2–3 km.
+  - **Synchronisiert:** Eingepflegt in `raceBriefings.martinslauf` in `index.html` und `preview_jahres_dashboard.html`, gespiegelt nach `dist/`.
 
 - **System & Design Freeze (v9.84 / State 9.84):**
   - **Vollständiger System-Audit & Produktions-Freeze erfolgreich abgeschlossen:**
