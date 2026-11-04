@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.95 (VOLLSTÄNDIGE JAHRES-PERIODISIERUNG 2027: GESTUFTE AUFBAU- & REGENERATIONSPHASEN FÜR ALLE 4 QUARTALE)  
+**Document Version:** 9.96 (MOBILE DETAIL-DRAWER PERFEKTION: VOLLE SAFE-AREA- & TOUCH-ERGONOMIE)  
 **Last Updated:** November 04, 2026  
 **Repository:** `https://github.com/Gerryagainagain/trailrunning.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/trailrunning/`  
@@ -9,6 +9,17 @@
 ---
 
 ## 📌 1. Project Overview & Current Trajectory
+
+- **Mobile Race Drawer Ergonomie & iOS Safe-Area-Integration (v9.96 / State 9.96):**
+  - **Shared Architecture:** Die gestraffte Informationshierarchie (horizontale `.race-phase-card` Pacing-Karten, 7-Gipfel-Sequenz, 2×2 Eckdaten-Grid, getrennte Versorgung) wird dynamisch aus `raceBriefings` befüllt und ist auf Desktop und Mobile identisch aktiv.
+  - **Mobile-spezifische Perfektion (≤ 600px):**
+    - *Full-Width Layout:* `.race-drawer` öffnet vollflächig (`width: 100% !important; max-width: 100vw; left: 0; right: 0`).
+    - *iOS Safe Areas:* Oben `max(1.25rem, calc(env(safe-area-inset-top) + 0.6rem))` (Freiraum unter Dynamic Island / Notch) und unten `max(2.5rem, calc(env(safe-area-inset-bottom) + 1.8rem))` (Schutz vor Home-Indicator-Kollisionen).
+    - *Touch Target Schließen:* Schließen-Button `.race-drawer-close` auf 38×38px vergrößert für komfortable Daumenbedienung.
+    - *Touch-optimierte Action-Buttons:* `.race-drawer-org-btn` und `.race-drawer-route-btn` mit `min-height: 42px` und zentrierter Ausrichtung.
+    - *Adaptive Typografie:* Titel-Skalierung via `clamp(1.35rem, 6vw, 1.65rem)` gegen unschöne Wortumbrüche auf 375px-Bildschirmen.
+    - *Momentum Scrolling:* `-webkit-overflow-scrolling: touch` für butterweiches Scrollen.
+  - **Synchronisiert:** In `index.html`, `preview_jahres_dashboard.html`, `preview_klassischer_3monats_kalender.html`, gespiegelt nach `dist/`.
 
 - **Vollständige Ganzjahres-Periodisierung 2027 mit abgestufter Intensitäts-Welle (v9.95 / State 9.95):**
   - **Konsistente monochrome Intensitäts- und Erholungs-Dramaturgie über alle 4 Quartale:**
