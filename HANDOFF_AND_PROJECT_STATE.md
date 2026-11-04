@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.87 (REPOSITORY UMBENANNT AUF TRAILRUNNING)  
+**Document Version:** 9.88 (MINIMALISTISCHES APPLE-ORANGE ICON & MANIFEST SYNCHRONISIERT)  
 **Last Updated:** November 04, 2026  
 **Repository:** `https://github.com/Gerryagainagain/trailrunning.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/trailrunning/`  
@@ -9,6 +9,14 @@
 ---
 
 ## 📌 1. Project Overview & Current Trajectory
+
+- **Minimalistisches Apple-Orange App-Icon & Manifest (v9.88 / State 9.88):**
+  - **Neues PWA- & iOS-Home-Screen-Icon:**
+    - `apple-touch-icon.png` (512 × 512 px) vollständig neu generiert.
+    - Tiefschwarzer Obsidian-Canvas (`#0B0B10`) mit zentriertem, randscharf antialiastem Punkt im Apple-Orange-Ton (`#FF9F0A`).
+    - Auf dem iPhone-Display bildet die native Squircle-Maske einen edlen, minimalistischen App-Auftritt (entsprechend Swiss Design & Apple HIG).
+  - **Manifest & Titel:** `manifest.json` auf `Trailrunning 2027` (Short Name: `Coach`) und 512px Icon-Größe angepasst. Titel in `index.html` und `preview_jahres_dashboard.html` synchronisiert.
+  - **Synchronisiert:** Gespiegelt nach `dist/`.
 
 - **Repository- & URL-Umstellung auf `trailrunning` (v9.87 / State 9.87):**
   - **Erfolgreiche Umbenennung auf GitHub:**

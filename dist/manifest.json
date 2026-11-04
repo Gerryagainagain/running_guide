@@ -1,5 +1,5 @@
 {
-  "name": "Running Guide 2027",
+  "name": "Trailrunning 2027",
   "short_name": "Coach",
   "start_url": "./index.html",
   "display": "standalone",
@@ -8,7 +8,7 @@
   "icons": [
     {
       "src": "apple-touch-icon.png",
-      "sizes": "192x192",
+      "sizes": "512x512",
       "type": "image/png"
     }
   ]
