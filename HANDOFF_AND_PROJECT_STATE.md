@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.96 (MOBILE DETAIL-DRAWER PERFEKTION: VOLLE SAFE-AREA- & TOUCH-ERGONOMIE)  
+**Document Version:** 9.97 (ENTFERNUNG SIEBENGEBIRGS-HALBMARATHON AUS DEM KALENDER & REALDATEN-ABGLEICH HERBST 2026)  
 **Last Updated:** November 04, 2026  
 **Repository:** `https://github.com/Gerryagainagain/trailrunning.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/trailrunning/`  
@@ -9,6 +9,18 @@
 ---
 
 ## 📌 1. Project Overview & Current Trajectory
+
+- **Entfernung des Siebengebirgs-Halbmarathons (05.12.2027) & Realdaten-Klarstellung (v9.97 / State 9.97):**
+  - **Saisonkalender Q4 bereinigt:**
+    - Die Option für den 05. Dezember 2027 (*25. Siebengebirgs-HM*) wurde aus `getPhase` und `onPhaseClick` vollständig entfernt. Der 5. Dezember 2027 wird als regulärer, neutraler Sonntag geführt.
+  - **Realdaten-Abgleich Herbstblock 2026 (`app.js` Master-Daten):**
+    - Die Periodisierung entstammt nicht allgemeinen Lehrbüchern, sondern exakt Gerhards 2026er Realdaten:
+      - *Phase 1 (KW 30–33 / 20.07.–16.08.2026):* Grundlagenerhalt & Reisen (Target 30 km / 450 Hm, alle Läufe bis 500 Hm in Erkrath; London & Jurassic Coast).
+      - *Phase 2 (KW 34–36 / 17.08.–06.09.2026):* Spezifischer Höhenmeteraufbau im Siebengebirge (Steigerung auf 20 km / 950 Hm bzw. 25 km / 965 Hm bei 116 bpm).
+      - *Phase 3 (KW 37–39 / 07.09.–27.09.2026):* Peak & Probedrachenlauf (19 km / 710 Hm).
+      - *Phase 4 (KW 40–42 / 28.09.–18.10.2026):* Tapering (Target 30 km / 400 Hm).
+      - *Phase 5 (KW 43):* Drachenlauf.
+  - **Synchronisiert:** In `index.html`, `preview_jahres_dashboard.html`, `preview_klassischer_3monats_kalender.html`, gespiegelt nach `dist/`.
 
 - **Mobile Race Drawer Ergonomie & iOS Safe-Area-Integration (v9.96 / State 9.96):**
   - **Shared Architecture:** Die gestraffte Informationshierarchie (horizontale `.race-phase-card` Pacing-Karten, 7-Gipfel-Sequenz, 2×2 Eckdaten-Grid, getrennte Versorgung) wird dynamisch aus `raceBriefings` befüllt und ist auf Desktop und Mobile identisch aktiv.

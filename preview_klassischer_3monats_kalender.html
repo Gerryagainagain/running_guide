@@ -928,7 +928,6 @@
         return ''; // Saisonpause
       }
       if (mIdx === 11) { // Dez
-        if (d === 5) return 'option'; // Option: Siebengebirgs-HM 21,4k
         return ''; // Jahresausklang & Winterruhe
       }
       return '';
@@ -1090,10 +1089,6 @@
       }
       if (mIdx === 10 && day === 7) {
         keyEl.innerHTML = 'Option: 07. November 2027 · Martinslauf U-See (5,8 km Seerunde / Unterbacher See) · <a href="https://www.sfd.de/martinslauf/" target="_blank" rel="noopener noreferrer" class="option-reg-link">Zur Anmeldung / Infos ↗</a>';
-        return;
-      }
-      if (mIdx === 11 && day === 5) {
-        keyEl.innerHTML = 'Option: 05. Dezember 2027 · Siebengebirgs-HM (21,4 km · 360 Hm) · <a href="https://siebengebirgsmarathon.net/" target="_blank" rel="noopener noreferrer" class="option-reg-link">Zur Anmeldung / Infos ↗</a>';
         return;
       }
       if (phase === 'option') {
