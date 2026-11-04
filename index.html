@@ -1414,6 +1414,74 @@
       color: var(--text-white);
     }
 
+    /* Rennphasen & Gipfel-Sequenz (Apple HIG Ergonomie für 500-600px Drawer) */
+    .race-phases-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .race-phase-card {
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 0.55rem 0.85rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      transition: background 0.15s ease;
+    }
+
+    .race-phase-card:hover {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba(255, 255, 255, 0.10);
+    }
+
+    .race-phase-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .race-phase-km {
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: var(--apple-cyan);
+      font-feature-settings: 'tnum';
+      letter-spacing: -0.01em;
+    }
+
+    .race-phase-hr {
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: var(--apple-orange);
+      font-feature-settings: 'tnum';
+      letter-spacing: -0.01em;
+    }
+
+    .race-phase-desc {
+      font-size: 0.80rem;
+      color: var(--text-subtle);
+      line-height: 1.35;
+    }
+
+    .race-peaks-seq {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.3rem 0.45rem;
+      font-size: 0.82rem;
+      color: var(--text-white);
+      line-height: 1.5;
+    }
+
+    .race-peak-arrow {
+      color: var(--apple-cyan);
+      font-weight: 800;
+      opacity: 0.5;
+    }
+
     /* ==========================================================================
        MOBILE WOCHENLISTE (≤ 600 px) & LOG-SHEET (shared: drachenlauf_runs)
        ========================================================================== */
@@ -2627,34 +2695,36 @@
         sections: [
           {
             title: 'Eckdaten',
-            type: 'logistics',
+            type: 'grid',
             items: [
-              { label: 'Start', val: 'Thomasberg, Königswinter' },
-              { label: 'Strecke', val: '26,0 km · 1.250 Hm · 7 Gipfel' },
+              { label: 'Startort', val: 'Thomasberg, Königswinter' },
+              { label: 'Distanz', val: '26,0 km' },
+              { label: 'Höhenmeter', val: '1.250 Hm' },
               { label: 'Terrain', val: 'Trails, Stufen, Schotter' }
             ]
           },
           {
-            title: 'Streckenverlauf',
+            title: 'Streckenverlauf (7 Gipfel)',
             type: 'text',
-            text: 'Großer Ölberg · Löwenburg · Schallenberg · Geisberg · Jungfernhardt · Drachenfels · Petersberg'
+            text: '<div class="race-peaks-seq"><span>Großer Ölberg</span><span class="race-peak-arrow">›</span><span>Löwenburg</span><span class="race-peak-arrow">›</span><span>Schallenberg</span><span class="race-peak-arrow">›</span><span>Geisberg</span><span class="race-peak-arrow">›</span><span>Jungfernhardt</span><span class="race-peak-arrow">›</span><span>Drachenfels</span><span class="race-peak-arrow">›</span><span>Petersberg</span></div>'
           },
           {
             title: 'Pacing & Herzfrequenz',
-            type: 'pacing',
-            columns: ['Abschnitt', 'Taktik', 'HF'],
-            steps: [
-              { km: 'KM 0–16', speed: 'Power-Hiking · Kräfte sparen', hr: '120–125 bpm' },
-              { km: 'KM 16–19', speed: 'Drachenfels · Uphill freigeben, bergab entlasten', hr: '130–135 bpm' },
-              { km: 'KM 19–23,3', speed: 'Petersberg · Schlussanstieg', hr: '130–135 bpm · Deckel 140' },
-              { km: 'KM 23,3–26', speed: 'Zielabstieg · kontrolliert rollen', hr: '< 130 bpm' }
-            ],
-            strategy: 'Strategie: Kräfte und Glykogen bis zum Drachenfels sichern. Am Petersberg gezielt investieren. Den Zielabstieg kontrolliert laufen.'
+            type: 'phases',
+            items: [
+              { km: 'KM 0–16', hr: '120–125 bpm', desc: 'Power-Hiking · Kräfte sparen' },
+              { km: 'KM 16–19', hr: '130–135 bpm', desc: 'Drachenfels · Uphill freigeben' },
+              { km: 'KM 19–23,3', hr: 'Deckel 140', desc: 'Petersberg · Schlussanstieg' },
+              { km: 'KM 23,3–26', hr: '< 130 bpm', desc: 'Zielabstieg · kontrolliert rollen' }
+            ]
           },
           {
-            title: 'Verpflegung & Ausrüstung',
-            type: 'text',
-            text: '<b>Flüssigkeit:</b> 2 × 500 ml Malto-Flasks · Wasser an den VPs<br><b>Verpflegung:</b> Bananen ab KM 11 · Salzstangen &amp; Cola ab KM 16,5<br><b>VPs:</b> KM 5 · 11 · 16,5 · 18,5 · 22,5 · 24<br><b>Schuhe:</b> Tiefes Stollenprofil'
+            title: 'Versorgung & Ausrüstung',
+            type: 'logistics',
+            items: [
+              { label: 'Versorgung', val: '2 × 500 ml Malto · 6 VPs (Bananen ab KM 11, Cola)' },
+              { label: 'Ausrüstung', val: 'Tiefes Stollenprofil Pflicht' }
+            ]
           }
         ]
       }
@@ -2715,6 +2785,20 @@
                 <div class="race-logistics-row">
                   <span class="race-logistics-lbl">${it.label}</span>
                   <span class="race-logistics-val">${it.val}</span>
+                </div>
+              `;
+            });
+            contentHtml += `</div>`;
+          } else if (sec.type === 'phases' && sec.items) {
+            contentHtml += `<div class="race-phases-list">`;
+            sec.items.forEach(p => {
+              contentHtml += `
+                <div class="race-phase-card">
+                  <div class="race-phase-top">
+                    <span class="race-phase-km">${p.km}</span>
+                    <span class="race-phase-hr">${p.hr}</span>
+                  </div>
+                  <div class="race-phase-desc">${p.desc}</div>
                 </div>
               `;
             });

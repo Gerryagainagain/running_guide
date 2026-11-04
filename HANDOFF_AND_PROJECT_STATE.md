@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.92 (DRACHENLAUF BRIEFING-CARD RADIKAL REDUZIERT)  
+**Document Version:** 9.93 (RENNPHASEN-LAYOUT & ERGONOMISCHE INFORMATIONS-HIERARCHIE IM 600PX DRAWER)  
 **Last Updated:** November 04, 2026  
 **Repository:** `https://github.com/Gerryagainagain/trailrunning.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/trailrunning/`  
@@ -9,6 +9,15 @@
 ---
 
 ## 📌 1. Project Overview & Current Trajectory
+
+- **Rennphasen-Layout & ergonomische Drawer-Hierarchie (v9.93 / State 9.93):**
+  - **Perfekte Passung für die 600px Drawer-Breite:**
+    - *01 · Header:* Titel, Datum, Ziel-Pill `SAISON-HAUPTZIEL · 26 KM · 1.250 HM · 7 GIPFEL`, `Ausschreibung ↗` & `Komoot-Route ↗` kompakt als Hero-Buttons ohne Dopplung im Text.
+    - *02 · Eckdaten (2 Spalten × 2 Zeilen):* `Startort` (Thomasberg), `Distanz` (26,0 km), `Höhenmeter` (1.250 Hm), `Terrain` (Trails, Stufen, Schotter).
+    - *03 · Strecke:* Kompakte Gipfel-Sequenz mit dezenten Apple-Cyan-Wegweisern (`Großer Ölberg › Löwenburg › Schallenberg › Geisberg › Jungfernhardt › Drachenfels › Petersberg`).
+    - *04 · Pacing & Herzfrequenz (Rennphasen-Ansicht statt Tabelle):* 4 horizontale `.race-phase-card`-Elemente. Herzfrequenz als prominenter visueller Anker rechts (`120–125 bpm`, `130–135 bpm`, `Deckel 140`, `< 130 bpm`), Taktik darunter ohne Zeilenkollision. Redundante Strategie-Zusammenfassung eliminiert.
+    - *05 · Versorgung & Ausrüstung (2 kompakte Zeilen):* Versorgung (Malto & 6 VPs) und Ausrüstung (Stollenprofil-Pflicht) sauber getrennt ohne Fließtext.
+  - **Synchronisiert:** In `index.html`, `preview_jahres_dashboard.html`, gespiegelt nach `dist/`.
 
 - **Drachenlauf Briefing-Card radikal gestrafft (v9.92 / State 9.92):**
   - **Fokussierung auf echten Briefing-Standard ohne Redundanzen:**
