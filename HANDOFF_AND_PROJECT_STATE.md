@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.89 (DRACHENLAUF KOMOOT-ROUTE IM DETAIL-DRAWER VERLINKT)  
+**Document Version:** 9.90 (BELGENBACHTRAIL DIREKT-ANMELDELINK VERLINKT)  
 **Last Updated:** November 04, 2026  
 **Repository:** `https://github.com/Gerryagainagain/trailrunning.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/trailrunning/`  
@@ -9,6 +9,13 @@
 ---
 
 ## 📌 1. Project Overview & Current Trajectory
+
+- **Belgenbachtrail Direkt-Anmeldelink via race result (v9.90 / State 9.90):**
+  - **Offizielle Registrierungs-URL aktualisiert:**
+    - Ersetzt bisherige Homepage-URL durch den direkten Anmeldelink: `https://my.raceresult.com/417090/registration`.
+    - Im Wettkampf-Briefing Drawer (`raceBriefings.belgenbach.organizerUrl`) als **`Offizielle Anmeldung · my.raceresult.com ↗`** hinterlegt.
+    - In der interaktiven Monatsziel-Zeile des Saisonkalenders Q1 (Klick auf 07. März 2027) ebenfalls mit klickbarem Direktlink (`Zur Anmeldung ↗`) versehen.
+  - **Synchronisiert:** Gespiegelt nach `preview_jahres_dashboard.html`, `preview_klassischer_3monats_kalender.html` und `dist/`.
 
 - **Drachenlauf Komoot-Route im Detail-Drawer verlinkt (v9.89 / State 9.89):**
   - **Direkte Verknüpfung der offiziellen Komoot-Tour (26 km · 1.250 Hm · Königswinter):**
