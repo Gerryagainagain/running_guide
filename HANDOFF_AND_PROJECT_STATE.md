@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.85 (MARTINSLAUF WETTER & WIND-TAKTIK SYNCHRONISIERT)  
+**Document Version:** 9.86 (ROBOTS & CRAWLER-SCHUTZ VERIFIZIERT & SYNCHRONISIERT)  
 **Last Updated:** November 04, 2026  
 **Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
@@ -9,6 +9,13 @@
 ---
 
 ## 📌 1. Project Overview & Current Trajectory
+
+- **Crawler- & Suchmaschinen-Schutz (v9.86 / State 9.86):**
+  - **Umfassender Schutz vor Web-Crawlern, Suchmaschinen & KI-Scrapern verifiziert und gehärtet:**
+    1. *`robots.txt` (Root & `dist/`):* Sperrt universal alle Crawler (`User-agent: * / Disallow: /`) und blockt namentlich alle bekannten KI- & LLM-Scraper (GPTBot, ChatGPT-User, Google-Extended, GoogleOther, ClaudeBot, Claude-Web, Meta, Applebot-Extended, PerplexityBot, Bytespider, Cohere etc.).
+    2. *HTML-Meta-Tags:* In `index.html`, `preview_jahres_dashboard.html`, `preview_klassischer_3monats_kalender.html` und `preview_2wochen.html` wurden `<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">` und `<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">` nachgerüstet (wie bereits in `archive_drachenlauf_index.html` und `strategie.html`). Verhindert URL-Indexierung, Snippet-Generierung und Cache-Archivierung in Suchmaschinen.
+    3. *Auth Gate:* Zusätzliche Barriere im DOM durch das Passwort-Modal (`#authGateModal`).
+  - **Synchronisiert:** Gespiegelt nach `dist/`.
 
 - **Martinslauf Wetter-, Windchill- & Renntaktik-Synchronisation (v9.85 / State 9.85):**
   - **Reale Wetterprognose für Sonntag, 08. November 2026 (Start 11:45 Uhr) eingepflegt:**
