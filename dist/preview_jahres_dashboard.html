@@ -1190,11 +1190,18 @@
       line-height: 1.35;
     }
 
+    .race-drawer-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+      margin-top: 0.35rem;
+    }
+
     .race-drawer-org-btn {
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      margin-top: 0.35rem;
       align-self: flex-start;
       font-size: 0.82rem;
       font-weight: 800;
@@ -1211,6 +1218,46 @@
     .race-drawer-org-btn:hover {
       background: #FFB340;
       transform: translateY(-1px);
+    }
+
+    .race-drawer-route-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      align-self: flex-start;
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--apple-cyan);
+      background: rgba(100, 210, 255, 0.12);
+      border: 1px solid rgba(100, 210, 255, 0.35);
+      padding: 0.45rem 0.95rem;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    .race-drawer-route-btn:hover {
+      background: rgba(100, 210, 255, 0.24);
+      border-color: var(--apple-cyan);
+      color: #FFFFFF;
+      transform: translateY(-1px);
+    }
+
+    .race-drawer-route-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: var(--apple-cyan);
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.15s ease;
+    }
+
+    .race-drawer-route-link:hover {
+      color: #FFFFFF;
     }
 
     .race-section {
@@ -1869,7 +1916,10 @@
       <h2 class="race-drawer-title" id="drawerTitle">—</h2>
       <div class="race-drawer-subtitle" id="drawerSubtitle">—</div>
       <div class="race-drawer-target-pill" id="drawerTargetPill">—</div>
-      <a id="drawerOrganizerLink" class="race-drawer-org-btn" target="_blank" rel="noopener noreferrer" style="display:none;">Offizielle Ausschreibung ↗</a>
+      <div class="race-drawer-actions">
+        <a id="drawerOrganizerLink" class="race-drawer-org-btn" target="_blank" rel="noopener noreferrer" style="display:none;">Offizielle Ausschreibung ↗</a>
+        <a id="drawerRouteLink" class="race-drawer-route-btn" target="_blank" rel="noopener noreferrer" style="display:none;">Komoot Strecken-Route ↗</a>
+      </div>
     </div>
 
     <div class="race-drawer-content" id="drawerContent">
@@ -2577,21 +2627,40 @@
         targetPill: 'Saison-Hauptziel · 1.250 Hm · 7 Berge',
         organizerUrl: 'https://www.drachenlauf.net/',
         organizerLabel: 'Offizielle Ausschreibung · drachenlauf.net ↗',
+        routeUrl: 'https://www.komoot.com/de-de/tour/1882550924?share_token=aKlmkGGP9QBKIGBYNofjmXhqYJ5YwPvvoWl2QgWkmoCSU36YTz&ref=wtd&t_s=referral&t_cid=route_share&t_ref_username=5238953605179',
+        routeLabel: 'Komoot Strecken-Route (26 km · 1.250 Hm) ↗',
         sections: [
           {
-            title: 'Eckdaten',
+            title: 'Eckdaten & Logistik',
             type: 'grid',
             items: [
-              { label: 'Startort', val: 'Thomasberg' },
-              { label: 'Distanz', val: '26,0 km' },
-              { label: 'Höhenmeter', val: '1.250 Hm' },
-              { label: 'Gipfel', val: '7 Siebengebirgs-Gipfel' }
+              { label: 'Startort', val: 'Thomasberg (Königswinter)' },
+              { label: 'Distanz / Hm', val: '26,0 km · 1.250 Hm' },
+              { label: 'Gipfel', val: '7 Siebengebirgs-Gipfel' },
+              { label: 'Profil', val: 'Trails, Stufen, Schotter' }
             ]
           },
           {
-            title: 'Pacing-Strategie',
+            title: 'Streckenverlauf & Komoot-Tour',
             type: 'text',
-            text: 'Der Jahreshöhepunkt. Exakte Einteilung nach der 7-Berge-Matrix. Erst ab dem Petersberg (Berg 5) Reserven mobilisieren.'
+            text: 'Original-Streckenverlauf über alle 7 Gipfel: Großer Ölberg, Löwenburg, Schallenberg, Geisberg, Jungfernhardt, Drachenfels und Petersberg-Schlussanstieg.<br><br>👉 <a href="https://www.komoot.com/de-de/tour/1882550924?share_token=aKlmkGGP9QBKIGBYNofjmXhqYJ5YwPvvoWl2QgWkmoCSU36YTz&ref=wtd&t_s=referral&t_cid=route_share&t_ref_username=5238953605179" target="_blank" rel="noopener noreferrer" class="race-drawer-route-link">Komoot Strecken-Route öffnen (26,0 km · 1.250 Hm) ↗</a>'
+          },
+          {
+            title: 'Pacing & Herzfrequenz',
+            type: 'pacing',
+            columns: ['Abschnitt', 'Pace / Taktik', 'Herzfrequenz'],
+            steps: [
+              { km: 'KM 0–16 (Ölberg/Löwenburg)', speed: 'Uphill Power-Hiking', hr: '120–125 bpm' },
+              { km: 'KM 16–19 (Drachenfels)', speed: 'Freigabe Uphill · Downhill Flush', hr: '130–135 bpm (< 120)' },
+              { km: 'KM 19–23,3 (Petersberg)', speed: 'Schlussanstieg All-in', hr: '130–135 bpm (Deckel < 140)' },
+              { km: 'KM 23,3–26 (Zielabstieg)', speed: 'Easy Rolling 5:30–5:45 min/km', hr: '< 130 bpm' }
+            ],
+            strategy: 'Strategie: 2 Phasen · Bis Drachenfels Glykogensicherung, Petersberg All-in, kontrolliert ins Ziel rollen.'
+          },
+          {
+            title: 'Verpflegung & Ausrüstung',
+            type: 'text',
+            text: '2x 500 ml Malto-Flasks am Körper + Wasser an den 6 VPs (km 5, 11, 16.5, 18.5, 22.5, 24). Bananen ab km 11, Salzstangen &amp; Cola ab km 16.5. Schuhe mit tiefem Stollenprofil.'
           }
         ]
       }
@@ -2614,6 +2683,17 @@
           orgLinkEl.style.display = 'inline-flex';
         } else {
           orgLinkEl.style.display = 'none';
+        }
+      }
+
+      const routeLinkEl = document.getElementById('drawerRouteLink');
+      if (routeLinkEl) {
+        if (b.routeUrl) {
+          routeLinkEl.href = b.routeUrl;
+          routeLinkEl.innerText = b.routeLabel || 'Komoot Strecken-Route ↗';
+          routeLinkEl.style.display = 'inline-flex';
+        } else {
+          routeLinkEl.style.display = 'none';
         }
       }
 

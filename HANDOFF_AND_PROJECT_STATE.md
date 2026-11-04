@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.88 (MINIMALISTISCHES APPLE-ORANGE ICON & MANIFEST SYNCHRONISIERT)  
+**Document Version:** 9.89 (DRACHENLAUF KOMOOT-ROUTE IM DETAIL-DRAWER VERLINKT)  
 **Last Updated:** November 04, 2026  
 **Repository:** `https://github.com/Gerryagainagain/trailrunning.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/trailrunning/`  
@@ -9,6 +9,15 @@
 ---
 
 ## 📌 1. Project Overview & Current Trajectory
+
+- **Drachenlauf Komoot-Route im Detail-Drawer verlinkt (v9.89 / State 9.89):**
+  - **Direkte Verknüpfung der offiziellen Komoot-Tour (26 km · 1.250 Hm · Königswinter):**
+    - Komoot-Tour-URL: `https://www.komoot.com/de-de/tour/1882550924?share_token=aKlmkGGP9QBKIGBYNofjmXhqYJ5YwPvvoWl2QgWkmoCSU36YTz&ref=wtd&t_s=referral&t_cid=route_share&t_ref_username=5238953605179`.
+    - Im Header des Detail-Drawers (`#raceDrawer`) neben der Ausschreibung ein cyanfarbener Aktions-Button **`Komoot Strecken-Route ↗`** (`.race-drawer-route-btn`) integriert.
+    - Im Drawer-Inhalt eine eigene Sektion *Streckenverlauf & Komoot-Tour* mit Inline-Link ergänzt.
+    - Vollständiges Briefing für den Drachenlauf geschärft: 4 Eckdaten, Streckenabschnitt-Übersicht (7 Gipfel), 4-stufige Pacing-Matrix (KM 0–16 @ 120–125 bpm, Drachenfels & Petersberg Freigabe 130–135 bpm, Zielabstieg Easy Rolling) und Verpflegung/Ausrüstung.
+    - In `app.js` (Workout Details Modal) den Komoot-Link parallel hinterlegt.
+  - **Synchronisiert:** Gespiegelt nach `dist/`.
 
 - **Minimalistisches Apple-Orange App-Icon & Manifest (v9.88 / State 9.88):**
   - **Neues PWA- & iOS-Home-Screen-Icon:**
