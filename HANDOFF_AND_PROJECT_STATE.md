@@ -1,14 +1,22 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.86 (ROBOTS & CRAWLER-SCHUTZ VERIFIZIERT & SYNCHRONISIERT)  
+**Document Version:** 9.87 (REPOSITORY UMBENANNT AUF TRAILRUNNING)  
 **Last Updated:** November 04, 2026  
-**Repository:** `https://github.com/Gerryagainagain/running_guide.git`  
-**Live Application URL:** `https://gerryagainagain.github.io/running_guide/`  
+**Repository:** `https://github.com/Gerryagainagain/trailrunning.git`  
+**Live Application URL:** `https://gerryagainagain.github.io/trailrunning/`  
 **Local Workspace Path:** `/Users/Gerhard/Desktop/running_guide`
 
 ---
 
 ## 📌 1. Project Overview & Current Trajectory
+
+- **Repository- & URL-Umstellung auf `trailrunning` (v9.87 / State 9.87):**
+  - **Erfolgreiche Umbenennung auf GitHub:**
+    - GitHub Repository umbenannt in `trailrunning`.
+    - Neue Live Web Application URL: **`https://gerryagainagain.github.io/trailrunning/`**.
+    - Durch `index.html` als Einstiegspunkt öffnet der Aufruf ohne Unterpfad direkt das Master Dashboard.
+    - Lokale Git Remote Origin URL erfolgreich umgestellt auf `git@github.com:Gerryagainagain/trailrunning.git`.
+    - SSH-Authentifizierung via Port 443 mit `IdentityFile ~/.ssh/id_ed25519` fest in SSH-Konfiguration verankert und Verbindung verifiziert.
 
 - **Crawler- & Suchmaschinen-Schutz (v9.86 / State 9.86):**
   - **Umfassender Schutz vor Web-Crawlern, Suchmaschinen & KI-Scrapern verifiziert und gehärtet:**
@@ -572,7 +580,7 @@ If the user logs a run or workout via Chrome browser that needs to be permanentl
 - `Die_Reise_der_zwei_Neandertaler.docx` ➔ `/Users/Gerhard/Desktop/running_guide/Die_Reise_der_zwei_Neandertaler.docx`
 - `2026-07-10_3098880682_Drachenlauf OG.gpx` ➔ `/Users/Gerhard/Desktop/running_guide/2026-07-10_3098880682_Drachenlauf OG.gpx`
 - `belgenbachtrail.gpx` ➔ `/Users/Gerhard/Desktop/running_guide/scratch/belgenbachtrail.gpx`
-- `strategie.html` (Web-Präsentation) ➔ `https://gerryagainagain.github.io/running_guide/strategie.html`
+- `strategie.html` (Web-Präsentation) ➔ `https://gerryagainagain.github.io/trailrunning/strategie.html`
 
 ---
 
