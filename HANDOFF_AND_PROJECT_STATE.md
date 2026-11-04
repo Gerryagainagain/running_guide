@@ -26,6 +26,10 @@
        - `preview_jahres_dashboard.html` und `dist/preview_jahres_dashboard.html` zu 100 % identisch.
        - `app.js`, `styles.css`, `tokens.css` synchron in Quellverzeichnis und `dist/`.
        - Arbeitsbaum sauber, lokaler Stand vollständig mit GitHub Remote (`origin/main`) synchronisiert.
+    5. *Aktueller physiologischer Athletenstatus (Stand 04.11.2026):*
+       - Gestern (03.11.): 5,5 km GA1 @ Ø 117 bpm (40 min / 10 Hm) sauber an der VT1-Sprechgrenze absolviert.
+       - Heute Morgen (04.11.): Parasympathischer Erholungs-Rebound bestätigt (nächtliche HFV springt von 41 ms Wochentiefstwert auf 51 ms Wochenhöchstwert; Sleep Score 86).
+       - Nächste Schritte KW 45: Mi 04.11. Passiv schonen, Do 05.11. 4,0 km Aktivierung (< 115 bpm), Fr/Sa Chill & Carboload, So 08.11. Martinslauf 10k (Sub 58:00, 5:48 min/km).
 
 - **Dolomiten-Standortoptionen für Sommerurlaub 2027 hinterlegt (v9.83):**
   - Für den zweiten Teil des 21-Tage-Bogens (nach dem TS16 in Imst) wurden zwei passende Dolomiten-Kandidaten für Naturcamping, moderate Höhe und Seilbahn-Höhenwandern (T2, schwindelfrei) evaluiert und in Sektion 4.C2 hinterlegt:
