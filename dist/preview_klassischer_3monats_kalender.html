@@ -822,7 +822,7 @@
       1: {
         heading: 'Frühling',
         range: 'Apr – Juni 2027',
-        keyEvent: 'Ziel: 12. Juni · Tschirgant Sky Run TS16 (16,9 km · ~850 Hm)',
+        keyEvent: 'Ziel: 12. Juni · Tschirgant Sky Run TS16 & Option: 17. April · Rureifel Trail RET22',
         months: [
           { name: 'April', mIdx: 3, days: 30, startOffset: 3 },
           { name: 'Mai', mIdx: 4, days: 31, startOffset: 5 },
@@ -884,6 +884,7 @@
       }
       // --- Q2 (Apr – Jun 2027) ---
       if (mIdx === 3) { // Apr
+        if (d === 17) return 'option'; // Option 17.04.2027: Rureifel Trail RET22 (22 km · ~800 Hm · Nideggen)
         if (d >= 19) return 'build-light'; // KW 16–17: Frühjahrs-Reaktivierung & sanfte Basis
         return ''; // 01.–18. Apr: Frühjahrs-Basis & Erhaltung
       }
@@ -1080,8 +1081,8 @@
       }
 
       // 2. OPTIONALE LÄUFE (LILA GESTRICHELT MIT KLICKBAREN ANMELDELINKS)
-      if (mIdx === 8 && day === 5) {
-        keyEl.innerHTML = 'Option: 05. September 2027 · Trail Côte d’Opale (24 km · 350 Hm) · <a href="https://www.trailcotedopale.com/" target="_blank" rel="noopener noreferrer" class="option-reg-link">Zur Anmeldung / Infos ↗</a>';
+      if (mIdx === 3 && day === 17) {
+        keyEl.innerHTML = 'Option: 17. April 2027 · Rureifel Trail RET22 (22 km · ~800 Hm · Nideggen) · <a href="https://www.rureifel-trail.com/" target="_blank" rel="noopener noreferrer" class="option-reg-link">Zur Anmeldung / Infos ↗</a>';
         return;
       }
       if (mIdx === 8 && day === 11) {

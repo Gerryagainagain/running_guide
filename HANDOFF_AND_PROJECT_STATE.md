@@ -1,7 +1,7 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.98 (DRACHENLAUF-AUFBAU EXAKT AB KW 34 KALIBRIERT & AUGUST-FREIRAUM)  
-**Last Updated:** November 04, 2026  
+**Document Version:** 9.99 (RUREIFEL TRAIL RET22 ALS VIOLETTE OPTION AM 17. APRIL 2027 EINGETRAGEN)  
+**Last Updated:** November 05, 2026  
 **Repository:** `https://github.com/Gerryagainagain/trailrunning.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/trailrunning/`  
 **Local Workspace Path:** `/Users/Gerhard/Desktop/running_guide`
@@ -9,6 +9,14 @@
 ---
 
 ## 📌 1. Project Overview & Current Trajectory
+
+- **Rureifel Trail RET22 (17. April 2027) im Saisonkalender Q2 verankert (v9.99 / State 9.99):**
+  - **Laufoption:** Samstag, 17. April 2027 als violett gestrichelte `.phase-option`-Zelle integriert.
+  - **Meta-Dock & Klick-Handler:**
+    - `Option: 17. April 2027 · Rureifel Trail RET22 (22 km · ~800 Hm · Nideggen) · <a href="https://www.rureifel-trail.com/" target="_blank" rel="noopener noreferrer" class="option-reg-link">Zur Anmeldung / Infos ↗</a>`
+    - Status-Leiste für Q2 aktualisiert: `Ziel: 12. Juni · Tschirgant Sky Run TS16 & Option: 17. April · Rureifel Trail RET22`.
+  - **Physiologischer Brückenschlag:** Schließt die frühere April-Lücke exakt 6 Wochen nach Belgenbach und 8 Wochen vor TS16 (36–45 Hm/km Steigungsdichte, Buntsandsteintrails Nideggen).
+  - **Synchronisiert:** In `index.html`, `preview_jahres_dashboard.html`, `preview_klassischer_3monats_kalender.html`, gespiegelt nach `dist/`.
 
 - **Drachenlauf-Aufbau 2027 exakt ab KW 34 kalibriert (v9.98 / State 9.98):**
   - **Realdaten-Treue:** Der Drachenlauf-Block startet nun exakt wie in den 2026er Realdaten erst ab **Montag, 23. August 2027 (KW 34)**:
