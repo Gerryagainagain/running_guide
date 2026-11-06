@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 10.00 (SING BARBERSHOP FESTIVAL REISETERMIN 09.–11. APRIL 2027 EINGETRAGEN)  
+**Document Version:** 10.01 (MASTER REISE-SCHALTER VARIANTE B & ICS-REISEN VOLLSTÄNDIG SYNCHRONISIERT)  
 **Last Updated:** November 06, 2026  
 **Repository:** `https://github.com/Gerryagainagain/trailrunning.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/trailrunning/`  
@@ -9,6 +9,19 @@
 ---
 
 ## 📌 1. Project Overview & Current Trajectory
+
+- **Master Reise-Schalter (Variante B) & Apple-Kalender ICS-Synchronisation (v10.01 / State 10.01):**
+  - **Single Master Toggle:** Die mehrspaltigen Einzel-Chips unter dem Saisonkalender wurden durch einen zentrierten, eleganten Master-Schalter `[ • Reisen & Termine ]` (`.layer-chip-btn` mit Apple Yellow Glow) ersetzt.
+  - **Globale 1-Klick-Steuerung:** Ein Klick schaltet alle privaten Termine und Reisen gleichzeitig ein oder aus. Beim Navigieren durch die Quartale (Q1–Q4) bleibt der Layer-Zustand wie in Apple Kalender konsistent erhalten. Quarters ohne Reisen blenden den Schalter automatisch aus.
+  - **Vollständige Realdaten-Synchronisation aus `Training_und_Reisen.ics`:**
+    - *31.12.2026 – 04.01.2027:* Holland Gangelt Zoutelande (Ende in Q1 Jan 01.–04.)
+    - *10.–11. April 2027:* Sing Barbershop Festival Apeldoorn (Sa–So, exakte iCal-Tage)
+    - *10.–12. Mai 2027:* re:publica Berlin (Mo–Mi)
+    - *05.–25. Juni 2027:* Urlaub Bergfrühsommer Imst (Standlager Camping FiNK + Sa 12.06 TS16)
+    - *25.–27. Juni 2027:* Geschwistertreff Kaub am Rhein
+    - *KW 46 (09.–15. Nov 2026):* 12.–13.11. Bei Maja zum bday & 14.11. Exzentersteine Geseke in die Desktop- und Mobile-Wochenübersicht (`weeksData[46]`) integriert.
+  - **Interaktives Statusdock:** Klick auf einen beliebigen schraffierten Tag im Kalenderblatt zeigt sofort die genauen Reisedetails.
+  - **Synchronisiert:** In `index.html`, `preview_jahres_dashboard.html`, `preview_klassischer_3monats_kalender.html`, gespiegelt nach `dist/`.
 
 - **Sing Barbershop Festival (09.–11. April 2027) im Saisonkalender Q2 verankert (v10.00 / State 10.00):**
   - **Reise-Eintrag:** Fr 09. – So 11. April 2027 als aktiver Trip `{ id: 'barbershop', label: 'Barbershop Festival (09.–11.04.)', startDay: 9, endDay: 11, details: '09.–11. April 2027: Sing Barbershop Festival' }` in `quartersData[1].months[0]` (April).

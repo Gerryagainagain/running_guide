@@ -814,7 +814,12 @@
         range: 'Jan – März 2027',
         keyEvent: 'Ziel: 07. März · Belgenbachtrail (30,7 km · 941 Hm)',
         months: [
-          { name: 'Januar', mIdx: 0, days: 31, startOffset: 4 },
+          { 
+            name: 'Januar', mIdx: 0, days: 31, startOffset: 4,
+            trips: [
+              { id: 'zoutelande', label: 'Holland Gangelt Zoutelande (31.12.–04.01.)', startDay: 1, endDay: 4, details: '31. Dez 2026 – 04. Jan 2027: Holland Gangelt Zoutelande' }
+            ]
+          },
           { name: 'Februar', mIdx: 1, days: 28, startOffset: 0 },
           { name: 'März', mIdx: 2, days: 31, startOffset: 0 }
         ]
@@ -827,11 +832,22 @@
           { 
             name: 'April', mIdx: 3, days: 30, startOffset: 3,
             trips: [
-              { id: 'barbershop', label: 'Barbershop Festival (09.–11.04.)', startDay: 9, endDay: 11, details: '09.–11. April 2027: Sing Barbershop Festival' }
+              { id: 'barbershop', label: 'Sing Barbershop Festival Apeldoorn (10.–11.04.)', startDay: 10, endDay: 11, details: '10.–11. April 2027: Sing Barbershop Festival Apeldoorn' }
             ]
           },
-          { name: 'Mai', mIdx: 4, days: 31, startOffset: 5 },
-          { name: 'Juni', mIdx: 5, days: 30, startOffset: 1 }
+          { 
+            name: 'Mai', mIdx: 4, days: 31, startOffset: 5,
+            trips: [
+              { id: 'republica', label: 're:publica Berlin (10.–12.05.)', startDay: 10, endDay: 12, details: '10.–12. Mai 2027: re:publica Berlin' }
+            ]
+          },
+          { 
+            name: 'Juni', mIdx: 5, days: 30, startOffset: 1,
+            trips: [
+              { id: 'vacation', label: 'Urlaub Bergfrühsommer Imst (05.–25.06.)', startDay: 5, endDay: 25, details: '05.–25. Juni 2027: Bergurlaub Tirol & Mittelrhein (Standlager Camping FiNK Imst · Sa 12.06: TS16)' },
+              { id: 'kaub', label: 'Geschwistertreff Kaub (25.–27.06.)', startDay: 25, endDay: 27, details: '25.–27. Juni 2027: Geschwistertreff Kaub am Rhein' }
+            ]
+          }
         ]
       },
       2: {

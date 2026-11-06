@@ -728,25 +728,12 @@
       color: var(--text-white);
     }
 
-    /* 3-SPALTIGE REISE-/FERIEN-LEISTE EXAKT UNTER DEN 3 KALENDERMONATEN */
-    .season-month-cols-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
-      margin-top: 0.85rem;
-    }
-
-    .season-month-cols-grid:empty {
-      display: none;
-    }
-
-    .month-col-pills {
+    /* MASTER REISE-LEISTE (VARIANTE B: 1 Klick für alle Termine) */
+    .season-travel-bar {
       display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
+      justify-content: center;
       align-items: center;
-      justify-content: flex-start;
-      min-height: 32px;
+      margin-top: 0.85rem;
     }
 
     .layer-chip-btn {
@@ -2108,8 +2095,13 @@
         <div class="quarter-key-event" id="quarterKeyEvent">Ziel: 07. März · Belgenbachtrail (30,7 km · 941 Hm)</div>
       </div>
 
-      <!-- 3 SPALTEN UNTER DER ZIELZEILE: EXAKT UNTER DEN 3 KALENDERMONATEN, LINKSBÜNDIG, OHNE 'EBENE' -->
-      <div class="season-month-cols-grid" id="seasonMonthColsGrid"></div>
+      <!-- MASTER REISE-TOGGLE LEISTE (Variante B: 1 Klick für alle Termine) -->
+      <div class="season-travel-bar" id="seasonTravelBar">
+        <button type="button" class="layer-chip-btn" id="travelMasterBtn" onclick="toggleTravelLayer()" aria-pressed="false" title="Reisen & private Termine ein-/ausblenden">
+          <span class="layer-chip-dot"></span>
+          <span>Reisen & Termine</span>
+        </button>
+      </div>
 
     </div>
 
@@ -2236,7 +2228,7 @@
           { 
             name: 'Januar', mIdx: 0, days: 31, startOffset: 4,
             trips: [
-              { id: 'zoutelande', label: 'Zoutelande (02.–05.01.)', startDay: 2, endDay: 5, details: '02.–05. Januar 2027: Zoutelande (Zeeland / Nordsee)' }
+              { id: 'zoutelande', label: 'Holland Gangelt Zoutelande (31.12.–04.01.)', startDay: 1, endDay: 4, details: '31. Dez 2026 – 04. Jan 2027: Holland Gangelt Zoutelande' }
             ]
           },
           { name: 'Februar', mIdx: 1, days: 28, startOffset: 0, trips: [] },
@@ -2250,15 +2242,20 @@
           { 
             name: 'April', mIdx: 3, days: 30, startOffset: 3,
             trips: [
-              { id: 'barbershop', label: 'Barbershop Festival (09.–11.04.)', startDay: 9, endDay: 11, details: '09.–11. April 2027: Sing Barbershop Festival' }
+              { id: 'barbershop', label: 'Sing Barbershop Festival Apeldoorn (10.–11.04.)', startDay: 10, endDay: 11, details: '10.–11. April 2027: Sing Barbershop Festival Apeldoorn' }
             ]
           },
-          { name: 'Mai', mIdx: 4, days: 31, startOffset: 5, trips: [] },
+          { 
+            name: 'Mai', mIdx: 4, days: 31, startOffset: 5,
+            trips: [
+              { id: 'republica', label: 're:publica Berlin (10.–12.05.)', startDay: 10, endDay: 12, details: '10.–12. Mai 2027: re:publica Berlin' }
+            ]
+          },
           { 
             name: 'Juni', mIdx: 5, days: 30, startOffset: 1,
             trips: [
-              { id: 'vacation', label: 'Bergurlaub (05.–25.06.)', startDay: 5, endDay: 25 },
-              { id: 'kaub', label: 'Geschwister Kaub (25.–27.06.)', startDay: 25, endDay: 27, details: '25.–27. Juni 2027: Geschwister-Wochenende Kaub am Rhein' }
+              { id: 'vacation', label: 'Urlaub Bergfrühsommer Imst (05.–25.06.)', startDay: 5, endDay: 25, details: '05.–25. Juni 2027: Bergurlaub Tirol & Mittelrhein (Standlager Camping FiNK Imst · Sa 12.06: TS16)' },
+              { id: 'kaub', label: 'Geschwistertreff Kaub (25.–27.06.)', startDay: 25, endDay: 27, details: '25.–27. Juni 2027: Geschwistertreff Kaub am Rhein' }
             ]
           }
         ]
@@ -2368,28 +2365,34 @@
 
     let currentQuarterNum = 0; // Standard: Q1 (Jan – März 2027)
     const TOTAL_QUARTERS = 4;
-    let activeTripIds = new Set();
+    let isTravelLayerActive = false; // Standard: aus; Klick aktiviert die Schraffur für alle Reisen
 
-    function toggleTrip(tripId) {
-      if (activeTripIds.has(tripId)) {
-        activeTripIds.delete(tripId);
-      } else {
-        activeTripIds.add(tripId);
-      }
-      switchQuarter(currentQuarterNum);
+    function toggleTravelLayer() {
+      isTravelLayerActive = !isTravelLayerActive;
+      updateTravelMasterUI();
+      renderMonths(quartersData[currentQuarterNum].months);
     }
 
     function toggleVacationLayer() {
-      toggleTrip('vacation');
+      toggleTravelLayer();
+    }
+
+    function updateTravelMasterUI() {
+      const btn = document.getElementById('travelMasterBtn');
+      if (btn) {
+        btn.classList.toggle('active', isTravelLayerActive);
+        btn.setAttribute('aria-pressed', isTravelLayerActive ? 'true' : 'false');
+      }
     }
 
     function isDayInActiveTrip(mIdx, d) {
+      if (!isTravelLayerActive) return null;
       for (const qKey in quartersData) {
         const q = quartersData[qKey];
         for (const m of q.months) {
           if (m.mIdx === mIdx && m.trips) {
             for (const t of m.trips) {
-              if (activeTripIds.has(t.id) && d >= t.startDay && d <= t.endDay) {
+              if (d >= t.startDay && d <= t.endDay) {
                 return t;
               }
             }
@@ -2413,48 +2416,15 @@
       // Statusdock / Key Event
       const keyEl = document.getElementById('quarterKeyEvent');
       if (keyEl) {
-        if (qNum === 1 && activeTripIds.has('barbershop') && !activeTripIds.has('vacation') && !activeTripIds.has('kaub')) {
-          keyEl.innerHTML = '<b>09.–11. April 2027: Sing Barbershop Festival</b>';
-        } else if (qNum === 1 && activeTripIds.has('barbershop') && activeTripIds.has('vacation')) {
-          keyEl.innerHTML = '<b>09.–11. April: Sing Barbershop Festival</b> &bull; <b>05.–25. Juni: Bergurlaub Tirol</b>';
-        } else if (qNum === 1 && activeTripIds.has('vacation')) {
-          keyEl.innerHTML = '<b>05.–25. Juni 2027: Bergurlaub Tirol & Mittelrhein</b> (Standlager Camping FiNK Imst · Sa 12.06: TS16 Imst)';
-        } else if (qNum === 0 && activeTripIds.has('zoutelande')) {
-          keyEl.innerHTML = '<b>02.–05. Januar 2027: Zoutelande</b> (Zeeland / Nordseeküste · Küstenläufe & Regeneration)';
-        } else if (qNum === 1 && activeTripIds.has('kaub')) {
-          keyEl.innerHTML = '<b>25.–27. Juni 2027: Geschwister Kaub</b> (Mittelrhein)';
-        } else {
-          keyEl.innerText = q.keyEvent;
-        }
+        keyEl.innerText = q.keyEvent;
       }
 
-      // 3-Spalten Reise-Leiste unter der Zielzeile, exakt unter den 3 Kalendermonaten linksbündig
-      const gridEl = document.getElementById('seasonMonthColsGrid');
-      if (gridEl) {
+      // Master Reise-Leiste unter der Zielzeile
+      const travelBar = document.getElementById('seasonTravelBar');
+      if (travelBar) {
         const hasTrips = q.months.some(m => m.trips && m.trips.length > 0);
-        if (hasTrips) {
-          gridEl.style.display = 'grid';
-          gridEl.innerHTML = q.months.map(m => {
-            const trips = m.trips || [];
-            return `
-              <div class="month-col-pills">
-                ${trips.map(t => `
-                  <button type="button" class="layer-chip-btn ${activeTripIds.has(t.id) ? 'active' : ''}" 
-                          id="${t.id}LayerBtn" 
-                          onclick="toggleTrip('${t.id}')" 
-                          aria-pressed="${activeTripIds.has(t.id) ? 'true' : 'false'}" 
-                          title="${t.label} ein-/ausblenden">
-                    <span class="layer-chip-dot"></span>
-                    <span>${t.label}</span>
-                  </button>
-                `).join('')}
-              </div>
-            `;
-          }).join('');
-        } else {
-          gridEl.style.display = 'none';
-          gridEl.innerHTML = '';
-        }
+        travelBar.style.display = hasTrips ? 'flex' : 'none';
+        updateTravelMasterUI();
       }
 
       renderMonths(q.months);
@@ -3134,15 +3104,15 @@
         dates: '09. – 15. November 2026',
         benchmark: '14,0 km Lauf + Wandern',
         benchmarkType: 'blue',
-        summary: 'Fokus: Laktat abbauen nach dem 10er. Dienstag 6k Rekom, Donnerstag 8k locker. Am Wochenende verreist beim Wandern: Schonende aerobe Basiseinheit (kein Longrun Erkrath).',
+        summary: 'Fokus: Laktat abbauen nach dem 10er. 12.–13. Nov bei Maja zum bday, 14. Nov Exzentersteine Geseke: Schonende aerobe Basiseinheit (kein Longrun Erkrath).',
         days: [
           { d: 'MON 09.11', val: '—', tag: 'Ruhe', sub: 'Post-Race Pause' },
           { d: 'DIE 10.11', val: '6.0', unit: 'KM', tag: 'Rekom GA1', sub: '< 112 bpm flach' },
           { d: 'MIT 11.11', val: '—', tag: 'Ruhe', sub: 'Passiv schonen' },
-          { d: 'DON 12.11', val: '8.0', unit: 'KM', tag: 'Locker GA1', sub: '112–116 bpm' },
-          { d: 'FRE 13.11', val: 'STUDIO', tag: 'Rumpf & Stabi', sub: 'Beine schonen', isStudio: true },
-          { d: 'SAM 14.11', val: 'WANDERN', tag: 'Wandertour', sub: 'Verreist · Aerobe Basis', isHike: true },
-          { d: 'SON 15.11', val: 'WANDERN', tag: 'Wandertour', sub: 'Verreist · Aktive Erholung', isHike: true }
+          { d: 'DON 12.11', val: '8.0', unit: 'KM', tag: 'Locker GA1', sub: '112–116 bpm · Bei Maja' },
+          { d: 'FRE 13.11', val: 'STUDIO', tag: 'Rumpf & Stabi', sub: 'Maja bday', isStudio: true },
+          { d: 'SAM 14.11', val: 'WANDERN', tag: 'Wandertour', sub: 'Geseke · Aerobe Basis', isHike: true },
+          { d: 'SON 15.11', val: 'WANDERN', tag: 'Wandertour', sub: 'Rückreise · Erholung', isHike: true }
         ]
       },
       47: {
