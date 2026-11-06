@@ -1365,25 +1365,29 @@
         ]
       },
       drachenlauf: {
-        tag: 'WETTKAMPF-BRIEFING · 26,0 KM',
         title: 'Drachenlauf Siebengebirge',
         subtitle: 'Sonntag, 24. Oktober 2027 · Königswinter',
-        targetPill: 'Saison-Hauptziel · 1.250 Hm · 7 Berge',
+        targetPill: 'Zielzeit 3:50–4:05 h (Sub 4:00 h) · 1.250 Hm',
         sections: [
           {
-            title: 'Eckdaten',
-            type: 'grid',
+            title: 'Zielzeit & Rennkorridor (2026er Kalibrierung)',
+            type: 'text',
+            text: '<b>3:50:00 – 4:05:00 Std. (Zielkorridor Sub 4:00 h)</b><br><span style="font-size:0.80rem; opacity:0.85; display:inline-block; margin-top:4px;">Kalibrierte Durchgangszeiten: KM 5 @ 0:45 h · KM 11 @ 1:38 h · KM 18,5 @ 2:45 h · KM 23,3 @ 3:30 h (Referenz Probedrachen 18k / 710 Hm in 03:02:59 h).</span>'
+          },
+          {
+            title: 'Pacing & Herzfrequenz',
+            type: 'phases',
             items: [
-              { label: 'Startort', val: 'Thomasberg' },
-              { label: 'Distanz', val: '26,0 km' },
-              { label: 'Höhenmeter', val: '1.250 Hm' },
-              { label: 'Gipfel', val: '7 Siebengebirgs-Gipfel' }
+              { km: 'KM 0–16', hr: '120–125 bpm', desc: 'Power-Hiking · Kräfte sparen' },
+              { km: 'KM 16–19', hr: '130–135 bpm', desc: 'Drachenfels · Uphill freigeben' },
+              { km: 'KM 19–23,3', hr: 'Deckel 140', desc: 'Petersberg · Schlussanstieg' },
+              { km: 'KM 23,3–26', hr: '< 130 bpm', desc: 'Zielabstieg · kontrolliert rollen' }
             ]
           },
           {
-            title: 'Pacing-Strategie',
+            title: 'Verpflegung & Versorgung',
             type: 'text',
-            text: 'Der Jahreshöhepunkt. Exakte Einteilung nach der 7-Berge-Matrix. Erst ab dem Petersberg (Berg 5) Reserven mobilisieren.'
+            text: '2 × 500 ml Malto · 6 Strecken-VPs (Bananen ab KM 11, Cola).'
           }
         ]
       }
