@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 10.05 (WOCHENFOKUS SUB-COPY STRENG EINZEILIG GESTRAFFT)  
+**Document Version:** 10.06 (DRACHENLAUF RACE DRAWER GESTRAFFT: ECKDATEN & 7-GIPFEL ENTFERNT)  
 **Last Updated:** November 06, 2026  
 **Repository:** `https://github.com/Gerryagainagain/trailrunning.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/trailrunning/`  
@@ -9,6 +9,13 @@
 ---
 
 ## 📌 1. Project Overview & Current Trajectory
+
+- **Drachenlauf Race Drawer gestrafft (Eckdaten & 7-Gipfel entfernt, v10.06 / State 10.06):**
+  - Die redundanten Sektionen „Eckdaten“ (Startort, Distanz, Höhenmeter, Terrain) und „Streckenverlauf (7 Gipfel)“ wurden aus dem Drachenlauf-Modal-Drawer entfernt.
+  - Der Drawer fokussiert nun direkt auf die sportlich entscheidenden Blöcke:
+    - **Pacing & Herzfrequenz** (KM 0–16, KM 16–19 Drachenfels, KM 19–23,3 Petersberg, KM 23,3–26 Zielabstieg)
+    - **Versorgung & Ausrüstung** (Malto, VPs, Stollenprofil).
+  - Synchronisiert in `index.html`, `preview_jahres_dashboard.html`, gespiegelt nach `dist/`.
 
 - **Wochenfokus Sub-Copy streng einzeilig gestrafft (v10.05 / State 10.05):**
   - **Typografie & CSS:** `.week-summary-text` mit `white-space: nowrap; overflow: hidden; text-overflow: ellipsis;` ausgestattet, um Mehrzeilenumbrüche im Desktop-Wochenkalender technisch auszuschließen.
