@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 10.02 (DYNAMISCHE INITIALISIERUNG: DEFAULT IMMER AKTUELLE TRAININGSWOCHE & AKTUELLES QUARTAL)  
+**Document Version:** 10.03 (MASTER-BUTTON AUF „REISEN“ GESTRAFFT)  
 **Last Updated:** November 06, 2026  
 **Repository:** `https://github.com/Gerryagainagain/trailrunning.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/trailrunning/`  
@@ -9,6 +9,10 @@
 ---
 
 ## 📌 1. Project Overview & Current Trajectory
+
+- **Master-Button Beschriftung auf „Reisen“ gestrafft (v10.03 / State 10.03):**
+  - Der Master-Toggle-Button unter dem Saisonkalender wurde von `[ • Reisen & Termine ]` auf `[ • Reisen ]` verkürzt (maximale typografische Klarheit, Apple HIG).
+  - Synchronisiert in `index.html`, `preview_jahres_dashboard.html`, gespiegelt nach `dist/`.
 
 - **Dynamische Default-Initialisierung für Trainingswoche & Quartal (v10.02 / State 10.02):**
   - **Automatischer Wochen-Fokus (`getCurrentTrainingKw`):**
