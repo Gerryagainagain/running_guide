@@ -733,17 +733,10 @@
       color: var(--text-white);
     }
 
-    /* MASTER REISE-LEISTE (VARIANTE B: 1 Klick für alle Termine) */
-    .season-travel-bar {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 0.85rem;
-    }
-
+    /* MASTER REISE-LEISTE IM META-DOCK (VARIANTE A) */
     .layer-chip-btn {
-      height: 32px;
-      padding: 0 14px;
+      height: 30px;
+      padding: 0 12px;
       border-radius: 999px;
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid rgba(255, 255, 255, 0.10);
@@ -1099,18 +1092,40 @@
       background-image: none;
     }
 
-    /* ZENTRIERTE ZIEL-BUBBLE */
+    /* ZENTRIERTE ZIEL-BUBBLE MIT INTEGRIERTER REISE-PILLE (VARIANTE A) */
     .quarter-meta-strip {
       display: flex;
       justify-content: center;
       align-items: center;
+      position: relative;
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-top: 1px solid var(--card-border-top);
       border-radius: 14px;
-      padding: 0.85rem 1.25rem;
+      padding: 0.65rem 95px;
+      min-height: 44px;
+      box-sizing: border-box;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
       transition: all 0.25s ease;
+    }
+
+    .quarter-meta-strip .layer-chip-btn {
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    @media (max-width: 860px) {
+      .quarter-meta-strip {
+        padding: 0.75rem 1rem;
+        flex-direction: column;
+        gap: 0.6rem;
+      }
+      .quarter-meta-strip .layer-chip-btn {
+        position: static;
+        transform: none;
+      }
     }
 
     .option-reg-link {
@@ -2086,10 +2101,6 @@
 
       <div class="quarter-meta-strip" id="quarterMetaStrip">
         <div class="quarter-key-event" id="quarterKeyEvent">07. März · Belgenbachtrail (30,7 km · 941 Hm)</div>
-      </div>
-
-      <!-- MASTER REISE-TOGGLE LEISTE (Variante B: 1 Klick für alle Termine) -->
-      <div class="season-travel-bar" id="seasonTravelBar">
         <button type="button" class="layer-chip-btn" id="travelMasterBtn" onclick="toggleTravelLayer()" aria-pressed="false" title="Reisen ein-/ausblenden">
           <span class="layer-chip-dot"></span>
           <span>Reisen</span>
@@ -2411,11 +2422,11 @@
         keyEl.innerText = q.keyEvent;
       }
 
-      // Master Reise-Leiste unter der Zielzeile
-      const travelBar = document.getElementById('seasonTravelBar');
-      if (travelBar) {
+      // Master Reise-Button im Meta-Dock (Variante A)
+      const travelBtn = document.getElementById('travelMasterBtn');
+      if (travelBtn) {
         const hasTrips = q.months.some(m => m.trips && m.trips.length > 0);
-        travelBar.style.display = hasTrips ? 'flex' : 'none';
+        travelBtn.style.display = hasTrips ? 'inline-flex' : 'none';
         updateTravelMasterUI();
       }
 

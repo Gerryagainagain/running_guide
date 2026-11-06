@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 10.09 (MOBILE SYNC BUTTON GESTRAFFT: AIRDROP-PILL MIT „SYNC“)  
+**Document Version:** 10.11 (REISEN-BUTTON IM META-DOCK INTEGRIERT – VARIANTE A)  
 **Last Updated:** November 06, 2026  
 **Repository:** `https://github.com/Gerryagainagain/trailrunning.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/trailrunning/`  
@@ -9,6 +9,17 @@
 ---
 
 ## 📌 1. Project Overview & Current Trajectory
+
+- **Reisen-Toggle im Meta-Dock integriert (Variante A, v10.11 / State 10.11):**
+  - Die separate, isolierte Leiste `#seasonTravelBar` unter dem Kalender wurde vollständig entfernt.
+  - Der `[ • Reisen ]`-Button (`#travelMasterBtn`) sitzt nun rechtsbündig direkt innerhalb der Dock-Leiste (`#quarterMetaStrip`).
+  - Der Event-Text (`#quarterKeyEvent`) bleibt über symmetrisches Innenpadding (`0.65rem 95px`) exakt mittig im Kalender zentriert; kein Überlappen bei langen Texten.
+  - Responsive Fallback: Unter 860px bricht der Dock flexibel um.
+  - Synchronisiert in `index.html`, `preview_jahres_dashboard.html`, gespiegelt nach `dist/`.
+
+- **Drachenlauf Race Drawer: Redundante Ausrüstungs-Zeile entfernt (v10.10 / State 10.10):**
+  - Die Zeile `Ausrüstung: Tiefes Stollenprofil Pflicht` wurde entfernt; die Sektion ist nun auf `Verpflegung & Versorgung` (`2 × 500 ml Malto · 6 Strecken-VPs (Bananen ab KM 11, Cola)`) fokussiert.
+  - Synchronisiert in allen HTML-Views und `dist/`.
 
 - **Mobile Sync Button gestrafft (AirDrop-Symbol + „Sync“, v10.09 / State 10.09):**
   - Der mobile Sync-Button am Ende der Wochenansicht wurde von der langen Bezeichnung `An MacBook senden (AirDrop)` auf eine zentrierte, elegante Apple-HIG-Pille mit AirDrop-Symbol und Beschriftung `Sync` verkürzt.
