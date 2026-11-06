@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 10.15 (REISEN-BUTTON BEREINIGT: KEINE ICONS, FARBLICH STRIKT MIT KALENDER GELB SYNCHRON)  
+**Document Version:** 11.00 (RELEASE FREEZE & GOLDEN MASTER – SSOT FINALIZED)  
 **Last Updated:** November 06, 2026  
 **Repository:** `https://github.com/Gerryagainagain/trailrunning.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/trailrunning/`  
@@ -8,7 +8,37 @@
 
 ---
 
-## 📌 1. Project Overview & Current Trajectory
+## 📌 1. Project Overview & Release Freeze State (v11.00)
+
+**Der Code- und Architekturstand ist hiermit offiziell eingefroren (Release Freeze / Golden Master).**  
+Sämtliche Komponenten, Datenmodelle, Ansichten (Desktop, Mobile, Drawer, Sync) und Dokumente sind 100% konsistent, synchronisiert und im Workspace sowie im GitHub-Repository gesichert.
+
+### 🎯 Kern-Features & SSOT-Architektur im Überblick
+
+1. **Saison-Dashboard 2027 (`index.html` & `dist/index.html`):**
+   - **3-Monats-Quartalskalender:** Zeigt synchronisierte Trainingsphasen, Hauptwettkämpfe (Orange), Trainingsläufe (Lila gestrichelt mit direkten Anmeldelinks) und Urlaube/Reisen (Gelbe Schraffur).
+   - **Meta-Dock mit integriertem Reise-Toggle:** Der Button `[ • Reisen ]` (`#travelMasterBtn`) sitzt rechtsbündig direkt im Meta-Dock (`#quarterMetaStrip`).
+     - **Keine Icons:** Reines Apple-Glass-Pill-Design mit Status-Dot und Typografie.
+     - **Farbsynchronität:** Nutzt strikt **Apple Yellow (`#FFD60A`)**, exakt synchron zur gelben Schraffur im Kalender.
+     - **Ausrichtung:** Textzeile (`#quarterKeyEvent`) bleibt über symmetrisches Innenpadding (`0.65rem 100px`) zentriert.
+   - **Dynamische Initialisierung:** Öffnet beim Laden immer direkt im aktuellen Quartal (`getCurrentQuarterNum`).
+
+2. **Apple HIG Slide-Over Drawer (Wettkampf-Briefings):**
+   - **Header:** Schlank ohne redundante Tag-Pillen; Schließen-Button (`✕`) rechtsbündig.
+   - **Wettkampf-Action-Buttons:**
+     - **Drachenlauf:** Ausschreibung & Komoot-Route; 2026er kalibrierte Zielzeit (3:50–4:05 h, Sub 4:00 h) & Split-Korridor; bereinigte Sektion `Verpflegung & Versorgung`.
+     - **TS16:** Offizielle Ausschreibung & verlinktes Strecken- und Höhenprofil PDF (`de-tschirgantskyrun-ts16.pdf`).
+     - **Belgenbachtrail:** Offizielle Anmeldung & integrierter [Peak Flow Rennrechner](https://www.peak-flow.app/?rennen=79ad147d-c935-4c51-a356-6efd4af7edff).
+     - **Martinslauf & 7G-HM:** Spezifische Pacing-Tabellen, Profile und Logistik.
+
+3. **Mobile Wochenansicht (≤ 600px):**
+   - Direkte, ergonomische Anzeige der aktuellen Woche (`getCurrentTrainingKw`).
+   - Gestraffte einzeilige Fokus-Texte (`.week-summary-text`).
+   - Am Ende der Wochenliste sitzt die elegante Apple-Pille mit AirDrop-Symbol und Beschriftung `Sync`.
+
+4. **Cloudless Peer-to-Peer Sync (AirDrop & LocalStorage):**
+   - Export/Import via nativem Web Share API (AirDrop JSON-Datei an MacBook) oder manuellem Drag & Drop.
+   - Gemeinsamer Speicher-Key `drachenlauf_runs` identisch zwischen Dashboard und Detailansichten.
 
 - **Reisen-Toggle im Meta-Dock korrigiert & bereinigt (v10.15 / State 10.15):**
   - **Keine Icons:** Das unpassende Flugzeug-Icon wurde vollständig entfernt; die App verwendet im Kalender keine Icons, der Button besteht rein aus Status-Punkt und Typografie (`[ • Reisen ]`).
