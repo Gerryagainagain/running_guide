@@ -641,6 +641,7 @@
       display: flex;
       align-items: center;
       gap: 0.85rem;
+      overflow: hidden;
     }
 
     .week-summary-tag {
@@ -657,9 +658,13 @@
 
     .week-summary-text {
       color: #A1A1A6;
-      font-size: 0.88rem;
-      line-height: 1.45;
+      font-size: 0.86rem;
+      line-height: 1.4;
       font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      flex: 1;
     }
 
     /* ==========================================================================
@@ -2066,7 +2071,7 @@
         <!-- WOCHENFOKUS STRIP -->
         <div class="week-summary-strip" id="weekSummaryStrip">
           <span class="week-summary-tag">FOKUS</span>
-          <span class="week-summary-text" id="weekSummaryText">Frische für den 48. Martinslauf am Sonntag sichern. 10 km am Unterbacher See, Start 11:45 Uhr. Pacing: 5:50 ➔ 5:45 ➔ 5:35 min/km <span style="opacity:0.4; margin:0 8px;">·</span> Samstag, 07. November: Ruhetag & Pre-Race-Carboload.</span>
+          <span class="week-summary-text" id="weekSummaryText">Frische für Martinslauf sichern. 10 km am Unterbacher See, Start 11:45 Uhr · Pacing: 5:50 ➔ 5:45 ➔ 5:35 min/km · Samstag: Ruhetag & Pre-Race-Carboload.</span>
         </div>
       </div>
 
@@ -3088,7 +3093,7 @@
         dates: '02. – 08. November 2026',
         benchmark: 'SUB 58:00 · 5:48 min/km · Start 11:45 Uhr',
         benchmarkType: 'race',
-        summary: 'Frische für den 48. Martinslauf am Sonntag sichern. 10 km am Unterbacher See, Start 11:45 Uhr. Pacing: 5:50 ➔ 5:45 ➔ 5:35 min/km.\n\nSamstag, 07. November: Ruhetag & Pre-Race-Carboload.',
+        summary: 'Frische für Martinslauf sichern. 10 km am Unterbacher See, Start 11:45 Uhr · Pacing: 5:50 ➔ 5:45 ➔ 5:35 min/km · Samstag: Ruhetag & Pre-Race-Carboload.',
         days: [
           { d: 'MON 02.11', val: '—', tag: '', sub: 'Regeneration' },
           { d: 'DIE 03.11', val: '5.5', unit: 'KM', tag: 'Locker GA1', sub: '< 118 bpm · 3 Antritte' },
@@ -3104,7 +3109,7 @@
         dates: '09. – 15. November 2026',
         benchmark: '14,0 km Lauf + Wandern',
         benchmarkType: 'blue',
-        summary: 'Fokus: Laktat abbauen nach dem 10er. 12.–13. Nov bei Maja zum bday, 14. Nov Exzentersteine Geseke: Schonende aerobe Basiseinheit (kein Longrun Erkrath).',
+        summary: 'Laktat abbauen nach dem 10er · 12.–13.11. Bei Maja zum bday · 14.11. Wandern Geseke (aerobe Basis, kein Longrun).',
         days: [
           { d: 'MON 09.11', val: '—', tag: 'Ruhe', sub: 'Post-Race Pause' },
           { d: 'DIE 10.11', val: '6.0', unit: 'KM', tag: 'Rekom GA1', sub: '< 112 bpm flach' },
@@ -3120,7 +3125,7 @@
         dates: '16. – 22. November 2026',
         benchmark: '34,0 km · 16k Erkrath (+350 Hm)',
         benchmarkType: 'blue',
-        summary: 'Fokus: Umfangserweiterung auf 34 km. Dienstag 8k mit leichten Hügeln, Samstag Ausbau des Longruns auf 16 km.',
+        summary: 'Umfangserweiterung auf 34 km · Di 8k Hügel, Do 10k Rhein flach · Sa 16k Longrun Erkrath (+350 Hm).',
         days: [
           { d: 'MON 16.11', val: '—', tag: 'Ruhe', sub: 'Regeneration' },
           { d: 'DIE 17.11', val: '8.0', unit: 'KM', tag: 'Hügel-GA1', sub: '115–118 bpm (+80 Hm)' },
@@ -3136,7 +3141,7 @@
         dates: '23. – 29. November 2026',
         benchmark: '38,0 km · Key 18k Siebengebirge',
         benchmarkType: 'orange',
-        summary: 'Fokus: Schlüsselwoche vor dem Siebengebirgs-HM. Samstag 18 km Longrun direkt im Siebengebirge als Strecken- und Höhenmetertest (+500 Hm).',
+        summary: 'Schlüsselwoche vor Siebengebirgs-HM · Di 8k mit 3k HM-Renntempo · Sa 18k Key-Longrun Siebengebirge (+500 Hm).',
         days: [
           { d: 'MON 23.11', val: '—', tag: 'Ruhe', sub: 'Regeneration' },
           { d: 'DIE 24.11', val: '8.0', unit: 'KM', tag: 'Tempo-GA2', sub: '3k im HM-Renntempo' },
@@ -3152,7 +3157,7 @@
         dates: '30. November – 06. Dezember 2026',
         benchmark: '31,4 km · 21,4k (360 Hm)',
         benchmarkType: 'race',
-        summary: 'Fokus: Tapering & Wettkampf. Dienstag 6k locker, Donnerstag 4,5k Aktivierung. Sonntag: 21,4 km / 360 Hm Siebengebirgs-HM in Aegidienberg (Sub 2:20 h).',
+        summary: 'Tapering & Wettkampf · Di 6k locker, Do 4,5k Aktivierung · So 21,4 km / 360 Hm Siebengebirgs-HM (Sub 2:20 h).',
         days: [
           { d: 'MON 30.11', val: '—', tag: 'Ruhe', sub: 'Tapering Beginn' },
           { d: 'DIE 01.12', val: '6.0', unit: 'KM', tag: 'Locker GA1', sub: '< 115 bpm flach' },
@@ -3168,7 +3173,7 @@
         dates: '07. – 13. Dezember 2026',
         benchmark: '12,0 km · Regeneration',
         benchmarkType: 'green',
-        summary: 'Fokus: Vollständige Erholung nach dem Halbmarathon. Keine Trainingsvorgaben. Nur lockere Bewegung nach Lust und Laune vor dem Belgenbach-Start im Januar.',
+        summary: 'Vollständige Erholung nach Halbmarathon · Lockere Bewegung nach Lust und Laune vor Belgenbach-Start im Januar.',
         days: [
           { d: 'MON 07.12', val: '—', tag: 'Ruhe', sub: 'Saisonpause' },
           { d: 'DIE 08.12', val: '—', tag: 'Pause', sub: 'Ausschlafen' },

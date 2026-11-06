@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 10.04 (STATUSDOCK-TEXTE GESTRAFFT: „ZIEL:“ ENTFERNT)  
+**Document Version:** 10.05 (WOCHENFOKUS SUB-COPY STRENG EINZEILIG GESTRAFFT)  
 **Last Updated:** November 06, 2026  
 **Repository:** `https://github.com/Gerryagainagain/trailrunning.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/trailrunning/`  
@@ -9,6 +9,17 @@
 ---
 
 ## 📌 1. Project Overview & Current Trajectory
+
+- **Wochenfokus Sub-Copy streng einzeilig gestrafft (v10.05 / State 10.05):**
+  - **Typografie & CSS:** `.week-summary-text` mit `white-space: nowrap; overflow: hidden; text-overflow: ellipsis;` ausgestattet, um Mehrzeilenumbrüche im Desktop-Wochenkalender technisch auszuschließen.
+  - **Textverdichtung in `weeksData`:**
+    - **KW 45:** `Frische für Martinslauf sichern. 10 km am Unterbacher See, Start 11:45 Uhr · Pacing: 5:50 ➔ 5:45 ➔ 5:35 min/km · Samstag: Ruhetag & Pre-Race-Carboload.`
+    - **KW 46:** `Laktat abbauen nach dem 10er · 12.–13.11. Bei Maja zum bday · 14.11. Wandern Geseke (aerobe Basis, kein Longrun).`
+    - **KW 47:** `Umfangserweiterung auf 34 km · Di 8k Hügel, Do 10k Rhein flach · Sa 16k Longrun Erkrath (+350 Hm).`
+    - **KW 48:** `Schlüsselwoche vor Siebengebirgs-HM · Di 8k mit 3k HM-Renntempo · Sa 18k Key-Longrun Siebengebirge (+500 Hm).`
+    - **KW 49:** `Tapering & Wettkampf · Di 6k locker, Do 4,5k Aktivierung · So 21,4 km / 360 Hm Siebengebirgs-HM (Sub 2:20 h).`
+    - **KW 50:** `Vollständige Erholung nach Halbmarathon · Lockere Bewegung nach Lust und Laune vor Belgenbach-Start im Januar.`
+  - Synchronisiert in `index.html`, `preview_jahres_dashboard.html`, gespiegelt nach `dist/`.
 
 - **Statusdock-Texte gestrafft („Ziel:“ entfernt, v10.04 / State 10.04):**
   - Präfix „Ziel:“ aus allen Quartals-KeyEvents im Meta-Dock entfernt:
