@@ -3628,8 +3628,15 @@
 
     function getCurrentQuarterNum() {
       const now = new Date();
-      const m = now.getMonth(); // 0 = Jan, 11 = Dez
-      return Math.floor(m / 3);
+      const y = now.getFullYear();
+      // Bis einschließlich Januar 2027 standardmäßig in Q1 (Januar – März 2027) starten, nicht in Q4 (Nov 2027)
+      if (y < 2027) {
+        return 0; // Q1: Jan – März 2027
+      }
+      if (y === 2027) {
+        return Math.floor(now.getMonth() / 3);
+      }
+      return 0;
     }
 
     // Initialisierung: Default immer aktuelle Trainingswoche & aktuelles Quartal

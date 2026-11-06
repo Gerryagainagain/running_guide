@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 11.05 (FINAL RELEASE FREEZE – 2% VERTIKALE FEINJUSTIERUNG & DEFINITIVER GOLDEN MASTER)  
+**Document Version:** 11.06 (SAISON-DASHBOARD DEFAULT-QUARTAL AUF JANUAR 2027 KALIBRIERT)  
 **Last Updated:** November 06, 2026  
 **Repository:** `https://github.com/Gerryagainagain/trailrunning.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/trailrunning/`  
@@ -8,7 +8,12 @@
 
 ---
 
-## 📌 1. Project Overview & Release Freeze State (v11.05)
+## 📌 1. Project Overview & Release Freeze State (v11.06)
+
+- **Saison-Dashboard Default-Quartal auf Januar 2027 kalibriert (v11.06 / State 11.06):**
+  - **Problembehebung:** Die Initialisierungsfunktion `getCurrentQuarterNum()` rechnete zuvor strikt `Math.floor(m / 3)` auf Basis des heutigen Monats November 2026 (`m = 10`), wodurch das Saison-Dashboard 2027 fälschlicherweise in Q4 (Okt – Dez 2027) mit November 2027 startete.
+  - **Kalibrierung:** Vor und bis einschließlich Beginn der Saison 2027 (`now.getFullYear() < 2027`) öffnet das Saison-Dashboard standardmäßig immer im **1. Quartal (Januar – März 2027)** mit **Januar 2027**. Ab Erreichen der Saison 2027 steuert die Monatsdynamik regulär durch die Quartale (Q1 bis März, Q2 ab April, etc.).
+  - Synchronisiert in `index.html`, `preview_jahres_dashboard.html`, gespiegelt nach `dist/`.
 
 - **Mobile Vertikales Spacing final um 2% gestrafft (v11.05 / State 11.05):**
   - **Tageskarten (`.m-row`):** Min-Height präzise von 60px auf **58px** reduziert, Innenabstand auf `0.52rem 0.85rem` austariert, Spaltenbreite links 54px, Eckenradius 14px.
