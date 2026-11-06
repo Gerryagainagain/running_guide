@@ -1,7 +1,7 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 9.99 (RUREIFEL TRAIL RET22 ALS VIOLETTE OPTION AM 17. APRIL 2027 EINGETRAGEN)  
-**Last Updated:** November 05, 2026  
+**Document Version:** 10.00 (SING BARBERSHOP FESTIVAL REISETERMIN 09.–11. APRIL 2027 EINGETRAGEN)  
+**Last Updated:** November 06, 2026  
 **Repository:** `https://github.com/Gerryagainagain/trailrunning.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/trailrunning/`  
 **Local Workspace Path:** `/Users/Gerhard/Desktop/running_guide`
@@ -9,6 +9,15 @@
 ---
 
 ## 📌 1. Project Overview & Current Trajectory
+
+- **Sing Barbershop Festival (09.–11. April 2027) im Saisonkalender Q2 verankert (v10.00 / State 10.00):**
+  - **Reise-Eintrag:** Fr 09. – So 11. April 2027 als aktiver Trip `{ id: 'barbershop', label: 'Barbershop Festival (09.–11.04.)', startDay: 9, endDay: 11, details: '09.–11. April 2027: Sing Barbershop Festival' }` in `quartersData[1].months[0]` (April).
+  - **3-Spalten-Reise-Leiste & Interaktion:**
+    - Erzeugt in der linken April-Spalte der Reise-Leiste den Toggle-Button `[• Barbershop Festival (09.–11.04.)]`.
+    - Beim Aktivieren überlagert die gestrichelte Diagonalschraffur (`.vacation-layer`) exakt die Tage 9, 10 und 11 im April-Kalenderblatt.
+    - Klick auf die Tage 9–11 oder den Button schaltet das Statusdock auf: `09.–11. April 2027: Sing Barbershop Festival`.
+  - **Terminliche Einbettung:** Liegt eine Woche vor der Rennoption *Rureifel Trail RET22* (17. April 2027) und kollidiert weder mit Trainingsphasen noch mit den Juni-Trips (*Bergurlaub* 05.–25.06. / *Geschwister Kaub* 25.–27.06.).
+  - **Synchronisiert:** In `index.html`, `preview_jahres_dashboard.html`, `preview_klassischer_3monats_kalender.html`, gespiegelt nach `dist/`.
 
 - **Rureifel Trail RET22 (17. April 2027) im Saisonkalender Q2 verankert (v9.99 / State 9.99):**
   - **Laufoption:** Samstag, 17. April 2027 als violett gestrichelte `.phase-option`-Zelle integriert.

@@ -2247,7 +2247,12 @@
         heading: 'Apr – Juni 2027',
         keyEvent: 'Ziel: 12. Juni · Tschirgant Sky Run TS16 & Option: 17. April · Rureifel Trail RET22',
         months: [
-          { name: 'April', mIdx: 3, days: 30, startOffset: 3, trips: [] },
+          { 
+            name: 'April', mIdx: 3, days: 30, startOffset: 3,
+            trips: [
+              { id: 'barbershop', label: 'Barbershop Festival (09.–11.04.)', startDay: 9, endDay: 11, details: '09.–11. April 2027: Sing Barbershop Festival' }
+            ]
+          },
           { name: 'Mai', mIdx: 4, days: 31, startOffset: 5, trips: [] },
           { 
             name: 'Juni', mIdx: 5, days: 30, startOffset: 1,
@@ -2408,7 +2413,11 @@
       // Statusdock / Key Event
       const keyEl = document.getElementById('quarterKeyEvent');
       if (keyEl) {
-        if (qNum === 1 && activeTripIds.has('vacation')) {
+        if (qNum === 1 && activeTripIds.has('barbershop') && !activeTripIds.has('vacation') && !activeTripIds.has('kaub')) {
+          keyEl.innerHTML = '<b>09.–11. April 2027: Sing Barbershop Festival</b>';
+        } else if (qNum === 1 && activeTripIds.has('barbershop') && activeTripIds.has('vacation')) {
+          keyEl.innerHTML = '<b>09.–11. April: Sing Barbershop Festival</b> &bull; <b>05.–25. Juni: Bergurlaub Tirol</b>';
+        } else if (qNum === 1 && activeTripIds.has('vacation')) {
           keyEl.innerHTML = '<b>05.–25. Juni 2027: Bergurlaub Tirol & Mittelrhein</b> (Standlager Camping FiNK Imst · Sa 12.06: TS16 Imst)';
         } else if (qNum === 0 && activeTripIds.has('zoutelande')) {
           keyEl.innerHTML = '<b>02.–05. Januar 2027: Zoutelande</b> (Zeeland / Nordseeküste · Küstenläufe & Regeneration)';
