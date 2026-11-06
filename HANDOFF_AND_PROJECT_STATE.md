@@ -1,14 +1,19 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 11.06 (SAISON-DASHBOARD DEFAULT-QUARTAL AUF JANUAR 2027 KALIBRIERT)  
-**Last Updated:** November 06, 2026  
+**Document Version:** 11.07 (WOCHEN-REITER BEREINIGT – NUR KW AUSSER BEI WETTKÄMPFEN)  
+**Last Updated:** November 07, 2026  
 **Repository:** `https://github.com/Gerryagainagain/trailrunning.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/trailrunning/`  
 **Local Workspace Path:** `/Users/Gerhard/Desktop/running_guide`
 
 ---
 
-## 📌 1. Project Overview & Release Freeze State (v11.06)
+## 📌 1. Project Overview & Release Freeze State (v11.07)
+
+- **Wochen-Reiter bereinigt (v11.07 / State 11.07):**
+  - **Segmented Control (`.week-pill-selector`):** Reine Trainingswochen (KW 46, KW 47, KW 48) zeigen nun minimalistisch ausschließlich die Kennzeichnung `KW XX` (ohne Phasenuntertitel wie `Post-Race`, `Aufbau I`, `Peak 38k`).
+  - **Wettkampfwochen unberührt:** Wettkampfwochen behalten ihre Orange-Auszeichnung und den Rennnamen (`KW 45 Martinslauf` und `KW 49 7G-HM`).
+  - Synchronisiert in `index.html`, `preview_jahres_dashboard.html`, gespiegelt nach `dist/`.
 
 - **Saison-Dashboard Default-Quartal auf Januar 2027 kalibriert (v11.06 / State 11.06):**
   - **Problembehebung:** Die Initialisierungsfunktion `getCurrentQuarterNum()` rechnete zuvor strikt `Math.floor(m / 3)` auf Basis des heutigen Monats November 2026 (`m = 10`), wodurch das Saison-Dashboard 2027 fälschlicherweise in Q4 (Okt – Dez 2027) mit November 2027 startete.
