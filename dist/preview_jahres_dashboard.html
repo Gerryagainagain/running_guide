@@ -2076,7 +2076,6 @@
       <div class="calendar-week-card" id="calendarWeekCard">
         <div class="calendar-header">
           <div class="week-headline" id="currentWeekTitle">Diese Woche KW 45 • Martinslauf</div>
-          <div class="week-benchmark-pill race" id="currentWeekBenchmark">Zielzeit Sub 58 min</div>
         </div>
 
         <div class="days-grid" id="mainDaysGrid">
@@ -3199,11 +3198,13 @@
         btn.classList.toggle('active', btn.dataset.kw === String(kwNum));
       });
 
-      // Update Titel & Benchmark
+      // Update Titel
       document.getElementById('currentWeekTitle').innerText = data.title;
       const bmEl = document.getElementById('currentWeekBenchmark');
-      bmEl.innerText = data.benchmark;
-      bmEl.className = 'week-benchmark-pill ' + (data.benchmarkType || '');
+      if (bmEl) {
+        bmEl.innerText = data.benchmark;
+        bmEl.className = 'week-benchmark-pill ' + (data.benchmarkType || '');
+      }
 
       // Render 7 Cards
       const grid = document.getElementById('mainDaysGrid');

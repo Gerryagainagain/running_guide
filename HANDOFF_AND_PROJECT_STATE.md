@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 11.00 (RELEASE FREEZE & GOLDEN MASTER – SSOT FINALIZED)  
+**Document Version:** 11.01 (WOCHENKALENDER HEADER: REDUNDANTE BENCHMARK-PILLE ENTFERNT)  
 **Last Updated:** November 06, 2026  
 **Repository:** `https://github.com/Gerryagainagain/trailrunning.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/trailrunning/`  
@@ -8,7 +8,12 @@
 
 ---
 
-## 📌 1. Project Overview & Release Freeze State (v11.00)
+## 📌 1. Project Overview & Release Freeze State (v11.01)
+
+- **Wochenkalender-Header bereinigt (v11.01 / State 11.01):**
+  - Die redundante Benchmark-Pille (`.week-benchmark-pill` / `#currentWeekBenchmark`, z. B. `SUB 58:00 · 5:48 min/km · Start 11:45 Uhr`) wurde aus dem Desktop-Wochenkalender-Header (`.calendar-header`) entfernt.
+  - Sämtliche Renn- und Benchmark-Informationen sind bereits in den Sonntag-Tageskarten (`mainDaysGrid`) sowie im Wochenfokus-Text enthalten; die Kopfzeile zeigt nun sauber und ruhig nur noch die `.week-headline`.
+  - Synchronisiert in `index.html`, `preview_jahres_dashboard.html`, gespiegelt nach `dist/`.
 
 **Der Code- und Architekturstand ist hiermit offiziell eingefroren (Release Freeze / Golden Master).**  
 Sämtliche Komponenten, Datenmodelle, Ansichten (Desktop, Mobile, Drawer, Sync) und Dokumente sind 100% konsistent, synchronisiert und im Workspace sowie im GitHub-Repository gesichert.
