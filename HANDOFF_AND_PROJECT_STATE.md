@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 11.01 (WOCHENKALENDER HEADER: REDUNDANTE BENCHMARK-PILLE ENTFERNT)  
+**Document Version:** 11.02 (MOBILE VERTIKALE ERGONOMIE: ENTSPANNTES SPACING & GRÖSSERE TOUCH-TARGETS)  
 **Last Updated:** November 06, 2026  
 **Repository:** `https://github.com/Gerryagainagain/trailrunning.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/trailrunning/`  
@@ -8,7 +8,14 @@
 
 ---
 
-## 📌 1. Project Overview & Release Freeze State (v11.01)
+## 📌 1. Project Overview & Release Freeze State (v11.02)
+
+- **Mobile Vertikales Spacing optimiert (v11.02 / State 11.02):**
+  - **Tageskarten (`.m-row`):** Min-Height von 48px auf 56px angehoben, Padding von 0.35rem auf 0.55rem erweitert, Touch-Targets und Typografie vergrößert.
+  - **Karten-Abstände (`.m-list`):** Gap von 5px auf 8px erweitert; die Liste nutzt den verfügbaren vertikalen Viewport harmonisch aus, ohne dass ungenutzter Leerraum am unteren Bildschirmrand verbleibt.
+  - **Header & Progress (`.m-head`, `.m-progress`):** Progress-Padding auf 0.65rem 0.95rem erweitert, Balkenhöhe auf 4.5px angehoben.
+  - **Sync-Pille (`.m-sync-wrap`):** Großzügigerer oberer und unterer Abstand (`margin: 1.6rem 0 1.25rem`), Min-Height 44px.
+  - Synchronisiert in `index.html`, `preview_jahres_dashboard.html`, gespiegelt nach `dist/`.
 
 - **Wochenkalender-Header bereinigt (v11.01 / State 11.01):**
   - Die redundante Benchmark-Pille (`.week-benchmark-pill` / `#currentWeekBenchmark`, z. B. `SUB 58:00 · 5:48 min/km · Start 11:45 Uhr`) wurde aus dem Desktop-Wochenkalender-Header (`.calendar-header`) entfernt.
