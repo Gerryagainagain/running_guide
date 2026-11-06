@@ -3091,7 +3091,7 @@
         summary: 'Frische für den 48. Martinslauf am Sonntag sichern. 10 km am Unterbacher See, Start 11:45 Uhr. Pacing: 5:50 ➔ 5:45 ➔ 5:35 min/km.\n\nSamstag, 07. November: Ruhetag & Pre-Race-Carboload.',
         days: [
           { d: 'MON 02.11', val: '—', tag: '', sub: 'Regeneration' },
-          { d: 'DIE 03.11', val: '5.5', unit: 'KM', tag: 'Locker GA1', sub: '< 118 bpm · 3 Antritte', isToday: true },
+          { d: 'DIE 03.11', val: '5.5', unit: 'KM', tag: 'Locker GA1', sub: '< 118 bpm · 3 Antritte' },
           { d: 'MIT 04.11', val: '—', tag: '', sub: 'Passiv schonen' },
           { d: 'DON 05.11', val: '4.0', unit: 'KM', tag: 'Aktivierung', sub: '< 115 bpm · Flach' },
           { d: 'FRE 06.11', val: '—', tag: '', sub: 'Kein Krafttraining' },
@@ -3187,8 +3187,7 @@
       const d = String(now.getDate()).padStart(2, '0');
       const m = String(now.getMonth() + 1).padStart(2, '0');
       const todayPattern = `${d}.${m}`;
-      if (day.d.includes(todayPattern)) return true;
-      return !!day.isToday;
+      return day.d.includes(todayPattern);
     }
 
     function renderWeek(kwNum) {
@@ -3591,9 +3590,53 @@
       document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSheet(); });
     })();
 
-    // Initialisierung
-    switchWeek(45);
-    switchQuarter(0);
+    // Dynamische Ermittlung der aktuellen Trainingswoche (KW) und des aktuellen Quartals
+    function getCurrentTrainingKw() {
+      const now = new Date();
+      const d = String(now.getDate()).padStart(2, '0');
+      const m = String(now.getMonth() + 1).padStart(2, '0');
+      const todayPattern = `${d}.${m}`;
+
+      // 1. Suche nach Tag in weeksData
+      for (const kw in weeksData) {
+        const w = weeksData[kw];
+        if (w.days && w.days.some(day => day.d && day.d.includes(todayPattern))) {
+          return parseInt(kw, 10);
+        }
+      }
+
+      // 2. Fallback: Berechne ISO-Kalenderwoche
+      const target = new Date(now.valueOf());
+      const dayNr = (now.getDay() + 6) % 7;
+      target.setDate(target.getDate() - dayNr + 3);
+      const firstThursday = target.valueOf();
+      target.setMonth(0, 1);
+      if (target.getDay() !== 4) {
+        target.setMonth(0, 1 + ((4 - target.getDay()) + 7) % 7);
+      }
+      const isoKw = 1 + Math.ceil((firstThursday - target) / 604800000);
+
+      if (weeksData[isoKw]) {
+        return isoKw;
+      }
+
+      const kws = Object.keys(weeksData).map(Number).sort((a, b) => a - b);
+      if (isoKw <= kws[0]) return kws[0];
+      return kws[kws.length - 1];
+    }
+
+    function getCurrentQuarterNum() {
+      const now = new Date();
+      const m = now.getMonth(); // 0 = Jan, 11 = Dez
+      return Math.floor(m / 3);
+    }
+
+    // Initialisierung: Default immer aktuelle Trainingswoche & aktuelles Quartal
+    const defaultKw = getCurrentTrainingKw();
+    const defaultQuarter = getCurrentQuarterNum();
+
+    switchWeek(defaultKw);
+    switchQuarter(defaultQuarter);
 
     // URL Query & Hash Steuerung für Direktlinks / Screenshots
     const urlParams = new URLSearchParams(window.location.search);

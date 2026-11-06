@@ -1467,7 +1467,8 @@
       }
     });
 
-    switchQuarter(0);
+    // Initialisierung: Default immer aktuelles Quartal
+    switchQuarter(Math.floor(new Date().getMonth() / 3));
   </script>
 </body>
 </html>

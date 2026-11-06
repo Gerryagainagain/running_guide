@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 10.01 (MASTER REISE-SCHALTER VARIANTE B & ICS-REISEN VOLLSTÄNDIG SYNCHRONISIERT)  
+**Document Version:** 10.02 (DYNAMISCHE INITIALISIERUNG: DEFAULT IMMER AKTUELLE TRAININGSWOCHE & AKTUELLES QUARTAL)  
 **Last Updated:** November 06, 2026  
 **Repository:** `https://github.com/Gerryagainagain/trailrunning.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/trailrunning/`  
@@ -9,6 +9,16 @@
 ---
 
 ## 📌 1. Project Overview & Current Trajectory
+
+- **Dynamische Default-Initialisierung für Trainingswoche & Quartal (v10.02 / State 10.02):**
+  - **Automatischer Wochen-Fokus (`getCurrentTrainingKw`):**
+    - Ermittelt beim Start der Anwendung (`Trailrunning 2027`) tagesaktuell anhand des Datums (`todayPattern = DD.MM`) die aktive Trainingswoche aus `weeksData` (mit DIN/ISO 8601-Fallback).
+    - Hardcodierte Initialisierung auf KW 45 entfernt: Die App öffnet im Reiter „Training“ sowie in der mobilen Wochenansicht (`.mobile-week`) immer direkt auf der aktuellen Trainingswoche.
+    - Bereinigung der „Heute“-Kennzeichnung: Das statische `isToday: true` auf Dienstag 03.11. wurde entfernt; `isDayToday` hebt nun strikt den echten heutigen Wochentag hervor.
+  - **Automatisches Saison-Quartal (`getCurrentQuarterNum`):**
+    - Der 3-Monats-Kalender (Reiter „Saison 2027“) öffnet als Default nicht mehr starr in Q0, sondern dynamisch im Quartal des aktuellen Kalendermonats (`Math.floor(now.getMonth() / 3)`).
+  - **URL-Steuerung bleibt vorrangig:** Manuelle Direktlinks via `?kw=X` oder `?tab=season&q=Y` überschreiben die automatische Erkennung gezielt für Archiv- und Analysezwecke.
+  - **Synchronisiert:** In `index.html`, `preview_jahres_dashboard.html`, `preview_klassischer_3monats_kalender.html`, gespiegelt nach `dist/`.
 
 - **Master Reise-Schalter (Variante B) & Apple-Kalender ICS-Synchronisation (v10.01 / State 10.01):**
   - **Single Master Toggle:** Die mehrspaltigen Einzel-Chips unter dem Saisonkalender wurden durch einen zentrierten, eleganten Master-Schalter `[ • Reisen & Termine ]` (`.layer-chip-btn` mit Apple Yellow Glow) ersetzt.
