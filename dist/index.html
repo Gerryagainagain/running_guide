@@ -1217,22 +1217,10 @@
 
     .race-drawer-header {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: center;
       padding-bottom: 0.75rem;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .race-drawer-tag {
-      font-size: 0.70rem;
-      font-weight: 800;
-      color: var(--apple-orange);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      background: rgba(255, 159, 10, 0.12);
-      border: 1px solid rgba(255, 159, 10, 0.30);
-      padding: 3px 10px;
-      border-radius: 9999px;
     }
 
     .race-drawer-close {
@@ -2127,7 +2115,6 @@
   
   <aside class="race-drawer" id="raceDrawer" aria-label="Wettkampf-Briefing">
     <div class="race-drawer-header">
-      <div class="race-drawer-tag" id="drawerTag">WETTKAMPF-BRIEFING</div>
       <button class="race-drawer-close" onclick="closeRaceDrawer()" aria-label="Schließen">✕</button>
     </div>
 
@@ -2774,7 +2761,6 @@
     // ==========================================================================
     const raceBriefings = {
       martinslauf: {
-        tag: 'WETTKAMPF-BRIEFING · 10 KM',
         title: "48. SFD ’75 Martinslauf",
         subtitle: 'Sonntag, 08. November 2026 · Düsseldorf, Unterbacher See',
         targetPill: 'SUB 58:00 · 5:48 min/km · Start 11:45 Uhr',
@@ -2818,7 +2804,6 @@
         ]
       },
       '7ghm': {
-        tag: 'WETTKAMPF-BRIEFING · 21,4 KM',
         title: 'Siebengebirgs-Halbmarathon',
         subtitle: 'Sonntag, 06. Dezember 2026 · Aegidienberg',
         targetPill: 'Zielzeit Sub 2:20 h · 360 Hm',
@@ -2857,7 +2842,6 @@
         ]
       },
       belgenbach: {
-        tag: 'WETTKAMPF-BRIEFING · 30,7 KM',
         title: 'Belgenbachtrail',
         subtitle: 'Sonntag, 07. März 2027 · Monschau / Eifel',
         targetPill: 'Zielzeit ~3:45 h · 941 Hm',
@@ -2887,7 +2871,6 @@
         ]
       },
       ts16: {
-        tag: 'WETTKAMPF-BRIEFING · 16,9 KM',
         title: 'Tschirgant Sky Run TS16',
         subtitle: 'Samstag, 12. Juni 2027 · Imst / Tirol',
         targetPill: 'Alpiner Skyrun · ~850 Hm',
@@ -2912,7 +2895,6 @@
         ]
       },
       drachenlauf: {
-        tag: 'WETTKAMPF-BRIEFING · 26 KM',
         title: 'Drachenlauf Siebengebirge',
         subtitle: 'Sonntag, 24. Oktober 2027 · Königswinter',
         targetPill: 'Zielzeit 3:50–4:05 h (Sub 4:00 h) · 1.250 Hm',
@@ -2952,7 +2934,6 @@
       const b = raceBriefings[raceKey];
       if (!b) return;
 
-      document.getElementById('drawerTag').innerText = b.tag || 'WETTKAMPF-BRIEFING';
       document.getElementById('drawerTitle').innerText = b.title || '';
       document.getElementById('drawerSubtitle').innerText = b.subtitle || '';
       document.getElementById('drawerTargetPill').innerText = b.targetPill || '';

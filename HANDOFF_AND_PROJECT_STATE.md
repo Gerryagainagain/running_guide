@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 10.07 (DRACHENLAUF RACE DRAWER: 2026ER ZIELZEIT & SPLIT-KORRIDOR ERGÄNZT)  
+**Document Version:** 10.08 (MODAL RACE DRAWER: REDUNDANTE TAG-PILLE ENTFERNT)  
 **Last Updated:** November 06, 2026  
 **Repository:** `https://github.com/Gerryagainagain/trailrunning.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/trailrunning/`  
@@ -9,6 +9,11 @@
 ---
 
 ## 📌 1. Project Overview & Current Trajectory
+
+- **Race Drawer: Redundante Kopf-Pille entfernt (v10.08 / State 10.08):**
+  - Die überflüssige obere Tag-Pille (`WETTKAMPF-BRIEFING · XX KM` / `.race-drawer-tag`) wurde aus dem Race Drawer Header vollständig entfernt.
+  - Der Header schließt nun bündig mit dem Close-Button (`✕`) rechts ab (`justify-content: flex-end`).
+  - Bereinigt in `index.html`, `preview_jahres_dashboard.html`, `preview_klassischer_3monats_kalender.html`, gespiegelt nach `dist/`.
 
 - **Drachenlauf Race Drawer: Kalibrierte 2026er Zielzeit & Rennkorridor integriert (v10.07 / State 10.07):**
   - **Target-Pill:** Auf `Zielzeit 3:50–4:05 h (Sub 4:00 h) · 1.250 Hm` kalibriert (einheitlich mit Belgenbach und Martinslauf).

@@ -582,22 +582,10 @@
 
     .race-drawer-header {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: center;
       padding-bottom: 0.75rem;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .race-drawer-tag {
-      font-size: 0.70rem;
-      font-weight: 800;
-      color: var(--apple-orange);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      background: rgba(255, 159, 10, 0.12);
-      border: 1px solid rgba(255, 159, 10, 0.30);
-      padding: 3px 10px;
-      border-radius: 9999px;
     }
 
     .race-drawer-close {
@@ -792,7 +780,6 @@
   
   <aside class="race-drawer" id="raceDrawer" aria-label="Wettkampf-Briefing">
     <div class="race-drawer-header">
-      <div class="race-drawer-tag" id="drawerTag">WETTKAMPF-BRIEFING</div>
       <button class="race-drawer-close" onclick="closeRaceDrawer()" aria-label="Schließen">✕</button>
     </div>
 
@@ -1406,7 +1393,6 @@
       const b = raceBriefings[raceKey];
       if (!b) return;
 
-      document.getElementById('drawerTag').innerText = b.tag || 'WETTKAMPF-BRIEFING';
       document.getElementById('drawerTitle').innerText = b.title || '';
       document.getElementById('drawerSubtitle').innerText = b.subtitle || '';
       document.getElementById('drawerTargetPill').innerText = b.targetPill || '';
