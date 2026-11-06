@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 10.11 (REISEN-BUTTON IM META-DOCK INTEGRIERT – VARIANTE A)  
+**Document Version:** 10.12 (TS16 RACE MODAL: OFFIZIELLES STRECKENPROFIL-PDF VERLINKT)  
 **Last Updated:** November 06, 2026  
 **Repository:** `https://github.com/Gerryagainagain/trailrunning.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/trailrunning/`  
@@ -9,6 +9,12 @@
 ---
 
 ## 📌 1. Project Overview & Current Trajectory
+
+- **TS16 Race Drawer: Offizielles Strecken- und Höhenprofil PDF integriert (v10.12 / State 10.12):**
+  - PDF-Link `https://tschirgant-sky.run/wp-content/uploads/2025/06/de-tschirgantskyrun-ts16.pdf` eingebunden:
+    - Als primärer Strecken-Action-Button im Drawer-Hero: `[ Streckenplan & Profil (PDF) ↗ ]` (`routeUrl` & `routeLabel`).
+    - Als direkter Textlink in der Sektion „Rennstrategie & Streckenprofil“.
+  - Synchronisiert in `index.html`, `preview_jahres_dashboard.html`, `preview_klassischer_3monats_kalender.html`, gespiegelt nach `dist/`.
 
 - **Reisen-Toggle im Meta-Dock integriert (Variante A, v10.11 / State 10.11):**
   - Die separate, isolierte Leiste `#seasonTravelBar` unter dem Kalender wurde vollständig entfernt.
