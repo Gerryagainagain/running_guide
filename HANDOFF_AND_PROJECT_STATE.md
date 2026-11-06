@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 10.03 (MASTER-BUTTON AUF „REISEN“ GESTRAFFT)  
+**Document Version:** 10.04 (STATUSDOCK-TEXTE GESTRAFFT: „ZIEL:“ ENTFERNT)  
 **Last Updated:** November 06, 2026  
 **Repository:** `https://github.com/Gerryagainagain/trailrunning.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/trailrunning/`  
@@ -9,6 +9,14 @@
 ---
 
 ## 📌 1. Project Overview & Current Trajectory
+
+- **Statusdock-Texte gestrafft („Ziel:“ entfernt, v10.04 / State 10.04):**
+  - Präfix „Ziel:“ aus allen Quartals-KeyEvents im Meta-Dock entfernt:
+    - **Q1 (Jan–März):** `07. März · Belgenbachtrail (30,7 km · 941 Hm)`
+    - **Q2 (Apr–Juni):** `12. Juni · Tschirgant Sky Run TS16 & Option: Rureifel Trail RET22`
+    - **Q3 (Juli–Sept):** `Drachenlauf-Aufbau & Option: Trail Müllerthal`
+    - **Q4 (Okt–Dez):** `24. Oktober · Drachenlauf (26,0 km · 1.250 Hm)`
+  - Synchronisiert in `index.html`, `preview_jahres_dashboard.html`, `preview_klassischer_3monats_kalender.html`, gespiegelt nach `dist/`.
 
 - **Master-Button Beschriftung auf „Reisen“ gestrafft (v10.03 / State 10.03):**
   - Der Master-Toggle-Button unter dem Saisonkalender wurde von `[ • Reisen & Termine ]` auf `[ • Reisen ]` verkürzt (maximale typografische Klarheit, Apple HIG).
