@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 10.13 (BELGENBACH RACE MODAL: PEAK FLOW RENNRECHNER VERLINKT)  
+**Document Version:** 10.14 (APPLE HIG REISEN-TOGGLE: FROSTED GLASS, CYAN GLOW & SF-GLYPH)  
 **Last Updated:** November 06, 2026  
 **Repository:** `https://github.com/Gerryagainagain/trailrunning.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/trailrunning/`  
@@ -9,6 +9,17 @@
 ---
 
 ## 📌 1. Project Overview & Current Trajectory
+
+- **Reisen-Toggle im Meta-Dock auf volles Apple HIG Niveau veredelt (v10.14 / State 10.14):**
+  - Vorher: Flaches, graues Pillen-Design (`rgba(255,255,255,0.04)`) mit matt-grauem Punkt, das inaktiv und verloren wirkte.
+  - Neu gestaltet:
+    - **Apple Frosted Glass:** `backdrop-filter: blur(16px)`, `background: rgba(255, 255, 255, 0.08)` mit feiner oberer Lichtkante (`inset 0 1px 0 rgba(255, 255, 255, 0.18)`) und dezentem Schlagschatten (`0 2px 8px rgba(0, 0, 0, 0.35)`).
+    - **SF-Symbol Travel Glyph:** Integriertes Reise-/Flug-Icon in leuchtendem `var(--apple-cyan)`.
+    - **Luminous Status Dot:** Cyan-Indikatorpunkt mit aktivem Micro-Glow (`box-shadow: 0 0 8px var(--apple-cyan)`).
+    - **Aktiver Zustand:** Sanft flutender Cyan-Glanz (`rgba(100, 210, 255, 0.18)`), intensiver Border-Glow (`0 0 14px rgba(100, 210, 255, 0.35)`).
+    - **Micro-Interactions:** Apple-Spring-Scale (1.03x bei Hover, 0.96x bei Tap).
+    - **Positionierung:** Aufgeräumter Inset (`right: 12px;`) mit 110px Puffer zur zentrierten Zielzeile.
+  - Synchronisiert in `index.html`, `preview_jahres_dashboard.html`, gespiegelt nach `dist/`.
 
 - **Belgenbach Race Drawer: Peak Flow Rennrechner verlinkt (v10.13 / State 10.13):**
   - Tool-Link `https://www.peak-flow.app/?rennen=79ad147d-c935-4c51-a356-6efd4af7edff` eingebunden:
