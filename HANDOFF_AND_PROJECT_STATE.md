@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 10.12 (TS16 RACE MODAL: OFFIZIELLES STRECKENPROFIL-PDF VERLINKT)  
+**Document Version:** 10.13 (BELGENBACH RACE MODAL: PEAK FLOW RENNRECHNER VERLINKT)  
 **Last Updated:** November 06, 2026  
 **Repository:** `https://github.com/Gerryagainagain/trailrunning.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/trailrunning/`  
@@ -9,6 +9,12 @@
 ---
 
 ## 📌 1. Project Overview & Current Trajectory
+
+- **Belgenbach Race Drawer: Peak Flow Rennrechner verlinkt (v10.13 / State 10.13):**
+  - Tool-Link `https://www.peak-flow.app/?rennen=79ad147d-c935-4c51-a356-6efd4af7edff` eingebunden:
+    - Als zweiter Hero-Action-Button: `[ Peak Flow Rennstrategie ↗ ]` (`routeUrl` & `routeLabel`).
+    - Als direkter Textlink in der Sektion „Pacing- & Rennstrategie“.
+  - Synchronisiert in `index.html`, `preview_jahres_dashboard.html`, `preview_klassischer_3monats_kalender.html`, gespiegelt nach `dist/`.
 
 - **TS16 Race Drawer: Offizielles Strecken- und Höhenprofil PDF integriert (v10.12 / State 10.12):**
   - PDF-Link `https://tschirgant-sky.run/wp-content/uploads/2025/06/de-tschirgantskyrun-ts16.pdf` eingebunden:
