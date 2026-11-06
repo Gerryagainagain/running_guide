@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 10.08 (MODAL RACE DRAWER: REDUNDANTE TAG-PILLE ENTFERNT)  
+**Document Version:** 10.09 (MOBILE SYNC BUTTON GESTRAFFT: AIRDROP-PILL MIT „SYNC“)  
 **Last Updated:** November 06, 2026  
 **Repository:** `https://github.com/Gerryagainagain/trailrunning.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/trailrunning/`  
@@ -9,6 +9,12 @@
 ---
 
 ## 📌 1. Project Overview & Current Trajectory
+
+- **Mobile Sync Button gestrafft (AirDrop-Symbol + „Sync“, v10.09 / State 10.09):**
+  - Der mobile Sync-Button am Ende der Wochenansicht wurde von der langen Bezeichnung `An MacBook senden (AirDrop)` auf eine zentrierte, elegante Apple-HIG-Pille mit AirDrop-Symbol und Beschriftung `Sync` verkürzt.
+  - Button-Styling: `display: inline-flex`, zentriert in `.m-sync-wrap`, `border-radius: 999px`, kompaktes Padding.
+  - Anleitung im Desktop-Sync-Modal entsprechend angepasst.
+  - Synchronisiert in `index.html`, `preview_jahres_dashboard.html`, gespiegelt nach `dist/`.
 
 - **Race Drawer: Redundante Kopf-Pille entfernt (v10.08 / State 10.08):**
   - Die überflüssige obere Tag-Pille (`WETTKAMPF-BRIEFING · XX KM` / `.race-drawer-tag`) wurde aus dem Race Drawer Header vollständig entfernt.

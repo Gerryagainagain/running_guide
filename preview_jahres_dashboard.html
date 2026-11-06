@@ -1864,32 +1864,32 @@
        AIRDROP & CLOUDLESS SYNC STYLES & TOAST NOTIFICATION
        ========================================================================== */
     .m-sync-wrap {
-      margin: 0.85rem 0 0.5rem;
+      margin: 1.0rem 0 0.5rem;
       display: flex;
       justify-content: center;
     }
     .m-sync-btn {
-      width: 100%;
-      min-height: 46px;
-      background: #1C1E2A;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      border-radius: 14px;
-      color: #FFFFFF;
-      font-size: 0.88rem;
-      font-weight: 800;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.55rem;
+      gap: 0.48rem;
+      padding: 0.45rem 1.15rem;
+      min-height: 38px;
+      background: #1C1E2A;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 999px;
+      color: #FFFFFF;
+      font-size: 0.82rem;
+      font-weight: 700;
       cursor: pointer;
       font-family: inherit;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.40);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
       transition: background 0.15s, border-color 0.15s, transform 0.1s;
     }
     .m-sync-btn:active {
       background: #252837;
       border-color: var(--apple-cyan);
-      transform: scale(0.985);
+      transform: scale(0.97);
     }
     .m-sync-btn svg {
       color: var(--apple-cyan);
@@ -1977,15 +1977,15 @@
     </section>
     <main class="m-list" id="mList"></main>
     <div class="m-sync-wrap">
-      <button class="m-sync-btn" onclick="shareRunsToMac()">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <button class="m-sync-btn" onclick="shareRunsToMac()" aria-label="Sync via AirDrop">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9"/>
           <path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5"/>
           <circle cx="12" cy="12" r="2"/>
           <path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5"/>
           <path d="M19.1 4.9C23 8.8 23 15.2 19.1 19.1"/>
         </svg>
-        <span>An MacBook senden (AirDrop)</span>
+        <span>Sync</span>
       </button>
     </div>
   </div>
@@ -2146,7 +2146,7 @@
       <div class="s-cell wide">
         <div class="s-lbl">Automatischer AirDrop Empfang</div>
         <div class="s-txt" style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.45;">
-          Tippe auf deinem iPhone unter dem Wochenplan auf <b>„An MacBook senden (AirDrop)“</b> und wähle dein MacBook aus. Der Browser empfängt und aktualisiert alle Läufe vollautomatisch.
+          Tippe auf deinem iPhone unter dem Wochenplan auf <b>„Sync“</b> und wähle dein MacBook via AirDrop aus. Der Browser empfängt und aktualisiert alle Läufe vollautomatisch.
         </div>
       </div>
       <div class="s-cell wide">
