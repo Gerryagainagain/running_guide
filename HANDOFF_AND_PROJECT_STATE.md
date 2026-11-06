@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 11.04 (MOBILE VERTIKALES SPACING KALIBRIERT – 100% SWEET SPOT)  
+**Document Version:** 11.05 (FINAL RELEASE FREEZE – 2% VERTIKALE FEINJUSTIERUNG & DEFINITIVER GOLDEN MASTER)  
 **Last Updated:** November 06, 2026  
 **Repository:** `https://github.com/Gerryagainagain/trailrunning.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/trailrunning/`  
@@ -8,15 +8,19 @@
 
 ---
 
-## 📌 1. Project Overview & Release Freeze State (v11.04)
+## 📌 1. Project Overview & Release Freeze State (v11.05)
+
+- **Mobile Vertikales Spacing final um 2% gestrafft (v11.05 / State 11.05):**
+  - **Tageskarten (`.m-row`):** Min-Height präzise von 60px auf **58px** reduziert, Innenabstand auf `0.52rem 0.85rem` austariert, Spaltenbreite links 54px, Eckenradius 14px.
+  - **Typografie feinkalibriert:** Distanzwerte (`.m-num`) 1.48rem, Aktivitäten (`.m-word`) 1.08rem, Sub-Copy (`.m-tag`) 0.94rem, Tagesdatum 0.96rem, Chevrons 1.18rem.
+  - **Listenrhythmus (`.m-list`):** Kartenabstand auf **7px** gestrafft (vorher 8px).
+  - **Header & Progress:** Stepper-Buttons 42px, Titel 1.18rem; Progress-Box mit `0.60rem 0.95rem` Innenabstand und 4px Balkenhöhe.
+  - **Sync-Pille (`.m-sync-wrap`):** Gestraffter vertikaler Abstand (`margin: 1.5rem 0 1.0rem`), Button-Höhe 42px mit `0.52rem 1.35rem` Padding.
+  - **Body Padding Mobile:** `padding: max(10px, env(safe-area-inset-top)) 12px max(20px, env(safe-area-inset-bottom))`.
+  - Vollständig synchronisiert in `index.html`, `preview_jahres_dashboard.html`, gespiegelt nach `dist/`.
 
 - **Mobile Vertikales Spacing feinkalibriert (v11.04 / State 11.04):**
-  - **Tageskarten (`.m-row`):** Min-Height exakt mittig auf 60px austariert (vorher 56px bzw. 64px), Innenabstand 0.60rem 0.90rem, Spaltenbreite links 55px.
-  - **Typografie harmonisiert:** Distanzwerte (`.m-num`) 1.50rem, Aktivitäten (`.m-word`) 1.10rem, Sub-Copy (`.m-tag`) 0.95rem, Tagesdatum 0.98rem.
-  - **Listenrhythmus (`.m-list`):** Kartenabstand auf 8px gesetzt.
-  - **Header & Progress:** Stepper-Buttons 44px, Titel 1.20rem; Progress-Box mit 0.70rem 1.00rem Innenabstand und 4.5px Balkenhöhe.
-  - **Sync-Pille (`.m-sync-wrap`):** Ausbalancierter Abstand (`margin: 1.8rem 0 1.25rem`), Button-Höhe 45px.
-  - Synchronisiert in `index.html`, `preview_jahres_dashboard.html`, gespiegelt nach `dist/`.
+  - Vorherige Zwischenstufe: Min-Height 60px, Gap 8px.
 
 - **Wochenkalender-Header bereinigt (v11.01 / State 11.01):**
   - Die redundante Benchmark-Pille (`.week-benchmark-pill` / `#currentWeekBenchmark`, z. B. `SUB 58:00 · 5:48 min/km · Start 11:45 Uhr`) wurde aus dem Desktop-Wochenkalender-Header (`.calendar-header`) entfernt.
