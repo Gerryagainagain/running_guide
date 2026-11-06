@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 11.03 (MOBILE VIEWPORT FILL: AGGRESSIVE VERTIKALE SKALIERUNG)  
+**Document Version:** 11.04 (MOBILE VERTIKALES SPACING KALIBRIERT – 100% SWEET SPOT)  
 **Last Updated:** November 06, 2026  
 **Repository:** `https://github.com/Gerryagainagain/trailrunning.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/trailrunning/`  
@@ -8,14 +8,14 @@
 
 ---
 
-## 📌 1. Project Overview & Release Freeze State (v11.03)
+## 📌 1. Project Overview & Release Freeze State (v11.04)
 
-- **Mobile Viewport aggressiv gefüllt (v11.03 / State 11.03):**
-  - **Tageskarten (`.m-row`):** Min-Height auf markante 64px angehoben, Innenabstand auf 0.65rem 0.95rem erweitert, Spaltenbreite links auf 58px für Datum.
-  - **Typografie vergrößert:** KM-Zahlen (`.m-num`) auf 1.60rem fett, Tagesdatum (`.m-day span`) auf 1.02rem, Aktivitäten (`.m-word`) auf 1.15rem, Labels (`.m-tag`) auf 0.98rem.
-  - **Listenabstand (`.m-list`):** Gap auf 10px erhöht; füllt den vertikalen Bildschirm von modernen iPhones (844–852px) nahtlos aus.
-  - **Header & Progress:** Stepper-Buttons 46px, Titel 1.25rem; Progress-Box mit 0.80rem 1.05rem Padding und 5px Balkenhöhe.
-  - **Sync-Pille (`.m-sync-wrap`):** Großzügiger oberer Freiraum (`margin: 2.2rem 0 1.6rem`), 48px Button-Höhe.
+- **Mobile Vertikales Spacing feinkalibriert (v11.04 / State 11.04):**
+  - **Tageskarten (`.m-row`):** Min-Height exakt mittig auf 60px austariert (vorher 56px bzw. 64px), Innenabstand 0.60rem 0.90rem, Spaltenbreite links 55px.
+  - **Typografie harmonisiert:** Distanzwerte (`.m-num`) 1.50rem, Aktivitäten (`.m-word`) 1.10rem, Sub-Copy (`.m-tag`) 0.95rem, Tagesdatum 0.98rem.
+  - **Listenrhythmus (`.m-list`):** Kartenabstand auf 8px gesetzt.
+  - **Header & Progress:** Stepper-Buttons 44px, Titel 1.20rem; Progress-Box mit 0.70rem 1.00rem Innenabstand und 4.5px Balkenhöhe.
+  - **Sync-Pille (`.m-sync-wrap`):** Ausbalancierter Abstand (`margin: 1.8rem 0 1.25rem`), Button-Höhe 45px.
   - Synchronisiert in `index.html`, `preview_jahres_dashboard.html`, gespiegelt nach `dist/`.
 
 - **Wochenkalender-Header bereinigt (v11.01 / State 11.01):**
