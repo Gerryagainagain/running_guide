@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 10.06 (DRACHENLAUF RACE DRAWER GESTRAFFT: ECKDATEN & 7-GIPFEL ENTFERNT)  
+**Document Version:** 10.07 (DRACHENLAUF RACE DRAWER: 2026ER ZIELZEIT & SPLIT-KORRIDOR ERGÄNZT)  
 **Last Updated:** November 06, 2026  
 **Repository:** `https://github.com/Gerryagainagain/trailrunning.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/trailrunning/`  
@@ -9,6 +9,13 @@
 ---
 
 ## 📌 1. Project Overview & Current Trajectory
+
+- **Drachenlauf Race Drawer: Kalibrierte 2026er Zielzeit & Rennkorridor integriert (v10.07 / State 10.07):**
+  - **Target-Pill:** Auf `Zielzeit 3:50–4:05 h (Sub 4:00 h) · 1.250 Hm` kalibriert (einheitlich mit Belgenbach und Martinslauf).
+  - **Sektion „Zielzeit & Rennkorridor (2026er Kalibrierung)“:** Als oberste Sektion im Drawer platziert:
+    - Zielkorridor: `3:50:00 – 4:05:00 Std. (Zielkorridor Sub 4:00 h)`
+    - Kalibrierte Durchgangszeiten: `KM 5 @ 0:45 h · KM 11 @ 1:38 h · KM 18,5 @ 2:45 h · KM 23,3 @ 3:30 h (Referenz Probedrachen 18k / 710 Hm in 03:02:59 h)`.
+  - Synchronisiert in `index.html`, `preview_jahres_dashboard.html`, gespiegelt nach `dist/`.
 
 - **Drachenlauf Race Drawer gestrafft (Eckdaten & 7-Gipfel entfernt, v10.06 / State 10.06):**
   - Die redundanten Sektionen „Eckdaten“ (Startort, Distanz, Höhenmeter, Terrain) und „Streckenverlauf (7 Gipfel)“ wurden aus dem Drachenlauf-Modal-Drawer entfernt.
