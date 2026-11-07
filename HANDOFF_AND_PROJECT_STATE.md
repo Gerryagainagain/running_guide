@@ -1,6 +1,6 @@
 # 🏃‍♂️ RUNNING GUIDE – HANDOFF & PROJECT STATE DOCUMENT
 
-**Document Version:** 11.07 (WOCHEN-REITER BEREINIGT – NUR KW AUSSER BEI WETTKÄMPFEN)  
+**Document Version:** 11.08 (MARTINSLAUF 10K: RENN-ANWEISUNG & WETTERKALIBRIERUNG IN MOBILE LOG-SHEET & BRIEFING INTEGRIERT)  
 **Last Updated:** November 07, 2026  
 **Repository:** `https://github.com/Gerryagainagain/trailrunning.git`  
 **Live Application URL:** `https://gerryagainagain.github.io/trailrunning/`  
@@ -8,7 +8,12 @@
 
 ---
 
-## 📌 1. Project Overview & Release Freeze State (v11.07)
+## 📌 1. Project Overview & Release Freeze State (v11.08)
+
+- **Martinslauf 10k: Renn-Anweisung & Wetterkalibrierung (v11.08 / State 11.08):**
+  - **Mobile Log-Sheet (`openSheet`):** Das Sonntags-Modal (08.11) zeigt nun direkt auf dem Smartphone neben Distanz, Startzeit und Sub 58:00 Zielzeit die konkreten Rennbedingungen (7–9 °C, trocken, 10 km/h Wind) sowie die exakte Renntaktik und Bekleidungsempfehlung (Brustschutz: Windweste nur mit offenem Mesh-Rücken zwecks Thermoregulation oder Baselayer; KM 0–3 strikt < 118 bpm VT1; Windschatten am See; Endbeschleunigung ab KM 7).
+  - **Slide-Over Drawer & Wochenfokus:** `raceBriefings.martinslauf` und `weeksData[45].summary` mit den kalibrierten Wetterdaten synchronisiert.
+  - Synchronisiert in `index.html`, `preview_jahres_dashboard.html`, gespiegelt nach `dist/`.
 
 - **Wochen-Reiter bereinigt (v11.07 / State 11.07):**
   - **Segmented Control (`.week-pill-selector`):** Reine Trainingswochen (KW 46, KW 47, KW 48) zeigen nun minimalistisch ausschließlich die Kennzeichnung `KW XX` (ohne Phasenuntertitel wie `Post-Race`, `Aufbau I`, `Peak 38k`).

@@ -2799,8 +2799,9 @@
             title: 'Wetter & Bekleidung',
             type: 'logistics',
             items: [
-              { label: 'Temperatur / Wind', val: '10 °C · 10 km/h Wind (Böen bis 19 km/h)' },
-              { label: 'Windchill am See', val: 'Gefühlt ca. 7–8 °C auf offenen Seepassagen' },
+              { label: 'Temperatur / Wetter', val: '7–9 °C · bewölkt (keine Strahlungshitze) · trocken' },
+              { label: 'Wind / See-Bedingung', val: '10 km/h · leichte Brise, an offenen Ufern spürbar' },
+              { label: 'Windweste für die Brust', val: 'Nur mit offenem Mesh-Rücken (Überhitzung vermeiden) od. Baselayer' },
               { label: 'Bekleidungsempfehlung', val: 'Kurz/Kurz od. Shirt/Longsleeve · leichtes Frösteln am Start' }
             ]
           },
@@ -3084,7 +3085,7 @@
         dates: '02. – 08. November 2026',
         benchmark: 'SUB 58:00 · 5:48 min/km · Start 11:45 Uhr',
         benchmarkType: 'race',
-        summary: 'Frische für Martinslauf sichern. 10 km am Unterbacher See, Start 11:45 Uhr · Pacing: 5:50 ➔ 5:45 ➔ 5:35 min/km · Samstag: Ruhetag & Pre-Race-Carboload.',
+        summary: 'Martinslauf 10k: Start 11:45 Uhr · 7–9 °C, trocken, 10 km/h Wind · Pacing: 5:50 (< 118 bpm) ➔ 5:45 ➔ 5:35 min/km · Windschatten am See nutzen, Endbeschleunigung ab KM 7.',
         days: [
           { d: 'MON 02.11', val: '—', tag: '', sub: 'Regeneration' },
           { d: 'DIE 03.11', val: '5.5', unit: 'KM', tag: 'Locker GA1', sub: '< 118 bpm · 3 Antritte' },
@@ -3484,9 +3485,16 @@
         planHtml = `
           <div class="s-grid">
             <div class="s-cell"><div class="s-lbl">Distanz / Start</div><div class="s-txt">10,0 km · Start 11:45 Uhr</div></div>
-            <div class="s-cell"><div class="s-lbl">Zielzeit / Pace</div><div class="s-txt">SUB 58:00 · 5:48 min/km</div></div>
+            <div class="s-cell"><div class="s-lbl">Zielzeit / Pace</div><div class="s-txt" style="color:var(--apple-orange);">SUB 58:00 · 5:48 min/km</div></div>
             <div class="s-cell"><div class="s-lbl">Pacing & Herzfrequenz</div><div class="s-txt">5:50 (&lt; 118 bpm) ➔ 5:45 ➔ 5:35</div></div>
-            <div class="s-cell"><div class="s-lbl">Ort / Strecke</div><div class="s-txt">U-See Düsseldorf · Flach</div></div>
+            <div class="s-cell"><div class="s-lbl">Wetter & Wind</div><div class="s-txt">7–9 °C · trocken · 10 km/h</div></div>
+            <div class="s-cell wide">
+              <div class="s-lbl">Renn-Anweisung & Bekleidung</div>
+              <div class="s-txt" style="font-size:0.84rem; line-height:1.4;">
+                <b>Brustschutz:</b> Windweste nur mit <u>offenem Mesh-Rücken</u> (Überhitzungsgefahr bei 145–147 bpm Schwellenpuls) oder dünnes Funktions-Baselayer.<br>
+                <b>Pacing:</b> KM 0–3 strikt unter VT1 (&lt; 118 bpm); bei Gegenwind am Seeufer Windschatten nutzen; ab KM 7 Endbeschleunigung freigeben.
+              </div>
+            </div>
           </div>
           <a href="https://www.sfd.de/martinslauf/" target="_blank" rel="noopener noreferrer" class="s-brief-link">Offizielle Ausschreibung & Infos ↗</a>
           <button type="button" class="s-brief-drawer-btn" onclick="closeSheet(); openRaceDrawer('${rKey}')">Vollständiges Wettkampf-Briefing öffnen ↗</button>
